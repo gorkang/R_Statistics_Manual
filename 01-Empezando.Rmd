@@ -1,0 +1,70 @@
+# Empezando en A-B-C{#Empezando}
+
+Para poder iniciar el workshop necesitamos tener R y RStudio instalados, además de algunas librerias. **Para tener un sistema funcional, completa los pasos A, B y C.**
+
+## **(A)** Instalar R.
+[R](https://www.r-project.org/), es un lenguaje de programación especializado en el computación estadística y visualización de datos. Es recomendable [descargar e instalar la última versión de R](http://dirichlet.mat.puc.cl/). Para instalar la última versión de R, puedes usar uno de los enlaces siguientes:
+
+* **Windows**: [Descargar e instalar R para Windows](https://cran.r-project.org/bin/windows/base/)  
+* **Mac**: [Descargar e instalar R para Mac](https://cran.r-project.org/bin/macosx/)  
+* **Ubuntu Linux**: [más detalles en la web de R](https://cran.r-project.org/bin/linux/debian/). En un terminal:
+    + `sudo apt-get install r-base`
+    + `sudo apt-get install libxml2-dev r-cran-rjava libcurl4-gnutls-dev libgsl0-dev libssl-dev libatlas3-base` # Otras librerias 
+<!-- TODO: Definir librerias minimas necesarias en ubuntu -->
+
+
+## **(B)** Instalar RStudio.
+RStudio es un entorno integrado de desarrollo (IDE) para la programación R la cual proporciona una interfaz más amable para el usuario, además de numerosas funcionalidades. 
+
+* [Descargar e instalar RStudio](http://www.rstudio.com/download).
+* Una vez descargado e instalado, **abre** RStudio. Deberías ver algo parecido a lo siguiente:
+
+
+![](Images/Empezando2.png)
+
+
+## Instalar Packages
+
+También será necesario instalar algunos paquetes. Estos son una colección de funciones, datos y documentación que amplian las capacidacidades basicas de R. Empezando 2017, el numero de paquetes en R-cran ha superado los 10,000.
+Gran parte de las funciones y paquetes que utilizaremos en este tutorial se encuentran contenidas en el meta-paquete "tideverse" (este es un paquete de paquetes). 
+Para instalarlo solo debes ejecutar la siguiente linea en la **consola** de RStudio ((1) en la imagen de arriba):  
+
+* **Copia y pega la linea de abajo en la consola de R Studio. Ejecutala con la tecla ENTER**:
+`install.packages("tidyverse")`
+
+Si desea instalar otro paquete diferente de "tideverse" solo debe remplazar su nombre entre comillas dentro de la funcion `install.packages()`.
+Tambien es importante saber que una vez instalado un paquete, no es necesario volver hacerlo, a menos que reinstales R.
+
+
+## Cargar Packages
+
+Las funciones, datos y documentación dentro de nuestros paquetes no podran ser utilizadas hasta que se cargen en R.
+Para cargar los packages utilizaremos la siguiente función:
+
+```{r}
+library(pacman)
+```
+
+
+## Todo en uno
+El siguiente código permite resumir la instalación y la carga de un package determinado. En este caso, el codigo primero comprueba primero si el package se encuentra ya instalado; Si no se encuentra instalado, lo instala. Finalmente lo carga.
+
+```{r}
+if (!require('pacman')) install.packages('pacman'); library('pacman')
+```
+
+## **(C)** Librerias para el workshop
+Usaremos las siguientes librerias: tidyverse, psych, lavaan, semTools, semPlot, yarrr, ggpubr, corrplot, beanplot...   
+El paquete pacman contiene una función llamada p_load(), que permite hacer lo de arriba automaticamente. También tiene una función llamada `p_install_gh` que nos permite instalar directamente la versión en desarrollo del paquete desde [Github](https://github.com/).
+
+**Copia y pega el codigo de abajo y ejecutalo [tecla ENTER] en la consola de R Studio.** La función p_load() se encargará de todo por nosotros. El proceso de instalación requiere internet y durará unos minutos.
+
+```{r, message=FALSE, warning=FALSE}
+if (!require('pacman')) install.packages('pacman'); library('pacman')
+p_load(tidyverse, tidyverse, lavaan, yarrr, semTools, corrplot, reshape2, stringr, psych, ggpubr, corrplot, beanplot)
+
+# Instalamos la version del desarrollador desde Github: https://github.com/SachaEpskamp/semPlot
+p_install_gh("SachaEpskamp/semPlot")
+
+```
+

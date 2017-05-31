@@ -1,0 +1,362 @@
+# Estadistica inferencial{#Estadistica_inferencial}
+
+<!-- # REVISAR -->
+<!-- http://www.cookbook-r.com/Statistical_analysis/ANOVA/ -->
+
+<!-- # REVISAR -->
+<!-- # Para generar tablas APA de descriptivos y ANOVAS -->
+<!-- https://cran.rstudio.com/web/packages/apaTables/vignettes/apaTables.html -->
+
+*******************************************************
+
+**WIP: REVISAR PAQUETE AFEX**  
+
+* Permite definir variables intra y entre... y sacar posthocs!  
+https://cran.r-project.org/web/packages/afex/afex.pdf
+
+a = aov_ez(“ID”, “VD”, datos_long, within = c(“VI1”, “VI2”, “VI3”))
+
+lsmip(a, VI1 ~ VI2 * VI3)
+
+lsmeans(a, “VI1”, contr = “pairwise”) lsmeans(a, “VI2”, contr = “pairwise”) lsmeans(a, “VI3”, contr = “pairwise”)
+
+lsmeans(a, c(“VI1”, “VI2”, “VI3”), contr = “pairwise”) 
+
+
+**WIP: REVISAR**
+
+* http://www.quantide.com/raccoon-ch-2-4-3-way-anova/
+
+*******************************************************
+
+Luego de tener algo parecido a una base de datos ordenada, y haber examinado y vizualizado nuestros datos, es posible que quieras analizarlos.
+
+Para esto aprenderemos algo sobre la lógica de contrucción de modelos y formulas con los cuales podremos armar varias de las pruebas estadísticas clásicas y facilitara la comprensión de otras funciones más complejas como las relacionadas a Modelos re regresión más complejos y Modelos de Ecuaciones Estructurales.
+
+##Algo sobre Modelos y Fórmulas
+En terminos sencillos, un modelo es una conjetura sobre que tipo de relación tienen las variables en juego.
+
+Por ejemplo yo podria suponer que a medida que aumenta el consumo de alcohol, nuestra percepción de belleza decae.
+
+R tiene sencillas fórmulas para representar este tipo de relaciones.
+
+Si nosotros pensamos que el consumo `Alcohol` predice el `Atractivo` de la persona con la que filteamos, podemos formularlo como un modelo de la forma:
+
+```{r}
+#fórmula básica
+formula = "Atractivo ~ Alcohol"
+```
+
+Si además pensamos que el `Sexo` tambien puede ser un predictor, modificamos el modelo inicial:
+
+```{r}
+#añadir variables predictoras
+formula = "Atractivo ~ Alcohol + Sexo"
+```
+
+En el caso de que 2 variables, `Alcohol` y `Sexo` sean predictores, es posible pensar que estas pueden interaccionas. Podemos agregar la interación de varias formas:
+
+```{r}
+#versión extendida
+formula = "Atractivo ~ Alcohol + Sexo + Alcohol*Sexo"
+
+#versión corta
+formula = "Atractivo ~ Alcohol*Sexo"
+```
+
+En resumen, todo lo que esta a la derecha del simbolo `~` es considerado un predictor o variable independiente, y todo lo que esta a la izquierda es una variable de resultado o una variable dependiente. No utilizamos el simbolo `=`, `<-` o `==` ya que no estamos ni asignando ni haciendo una equivalencia lógica, y podriamos confundir a R.
+
+Existen casos (por ejemplo, correlación o chi-cuadrado) en donde no hay una predicción propiamente tal. En estos casos se elimina del modelo la variable de resultado:
+
+```{r}
+#fórmula para modelo sin predictor o asociativo
+formula = "~ Atractivo + Alcohol"
+```
+
+##Preparación de datos y packages
+
+Para muchos de los análisis que vienen a continuación hemos creado una base de datos, la cual puedes descargar [Aquí](Data/ANOVA/data file.csv).
+
+```{r}
+#Packages
+if (!require('pacman')) install.packages('pacman'); library('pacman')
+p_load(tidyverse, yarrr, car)
+
+
+#Importar dataframe
+df = read_csv("Data/ANOVA/data_file.csv")
+
+#Muestra las primeras 10 observaciones
+df
+
+#Recodificar variable sexo de numérico a factor con etiquetas
+df = df %>% mutate(Sexo = ifelse(Sexo == 0, "mujer", "hombre")) %>% mutate(Sexo = as.factor(Sexo))
+```
+
+##Prueba t para muestras independientes
+
+###Contando la historia...
+Evaluación de diferencias por `Sexo` en una prueba de Teoría de la mente `Tom`
+
+###Test
+
+```{r}
+#En primer lugar comprobamos el supuesto de homogeneidad de varianzas
+
+#levene test {car} para homogeneidad de las varianzas
+leveneTest(df$Tom ~ df$Sexo)
+
+#Ingresamos nuestro modelo en la función t.test()
+t.test(Tom ~ Sexo, df,  var.equal = T, paired = F)
+
+#Reporte descriptivo y Vizualización
+df %>% 
+  na.omit(Tom) %>% 
+  group_by(Sexo) %>% 
+  summarise(mean = mean(Tom), sd = sd(Tom))
+
+pirateplot(Tom ~ Sexo, 
+           data = df, 
+           ylim = c(0, 40), 
+           xlab = "Metodo", 
+           ylab = "Nota", 
+           main = "t test Pirateplot", 
+           point.pch = 16, 
+           pal = "basel")
+
+```
+
+##Prueba t para muestras dependientes
+
+###Contando la historia...
+En una tarea de disparo a objetivos, queremos evaluar si existen diferencias en la precisión de los sujetos a objetivos que aparecen a la Izquierda (`AccuracyIz`) o a la Derecha (`AccuracyDer`) del monitor.
+
+###Test
+
+```{r}
+#Ingresamos nuestro modelo en la función t.test()
+t.test(df$AccuracyIz, df$AccuracyDer, paired = T)
+
+```
+
+##Correlación de Pearson
+
+###Contando la historia...
+Se desea evaluar si existe alguna relación entre Teoria de la Mente (`Tom`) y el grado de Empatía de los sujetos (`Empatia`).
+
+###Test
+```{r}
+#Correlación de Pearson
+cor.test(~ Tom + Empatia, data = df)
+
+#Visualizar Diagrama de Dispersión
+ggplot(df, aes(Tom, Empatia)) +
+  theme_bw() +
+  geom_point(shape=16, col = transparent("red", .4))
+```
+
+
+```{r}
+#Selecione un subconjunto de variables para la correlación multiple
+cordata = df %>% select(-Id,-Moral,-Sexo,-AccuracyIz,-AccuracyDer,-Edad)
+
+#carga libreria Hmisc
+p_load(Hmisc)
+
+#correlación multiple
+rcorr(as.matrix(cordata), type = "pearson")
+```
+
+##Regresión Simple
+
+###Contando la historia...
+
+Evaluaremos como las Funciones ejecutivas (`FunEjec`) pueden predecir la Precisión a objetivos en una tarea atencional (`Accuracy`).
+
+Para esto primero añadiremos una nueva variable `Accuracy` la cual será el promedio de precisión para los objetivos Derechos (`AccuracyDer`) e Izquierdos (`AccuracyIz`). Lo realizaremos con la función `mutate` antes revisada en el apartado de manipulación de datos.
+
+Además filtraremos a los sujetos con puntajes bajos (menos de 50 puntos).
+
+```{r}
+#Creamos nueva variable "Accuracy" con la función mutate() {dplyr}
+df = df %>% mutate(Accuracy = (AccuracyIz + AccuracyDer)/2)
+
+#Utilizar observaciones con puntajes de Funcion ejecutiva sobre 50 puntos.
+df = df %>% filter(FunEjec > 50)
+
+```
+
+###Test
+
+```{r}
+
+#Insertamos nuestra fórmula al Modelo de Regresión Simple
+fit = lm(Accuracy ~ FunEjec, df)
+
+#Resumen de Coeficientes y Parametros del modelo
+summary(fit)
+
+#Intevalos de Confianza de los parámetros del modelo
+confint(fit, level = 0.95)
+
+#Visualizar Diagrama de Dispersión para Regresión
+ggplot(df, aes(FunEjec, Accuracy)) +
+  theme_bw() +
+  geom_point(shape = 16, col = transparent("black", .4)) + 
+  geom_smooth(method = lm , color = "red", se = T)
+
+```
+
+
+##Análsis de la Varianza (1 Factor)
+Esta vez trabajaremos con otra base de datos, la cual puedes descargar [Aquí](Data/ANOVA/data aov1.csv).
+Se recomienda en esta oportunidad limpiar nuestro espacio de trabajo. Para esto podemos presionar `Ctrl + Shift + F10` o utilizar la función:
+
+```{r}
+rm(list=ls())
+```
+
+###Preparación de datos y packages
+```{r}
+#Packages
+if (!require('pacman')) install.packages('pacman'); library('pacman')
+p_load(tidyverse, stats, car, apaTables)
+
+#Importar dataframe
+df = read_csv("Data/ANOVA/data_aov1.csv")
+
+#Muestra las primeras 10 observaciones
+df
+
+#Recodificar variable Metodo de numérico a factor con etiquetas
+df = df %>% mutate(Metodo = ifelse(Metodo == 1, "Electroshock", ifelse(Metodo == 2, "Indiferencia", "Buen trabajo"))) %>% mutate(Metodo = as.factor(Metodo))
+```
+
+###Contando la historia...
+Se desea evaluar que métodos pueden contribuir (o no) al aprendizaje de estadísticas en R. Para esto tenemos las variables `Metodo` (si se uso Electroshock, la fria Indiferencia o un "Buen trabajo!") y la `Nota` nota que se obtuvo en el curso.
+
+
+###Test
+
+```{r}
+#Introducimos la formula al Modelo con la función de ANOVA aov()
+fit = aov(Nota ~ Metodo, df)
+
+#Summario de Parámetros y Coeficientes
+summary(fit)
+
+#levene test {car} para homogeneidad de las varianzas
+leveneTest(df$Nota ~ df$Metodo)
+
+#Comparaciones Multiples mediante función TukeyHSD() {stats}
+TukeyHSD(fit)
+
+#Reporte descriptivo y Vizualización
+df %>% 
+  group_by(Metodo) %>% 
+  summarise(mean = mean(Nota), sd = sd(Nota))
+
+pirateplot(Nota ~ Metodo, 
+           data = df, 
+           ylim = c(0, 100), 
+           xlab = "Metodo", 
+           ylab = "Nota", 
+           main = "ANOVA Pirateplot", 
+           point.pch = 16, 
+           pal = "basel")
+
+```
+
+
+###Tablas
+```{r}
+apa.1way.table(iv = Metodo, dv = Nota, data = df, filename = "Resultados/Figure1_APA.doc", table.number = 1)
+
+apa.aov.table(fit, filename = "Resultados/Figure2_APA.doc",table.number = 2)
+
+```
+
+##Análsis de la Varianza (2 Factores)
+
+###Descarga
+
+Esta vez nuevamente trabajaremos con otra base de datos, la cual puedes descargar [Aquí](Data/ANOVA/data aov2.csv).
+Se recomienda nuevamente limpiar nuestro espacio de trabajo. Para esto podemos presionar `Ctrl + Shift + F10` o utilizar la función:
+
+```{r}
+rm(list = ls())
+```
+
+###Preparación de datos y packages
+
+```{r}
+#Packages
+if (!require('pacman')) install.packages('pacman'); library('pacman')
+p_load(tidyverse, yarrr, car, stats)
+
+
+#Importar dataframe
+df = read_csv("Data/ANOVA/data_aov2.csv")
+
+#Muestra las primeras 10 observaciones
+df
+
+#Recodificar variable Sexo y Alcohol de numérico a factor con etiquetas
+df = df %>% mutate(Sexo = ifelse(Sexo == 0, "mujer", "hombre")) %>% mutate(Sexo = as.factor(Sexo))
+df = df %>% mutate(Alcohol = ifelse(Alcohol == 0, "No consume", "Tres Shop")) %>% mutate(Alcohol = as.factor(Alcohol))
+```
+
+###Contando la historia...
+A veces cuando bebemos bebidas espirituosas, podemos sobreestimar el atractivo de otras personas. Esto en psicología lo conocemos como "Beer Glass Effect".
+Deseamos ver este efecto, pero además ver si el Sexo influye también.
+
+Para esto tenemos las variables `Alcohol` (Si ha bebido o no), el `Sexo` del bebedor y la puntuación de `Atractivo` de la persona con la que flirtea aquella noche.
+
+###Test
+
+```{r}
+#Ajustamos el modelo con la funcion de ANOVA aov()
+fit = aov(Atractivo ~ Sexo * Alcohol, df)
+
+#Summario de Parámetros y Coeficientes
+summary(fit)
+
+#Comparaciones Multiples mediante función TukeyHSD() {stats}
+TukeyHSD(fit)
+
+#Reporte descriptivo y Vizualización
+df %>% 
+  group_by(Alcohol,Sexo) %>% 
+  summarise(mean = mean(Atractivo), sd = sd(Atractivo))
+
+df %>% 
+  group_by(Alcohol) %>% 
+  summarise(mean = mean(Atractivo), sd = sd(Atractivo))
+
+df %>% 
+  group_by(Sexo) %>% 
+  summarise(mean = mean(Atractivo), sd = sd(Atractivo))
+
+pirateplot(Atractivo ~ Sexo + Alcohol, 
+           data = df, 
+           ylim = c(0, 100), 
+           xlab = "Sex*Alcohol", 
+           ylab = "Attractiveness Score", 
+           main = "ANOVA Pirateplot", 
+           point.pch = 16, 
+           pal = "basel")
+
+```
+
+###Tablas
+```{r}
+apa.2way.table(iv1 = Sexo, iv2 = Alcohol, dv = Atractivo, data = df, filename = "Resultados/Figure3_APA.doc", table.number = 3)
+
+apa.aov.table(fit, filename = "Resultados/Figure4_APA.doc",table.number = 4)
+
+```
+
+## Referencias y Fuentes
+* [Field, A. (2012). Discovering statistics using R.](https://uk.sagepub.com/en-gb/eur/discovering-statistics-using-r/book236067)
+
+* [Kabacoff, R. (2015). R in action: data analysis and graphics with R.](https://www.manning.com/books/r-in-action)

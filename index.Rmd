@@ -1,0 +1,104 @@
+--- 
+title: "R - Statistics Manual - CSCN"
+author: "Gorka Navarrete, Alvaro Rivera, David Huepe, Roberto Garcia"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+output: bookdown::gitbook
+documentclass: book
+bibliography: [book.bib, packages.bib]
+biblio-style: apalike
+link-citations: yes
+github-repo: rstudio/bookdown-demo
+description: "Statistics manual from CSCN."
+---
+
+
+# Introduction
+Welcome to the **CSCN R Statistics manual**. In time, this will become a centralized repository with snippets of code for all the data analysis types we do at the [Center for Social and Cognitive Neuroscience - CSCN](http://cscn.uai.cl). Its primary intention is to become an (open) **internal resource** for training, learning and increase our efficiency. As such, **it is bound to be full of inacurate information and horrible bugs**. Use at your own risk, *but do tell us about the horrors you find*. Right now, there are tons of things [TODO].
+
+Suggestions and contributions can be sent to: gorka.navarrete@uai.cl  
+
+
+## For USERS  
+The folder *R - Statistics Manual* can be copied and it *should* work as it is. Just open the *index.html* file in a modern browser.
+
+## For Developers and Statisticians
+Please, **do contribute** your code, examples, ideas, criticisms, improvements, simplifications, etc.  
+
+If you want to contribute code: 
+
+* Do your best to follow [Hadley Wickham Style guide](http://adv-r.had.co.nz/Style.html)
+* Follow our **Style guide - WIP**
+* Use relative links
+* Thank you!
+
+***
+
+## Work in Progress (WIP)
+
+Cosas en las que estamos trabajando, o debieramos...
+
+### Inferential analysis
+Here you will find a number of inferential analysis in alphabetical order, and a table showing which ones would work depending on what kind of IV / DV you have.  
+In the analysis' page you (normally) will find both the frequentist and the Bayesian versions.  
+
+#### Which analysis / graficos / tablas / should I use (?)
+
+DV/IV           | Continuous IV   | Categorical IV  | Dichotomous IV | Nominal IV
+-------------   | -------------   | -------------   | -------------  | -------------  
+Continuous DV   | ...             | ...             | ...            | ... 
+Categorical DV  | ...             | ...             | ...            | ... 
+Dichotomous DV  | ...             | ^AST^           | ...            | ...
+Nominal     DV  | ...             | ^AST^           | ...            | ...
+
+**Analysis**  
+
+Para cada analisis
+* Assumptions
+* Alternatives if failed assumptions
+* How to interpret results
+* How to report results
+
+* Association test ^AST^ - [WIP](association-test.html): Comparison of two groups. Continuous DV
+* ANOVA [WIP](Estadistica-inferencial.html)
+
+<!-- ## Regression -->
+<!-- ### Loess regression -->
+<!-- ### Logistic regression -->
+<!-- *** -->
+<!-- ## SEM -->
+<!-- *** -->
+<!-- # Bayesian -->
+<!-- ## T-test -->
+<!-- ## ANOVA -->
+<!-- ## Regression -->
+
+***  
+
+**Plots**  
+
+* [Asymmetric beanplot ^ABP^](Visualizar-datos.html#beanplot) 
+* [Density plot ^DEP^](Visualizar-datos.html#density-plots)
+* [Pirate plot ^PIP^](Visualizar-datos.html#Pirate-Plot)
+* [Scatter plot ^SCP^](Visualizar-datos.html#scatterplot)
+* [Correlation plot ^COP^](Visualizar-datos.html#correlation-plot)
+
+
+Plots | 
+-------------------------------------- | -------------------------------------- 
+![](Images/Plots/Asymmetric_beanplot.png) [**Asymmetric beanplots** <BR>Show smothed histograms for an easy comparison between conditions.](Visualizar-datos.html#beanplot)| ![](Images/Plots/Pirate_plot.png)  [**Pirate plots** <BR>Show all the data points, smothed histogram, mean/median and SD/CI.](Visualizar-datos.html#Pirate-Plot)
+![](Images/Plots/Density_plot.png) [**Density plot** <BR>Publication ready density plots.](Visualizar-datos.html#density-plots)| ![](Images/Plots/Scatter_plot.png) [**Scatter plot** <BR> Scatter plots with confidence interval.](Visualizar-datos.html#scatterplot)
+![](Images/Plots/Correlation_plot.png) [**Correlation plot** <BR> Correlatons!](Visualizar-datos.html#correlation-plot) | ![](Images/Plots/Scatter_plot2.png) [**Scatter plot** <BR> Relationship between 3 variables](Visualizar-datos.html#scatterplot-con-3-variables)
+
+
+#### Learn more about Data visualization
+http://r4ds.had.co.nz/data-visualisation.html
+
+
+
+```{r include=FALSE}
+# automatically create a bib database for R packages
+knitr::write_bib(c(
+.packages(), 'bookdown', 'knitr', 'rmarkdown'
+), 'packages.bib')
+```

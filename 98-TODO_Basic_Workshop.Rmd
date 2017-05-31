@@ -1,0 +1,62 @@
+# TODO - Curso Basico R - 2016
+
+# EN EJERCICIOS: 
+library(readr)
+datos_raw = read_csv("data_escala.csv")
+datos_raw
+
+* anovatables es usada ahora en algunos de los analisis de datos a traves de las funciones apa.1way.table, apa.aov.table, etc.
+    + Describir el uso de la funcion con detalle la primera vez que aparece. 
+    + Crear una seccion para anovatables? y apa.xxx?
+
+* Funcion para tablas bonitas (Ver Checks.R en Merlin:
+
+formattable(Check_04, list(
+  N = formatter("span", style = style(font.weight = "bold")),
+  MEAN_Age = formatter("span", style = style(font.weight = "bold"))
+))
+
+
+* Meter Manipulando datos para explicar el ifelse y para justificar as.factor
+    + La memoria es frágil! Recodifique los valores 0 y 1 de la variable "sexo" por "femenino" y "masculino" respectivamente. Además, asegurese que estas variables sean de tipo factor.
+datos = datos %>% mutate(sexo = ifelse(sexo == 0, "femenino", "masculino")) %>% mutate(sexo = as.factor(sexo))
+    + Se puede ademas usar un segundo ejemplo anidando varios ifelses y acabando con NA (cajon de sastre)
+    + Introducir # is()???
+
+* Renombrado de variables: usar ejemplos de Analisis Alejandra.R, donde se busca y reemplazan nombres de variables masivamente usando regexp.
+    
+* Como crear tablas bonitas
+    + libreria sjPlot ? 
+    + sjt.lm(fit)
+    + COMO mostrar en R Notebook??? sjt.lm(fit, no.output = TRUE)$knitr
+
+* Creacion de nuevo script: Libreria, setwd, lectura de archivo. 123. Recalcar. Incluir (dejando comentado el setwd) al empezar todas las secciones (Visualizar: 123, etc...)
+
+
+* Explicar funcion unique() y distinct()
+
+* Añadir segundo ejemplo a omit para quitar filas donde el omit esta en columnas concretas
+    + datos %>% na.omit()
+    + datos %>% na.omit(sexo, edad)  
+      
+* Nombres de webs de plots (en varias pone Pirate plot!)
+
+* En creacion de nuevas variables, poner un ejemplo mas complejo (media +- 2sd...), o calcular la dimension de una escala con items directos e inversos. O correccion de WAIS Matrices, usando lo de Merlin!!! (o t())
+
+## TODO - Limpieza general
+
+* Cada seccion deberia tener 1 sola base de datos en su carpeta. El nombre tiene que ser adecuado: 
+    + datos_manipular.csv
+    + datos_visualizar.csv
+    + ...
+    
+* Usar pacman para instalar y cargar paquetes:
+```{r}
+# Gestor librerias
+# install.packages("pacman")
+library(pacman)
+
+#Instalamos librerias
+p_load(lavaan, simsem, semTools, semPlot, devtools, tidyverse)
+```
+

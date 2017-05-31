@@ -1,0 +1,56 @@
+{\rtf1\ansi\deff0 {\fonttbl {\f0 Times New Roman;}}
+{\pard Table 1 \par}
+{\pard  \par}
+{\pard\i Descriptive statistics for Nota as a function of Metodo. \par}
+{\pard  \par}
+{
+\trowd \trgaph100
+\clbrdrt\brdrw15\brdrs
+\clvertalc\cellx1835 
+\clbrdrt\brdrw15\brdrs
+\clvertalc\cellx3060 
+\clbrdrt\brdrw15\brdrs
+\clvertalc\cellx4284 
+\pard\sa100\sb100\intbl\qr{{\i Metodo}}\cell
+\pard\sa100\sb100\intbl\qc{{\i M}}\cell
+\pard\sa100\sb100\intbl\qc{{\i SD}}\cell
+\row
+}
+{
+\trowd \trgaph100
+\clbrdrt\brdrw15\brdrs
+\clvertalc\cellx1835 
+\clbrdrt\brdrw15\brdrs
+\clvertalc\cellx3060 
+\clbrdrt\brdrw15\brdrs
+\clvertalc\cellx4284 
+\pard\sa100\sb100\intbl\qr{Buen trabajo}\cell
+\pard\sa100\sb100\intbl\tqdec\tldot\tx428{65.40}\cell
+\pard\sa100\sb100\intbl\tqdec\tldot\tx428{4.30}\cell
+\row
+}
+{
+\trowd \trgaph100
+\clvertalc\cellx1835 
+\clvertalc\cellx3060 
+\clvertalc\cellx4284 
+\pard\sa100\sb100\intbl\qr{Electroshock}\cell
+\pard\sa100\sb100\intbl\tqdec\tldot\tx428{50.00}\cell
+\pard\sa100\sb100\intbl\tqdec\tldot\tx428{4.14}\cell
+\row
+}
+{
+\trowd \trgaph100
+\clbrdrb\brdrw15\brdrs
+\clvertalc\cellx1835 
+\clbrdrb\brdrw15\brdrs
+\clvertalc\cellx3060 
+\clbrdrb\brdrw15\brdrs
+\clvertalc\cellx4284 
+\pard\sa100\sb100\intbl\qr{Indiferencia}\cell
+\pard\sa100\sb100\intbl\tqdec\tldot\tx428{56.00}\cell
+\pard\sa100\sb100\intbl\tqdec\tldot\tx428{7.10}\cell
+\row
+}
+{\pard \par}{\pard{\i Note.} {\i M} and {\i SD} represent mean and standard deviation, respectively.\par}
+}

@@ -1,0 +1,53 @@
+## Anonimizar participantes - Encriptar IDs
+
+**Libraries**
+```{r, message=FALSE, warning=FALSE}
+if (!require('pacman')) install.packages('pacman'); library('pacman')
+p_load(hashids, tidyverse)
+```
+
+### Encriptando y desencriptando un elemento
+```{r}
+h = hashid_settings(salt = 'this is my salt')
+
+# Numbers to encode
+Plain_ID = c(12345678); Plain_ID
+a = encode(Plain_ID, h); a #"BZ9RNV"
+decode("BZ9RNV", h) #12345678
+
+```
+
+
+### Encriptando y desencriptando la columna RUT de una DB completa.
+
+Generamos aleatoriamente numeros de identificacion "similares" a RUTs, los encriptamos, y despues desencriptamos.
+```{r, message=FALSE, warning=FALSE}
+# Cargamos librerias y leemos DB
+if (!require('pacman')) install.packages('pacman'); library('pacman')
+p_load(hashids, tidyverse)
+
+# Pseudo RUTs generadas aleatoriamente
+data = round(runif(100)*10000000) %>% as_tibble() %>% 
+  dplyr::rename(RUT = value)
+```
+
+**BUG: When building book with Bookdown, it ignores the rowwise() argument!?**
+```{r}
+
+h = hashid_settings(salt = 'this is my salt')
+
+# Encriptamos
+data = data %>% 
+  dplyr::rowwise() %>% 
+  mutate(RUT_Encripted = encode(RUT, h))
+
+# Desencriptamos
+data = data %>% 
+  dplyr::rowwise() %>% 
+  mutate(RUT_Decripted = decode(RUT_Encripted, h))
+
+# Mostramos los resultados
+data %>% select(RUT_Encripted, RUT_Decripted, RUT)
+
+```
+

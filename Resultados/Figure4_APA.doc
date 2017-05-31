@@ -1,0 +1,152 @@
+{\rtf1\ansi\deff0 {\fonttbl {\f0 Times New Roman;}}
+{\pard Table 4 \par}
+{\pard  \par}
+{\pard\i Fixed-Effects ANOVA results using Atractivo as the criterion
+\par}
+{\pard  \par}
+{
+\trowd \trgaph100
+\clbrdrt\brdrw15\brdrs
+\clvertalc\cellx1368 
+\clbrdrt\brdrw15\brdrs
+\clvertalc\cellx2664 
+\clbrdrt\brdrw15\brdrs
+\clvertalc\cellx3355 
+\clbrdrt\brdrw15\brdrs
+\clvertalc\cellx4651 
+\clbrdrt\brdrw15\brdrs
+\clvertalc\cellx5947 
+\clbrdrt\brdrw15\brdrs
+\clvertalc\cellx6811 
+\clbrdrt\brdrw15\brdrs
+\clvertalc\cellx8179 
+\clbrdrt\brdrw15\brdrs
+\clvertalc\cellx9547 
+\pard\sa0\sb0\intbl\qr{Predictor}\cell
+\pard\sa0\sb0\intbl\qc{{Sum\par}{of\par}Squares}\cell
+\pard\sa0\sb0\intbl\qc{{\i df}}\cell
+\pard\sa0\sb0\intbl\qc{{Mean\par}Square}\cell
+\pard\sa0\sb0\intbl\qc{{\i F}}\cell
+\pard\sa0\sb0\intbl\qc{{\i p}}\cell
+\pard\sa0\sb0\intbl\qc{{\sub partial \nosupersub \u0951\ \super 2\nosupersub}}\cell
+\pard\sa0\sb0\intbl\qc{{\sub partial \nosupersub \u0951\ \super 2 \nosupersub \par 90% CI\par[LL, UL]}}\cell
+\row
+}
+{
+\trowd \trgaph100
+\clbrdrt\brdrw15\brdrs
+\clvertalc\cellx1368 
+\clbrdrt\brdrw15\brdrs
+\clvertalc\cellx2664 
+\clbrdrt\brdrw15\brdrs
+\clvertalc\cellx3355 
+\clbrdrt\brdrw15\brdrs
+\clvertalc\cellx4651 
+\clbrdrt\brdrw15\brdrs
+\clvertalc\cellx5947 
+\clbrdrt\brdrw15\brdrs
+\clvertalc\cellx6811 
+\clbrdrt\brdrw15\brdrs
+\clvertalc\cellx8179 
+\clbrdrt\brdrw15\brdrs
+\clvertalc\cellx9547 
+\pard\sa0\sb0\intbl\qr{(Intercept)}\cell
+\pard\sa0\sb0\intbl\tqdec\tldot\tx777{29403.12}\cell
+\pard\sa0\sb0\intbl\qc{1}\cell
+\pard\sa0\sb0\intbl\tqdec\tldot\tx777{29403.12}\cell
+\pard\sa0\sb0\intbl\tqdec\tldot\tx518{393.80}\cell
+\pard\sa0\sb0\intbl\qc{.000}\cell
+\pard\sa0\sb0\intbl\qc{}\cell
+\pard\sa0\sb0\intbl\qc{}\cell
+\row
+}
+{
+\trowd \trgaph100
+\clvertalc\cellx1368 
+\clvertalc\cellx2664 
+\clvertalc\cellx3355 
+\clvertalc\cellx4651 
+\clvertalc\cellx5947 
+\clvertalc\cellx6811 
+\clvertalc\cellx8179 
+\clvertalc\cellx9547 
+\pard\sa0\sb0\intbl\qr{Sexo}\cell
+\pard\sa0\sb0\intbl\tqdec\tldot\tx777{156.25}\cell
+\pard\sa0\sb0\intbl\qc{1}\cell
+\pard\sa0\sb0\intbl\tqdec\tldot\tx777{156.25}\cell
+\pard\sa0\sb0\intbl\tqdec\tldot\tx518{2.09}\cell
+\pard\sa0\sb0\intbl\qc{.159}\cell
+\pard\sa0\sb0\intbl\qc{.07}\cell
+\pard\sa0\sb0\intbl\qc{[.00, .24]}\cell
+\row
+}
+{
+\trowd \trgaph100
+\clvertalc\cellx1368 
+\clvertalc\cellx2664 
+\clvertalc\cellx3355 
+\clvertalc\cellx4651 
+\clvertalc\cellx5947 
+\clvertalc\cellx6811 
+\clvertalc\cellx8179 
+\clvertalc\cellx9547 
+\pard\sa0\sb0\intbl\qr{Alcohol}\cell
+\pard\sa0\sb0\intbl\tqdec\tldot\tx777{39.06}\cell
+\pard\sa0\sb0\intbl\qc{1}\cell
+\pard\sa0\sb0\intbl\tqdec\tldot\tx777{39.06}\cell
+\pard\sa0\sb0\intbl\tqdec\tldot\tx518{0.52}\cell
+\pard\sa0\sb0\intbl\qc{.475}\cell
+\pard\sa0\sb0\intbl\qc{.02}\cell
+\pard\sa0\sb0\intbl\qc{[.00, .16]}\cell
+\row
+}
+{
+\trowd \trgaph100
+\clvertalc\cellx1368 
+\clvertalc\cellx2664 
+\clvertalc\cellx3355 
+\clvertalc\cellx4651 
+\clvertalc\cellx5947 
+\clvertalc\cellx6811 
+\clvertalc\cellx8179 
+\clvertalc\cellx9547 
+\pard\sa0\sb0\intbl\qr{Sexo x Alcohol}\cell
+\pard\sa0\sb0\intbl\tqdec\tldot\tx777{1582.03}\cell
+\pard\sa0\sb0\intbl\qc{1}\cell
+\pard\sa0\sb0\intbl\tqdec\tldot\tx777{1582.03}\cell
+\pard\sa0\sb0\intbl\tqdec\tldot\tx518{21.19}\cell
+\pard\sa0\sb0\intbl\qc{.000}\cell
+\pard\sa0\sb0\intbl\qc{.43}\cell
+\pard\sa0\sb0\intbl\qc{[.19, .58]}\cell
+\row
+}
+{
+\trowd \trgaph100
+\clbrdrb\brdrw15\brdrs
+\clvertalc\cellx1368 
+\clbrdrb\brdrw15\brdrs
+\clvertalc\cellx2664 
+\clbrdrb\brdrw15\brdrs
+\clvertalc\cellx3355 
+\clbrdrb\brdrw15\brdrs
+\clvertalc\cellx4651 
+\clbrdrb\brdrw15\brdrs
+\clvertalc\cellx5947 
+\clbrdrb\brdrw15\brdrs
+\clvertalc\cellx6811 
+\clbrdrb\brdrw15\brdrs
+\clvertalc\cellx8179 
+\clbrdrb\brdrw15\brdrs
+\clvertalc\cellx9547 
+\pard\sa0\sb0\intbl\qr{Error}\cell
+\pard\sa0\sb0\intbl\tqdec\tldot\tx777{2090.62}\cell
+\pard\sa0\sb0\intbl\qc{28}\cell
+\pard\sa0\sb0\intbl\tqdec\tldot\tx777{74.66}\cell
+\pard\sa0\sb0\intbl\tqdec\tldot\tx518{}\cell
+\pard\sa0\sb0\intbl\qc{}\cell
+\pard\sa0\sb0\intbl\qc{}\cell
+\pard\sa0\sb0\intbl\qc{}\cell
+\row
+}
+{\pard \par}{\pard{\i Note.} LL and UL represent the lower-limit and upper-limit of the partial \u0951\ \super 2\nosupersub  confidence interval, respectively.\par}
+}

@@ -1,0 +1,53 @@
+# Conseguir ayuda y aprender más{#Conseguir_ayuda}
+
+## Cuando sabemos que función usar, pero dudamos de la sintaxis:
+
+Podemos usar la funcion `help()` o podemos hacer click sobre la función y presionar la tecla F1. Por ejemplo, si queremos usar la función `summary()` pero dudamos sobre como usarla... 
+```{r}
+# Ejemplo para la función summary()
+help(summary)
+```
+
+## Cuando sabemos lo que queremos hacer pero no la función que debemos usar:  
+
+* Buscar en [Stackoverflow](http://stackoverflow.com)
+* Buscar en google **en ingles!**: ej. long to wide R
+* RStudio > Help > Cheatsheets
+
+*** 
+
+## Libros y Web recomendados
+
+### Hadley Wickham's books
+
+Del creador del tidyverse:
+
+![](Images/hadley.png)  
+
+* [Advanced R](http://adv-r.had.co.nz/)
+* [R for data science](http://r4ds.had.co.nz/)
+
+### Learning statistics with R
+Universidad de Adelaide:
+
+* [Learning statistics with R](https://health.adelaide.edu.au/psychology/ccs/teaching/lsr/)
+
+### Pirate guide to R
+* [Pirate guide to R](http://nathanieldphillips.com/thepiratesguidetor/)
+
+### Plots
+* [Gallery of plots](http://www.r-graph-gallery.com/all-graphs/)
+* [Ggplot2 Cheatsheet - 2016](https://www.rstudio.com/wp-content/uploads/2016/11/ggplot2-cheatsheet-2.1.pdf)
+
+### Other references
+* https://www.r-bloggers.com/
+* https://github.com/
+* http://www.statmethods.net/
+* http://www.sthda.com/english/wiki/ggpubr-r-package-ggplot2-based-publication-ready-plots  
+* http://shinyapps.org/apps/RGraphCompendium/index.php
+* https://ismayc.github.io/moderndiver-book/
+
+
+### Twitter
+* \@hadleywickham
+* ...

@@ -1,0 +1,301 @@
+ID,RUT,Sexo,Edad,Ocupacion,Educacion,Porcentaje_ahorro
+1,1381560,Mujer,29,ASISTENTE DE TESORERIA,Técnica,10
+2,9816832,Mujer,21,Ingeniero Comercial,Maestría,50
+3,5701698,Hombre,46,trabajador,Técnica,5
+4,9797583,Mujer,52,Psicóloga,Maestría,0
+5,6504641,Mujer,63,Controller Postgrados Ejecutivos EN,Maestría,4
+6,6892537,Hombre,29,Ingeniro Comercial,Maestría,8
+7,9297162,Mujer,42,Porfesional de RRHH,Universitaria,0
+8,2882938,Hombre,30,Ingeniero de Software,Universitaria,20
+9,5408699,Mujer,36,Licenciada en Letras,Universitaria,3
+10,3141959,Mujer,63,Bibliotecóloga,Diplomado o post-título,0
+11,2771652,Mujer,33,Bibliotecóloga,Universitaria,15
+12,1590917,Mujer,20,Cientista Político,Diplomado o post-título,30
+13,8624361,Mujer,39,Abogado,Universitaria,0
+14,7750178,Hombre,51,Tecnico Mantenimiento,Técnica,10
+15,9085159,Mujer,59,Encargada de Finanzas Estudiantiles,Maestría,5
+16,215608,Mujer,53,Sociologa,Maestría,15
+17,5800339,Hombre,43,Ingeniero Civil en Computacion,Post-doctorado,10
+18,1820027,Hombre,57,Administrativo UAI,Maestría,25
+19,7172100,Mujer,50,Periodista,Maestría,40
+20,6005485,Mujer,44,Psicologa,Maestría,10
+21,6152337,Hombre,51,Ingeniero,Universitaria,20
+22,6800175,Mujer,62,Secretaria,Técnica,0
+23,4457913,Hombre,56,Coordinador de Facturación CAS UAI,Técnica,8
+24,9339259,Mujer,62,Psicologa,Diplomado o post-título,10
+25,6547769,Mujer,24,Administrativo,Universitaria,10
+26,2574447,Mujer,56,ASISTENTE DE TESORERIA,Técnica,20
+27,839971,Hombre,51,Sociólogo,Universitaria,5
+28,9435825,Mujer,41,Ingeniero de proyectos,Diplomado o post-título,20
+29,9405493,Mujer,35,Ingeniero Comercial,Universitaria,0
+30,3300235,Mujer,57,Geografa,Maestría,10
+31,8919504,Mujer,36,"Marketing, ingeniero comercial, empresa independiente.",Diplomado o post-título,0
+32,1647435,Mujer,28,Ingeniero Civil Industrial,Diplomado o post-título,25
+33,2856755,Mujer,31,Secretaria,Técnica,0
+34,71925,Hombre,29,Académico,Universitaria,15
+35,4442079,Hombre,41,Profesor Asociado,Doctorado,10
+36,1716805,Hombre,59,Analista Institucional,Universitaria,65
+37,748547,Mujer,68,Directora Comercial,Universitaria,10
+38,5606686,Hombre,42,Ing. de Comunicaciones,Universitaria,10
+39,7557619,Mujer,63,Psicologa,Maestría,10
+40,8861167,Mujer,58,Subdirectora Área de Egresados,Maestría,4
+41,4511973,Mujer,57,Docente universitario,Doctorado,30
+42,3089479,Mujer,24,Psicologa ,Maestría,2
+43,8832305,Mujer,45,Periodista,Universitaria,0
+44,6059343,Mujer,53,coordinadora y profesora,Maestría,5
+45,183836,Hombre,40,Ingeniero,Diplomado o post-título,5
+46,5317072,Hombre,26,Académico,Doctorado,15
+47,5864006,Mujer,51,Docente,Universitaria,0
+48,9471166,Mujer,65,Asesor en Prevencion de Riesgos,Universitaria,1
+49,6421846,Mujer,65,Coordinadora de Diplomas,Técnica,0
+50,8603168,Mujer,57,Coordiandora de Alta direccion UAI,Maestría,10
+51,6049197,Mujer,51,Abogada,Diplomado o post-título,15
+52,9917970,Mujer,27,Encargada de marketing,Diplomado o post-título,10
+53,1509005,Mujer,56,Docente Universitario,Maestría,30
+54,6147970,Mujer,41,Coordinadora de diplomas y máster de especialidad,Técnica,0.5
+55,7018243,Mujer,57,HB Business partner,Universitaria,10
+56,9325915,Hombre,41,Corredor  de propiedad ,Media,30
+57,6737219,Mujer,20,Marketing,Maestría,25
+58,2476915,Mujer,54,Abogada,Diplomado o post-título,15
+59,7546004,Mujer,35,Coordinadora de Postgrados de Periodismo,Diplomado o post-título,5
+60,6693160,Hombre,50,Administrador ,Técnica,30
+61,5189872,Mujer,61,Consultor ambiental ,Maestría,2
+62,2766519,Mujer,23,Psicólogo ,Maestría,10
+63,3046232,Hombre,56,psicólogo,Diplomado o post-título,15
+64,1757850,Mujer,53,Ingeniero Comercial,Universitaria,10
+65,1824173,Hombre,46,GEÓGRAFO,Diplomado o post-título,50
+66,1005063,Mujer,39,Abogado,Universitaria,45
+67,8374165,Hombre,26,Ingeniero Constructor y Civil Industrial,Universitaria,25
+68,3887556,Hombre,31,Ingeniero,Maestría,2
+69,6348158,Hombre,33,Analista de Estudios,Maestría,50
+70,9030607,Hombre,45,Prof,Diplomado o post-título,1
+71,5057081,Hombre,50,gerente desarrollo,Diplomado o post-título,20
+72,3802400,Hombre,24,Gerente de Estudios,Maestría,5
+73,561713,Hombre,22,Empresario,Maestría,50
+74,9839205,Mujer,39,Técnico enfermeria,Universitaria,30
+75,3203269,Hombre,56,Docente investigador,Doctorado,30
+76,1085843,Mujer,55,Consultora,Maestría,0
+77,3963333,Mujer,40,Profesora,Doctorado,40
+78,3964377,Mujer,64,Psicóloga,Maestría,10
+79,4849212,Hombre,44,Dirección Escuela de Psicología,Maestría,5
+80,2948720,Mujer,42,Estudiante DISC UAI,Universitaria,10
+81,5118232,Hombre,50,Coordinador Académico RRII,Maestría,20
+82,9209687,Mujer,62,Estudiante ,Universitaria,0
+83,9773529,Hombre,64,Ingeniero Comercial,Maestría,10
+84,4841954,Hombre,24,Profesor universitario,Doctorado,10
+85,309584,Mujer,28,Bioquímico,Universitaria,20
+86,4448923,Hombre,59,Estudiante,Universitaria,20
+87,509006,Mujer,26,Socióloga,Doctorado,5
+88,6273800,Mujer,52,Profesora,Universitaria,20
+89,1871953,Mujer,23,Profesora de historia,Universitaria,30
+90,1445841,Hombre,64,Empresario,Maestría,10
+91,2115489,Mujer,29,Ingeniera comercial,Universitaria,20
+92,9555288,Hombre,53,docente,Diplomado o post-título,10
+93,6315718,Mujer,30,psicologa ,Maestría,25
+94,6906749,Mujer,53,Fonoaudiologa,Universitaria,10
+95,4175315,Mujer,32,"docente UAI, investigador (estudiante de doctorado)",Maestría,50
+96,2714686,Mujer,56,Consultora,Universitaria,20
+97,7913086,Hombre,27,profesor,Doctorado,20
+98,819602,Mujer,48,Vendedora,Universitaria,5
+99,101831,Mujer,24,Estudiante de psicología ,Universitaria,15
+100,9426981,Hombre,36,Profesor,Doctorado,30
+101,4575528,Hombre,26,Profesor,Diplomado o post-título,20
+102,2884257,Hombre,26,ingeniero comercial,Maestría,20
+103,7359295,Mujer,56,Estudiante de fonoaudiología,Técnica,0
+104,4003191,Hombre,29,Paicologo,Maestría,5
+105,5706408,Mujer,19,Psicóloga,Diplomado o post-título,10
+106,3287994,Mujer,24,psicóloga,Diplomado o post-título,3
+107,8577980,Mujer,26,Secretaria,Técnica,10
+108,6448839,Mujer,33,Periodista,Universitaria,20
+109,2122197,Mujer,65,Sin empleo,Universitaria,10
+110,1022207,Mujer,29,Fonoaudióloga,Universitaria,50
+111,450638,Mujer,53,Fonoaudiologa,Diplomado o post-título,5
+112,358916,Mujer,27,Secretaría de Finanzas,Universitaria,30
+113,5867698,Mujer,21,Psicóloga ,Maestría,0
+114,7230552,Mujer,35,Asistente de Biblioteca,Diplomado o post-título,10
+115,5996279,Hombre,19,Investigación,Maestría,20
+116,182984,Hombre,29,Investigador/estudiante postgrado,Doctorado,5
+117,1656746,Hombre,55,Estudiante,Diplomado o post-título,40
+118,3634069,Hombre,38,Profesor,Maestría,40
+119,3881350,Mujer,32,Estudiante,Universitaria,0
+120,2027245,Mujer,35,"Estudiante psicología  4to año, Ust, y trabajo part-time",Universitaria,50
+121,1358624,Hombre,59,Profesor de Historia,Universitaria,3
+122,4579587,Mujer,41,Asesoria,Universitaria,5
+123,3934292,Hombre,19,docente ,Diplomado o post-título,40
+124,9550357,Mujer,26,Cesante,Diplomado o post-título,40
+125,1214971,Mujer,22,FONOAUDIÓLOGA,Diplomado o post-título,2
+126,8877770,Mujer,56,psicopedagoga ,Maestría,20
+127,418883,Mujer,46,Fonoaudióloga,Universitaria,15
+128,2784961,Mujer,65,psicóloga,Diplomado o post-título,0
+129,7395579,Hombre,68,ingeniero,Universitaria,15
+130,2960036,Mujer,67,Periodista,Universitaria,10
+131,1970090,Mujer,41,profesora,Maestría,0
+132,9653521,Mujer,34,Project profile researcher and analyst,Diplomado o post-título,5
+133,1435948,Mujer,64,trabajadora social ,Diplomado o post-título,0
+134,97918,Hombre,41,Docente,Maestría,0
+135,9538070,Mujer,30,Docente en Educación Superior,Maestría,10
+136,5487000,Hombre,25,Profesor de Biología y Ciencias Naturales,Universitaria,0
+137,2402455,Mujer,38,Fonoaudióloga ,Diplomado o post-título,50
+138,6814812,Mujer,27,Profesora,Maestría,1
+139,2618285,Hombre,26,Traductor,Maestría,0
+140,8138139,Hombre,24,Estudiante Doctoral ,Universitaria,10
+141,4336417,Mujer,28,Psicologa,Maestría,70
+142,1335774,Mujer,41,fonoaudiologa,Universitaria,10
+143,1434776,Mujer,31,Psicóloga ,Universitaria,10
+144,3310960,Hombre,30,Estudiante Doctorado Finanzas,Maestría,0
+145,1962386,Hombre,30,Asesor de proyectos de Comando de Salud del Ejército,Diplomado o post-título,100
+146,5272938,Hombre,32,Estudiante y cajero,Universitaria,85
+147,4091349,Mujer,25,Estudiante de educacion superior ,Media,25
+148,6575743,Hombre,64,Consultor,Maestría,10
+149,1577198,Mujer,30,Academica,Doctorado,20
+150,637537,Hombre,45,EMPLEADO ( GARZON ),Universitaria,20
+151,1653893,Mujer,21,Estudiante,Técnica,50
+152,1186826,Mujer,31,Psicóloga ,Diplomado o post-título,20
+153,734835,Hombre,48,Jefe de proyectos,Universitaria,30
+154,7248281,Mujer,19,Profesora ,Universitaria,10
+155,2786742,Mujer,58,Ing Comercial,Maestría,10
+156,6837491,Mujer,61,Estudiante ,Universitaria,10
+157,4361725,Hombre,34,Gerente,Universitaria,0
+158,5318710,Hombre,63,Profesor,Maestría,20
+159,1196943,Mujer,61,DOCENTE Y EMPRESARIA,Maestría,5
+160,7279376,Hombre,38,Docente,Universitaria,10
+161,253610,Hombre,45,Inmobiliaria,Maestría,80
+162,6925048,Mujer,56,Psicologo,Post-doctorado,15
+163,3623763,Hombre,44,Sociólogo,Maestría,30
+164,1810373,Mujer,58,Psicólga,Diplomado o post-título,2
+165,7399528,Mujer,59,Profesora UAI,Maestría,20
+166,8236695,Hombre,21,Estudiante ,Universitaria,0
+167,8628897,Hombre,55,estudiante,Universitaria,8
+168,1814522,Mujer,22,Psicóloga ,Diplomado o post-título,10
+169,3308890,Hombre,41,profesor,Maestría,20
+170,6747016,Mujer,25,Ejecutiva Comercial,Universitaria,10
+171,4013113,Hombre,39,Fonoaudiólogo,Diplomado o post-título,10
+172,2613946,Mujer,59,Profesora de español,Universitaria,50
+173,249518,Mujer,32,gestora cultural,Diplomado o post-título,1
+174,9315867,Hombre,46,profesor,Doctorado,4
+175,1870552,Hombre,51,Profesor,Universitaria,5
+176,8789009,Mujer,64,Estudiante de Doctorado,Universitaria,40
+177,4172697,Mujer,64,kinesiologa,Universitaria,10
+178,3408032,Mujer,67,Psicologa,Diplomado o post-título,5
+179,5464545,Mujer,66,Asistente Social,Diplomado o post-título,1
+180,5144467,Hombre,46,Periodista y Terapeuta en Adicciones,Maestría,10
+181,2878216,Hombre,49,Sociólogo,Maestría,5
+182,5951583,Mujer,61,Asistente contable,Universitaria,80
+183,8089110,Hombre,25,Buscando trabajo,Maestría,50
+184,4909386,Mujer,39,fonoaudióloga,Universitaria,30
+185,1042149,Hombre,49,Estudiante,Universitaria,10
+186,3930147,Mujer,22,profesora,Universitaria,10
+187,9378077,Hombre,62,Estudiante,Universitaria,50
+188,2672749,Hombre,62,Estudiante Universitario,Media,5
+189,5057091,Mujer,57,psicopedagoga,Universitaria,100
+190,7716943,Mujer,58,Psicóloga,Diplomado o post-título,20
+191,5262032,Hombre,30,profesor,Post-doctorado,5
+192,4565533,Mujer,38,asistente ejecutivo bilingüe,Universitaria,40
+193,442546,Hombre,24,Académico UAI,Maestría,80
+194,4925525,Hombre,61,Estudiante,Universitaria,40
+195,6850926,Hombre,21,Academico,Maestría,25
+196,1158797,Hombre,25,Docente,Maestría,20
+197,8415177,Mujer,44,Consultora organizacional,Universitaria,0
+198,6960226,Hombre,24,Ing Civil Ind,Diplomado o post-título,0
+199,8196687,Mujer,21,Independinte ,Media,5
+200,701661,Mujer,54,estudiante ,Técnica,1
+201,3261761,Hombre,42,consultor,Universitaria,20
+202,2322795,Mujer,64,Ingeniero Comercial,Maestría,0
+203,847762,Mujer,28,Docente universitaria ,Maestría,10
+204,3584589,Mujer,68,Psicóloga ,Diplomado o post-título,10
+205,6203382,Hombre,50,Profesor,Universitaria,5
+206,1681223,Mujer,36,Académico,Doctorado,20
+207,7150287,Hombre,31,Estudiante Ing. Civil Industrial - UChile,Media,40
+208,8535129,Mujer,28,Ventas,Diplomado o post-título,2
+209,4085450,Mujer,56,Cuidadora  A.m,Técnica,10
+210,1210576,Mujer,56,profesora ,Maestría,5
+211,4082552,Hombre,61,Ingeniero Civil Industrial,Universitaria,20
+212,4294087,Mujer,54,Psicologa,Maestría,10
+213,2852583,Hombre,23,Profesor,Diplomado o post-título,0
+214,7901870,Hombre,26,Consultor /Profesor,Maestría,10
+215,7895179,Hombre,34,Profesor,Universitaria,10
+216,7825304,Mujer,61,Gestor de Servicios,Universitaria,0
+217,6820581,Hombre,44,Esrudiante psicologia,Universitaria,80
+218,6178541,Hombre,45,Corredor de Seguros,Media,1
+219,2731698,Mujer,65,profesora de lenguaje y comunicación,Maestría,30
+220,3597906,Mujer,64,Profesora,Universitaria,15
+221,8317603,Mujer,37,Analista de Capacitación,Universitaria,10
+222,6346089,Mujer,43,dueña de casa,Técnica,0
+223,5752394,Mujer,22,Psicologa,Universitaria,10
+224,9857616,Mujer,41,Estudiante,Media,1
+225,8867408,Mujer,64,Profesora,Maestría,10
+226,396580,Hombre,36,"Docente, Productor, funcionario público ",Diplomado o post-título,0
+227,829294,Mujer,49,psicologa-educadora,Diplomado o post-título,40
+228,2211555,Hombre,59,Profesor de Filosofía,Maestría,0
+229,3503248,Mujer,24,Trabajadora Social,Maestría,40
+230,6131736,Hombre,56,Profesor universitario,Maestría,20
+231,3092803,Hombre,61,fonoaudiologo,Universitaria,10
+232,9965148,Mujer,25,Estudiante universitaria,Universitaria,60
+233,2771942,Mujer,66,Psicóloga,Maestría,20
+234,3449904,Hombre,60,Estudiante de Posgrado,Universitaria,15
+235,3927659,Mujer,60,Educadora Diferencial,Universitaria,40
+236,503787,Mujer,67,psicológa,Maestría,60
+237,8392226,Hombre,25,Profesor Consultor empresario Médico ,Doctorado,50
+238,4285812,Mujer,62,Ingeniera,Universitaria,50
+239,6840516,Mujer,29,Psicóloga,Diplomado o post-título,0
+240,4192319,Mujer,62,medico,Diplomado o post-título,10
+241,1114534,Mujer,47,Fonoaudióloga,Diplomado o post-título,20
+242,4567442,Mujer,37,profesora ,Universitaria,50
+243,2120638,Hombre,32,psicólogo ,Maestría,20
+244,9380301,Mujer,65,Administracion,Media,20
+245,3613462,Mujer,23,investigacion y docencia,Doctorado,10
+246,6701961,Mujer,49,profesora,Maestría,10
+247,7898584,Mujer,64,psicóloga colegio educación media,Universitaria,0
+248,4861132,Hombre,60,Antropólogo,Diplomado o post-título,0
+249,2663192,Mujer,59,Psicologa,Diplomado o post-título,2
+250,5981265,Mujer,56,Trabajadora Social,Universitaria,3
+251,9966382,Mujer,54,Psicóloga,Diplomado o post-título,20
+252,230401,Mujer,35,Economista,Universitaria,30
+253,7488559,Hombre,52,Ing. Comercial,Maestría,20
+254,8603901,Mujer,43,Bioquímico,Universitaria,30
+255,2914164,Mujer,31,empleada publica,Diplomado o post-título,20
+256,5233732,Mujer,49,Profesora,Doctorado,10
+257,9239957,Hombre,58,funcionario publico,Universitaria,10
+258,9025992,Hombre,39,ADMINISTRADOR DE EMPRESAS,Universitaria,0
+259,3743985,Hombre,42,Gerente de Logística,Maestría,10
+260,9325339,Mujer,54,docente,Universitaria,10
+261,8130705,Mujer,60,Psicopedagoga,Maestría,0
+262,3807866,Mujer,31,profesora,Universitaria,0
+263,2447036,Mujer,63,Académica ,Universitaria,5
+264,6812530,Mujer,20,Profesora,Diplomado o post-título,5
+265,4765769,Hombre,29,Psicólogo,Diplomado o post-título,1
+266,866400,Mujer,21,Psicóloga,Diplomado o post-título,25
+267,8709804,Hombre,39,Estudiante de Doctorado,Maestría,0
+268,1392544,Hombre,52,Emprendedor,Maestría,40
+269,3839457,Mujer,28,Empleado,Universitaria,30
+270,9172509,Mujer,47,Profesora,Maestría,30
+271,8095759,Mujer,26,Estudiante educación parvularia,Universitaria,5
+272,796306,Hombre,64,Profesor de Inglés,Universitaria,3
+273,2645366,Hombre,50,Egresado,Universitaria,0
+274,2197688,Hombre,41,Ingeniero comercial,Diplomado o post-título,16
+275,231728,Hombre,61,estudiante y profesor,Media,10
+276,580773,Mujer,23,profesora,Maestría,10
+277,127765,Mujer,59,Actriz y Docente,Universitaria,5
+278,5230105,Mujer,27,Psicóloga,Diplomado o post-título,30
+279,8373341,Mujer,19,Psicologa,Universitaria,10
+280,447394,Mujer,58,independiente,Universitaria,15
+281,1628536,Hombre,62,Nuevos Negocios y Proyectos en Grupo Formax,Universitaria,30
+282,6557619,Hombre,58,Profesor ,Universitaria,0
+283,1659913,Hombre,52,Ejecutivo banca,Universitaria,1
+284,2232081,Mujer,65,Fonoaudióloga,Diplomado o post-título,0
+285,455502,Hombre,49,Periodista,Diplomado o post-título,20
+286,6039319,Mujer,45,Dueña de casa,Técnica,30
+287,955095,Mujer,65,Vendedora alimento mascotas,Universitaria,2
+288,7363552,Mujer,56,dueña de casa,Técnica,0
+289,758852,Mujer,35,Estudiante,Media,20
+290,7944447,Mujer,49,Asistentw,Universitaria,2
+291,2503633,Mujer,55,Educadora de párvulos,Maestría,5
+292,8478174,Hombre,21,Estudiante,Universitaria,50
+293,1162787,Mujer,66,Dueña de casa y vendedora,Diplomado o post-título,0
+294,6072971,Mujer,33,Ingeniero comercial ,Diplomado o post-título,5
+295,1719552,Mujer,33,Supervisora de contact center,Media,0
+296,4347333,Mujer,42,Profesora de Historia,Universitaria,70
+297,40686,Mujer,54,Educadora de parvulos,Universitaria,40
+298,7878323,Hombre,55,Estudiante,Universitaria,20
+299,9275248,Hombre,63,Psicologo,Maestría,20
+300,2868201,Mujer,64,docente,Diplomado o post-título,10

@@ -1,0 +1,114 @@
+# Meta analysis
+
+Code adapted from an example sent by Miro on 20170509
+
+***
+Meta-analysis of Brase, G. L., & Hill, W. T. (2017). Adding up to good Bayesian reasoning: Problem format manipulations and individual skill differences. Journal of Experimental Psychology: General, 146(4), 577–591. http://doi.org/10.1037/xge0000280  
+
+***
+
+
+**Factorial 2x2 design (aggreagted data from Experiment1 & Experiment2)**  
+
+IV1: Representation format (Natural Frequencies x Probabilities)  
+IV2: Pictorial aid (No pictorial aid x Pictorial aid)
+
+
+
+Experiment1
+![](/home/emrys/gorkang@gmail.com/RESEARCH/TECNICAS/R - Statistics/R_Statistics_Manual/Images/Data_analysis/Meta_analysis/Brase_Experiment_1.png)  
+
+Experiment2
+![](/home/emrys/gorkang@gmail.com/RESEARCH/TECNICAS/R - Statistics/R_Statistics_Manual/Images/Data_analysis/Meta_analysis/Brase_Experiment_2.png)  
+
+
+**Libraries**
+```{r, message=FALSE}
+if (!require('pacman')) install.packages('pacman'); library('pacman')
+p_load(metafor)
+```
+
+## Natural Frequencies Effect
+
+```{r}
+
+# input of the data from the two experiments, each is featuring two comparison (note: ai to di are corresponding to the 2x2 table, n1i and n2i are row sums)
+
+Contrast = "NF - Perc"
+Comparisons = c("Exp 1a No Picture", "Exp 1b Picture", "Exp 2a No Picture","Exp 2b Picture")
+
+# NF with and without pictures
+# E1_NF, E1_NF+Pic, E2_NF, E2_NF+Pic
+# (84*.373, 85*.416, 172*.419, 186*.484)
+ai <-  c(31, 35, 72, 90)
+n1i <- c(84, 85, 172, 186)
+bi <- n1i- ai # c(53, 50, 100, 96)
+
+# Prob with and without pictures
+# E1_Perc, E1_Perc+Pic, E2_Perc, E2_Perc+Pic
+# (83*.049, 84*.194, 172*.087, 181*.265)
+ci <- c(4, 16, 15, 48)
+n2i <- c(83, 84, 172, 181)
+di <- n2i - ci # di <- c(79, 68, 157, 133)
+
+# mod <- c(0, 1, 0, 1)
+
+# fit the fixed model and return its value for OR
+rma.overallOR <- rma.uni(ai=ai, bi=bi, ci=ci, di=di, n1i=n1i, n2i=n2i, measure="OR", 
+                         method="REML", weighted=TRUE,
+                         level=95, digits=3)
+
+summary(rma.overallOR)
+# rma.overallOR
+
+forest(rma.overallOR, 
+       showweight = TRUE,
+       slab=Comparisons, 
+       xlab="Log Odds Ratio", mlab="FE Model for All Comparisons", main = Contrast )
+
+```
+
+
+##Pictures Effect
+
+```{r}
+
+# input of the data from the two experiments, each is featuring two comparison (note: ai to di are corresponding to the 2x2 table, n1i and n2i are row sums)
+# Here we use the parameter mod to assess moderation (???)
+
+Contrast = "Pictures - No pictures"
+Comparisons = c("Exp 1a Perc", "Exp 1b NF", "Exp 2a Perc","Exp 2b NF")
+
+
+# Prob and  NF with Pictures
+# E1_Perc+Pic, E1_NF+Pic, E2_Perc+Pic, E2_NF+Pic
+# (84*.194,   85*.416,  181*.265, 186*.484)
+ai <-  c(16, 35, 48, 90)
+n1i <- c(84, 85, 181, 186)
+bi <- n1i- ai # bi <- c(68, 50, 133, 96)
+
+# Prob and  NF without Pictures
+# E1_Perc, E1_NF, E2_Perc , E2_NF
+# (83*.049,   84*.373,  172*.087, 172*.419)
+ci <- c(4, 31, 15, 72)
+n2i <- c(83, 84, 172, 172)
+di <- n2i - ci # di <- c(79, 53, 157, 100)
+
+
+mod <- c(0, 1, 0, 1)
+
+# fit the fixed model and return its value for OR
+  # Here we use the moderator mod
+rma.overallOR <- rma.uni(ai=ai, bi=bi, ci=ci, di=di, n1i=n1i, n2i=n2i, mod=mod, measure="OR", 
+                         method="REML", weighted=T,
+                         level=95, digits=3)
+
+summary(rma.overallOR)
+# rma.overallOR
+
+forest(rma.overallOR, 
+       showweight = TRUE,
+       slab= Comparisons, 
+       xlab="Log Odds Ratio", mlab="REML Model for All Comparisons", main = Contrast)
+```
+

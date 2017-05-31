@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>R - Statistics Manual - CSCN</title>
+  <meta name="description" content="Statistics manual from CSCN.">
+  <meta name="generator" content="bookdown 0.4 and GitBook 2.6.7">
+
+  <meta property="og:title" content="R - Statistics Manual - CSCN" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Statistics manual from CSCN." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="R - Statistics Manual - CSCN" />
+  
+  <meta name="twitter:description" content="Statistics manual from CSCN." />
+  
+
+<meta name="author" content="Gorka Navarrete, Alvaro Rivera, David Huepe, Roberto Garcia">
+
+
+<meta name="date" content="2017-05-25">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="Conseguir-ayuda.html">
+<link rel="next" href="exportar-datos.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#for-users"><i class="fa fa-check"></i><b>1.1</b> For USERS</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#for-developers-and-statisticians"><i class="fa fa-check"></i><b>1.2</b> For Developers and Statisticians</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#work-in-progress-wip"><i class="fa fa-check"></i><b>1.3</b> Work in Progress (WIP)</a><ul>
+<li class="chapter" data-level="1.3.1" data-path="index.html"><a href="index.html#inferential-analysis"><i class="fa fa-check"></i><b>1.3.1</b> Inferential analysis</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="Empezando.html"><a href="Empezando.html"><i class="fa fa-check"></i><b>2</b> Empezando en A-B-C</a><ul>
+<li class="chapter" data-level="2.1" data-path="Empezando.html"><a href="Empezando.html#a-instalar-r."><i class="fa fa-check"></i><b>2.1</b> <strong>(A)</strong> Instalar R.</a></li>
+<li class="chapter" data-level="2.2" data-path="Empezando.html"><a href="Empezando.html#b-instalar-rstudio."><i class="fa fa-check"></i><b>2.2</b> <strong>(B)</strong> Instalar RStudio.</a></li>
+<li class="chapter" data-level="2.3" data-path="Empezando.html"><a href="Empezando.html#instalar-packages"><i class="fa fa-check"></i><b>2.3</b> Instalar Packages</a></li>
+<li class="chapter" data-level="2.4" data-path="Empezando.html"><a href="Empezando.html#cargar-packages"><i class="fa fa-check"></i><b>2.4</b> Cargar Packages</a></li>
+<li class="chapter" data-level="2.5" data-path="Empezando.html"><a href="Empezando.html#todo-en-uno"><i class="fa fa-check"></i><b>2.5</b> Todo en uno</a></li>
+<li class="chapter" data-level="2.6" data-path="Empezando.html"><a href="Empezando.html#c-librerias-para-el-workshop"><i class="fa fa-check"></i><b>2.6</b> <strong>(C)</strong> Librerias para el workshop</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="Mi-primer-script.html"><a href="Mi-primer-script.html"><i class="fa fa-check"></i><b>3</b> Mi primer script</a><ul>
+<li class="chapter" data-level="3.1" data-path="Mi-primer-script.html"><a href="Mi-primer-script.html#paso-a-paso"><i class="fa fa-check"></i><b>3.1</b> Paso a paso</a></li>
+<li class="chapter" data-level="3.2" data-path="Mi-primer-script.html"><a href="Mi-primer-script.html#establecer-nuestro-directorio-de-trabajo"><i class="fa fa-check"></i><b>3.2</b> Establecer nuestro directorio de trabajo</a></li>
+<li class="chapter" data-level="3.3" data-path="Mi-primer-script.html"><a href="Mi-primer-script.html#nuestro-primer-script"><i class="fa fa-check"></i><b>3.3</b> Nuestro primer script</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="Conseguir-ayuda.html"><a href="Conseguir-ayuda.html"><i class="fa fa-check"></i><b>4</b> Conseguir ayuda y aprender más</a><ul>
+<li class="chapter" data-level="4.1" data-path="Conseguir-ayuda.html"><a href="Conseguir-ayuda.html#cuando-sabemos-que-funcion-usar-pero-dudamos-de-la-sintaxis"><i class="fa fa-check"></i><b>4.1</b> Cuando sabemos que función usar, pero dudamos de la sintaxis:</a></li>
+<li class="chapter" data-level="4.2" data-path="Conseguir-ayuda.html"><a href="Conseguir-ayuda.html#cuando-sabemos-lo-que-queremos-hacer-pero-no-la-funcion-que-debemos-usar"><i class="fa fa-check"></i><b>4.2</b> Cuando sabemos lo que queremos hacer pero no la función que debemos usar:</a></li>
+<li class="chapter" data-level="4.3" data-path="Conseguir-ayuda.html"><a href="Conseguir-ayuda.html#libros-y-web-recomendados"><i class="fa fa-check"></i><b>4.3</b> Libros y Web recomendados</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="Conseguir-ayuda.html"><a href="Conseguir-ayuda.html#hadley-wickhams-books"><i class="fa fa-check"></i><b>4.3.1</b> Hadley Wickham’s books</a></li>
+<li class="chapter" data-level="4.3.2" data-path="Conseguir-ayuda.html"><a href="Conseguir-ayuda.html#learning-statistics-with-r"><i class="fa fa-check"></i><b>4.3.2</b> Learning statistics with R</a></li>
+<li class="chapter" data-level="4.3.3" data-path="Conseguir-ayuda.html"><a href="Conseguir-ayuda.html#pirate-guide-to-r"><i class="fa fa-check"></i><b>4.3.3</b> Pirate guide to R</a></li>
+<li class="chapter" data-level="4.3.4" data-path="Conseguir-ayuda.html"><a href="Conseguir-ayuda.html#plots"><i class="fa fa-check"></i><b>4.3.4</b> Plots</a></li>
+<li class="chapter" data-level="4.3.5" data-path="Conseguir-ayuda.html"><a href="Conseguir-ayuda.html#other-references"><i class="fa fa-check"></i><b>4.3.5</b> Other references</a></li>
+<li class="chapter" data-level="4.3.6" data-path="Conseguir-ayuda.html"><a href="Conseguir-ayuda.html#twitter"><i class="fa fa-check"></i><b>4.3.6</b> Twitter</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="Importar-datos.html"><a href="Importar-datos.html"><i class="fa fa-check"></i><b>5</b> Importar datos</a><ul>
+<li class="chapter" data-level="5.1" data-path="Importar-datos.html"><a href="Importar-datos.html#desde-archivo-csv"><i class="fa fa-check"></i><b>5.1</b> Desde archivo CSV</a></li>
+<li class="chapter" data-level="5.2" data-path="Importar-datos.html"><a href="Importar-datos.html#desde-archivo-xls"><i class="fa fa-check"></i><b>5.2</b> Desde archivo XLS</a></li>
+<li class="chapter" data-level="5.3" data-path="Importar-datos.html"><a href="Importar-datos.html#desde-archivo-sav"><i class="fa fa-check"></i><b>5.3</b> Desde archivo SAV</a></li>
+<li class="chapter" data-level="5.4" data-path="Importar-datos.html"><a href="Importar-datos.html#importar-todos-los-archivos-de-una-carpeta"><i class="fa fa-check"></i><b>5.4</b> Importar todos los archivos de una carpeta</a></li>
+<li class="chapter" data-level="5.5" data-path="Importar-datos.html"><a href="Importar-datos.html#importar-archivos-con-rstudio"><i class="fa fa-check"></i><b>5.5</b> Importar archivos con RStudio</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="exportar-datos.html"><a href="exportar-datos.html"><i class="fa fa-check"></i><b>6</b> Exportar datos</a><ul>
+<li class="chapter" data-level="6.1" data-path="exportar-datos.html"><a href="exportar-datos.html#exportar-datos-a-archivo-csv"><i class="fa fa-check"></i><b>6.1</b> Exportar datos a archivo CSV</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="Tipos-de-datos.html"><a href="Tipos-de-datos.html"><i class="fa fa-check"></i><b>7</b> Tipos de datos</a><ul>
+<li class="chapter" data-level="7.1" data-path="Tipos-de-datos.html"><a href="Tipos-de-datos.html#data-frames"><i class="fa fa-check"></i><b>7.1</b> Data Frames</a></li>
+<li class="chapter" data-level="7.2" data-path="Tipos-de-datos.html"><a href="Tipos-de-datos.html#matrices"><i class="fa fa-check"></i><b>7.2</b> Matrices</a></li>
+<li class="chapter" data-level="7.3" data-path="Tipos-de-datos.html"><a href="Tipos-de-datos.html#listas"><i class="fa fa-check"></i><b>7.3</b> Listas</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="Manipular-datos.html"><a href="Manipular-datos.html"><i class="fa fa-check"></i><b>8</b> Manipular datos</a><ul>
+<li class="chapter" data-level="8.1" data-path="Manipular-datos.html"><a href="Manipular-datos.html#leer-y-guardar-datos"><i class="fa fa-check"></i><b>8.1</b> Leer y guardar datos</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="Manipular-datos.html"><a href="Manipular-datos.html#leer-datos"><i class="fa fa-check"></i><b>8.1.1</b> Leer datos</a></li>
+<li class="chapter" data-level="8.1.2" data-path="Manipular-datos.html"><a href="Manipular-datos.html#guardar-db-a-archivo"><i class="fa fa-check"></i><b>8.1.2</b> Guardar DB a archivo</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="Manipular-datos.html"><a href="Manipular-datos.html#ver-output-vs-asignar-output"><i class="fa fa-check"></i><b>8.2</b> Ver output vs asignar output</a></li>
+<li class="chapter" data-level="8.3" data-path="Manipular-datos.html"><a href="Manipular-datos.html#verbos-de-dplyr"><i class="fa fa-check"></i><b>8.3</b> Verbos de dplyr</a><ul>
+<li class="chapter" data-level="8.3.1" data-path="Manipular-datos.html"><a href="Manipular-datos.html#renombrar-variables"><i class="fa fa-check"></i><b>8.3.1</b> Renombrar variables</a></li>
+<li class="chapter" data-level="8.3.2" data-path="Manipular-datos.html"><a href="Manipular-datos.html#seleccionar-variables"><i class="fa fa-check"></i><b>8.3.2</b> Seleccionar variables</a></li>
+<li class="chapter" data-level="8.3.3" data-path="Manipular-datos.html"><a href="Manipular-datos.html#wide-to-long-format"><i class="fa fa-check"></i><b>8.3.3</b> Wide to Long format</a></li>
+<li class="chapter" data-level="8.3.4" data-path="Manipular-datos.html"><a href="Manipular-datos.html#long-to-wide"><i class="fa fa-check"></i><b>8.3.4</b> Long to wide</a></li>
+<li class="chapter" data-level="8.3.5" data-path="Manipular-datos.html"><a href="Manipular-datos.html#omitir-nas"><i class="fa fa-check"></i><b>8.3.5</b> Omitir NAs</a></li>
+<li class="chapter" data-level="8.3.6" data-path="Manipular-datos.html"><a href="Manipular-datos.html#eliminar-variables"><i class="fa fa-check"></i><b>8.3.6</b> Eliminar variables</a></li>
+<li class="chapter" data-level="8.3.7" data-path="Manipular-datos.html"><a href="Manipular-datos.html#crear-nuevas-variables"><i class="fa fa-check"></i><b>8.3.7</b> Crear nuevas variables:</a></li>
+<li class="chapter" data-level="8.3.8" data-path="Manipular-datos.html"><a href="Manipular-datos.html#filtrar-datos"><i class="fa fa-check"></i><b>8.3.8</b> Filtrar datos</a></li>
+<li class="chapter" data-level="8.3.9" data-path="Manipular-datos.html"><a href="Manipular-datos.html#recodificamos-datos"><i class="fa fa-check"></i><b>8.3.9</b> Recodificamos datos</a></li>
+<li class="chapter" data-level="8.3.10" data-path="Manipular-datos.html"><a href="Manipular-datos.html#ordenar-db"><i class="fa fa-check"></i><b>8.3.10</b> Ordenar DB</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="Manipular-datos.html"><a href="Manipular-datos.html#combinar-bases-de-datos"><i class="fa fa-check"></i><b>8.4</b> Combinar bases de datos</a></li>
+<li class="chapter" data-level="8.5" data-path="Manipular-datos.html"><a href="Manipular-datos.html#verbos-avanzados"><i class="fa fa-check"></i><b>8.5</b> Verbos avanzados</a><ul>
+<li class="chapter" data-level="8.5.1" data-path="Manipular-datos.html"><a href="Manipular-datos.html#cambiar-multiples-columnas-de-un-tipo-a-otro"><i class="fa fa-check"></i><b>8.5.1</b> Cambiar multiples columnas de un tipo a otro</a></li>
+</ul></li>
+<li class="chapter" data-level="8.6" data-path="Manipular-datos.html"><a href="Manipular-datos.html#tutoriales-externos"><i class="fa fa-check"></i><b>8.6</b> Tutoriales externos</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html"><i class="fa fa-check"></i><b>9</b> Visualizar datos</a><ul>
+<li class="chapter" data-level="9.1" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#que-grafica-puedo-usar-wip"><i class="fa fa-check"></i><b>9.1</b> Que gráfica puedo usar (WIP)</a></li>
+<li class="chapter" data-level="9.2" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#tipos-de-graficas"><i class="fa fa-check"></i><b>9.2</b> Tipos de gráficas</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#histogramas"><i class="fa fa-check"></i><b>9.2.1</b> Histogramas</a></li>
+<li class="chapter" data-level="9.2.2" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#Pirate-Plot"><i class="fa fa-check"></i><b>9.2.2</b> Pirate plot</a></li>
+<li class="chapter" data-level="9.2.3" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#diagrama-de-caja-y-bigotes"><i class="fa fa-check"></i><b>9.2.3</b> Diagrama de caja y bigotes</a></li>
+<li class="chapter" data-level="9.2.4" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#correlation-plot"><i class="fa fa-check"></i><b>9.2.4</b> Correlation plot</a></li>
+<li class="chapter" data-level="9.2.5" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#beanplot"><i class="fa fa-check"></i><b>9.2.5</b> Beanplot</a></li>
+<li class="chapter" data-level="9.2.6" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#scatterplot"><i class="fa fa-check"></i><b>9.2.6</b> Scatterplot</a></li>
+<li class="chapter" data-level="9.2.7" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#scatterplot-con-3-variables"><i class="fa fa-check"></i><b>9.2.7</b> Scatterplot con 3 variables</a></li>
+<li class="chapter" data-level="9.2.8" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#density-plots"><i class="fa fa-check"></i><b>9.2.8</b> Density plots</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="Estadistica-descriptiva.html"><a href="Estadistica-descriptiva.html"><i class="fa fa-check"></i><b>10</b> Estadistica descriptiva</a><ul>
+<li class="chapter" data-level="10.1" data-path="Estadistica-descriptiva.html"><a href="Estadistica-descriptiva.html#summary-de-datos"><i class="fa fa-check"></i><b>10.1</b> Summary de datos</a></li>
+<li class="chapter" data-level="10.2" data-path="Estadistica-descriptiva.html"><a href="Estadistica-descriptiva.html#agrupamos-por-sujeto"><i class="fa fa-check"></i><b>10.2</b> Agrupamos por sujeto</a></li>
+<li class="chapter" data-level="10.3" data-path="Estadistica-descriptiva.html"><a href="Estadistica-descriptiva.html#tutorial-externo"><i class="fa fa-check"></i><b>10.3</b> Tutorial externo</a></li>
+<li class="chapter" data-level="10.4" data-path="Estadistica-descriptiva.html"><a href="Estadistica-descriptiva.html#findviews"><i class="fa fa-check"></i><b>10.4</b> Findviews</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html"><i class="fa fa-check"></i><b>11</b> Estadistica inferencial</a><ul>
+<li class="chapter" data-level="11.1" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#algo-sobre-modelos-y-formulas"><i class="fa fa-check"></i><b>11.1</b> Algo sobre Modelos y Fórmulas</a></li>
+<li class="chapter" data-level="11.2" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#preparacion-de-datos-y-packages"><i class="fa fa-check"></i><b>11.2</b> Preparación de datos y packages</a></li>
+<li class="chapter" data-level="11.3" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#prueba-t-para-muestras-independientes"><i class="fa fa-check"></i><b>11.3</b> Prueba t para muestras independientes</a><ul>
+<li class="chapter" data-level="11.3.1" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#contando-la-historia"><i class="fa fa-check"></i><b>11.3.1</b> Contando la historia…</a></li>
+<li class="chapter" data-level="11.3.2" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#test"><i class="fa fa-check"></i><b>11.3.2</b> Test</a></li>
+</ul></li>
+<li class="chapter" data-level="11.4" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#prueba-t-para-muestras-dependientes"><i class="fa fa-check"></i><b>11.4</b> Prueba t para muestras dependientes</a><ul>
+<li class="chapter" data-level="11.4.1" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#contando-la-historia-1"><i class="fa fa-check"></i><b>11.4.1</b> Contando la historia…</a></li>
+<li class="chapter" data-level="11.4.2" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#test-1"><i class="fa fa-check"></i><b>11.4.2</b> Test</a></li>
+</ul></li>
+<li class="chapter" data-level="11.5" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#correlacion-de-pearson"><i class="fa fa-check"></i><b>11.5</b> Correlación de Pearson</a><ul>
+<li class="chapter" data-level="11.5.1" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#contando-la-historia-2"><i class="fa fa-check"></i><b>11.5.1</b> Contando la historia…</a></li>
+<li class="chapter" data-level="11.5.2" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#test-2"><i class="fa fa-check"></i><b>11.5.2</b> Test</a></li>
+</ul></li>
+<li class="chapter" data-level="11.6" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#regresion-simple"><i class="fa fa-check"></i><b>11.6</b> Regresión Simple</a><ul>
+<li class="chapter" data-level="11.6.1" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#contando-la-historia-3"><i class="fa fa-check"></i><b>11.6.1</b> Contando la historia…</a></li>
+<li class="chapter" data-level="11.6.2" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#test-3"><i class="fa fa-check"></i><b>11.6.2</b> Test</a></li>
+</ul></li>
+<li class="chapter" data-level="11.7" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#analsis-de-la-varianza-1-factor"><i class="fa fa-check"></i><b>11.7</b> Análsis de la Varianza (1 Factor)</a><ul>
+<li class="chapter" data-level="11.7.1" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#preparacion-de-datos-y-packages-1"><i class="fa fa-check"></i><b>11.7.1</b> Preparación de datos y packages</a></li>
+<li class="chapter" data-level="11.7.2" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#contando-la-historia-4"><i class="fa fa-check"></i><b>11.7.2</b> Contando la historia…</a></li>
+<li class="chapter" data-level="11.7.3" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#test-4"><i class="fa fa-check"></i><b>11.7.3</b> Test</a></li>
+<li class="chapter" data-level="11.7.4" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#tablas"><i class="fa fa-check"></i><b>11.7.4</b> Tablas</a></li>
+</ul></li>
+<li class="chapter" data-level="11.8" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#analsis-de-la-varianza-2-factores"><i class="fa fa-check"></i><b>11.8</b> Análsis de la Varianza (2 Factores)</a><ul>
+<li class="chapter" data-level="11.8.1" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#descarga"><i class="fa fa-check"></i><b>11.8.1</b> Descarga</a></li>
+<li class="chapter" data-level="11.8.2" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#preparacion-de-datos-y-packages-2"><i class="fa fa-check"></i><b>11.8.2</b> Preparación de datos y packages</a></li>
+<li class="chapter" data-level="11.8.3" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#contando-la-historia-5"><i class="fa fa-check"></i><b>11.8.3</b> Contando la historia…</a></li>
+<li class="chapter" data-level="11.8.4" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#test-5"><i class="fa fa-check"></i><b>11.8.4</b> Test</a></li>
+<li class="chapter" data-level="11.8.5" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#tablas-1"><i class="fa fa-check"></i><b>11.8.5</b> Tablas</a></li>
+</ul></li>
+<li class="chapter" data-level="11.9" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#referencias-y-fuentes"><i class="fa fa-check"></i><b>11.9</b> Referencias y Fuentes</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="association-test.html"><a href="association-test.html"><i class="fa fa-check"></i><b>12</b> Association test</a><ul>
+<li class="chapter" data-level="12.0.1" data-path="association-test.html"><a href="association-test.html#frequentist-1"><i class="fa fa-check"></i><b>12.0.1</b> Frequentist</a></li>
+<li class="chapter" data-level="12.0.2" data-path="association-test.html"><a href="association-test.html#bayesian-2"><i class="fa fa-check"></i><b>12.0.2</b> Bayesian</a></li>
+<li class="chapter" data-level="12.0.3" data-path="association-test.html"><a href="association-test.html#results-report---wip"><i class="fa fa-check"></i><b>12.0.3</b> Results report - WIP</a></li>
+<li class="chapter" data-level="12.0.4" data-path="association-test.html"><a href="association-test.html#references"><i class="fa fa-check"></i><b>12.0.4</b> References</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="anova-repeated-measures.html"><a href="anova-repeated-measures.html"><i class="fa fa-check"></i><b>13</b> ANOVA repeated measures</a></li>
+<li class="chapter" data-level="14" data-path="meta-analysis.html"><a href="meta-analysis.html"><i class="fa fa-check"></i><b>14</b> Meta analysis</a><ul>
+<li class="chapter" data-level="14.1" data-path="meta-analysis.html"><a href="meta-analysis.html#natural-frequencies-effect"><i class="fa fa-check"></i><b>14.1</b> Natural Frequencies Effect</a></li>
+<li class="chapter" data-level="14.2" data-path="meta-analysis.html"><a href="meta-analysis.html#pictures-effect"><i class="fa fa-check"></i><b>14.2</b> Pictures Effect</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="Funciones.html"><a href="Funciones.html"><i class="fa fa-check"></i><b>15</b> Funciones</a><ul>
+<li class="chapter" data-level="15.1" data-path="Funciones.html"><a href="Funciones.html#creando-mi-primera-funcion"><i class="fa fa-check"></i><b>15.1</b> Creando mi primera función</a><ul>
+<li class="chapter" data-level="15.1.1" data-path="Funciones.html"><a href="Funciones.html#pirate-plot-original"><i class="fa fa-check"></i><b>15.1.1</b> Pirate plot original</a></li>
+<li class="chapter" data-level="15.1.2" data-path="Funciones.html"><a href="Funciones.html#nuestra-funcion"><i class="fa fa-check"></i><b>15.1.2</b> Nuestra función</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="pre-processing.html"><a href="pre-processing.html"><i class="fa fa-check"></i><b>16</b> Pre-processing</a><ul>
+<li class="chapter" data-level="16.1" data-path="pre-processing.html"><a href="pre-processing.html#rt-filtering"><i class="fa fa-check"></i><b>16.1</b> RT filtering</a><ul>
+<li class="chapter" data-level="16.1.1" data-path="pre-processing.html"><a href="pre-processing.html#function-to-filter-by-rt"><i class="fa fa-check"></i><b>16.1.1</b> Function to filter by RT</a></li>
+<li class="chapter" data-level="16.1.2" data-path="pre-processing.html"><a href="pre-processing.html#n-sd-from-the-median-mad-1"><i class="fa fa-check"></i><b>16.1.2</b> n SD from the median (MAD)</a></li>
+<li class="chapter" data-level="16.1.3" data-path="pre-processing.html"><a href="pre-processing.html#gamma-law-regression-analyses-2"><i class="fa fa-check"></i><b>16.1.3</b> Gamma law regression analyses</a></li>
+<li class="chapter" data-level="16.1.4" data-path="pre-processing.html"><a href="pre-processing.html#logarithms"><i class="fa fa-check"></i><b>16.1.4</b> Logarithms</a></li>
+<li class="chapter" data-level="16.1.5" data-path="pre-processing.html"><a href="pre-processing.html#references-1"><i class="fa fa-check"></i><b>16.1.5</b> References</a></li>
+</ul></li>
+<li class="chapter" data-level="16.2" data-path="pre-processing.html"><a href="pre-processing.html#reliability"><i class="fa fa-check"></i><b>16.2</b> Reliability</a><ul>
+<li class="chapter" data-level="16.2.1" data-path="pre-processing.html"><a href="pre-processing.html#cronbachs-alpha"><i class="fa fa-check"></i><b>16.2.1</b> Cronbach’s Alpha</a></li>
+<li class="chapter" data-level="16.2.2" data-path="pre-processing.html"><a href="pre-processing.html#omega"><i class="fa fa-check"></i><b>16.2.2</b> Omega</a></li>
+<li class="chapter" data-level="16.2.3" data-path="pre-processing.html"><a href="pre-processing.html#references-2"><i class="fa fa-check"></i><b>16.2.3</b> References</a></li>
+</ul></li>
+<li class="chapter" data-level="16.3" data-path="pre-processing.html"><a href="pre-processing.html#impute-missing-data"><i class="fa fa-check"></i><b>16.3</b> Impute missing data</a></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="bibliography-and-interesting-resources.html"><a href="bibliography-and-interesting-resources.html"><i class="fa fa-check"></i><b>17</b> Bibliography and interesting resources</a><ul>
+<li class="chapter" data-level="17.1" data-path="bibliography-and-interesting-resources.html"><a href="bibliography-and-interesting-resources.html#bibliography"><i class="fa fa-check"></i><b>17.1</b> Bibliography</a></li>
+<li class="chapter" data-level="17.2" data-path="bibliography-and-interesting-resources.html"><a href="bibliography-and-interesting-resources.html#interesting-resources---potentially"><i class="fa fa-check"></i><b>17.2</b> Interesting resources - potentially</a></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="experimental-design.html"><a href="experimental-design.html"><i class="fa fa-check"></i><b>18</b> Experimental design</a><ul>
+<li class="chapter" data-level="18.1" data-path="experimental-design.html"><a href="experimental-design.html#tamano-de-muestra-y-efecto-detectado"><i class="fa fa-check"></i><b>18.1</b> Tamaño de muestra y efecto detectado</a></li>
+<li class="chapter" data-level="18.2" data-path="experimental-design.html"><a href="experimental-design.html#power-analysis"><i class="fa fa-check"></i><b>18.2</b> Power analysis</a></li>
+<li class="chapter" data-level="18.3" data-path="experimental-design.html"><a href="experimental-design.html#anonimizar-participantes---encriptar-ids"><i class="fa fa-check"></i><b>18.3</b> Anonimizar participantes - Encriptar IDs</a><ul>
+<li class="chapter" data-level="18.3.1" data-path="experimental-design.html"><a href="experimental-design.html#encriptando-y-desencriptando-un-elemento"><i class="fa fa-check"></i><b>18.3.1</b> Encriptando y desencriptando un elemento</a></li>
+<li class="chapter" data-level="18.3.2" data-path="experimental-design.html"><a href="experimental-design.html#encriptando-y-desencriptando-la-columna-rut-de-una-db-completa."><i class="fa fa-check"></i><b>18.3.2</b> Encriptando y desencriptando la columna RUT de una DB completa.</a></li>
+</ul></li>
+<li class="chapter" data-level="18.4" data-path="experimental-design.html"><a href="experimental-design.html#match-participants"><i class="fa fa-check"></i><b>18.4</b> Match participants</a></li>
+</ul></li>
+<li class="chapter" data-level="19" data-path="other-stuff.html"><a href="other-stuff.html"><i class="fa fa-check"></i><b>19</b> Other stuff</a><ul>
+<li class="chapter" data-level="19.1" data-path="other-stuff.html"><a href="other-stuff.html#maps---generate-and-locate-cities-in-a-world-map"><i class="fa fa-check"></i><b>19.1</b> Maps - Generate and locate cities in a world map</a></li>
+</ul></li>
+<li class="chapter" data-level="20" data-path="ejercicios.html"><a href="ejercicios.html"><i class="fa fa-check"></i><b>20</b> Ejercicios</a><ul>
+<li class="chapter" data-level="20.1" data-path="ejercicios.html"><a href="ejercicios.html#Ejercicios1"><i class="fa fa-check"></i><b>20.1</b> Ejercicios 1</a></li>
+<li class="chapter" data-level="20.2" data-path="ejercicios.html"><a href="ejercicios.html#Ejercicios2"><i class="fa fa-check"></i><b>20.2</b> Ejercicios 2</a></li>
+</ul></li>
+<li class="chapter" data-level="21" data-path="todo-curso-basico-r-2016.html"><a href="todo-curso-basico-r-2016.html"><i class="fa fa-check"></i><b>21</b> TODO - Curso Basico R - 2016</a></li>
+<li class="chapter" data-level="22" data-path="todo.html"><a href="todo.html"><i class="fa fa-check"></i><b>22</b> TODO</a><ul>
+<li class="chapter" data-level="22.1" data-path="todo.html"><a href="todo.html#urgent-stuff"><i class="fa fa-check"></i><b>22.1</b> Urgent stuff</a></li>
+<li class="chapter" data-level="22.2" data-path="todo.html"><a href="todo.html#important"><i class="fa fa-check"></i><b>22.2</b> Important</a></li>
+<li class="chapter" data-level="22.3" data-path="todo.html"><a href="todo.html#index-proposal"><i class="fa fa-check"></i><b>22.3</b> <strong>INDEX PROPOSAL</strong></a></li>
+<li class="chapter" data-level="22.4" data-path="todo.html"><a href="todo.html#style-guide"><i class="fa fa-check"></i><b>22.4</b> Style guide</a><ul>
+<li class="chapter" data-level="22.4.1" data-path="todo.html"><a href="todo.html#sections"><i class="fa fa-check"></i><b>22.4.1</b> Sections</a></li>
+<li class="chapter" data-level="22.4.2" data-path="todo.html"><a href="todo.html#general"><i class="fa fa-check"></i><b>22.4.2</b> General</a></li>
+</ul></li>
+<li class="chapter" data-level="22.5" data-path="todo.html"><a href="todo.html#notas---remember"><i class="fa fa-check"></i><b>22.5</b> NOTAS - REMEMBER</a><ul>
+<li class="chapter" data-level="22.5.1" data-path="todo.html"><a href="todo.html#refs"><i class="fa fa-check"></i><b>22.5.1</b> REFS</a></li>
+<li class="chapter" data-level="22.5.2" data-path="todo.html"><a href="todo.html#notas"><i class="fa fa-check"></i><b>22.5.2</b> NOTAS</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R - Statistics Manual - CSCN</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="Importar_datos" class="section level1">
+<h1><span class="header-section-number">Chapter 5</span> Importar datos</h1>
+<div id="desde-archivo-csv" class="section level2">
+<h2><span class="header-section-number">5.1</span> Desde archivo CSV</h2>
+<hr />
+<p>Vamos a usar la siguiente <a href="Data/Importar_datos/data_importar_datos.csv">base de datos</a>.</p>
+<hr />
+<p>Tras descargar el archivo de arriba, lo <strong>moveremos a nuestro directorio de trabajo ‘R workshop’</strong>. Una vez ahí, podemos usar alguna de las siguientes funciones para leer el archivo:</p>
+<ul>
+<li><code>read_csv()</code> - comma separated values</li>
+<li><code>read_csv2()</code> - semicolon separated values</li>
+<li><code>read_delim( ,  delim = &quot;|&quot;)</code> - values separated by an arbitrary delimiter</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Cargamos librerias</span>
+if (!<span class="kw">require</span>(<span class="st">&#39;tidyverse&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;tidyverse&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;tidyverse&#39;</span>)
+    
+<span class="co"># Establecemos directorio de trabajo</span>
+<span class="kw">setwd</span>(<span class="st">&quot;~/R workshop&quot;</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Importar los datos</span>
+datos =<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;Data/Importar_datos/data_importar_datos.csv&quot;</span>)</code></pre></div>
+<pre><code>## Parsed with column specification:
+## cols(
+##   ID = col_integer(),
+##   wais_voc = col_integer(),
+##   boston = col_integer(),
+##   moral_02i = col_integer(),
+##   moral_20p = col_integer(),
+##   minisea_caras = col_integer(),
+##   eqscore = col_integer(),
+##   sex = col_integer(),
+##   age = col_integer(),
+##   wais_mp = col_integer(),
+##   eyes = col_integer(),
+##   sass_score = col_integer(),
+##   ifs_score = col_integer()
+## )</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Muestra las primeras 10 observaciones</span>
+datos</code></pre></div>
+<pre><code>## # A tibble: 237 x 13
+##       ID wais_voc boston moral_02i moral_20p minisea_caras eqscore   sex
+##    &lt;int&gt;    &lt;int&gt;  &lt;int&gt;     &lt;int&gt;     &lt;int&gt;         &lt;int&gt;   &lt;int&gt; &lt;int&gt;
+##  1     1       34     28         1         1            29      63     0
+##  2     2       13     23        NA         0            23      55     0
+##  3     3       20     16         1         1            26      27     0
+##  4     4       24     23         1         1            21      33     0
+##  5     5       20     24         1         1            18      35     1
+##  6     6        2      3         0         0            23      38    NA
+##  7     7       13     15         1        NA            19      38     0
+##  8     8       27     18         1         0            15      42     1
+##  9     9       37     28         1         0            23      36     0
+## 10    10       27     24         0         0            20      51     1
+## # ... with 227 more rows, and 5 more variables: age &lt;int&gt;, wais_mp &lt;int&gt;,
+## #   eyes &lt;int&gt;, sass_score &lt;int&gt;, ifs_score &lt;int&gt;</code></pre>
+<p>En el panel ‘Environment’ veremos que aparece <strong>datos</strong>: <BR><BR> <img src="Images/datos.png" /></p>
+<p>Haciendo click en <strong>datos</strong> abrimos una pestaña donde podemos ver el contenido de ese data frame. También podemos visualizarlo usando el codigo <code>View(datos)</code></p>
+</div>
+<div id="desde-archivo-xls" class="section level2">
+<h2><span class="header-section-number">5.2</span> Desde archivo XLS</h2>
+<hr />
+<p>Vamos a usar la siguiente <a href="Data/Importar_datos/data_importar_datos.xls">base de datos</a>.</p>
+<hr />
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Cargamos librerias</span>
+if (!<span class="kw">require</span>(<span class="st">&#39;readxl&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;readxl&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;readxl&#39;</span>)
+    
+<span class="co"># Establecemos directorio de trabajo</span>
+<span class="kw">setwd</span>(<span class="st">&quot;~/R workshop&quot;</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Importar los datos</span>
+datos =<span class="st"> </span><span class="kw">read_excel</span>(<span class="st">&quot;Data/Importar_datos/data_importar_datos.xls&quot;</span>)
+    
+<span class="co">#Muestra las primeras 10 observaciones</span>
+datos</code></pre></div>
+<pre><code>## # A tibble: 237 x 13
+##     name wais_voc boston moral_02i moral_20p minisea_caras eqscore   sex
+##    &lt;dbl&gt;    &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;         &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;
+##  1     1       34     28         1         1            29      63     0
+##  2     2       13     23        NA         0            23      55     0
+##  3     3       20     16         1         1            26      27     0
+##  4     4       24     23         1         1            21      33     0
+##  5     5       20     24         1         1            18      35     1
+##  6     6        2      3         0         0            23      38    NA
+##  7     7       13     15         1        NA            19      38     0
+##  8     8       27     18         1         0            15      42     1
+##  9     9       37     28         1         0            23      36     0
+## 10    10       27     24         0         0            20      51     1
+## # ... with 227 more rows, and 5 more variables: age &lt;dbl&gt;, wais_mp &lt;dbl&gt;,
+## #   eyes &lt;dbl&gt;, sass_score &lt;dbl&gt;, ifs_score &lt;dbl&gt;</code></pre>
+</div>
+<div id="desde-archivo-sav" class="section level2">
+<h2><span class="header-section-number">5.3</span> Desde archivo SAV</h2>
+<hr />
+<p>Vamos a usar la siguiente <a href="Data/Importar_datos/data_importar_datos.sav">base de datos</a>.</p>
+<hr />
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Cargamos librerias</span>
+if (!<span class="kw">require</span>(<span class="st">&#39;haven&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;haven&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;haven&#39;</span>)
+    
+<span class="co"># Establecemos directorio de trabajo</span>
+<span class="kw">setwd</span>(<span class="st">&quot;~/R workshop&quot;</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Importar los datos</span>
+datos =<span class="st"> </span><span class="kw">read_sav</span>(<span class="st">&quot;Data/Importar_datos/data_importar_datos.sav&quot;</span>)
+    
+<span class="co">#Muestra las primeras 10 observaciones</span>
+datos</code></pre></div>
+<pre><code>## # A tibble: 237 x 13
+##       ID wais_voc boston moral_02i moral_20p minisea_caras eqscore   sex
+##    &lt;dbl&gt;    &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;         &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;
+##  1     1       34     28         1         1            29      63     0
+##  2     2       13     23       NaN         0            23      55     0
+##  3     3       20     16         1         1            26      27     0
+##  4     4       24     23         1         1            21      33     0
+##  5     5       20     24         1         1            18      35     1
+##  6     6        2      3         0         0            23      38   NaN
+##  7     7       13     15         1       NaN            19      38     0
+##  8     8       27     18         1         0            15      42     1
+##  9     9       37     28         1         0            23      36     0
+## 10    10       27     24         0         0            20      51     1
+## # ... with 227 more rows, and 5 more variables: age &lt;dbl&gt;, wais_mp &lt;dbl&gt;,
+## #   eyes &lt;dbl&gt;, sass_score &lt;dbl&gt;, ifs_score &lt;dbl&gt;</code></pre>
+</div>
+<div id="importar-todos-los-archivos-de-una-carpeta" class="section level2">
+<h2><span class="header-section-number">5.4</span> Importar todos los archivos de una carpeta</h2>
+<hr />
+<p>Vamos a usar los siguientes <a href="Data/Importar_datos/CSVs/CSVs.zip">archivos</a>. Tendrás que descomprimirlos en una carpeta antes de usarlos.</p>
+<hr />
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">if (!<span class="kw">require</span>(<span class="st">&#39;tidyverse&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;tidyverse&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;tidyverse&#39;</span>)
+
+<span class="co"># We list all files in the desired folder</span>
+Path_Folder =<span class="st"> &quot;Data/Importar_datos/CSVs/&quot;</span>
+file.list &lt;-<span class="st"> </span><span class="kw">paste0</span>(Path_Folder, <span class="kw">list.files</span>(Path_Folder)); file.list</code></pre></div>
+<pre><code>## [1] &quot;Data/Importar_datos/CSVs/01.csv&quot;   &quot;Data/Importar_datos/CSVs/02.csv&quot;  
+## [3] &quot;Data/Importar_datos/CSVs/03.csv&quot;   &quot;Data/Importar_datos/CSVs/CSVs.zip&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Read and bind all of them</span>
+    <span class="co"># We can use the function read_csv or any other</span>
+df =<span class="st"> </span><span class="kw">lapply</span>(file.list, read_csv) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">bind_rows</span>(<span class="dt">.id =</span> <span class="st">&quot;ID&quot;</span>)</code></pre></div>
+<pre><code>## Parsed with column specification:
+## cols(
+##   Sex = col_character(),
+##   Priming = col_character(),
+##   trialN = col_integer(),
+##   Block = col_character(),
+##   Adjective = col_character(),
+##   Valence = col_character(),
+##   Answer = col_character(),
+##   Arrow = col_character(),
+##   rT = col_integer()
+## )
+## Parsed with column specification:
+## cols(
+##   Sex = col_character(),
+##   Priming = col_character(),
+##   trialN = col_integer(),
+##   Block = col_character(),
+##   Adjective = col_character(),
+##   Valence = col_character(),
+##   Answer = col_character(),
+##   Arrow = col_character(),
+##   rT = col_integer()
+## )
+## Parsed with column specification:
+## cols(
+##   Sex = col_character(),
+##   Priming = col_character(),
+##   trialN = col_integer(),
+##   Block = col_character(),
+##   Adjective = col_character(),
+##   Valence = col_character(),
+##   Answer = col_character(),
+##   Arrow = col_character(),
+##   rT = col_integer()
+## )</code></pre>
+<pre><code>## Multiple files in zip: reading &#39;03.csv&#39;</code></pre>
+<pre><code>## Parsed with column specification:
+## cols(
+##   Sex = col_character(),
+##   Priming = col_character(),
+##   trialN = col_integer(),
+##   Block = col_character(),
+##   Adjective = col_character(),
+##   Valence = col_character(),
+##   Answer = col_character(),
+##   Arrow = col_character(),
+##   rT = col_integer()
+## )</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df</code></pre></div>
+<pre><code>## # A tibble: 1,600 x 10
+##       ID   Sex    Priming trialN Block  Adjective  Valence Answer Arrow
+##    &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt;  &lt;int&gt; &lt;chr&gt;      &lt;chr&gt;    &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;
+##  1     1  male Collective      1    we   ofensivo negative    yes  left
+##  2     1  male Collective      2    we  resentido negative     no right
+##  3     1  male Collective      3    we    ego�sta negative    yes  left
+##  4     1  male Collective      4    we indiscreto negative    yes  left
+##  5     1  male Collective      5    we     sumiso negative    yes  left
+##  6     1  male Collective      6    we  agradable positive    yes  left
+##  7     1  male Collective      7    we   clasista negative    yes  left
+##  8     1  male Collective      8    we  altruista positive    yes  left
+##  9     1  male Collective      9    we    ansioso negative    yes  left
+## 10     1  male Collective     10    we  presumido negative    yes  left
+## # ... with 1,590 more rows, and 1 more variables: rT &lt;int&gt;</code></pre>
+</div>
+<div id="importar-archivos-con-rstudio" class="section level2">
+<h2><span class="header-section-number">5.5</span> Importar archivos con RStudio</h2>
+<hr />
+<p>Vamos a usar la siguiente <a href="Data/Importar_datos/data_importar_datos.csv">base de datos</a>.</p>
+<hr />
+<p>A partir de la version 1.0 de RStudio podemos importar archivos de datos usando la interfaz gráfica - <strong>Panel Environment &gt; Import Dataset</strong>, arriba a la derecha. En cualquier caso, para que lo que hacemos sea reproducible, es recomendable trabajar con código.</p>
+<div class="figure">
+<img src="Images/Importar_datos1.png" />
+
+</div>
+<div class="figure">
+<img src="Images/Importar_datos2.png" />
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="Conseguir-ayuda.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="exportar-datos.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

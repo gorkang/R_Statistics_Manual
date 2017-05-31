@@ -1,0 +1,75 @@
+# Other stuff
+
+Interesting stuff not necessarily related to stats :)
+
+
+## Maps - Generate and locate cities in a world map
+
+***
+```{r, message=FALSE, warning=FALSE}
+# Cargamos librerias y leemos DBif (!require('pacman')) install.packages('pacman'); library('pacman')
+library(pacman)
+# loading the required packages
+p_load(ggplot2, ggmap, tidyverse, ggrepel, stringr)
+
+```
+
+```{r}
+# Creamos un vector con ciudades y paises
+cities_vector = c(
+"Cambridge, UK",
+"Edinburgh, UK",
+"Heidelberg, Alemania",
+"Barcelona, Spain", 
+"Tenerife, Spain",
+"Granada, España",
+"Bolonia, Italy",
+"Sydney, Australia",
+"Toronto, Canada", 
+"San Francisco, California",
+"Buenos Aires, Argentina",
+"Santiago, Chile",
+"San Jose, Costa Rica",
+"Medellin, Colombia"
+)
+
+# Separamos el vector de ciudades para tener ciudades y paises por separado
+cities = cities_vector %>% as_tibble() %>% 
+  cbind(str_split_fixed(cities_vector, ", ", 2)) %>% 
+  dplyr::rename(City_Country = value, City = `1`, Country = `2`) %>% 
+  mutate(City_Country = paste0(City, ", ", Country))
+
+```
+
+```{r, message=FALSE, warning=FALSE}
+# Extraemos coordenadas a partir de las ciudades
+Coordinates = geocode(cities$City_Country)
+
+
+```
+
+```{r}
+# Combinamos ciudades con coordenadas
+Coordinates_cities =  cities %>% cbind(Coordinates)
+
+# Usamos el mapa 
+which_map <- map_data("world")
+ggplot() + geom_polygon(data = which_map, aes(x = long, y = lat, group = group, alpha = 0.8)) + #, fill = "none" 
+  coord_fixed(1.3) +
+  geom_point(data = Coordinates_cities, aes(x = lon, y = lat, color = "none", fill = "none", alpha = 0.8), size = 4, shape = 21) +
+  guides(fill = FALSE, alpha = FALSE, size = FALSE, color = F) +
+  scale_fill_manual(values = c("orange3")) + 
+  scale_colour_manual(values = c("white"))  +
+  
+  # We plot Universities, or not
+  geom_text_repel(data = Coordinates_cities, aes(x = lon, y = lat, label = City), segment.alpha = .5, segment.color = '#cccccc', colour = "orange4", size = 4 ) + #hjust = 0.5, vjust = -0.5,
+  
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank()) + 
+  theme(axis.line = element_blank(), axis.text.x = element_blank(),
+        axis.text.y = element_blank(), axis.ticks = element_blank(),
+        axis.title.x = element_blank(),
+        axis.title.y = element_blank(), legend.position = "none",
+        # panel.background=element_blank(),panel.border=element_blank(),panel.grid.major=element_blank(),
+        panel.grid.minor = element_blank(), plot.background = element_blank())
+
+```

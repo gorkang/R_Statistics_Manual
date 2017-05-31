@@ -1,0 +1,255 @@
+# Manipular datos{#Manipular_datos}
+
+
+***
+
+**TODO**
+* Ver [Data Processing with dplyr & tidyr](https://rpubs.com/bradleyboehmke/data_wrangling). Hay algunas buenas ideas ahi que nos deberian servir para mejorar nuestro documento.
+
+* Preparar un Long to wide que no venga desde wide. Ver ejemplo de Experimento 1 Fondecyt 2015 G. Cuando se pasa de long a wide quedan muchos NAs, hay q haccer summarise? 
+
+***
+
+
+***
+* Vamos a usar la siguiente [base de datos](Data/Manipular_datos/datos.csv).
+
+***
+
+Cargamos librerias
+```{r, message=FALSE, warning=FALSE}
+if (!require('pacman')) install.packages('pacman'); library('pacman')
+p_load(tidyverse, stringr)
+```
+
+## Leer y guardar datos
+
+### Leer datos
+```{r, message=FALSE, warning=FALSE}
+raw_data = read_csv("Data/Manipular_datos/datos.csv"); raw_data
+
+```
+
+### Guardar DB a archivo
+```{r}
+write_csv(raw_data, "Data/Manipular_datos/datos_guardados.csv")
+
+```
+
+## Ver output vs asignar output
+
+Cuando usamos ` = ` o ` <- ` asignamos lo que ocurre a la derecha a la variable de la izquierda. En caso contrario, simplemente vemos el output, pero sin asignarlo.
+
+```{r}
+# Creamos la variable temp para no sobreescribir raw_data
+temp = raw_data
+    
+# Seleccionamos la columna "Columna basura", pero sin "guardar" el resultado
+temp %>% select(`Columna basura`)
+
+# temp no ha cambiado
+temp
+
+# Lo mismo de antes pero ahora con "temp =" lo que hace que guardemos el resultado en "temp" 
+temp = temp %>% select(`Columna basura`)
+  
+# temp ha cambiado
+temp
+```
+      
+
+## Verbos de dplyr
+
+**TODO: ORDENAR SECCION PARA QUE SEA COHERENTE CON TABLA **   
+dplyr es un conjunto de funciones que nos permiten manipular los datos de manera relativamente sencilla y con una sintaxis muy legible. Con dplyr usamos el operador ` %>% ` que es una "tubería" que traslada lo que esta a su izquierda hacia la derecha. Esto permite concatenar multiples funciones (verbos) y realizar operaciones muy complejas en un solo "paso" y con una sintaxis facil de leer. 
+
+| Tarea	 | Función | Ejemplo|
+|--------|----------|----------|
+|Filtrar | filter() | `datos %>% filter(Sexo == 1)` |
+|Ordenar | arrange() | `datos %>% arrange(Sexo)` |
+|Seleccionar/eliminar variables|	select() | `datos %>% select(-Sexo)` |
+|Renombrar variables|	rename() | `datos %>% rename(Genero = Sexo)` |
+|Extraer valores únicos|	distinct() | `datos %>% distinct(Edad, .keep_all = T)` |
+|Crear/modificar variables|	mutate() | `datos %>% mutate(Viejuno = Edad > 30)`|
+|Omitir NAs |	na.omit() o drop_na()  | `datos %>% drop_na(Sexo)` |
+|Wide to long |	gather() | `datos %>% gather(Condition, VD, 4:6)` |
+|Long to wide |	spread() | `datos %>% spread(Condition, VD)` |
+|Combinar bases de datos |	left_join() | `left_join(datos1, datos2, by = "ID")` |
+|Recodificar valores | ifelse() | `datos %>% mutate(Edad = ifelse ( Edad > 30, "Viejuno", "Pipiolo"))` |
+|Recodificar valores | case_when() | `datos %>% mutate(Edad = case_when(.$Edad > 30 ~ "Viejuno", "Pipiolo))"` |
+
+### Renombrar variables
+
+```{r}
+# Renombramos columna X. En este caso, como el nombre de columna contiene espacios, tenemos que usar ``
+raw_data %>% rename(Columna_basura = `Columna basura`)
+
+```
+### Seleccionar variables
+
+```{r}
+# Seleccionamos varias columnas
+raw_data %>% select(ID, Sexo, Edad, VI1)
+
+# Podemos usar el número de columna    
+raw_data %>% select(1,3:4)
+
+```
+<BR>
+Para seleccionar varias columnas rapidamente usaremos la subfunción de select(), `matches()`. En esta podemos usar algo llamado [Regular Expressions](http://www.zytrax.com/tech/web/regex.htm), cuyo poder y dificultad es infinito. Ver por ejemplo, una expresión regular para validar numeros romanos: `^M{0,4}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})$`  
+
+![FROM https://xkcd.com/208/](https://imgs.xkcd.com/comics/regular_expressions.png)
+
+
+Nosotros usaremos la versión para todos los públicos, en la que simplemente indicaremos un fragmento de texto que buscar en los títulos de las columnas de nuestro data frame.
+```{r}
+# Seleccionamos las columnas que nos interesan usando matches()
+datos = raw_data %>% select(ID, Sexo, Edad, matches("VI"))
+   
+#Vemos datos
+datos
+
+```
+
+
+### Wide to Long format
+Cuando tenemos una condición por columna (como en la tabla de arriba) pero queremos los valores de las condiciones en una columna y los valores de la VD en otra:
+```{r}
+data_long_RAW = datos %>% 
+  gather(Condition, VD, 4:6, factor_key = TRUE, convert = F) %>% 
+  gather(Condition_t, VD_t, 4:6, factor_key = TRUE, convert = F)
+    
+data_long_RAW %>% select(-Condition_t) %>% arrange(ID)
+```
+
+### Long to wide
+Cuando tenemos unos datos en formato long y queremos formato wide.
+```{r}
+data_long_RAW %>%
+  spread(Condition, VD) %>%
+  spread(Condition_t, VD_t) 
+
+```
+
+### Omitir NAs
+```{r}
+#Filter OUT NAs in Follow_UP
+# data_long_RAW %>% na.omit(VD) #ESTE NO FUNCIONARA!!!!????
+data_long_RAW = data_long_RAW %>% drop_na(VD) 
+```
+
+
+### Eliminar variables
+
+```{r}
+# Eliminamos columna X
+data_long_RAW = data_long_RAW %>% select(-Condition_t)
+```
+
+### Crear nuevas variables:
+
+#### A partir de criterios logicos
+
+```{r}
+data_long_RAW %>% mutate(Viejuno = Edad > 30)
+
+```
+
+
+#### Transformando otras variables
+
+```{r}
+data_long_RAW %>% mutate(RT_log = log(VD_t))
+
+```
+
+### Filtrar datos
+```{r}
+# Nos quedamos solo con Sexo == 1
+data_long_RAW %>% filter(Sexo == 1) 
+
+# Filtramos por sexo, edad, y Tiempo
+data_long_RAW %>% filter(Sexo == 1, Edad  > 25, VD_t < mean(VD_t)) 
+
+# Filtramos aquellas respuestas que se han dado 2.5 desviaciones tipicas por encima o debajo de la media
+data_long_RAW %>% filter(
+  VD_t < mean(VD_t) + 2.5 * sd(VD_t),
+  VD_t > mean(VD_t) - 2.5 * sd(VD_t)
+  ) 
+
+# Filtrar filas donde aparece determinado texto
+data_long_RAW %>% filter(str_detect(Condition, "2"))
+
+```
+
+
+### Recodificamos datos
+
+#### Cambiamos el tipo de datos
+
+**TODO: masivamente, todos los integer a algo**
+```{r}
+# Cambiamos a Character
+data_long_RAW %>% mutate(Edad = as.character(Edad))
+
+# Cambiamos a Integer
+data_long_RAW %>% mutate(Edad = as.integer(Edad))
+
+```
+
+#### Recodificamos los valores
+```{r}
+data_long_RAW %>% mutate(Edad2 = 
+                           ifelse ( Edad > 30, "Viejuno", 
+                           ifelse ( Edad < 30, "Pipiolo", NA)))
+
+data_long_RAW %>% mutate(Edad2 = 
+                           case_when(
+                             .$Edad > 30 ~ "Viejuno",
+                             .$Edad < 30 ~ "Pipiolo"))
+
+```
+
+
+### Ordenar DB
+```{r}
+#data_long_RAW %>% arrange(desc(VD))
+data_long_RAW %>% arrange(VD_t, VD) 
+```
+
+## Combinar bases de datos
+Una funcionalidad muy potente (y sencilla!) es la de combinar bases de datos que tienen alguna columna en común. Para esto, usamos funciones como left_join(), right_join(), etc. Para más detalles, ver la sección *Combine Data Sets* del [Cheatsheet de dplyr](https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf).
+
+```{r}
+# Leemos las bases de datos
+datos1 = read_csv("Data/Manipular_datos/datos_1.csv"); datos1
+datos2 = read_csv("Data/Manipular_datos/datos_2.csv"); datos2
+
+# Combinamos las bases de datos
+datos_combinados = left_join(datos1, datos2, by = "ID"); datos_combinados
+
+```
+
+## Verbos avanzados
+
+### Cambiar multiples columnas de un tipo a otro
+```{r}
+# raw_data %>% mutate_if(is.character, as.double) # BUG: cuando alguna de las columnas tiene un espacio, falla
+
+# Cambiar las columnas numericas a character
+raw_data %>% mutate_if(is.numeric, as.character())
+
+# Cambiamos las variables de VI1 a VI3
+raw_data %>% mutate_at(vars(VI1:VI3), as.numeric)
+
+# Cambiamos todas las variables que contienen "VI" en el nombre
+raw_data %>% mutate_at(vars(matches("VI")), as.numeric)
+
+```
+
+
+## Tutoriales externos
+
+* [Tutorial para modificar datos - Simon Ejdemyr](http://stanford.edu/~ejdemyr/r-tutorials/modifying-data/)
+* [dplyr cheatsheet](https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf)
+* [Data Processing with dplyr & tidyr](https://rpubs.com/bradleyboehmke/data_wrangling)

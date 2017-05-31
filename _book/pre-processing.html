@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>R - Statistics Manual - CSCN</title>
+  <meta name="description" content="Statistics manual from CSCN.">
+  <meta name="generator" content="bookdown 0.4 and GitBook 2.6.7">
+
+  <meta property="og:title" content="R - Statistics Manual - CSCN" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Statistics manual from CSCN." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="R - Statistics Manual - CSCN" />
+  
+  <meta name="twitter:description" content="Statistics manual from CSCN." />
+  
+
+<meta name="author" content="Gorka Navarrete, Alvaro Rivera, David Huepe, Roberto Garcia">
+
+
+<meta name="date" content="2017-05-25">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="Funciones.html">
+<link rel="next" href="bibliography-and-interesting-resources.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#for-users"><i class="fa fa-check"></i><b>1.1</b> For USERS</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#for-developers-and-statisticians"><i class="fa fa-check"></i><b>1.2</b> For Developers and Statisticians</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#work-in-progress-wip"><i class="fa fa-check"></i><b>1.3</b> Work in Progress (WIP)</a><ul>
+<li class="chapter" data-level="1.3.1" data-path="index.html"><a href="index.html#inferential-analysis"><i class="fa fa-check"></i><b>1.3.1</b> Inferential analysis</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="Empezando.html"><a href="Empezando.html"><i class="fa fa-check"></i><b>2</b> Empezando en A-B-C</a><ul>
+<li class="chapter" data-level="2.1" data-path="Empezando.html"><a href="Empezando.html#a-instalar-r."><i class="fa fa-check"></i><b>2.1</b> <strong>(A)</strong> Instalar R.</a></li>
+<li class="chapter" data-level="2.2" data-path="Empezando.html"><a href="Empezando.html#b-instalar-rstudio."><i class="fa fa-check"></i><b>2.2</b> <strong>(B)</strong> Instalar RStudio.</a></li>
+<li class="chapter" data-level="2.3" data-path="Empezando.html"><a href="Empezando.html#instalar-packages"><i class="fa fa-check"></i><b>2.3</b> Instalar Packages</a></li>
+<li class="chapter" data-level="2.4" data-path="Empezando.html"><a href="Empezando.html#cargar-packages"><i class="fa fa-check"></i><b>2.4</b> Cargar Packages</a></li>
+<li class="chapter" data-level="2.5" data-path="Empezando.html"><a href="Empezando.html#todo-en-uno"><i class="fa fa-check"></i><b>2.5</b> Todo en uno</a></li>
+<li class="chapter" data-level="2.6" data-path="Empezando.html"><a href="Empezando.html#c-librerias-para-el-workshop"><i class="fa fa-check"></i><b>2.6</b> <strong>(C)</strong> Librerias para el workshop</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="Mi-primer-script.html"><a href="Mi-primer-script.html"><i class="fa fa-check"></i><b>3</b> Mi primer script</a><ul>
+<li class="chapter" data-level="3.1" data-path="Mi-primer-script.html"><a href="Mi-primer-script.html#paso-a-paso"><i class="fa fa-check"></i><b>3.1</b> Paso a paso</a></li>
+<li class="chapter" data-level="3.2" data-path="Mi-primer-script.html"><a href="Mi-primer-script.html#establecer-nuestro-directorio-de-trabajo"><i class="fa fa-check"></i><b>3.2</b> Establecer nuestro directorio de trabajo</a></li>
+<li class="chapter" data-level="3.3" data-path="Mi-primer-script.html"><a href="Mi-primer-script.html#nuestro-primer-script"><i class="fa fa-check"></i><b>3.3</b> Nuestro primer script</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="Conseguir-ayuda.html"><a href="Conseguir-ayuda.html"><i class="fa fa-check"></i><b>4</b> Conseguir ayuda y aprender más</a><ul>
+<li class="chapter" data-level="4.1" data-path="Conseguir-ayuda.html"><a href="Conseguir-ayuda.html#cuando-sabemos-que-funcion-usar-pero-dudamos-de-la-sintaxis"><i class="fa fa-check"></i><b>4.1</b> Cuando sabemos que función usar, pero dudamos de la sintaxis:</a></li>
+<li class="chapter" data-level="4.2" data-path="Conseguir-ayuda.html"><a href="Conseguir-ayuda.html#cuando-sabemos-lo-que-queremos-hacer-pero-no-la-funcion-que-debemos-usar"><i class="fa fa-check"></i><b>4.2</b> Cuando sabemos lo que queremos hacer pero no la función que debemos usar:</a></li>
+<li class="chapter" data-level="4.3" data-path="Conseguir-ayuda.html"><a href="Conseguir-ayuda.html#libros-y-web-recomendados"><i class="fa fa-check"></i><b>4.3</b> Libros y Web recomendados</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="Conseguir-ayuda.html"><a href="Conseguir-ayuda.html#hadley-wickhams-books"><i class="fa fa-check"></i><b>4.3.1</b> Hadley Wickham’s books</a></li>
+<li class="chapter" data-level="4.3.2" data-path="Conseguir-ayuda.html"><a href="Conseguir-ayuda.html#learning-statistics-with-r"><i class="fa fa-check"></i><b>4.3.2</b> Learning statistics with R</a></li>
+<li class="chapter" data-level="4.3.3" data-path="Conseguir-ayuda.html"><a href="Conseguir-ayuda.html#pirate-guide-to-r"><i class="fa fa-check"></i><b>4.3.3</b> Pirate guide to R</a></li>
+<li class="chapter" data-level="4.3.4" data-path="Conseguir-ayuda.html"><a href="Conseguir-ayuda.html#plots"><i class="fa fa-check"></i><b>4.3.4</b> Plots</a></li>
+<li class="chapter" data-level="4.3.5" data-path="Conseguir-ayuda.html"><a href="Conseguir-ayuda.html#other-references"><i class="fa fa-check"></i><b>4.3.5</b> Other references</a></li>
+<li class="chapter" data-level="4.3.6" data-path="Conseguir-ayuda.html"><a href="Conseguir-ayuda.html#twitter"><i class="fa fa-check"></i><b>4.3.6</b> Twitter</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="Importar-datos.html"><a href="Importar-datos.html"><i class="fa fa-check"></i><b>5</b> Importar datos</a><ul>
+<li class="chapter" data-level="5.1" data-path="Importar-datos.html"><a href="Importar-datos.html#desde-archivo-csv"><i class="fa fa-check"></i><b>5.1</b> Desde archivo CSV</a></li>
+<li class="chapter" data-level="5.2" data-path="Importar-datos.html"><a href="Importar-datos.html#desde-archivo-xls"><i class="fa fa-check"></i><b>5.2</b> Desde archivo XLS</a></li>
+<li class="chapter" data-level="5.3" data-path="Importar-datos.html"><a href="Importar-datos.html#desde-archivo-sav"><i class="fa fa-check"></i><b>5.3</b> Desde archivo SAV</a></li>
+<li class="chapter" data-level="5.4" data-path="Importar-datos.html"><a href="Importar-datos.html#importar-todos-los-archivos-de-una-carpeta"><i class="fa fa-check"></i><b>5.4</b> Importar todos los archivos de una carpeta</a></li>
+<li class="chapter" data-level="5.5" data-path="Importar-datos.html"><a href="Importar-datos.html#importar-archivos-con-rstudio"><i class="fa fa-check"></i><b>5.5</b> Importar archivos con RStudio</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="exportar-datos.html"><a href="exportar-datos.html"><i class="fa fa-check"></i><b>6</b> Exportar datos</a><ul>
+<li class="chapter" data-level="6.1" data-path="exportar-datos.html"><a href="exportar-datos.html#exportar-datos-a-archivo-csv"><i class="fa fa-check"></i><b>6.1</b> Exportar datos a archivo CSV</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="Tipos-de-datos.html"><a href="Tipos-de-datos.html"><i class="fa fa-check"></i><b>7</b> Tipos de datos</a><ul>
+<li class="chapter" data-level="7.1" data-path="Tipos-de-datos.html"><a href="Tipos-de-datos.html#data-frames"><i class="fa fa-check"></i><b>7.1</b> Data Frames</a></li>
+<li class="chapter" data-level="7.2" data-path="Tipos-de-datos.html"><a href="Tipos-de-datos.html#matrices"><i class="fa fa-check"></i><b>7.2</b> Matrices</a></li>
+<li class="chapter" data-level="7.3" data-path="Tipos-de-datos.html"><a href="Tipos-de-datos.html#listas"><i class="fa fa-check"></i><b>7.3</b> Listas</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="Manipular-datos.html"><a href="Manipular-datos.html"><i class="fa fa-check"></i><b>8</b> Manipular datos</a><ul>
+<li class="chapter" data-level="8.1" data-path="Manipular-datos.html"><a href="Manipular-datos.html#leer-y-guardar-datos"><i class="fa fa-check"></i><b>8.1</b> Leer y guardar datos</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="Manipular-datos.html"><a href="Manipular-datos.html#leer-datos"><i class="fa fa-check"></i><b>8.1.1</b> Leer datos</a></li>
+<li class="chapter" data-level="8.1.2" data-path="Manipular-datos.html"><a href="Manipular-datos.html#guardar-db-a-archivo"><i class="fa fa-check"></i><b>8.1.2</b> Guardar DB a archivo</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="Manipular-datos.html"><a href="Manipular-datos.html#ver-output-vs-asignar-output"><i class="fa fa-check"></i><b>8.2</b> Ver output vs asignar output</a></li>
+<li class="chapter" data-level="8.3" data-path="Manipular-datos.html"><a href="Manipular-datos.html#verbos-de-dplyr"><i class="fa fa-check"></i><b>8.3</b> Verbos de dplyr</a><ul>
+<li class="chapter" data-level="8.3.1" data-path="Manipular-datos.html"><a href="Manipular-datos.html#renombrar-variables"><i class="fa fa-check"></i><b>8.3.1</b> Renombrar variables</a></li>
+<li class="chapter" data-level="8.3.2" data-path="Manipular-datos.html"><a href="Manipular-datos.html#seleccionar-variables"><i class="fa fa-check"></i><b>8.3.2</b> Seleccionar variables</a></li>
+<li class="chapter" data-level="8.3.3" data-path="Manipular-datos.html"><a href="Manipular-datos.html#wide-to-long-format"><i class="fa fa-check"></i><b>8.3.3</b> Wide to Long format</a></li>
+<li class="chapter" data-level="8.3.4" data-path="Manipular-datos.html"><a href="Manipular-datos.html#long-to-wide"><i class="fa fa-check"></i><b>8.3.4</b> Long to wide</a></li>
+<li class="chapter" data-level="8.3.5" data-path="Manipular-datos.html"><a href="Manipular-datos.html#omitir-nas"><i class="fa fa-check"></i><b>8.3.5</b> Omitir NAs</a></li>
+<li class="chapter" data-level="8.3.6" data-path="Manipular-datos.html"><a href="Manipular-datos.html#eliminar-variables"><i class="fa fa-check"></i><b>8.3.6</b> Eliminar variables</a></li>
+<li class="chapter" data-level="8.3.7" data-path="Manipular-datos.html"><a href="Manipular-datos.html#crear-nuevas-variables"><i class="fa fa-check"></i><b>8.3.7</b> Crear nuevas variables:</a></li>
+<li class="chapter" data-level="8.3.8" data-path="Manipular-datos.html"><a href="Manipular-datos.html#filtrar-datos"><i class="fa fa-check"></i><b>8.3.8</b> Filtrar datos</a></li>
+<li class="chapter" data-level="8.3.9" data-path="Manipular-datos.html"><a href="Manipular-datos.html#recodificamos-datos"><i class="fa fa-check"></i><b>8.3.9</b> Recodificamos datos</a></li>
+<li class="chapter" data-level="8.3.10" data-path="Manipular-datos.html"><a href="Manipular-datos.html#ordenar-db"><i class="fa fa-check"></i><b>8.3.10</b> Ordenar DB</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="Manipular-datos.html"><a href="Manipular-datos.html#combinar-bases-de-datos"><i class="fa fa-check"></i><b>8.4</b> Combinar bases de datos</a></li>
+<li class="chapter" data-level="8.5" data-path="Manipular-datos.html"><a href="Manipular-datos.html#verbos-avanzados"><i class="fa fa-check"></i><b>8.5</b> Verbos avanzados</a><ul>
+<li class="chapter" data-level="8.5.1" data-path="Manipular-datos.html"><a href="Manipular-datos.html#cambiar-multiples-columnas-de-un-tipo-a-otro"><i class="fa fa-check"></i><b>8.5.1</b> Cambiar multiples columnas de un tipo a otro</a></li>
+</ul></li>
+<li class="chapter" data-level="8.6" data-path="Manipular-datos.html"><a href="Manipular-datos.html#tutoriales-externos"><i class="fa fa-check"></i><b>8.6</b> Tutoriales externos</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html"><i class="fa fa-check"></i><b>9</b> Visualizar datos</a><ul>
+<li class="chapter" data-level="9.1" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#que-grafica-puedo-usar-wip"><i class="fa fa-check"></i><b>9.1</b> Que gráfica puedo usar (WIP)</a></li>
+<li class="chapter" data-level="9.2" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#tipos-de-graficas"><i class="fa fa-check"></i><b>9.2</b> Tipos de gráficas</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#histogramas"><i class="fa fa-check"></i><b>9.2.1</b> Histogramas</a></li>
+<li class="chapter" data-level="9.2.2" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#Pirate-Plot"><i class="fa fa-check"></i><b>9.2.2</b> Pirate plot</a></li>
+<li class="chapter" data-level="9.2.3" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#diagrama-de-caja-y-bigotes"><i class="fa fa-check"></i><b>9.2.3</b> Diagrama de caja y bigotes</a></li>
+<li class="chapter" data-level="9.2.4" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#correlation-plot"><i class="fa fa-check"></i><b>9.2.4</b> Correlation plot</a></li>
+<li class="chapter" data-level="9.2.5" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#beanplot"><i class="fa fa-check"></i><b>9.2.5</b> Beanplot</a></li>
+<li class="chapter" data-level="9.2.6" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#scatterplot"><i class="fa fa-check"></i><b>9.2.6</b> Scatterplot</a></li>
+<li class="chapter" data-level="9.2.7" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#scatterplot-con-3-variables"><i class="fa fa-check"></i><b>9.2.7</b> Scatterplot con 3 variables</a></li>
+<li class="chapter" data-level="9.2.8" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#density-plots"><i class="fa fa-check"></i><b>9.2.8</b> Density plots</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="Estadistica-descriptiva.html"><a href="Estadistica-descriptiva.html"><i class="fa fa-check"></i><b>10</b> Estadistica descriptiva</a><ul>
+<li class="chapter" data-level="10.1" data-path="Estadistica-descriptiva.html"><a href="Estadistica-descriptiva.html#summary-de-datos"><i class="fa fa-check"></i><b>10.1</b> Summary de datos</a></li>
+<li class="chapter" data-level="10.2" data-path="Estadistica-descriptiva.html"><a href="Estadistica-descriptiva.html#agrupamos-por-sujeto"><i class="fa fa-check"></i><b>10.2</b> Agrupamos por sujeto</a></li>
+<li class="chapter" data-level="10.3" data-path="Estadistica-descriptiva.html"><a href="Estadistica-descriptiva.html#tutorial-externo"><i class="fa fa-check"></i><b>10.3</b> Tutorial externo</a></li>
+<li class="chapter" data-level="10.4" data-path="Estadistica-descriptiva.html"><a href="Estadistica-descriptiva.html#findviews"><i class="fa fa-check"></i><b>10.4</b> Findviews</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html"><i class="fa fa-check"></i><b>11</b> Estadistica inferencial</a><ul>
+<li class="chapter" data-level="11.1" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#algo-sobre-modelos-y-formulas"><i class="fa fa-check"></i><b>11.1</b> Algo sobre Modelos y Fórmulas</a></li>
+<li class="chapter" data-level="11.2" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#preparacion-de-datos-y-packages"><i class="fa fa-check"></i><b>11.2</b> Preparación de datos y packages</a></li>
+<li class="chapter" data-level="11.3" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#prueba-t-para-muestras-independientes"><i class="fa fa-check"></i><b>11.3</b> Prueba t para muestras independientes</a><ul>
+<li class="chapter" data-level="11.3.1" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#contando-la-historia"><i class="fa fa-check"></i><b>11.3.1</b> Contando la historia…</a></li>
+<li class="chapter" data-level="11.3.2" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#test"><i class="fa fa-check"></i><b>11.3.2</b> Test</a></li>
+</ul></li>
+<li class="chapter" data-level="11.4" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#prueba-t-para-muestras-dependientes"><i class="fa fa-check"></i><b>11.4</b> Prueba t para muestras dependientes</a><ul>
+<li class="chapter" data-level="11.4.1" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#contando-la-historia-1"><i class="fa fa-check"></i><b>11.4.1</b> Contando la historia…</a></li>
+<li class="chapter" data-level="11.4.2" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#test-1"><i class="fa fa-check"></i><b>11.4.2</b> Test</a></li>
+</ul></li>
+<li class="chapter" data-level="11.5" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#correlacion-de-pearson"><i class="fa fa-check"></i><b>11.5</b> Correlación de Pearson</a><ul>
+<li class="chapter" data-level="11.5.1" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#contando-la-historia-2"><i class="fa fa-check"></i><b>11.5.1</b> Contando la historia…</a></li>
+<li class="chapter" data-level="11.5.2" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#test-2"><i class="fa fa-check"></i><b>11.5.2</b> Test</a></li>
+</ul></li>
+<li class="chapter" data-level="11.6" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#regresion-simple"><i class="fa fa-check"></i><b>11.6</b> Regresión Simple</a><ul>
+<li class="chapter" data-level="11.6.1" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#contando-la-historia-3"><i class="fa fa-check"></i><b>11.6.1</b> Contando la historia…</a></li>
+<li class="chapter" data-level="11.6.2" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#test-3"><i class="fa fa-check"></i><b>11.6.2</b> Test</a></li>
+</ul></li>
+<li class="chapter" data-level="11.7" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#analsis-de-la-varianza-1-factor"><i class="fa fa-check"></i><b>11.7</b> Análsis de la Varianza (1 Factor)</a><ul>
+<li class="chapter" data-level="11.7.1" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#preparacion-de-datos-y-packages-1"><i class="fa fa-check"></i><b>11.7.1</b> Preparación de datos y packages</a></li>
+<li class="chapter" data-level="11.7.2" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#contando-la-historia-4"><i class="fa fa-check"></i><b>11.7.2</b> Contando la historia…</a></li>
+<li class="chapter" data-level="11.7.3" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#test-4"><i class="fa fa-check"></i><b>11.7.3</b> Test</a></li>
+<li class="chapter" data-level="11.7.4" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#tablas"><i class="fa fa-check"></i><b>11.7.4</b> Tablas</a></li>
+</ul></li>
+<li class="chapter" data-level="11.8" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#analsis-de-la-varianza-2-factores"><i class="fa fa-check"></i><b>11.8</b> Análsis de la Varianza (2 Factores)</a><ul>
+<li class="chapter" data-level="11.8.1" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#descarga"><i class="fa fa-check"></i><b>11.8.1</b> Descarga</a></li>
+<li class="chapter" data-level="11.8.2" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#preparacion-de-datos-y-packages-2"><i class="fa fa-check"></i><b>11.8.2</b> Preparación de datos y packages</a></li>
+<li class="chapter" data-level="11.8.3" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#contando-la-historia-5"><i class="fa fa-check"></i><b>11.8.3</b> Contando la historia…</a></li>
+<li class="chapter" data-level="11.8.4" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#test-5"><i class="fa fa-check"></i><b>11.8.4</b> Test</a></li>
+<li class="chapter" data-level="11.8.5" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#tablas-1"><i class="fa fa-check"></i><b>11.8.5</b> Tablas</a></li>
+</ul></li>
+<li class="chapter" data-level="11.9" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#referencias-y-fuentes"><i class="fa fa-check"></i><b>11.9</b> Referencias y Fuentes</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="association-test.html"><a href="association-test.html"><i class="fa fa-check"></i><b>12</b> Association test</a><ul>
+<li class="chapter" data-level="12.0.1" data-path="association-test.html"><a href="association-test.html#frequentist-1"><i class="fa fa-check"></i><b>12.0.1</b> Frequentist</a></li>
+<li class="chapter" data-level="12.0.2" data-path="association-test.html"><a href="association-test.html#bayesian-2"><i class="fa fa-check"></i><b>12.0.2</b> Bayesian</a></li>
+<li class="chapter" data-level="12.0.3" data-path="association-test.html"><a href="association-test.html#results-report---wip"><i class="fa fa-check"></i><b>12.0.3</b> Results report - WIP</a></li>
+<li class="chapter" data-level="12.0.4" data-path="association-test.html"><a href="association-test.html#references"><i class="fa fa-check"></i><b>12.0.4</b> References</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="anova-repeated-measures.html"><a href="anova-repeated-measures.html"><i class="fa fa-check"></i><b>13</b> ANOVA repeated measures</a></li>
+<li class="chapter" data-level="14" data-path="meta-analysis.html"><a href="meta-analysis.html"><i class="fa fa-check"></i><b>14</b> Meta analysis</a><ul>
+<li class="chapter" data-level="14.1" data-path="meta-analysis.html"><a href="meta-analysis.html#natural-frequencies-effect"><i class="fa fa-check"></i><b>14.1</b> Natural Frequencies Effect</a></li>
+<li class="chapter" data-level="14.2" data-path="meta-analysis.html"><a href="meta-analysis.html#pictures-effect"><i class="fa fa-check"></i><b>14.2</b> Pictures Effect</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="Funciones.html"><a href="Funciones.html"><i class="fa fa-check"></i><b>15</b> Funciones</a><ul>
+<li class="chapter" data-level="15.1" data-path="Funciones.html"><a href="Funciones.html#creando-mi-primera-funcion"><i class="fa fa-check"></i><b>15.1</b> Creando mi primera función</a><ul>
+<li class="chapter" data-level="15.1.1" data-path="Funciones.html"><a href="Funciones.html#pirate-plot-original"><i class="fa fa-check"></i><b>15.1.1</b> Pirate plot original</a></li>
+<li class="chapter" data-level="15.1.2" data-path="Funciones.html"><a href="Funciones.html#nuestra-funcion"><i class="fa fa-check"></i><b>15.1.2</b> Nuestra función</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="pre-processing.html"><a href="pre-processing.html"><i class="fa fa-check"></i><b>16</b> Pre-processing</a><ul>
+<li class="chapter" data-level="16.1" data-path="pre-processing.html"><a href="pre-processing.html#rt-filtering"><i class="fa fa-check"></i><b>16.1</b> RT filtering</a><ul>
+<li class="chapter" data-level="16.1.1" data-path="pre-processing.html"><a href="pre-processing.html#function-to-filter-by-rt"><i class="fa fa-check"></i><b>16.1.1</b> Function to filter by RT</a></li>
+<li class="chapter" data-level="16.1.2" data-path="pre-processing.html"><a href="pre-processing.html#n-sd-from-the-median-mad-1"><i class="fa fa-check"></i><b>16.1.2</b> n SD from the median (MAD)</a></li>
+<li class="chapter" data-level="16.1.3" data-path="pre-processing.html"><a href="pre-processing.html#gamma-law-regression-analyses-2"><i class="fa fa-check"></i><b>16.1.3</b> Gamma law regression analyses</a></li>
+<li class="chapter" data-level="16.1.4" data-path="pre-processing.html"><a href="pre-processing.html#logarithms"><i class="fa fa-check"></i><b>16.1.4</b> Logarithms</a></li>
+<li class="chapter" data-level="16.1.5" data-path="pre-processing.html"><a href="pre-processing.html#references-1"><i class="fa fa-check"></i><b>16.1.5</b> References</a></li>
+</ul></li>
+<li class="chapter" data-level="16.2" data-path="pre-processing.html"><a href="pre-processing.html#reliability"><i class="fa fa-check"></i><b>16.2</b> Reliability</a><ul>
+<li class="chapter" data-level="16.2.1" data-path="pre-processing.html"><a href="pre-processing.html#cronbachs-alpha"><i class="fa fa-check"></i><b>16.2.1</b> Cronbach’s Alpha</a></li>
+<li class="chapter" data-level="16.2.2" data-path="pre-processing.html"><a href="pre-processing.html#omega"><i class="fa fa-check"></i><b>16.2.2</b> Omega</a></li>
+<li class="chapter" data-level="16.2.3" data-path="pre-processing.html"><a href="pre-processing.html#references-2"><i class="fa fa-check"></i><b>16.2.3</b> References</a></li>
+</ul></li>
+<li class="chapter" data-level="16.3" data-path="pre-processing.html"><a href="pre-processing.html#impute-missing-data"><i class="fa fa-check"></i><b>16.3</b> Impute missing data</a></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="bibliography-and-interesting-resources.html"><a href="bibliography-and-interesting-resources.html"><i class="fa fa-check"></i><b>17</b> Bibliography and interesting resources</a><ul>
+<li class="chapter" data-level="17.1" data-path="bibliography-and-interesting-resources.html"><a href="bibliography-and-interesting-resources.html#bibliography"><i class="fa fa-check"></i><b>17.1</b> Bibliography</a></li>
+<li class="chapter" data-level="17.2" data-path="bibliography-and-interesting-resources.html"><a href="bibliography-and-interesting-resources.html#interesting-resources---potentially"><i class="fa fa-check"></i><b>17.2</b> Interesting resources - potentially</a></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="experimental-design.html"><a href="experimental-design.html"><i class="fa fa-check"></i><b>18</b> Experimental design</a><ul>
+<li class="chapter" data-level="18.1" data-path="experimental-design.html"><a href="experimental-design.html#tamano-de-muestra-y-efecto-detectado"><i class="fa fa-check"></i><b>18.1</b> Tamaño de muestra y efecto detectado</a></li>
+<li class="chapter" data-level="18.2" data-path="experimental-design.html"><a href="experimental-design.html#power-analysis"><i class="fa fa-check"></i><b>18.2</b> Power analysis</a></li>
+<li class="chapter" data-level="18.3" data-path="experimental-design.html"><a href="experimental-design.html#anonimizar-participantes---encriptar-ids"><i class="fa fa-check"></i><b>18.3</b> Anonimizar participantes - Encriptar IDs</a><ul>
+<li class="chapter" data-level="18.3.1" data-path="experimental-design.html"><a href="experimental-design.html#encriptando-y-desencriptando-un-elemento"><i class="fa fa-check"></i><b>18.3.1</b> Encriptando y desencriptando un elemento</a></li>
+<li class="chapter" data-level="18.3.2" data-path="experimental-design.html"><a href="experimental-design.html#encriptando-y-desencriptando-la-columna-rut-de-una-db-completa."><i class="fa fa-check"></i><b>18.3.2</b> Encriptando y desencriptando la columna RUT de una DB completa.</a></li>
+</ul></li>
+<li class="chapter" data-level="18.4" data-path="experimental-design.html"><a href="experimental-design.html#match-participants"><i class="fa fa-check"></i><b>18.4</b> Match participants</a></li>
+</ul></li>
+<li class="chapter" data-level="19" data-path="other-stuff.html"><a href="other-stuff.html"><i class="fa fa-check"></i><b>19</b> Other stuff</a><ul>
+<li class="chapter" data-level="19.1" data-path="other-stuff.html"><a href="other-stuff.html#maps---generate-and-locate-cities-in-a-world-map"><i class="fa fa-check"></i><b>19.1</b> Maps - Generate and locate cities in a world map</a></li>
+</ul></li>
+<li class="chapter" data-level="20" data-path="ejercicios.html"><a href="ejercicios.html"><i class="fa fa-check"></i><b>20</b> Ejercicios</a><ul>
+<li class="chapter" data-level="20.1" data-path="ejercicios.html"><a href="ejercicios.html#Ejercicios1"><i class="fa fa-check"></i><b>20.1</b> Ejercicios 1</a></li>
+<li class="chapter" data-level="20.2" data-path="ejercicios.html"><a href="ejercicios.html#Ejercicios2"><i class="fa fa-check"></i><b>20.2</b> Ejercicios 2</a></li>
+</ul></li>
+<li class="chapter" data-level="21" data-path="todo-curso-basico-r-2016.html"><a href="todo-curso-basico-r-2016.html"><i class="fa fa-check"></i><b>21</b> TODO - Curso Basico R - 2016</a></li>
+<li class="chapter" data-level="22" data-path="todo.html"><a href="todo.html"><i class="fa fa-check"></i><b>22</b> TODO</a><ul>
+<li class="chapter" data-level="22.1" data-path="todo.html"><a href="todo.html#urgent-stuff"><i class="fa fa-check"></i><b>22.1</b> Urgent stuff</a></li>
+<li class="chapter" data-level="22.2" data-path="todo.html"><a href="todo.html#important"><i class="fa fa-check"></i><b>22.2</b> Important</a></li>
+<li class="chapter" data-level="22.3" data-path="todo.html"><a href="todo.html#index-proposal"><i class="fa fa-check"></i><b>22.3</b> <strong>INDEX PROPOSAL</strong></a></li>
+<li class="chapter" data-level="22.4" data-path="todo.html"><a href="todo.html#style-guide"><i class="fa fa-check"></i><b>22.4</b> Style guide</a><ul>
+<li class="chapter" data-level="22.4.1" data-path="todo.html"><a href="todo.html#sections"><i class="fa fa-check"></i><b>22.4.1</b> Sections</a></li>
+<li class="chapter" data-level="22.4.2" data-path="todo.html"><a href="todo.html#general"><i class="fa fa-check"></i><b>22.4.2</b> General</a></li>
+</ul></li>
+<li class="chapter" data-level="22.5" data-path="todo.html"><a href="todo.html#notas---remember"><i class="fa fa-check"></i><b>22.5</b> NOTAS - REMEMBER</a><ul>
+<li class="chapter" data-level="22.5.1" data-path="todo.html"><a href="todo.html#refs"><i class="fa fa-check"></i><b>22.5.1</b> REFS</a></li>
+<li class="chapter" data-level="22.5.2" data-path="todo.html"><a href="todo.html#notas"><i class="fa fa-check"></i><b>22.5.2</b> NOTAS</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R - Statistics Manual - CSCN</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="pre-processing" class="section level1">
+<h1><span class="header-section-number">Chapter 16</span> Pre-processing</h1>
+<div id="rt-filtering" class="section level2">
+<h2><span class="header-section-number">16.1</span> RT filtering</h2>
+<div id="function-to-filter-by-rt" class="section level3">
+<h3><span class="header-section-number">16.1.1</span> Function to filter by RT</h3>
+<p>Here you can see an example on how to use a function to filter by RT (log filtering version below).</p>
+<hr />
+<p>We use the following <a href="Data/Pre-processing/RT_Filtering_data_file.csv">dataset</a>.</p>
+<hr />
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)
+
+<span class="co"># RT Filtering function</span>
+Filter_FUN &lt;-<span class="st"> </span>function(DB, Column, <span class="dt">Low_PCT =</span> <span class="fl">0.05</span>, <span class="dt">High_PCT =</span> <span class="fl">0.95</span>) {
+  
+  args =<span class="st"> </span><span class="kw">as.list</span>(<span class="kw">match.call</span>())
+  
+  <span class="co"># Creamos Column_LOG</span>
+  DB =<span class="st"> </span>DB %&gt;%<span class="st"> </span><span class="kw">mutate</span>(<span class="dt">Column_LOG =</span> <span class="kw">log</span>(<span class="kw">eval</span>(args$Column, DB)))
+  lowcut =<span class="st"> </span><span class="kw">quantile</span>(DB$Column_LOG, Low_PCT, <span class="dt">na.rm =</span> T)
+  highcut =<span class="st"> </span><span class="kw">quantile</span>(DB$Column_LOG, High_PCT, <span class="dt">na.rm =</span> T)
+  
+  <span class="co"># Returns DB_Filtered</span>
+  DB_Filtered &lt;&lt;-<span class="st"> </span><span class="kw">subset</span>(DB, DB$Column_LOG &gt;<span class="st"> </span>lowcut &amp;<span class="st"> </span>DB$Column_LOG &lt;<span class="st"> </span>highcut) 
+  
+  <span class="co"># return(DB_Filtered)</span>
+  <span class="kw">cat</span>(<span class="st">&quot;**** Datos filtrados a partir de la columna&quot;</span>, args$Column, <span class="st">&quot;: &quot;</span>, <span class="kw">nrow</span>(DB) -<span class="st"> </span><span class="kw">nrow</span>(DB_Filtered), <span class="st">&quot;/&quot;</span>, <span class="kw">nrow</span>(DB), <span class="st">&quot;filas eliminadas ***&quot;</span>)
+  
+}</code></pre></div>
+<p>After creating the function, we read the DB and apply the filtering. A dataframe called DB_Filtered is created with the filtered data.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dataset =<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;Data/Pre-processing/RT_Filtering_data_file.csv&quot;</span>)</code></pre></div>
+<pre><code>## Parsed with column specification:
+## cols(
+##   ID = col_integer(),
+##   Dem_Gender = col_integer(),
+##   Dem_Age = col_integer(),
+##   Time = col_double(),
+##   Formato = col_character(),
+##   Accuracy = col_integer()
+## )</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dataset</code></pre></div>
+<pre><code>## # A tibble: 200 x 6
+##       ID Dem_Gender Dem_Age   Time Formato Accuracy
+##    &lt;int&gt;      &lt;int&gt;   &lt;int&gt;  &lt;dbl&gt;   &lt;chr&gt;    &lt;int&gt;
+##  1     1          2      37  2.618      PR        0
+##  2     2          2      32 23.303      PR        0
+##  3     3          1     100  6.900      FN        0
+##  4     4          2      34 12.905      FN        1
+##  5     5          1      29 38.895      FN        1
+##  6     6          2      25 42.473      FN        1
+##  7     7          1      27  3.287      PR        0
+##  8     8          1      29 16.438      PR        0
+##  9     9          1      30 60.794      PR        1
+## 10    10          2      28 26.169      PR        0
+## # ... with 190 more rows</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">Filter_FUN</span>(dataset, Time)</code></pre></div>
+<pre><code>## **** Datos filtrados a partir de la columna Time :  20 / 200 filas eliminadas ***</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">DB_Filtered</code></pre></div>
+<pre><code>## # A tibble: 180 x 7
+##       ID Dem_Gender Dem_Age   Time Formato Accuracy Column_LOG
+##    &lt;int&gt;      &lt;int&gt;   &lt;int&gt;  &lt;dbl&gt;   &lt;chr&gt;    &lt;int&gt;      &lt;dbl&gt;
+##  1     1          2      37  2.618      PR        0  0.9624107
+##  2     2          2      32 23.303      PR        0  3.1485821
+##  3     3          1     100  6.900      FN        0  1.9315214
+##  4     4          2      34 12.905      FN        1  2.5576148
+##  5     5          1      29 38.895      FN        1  3.6608657
+##  6     6          2      25 42.473      FN        1  3.7488686
+##  7     7          1      27  3.287      PR        0  1.1899753
+##  8     8          1      29 16.438      PR        0  2.7995957
+##  9     9          1      30 60.794      PR        1  4.1074911
+## 10    10          2      28 26.169      PR        0  3.2645755
+## # ... with 170 more rows</code></pre>
+</div>
+<div id="n-sd-from-the-median-mad-1" class="section level3">
+<h3><span class="header-section-number">16.1.2</span> n SD from the median (MAD)<a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a></h3>
+<blockquote>
+<p>Probably should NOT use n SD from mean</p>
+</blockquote>
+<hr />
+<p>We use the following <a href="Data/Pre-processing/RT_Filtering_data_file.csv">dataset</a>.</p>
+<hr />
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dataset =<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;Data/Pre-processing/RT_Filtering_data_file.csv&quot;</span>)
+<span class="kw">head</span>(dataset)</code></pre></div>
+<pre><code>##   ID Dem_Gender Dem_Age   Time Formato Accuracy
+## 1  1          2      37  2.618      PR        0
+## 2  2          2      32 23.303      PR        0
+## 3  3          1     100  6.900      FN        0
+## 4  4          2      34 12.905      FN        1
+## 5  5          1      29 38.895      FN        1
+## 6  6          2      25 42.473      FN        1</code></pre>
+<ul>
+<li>Code</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#SD criteria</span>
+SD_filter =<span class="st"> </span><span class="fl">2.5</span>
+
+dataset_filtered =<span class="st"> </span>dataset %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">filter</span>(Time &lt;<span class="st"> </span>(<span class="kw">median</span>(Time) +<span class="st"> </span>SD_filter *<span class="st"> </span><span class="kw">sd</span>(Time)) &amp;<span class="st"> </span>Time &gt;<span class="st"> </span>(<span class="kw">median</span>(Time) -<span class="st"> </span>SD_filter *<span class="st"> </span><span class="kw">sd</span>(Time)))
+
+<span class="co"># dataset_filtered = dataset[dataset$Time &lt; (median(dataset$Time) + SD_filter * sd(dataset$Time) )  &amp; dataset$Time &gt; (median(dataset$Time) - SD_filter * sd(dataset$Time) ), ]</span></code></pre></div>
+<ul>
+<li>Plots</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(dataset$Time)</code></pre></div>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   1.242   7.686  15.453  24.252  28.858 165.529</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(dataset_filtered$Time)</code></pre></div>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   1.242   7.585  14.376  19.777  26.109  77.829</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))
+    <span class="co">#</span>
+    <span class="kw">plot</span>(<span class="kw">density</span>(dataset$Time), <span class="dt">main=</span><span class="st">&quot;Valid reaction time density&quot;</span>)
+    <span class="kw">plot</span>(<span class="kw">density</span>(dataset_filtered$Time), <span class="dt">main=</span><span class="st">&quot;Valid reaction time density&quot;</span>)</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-90-1.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))</code></pre></div>
+</div>
+<div id="gamma-law-regression-analyses-2" class="section level3">
+<h3><span class="header-section-number">16.1.3</span> Gamma law regression analyses<a href="#fn4" class="footnoteRef" id="fnref4"><sup>4</sup></a></h3>
+<hr />
+<p>We use the following <a href="Data/Pre-processing/RT_Filtering_data_file.csv">dataset</a>.</p>
+<hr />
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Import to variable &quot;dataset&quot;</span>
+dataset =<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;Data/Pre-processing/RT_Filtering_data_file.csv&quot;</span>)
+<span class="kw">head</span>(dataset)</code></pre></div>
+<pre><code>##   ID Dem_Gender Dem_Age   Time Formato Accuracy
+## 1  1          2      37  2.618      PR        0
+## 2  2          2      32 23.303      PR        0
+## 3  3          1     100  6.900      FN        0
+## 4  4          2      34 12.905      FN        1
+## 5  5          1      29 38.895      FN        1
+## 6  6          2      25 42.473      FN        1</code></pre>
+<ul>
+<li>Code</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Gamma</span>
+glm1 =<span class="st"> </span>(<span class="kw">glm</span>(Time~Formato, <span class="dt">data =</span> dataset, <span class="dt">family=</span>Gamma))
+<span class="kw">summary</span>(glm1)</code></pre></div>
+<pre><code>## 
+## Call:
+## glm(formula = Time ~ Formato, family = Gamma, data = dataset)
+## 
+## Deviance Residuals: 
+##     Min       1Q   Median       3Q      Max  
+## -2.0026  -0.9522  -0.4051   0.1645   2.7565  
+## 
+## Coefficients:
+##              Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)  0.042011   0.004558   9.217   &lt;2e-16 ***
+## FormatoPR   -0.001526   0.006330  -0.241     0.81    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## (Dispersion parameter for Gamma family taken to be 1.177074)
+## 
+##     Null deviance: 195.70  on 199  degrees of freedom
+## Residual deviance: 195.63  on 198  degrees of freedom
+## AIC: 1680.6
+## 
+## Number of Fisher Scoring iterations: 6</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Gausian</span>
+glm2 =<span class="st"> </span>(<span class="kw">glm</span>(Time~Formato, <span class="dt">data =</span> dataset))
+<span class="kw">summary</span>(glm2)</code></pre></div>
+<pre><code>## 
+## Call:
+## glm(formula = Time ~ Formato, data = dataset)
+## 
+## Deviance Residuals: 
+##     Min       1Q   Median       3Q      Max  
+## -22.811  -16.245   -8.387    4.293  140.829  
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)  23.8031     2.6346   9.035   &lt;2e-16 ***
+## FormatoPR     0.8972     3.7258   0.241     0.81    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## (Dispersion parameter for gaussian family taken to be 694.0939)
+## 
+##     Null deviance: 137471  on 199  degrees of freedom
+## Residual deviance: 137431  on 198  degrees of freedom
+## AIC: 1880.1
+## 
+## Number of Fisher Scoring iterations: 2</code></pre>
+</div>
+<div id="logarithms" class="section level3">
+<h3><span class="header-section-number">16.1.4</span> Logarithms</h3>
+<p>Log filtering may not be the best option available<a href="#fn5" class="footnoteRef" id="fnref5"><sup>5</sup></a></p>
+<hr />
+<p>We use the following <a href="Data/Pre-processing/RT_Filtering_data_file.csv">dataset</a>.</p>
+<hr />
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Import to variable &quot;dataset&quot;</span>
+dataset =<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;Data/Pre-processing/RT_Filtering_data_file.csv&quot;</span>)
+<span class="kw">head</span>(dataset)</code></pre></div>
+<pre><code>##   ID Dem_Gender Dem_Age   Time Formato Accuracy
+## 1  1          2      37  2.618      PR        0
+## 2  2          2      32 23.303      PR        0
+## 3  3          1     100  6.900      FN        0
+## 4  4          2      34 12.905      FN        1
+## 5  5          1      29 38.895      FN        1
+## 6  6          2      25 42.473      FN        1</code></pre>
+<ul>
+<li>Code</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#SET low and high PERCENTILES</span>
+    lowcutquant =<span class="st"> </span><span class="fl">0.05</span>
+    highcutquant =<span class="st"> </span><span class="fl">0.95</span>
+    
+    <span class="co"># Add log-rt</span>
+    <span class="co"># dataset_filtered = data_long_RAW</span>
+    dataset$logrt &lt;-<span class="st"> </span><span class="kw">log</span>(dataset$Time)
+    
+    <span class="co"># Take correct answers</span>
+        <span class="co"># WE USE CORRECT ANSWERS TO SET TIME LIMITS!!!</span>
+        <span class="co"># BETTER USE dataset?</span>
+    corr =<span class="st"> </span><span class="kw">subset</span>(dataset, dataset$Accuracy ==<span class="st"> </span><span class="dv">1</span>)
+    lowcut =<span class="st"> </span><span class="kw">quantile</span>(corr$logrt, lowcutquant)
+    highcut =<span class="st"> </span><span class="kw">quantile</span>(corr$logrt, highcutquant)
+    dataset_filtered &lt;-<span class="st"> </span><span class="kw">subset</span>(dataset, dataset$logrt &gt;<span class="st"> </span>lowcut &amp;<span class="st"> </span>dataset$logrt &lt;<span class="st"> </span>highcut)</code></pre></div>
+<ul>
+<li>Plots</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(<span class="kw">density</span>(dataset_filtered$logrt), <span class="dt">main =</span> <span class="st">&quot;Log reaction time density&quot;</span>)</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-95-1.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))
+
+    <span class="co">#</span>
+    <span class="kw">plot</span>(<span class="kw">density</span>(dataset$Time[dataset$Time &lt;<span class="st"> </span><span class="dv">10</span>]), <span class="dt">main =</span> <span class="st">&quot;Density of small reaction times&quot;</span>)
+    <span class="kw">plot</span>(<span class="kw">density</span>(dataset_filtered$Time[dataset_filtered$Time &lt;<span class="st"> </span><span class="dv">10</span>]), <span class="dt">main =</span> <span class="st">&quot;Density of small reaction times&quot;</span>)</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-95-2.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">    <span class="co">#</span>
+    <span class="kw">plot</span>(<span class="kw">density</span>(dataset$Time), <span class="dt">main =</span> <span class="st">&quot;Valid reaction time density&quot;</span>)
+    <span class="kw">plot</span>(<span class="kw">density</span>(dataset_filtered$Time), <span class="dt">main =</span> <span class="st">&quot;Valid reaction time density&quot;</span>)</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-95-3.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))
+
+    <span class="co">#</span>
+    <span class="kw">summary</span>(dataset$Time)</code></pre></div>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   1.242   7.686  15.453  24.252  28.858 165.529</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">    <span class="kw">summary</span>(dataset_filtered$Time)</code></pre></div>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   3.770   9.318  16.484  21.066  26.824  64.141</code></pre>
+</div>
+<div id="references-1" class="section level3">
+<h3><span class="header-section-number">16.1.5</span> References</h3>
+
+</div>
+</div>
+<div id="reliability" class="section level2">
+<h2><span class="header-section-number">16.2</span> Reliability</h2>
+<p>A continuación mostramos dos sistemas para calcular reliability. Alpha de Chronbach y Omega.</p>
+<div id="cronbachs-alpha" class="section level3">
+<h3><span class="header-section-number">16.2.1</span> Cronbach’s Alpha</h3>
+<p>** TODO ** * Items negatively correlated * Garcia’s function para ordenar</p>
+<p>En R hay, al menos, dos funciones:</p>
+<ul>
+<li><code>cronbach.alpha()</code> - <code>library(ltm)</code> - interfeeres with dplyr <code>select()</code></li>
+<li><code>alpha()</code> - <code>library(psych)</code></li>
+<li><p>We use <code>alpha()</code> - Gives correlation information, etc.</p></li>
+<li>Procedure ** WIP: references for this procedure (?) **</li>
+</ul>
+<ol style="list-style-type: decimal">
+<li><strong>Delete</strong> items with correlations (r.drop) &lt; 0.25 one by one:
+<ul>
+<li>Eliminate the item with the smaller correlation <code>min(a$item.stats[[&quot;r.drop&quot;]])</code></li>
+<li>Run reliability</li>
+<li>Eliminate the next item with the smaller correlation (&lt;0.25!) - <strong>Leave at least 3 items!</strong></li>
+</ul></li>
+<li>Reasonable Cronbach score: &gt;0.6. Good score &gt;0.7</li>
+</ol>
+<ul>
+<li>Cargamos librerias</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">if (!<span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
+<span class="kw">p_load</span>(readr, psych, dplyr)</code></pre></div>
+<hr />
+<p>We use the following <a href="Data/Pre-processing/Reliability_data_file.csv">dataset</a>.</p>
+<hr />
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">temp =<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;Data/Pre-processing/Reliability_data_file.csv&quot;</span>)</code></pre></div>
+<pre><code>## Warning: Missing column names filled in: &#39;X1&#39; [1]</code></pre>
+<pre><code>## Parsed with column specification:
+## cols(
+##   X1 = col_integer(),
+##   OA.OA01. = col_integer(),
+##   OA.OA02. = col_integer(),
+##   OA.OA03. = col_integer(),
+##   OA.OA04. = col_integer(),
+##   OA.OA05. = col_integer(),
+##   OA.OA06. = col_integer()
+## )</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">temp =<span class="st"> </span>temp[-<span class="dv">1</span>] 
+
+<span class="co">#Convierte todo a integer</span>
+<span class="co"># temp = temp %&gt;% dplyr::mutate_each(funs(as.integer))</span>
+temp =<span class="st"> </span><span class="kw">as.data.frame</span>(<span class="kw">sapply</span>(temp, as.integer))
+
+<span class="kw">head</span>(temp)</code></pre></div>
+<pre><code>##   OA.OA01. OA.OA02. OA.OA03. OA.OA04. OA.OA05. OA.OA06.
+## 1        5        3        5        2        1        5
+## 2        3        1        5        1        1        3
+## 3        5        1        5        4        1        5
+## 4        2        2        1        3        3        5
+## 5        4        3        4        4        2        4
+## 6        5        5        5        1        1        5</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">alpha</span>(temp)</code></pre></div>
+<pre><code>## Warning in alpha(temp): Some items were negatively correlated with the total scale and probably 
+## should be reversed.  
+## To do this, run the function again with the &#39;check.keys=TRUE&#39; option</code></pre>
+<pre><code>## Some items ( OA.OA02. OA.OA04. OA.OA05. ) were negatively correlated with the total scale and 
+## probably should be reversed.  
+## To do this, run the function again with the &#39;check.keys=TRUE&#39; option</code></pre>
+<pre><code>## 
+## Reliability analysis   
+## Call: alpha(x = temp)
+## 
+##   raw_alpha std.alpha G6(smc) average_r   S/N   ase mean   sd
+##      0.062     0.087    0.22     0.016 0.096 0.094  3.5 0.48
+## 
+##  lower alpha upper     95% confidence boundaries
+## -0.12 0.06 0.25 
+## 
+##  Reliability if an item is dropped:
+##          raw_alpha std.alpha G6(smc) average_r    S/N alpha se
+## OA.OA01.    -0.029    -0.075   0.090   -0.0141 -0.070    0.103
+## OA.OA02.    -0.011     0.073   0.218    0.0154  0.078    0.105
+## OA.OA03.     0.019    -0.053   0.068   -0.0102 -0.050    0.096
+## OA.OA04.    -0.013     0.064   0.214    0.0135  0.068    0.104
+## OA.OA05.     0.252     0.318   0.356    0.0852  0.466    0.078
+## OA.OA06.     0.045     0.022   0.116    0.0045  0.023    0.097
+## 
+##  Item statistics 
+##            n raw.r std.r r.cor r.drop mean   sd
+## OA.OA01. 238  0.46  0.54  0.45  0.108  4.2 1.04
+## OA.OA02. 238  0.55  0.43  0.11  0.071  3.2 1.40
+## OA.OA03. 238  0.43  0.53  0.50  0.057  4.2 1.10
+## OA.OA04. 238  0.50  0.43  0.12  0.079  2.7 1.25
+## OA.OA05. 238  0.25  0.15 -0.38 -0.174  2.0 1.20
+## OA.OA06. 238  0.30  0.47  0.39  0.038  4.6 0.76
+## 
+## Non missing response frequency for each item
+##             1    2    3    4    5 miss
+## OA.OA01. 0.01 0.08 0.14 0.21 0.55    0
+## OA.OA02. 0.17 0.14 0.27 0.16 0.25    0
+## OA.OA03. 0.02 0.10 0.08 0.21 0.58    0
+## OA.OA04. 0.19 0.24 0.33 0.11 0.13    0
+## OA.OA05. 0.50 0.21 0.16 0.07 0.05    0
+## OA.OA06. 0.00 0.03 0.09 0.16 0.73    0</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># temp2 = temp %&gt;% select(-1, -OA.OA05.)</span>
+<span class="co"># alpha(temp2)</span>
+<span class="co"># temp2 = temp %&gt;% select(-1, -OA.OA05., -OA.OA04.)</span>
+<span class="co"># alpha(temp2)</span>
+temp2 =<span class="st"> </span>temp %&gt;%<span class="st"> </span><span class="kw">select</span>(-<span class="dv">1</span>, -OA.OA05., -OA.OA04., -OA.OA02.)
+<span class="kw">alpha</span>(temp2)</code></pre></div>
+<pre><code>## Warning in matrix(unlist(drop.item), ncol = 8, byrow = TRUE): data length
+## [12] is not a sub-multiple or multiple of the number of columns [8]</code></pre>
+<pre><code>## 
+## Reliability analysis   
+## Call: alpha(x = temp2)
+## 
+##   raw_alpha std.alpha G6(smc) average_r S/N   ase mean   sd
+##       0.57       0.6    0.43      0.43 1.5 0.051  4.4 0.79
+## 
+##  lower alpha upper     95% confidence boundaries
+## 0.47 0.57 0.67 
+## 
+##  Reliability if an item is dropped:
+##          raw_alpha std.alpha G6(smc) average_r  S/N alpha se
+## OA.OA03.      0.43      0.43    0.19      0.43   NA       NA
+## OA.OA06.      0.19      0.43      NA        NA 0.43    0.043
+## 
+##  Item statistics 
+##            n raw.r std.r r.cor r.drop mean   sd
+## OA.OA03. 238  0.90  0.85  0.55   0.43  4.2 1.10
+## OA.OA06. 238  0.78  0.85  0.55   0.43  4.6 0.76
+## 
+## Non missing response frequency for each item
+##             1    2    3    4    5 miss
+## OA.OA03. 0.02 0.10 0.08 0.21 0.58    0
+## OA.OA06. 0.00 0.03 0.09 0.16 0.73    0</code></pre>
+</div>
+<div id="omega" class="section level3">
+<h3><span class="header-section-number">16.2.2</span> Omega</h3>
+<ul>
+<li>Cargamos librerias</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">if (!<span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
+<span class="kw">p_load</span>(readr, psych, MBESS, dplyr, GPArotation)
+<span class="co"># install.packages(&quot;MBESS&quot;, dependencies = TRUE)</span></code></pre></div>
+<hr />
+<p>We use the following <a href="Data/Pre-processing/Reliability_data_file.csv">dataset</a>.</p>
+<hr />
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">temp =<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;Data/Pre-processing/Reliability_data_file.csv&quot;</span>)</code></pre></div>
+<pre><code>## Warning: Missing column names filled in: &#39;X1&#39; [1]</code></pre>
+<pre><code>## Parsed with column specification:
+## cols(
+##   X1 = col_integer(),
+##   OA.OA01. = col_integer(),
+##   OA.OA02. = col_integer(),
+##   OA.OA03. = col_integer(),
+##   OA.OA04. = col_integer(),
+##   OA.OA05. = col_integer(),
+##   OA.OA06. = col_integer()
+## )</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">temp =<span class="st"> </span>temp[-<span class="dv">1</span>] 
+
+<span class="co">#Convierte todo a integer</span>
+<span class="co"># temp = temp %&gt;% dplyr::mutate_each(funs(as.integer))</span>
+temp =<span class="st"> </span><span class="kw">as.data.frame</span>(<span class="kw">sapply</span>(temp, as.integer))
+
+<span class="kw">head</span>(temp)</code></pre></div>
+<pre><code>##   OA.OA01. OA.OA02. OA.OA03. OA.OA04. OA.OA05. OA.OA06.
+## 1        5        3        5        2        1        5
+## 2        3        1        5        1        1        3
+## 3        5        1        5        4        1        5
+## 4        2        2        1        3        3        5
+## 5        4        3        4        4        2        4
+## 6        5        5        5        1        1        5</code></pre>
+<div id="method-1---with-bootstrap-1" class="section level4">
+<h4><span class="header-section-number">16.2.2.1</span> Method 1 - with Bootstrap <sup>1</sup></h4>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Use at least (?) B = 1000</span>
+
+<span class="co"># Commented here because execution time is non-trivial</span>
+<span class="co"># set.seed(1)</span>
+<span class="co"># ci.reliability(data = temp, type = &quot;omega&quot;, conf.level = 0.95, interval.type = &quot;bca&quot;, B = 1000)</span></code></pre></div>
+</div>
+<div id="method-2-2" class="section level4">
+<h4><span class="header-section-number">16.2.2.2</span> Method 2 <sup>2</sup></h4>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># See options</span>
+<span class="kw">omega</span>(temp)</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-102-1.png" width="672" /></p>
+<pre><code>## Omega 
+## Call: omega(m = temp)
+## Alpha:                 0.57 
+## G.6:                   0.56 
+## Omega Hierarchical:    0.17 
+## Omega H asymptotic:    0.24 
+## Omega Total            0.7 
+## 
+## Schmid Leiman Factor loadings greater than  0.2 
+##               g   F1*   F2*   F3*   h2   u2   p2
+## OA.OA01.-       -0.48             0.26 0.74 0.04
+## OA.OA02.   0.23              0.35 0.19 0.81 0.29
+## OA.OA03.-       -0.63             0.44 0.56 0.08
+## OA.OA04.   0.34        0.94       1.00 0.00 0.12
+## OA.OA05.   0.23 -0.43             0.26 0.74 0.21
+## OA.OA06.-  0.28 -0.62             0.47 0.53 0.16
+## 
+## With eigenvalues of:
+##    g  F1*  F2*  F3* 
+## 0.35 1.20 0.89 0.18 
+## 
+## general/max  0.29   max/min =   6.81
+## mean percent general =  0.15    with sd =  0.09 and cv of  0.61 
+## Explained Common Variance of the general factor =  0.13 
+## 
+## The degrees of freedom are 0  and the fit is  0 
+## The number of observations was  238  with Chi Square =  0.01  with prob &lt;  NA
+## The root mean square of the residuals is  0 
+## The df corrected root mean square of the residuals is  NA
+## 
+## Compare this with the adequacy of just a general factor and no group factors
+## The degrees of freedom for just the general factor are 9  and the fit is  0.42 
+## The number of observations was  238  with Chi Square =  97.83  with prob &lt;  4.3e-17
+## The root mean square of the residuals is  0.19 
+## The df corrected root mean square of the residuals is  0.24 
+## 
+## RMSEA index =  0.206  and the 10 % confidence intervals are  0.169 0.242
+## BIC =  48.58 
+## 
+## Measures of factor score adequacy             
+##                                                   g  F1*  F2*   F3*
+## Correlation of scores with factors             0.47 0.79 0.94  0.42
+## Multiple R square of scores with factors       0.22 0.62 0.89  0.18
+## Minimum correlation of factor score estimates -0.56 0.24 0.78 -0.64
+## 
+##  Total, General and Subset omega for each subset
+##                                                  g  F1*  F2*  F3*
+## Omega total for total scores and subscales    0.70 0.67 1.00 0.18
+## Omega general for total scores and subscales  0.17 0.08 0.12 0.05
+## Omega group for total scores and subscales    0.50 0.59 0.88 0.12</code></pre>
+</div>
+</div>
+<div id="references-2" class="section level3">
+<h3><span class="header-section-number">16.2.3</span> References</h3>
+<p><sup>1</sup> <a href="http://onlinelibrary.wiley.com/doi/10.1111/bjop.12046/pdf" class="uri">http://onlinelibrary.wiley.com/doi/10.1111/bjop.12046/pdf</a></p>
+<p><sup>2</sup></p>
+<ul>
+<li><a href="https://www.researchgate.net/post/Cronbachs_alpha_vs_model_based_reliability_estimates_omega_and_others_is_it_worth_the_effort" class="uri">https://www.researchgate.net/post/Cronbachs_alpha_vs_model_based_reliability_estimates_omega_and_others_is_it_worth_the_effort</a>
+<ul>
+<li><a href="http://personality-project.org/r/psych/HowTo/R_for_omega.pdf" class="uri">http://personality-project.org/r/psych/HowTo/R_for_omega.pdf</a></li>
+<li>Revelle, W. &amp; Zinbarg, R.E. (2009) Coefficients alpha, beta, omega and the glb: comments on Sijtsma. Psychometrika. 74, 1, 145-154 (<a href="http://personality-project.org/revelle/publications/rz09.pdf" class="uri">http://personality-project.org/revelle/publications/rz09.pdf</a>)</li>
+<li>Zinbarg, R.E., Revelle, W., Yovel, I., &amp; Li. W. (2005). Cronbach’s Alpha, Revelle’s Beta, McDonald’s Omega: Their relations with each and two alternative conceptualizations of reliability. Psychometrika. 70, 123-133. (<a href="http://personality-project.org/revelle/publications/zinbarg.revelle.pmet.05.pdf" class="uri">http://personality-project.org/revelle/publications/zinbarg.revelle.pmet.05.pdf</a>)</li>
+<li>Cronbach’s alpha vs. model based reliability estimates (omega and others): is it worth the effort?: <a href="https://www.researchgate.net/post/Cronbachs_alpha_vs_model_based_reliability_estimates_omega_and_others_is_it_worth_the_effort" class="uri">https://www.researchgate.net/post/Cronbachs_alpha_vs_model_based_reliability_estimates_omega_and_others_is_it_worth_the_effort</a></li>
+</ul></li>
+</ul>
+
+</div>
+</div>
+<div id="impute-missing-data" class="section level2">
+<h2><span class="header-section-number">16.3</span> Impute missing data</h2>
+<p>FROM: <a href="https://www.r-bloggers.com/graphical-presentation-of-missing-data-vim-package/" class="uri">https://www.r-bloggers.com/graphical-presentation-of-missing-data-vim-package/</a></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">if (!<span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
+<span class="kw">p_load</span>(VIM, mice, dplyr, tibble)
+
+dat &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="kw">url</span>(<span class="st">&quot;https://goo.gl/4DYzru&quot;</span>), <span class="dt">header =</span> <span class="ot">TRUE</span>, <span class="dt">sep =</span> <span class="st">&quot;,&quot;</span>)
+<span class="kw">head</span>(dat)</code></pre></div>
+<pre><code>##    Age Gender Cholesterol SystolicBP  BMI Smoking Education
+## 1 67.9 Female       236.4      129.8 26.4     Yes      High
+## 2 54.8 Female       256.3      133.4 28.4      No    Medium
+## 3 68.4   Male       198.7      158.5 24.1     Yes      High
+## 4 67.9   Male       205.0      136.0 19.9      No       Low
+## 5 60.9   Male       207.7      145.4 26.7      No    Medium
+## 6 44.9 Female       222.5      130.6 30.6      No       Low</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">10</span>)
+missing =<span class="st"> </span><span class="kw">rbinom</span>(<span class="dv">250</span>, <span class="dv">1</span>, <span class="fl">0.3</span>)
+dat$Cholesterol =<span class="st"> </span><span class="kw">with</span>(dat, <span class="kw">ifelse</span>(BMI &gt;=<span class="st"> </span><span class="dv">30</span> &amp;<span class="st"> </span>missing ==<span class="st"> </span><span class="dv">1</span>, <span class="ot">NA</span>, Cholesterol))
+<span class="kw">sum</span>(<span class="kw">is.na</span>(dat$Cholesterol))</code></pre></div>
+<pre><code>## [1] 16</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">init =<span class="st"> </span><span class="kw">mice</span>(dat, <span class="dt">maxit =</span> <span class="dv">0</span>) 
+meth =<span class="st"> </span>init$method
+predM =<span class="st"> </span>init$predictorMatrix
+meth[<span class="kw">c</span>(<span class="st">&quot;Cholesterol&quot;</span>)] =<span class="st"> &quot;pmm&quot;</span> 
+<span class="kw">set.seed</span>(<span class="dv">101</span>)
+imputed =<span class="st"> </span><span class="kw">mice</span>(dat, <span class="dt">method =</span> meth, <span class="dt">predictorMatrix =</span> predM, <span class="dt">m =</span> <span class="dv">1</span>)</code></pre></div>
+<pre><code>## 
+##  iter imp variable
+##   1   1  Cholesterol
+##   2   1  Cholesterol
+##   3   1  Cholesterol
+##   4   1  Cholesterol
+##   5   1  Cholesterol</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">imp =<span class="st"> </span><span class="kw">complete</span>(imputed)
+
+dt1 =<span class="st"> </span>dat %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">select</span>(Cholesterol, BMI) %&gt;%<span class="st"> </span>
+<span class="st">  </span>dplyr::<span class="kw">rename</span>(<span class="dt">Cholesterol_imp =</span> Cholesterol) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">mutate</span>(
+    <span class="dt">Cholesterol_imp =</span> <span class="kw">as.logical</span>(<span class="kw">ifelse</span>(<span class="kw">is.na</span>(Cholesterol_imp), <span class="st">&quot;TRUE&quot;</span>, <span class="st">&quot;FALSE&quot;</span>))
+  ) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">rownames_to_column</span>()
+
+dt2 =<span class="st"> </span>imp %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">select</span>(Cholesterol, BMI) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">rownames_to_column</span>()
+
+dt =<span class="st"> </span><span class="kw">left_join</span>(dt1, dt2)</code></pre></div>
+<pre><code>## Joining, by = c(&quot;rowname&quot;, &quot;BMI&quot;)</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(dt)</code></pre></div>
+<pre><code>##   rowname Cholesterol_imp  BMI Cholesterol
+## 1       1           FALSE 26.4       236.4
+## 2       2           FALSE 28.4       256.3
+## 3       3           FALSE 24.1       198.7
+## 4       4           FALSE 19.9       205.0
+## 5       5           FALSE 26.7       207.7
+## 6       6           FALSE 30.6       222.5</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">vars &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;BMI&quot;</span>,<span class="st">&quot;Cholesterol&quot;</span>,<span class="st">&quot;Cholesterol_imp&quot;</span>)
+<span class="kw">marginplot</span>(dt[,vars], <span class="dt">delimiter =</span> <span class="st">&quot;_imp&quot;</span>, <span class="dt">alpha =</span> <span class="fl">0.6</span>, <span class="dt">pch =</span> <span class="kw">c</span>(<span class="dv">19</span>))</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-103-1.png" width="672" /></p>
+
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="3">
+<li id="fn3"><p>Leys, C., Ley, C., Klein, O., Bernard, P. &amp; Licata, L. Detecting outliers: Do not use standard deviation around the mean, use absolute deviation around the median. J. Exp. Soc. Psychol. 49, 764–766 (2013).<a href="pre-processing.html#fnref3">↩</a></p></li>
+<li id="fn4"><p><a href="https://www.researchgate.net/post/For_decision_times_do_you_first_take_the_logarithm_and_then_exclude_extreme_outliers_or_the_other_way_around_And_how_do_you_define_outliers">See <strong>Serban C. Musca</strong> post</a><a href="pre-processing.html#fnref4">↩</a></p></li>
+<li id="fn5"><p><a href="https://www.researchgate.net/post/For_decision_times_do_you_first_take_the_logarithm_and_then_exclude_extreme_outliers_or_the_other_way_around_And_how_do_you_define_outliers">See <strong>Serban C. Musca</strong> post</a><a href="pre-processing.html#fnref5">↩</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="Funciones.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="bibliography-and-interesting-resources.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

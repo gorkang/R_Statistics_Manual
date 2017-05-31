@@ -1,0 +1,86 @@
+{\rtf1\ansi\deff0 {\fonttbl {\f0 Times New Roman;}}
+{\pard Table 3 \par}
+{\pard  \par}
+{\pard\i Means and standard deviations for Atractivo as a function of a 2(Sexo) X 2(Alcohol) design\par}
+{\pard  \par}
+{
+\trowd \trgaph100
+\clbrdrt\brdrw15\brdrs
+\clvertalc\cellx1835 
+\clbrdrt\brdrw15\brdrs
+\clvertalc\cellx6732 
+\pard\sa100\sb100\intbl\qr{ }\cell
+\pard\sa100\sb100\intbl\qc{Alcohol}\cell
+\row
+}
+{
+\trowd \trgaph100
+\clvertalc\cellx1835 
+\clbrdrt\brdrw15\brdrs
+\clvertalc\cellx4284 
+\clbrdrt\brdrw15\brdrs
+\clvertalc\cellx6732 
+\pard\sa100\sb100\intbl\qr{ }\cell
+\pard\sa100\sb100\intbl\qc{No consume}\cell
+\pard\sa100\sb100\intbl\qc{Tres Shop}\cell
+\row
+}
+{
+\trowd \trgaph100
+\clbrdrt\brdrw15\brdrs
+\clvertalc\cellx1835 
+\clbrdrt\brdrw15\brdrs
+\clvertalc\cellx3060 
+\clbrdrt\brdrw15\brdrs
+\clvertalc\cellx4284 
+\clbrdrt\brdrw15\brdrs
+\clvertalc\cellx5508 
+\clbrdrt\brdrw15\brdrs
+\clvertalc\cellx6732 
+\pard\sa100\sb100\intbl\qr{Sexo}\cell
+\pard\sa100\sb100\intbl\qc{{\i M}}\cell
+\pard\sa100\sb100\intbl\qc{{\i SD}}\cell
+\pard\sa100\sb100\intbl\qc{{\i M}}\cell
+\pard\sa100\sb100\intbl\qc{{\i SD}}\cell
+\row
+}
+{
+\trowd \trgaph100
+\clbrdrt\brdrw15\brdrs
+\clvertalc\cellx1835 
+\clbrdrt\brdrw15\brdrs
+\clvertalc\cellx3060 
+\clbrdrt\brdrw15\brdrs
+\clvertalc\cellx4284 
+\clbrdrt\brdrw15\brdrs
+\clvertalc\cellx5508 
+\clbrdrt\brdrw15\brdrs
+\clvertalc\cellx6732 
+\pard\sa100\sb100\intbl\qr{hombre}\cell
+\pard\sa100\sb100\intbl\tqdec\tldot\tx428{60.62}\cell
+\pard\sa100\sb100\intbl\tqdec\tldot\tx428{4.96}\cell
+\pard\sa100\sb100\intbl\tqdec\tldot\tx428{57.50}\cell
+\pard\sa100\sb100\intbl\tqdec\tldot\tx428{7.07}\cell
+\row
+}
+{
+\trowd \trgaph100
+\clbrdrb\brdrw15\brdrs
+\clvertalc\cellx1835 
+\clbrdrb\brdrw15\brdrs
+\clvertalc\cellx3060 
+\clbrdrb\brdrw15\brdrs
+\clvertalc\cellx4284 
+\clbrdrb\brdrw15\brdrs
+\clvertalc\cellx5508 
+\clbrdrb\brdrw15\brdrs
+\clvertalc\cellx6732 
+\pard\sa100\sb100\intbl\qr{mujer}\cell
+\pard\sa100\sb100\intbl\tqdec\tldot\tx428{66.88}\cell
+\pard\sa100\sb100\intbl\tqdec\tldot\tx428{10.33}\cell
+\pard\sa100\sb100\intbl\tqdec\tldot\tx428{35.62}\cell
+\pard\sa100\sb100\intbl\tqdec\tldot\tx428{10.84}\cell
+\row
+}
+{\pard \par}{\pard{\i Note.} {\i M} and {\i SD} represent mean and standard deviation, respectively.\par}
+}
