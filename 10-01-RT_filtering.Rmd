@@ -1,0 +1,175 @@
+# Pre-processing
+
+## RT filtering
+
+### Function to filter by RT
+
+Here you can see an example on how to use a function to filter by RT (log filtering version below).
+
+
+***
+We use the following [dataset](Data/10-Pre_processing/RT_filtering.csv).
+
+***
+
+```{r}
+library(tidyverse)
+
+# RT Filtering function
+Filter_FUN <- function(DB, Column, Low_PCT = 0.05, High_PCT = 0.95) {
+  
+  args = as.list(match.call())
+  
+  # Creamos Column_LOG
+  DB = DB %>% mutate(Column_LOG = log(eval(args$Column, DB)))
+  lowcut = quantile(DB$Column_LOG, Low_PCT, na.rm = T)
+  highcut = quantile(DB$Column_LOG, High_PCT, na.rm = T)
+  
+  # Returns DB_Filtered
+  DB_Filtered <<- subset(DB, DB$Column_LOG > lowcut & DB$Column_LOG < highcut) 
+  
+  # return(DB_Filtered)
+  cat("**** Datos filtrados a partir de la columna", args$Column, ": ", nrow(DB) - nrow(DB_Filtered), "/", nrow(DB), "filas eliminadas ***")
+  
+}
+```
+
+After creating the function, we read the DB and apply the filtering. A dataframe called DB_Filtered is created with the filtered data. 
+
+```{r}
+
+dataset = read_csv("Data/10-Pre_processing/RT_filtering.csv")
+dataset
+
+Filter_FUN(dataset, Time)
+DB_Filtered
+```
+
+
+### n SD from the median (MAD) [^1]
+> Probably should NOT use n SD from mean
+
+***
+We use the following [dataset](Data/10-Pre_processing/RT_filtering.csv).
+
+***
+
+```{r}
+
+dataset = read.csv("Data/10-Pre_processing/RT_filtering.csv")
+head(dataset)
+
+```
+
+* Code
+```{r}
+#SD criteria
+SD_filter = 2.5
+
+dataset_filtered = dataset %>% 
+  filter(Time < (median(Time) + SD_filter * sd(Time)) & Time > (median(Time) - SD_filter * sd(Time)))
+
+# dataset_filtered = dataset[dataset$Time < (median(dataset$Time) + SD_filter * sd(dataset$Time) )  & dataset$Time > (median(dataset$Time) - SD_filter * sd(dataset$Time) ), ]
+```
+
+* Plots
+```{r}
+summary(dataset$Time)
+summary(dataset_filtered$Time)
+
+par(mfrow = c(1,2))
+    #
+    plot(density(dataset$Time), main = "Valid reaction time density")
+    plot(density(dataset_filtered$Time), main = "Valid reaction time density")
+    
+par(mfrow = c(1,1))
+```
+
+
+
+### Gamma law regression analyses [^2]
+
+***
+We use the following [dataset](Data/10-Pre_processing/RT_filtering.csv).
+
+***
+
+```{r}
+#Import to variable "dataset"
+dataset = read.csv("Data/10-Pre_processing/RT_filtering.csv")
+head(dataset)
+```
+
+* Code
+```{r}
+#Gamma
+glm1 = (glm(Time ~ Formato, data = dataset, family = Gamma))
+summary(glm1)
+
+#Gausian
+glm2 = (glm(Time ~ Formato, data = dataset))
+summary(glm2)
+
+```
+
+
+
+### Logarithms
+
+Log filtering may not be the best option available [^2]
+
+***
+We use the following [dataset](Data/Pre-processing/RT_Filtering_data_file.csv).
+
+***
+```{r}
+#Import to variable "dataset"
+dataset = read.csv("Data/10-Pre_processing/RT_filtering.csv")
+head(dataset)
+```
+
+* Code
+```{r}
+
+#SET low and high PERCENTILES
+    lowcutquant = 0.05
+    highcutquant = 0.95
+    
+    # Add log-rt
+    # dataset_filtered = data_long_RAW
+    dataset$logrt <- log(dataset$Time)
+    
+    # Take correct answers
+        # WE USE CORRECT ANSWERS TO SET TIME LIMITS!!!
+        # BETTER USE dataset?
+    corr = subset(dataset, dataset$Accuracy == 1)
+    lowcut = quantile(corr$logrt, lowcutquant)
+    highcut = quantile(corr$logrt, highcutquant)
+    dataset_filtered <- subset(dataset, dataset$logrt > lowcut & dataset$logrt < highcut)
+```
+
+* Plots
+```{r}
+plot(density(dataset_filtered$logrt), main = "Log reaction time density")
+    
+par(mfrow = c(1,2))
+
+    #
+    plot(density(dataset$Time[dataset$Time < 10]), main = "Density of small reaction times")
+    plot(density(dataset_filtered$Time[dataset_filtered$Time < 10]), main = "Density of small reaction times")
+
+    #
+    plot(density(dataset$Time), main = "Valid reaction time density")
+    plot(density(dataset_filtered$Time), main = "Valid reaction time density")
+    
+par(mfrow = c(1,1))
+
+    #
+    summary(dataset$Time)
+    summary(dataset_filtered$Time)
+
+```
+
+### References  
+[^1]: Leys, C., Ley, C., Klein, O., Bernard, P. & Licata, L. Detecting outliers: Do not use standard deviation around the mean, use absolute deviation around the median. J. Exp. Soc. Psychol. 49, 764–766 (2013).
+[^2]: [See **Serban C. Musca** post](https://www.researchgate.net/post/For_decision_times_do_you_first_take_the_logarithm_and_then_exclude_extreme_outliers_or_the_other_way_around_And_how_do_you_define_outliers)

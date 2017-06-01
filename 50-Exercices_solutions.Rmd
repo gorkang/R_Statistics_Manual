@@ -1,0 +1,87 @@
+# Exercices solutions
+
+***
+
+**Please, do try to solve the problems on your own before reading this section! :)**
+
+***
+
+
+## Exercices 1
+
+Tu misión, si deseas aceptarla, es completar una serie de tareas usando las funciones aprendidas.
+Para esto deberás utilizar la siguiente [base de datos](Data/50-Exercices/Exercices_1.csv).
+
+***
+
+* Crea un nuevo script: `Ctrl + Shift + N`
+
+* Define su directorio de trabajo con la función ` setwd() `
+
+* Instala y cargue el Package ` tidiverse `
+
+* Importa los datos del archivo ` data_escala.csv ` a una variable de nombre ` datos_raw ` y visualizala en la Consola.
+
+* Esta base de datos comprende una serie de 60 items. Sin embargo, no todos los items nos son útiles. Aquellos que utilizaremos contendrán una letra "r" en su nombre. Crea una nueva base de datos llamada ` datos ` que contenga solo los ítems útiles, manteniendo las variables demográficas (id, sexo y edad).
+
+* La memoría es frágil! Recodifica los valores 0 y 1 de la variable "sexo" por "femenino" y "masculino" respectivamente. Además, asegurate que estas variables sean de tipo factor.
+
+* Omite los valores no disponibles ` NA ` de la base de datos.
+
+* Imagina que sujetos de más de 30 años no están contemplados en la definición de nuestra muestra. Creemos una variable lógica que permita identificarlos.
+
+* Ahora eliminemos de nuestra muestra a estos sujetos y borremos la variable que los identificaba.
+
+* En honor al tiempo, asumiremos que los ítems ir3, ir9, ir16, ir23, ir29, ir40, ir31 contituyen una "dimensión" de esta escala. Creemos una nueva variable ` puntaje_total ` que sea la suma de estos items y agrégala a la base de datos existente.
+
+* Haz un breve sumario de los promedios de la variable ` puntaje_total ` según ` sexo `.
+
+* Visualiza estas variables utilizando ` Pirate plot `.
+
+***
+Puedes ver las soluciones [aquí](Data/Exercices/Exercices_solutions_1)  
+
+***
+
+
+
+
+
+## Ejercicios 2{#Ejercicios2}
+
+Vamos aplicar lo aprendido!
+
+Si has llegado hasta aquí significa que has cruzado con exito los manglares de manipulación y vizualización de datos y algunos análisis y modelos sencillos. 
+
+Ahora tenemos algunas tareas para ponerlo a prueba. Para esto deberá utilizar la siguiente [base de datos](Data/50-Exercices/Exercices_2.csv).
+
+***
+
+* Crea un nuevo script: `Ctrl + N`
+
+* Define su directorio de trabajo con la función ` setwd() `
+
+* Instala y carga los Packages `tideverse`, `car` y `stats` usando la funcion `p_load()`.
+
+* Importa los datos del archivo ` data_experimento.csv ` a una variable de nombre ` datos_raw ` y visualizalos en la Consola.
+
+* Esta base de datos comprende los resultados experimentales de una tarea de RT, además de algunas mediciones Psicometricas. Lamentablemente nos faltan muchas mediciones. Si visualizamos los datos la variable `Edad` tiene valores extraños. Transforma estos valores a `NA`.
+
+* Recodifica los valores 0 y 1 de la variable `Sexo` por 'femenino' y 'masculino' respectivamente. Además, asegurate que estas variables sean de tipo factor. Haz lo mismo para la variable `Cond` de tal modo que 0 y 1 sean 'control' y 'experimental', respectivamente.
+
+* Los items de la escala `Psy` están incluidos en la base de datos además de su puntaje total `PsyScore`. Elimina los items.
+
+* Elimina las observaciones donde las variables tengan `NA`.
+
+* Crea un modelo factorial de ANOVA de 2 vias para ver como `Sexo` y `Cond` predicen la tarea de `RT`. Agrega un analisis de comparaciones multiples para todos los predictores.
+
+* Opcional: Ingresa la misma fórmula que ingresaste a ANOVA en un modelo de Regresión. Compara los resultados.
+
+* Explora la posible relación en ausencia de predictor claro entre `RT` y `PsyScore`. Visualiza los datos con un `pirateplot`.
+
+* Examina si existen diferencias de `Sexo` para la variable `PsyScore`. Visualiza los datos con un `pirateplot`.
+
+***
+Puedes ver las soluciones [aquí](Data/Exercices_solutions_2.R)  
+
+***

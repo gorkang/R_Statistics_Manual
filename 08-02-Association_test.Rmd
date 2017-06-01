@@ -1,0 +1,79 @@
+# Association test
+
+A.K.A. X square test of independence
+
+**WIP - Alternatives**
+```{r}
+# Con datos de estudio Merlin
+# prop.test(table(DB_all$Ahorro_Dico, DB_all$Futuro_d))
+# chisq.test(table(DB_all$Ahorro_Dico, DB_all$Futuro_d))
+
+# # More powerful
+# Exact::exact.test(table(DB_all$Ahorro_Dico, DB_all$Futuro_d))
+# BayesFactor::contingencyTableBF(table(DB_all$Ahorro_Dico, DB_all$Futuro_d), sampleType = "indepMulti", fixedMargin = "rows")
+
+```
+
+**Libraries**
+```{r, message=FALSE}
+if (!require('pacman')) install.packages('pacman'); library('pacman')
+p_load(BayesFactor, lsr)
+```
+
+
+
+**Import data - WIP**
+We use the following [dataset](Data/08-Data_analysis/Association_test.csv).
+```{r}
+#Import to variable "dataset"
+dataset = read.csv("Data/08-Data_analysis/Association_test.csv")
+
+#Show first 5 rows
+head(dataset)
+```
+
+**Prepare data**
+```{r}
+# Convert to factors
+dataset$Accuracy_factor = as.factor(dataset$Accuracy)
+dataset$Formato_factor = as.factor(dataset$Formato)
+dataset$Problema_factor = as.factor(dataset$Problema)
+```
+
+
+### Frequentist [^1]
+```{r}
+# Accuracy_factor + Formato_factor
+crosstab_Formato <- xtabs(~ Accuracy_factor + Formato_factor, dataset); crosstab_Formato
+associationTest(formula = ~ Accuracy_factor + Formato_factor, data = dataset )
+
+# Accuracy_factor + Problema_factor
+crosstab_Problema <- xtabs(~ Accuracy_factor + Problema_factor, dataset); crosstab_Problema
+associationTest(formula = ~ Accuracy_factor + Problema_factor, data = dataset )
+```
+
+### Bayesian [^2]
+```{r}
+# Accuracy_factor + Formato_factor
+contingencyTableBF( crosstab_Formato, sampleType = "jointMulti" ) 
+
+# Accuracy_factor + Problema_factor
+contingencyTableBF( crosstab_Problema, sampleType = "jointMulti" ) 
+
+```
+
+
+
+### Results report - WIP
+> TODO: Use an example where we have both a null a and a significant finding
+
+#### Frequentist - WIP
+Pearson’s X^2^ revealed a significant association between species and choice (X^2^ = 10.7, p = .01): robots appeared to be more likely to say that they prefer flowers, but the humans were more likely to say they prefer data.
+
+#### Bayesian
+We ran a Bayesian test of association (see Gunel & Dickey, 1974) using version 0.9.12-2 of the BayesFactor package (Morey & Rouder, 2015) using default priors and a joint multinomial sampling plan. The resulting Bayes factor of 3.65 to 1 in favour of the null hypothesis indicates that there is moderately strong evidence for the non-independence of Problem and accuracy.
+
+
+### References
+[^1]: http://health.adelaide.edu.au/psychology/ccs/docs/lsr/lsr-0.5.pdf#page=368  
+[^2]: http://health.adelaide.edu.au/psychology/ccs/docs/lsr/lsr-0.5.pdf#page=571  

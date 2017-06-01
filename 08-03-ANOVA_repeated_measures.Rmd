@@ -1,0 +1,85 @@
+# ANOVA repeated measures
+
+Perform a repeated measures ANOVA and get posthocs
+
+**Libraries**
+```{r, message=FALSE}
+if (!require('pacman')) install.packages('pacman'); library('pacman')
+p_load(tidyverse, yarrr, readxl, stringr, afex) 
+```
+
+
+
+**Import data**  
+We use the following [dataset](Data/08-Data_analysis/ANOVA_repeated_measures.xlsx).
+```{r}
+#Import to variable "datos"
+datos = read_excel("Data/08-Data_analysis/ANOVA_repeated_measures.xlsx") %>% 
+  dplyr::mutate(ID = 1:n())
+
+datos
+```
+
+***
+
+**EXPERIMENT DESIGN**  
+2 x 2 x 2 - Repeated measures  
+
+* VI1 = ENDO / EXO
+* VI2 = Temporal windows (bc - before change vs  ac - after change)
+* VI3 = Percepts (h - horse vs m - morse)
+ 
+***
+
+**Prepare data**
+```{r}
+# Wide to Long
+datos_long = datos %>% gather(Condicion, VD, 1:8)
+
+
+# We extract conditions from Condicion column. Convert char variables to factor
+datos_long = datos_long %>%
+  mutate(VI1 = str_sub(datos_long$Condicion, 1,3)) %>%
+  mutate(VI2 = 
+           ifelse(VI1 == "END", 
+                  str_sub(datos_long$Condicion, 5,6), 
+                  str_sub(datos_long$Condicion, 4,5))) %>%
+  mutate(VI3 = 
+           ifelse(VI1 == "END", 
+                  str_sub(datos_long$Condicion, 7,7), 
+                  str_sub(datos_long$Condicion, 6,6))) %>%
+  mutate(VI1 = as.factor(VI1)) %>%
+  mutate(VI2 = as.factor(VI2)) %>%
+  mutate(VI3 = as.factor(VI3)) %>%
+  mutate(Condicion = as.factor(Condicion))
+
+datos_long
+```
+
+
+Repeated measures ANOVA
+```{r}
+# AFEX PACKAGE
+# https://cran.r-project.org/web/packages/afex/afex.pdf
+
+a = aov_ez("ID", "VD", datos_long,
+           within = c("VI1", "VI2", "VI3"))
+
+# Show results
+summary(a)
+
+# Plot results
+lsmip(a, VI1 ~ VI2 * VI3)
+pirateplot(VD ~ VI1 * VI2 * VI3, datos_long)
+
+```
+
+Post-hocs
+```{r}
+lsmeans(a, c("VI1", "VI2", "VI3"), contr = "pairwise")
+
+lsmeans(a, "VI1", contr = "pairwise")
+lsmeans(a, "VI2", contr = "pairwise")
+lsmeans(a, "VI3", contr = "pairwise")
+
+```

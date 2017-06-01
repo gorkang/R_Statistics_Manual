@@ -1,0 +1,180 @@
+# TODO
+
+## Urgent stuff
+
+***
+
+## Important
+* Complete most commonly used analysis
+* ANOVA with afex!
+* Name chunks of code
+
+---
+
+
+## **INDEX PROPOSAL**
+
+```{r}
+
+# # Before we start
+# 
+# ## Installing R & R Studio
+# ## R Basics
+# * Instalacion de paquetes
+# * Cargar paquetes
+# 
+# # Preparacion de datos
+# ## Importar datos
+# * CSV, XLS, SPSS (usar tibble?)
+# 
+# ## Ver datos
+# * Columnas / filas - head() o tibble!
+# * Tipos de variables (tibble)
+# * Summary - incluyendo NAs, etc.
+# 
+# ## Preprocesamiento basico
+# * Cambiar nombres variables
+# * Cambiar tipos de variable
+# * Filtrar valores
+# * Filtrar NAs
+# * Recodificar variables
+# * Deteccion outliers
+# * Filtrado a partir de RT (avanzado?)
+# 
+# ## Preprocesamiento avanzado y Construccion de variables
+# * Manipulacion datos - wide to long
+# * tydr y dplyr et al.
+# * Confiabilidad
+#     + Alpha
+#     + Omega
+# * Creacion variables
+# * Filtrado variables
+# * Sumas, promedios...
+# * Segmentacion/categorizacion a partir de criterios logicos (si x>5 entonces A, else B)
+# 
+# # Analisis descriptivo y visualizacion
+# 
+# ## Variables individuales
+# * Ver (## Visualizar datos) frecuencias, etc.
+# * Histogramas, etc
+# 
+# ## Relacion entre variables - tablas
+# * USAR tabla como en inferenciales y visualizacion...
+# * En funcion de tipo de variables, usamos unas u otras tablas
+# 
+# ## Relacion entre variables - VISUALIZACIONES
+# * USAR tabla como en inferenciales y visualizacion...
+# * En funcion de tipo de variables, usamos unas u otras visualizaciones
+# 
+# 
+# # Analisis inferenciales
+# 
+# * (APARTADOS)
+#     + Assumptions
+#         - Normalidad
+#         - Independencia error
+#         - Homocedasticidad
+#     + Potencia
+#     + Tamaño efecto
+#     + Interpretacion resultados
+#     + Como reportar resultados
+# 
+# ## Normalidad
+# 
+# ## t's
+# * Pareadas
+# * Independientes
+# * 1 muestra
+# 
+# ## ANOVA
+# * ANOVA simple
+# * ANOVA factorial
+# * ANOVA medidas repetidas
+# * Modelos mixtos
+# * ANCOVA
+# 
+# ## Correlacion y regresion
+# * Correlacion pearson (continuas)
+# * Correlacion spearman (ordinales o dist no parametricas)
+# * Correlacion parcial / semiparcial
+# * Correlacion items dicotomicos (?)
+# * Regresion multiple
+#     + Construccion variables dummy
+#     + Analisis de residuos
+#     + Efectos palanca y outliers
+#     + Beta estandarizada / no estandarizada
+#     + Interaccion
+#     + Multicolinealidad
+# 
+# * Regresion logistica
+#     + Binaria
+#     + Multinomial
+# 
+# * Chi2!
+# * test de Asociacion
+# 
+# ## Estadistica multivariada
+# * Analisis discriminante
+# * Analisis de conglomerados
+# * MANOVA
+# 
+# # Analisis avanzados
+# 
+# ## Analisis de variables latentes
+# * SEM
+#     + Analisis de invariancia
+# * Path analysis
+# * Mediacion / Moderacion
+# * Analisis factorial exploratorio
+# * Analisis factorial confirmatorio
+# * Analisis componentes principales
+# 
+# ## IRT Analisis respuesta al item
+# 
+# ## Multinivel - Modelos anidados/jerarquicos
+
+
+```
+
+## Style guide
+
+### Sections
+Each type of page should have a common layout. Please, do your best to keep a common and clean structure.
+
+* Remember to separate sections (H1?) using `***`
+
+#### Inferential analysis
+* Libraries
+* Import data
+* Prepare data
+* Code
+    + Frequentist
+    + Bayesian
+* Results report
+    + Frequentist
+    + Bayesian
+    
+
+#### Data visualization
+* Libraries
+* Data
+* Code
+
+***   
+  
+### General
+* Spell check!
+
+
+***
+
+## NOTAS - REMEMBER
+
+### REFS
+https://sites.google.com/site/ullrtoolbox/home
+* Gorka:JA Toolbox EEG/ERP R???
+
+### NOTAS
+* Ejemplo con datos de EEG
+* Ejemplo con experimento medidas repetidas
+* Ejemplo con dif bases de datos

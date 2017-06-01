@@ -1,0 +1,180 @@
+# Visualizar datos{#Visualizar_datos}
+
+**TODO: TABLA RESUMEN CON IMAGENES DE GRAFICAS**
+
+
+***  
+
+Vamos a usar la siguiente [base de datos](Data/06_Visualize_data/Visualize_data.csv).
+
+***
+
+
+R es un lenguaje especialmente potente para la visualización de datos. Librerias como ggplot2 permiten una cantidad abrumadora de opciones. Aqui presentamos ejemplos de algunas de las posibilidades de R. 
+
+## Que gráfica puedo usar (WIP)
+
+
+![](Images/coggleviz.png)
+* Image FROM [Modern Dive](https://ismayc.github.io/moderndiver-book/4-viz.html#resources)
+
+DV/IV           | IV continua                   | IV vategórica       | IV dicotómica
+-------------   | -------------                 | -------------       | ------------- 
+DV continua     | ^SCATTER^ ^PIRATE^ ^CORREL^   | ^PIRATE^ ^CAJA^     | ^BEAN^ ^DENSITY^ ^PIRATE^ 
+DV categórica   | ...                           | ^PIRATE^            | ... 
+DV dicotómica   | ...                           | ...                 | ...
+
+
+* Cargamos librerias y leemos datos
+```{r, message=FALSE, warning=FALSE}
+# Cargamos librerias
+if (!require('pacman')) install.packages('pacman'); library('pacman')
+p_load(tidyverse, yarrr)  
+    
+# Leemos datos y echamos un vistazo
+datos = read_csv("Data/06_Visualize_data/Visualize_data.csv"); datos  
+  
+# A algunas de las funciones no les gustan las tibbles! 
+datos2 = read.csv("Data/06_Visualize_data/Visualize_data.csv") 
+
+```
+
+* Nota sobre sintaxis
+
+En muchos de los gráficos, análisis estadísticos, etc, usaremos la sintaxis: `Var_Dep ~ Var_Indep_1 + Var_Indep_2`  
+
+
+## Tipos de gráficas
+
+### Histogramas
+
+La función hist() nos permite crear de manera muy sencilla histogramas para ver 
+```{r}
+# Histograma sencillo
+hist(datos$Edad)
+
+```
+
+Si queremos ver los histogramas de todas las variables numéricas de nuestro dataset:
+```{r}
+# Metodo 1
+p_load(plyr, psych)
+# multi.hist(datos) #error, not numeric
+multi.hist(datos[,sapply(datos, is.numeric)])
+
+# Metodo 2
+p_load(reshape2, ggplot2)
+d <- melt(datos)
+ggplot(d,aes(x = value)) + 
+    facet_wrap(~variable,scales = "free_x") + 
+    geom_histogram(bins = 15) #+ coord_cartesian(ylim = c(0, 100))
+
+```
+
+
+### Pirate plot{#Pirate-Plot}
+
+Ver la web del creador: [Pirate plot](http://nathanieldphillips.com/) y su página de [Github](https://github.com/ndphillips/yarrr)
+```{r}
+# Cargamos librerias
+p_load(yarrr)
+    
+# Mostramos gráfico con opciones por defecto
+pirateplot(formula = PPV_DECLARED ~ condition, datos)
+
+# Personalizamos el gráfico
+pirateplot(formula = PPV_DECLARED ~ condition,
+           data = datos,
+           main = "PPV by condition",
+           line.fun = median,
+           #theme.o = 2,
+           jitter.val = .2,
+           inf = "ci", #Show confidence interval (95%)
+           inf.o = 0.2, #Opacity of ci
+           pal = "appletv")
+```
+
+### Diagrama de caja y bigotes
+
+```{r}
+boxplot(PPV_DECLARED ~ condition, datos)
+```
+
+
+### Correlation plot
+
+Ver la web del paquete: [Correlation plot](https://cran.r-project.org/web/packages/corrplot/vignettes/corrplot-intro.html) y su página de [Github](https://github.com/taiyun/corrplot)
+
+```{r}
+# Cargamos libreria
+p_load(corrplot)
+
+corrplot(cor(datos[,c(2:5,7)]), mar = c(1,0, 0, 0),tl.cex = 0.9, 
+         method = "square", type = "lower", tl.col = "black", diag = T)
+```
+
+### Beanplot
+
+Ver la web del paquete [Beanplot](https://cran.r-project.org/web/packages/beanplot/index.html)
+
+```{r}
+# Cargamos libreria
+p_load(beanplot)
+    
+beanplot(FollowUP ~ Genero, data = datos,  side = "both", log = "", names = c("Hombre","Mujer"),
+what = c(1,1,1,0), border = NA, col = list("black", c("grey", "white")))
+# legend("bottomleft", fill = c("black", "grey"), legend = c("H", "M"), title = "Genero")
+
+```
+
+### Scatterplot
+
+Ver la web del creador: [ggpubr](http://www.sthda.com/english/rpkgs/ggpubr/) y su página de [Github](https://github.com/kassambara/ggpubr)
+```{r}
+# Cargamos libreria
+p_load(ggpubr)
+
+ggscatter(datos2, x = "Educacion", y = "Edad",
+   color = "black", shape = 21, size = 4, # Points color, shape and size
+   add = "reg.line",  # Add regressin line
+   add.params = list(color = "blue", fill = "lightgray"), # Customize reg. line
+   conf.int = TRUE, # Add confidence interval
+   cor.coef = TRUE # Add correlation coefficient
+   )
+```
+
+### Scatterplot con 3 variables
+
+Ver la web de documentación de [ggplot2](http://docs.ggplot2.org/current/) y su página de [Github](https://github.com/hadley/ggplot2)
+
+```{r}
+# Cargamos libreria
+p_load(tidyverse)
+
+ggplot(datos, aes(PPV_DECLARED, FollowUP, color=factor(Genero))) +
+    geom_point(shape=1, size = 2) +
+    scale_colour_hue(l=50) + # Palette hue
+    geom_smooth(method=lm,   # Linear regression lines
+                se=T,        # Confidence interval
+                fullrange=F) # Extend regression lines
+```
+
+### Density plots
+
+Ver la web del creador: [ggpubr](http://www.sthda.com/english/rpkgs/ggpubr/) y su página de [Github](https://github.com/kassambara/ggpubr)
+
+* The variable we use to create two different sub-plots has to be a factor!  
+
+```{r}
+datos = read_csv("Data/06_Visualize_data/Visualize_data.csv")
+
+datos = datos %>% 
+  mutate(Genero = as.factor(unlist(Genero))) %>% #Make Genero a factor
+  mutate(PPV_DECLARED = as.numeric(unlist(PPV_DECLARED)))
+
+ggdensity(datos, x = "PPV_DECLARED",
+   add = "mean", rug = TRUE,
+   color = "Genero", palette = c("#00AFBB", "#E7B800"), fill = "Genero")
+
+```
+

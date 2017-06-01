@@ -1,6 +1,6 @@
 --- 
-title: "R - Statistics Manual - CSCN"
-author: "Gorka Navarrete, Alvaro Rivera, David Huepe, Roberto Garcia"
+title: "R - Statistics Manual"
+author: "Center for Social and Cognitive Neuroscience - cscn.uai.cl"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 output: bookdown::gitbook
@@ -32,11 +32,14 @@ If you want to contribute code:
 * Use relative links
 * Thank you!
 
+##  Contributors
+Gorka Navarrete, Nicolas Carvajal-Sanchez, Alvaro Rivera, David Huepe, Roberto Garcia
+
 ***
 
-## Work in Progress (WIP)
+## TODO
 
-Cosas en las que estamos trabajando, o debieramos...
+**MOVE THE STUFF BELOW THIS TO ITS PLACE!**
 
 ### Inferential analysis
 Here you will find a number of inferential analysis in alphabetical order, and a table showing which ones would work depending on what kind of IV / DV you have.  
