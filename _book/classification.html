@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="Mi-primer-script.html">
-<link rel="next" href="basics-data-types-import-and-export-data.html">
+<link rel="prev" href="experimental-design.html">
+<link rel="next" href="other-stuff.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -319,77 +319,25 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="Conseguir_ayuda" class="section level1">
-<h1><span class="header-section-number">Chapter 4</span> Conseguir ayuda y aprender más</h1>
-<div id="cuando-sabemos-que-funcion-usar-pero-dudamos-de-la-sintaxis" class="section level2">
-<h2><span class="header-section-number">4.1</span> Cuando sabemos que función usar, pero dudamos de la sintaxis:</h2>
-<p>Podemos usar la funcion <code>help()</code> o podemos hacer click sobre la función y presionar la tecla F1. Por ejemplo, si queremos usar la función <code>summary()</code> pero dudamos sobre como usarla…</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Ejemplo para la función summary()</span>
-<span class="kw">help</span>(summary)</code></pre></div>
-</div>
-<div id="cuando-sabemos-lo-que-queremos-hacer-pero-no-la-funcion-que-debemos-usar" class="section level2">
-<h2><span class="header-section-number">4.2</span> Cuando sabemos lo que queremos hacer pero no la función que debemos usar:</h2>
-<ul>
-<li>Buscar en <a href="http://stackoverflow.com">Stackoverflow</a></li>
-<li>Buscar en google <strong>en ingles!</strong>: ej. long to wide R</li>
-<li>RStudio &gt; Help &gt; Cheatsheets</li>
-</ul>
-<hr />
-</div>
-<div id="libros-y-web-recomendados" class="section level2">
-<h2><span class="header-section-number">4.3</span> Libros y Web recomendados</h2>
-<div id="hadley-wickhams-books" class="section level3">
-<h3><span class="header-section-number">4.3.1</span> Hadley Wickham’s books</h3>
-<p>Del creador del tidyverse:</p>
-<div class="figure">
-<img src="Images/hadley.png" />
+<div id="classification" class="section level1">
+<h1><span class="header-section-number">Chapter 17</span> Classification</h1>
+<div id="fast-and-frugal-trees" class="section level2">
+<h2><span class="header-section-number">17.1</span> Fast and frugal trees</h2>
+<p>For more details and the source code, visit the Github page of the <a href="https://github.com/ndphillips/FFTrees">FFTrees package</a></p>
+<p><strong>Libraries</strong></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">if (!<span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
+<span class="kw">p_load</span>(FFTrees)</code></pre></div>
+<p><em>Example from the <a href="https://cran.r-project.org/web/packages/FFTrees/vignettes/guide.html">FFTrees guide</a></em></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Create an FFT from the heartdisease dataset</span>
+heart.fft &lt;-<span class="st"> </span><span class="kw">FFTrees</span>(<span class="dt">formula =</span> diagnosis ~.,
+                     <span class="dt">data =</span> heartdisease)
 
-</div>
-<ul>
-<li><a href="http://adv-r.had.co.nz/">Advanced R</a></li>
-<li><a href="http://r4ds.had.co.nz/">R for data science</a></li>
-</ul>
-</div>
-<div id="learning-statistics-with-r" class="section level3">
-<h3><span class="header-section-number">4.3.2</span> Learning statistics with R</h3>
-<p>Universidad de Adelaide:</p>
-<ul>
-<li><a href="https://health.adelaide.edu.au/psychology/ccs/teaching/lsr/">Learning statistics with R</a></li>
-</ul>
-</div>
-<div id="pirate-guide-to-r" class="section level3">
-<h3><span class="header-section-number">4.3.3</span> Pirate guide to R</h3>
-<ul>
-<li><a href="http://nathanieldphillips.com/thepiratesguidetor/">Pirate guide to R</a></li>
-</ul>
-</div>
-<div id="plots" class="section level3">
-<h3><span class="header-section-number">4.3.4</span> Plots</h3>
-<ul>
-<li><a href="http://www.r-graph-gallery.com/all-graphs/">Gallery of plots</a></li>
-<li><a href="https://www.rstudio.com/wp-content/uploads/2016/11/ggplot2-cheatsheet-2.1.pdf">Ggplot2 Cheatsheet - 2016</a></li>
-</ul>
-</div>
-<div id="other-references" class="section level3">
-<h3><span class="header-section-number">4.3.5</span> Other references</h3>
-<ul>
-<li><a href="https://www.r-bloggers.com/" class="uri">https://www.r-bloggers.com/</a></li>
-<li><a href="https://github.com/" class="uri">https://github.com/</a></li>
-<li><a href="http://www.statmethods.net/" class="uri">http://www.statmethods.net/</a></li>
-<li><a href="http://www.sthda.com/english/wiki/ggpubr-r-package-ggplot2-based-publication-ready-plots" class="uri">http://www.sthda.com/english/wiki/ggpubr-r-package-ggplot2-based-publication-ready-plots</a><br />
-</li>
-<li><a href="http://shinyapps.org/apps/RGraphCompendium/index.php" class="uri">http://shinyapps.org/apps/RGraphCompendium/index.php</a></li>
-<li><a href="https://ismayc.github.io/moderndiver-book/" class="uri">https://ismayc.github.io/moderndiver-book/</a></li>
-</ul>
-</div>
-<div id="twitter" class="section level3">
-<h3><span class="header-section-number">4.3.6</span> Twitter</h3>
-<ul>
-<li>@hadleywickham</li>
-<li>…</li>
-</ul>
+<span class="co"># Plot the best training tree</span>
+<span class="kw">plot</span>(heart.fft,
+     <span class="dt">main =</span> <span class="st">&quot;Heart Disease&quot;</span>,
+     <span class="dt">decision.names =</span> <span class="kw">c</span>(<span class="st">&quot;Absent&quot;</span>, <span class="st">&quot;Present&quot;</span>))</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-116-1.png" width="768" /></p>
 
-</div>
 </div>
 </div>
             </section>
@@ -397,8 +345,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           </div>
         </div>
       </div>
-<a href="Mi-primer-script.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="basics-data-types-import-and-export-data.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="experimental-design.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="other-stuff.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
