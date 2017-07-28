@@ -1,7 +1,11 @@
 # Visualizar datos{#Visualizar_datos}
 
-**TODO: TABLA RESUMEN CON IMAGENES DE GRAFICAS**
+## TODO
 
+* Some interesting simple ideas here http://pythonplot.com/
+* **TABLA RESUMEN CON IMAGENES DE GRAFICAS**
+
+WHY Data visualization matters: https://www.autodeskresearch.com/publications/samestats
 
 ***  
 
@@ -159,6 +163,60 @@ ggplot(datos, aes(PPV_DECLARED, FollowUP, color=factor(Genero))) +
                 fullrange=F) # Extend regression lines
 ```
 
+### Multiple Scatterplots
+
+```{r}
+library(pacman)
+p_load(tidyverse, ggthemes, Rmisc)
+
+a = read_csv("Data/06_Visualize_data/data_multiple_scatterplot.csv")
+
+# Si se cambia alguno de estos nombres, cambiar tb abajo (o mejor, find and replace all!)
+colnames(a) = c("a", "Executive functions", "Emotional recognition", "ToM", "Inhibitory verbal control", "Cryst. Intellig. (vocab)", "Cryst. Intellig. (years of education)", "Fluid intelligence", "w", "gg")
+
+
+p1 = ggplot(a, aes(x = `Cryst. Intellig. (vocab)`, y = `Executive functions`)) + geom_point(shape=16, fill="darkgrey", color="black", size=2) +
+  geom_smooth(method=lm, fill="grey", color="black", se = F, size = .5) + theme_tufte() + theme(axis.title.x=element_blank())
+
+p2 = ggplot(a, aes(x = `Cryst. Intellig. (vocab)`, y = `Emotional recognition`)) + geom_point(shape=16, fill="darkgrey", color="black", size=2) +
+  geom_smooth(method=lm, fill="grey", color="black", se = F, size = .5) + theme_tufte() + theme(axis.title.x=element_blank())
+
+p3 = ggplot(a, aes(x = `Cryst. Intellig. (vocab)`, y = ToM)) + geom_point(shape=16, fill="darkgrey", color="black", size=2) +
+  geom_smooth(method=lm, fill="grey", color="black", se = F, size = .5) + theme_tufte()  + theme(axis.title.x=element_blank())
+
+p4 = ggplot(a, aes(x = `Cryst. Intellig. (vocab)`, y = `Inhibitory verbal control`)) + geom_point(shape=16, fill="darkgrey", color="black", size=2) +
+  geom_smooth(method=lm, fill="grey", color="black", se = F, size = .5) + theme_tufte() 
+
+p5 = ggplot(a, aes(x = `Cryst. Intellig. (years of education)`, y = `Executive functions`)) + geom_point(shape=16, fill="darkgrey", color="black", size=2) +
+  geom_smooth(method=lm, fill="grey", color="black", se = F, size = .5) + theme_tufte() + theme(axis.title.x=element_blank(), axis.title.y=element_blank())
+
+p6 = ggplot(a, aes(x = `Cryst. Intellig. (years of education)`, y = `Emotional recognition`)) + geom_point(shape=16, fill="darkgrey", color="black", size=2) +
+  geom_smooth(method=lm, fill="grey", color="black", se = F, size = .5) + theme_tufte() + theme(axis.title.x=element_blank(), axis.title.y=element_blank())
+
+p7 = ggplot(a, aes(x = `Cryst. Intellig. (years of education)`, y = ToM)) + geom_point(shape=16, fill="darkgrey", color="black", size=2) +
+  geom_smooth(method=lm, fill="grey", color="black", se = F, size = .5) + theme_tufte() + theme(axis.title.x=element_blank(), axis.title.y=element_blank())
+
+p8 = ggplot(a, aes(x = `Cryst. Intellig. (years of education)`, y = `Inhibitory verbal control`)) + geom_point(shape=16, fill="darkgrey", color="black", size=2) +
+  geom_smooth(method=lm, fill="grey", color="black", se = F, size = .5) + theme_tufte() + theme(axis.title.y=element_blank())
+
+p9 = ggplot(a, aes(x = `Fluid intelligence`, y = `Executive functions`)) + geom_point(shape=16, fill="darkgrey", color="black", size=2) +
+  geom_smooth(method=lm, fill="grey", color="black", se = F, size = .5) + theme_tufte() + theme(axis.title.x=element_blank(), axis.title.y=element_blank())
+
+p10 = ggplot(a, aes(x = `Fluid intelligence`, y = `Emotional recognition`)) + geom_point(shape=16, fill="darkgrey", color="black", size=2) +
+  geom_smooth(method=lm, fill="grey", color="black", se = F, size = .5) + theme_tufte() + theme(axis.title.x=element_blank(), axis.title.y=element_blank())
+
+p11 = ggplot(a, aes(x = `Fluid intelligence`, y = ToM)) + geom_point(shape=16, fill="darkgrey", color="black", size=2) +
+  geom_smooth(method=lm, fill="grey", color="black", se = F, size = .5) + theme_tufte() + theme(axis.title.x=element_blank(), axis.title.y=element_blank())
+
+p12 = ggplot(a, aes(x = `Fluid intelligence`, y = `Inhibitory verbal control`)) + geom_point(shape=16, fill="darkgrey", color="black", size=2) +
+  geom_smooth(method=lm, fill="grey", color="black", se = F, size = .5) + theme_tufte() + theme(axis.title.y=element_blank())
+
+
+multiplot(p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, cols=3)
+
+```
+
+
 ### Density plots
 
 Ver la web del creador: [ggpubr](http://www.sthda.com/english/rpkgs/ggpubr/) y su página de [Github](https://github.com/kassambara/ggpubr)
@@ -175,6 +233,34 @@ datos = datos %>%
 ggdensity(datos, x = "PPV_DECLARED",
    add = "mean", rug = TRUE,
    color = "Genero", palette = c("#00AFBB", "#E7B800"), fill = "Genero")
+
+```
+
+### ggjoy Plots
+
+```{r}
+p_load(tidyverse, ggjoy)
+
+datos2 = datos %>% drop_na() %>% 
+  filter(Educacion < 8) %>% 
+  mutate(Educacion = as.factor(Educacion)) %>% 
+  mutate(PPV_DECLARED = as.double(PPV_DECLARED))
+
+# datos2 %>% group_by(Genero) %>% dplyr::summarise(N = n())
+
+# Simple version
+ggplot(datos2, aes(x = FollowUP, y = Genero)) + 
+  geom_joy(scale = 2)
+
+# Tweak some aesthetics 
+ggplot(datos2, aes(x = FollowUP, y = Genero, fill = Genero)) + 
+  geom_joy(scale = 2, alpha = .7, color = "white") + 
+  scale_fill_hue(l=30)
+
+# Histogram stat
+ggplot(datos2, aes(x = FollowUP, y = Genero, fill = Genero)) + 
+  geom_joy(scale = 2, alpha = .7, color = "white", stat = "binline", bins = 20) + 
+  scale_fill_hue(l=30)
 
 ```
 

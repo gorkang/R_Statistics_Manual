@@ -16,10 +16,10 @@ IV2: Pictorial aid (No pictorial aid x Pictorial aid)
 
 
 Experiment1
-![](/home/emrys/gorkang@gmail.com/RESEARCH/TECNICAS/R - Statistics/R_Statistics_Manual/Images/Data_analysis/Meta_analysis/Brase_Experiment_1.png)  
+![](Images/Data_analysis/Meta_analysis/Brase_Experiment_1.png)  
 
 Experiment2
-![](/home/emrys/gorkang@gmail.com/RESEARCH/TECNICAS/R - Statistics/R_Statistics_Manual/Images/Data_analysis/Meta_analysis/Brase_Experiment_2.png)  
+![](Images/Data_analysis/Meta_analysis/Brase_Experiment_2.png)  
 
 
 **Libraries**
@@ -112,3 +112,6 @@ forest(rma.overallOR,
        xlab="Log Odds Ratio", mlab="REML Model for All Comparisons", main = Contrast)
 ```
 
+## Notes on Meta-analysis
+
+http://www.nicebread.de/meta-showdown-1/

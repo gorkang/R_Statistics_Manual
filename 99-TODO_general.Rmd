@@ -9,6 +9,9 @@
 * ANOVA with afex!
 * Name chunks of code
 
+## Various
+* Long to wide in a between participants experiment.
+
 ---
 
 

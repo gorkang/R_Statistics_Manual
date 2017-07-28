@@ -80,27 +80,30 @@ legend("topright", "True Effect Size", cex = 1.5,  lty = 2, bty="n",
 
 ## Power analysis
 
-Tenemos un conjunto de funciones que nos permiten hacer power analysis para distintos tipos de diseños:
-* pwr.t.test
-* pwr.t2n.test
-* pwr.anova.test
+Tenemos un conjunto de funciones que nos permiten hacer power analysis para distintos tipos de diseños:  
 
-En cada uno de ellos podemos modificar varios parámetros. El parámetro que dejemos sin especificar será el que se calculará:
-* k = groups
-* n = participants (in each group)
-* f = effect size
-* sig.level = sig level
-* power = power
+* pwr.t.test  
+* pwr.t2n.test  
+* pwr.anova.test  
+
+En cada uno de ellos podemos modificar varios parámetros. El parámetro que dejemos sin especificar será el que se calculará:  
+
+* k = groups  
+* n = participants (in each group)  
+* f = effect size  
+* sig.level = sig level  
+* power = power  
 
 
-* Libraries
+
+**Libraries**
 ```{r, message=FALSE, warning=FALSE}
 if (!require('pacman')) install.packages('pacman'); library('pacman')
-p_load(pwr, tidyverse)
+p_load(pwr)
 ```
 
 
-* Code
+**Code**
 ```{r}
 
 #T-test
@@ -122,3 +125,23 @@ pwr.anova.test(k = 6, n = 42, sig.level = 0.05, power = .95)
 pwr.anova.test(k = 2, f = 0.5, sig.level = 0.05, power = .95)
 
 ```
+
+### Longitudinal designs
+
+Calculate sample size for longitudinal designs
+
+**Libraries**
+```{r, message=FALSE, warning=FALSE}
+if (!require('pacman')) install.packages('pacman'); library('pacman')
+p_load(powerMediation)
+```
+
+
+**Code**
+```{r}
+ssLong(es = 0.5, #	effect size of the difference of mean change.
+       rho = 0.5, # correlation coefficient between baseline and follow-up values within a treatment group.
+       alpha = 0.05, 
+       power = 0.95)
+```
+
