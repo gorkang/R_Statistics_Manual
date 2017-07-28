@@ -11,6 +11,10 @@ link-citations: yes
 github-repo: rstudio/bookdown-demo
 description: "Statistics manual from CSCN."
 ---
+```{r, message=FALSE, warning=FALSE, include=FALSE}
+if (!require('pacman')) install.packages('pacman'); library('pacman')
+p_load(tidyverse, Amelia)
+```
 
 
 # Introduction

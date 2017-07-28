@@ -1,0 +1,105 @@
+## Extract tables from the internet
+
+***
+```{r, message=FALSE, warning=FALSE}
+# Cargamos librerias y leemos DBif (!require('pacman')) install.packages('pacman'); library('pacman')
+library(pacman)
+p_load(rvest, tidyverse, ggrepel)
+
+```
+
+To extract a table we use the package `rvest`. We need the **XPath** of the table. To get it, we need to use the Devtools of Chrome or Firefox, locate the table, and right click, Copy, Copy XPath, as shown in the Figure below.
+
+
+![](Images/Other/16_Extract_tables_web.png)
+  
+  
+***  
+
+Below there is an example using the Shanghai Ranking. First, we extract the table:  
+
+```{r, warning=FALSE}
+#http://www.shanghairanking.com/ARWU-Methodology-2016.html
+
+url <- "http://www.shanghairanking.com/ARWU2016.html"
+population <- url %>%
+  read_html() %>%
+  html_nodes(xpath='//*[@id="UniversityRanking"]') %>%
+  html_table(fill = TRUE)
+  population <- population[[1]]
+
+  # Rename columns 
+  colnames(population) = c("World_Rank", "Institution", "Country/Region", "National_Rank", "Total_Score", "Alumni", "Awards", "Higly_Cited_Researchers", "Nature_Science", "Publications", "PCP")
+
+write_csv(population, "Data/15_Extract_tables_web/15_Extract_tables_web_Shanghai_2016.csv")
+
+population %>% dplyr::select(-`Country/Region`) %>% as_tibble()
+
+```
+
+   
+We prepare the DB and create the plot...
+```{r, message=FALSE, warning=FALSE}
+# Scatter -----------------------------------------------------------------
+
+# Read the DB
+population = read_csv("Data/15_Extract_tables_web/15_Extract_tables_web_Shanghai_2016.csv")
+  
+# We will show the names of this set of universities
+Universidades_destacadas = c("University of Cambridge", 
+                               "University of Oxford", 
+                               "University of Toronto", 
+                               "University of Chicago", 
+                               "The University of Edinburgh",
+                               "California Institute of Technology")
+
+# Prepare DB for plot  
+population_scatter = population %>% as_tibble() %>% dplyr::select(-`Country/Region`) %>% drop_na() %>%
+  mutate(World_Rank = as.numeric(World_Rank), National_Rank = as.numeric(National_Rank)) %>% 
+  mutate(Institution_highlighted = ifelse(Institution %in% Universidades_destacadas, Institution, NA),
+         Institution = ifelse(Institution %in% Universidades_destacadas, NA, Institution))
+
+
+# Plot
+ggplot(population_scatter, aes(Nature_Science, World_Rank)) + #, color=factor(P_s)
+  geom_point(size = 4, color = 'orange') +
+  scale_colour_hue(l=50) + # Palette hue
+  geom_smooth(method=lm,   # Linear regression lines
+              se=T,# level = .5,        # Confidence interval
+              fullrange=F, 
+              color = "purple") +
+  # geom_text_repel(aes(label=Institution)) + 
+  geom_text_repel(aes(label=Institution_highlighted, fontface="bold"), size = 3) +   
+  theme_classic(base_size = 16) + 
+  scale_y_reverse( breaks=c(1, 25, 50, 75, 100), lim = c(100,1)) +
+  labs(x="Publications", y="Shanghai Ranking 2016")
+
+  
+  # Save the plot
+  file = "Images/Other/Shanghai_ Ranking.png"
+  ggsave(file, device = "png", dpi = 300)
+  
+```
+
+
+When plotting, we can change the function behind the regression line.
+
+```{r}
+
+  ggplot(population_scatter, aes(Nature_Science, World_Rank)) + #, color=factor(P_s)
+    geom_point(size = 4, color = 'orange') +
+    scale_colour_hue(l=50) + # Palette hue
+    geom_smooth(method="lm", aes(color="Log Model"), formula= (y ~ log(x)), se=T, linetype = 1,  level = .999) +
+    # geom_smooth(method="lm", aes(color="Log Model"), formula= (y ~  poly(x, 2, raw=TRUE)), se=T, linetype = 1) +
+    # geom_smooth(method="lm", aes(color="Log Model"), formula= (y ~  splines::bs(x, 3)), se=T, linetype = 1,  level = .999) +
+    # method = "lm", formula = y ~ 
+    guides(color = guide_legend("Model Type")) +
+    # geom_text_repel(aes(label=Institution)) + 
+    geom_text_repel(aes(label=Institution_highlighted, fontface="bold"), size = 3) +   
+    theme_classic(base_size = 16) + 
+    scale_y_reverse(breaks=c(1, 25, 50, 75, 100)) + #, lim = c(100, 1)
+    labs(x="Publications", y="Shanghai Ranking 2016")
+  
+  
+```
+

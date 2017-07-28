@@ -1,5 +1,7 @@
 ## Impute missing data
 
+**TODO: see https://www.r-bloggers.com/imputing-missing-data-with-r-mice-package/**
+
 FROM: https://www.r-bloggers.com/graphical-presentation-of-missing-data-vim-package/
 
 ```{r}
