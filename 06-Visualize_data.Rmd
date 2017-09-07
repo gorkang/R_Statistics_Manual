@@ -262,5 +262,10 @@ ggplot(datos2, aes(x = FollowUP, y = Genero, fill = Genero)) +
   geom_joy(scale = 2, alpha = .7, color = "white", stat = "binline", bins = 20) + 
   scale_fill_hue(l=30)
 
+# Combined
+ggplot(datos2, aes(x = FollowUP, y = Genero, fill = Genero)) + 
+  geom_joy(scale = 2, alpha = .7, color = "white", stat = "binline", bins = 20) + 
+  geom_joy(scale = 2, alpha = .4, color = "white") + 
+  scale_fill_hue(l=30)
 ```
 
