@@ -25,7 +25,7 @@
 <meta name="author" content="Center for Social and Cognitive Neuroscience - cscn.uai.cl">
 
 
-<meta name="date" content="2017-07-27">
+<meta name="date" content="2017-08-03">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -630,6 +630,13 @@ datos2 =<span class="st"> </span>datos %&gt;%<span class="st"> </span><span clas
 <span class="st">  </span><span class="kw">geom_joy</span>(<span class="dt">scale =</span> <span class="dv">2</span>, <span class="dt">alpha =</span> .<span class="dv">7</span>, <span class="dt">color =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">stat =</span> <span class="st">&quot;binline&quot;</span>, <span class="dt">bins =</span> <span class="dv">20</span>) +<span class="st"> </span>
 <span class="st">  </span><span class="kw">scale_fill_hue</span>(<span class="dt">l=</span><span class="dv">30</span>)</code></pre></div>
 <p><img src="bookdown-demo_files/figure-html/unnamed-chunk-47-3.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Combined</span>
+<span class="kw">ggplot</span>(datos2, <span class="kw">aes</span>(<span class="dt">x =</span> FollowUP, <span class="dt">y =</span> Genero, <span class="dt">fill =</span> Genero)) +<span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_joy</span>(<span class="dt">scale =</span> <span class="dv">2</span>, <span class="dt">alpha =</span> .<span class="dv">7</span>, <span class="dt">color =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">stat =</span> <span class="st">&quot;binline&quot;</span>, <span class="dt">bins =</span> <span class="dv">20</span>) +<span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_joy</span>(<span class="dt">scale =</span> <span class="dv">2</span>, <span class="dt">alpha =</span> .<span class="dv">4</span>, <span class="dt">color =</span> <span class="st">&quot;white&quot;</span>) +<span class="st"> </span>
+<span class="st">  </span><span class="kw">scale_fill_hue</span>(<span class="dt">l=</span><span class="dv">30</span>)</code></pre></div>
+<pre><code>## Picking joint bandwidth of 12.4</code></pre>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-47-4.png" width="672" /></p>
 
 </div>
 </div>
