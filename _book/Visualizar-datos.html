@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>R - Statistics Manual</title>
   <meta name="description" content="Statistics manual from CSCN.">
-  <meta name="generator" content="bookdown 0.4 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.5 and GitBook 2.6.7">
 
   <meta property="og:title" content="R - Statistics Manual" />
   <meta property="og:type" content="book" />
@@ -25,7 +25,7 @@
 <meta name="author" content="Center for Social and Cognitive Neuroscience - cscn.uai.cl">
 
 
-<meta name="date" content="2017-08-03">
+<meta name="date" content="2017-09-19">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -286,13 +286,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="18.1" data-path="other-stuff.html"><a href="other-stuff.html#maps---generate-and-locate-cities-in-a-world-map"><i class="fa fa-check"></i><b>18.1</b> Maps - Generate and locate cities in a world map</a></li>
 <li class="chapter" data-level="18.2" data-path="other-stuff.html"><a href="other-stuff.html#extract-tables-from-the-internet"><i class="fa fa-check"></i><b>18.2</b> Extract tables from the internet</a></li>
 </ul></li>
-<li class="chapter" data-level="19" data-path="exercices.html"><a href="exercices.html"><i class="fa fa-check"></i><b>19</b> Exercices</a><ul>
-<li class="chapter" data-level="19.1" data-path="exercices.html"><a href="exercices.html#Ejercicios1"><i class="fa fa-check"></i><b>19.1</b> Ejercicios 1</a></li>
-<li class="chapter" data-level="19.2" data-path="exercices.html"><a href="exercices.html#Ejercicios2"><i class="fa fa-check"></i><b>19.2</b> Ejercicios 2</a></li>
+<li class="chapter" data-level="19" data-path="exercices-solutions.html"><a href="exercices-solutions.html"><i class="fa fa-check"></i><b>19</b> Exercices solutions</a><ul>
+<li class="chapter" data-level="19.1" data-path="exercices-solutions.html"><a href="exercices-solutions.html#exercices-1"><i class="fa fa-check"></i><b>19.1</b> Exercices 1</a></li>
+<li class="chapter" data-level="19.2" data-path="exercices-solutions.html"><a href="exercices-solutions.html#Ejercicios2"><i class="fa fa-check"></i><b>19.2</b> Ejercicios 2</a></li>
 </ul></li>
-<li class="chapter" data-level="20" data-path="exercices-solutions.html"><a href="exercices-solutions.html"><i class="fa fa-check"></i><b>20</b> Exercices solutions</a><ul>
-<li class="chapter" data-level="20.1" data-path="exercices-solutions.html"><a href="exercices-solutions.html#exercices-1"><i class="fa fa-check"></i><b>20.1</b> Exercices 1</a></li>
-<li class="chapter" data-level="20.2" data-path="exercices.html"><a href="exercices.html#Ejercicios2"><i class="fa fa-check"></i><b>20.2</b> Ejercicios 2</a></li>
+<li class="chapter" data-level="20" data-path="exercices.html"><a href="exercices.html"><i class="fa fa-check"></i><b>20</b> Exercices</a><ul>
+<li class="chapter" data-level="20.1" data-path="exercices.html"><a href="exercices.html#Ejercicios1"><i class="fa fa-check"></i><b>20.1</b> Ejercicios 1</a></li>
+<li class="chapter" data-level="20.2" data-path="exercices-solutions.html"><a href="exercices-solutions.html#Ejercicios2"><i class="fa fa-check"></i><b>20.2</b> Ejercicios 2</a></li>
 </ul></li>
 <li class="chapter" data-level="21" data-path="todo-curso-basico-r-2016.html"><a href="todo-curso-basico-r-2016.html"><i class="fa fa-check"></i><b>21</b> TODO - Curso Basico R - 2016</a></li>
 <li class="chapter" data-level="22" data-path="en-ejercicios.html"><a href="en-ejercicios.html"><i class="fa fa-check"></i><b>22</b> EN EJERCICIOS:</a><ul>
@@ -380,7 +380,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li>Cargamos librerias y leemos datos</li>
 </ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Cargamos librerias</span>
-if (!<span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
+<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
 <span class="kw">p_load</span>(tidyverse, yarrr)  
     
 <span class="co"># Leemos datos y echamos un vistazo</span>
@@ -412,77 +412,79 @@ datos2 =<span class="st"> </span><span class="kw">read.csv</span>(<span class="s
 <h3><span class="header-section-number">7.3.1</span> Histogramas</h3>
 <p>La función hist() nos permite crear de manera muy sencilla histogramas para ver</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Histograma sencillo</span>
-<span class="kw">hist</span>(datos$Edad)</code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-37-1.png" width="672" /></p>
+<span class="kw">hist</span>(datos<span class="op">$</span>Edad)</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-36-1.png" width="672" /></p>
 <p>Si queremos ver los histogramas de todas las variables numéricas de nuestro dataset:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Metodo 1</span>
+<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
 <span class="kw">p_load</span>(plyr, psych)
 <span class="co"># multi.hist(datos) #error, not numeric</span>
 <span class="kw">multi.hist</span>(datos[,<span class="kw">sapply</span>(datos, is.numeric)])</code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-38-1.png" width="672" /></p>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-37-1.png" width="672" /></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Metodo 2</span>
 <span class="kw">p_load</span>(reshape2, ggplot2)
 d &lt;-<span class="st"> </span><span class="kw">melt</span>(datos)</code></pre></div>
 <pre><code>## Using condition as id variables</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(d,<span class="kw">aes</span>(<span class="dt">x =</span> value)) +<span class="st"> </span>
-<span class="st">    </span><span class="kw">facet_wrap</span>(~variable,<span class="dt">scales =</span> <span class="st">&quot;free_x&quot;</span>) +<span class="st"> </span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(d,<span class="kw">aes</span>(<span class="dt">x =</span> value)) <span class="op">+</span><span class="st"> </span>
+<span class="st">    </span><span class="kw">facet_wrap</span>(<span class="op">~</span>variable,<span class="dt">scales =</span> <span class="st">&quot;free_x&quot;</span>) <span class="op">+</span><span class="st"> </span>
 <span class="st">    </span><span class="kw">geom_histogram</span>(<span class="dt">bins =</span> <span class="dv">15</span>) <span class="co">#+ coord_cartesian(ylim = c(0, 100))</span></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-38-2.png" width="672" /></p>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-37-2.png" width="672" /></p>
 </div>
 <div id="Pirate-Plot" class="section level3">
 <h3><span class="header-section-number">7.3.2</span> Pirate plot</h3>
 <p>Ver la web del creador: <a href="http://nathanieldphillips.com/">Pirate plot</a> y su página de <a href="https://github.com/ndphillips/yarrr">Github</a></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Cargamos librerias</span>
+<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
 <span class="kw">p_load</span>(yarrr)
     
 <span class="co"># Mostramos gráfico con opciones por defecto</span>
-<span class="kw">pirateplot</span>(<span class="dt">formula =</span> PPV_DECLARED ~<span class="st"> </span>condition, datos)</code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-39-1.png" width="672" /></p>
+<span class="kw">pirateplot</span>(<span class="dt">formula =</span> PPV_DECLARED <span class="op">~</span><span class="st"> </span>condition, datos)</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-38-1.png" width="672" /></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Personalizamos el gráfico</span>
-<span class="kw">pirateplot</span>(<span class="dt">formula =</span> PPV_DECLARED ~<span class="st"> </span>condition,
+<span class="kw">pirateplot</span>(<span class="dt">formula =</span> PPV_DECLARED <span class="op">~</span><span class="st"> </span>condition,
            <span class="dt">data =</span> datos,
            <span class="dt">main =</span> <span class="st">&quot;PPV by condition&quot;</span>,
-           <span class="dt">line.fun =</span> median,
+           <span class="dt">avg.line.fun =</span> median,
            <span class="co">#theme.o = 2,</span>
            <span class="dt">jitter.val =</span> .<span class="dv">2</span>,
-           <span class="dt">inf =</span> <span class="st">&quot;ci&quot;</span>, <span class="co">#Show confidence interval (95%)</span>
-           <span class="dt">inf.o =</span> <span class="fl">0.2</span>, <span class="co">#Opacity of ci</span>
+           <span class="dt">inf.method =</span> <span class="st">&quot;ci&quot;</span>, <span class="co">#Show confidence interval (95%)</span>
+           <span class="dt">inf.f.o =</span> <span class="fl">0.2</span>, <span class="co">#Opacity of ci</span>
            <span class="dt">pal =</span> <span class="st">&quot;appletv&quot;</span>)</code></pre></div>
-<pre><code>## line.fun is depricated. Use avg.line.fun instead</code></pre>
-<pre><code>## inf.o is depricated. Use inf.f.o instead</code></pre>
-<pre><code>## inf is depricated. Use inf.method instead</code></pre>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-39-2.png" width="672" /></p>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-38-2.png" width="672" /></p>
 </div>
 <div id="diagrama-de-caja-y-bigotes" class="section level3">
 <h3><span class="header-section-number">7.3.3</span> Diagrama de caja y bigotes</h3>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">boxplot</span>(PPV_DECLARED ~<span class="st"> </span>condition, datos)</code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-40-1.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">boxplot</span>(PPV_DECLARED <span class="op">~</span><span class="st"> </span>condition, datos)</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-39-1.png" width="672" /></p>
 </div>
 <div id="correlation-plot" class="section level3">
 <h3><span class="header-section-number">7.3.4</span> Correlation plot</h3>
 <p>Ver la web del paquete: <a href="https://cran.r-project.org/web/packages/corrplot/vignettes/corrplot-intro.html">Correlation plot</a> y su página de <a href="https://github.com/taiyun/corrplot">Github</a></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Cargamos libreria</span>
+<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
 <span class="kw">p_load</span>(corrplot)
 
-<span class="kw">corrplot</span>(<span class="kw">cor</span>(datos[,<span class="kw">c</span>(<span class="dv">2</span>:<span class="dv">5</span>,<span class="dv">7</span>)]), <span class="dt">mar =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>),<span class="dt">tl.cex =</span> <span class="fl">0.9</span>, 
+<span class="kw">corrplot</span>(<span class="kw">cor</span>(datos[,<span class="kw">c</span>(<span class="dv">2</span><span class="op">:</span><span class="dv">5</span>,<span class="dv">7</span>)]), <span class="dt">mar =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>),<span class="dt">tl.cex =</span> <span class="fl">0.9</span>, 
          <span class="dt">method =</span> <span class="st">&quot;square&quot;</span>, <span class="dt">type =</span> <span class="st">&quot;lower&quot;</span>, <span class="dt">tl.col =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">diag =</span> T)</code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-41-1.png" width="672" /></p>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-40-1.png" width="672" /></p>
 </div>
 <div id="beanplot" class="section level3">
 <h3><span class="header-section-number">7.3.5</span> Beanplot</h3>
 <p>Ver la web del paquete <a href="https://cran.r-project.org/web/packages/beanplot/index.html">Beanplot</a></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Cargamos libreria</span>
+<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
 <span class="kw">p_load</span>(beanplot)
     
-<span class="kw">beanplot</span>(FollowUP ~<span class="st"> </span>Genero, <span class="dt">data =</span> datos,  <span class="dt">side =</span> <span class="st">&quot;both&quot;</span>, <span class="dt">log =</span> <span class="st">&quot;&quot;</span>, <span class="dt">names =</span> <span class="kw">c</span>(<span class="st">&quot;Hombre&quot;</span>,<span class="st">&quot;Mujer&quot;</span>),
+<span class="kw">beanplot</span>(FollowUP <span class="op">~</span><span class="st"> </span>Genero, <span class="dt">data =</span> datos,  <span class="dt">side =</span> <span class="st">&quot;both&quot;</span>, <span class="dt">log =</span> <span class="st">&quot;&quot;</span>, <span class="dt">names =</span> <span class="kw">c</span>(<span class="st">&quot;Hombre&quot;</span>,<span class="st">&quot;Mujer&quot;</span>),
 <span class="dt">what =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>), <span class="dt">border =</span> <span class="ot">NA</span>, <span class="dt">col =</span> <span class="kw">list</span>(<span class="st">&quot;black&quot;</span>, <span class="kw">c</span>(<span class="st">&quot;grey&quot;</span>, <span class="st">&quot;white&quot;</span>)))</code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-42-1.png" width="672" /></p>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-41-1.png" width="672" /></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># legend(&quot;bottomleft&quot;, fill = c(&quot;black&quot;, &quot;grey&quot;), legend = c(&quot;H&quot;, &quot;M&quot;), title = &quot;Genero&quot;)</span></code></pre></div>
 </div>
 <div id="scatterplot" class="section level3">
 <h3><span class="header-section-number">7.3.6</span> Scatterplot</h3>
 <p>Ver la web del creador: <a href="http://www.sthda.com/english/rpkgs/ggpubr/">ggpubr</a> y su página de <a href="https://github.com/kassambara/ggpubr">Github</a></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Cargamos libreria</span>
+<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
 <span class="kw">p_load</span>(ggpubr)
 
 <span class="kw">ggscatter</span>(datos2, <span class="dt">x =</span> <span class="st">&quot;Educacion&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Edad&quot;</span>,
@@ -492,25 +494,26 @@ d &lt;-<span class="st"> </span><span class="kw">melt</span>(datos)</code></pre>
    <span class="dt">conf.int =</span> <span class="ot">TRUE</span>, <span class="co"># Add confidence interval</span>
    <span class="dt">cor.coef =</span> <span class="ot">TRUE</span> <span class="co"># Add correlation coefficient</span>
    )</code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-43-1.png" width="672" /></p>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-42-1.png" width="672" /></p>
 </div>
 <div id="scatterplot-con-3-variables" class="section level3">
 <h3><span class="header-section-number">7.3.7</span> Scatterplot con 3 variables</h3>
 <p>Ver la web de documentación de <a href="http://docs.ggplot2.org/current/">ggplot2</a> y su página de <a href="https://github.com/hadley/ggplot2">Github</a></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Cargamos libreria</span>
+<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
 <span class="kw">p_load</span>(tidyverse)
 
-<span class="kw">ggplot</span>(datos, <span class="kw">aes</span>(PPV_DECLARED, FollowUP, <span class="dt">color=</span><span class="kw">factor</span>(Genero))) +
-<span class="st">    </span><span class="kw">geom_point</span>(<span class="dt">shape=</span><span class="dv">1</span>, <span class="dt">size =</span> <span class="dv">2</span>) +
-<span class="st">    </span><span class="kw">scale_colour_hue</span>(<span class="dt">l=</span><span class="dv">50</span>) +<span class="st"> </span><span class="co"># Palette hue</span>
+<span class="kw">ggplot</span>(datos, <span class="kw">aes</span>(PPV_DECLARED, FollowUP, <span class="dt">color=</span><span class="kw">factor</span>(Genero))) <span class="op">+</span>
+<span class="st">    </span><span class="kw">geom_point</span>(<span class="dt">shape=</span><span class="dv">1</span>, <span class="dt">size =</span> <span class="dv">2</span>) <span class="op">+</span>
+<span class="st">    </span><span class="kw">scale_colour_hue</span>(<span class="dt">l=</span><span class="dv">50</span>) <span class="op">+</span><span class="st"> </span><span class="co"># Palette hue</span>
 <span class="st">    </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span>lm,   <span class="co"># Linear regression lines</span>
                 <span class="dt">se=</span>T,        <span class="co"># Confidence interval</span>
                 <span class="dt">fullrange=</span>F) <span class="co"># Extend regression lines</span></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-44-1.png" width="672" /></p>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-43-1.png" width="672" /></p>
 </div>
 <div id="multiple-scatterplots" class="section level3">
 <h3><span class="header-section-number">7.3.8</span> Multiple Scatterplots</h3>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(pacman)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
 <span class="kw">p_load</span>(tidyverse, ggthemes, Rmisc)
 
 a =<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;Data/06_Visualize_data/data_multiple_scatterplot.csv&quot;</span>)</code></pre></div>
@@ -531,41 +534,41 @@ a =<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&q
 <span class="kw">colnames</span>(a) =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;Executive functions&quot;</span>, <span class="st">&quot;Emotional recognition&quot;</span>, <span class="st">&quot;ToM&quot;</span>, <span class="st">&quot;Inhibitory verbal control&quot;</span>, <span class="st">&quot;Cryst. Intellig. (vocab)&quot;</span>, <span class="st">&quot;Cryst. Intellig. (years of education)&quot;</span>, <span class="st">&quot;Fluid intelligence&quot;</span>, <span class="st">&quot;w&quot;</span>, <span class="st">&quot;gg&quot;</span>)
 
 
-p1 =<span class="st"> </span><span class="kw">ggplot</span>(a, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="st">`</span><span class="dt">Cryst. Intellig. (vocab)</span><span class="st">`</span>, <span class="dt">y =</span> <span class="st">`</span><span class="dt">Executive functions</span><span class="st">`</span>)) +<span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">shape=</span><span class="dv">16</span>, <span class="dt">fill=</span><span class="st">&quot;darkgrey&quot;</span>, <span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">size=</span><span class="dv">2</span>) +
-<span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span>lm, <span class="dt">fill=</span><span class="st">&quot;grey&quot;</span>, <span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">se =</span> F, <span class="dt">size =</span> .<span class="dv">5</span>) +<span class="st"> </span><span class="kw">theme_tufte</span>() +<span class="st"> </span><span class="kw">theme</span>(<span class="dt">axis.title.x=</span><span class="kw">element_blank</span>())
+p1 =<span class="st"> </span><span class="kw">ggplot</span>(a, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="st">`</span><span class="dt">Cryst. Intellig. (vocab)</span><span class="st">`</span>, <span class="dt">y =</span> <span class="st">`</span><span class="dt">Executive functions</span><span class="st">`</span>)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">shape=</span><span class="dv">16</span>, <span class="dt">fill=</span><span class="st">&quot;darkgrey&quot;</span>, <span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">size=</span><span class="dv">2</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span>lm, <span class="dt">fill=</span><span class="st">&quot;grey&quot;</span>, <span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">se =</span> F, <span class="dt">size =</span> .<span class="dv">5</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_tufte</span>() <span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">axis.title.x=</span><span class="kw">element_blank</span>())
 
-p2 =<span class="st"> </span><span class="kw">ggplot</span>(a, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="st">`</span><span class="dt">Cryst. Intellig. (vocab)</span><span class="st">`</span>, <span class="dt">y =</span> <span class="st">`</span><span class="dt">Emotional recognition</span><span class="st">`</span>)) +<span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">shape=</span><span class="dv">16</span>, <span class="dt">fill=</span><span class="st">&quot;darkgrey&quot;</span>, <span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">size=</span><span class="dv">2</span>) +
-<span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span>lm, <span class="dt">fill=</span><span class="st">&quot;grey&quot;</span>, <span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">se =</span> F, <span class="dt">size =</span> .<span class="dv">5</span>) +<span class="st"> </span><span class="kw">theme_tufte</span>() +<span class="st"> </span><span class="kw">theme</span>(<span class="dt">axis.title.x=</span><span class="kw">element_blank</span>())
+p2 =<span class="st"> </span><span class="kw">ggplot</span>(a, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="st">`</span><span class="dt">Cryst. Intellig. (vocab)</span><span class="st">`</span>, <span class="dt">y =</span> <span class="st">`</span><span class="dt">Emotional recognition</span><span class="st">`</span>)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">shape=</span><span class="dv">16</span>, <span class="dt">fill=</span><span class="st">&quot;darkgrey&quot;</span>, <span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">size=</span><span class="dv">2</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span>lm, <span class="dt">fill=</span><span class="st">&quot;grey&quot;</span>, <span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">se =</span> F, <span class="dt">size =</span> .<span class="dv">5</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_tufte</span>() <span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">axis.title.x=</span><span class="kw">element_blank</span>())
 
-p3 =<span class="st"> </span><span class="kw">ggplot</span>(a, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="st">`</span><span class="dt">Cryst. Intellig. (vocab)</span><span class="st">`</span>, <span class="dt">y =</span> ToM)) +<span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">shape=</span><span class="dv">16</span>, <span class="dt">fill=</span><span class="st">&quot;darkgrey&quot;</span>, <span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">size=</span><span class="dv">2</span>) +
-<span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span>lm, <span class="dt">fill=</span><span class="st">&quot;grey&quot;</span>, <span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">se =</span> F, <span class="dt">size =</span> .<span class="dv">5</span>) +<span class="st"> </span><span class="kw">theme_tufte</span>()  +<span class="st"> </span><span class="kw">theme</span>(<span class="dt">axis.title.x=</span><span class="kw">element_blank</span>())
+p3 =<span class="st"> </span><span class="kw">ggplot</span>(a, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="st">`</span><span class="dt">Cryst. Intellig. (vocab)</span><span class="st">`</span>, <span class="dt">y =</span> ToM)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">shape=</span><span class="dv">16</span>, <span class="dt">fill=</span><span class="st">&quot;darkgrey&quot;</span>, <span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">size=</span><span class="dv">2</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span>lm, <span class="dt">fill=</span><span class="st">&quot;grey&quot;</span>, <span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">se =</span> F, <span class="dt">size =</span> .<span class="dv">5</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_tufte</span>()  <span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">axis.title.x=</span><span class="kw">element_blank</span>())
 
-p4 =<span class="st"> </span><span class="kw">ggplot</span>(a, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="st">`</span><span class="dt">Cryst. Intellig. (vocab)</span><span class="st">`</span>, <span class="dt">y =</span> <span class="st">`</span><span class="dt">Inhibitory verbal control</span><span class="st">`</span>)) +<span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">shape=</span><span class="dv">16</span>, <span class="dt">fill=</span><span class="st">&quot;darkgrey&quot;</span>, <span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">size=</span><span class="dv">2</span>) +
-<span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span>lm, <span class="dt">fill=</span><span class="st">&quot;grey&quot;</span>, <span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">se =</span> F, <span class="dt">size =</span> .<span class="dv">5</span>) +<span class="st"> </span><span class="kw">theme_tufte</span>() 
+p4 =<span class="st"> </span><span class="kw">ggplot</span>(a, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="st">`</span><span class="dt">Cryst. Intellig. (vocab)</span><span class="st">`</span>, <span class="dt">y =</span> <span class="st">`</span><span class="dt">Inhibitory verbal control</span><span class="st">`</span>)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">shape=</span><span class="dv">16</span>, <span class="dt">fill=</span><span class="st">&quot;darkgrey&quot;</span>, <span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">size=</span><span class="dv">2</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span>lm, <span class="dt">fill=</span><span class="st">&quot;grey&quot;</span>, <span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">se =</span> F, <span class="dt">size =</span> .<span class="dv">5</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_tufte</span>() 
 
-p5 =<span class="st"> </span><span class="kw">ggplot</span>(a, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="st">`</span><span class="dt">Cryst. Intellig. (years of education)</span><span class="st">`</span>, <span class="dt">y =</span> <span class="st">`</span><span class="dt">Executive functions</span><span class="st">`</span>)) +<span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">shape=</span><span class="dv">16</span>, <span class="dt">fill=</span><span class="st">&quot;darkgrey&quot;</span>, <span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">size=</span><span class="dv">2</span>) +
-<span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span>lm, <span class="dt">fill=</span><span class="st">&quot;grey&quot;</span>, <span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">se =</span> F, <span class="dt">size =</span> .<span class="dv">5</span>) +<span class="st"> </span><span class="kw">theme_tufte</span>() +<span class="st"> </span><span class="kw">theme</span>(<span class="dt">axis.title.x=</span><span class="kw">element_blank</span>(), <span class="dt">axis.title.y=</span><span class="kw">element_blank</span>())
+p5 =<span class="st"> </span><span class="kw">ggplot</span>(a, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="st">`</span><span class="dt">Cryst. Intellig. (years of education)</span><span class="st">`</span>, <span class="dt">y =</span> <span class="st">`</span><span class="dt">Executive functions</span><span class="st">`</span>)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">shape=</span><span class="dv">16</span>, <span class="dt">fill=</span><span class="st">&quot;darkgrey&quot;</span>, <span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">size=</span><span class="dv">2</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span>lm, <span class="dt">fill=</span><span class="st">&quot;grey&quot;</span>, <span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">se =</span> F, <span class="dt">size =</span> .<span class="dv">5</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_tufte</span>() <span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">axis.title.x=</span><span class="kw">element_blank</span>(), <span class="dt">axis.title.y=</span><span class="kw">element_blank</span>())
 
-p6 =<span class="st"> </span><span class="kw">ggplot</span>(a, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="st">`</span><span class="dt">Cryst. Intellig. (years of education)</span><span class="st">`</span>, <span class="dt">y =</span> <span class="st">`</span><span class="dt">Emotional recognition</span><span class="st">`</span>)) +<span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">shape=</span><span class="dv">16</span>, <span class="dt">fill=</span><span class="st">&quot;darkgrey&quot;</span>, <span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">size=</span><span class="dv">2</span>) +
-<span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span>lm, <span class="dt">fill=</span><span class="st">&quot;grey&quot;</span>, <span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">se =</span> F, <span class="dt">size =</span> .<span class="dv">5</span>) +<span class="st"> </span><span class="kw">theme_tufte</span>() +<span class="st"> </span><span class="kw">theme</span>(<span class="dt">axis.title.x=</span><span class="kw">element_blank</span>(), <span class="dt">axis.title.y=</span><span class="kw">element_blank</span>())
+p6 =<span class="st"> </span><span class="kw">ggplot</span>(a, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="st">`</span><span class="dt">Cryst. Intellig. (years of education)</span><span class="st">`</span>, <span class="dt">y =</span> <span class="st">`</span><span class="dt">Emotional recognition</span><span class="st">`</span>)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">shape=</span><span class="dv">16</span>, <span class="dt">fill=</span><span class="st">&quot;darkgrey&quot;</span>, <span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">size=</span><span class="dv">2</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span>lm, <span class="dt">fill=</span><span class="st">&quot;grey&quot;</span>, <span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">se =</span> F, <span class="dt">size =</span> .<span class="dv">5</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_tufte</span>() <span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">axis.title.x=</span><span class="kw">element_blank</span>(), <span class="dt">axis.title.y=</span><span class="kw">element_blank</span>())
 
-p7 =<span class="st"> </span><span class="kw">ggplot</span>(a, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="st">`</span><span class="dt">Cryst. Intellig. (years of education)</span><span class="st">`</span>, <span class="dt">y =</span> ToM)) +<span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">shape=</span><span class="dv">16</span>, <span class="dt">fill=</span><span class="st">&quot;darkgrey&quot;</span>, <span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">size=</span><span class="dv">2</span>) +
-<span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span>lm, <span class="dt">fill=</span><span class="st">&quot;grey&quot;</span>, <span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">se =</span> F, <span class="dt">size =</span> .<span class="dv">5</span>) +<span class="st"> </span><span class="kw">theme_tufte</span>() +<span class="st"> </span><span class="kw">theme</span>(<span class="dt">axis.title.x=</span><span class="kw">element_blank</span>(), <span class="dt">axis.title.y=</span><span class="kw">element_blank</span>())
+p7 =<span class="st"> </span><span class="kw">ggplot</span>(a, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="st">`</span><span class="dt">Cryst. Intellig. (years of education)</span><span class="st">`</span>, <span class="dt">y =</span> ToM)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">shape=</span><span class="dv">16</span>, <span class="dt">fill=</span><span class="st">&quot;darkgrey&quot;</span>, <span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">size=</span><span class="dv">2</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span>lm, <span class="dt">fill=</span><span class="st">&quot;grey&quot;</span>, <span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">se =</span> F, <span class="dt">size =</span> .<span class="dv">5</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_tufte</span>() <span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">axis.title.x=</span><span class="kw">element_blank</span>(), <span class="dt">axis.title.y=</span><span class="kw">element_blank</span>())
 
-p8 =<span class="st"> </span><span class="kw">ggplot</span>(a, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="st">`</span><span class="dt">Cryst. Intellig. (years of education)</span><span class="st">`</span>, <span class="dt">y =</span> <span class="st">`</span><span class="dt">Inhibitory verbal control</span><span class="st">`</span>)) +<span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">shape=</span><span class="dv">16</span>, <span class="dt">fill=</span><span class="st">&quot;darkgrey&quot;</span>, <span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">size=</span><span class="dv">2</span>) +
-<span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span>lm, <span class="dt">fill=</span><span class="st">&quot;grey&quot;</span>, <span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">se =</span> F, <span class="dt">size =</span> .<span class="dv">5</span>) +<span class="st"> </span><span class="kw">theme_tufte</span>() +<span class="st"> </span><span class="kw">theme</span>(<span class="dt">axis.title.y=</span><span class="kw">element_blank</span>())
+p8 =<span class="st"> </span><span class="kw">ggplot</span>(a, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="st">`</span><span class="dt">Cryst. Intellig. (years of education)</span><span class="st">`</span>, <span class="dt">y =</span> <span class="st">`</span><span class="dt">Inhibitory verbal control</span><span class="st">`</span>)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">shape=</span><span class="dv">16</span>, <span class="dt">fill=</span><span class="st">&quot;darkgrey&quot;</span>, <span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">size=</span><span class="dv">2</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span>lm, <span class="dt">fill=</span><span class="st">&quot;grey&quot;</span>, <span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">se =</span> F, <span class="dt">size =</span> .<span class="dv">5</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_tufte</span>() <span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">axis.title.y=</span><span class="kw">element_blank</span>())
 
-p9 =<span class="st"> </span><span class="kw">ggplot</span>(a, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="st">`</span><span class="dt">Fluid intelligence</span><span class="st">`</span>, <span class="dt">y =</span> <span class="st">`</span><span class="dt">Executive functions</span><span class="st">`</span>)) +<span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">shape=</span><span class="dv">16</span>, <span class="dt">fill=</span><span class="st">&quot;darkgrey&quot;</span>, <span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">size=</span><span class="dv">2</span>) +
-<span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span>lm, <span class="dt">fill=</span><span class="st">&quot;grey&quot;</span>, <span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">se =</span> F, <span class="dt">size =</span> .<span class="dv">5</span>) +<span class="st"> </span><span class="kw">theme_tufte</span>() +<span class="st"> </span><span class="kw">theme</span>(<span class="dt">axis.title.x=</span><span class="kw">element_blank</span>(), <span class="dt">axis.title.y=</span><span class="kw">element_blank</span>())
+p9 =<span class="st"> </span><span class="kw">ggplot</span>(a, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="st">`</span><span class="dt">Fluid intelligence</span><span class="st">`</span>, <span class="dt">y =</span> <span class="st">`</span><span class="dt">Executive functions</span><span class="st">`</span>)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">shape=</span><span class="dv">16</span>, <span class="dt">fill=</span><span class="st">&quot;darkgrey&quot;</span>, <span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">size=</span><span class="dv">2</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span>lm, <span class="dt">fill=</span><span class="st">&quot;grey&quot;</span>, <span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">se =</span> F, <span class="dt">size =</span> .<span class="dv">5</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_tufte</span>() <span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">axis.title.x=</span><span class="kw">element_blank</span>(), <span class="dt">axis.title.y=</span><span class="kw">element_blank</span>())
 
-p10 =<span class="st"> </span><span class="kw">ggplot</span>(a, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="st">`</span><span class="dt">Fluid intelligence</span><span class="st">`</span>, <span class="dt">y =</span> <span class="st">`</span><span class="dt">Emotional recognition</span><span class="st">`</span>)) +<span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">shape=</span><span class="dv">16</span>, <span class="dt">fill=</span><span class="st">&quot;darkgrey&quot;</span>, <span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">size=</span><span class="dv">2</span>) +
-<span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span>lm, <span class="dt">fill=</span><span class="st">&quot;grey&quot;</span>, <span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">se =</span> F, <span class="dt">size =</span> .<span class="dv">5</span>) +<span class="st"> </span><span class="kw">theme_tufte</span>() +<span class="st"> </span><span class="kw">theme</span>(<span class="dt">axis.title.x=</span><span class="kw">element_blank</span>(), <span class="dt">axis.title.y=</span><span class="kw">element_blank</span>())
+p10 =<span class="st"> </span><span class="kw">ggplot</span>(a, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="st">`</span><span class="dt">Fluid intelligence</span><span class="st">`</span>, <span class="dt">y =</span> <span class="st">`</span><span class="dt">Emotional recognition</span><span class="st">`</span>)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">shape=</span><span class="dv">16</span>, <span class="dt">fill=</span><span class="st">&quot;darkgrey&quot;</span>, <span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">size=</span><span class="dv">2</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span>lm, <span class="dt">fill=</span><span class="st">&quot;grey&quot;</span>, <span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">se =</span> F, <span class="dt">size =</span> .<span class="dv">5</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_tufte</span>() <span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">axis.title.x=</span><span class="kw">element_blank</span>(), <span class="dt">axis.title.y=</span><span class="kw">element_blank</span>())
 
-p11 =<span class="st"> </span><span class="kw">ggplot</span>(a, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="st">`</span><span class="dt">Fluid intelligence</span><span class="st">`</span>, <span class="dt">y =</span> ToM)) +<span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">shape=</span><span class="dv">16</span>, <span class="dt">fill=</span><span class="st">&quot;darkgrey&quot;</span>, <span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">size=</span><span class="dv">2</span>) +
-<span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span>lm, <span class="dt">fill=</span><span class="st">&quot;grey&quot;</span>, <span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">se =</span> F, <span class="dt">size =</span> .<span class="dv">5</span>) +<span class="st"> </span><span class="kw">theme_tufte</span>() +<span class="st"> </span><span class="kw">theme</span>(<span class="dt">axis.title.x=</span><span class="kw">element_blank</span>(), <span class="dt">axis.title.y=</span><span class="kw">element_blank</span>())
+p11 =<span class="st"> </span><span class="kw">ggplot</span>(a, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="st">`</span><span class="dt">Fluid intelligence</span><span class="st">`</span>, <span class="dt">y =</span> ToM)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">shape=</span><span class="dv">16</span>, <span class="dt">fill=</span><span class="st">&quot;darkgrey&quot;</span>, <span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">size=</span><span class="dv">2</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span>lm, <span class="dt">fill=</span><span class="st">&quot;grey&quot;</span>, <span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">se =</span> F, <span class="dt">size =</span> .<span class="dv">5</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_tufte</span>() <span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">axis.title.x=</span><span class="kw">element_blank</span>(), <span class="dt">axis.title.y=</span><span class="kw">element_blank</span>())
 
-p12 =<span class="st"> </span><span class="kw">ggplot</span>(a, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="st">`</span><span class="dt">Fluid intelligence</span><span class="st">`</span>, <span class="dt">y =</span> <span class="st">`</span><span class="dt">Inhibitory verbal control</span><span class="st">`</span>)) +<span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">shape=</span><span class="dv">16</span>, <span class="dt">fill=</span><span class="st">&quot;darkgrey&quot;</span>, <span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">size=</span><span class="dv">2</span>) +
-<span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span>lm, <span class="dt">fill=</span><span class="st">&quot;grey&quot;</span>, <span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">se =</span> F, <span class="dt">size =</span> .<span class="dv">5</span>) +<span class="st"> </span><span class="kw">theme_tufte</span>() +<span class="st"> </span><span class="kw">theme</span>(<span class="dt">axis.title.y=</span><span class="kw">element_blank</span>())
+p12 =<span class="st"> </span><span class="kw">ggplot</span>(a, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="st">`</span><span class="dt">Fluid intelligence</span><span class="st">`</span>, <span class="dt">y =</span> <span class="st">`</span><span class="dt">Inhibitory verbal control</span><span class="st">`</span>)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">shape=</span><span class="dv">16</span>, <span class="dt">fill=</span><span class="st">&quot;darkgrey&quot;</span>, <span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">size=</span><span class="dv">2</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span>lm, <span class="dt">fill=</span><span class="st">&quot;grey&quot;</span>, <span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">se =</span> F, <span class="dt">size =</span> .<span class="dv">5</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_tufte</span>() <span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">axis.title.y=</span><span class="kw">element_blank</span>())
 
 
 <span class="kw">multiplot</span>(p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, <span class="dt">cols=</span><span class="dv">3</span>)</code></pre></div>
@@ -575,7 +578,7 @@ p12 =<span class="st"> </span><span class="kw">ggplot</span>(a, <span class="kw"
 <pre><code>## Warning: Removed 1 rows containing missing values (geom_point).</code></pre>
 <pre><code>## Warning: Removed 1 rows containing non-finite values (stat_smooth).</code></pre>
 <pre><code>## Warning: Removed 1 rows containing missing values (geom_point).</code></pre>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-45-1.png" width="672" /></p>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-44-1.png" width="672" /></p>
 </div>
 <div id="density-plots" class="section level3">
 <h3><span class="header-section-number">7.3.9</span> Density plots</h3>
@@ -583,7 +586,10 @@ p12 =<span class="st"> </span><span class="kw">ggplot</span>(a, <span class="kw"
 <ul>
 <li>The variable we use to create two different sub-plots has to be a factor!</li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">datos =<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;Data/06_Visualize_data/Visualize_data.csv&quot;</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
+<span class="kw">p_load</span>(tidyverse, ggpubr)
+
+datos =<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;Data/06_Visualize_data/Visualize_data.csv&quot;</span>)</code></pre></div>
 <pre><code>## Parsed with column specification:
 ## cols(
 ##   ID = col_integer(),
@@ -594,49 +600,50 @@ p12 =<span class="st"> </span><span class="kw">ggplot</span>(a, <span class="kw"
 ##   condition = col_character(),
 ##   PPV_DECLARED = col_integer()
 ## )</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">datos =<span class="st"> </span>datos %&gt;%<span class="st"> </span>
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Genero =</span> <span class="kw">as.factor</span>(<span class="kw">unlist</span>(Genero))) %&gt;%<span class="st"> </span><span class="co">#Make Genero a factor</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">datos =<span class="st"> </span>datos <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Genero =</span> <span class="kw">as.factor</span>(<span class="kw">unlist</span>(Genero))) <span class="op">%&gt;%</span><span class="st"> </span><span class="co">#Make Genero a factor</span>
 <span class="st">  </span><span class="kw">mutate</span>(<span class="dt">PPV_DECLARED =</span> <span class="kw">as.numeric</span>(<span class="kw">unlist</span>(PPV_DECLARED)))
 
 <span class="kw">ggdensity</span>(datos, <span class="dt">x =</span> <span class="st">&quot;PPV_DECLARED&quot;</span>,
    <span class="dt">add =</span> <span class="st">&quot;mean&quot;</span>, <span class="dt">rug =</span> <span class="ot">TRUE</span>,
    <span class="dt">color =</span> <span class="st">&quot;Genero&quot;</span>, <span class="dt">palette =</span> <span class="kw">c</span>(<span class="st">&quot;#00AFBB&quot;</span>, <span class="st">&quot;#E7B800&quot;</span>), <span class="dt">fill =</span> <span class="st">&quot;Genero&quot;</span>)</code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-46-1.png" width="672" /></p>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-45-1.png" width="672" /></p>
 </div>
 <div id="ggjoy-plots" class="section level3">
 <h3><span class="header-section-number">7.3.10</span> ggjoy Plots</h3>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">p_load</span>(tidyverse, ggjoy)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
+<span class="kw">p_load</span>(tidyverse, ggridges)
 
-datos2 =<span class="st"> </span>datos %&gt;%<span class="st"> </span><span class="kw">drop_na</span>() %&gt;%<span class="st"> </span>
-<span class="st">  </span><span class="kw">filter</span>(Educacion &lt;<span class="st"> </span><span class="dv">8</span>) %&gt;%<span class="st"> </span>
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Educacion =</span> <span class="kw">as.factor</span>(Educacion)) %&gt;%<span class="st"> </span>
+datos2 =<span class="st"> </span>datos <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">drop_na</span>() <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">filter</span>(Educacion <span class="op">&lt;</span><span class="st"> </span><span class="dv">8</span>) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Educacion =</span> <span class="kw">as.factor</span>(Educacion)) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">mutate</span>(<span class="dt">PPV_DECLARED =</span> <span class="kw">as.double</span>(PPV_DECLARED))
 
 <span class="co"># datos2 %&gt;% group_by(Genero) %&gt;% dplyr::summarise(N = n())</span>
 
 <span class="co"># Simple version</span>
-<span class="kw">ggplot</span>(datos2, <span class="kw">aes</span>(<span class="dt">x =</span> FollowUP, <span class="dt">y =</span> Genero)) +<span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_joy</span>(<span class="dt">scale =</span> <span class="dv">2</span>)</code></pre></div>
+<span class="kw">ggplot</span>(datos2, <span class="kw">aes</span>(<span class="dt">x =</span> FollowUP, <span class="dt">y =</span> Genero)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_density_ridges</span>(<span class="dt">scale =</span> <span class="dv">2</span>)</code></pre></div>
 <pre><code>## Picking joint bandwidth of 12.4</code></pre>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-47-1.png" width="672" /></p>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-46-1.png" width="672" /></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Tweak some aesthetics </span>
-<span class="kw">ggplot</span>(datos2, <span class="kw">aes</span>(<span class="dt">x =</span> FollowUP, <span class="dt">y =</span> Genero, <span class="dt">fill =</span> Genero)) +<span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_joy</span>(<span class="dt">scale =</span> <span class="dv">2</span>, <span class="dt">alpha =</span> .<span class="dv">7</span>, <span class="dt">color =</span> <span class="st">&quot;white&quot;</span>) +<span class="st"> </span>
+<span class="kw">ggplot</span>(datos2, <span class="kw">aes</span>(<span class="dt">x =</span> FollowUP, <span class="dt">y =</span> Genero, <span class="dt">fill =</span> Genero)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_density_ridges</span>(<span class="dt">scale =</span> <span class="dv">2</span>, <span class="dt">alpha =</span> .<span class="dv">7</span>, <span class="dt">color =</span> <span class="st">&quot;white&quot;</span>) <span class="op">+</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">scale_fill_hue</span>(<span class="dt">l=</span><span class="dv">30</span>)</code></pre></div>
 <pre><code>## Picking joint bandwidth of 12.4</code></pre>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-47-2.png" width="672" /></p>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-46-2.png" width="672" /></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Histogram stat</span>
-<span class="kw">ggplot</span>(datos2, <span class="kw">aes</span>(<span class="dt">x =</span> FollowUP, <span class="dt">y =</span> Genero, <span class="dt">fill =</span> Genero)) +<span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_joy</span>(<span class="dt">scale =</span> <span class="dv">2</span>, <span class="dt">alpha =</span> .<span class="dv">7</span>, <span class="dt">color =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">stat =</span> <span class="st">&quot;binline&quot;</span>, <span class="dt">bins =</span> <span class="dv">20</span>) +<span class="st"> </span>
+<span class="kw">ggplot</span>(datos2, <span class="kw">aes</span>(<span class="dt">x =</span> FollowUP, <span class="dt">y =</span> Genero, <span class="dt">fill =</span> Genero)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_density_ridges</span>(<span class="dt">scale =</span> <span class="dv">2</span>, <span class="dt">alpha =</span> .<span class="dv">7</span>, <span class="dt">color =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">stat =</span> <span class="st">&quot;binline&quot;</span>, <span class="dt">bins =</span> <span class="dv">20</span>) <span class="op">+</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">scale_fill_hue</span>(<span class="dt">l=</span><span class="dv">30</span>)</code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-47-3.png" width="672" /></p>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-46-3.png" width="672" /></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Combined</span>
-<span class="kw">ggplot</span>(datos2, <span class="kw">aes</span>(<span class="dt">x =</span> FollowUP, <span class="dt">y =</span> Genero, <span class="dt">fill =</span> Genero)) +<span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_joy</span>(<span class="dt">scale =</span> <span class="dv">2</span>, <span class="dt">alpha =</span> .<span class="dv">7</span>, <span class="dt">color =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">stat =</span> <span class="st">&quot;binline&quot;</span>, <span class="dt">bins =</span> <span class="dv">20</span>) +<span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_joy</span>(<span class="dt">scale =</span> <span class="dv">2</span>, <span class="dt">alpha =</span> .<span class="dv">4</span>, <span class="dt">color =</span> <span class="st">&quot;white&quot;</span>) +<span class="st"> </span>
+<span class="kw">ggplot</span>(datos2, <span class="kw">aes</span>(<span class="dt">x =</span> FollowUP, <span class="dt">y =</span> Genero, <span class="dt">fill =</span> Genero)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_density_ridges</span>(<span class="dt">scale =</span> <span class="dv">2</span>, <span class="dt">alpha =</span> .<span class="dv">7</span>, <span class="dt">color =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">stat =</span> <span class="st">&quot;binline&quot;</span>, <span class="dt">bins =</span> <span class="dv">20</span>) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_density_ridges</span>(<span class="dt">scale =</span> <span class="dv">2</span>, <span class="dt">alpha =</span> .<span class="dv">4</span>, <span class="dt">color =</span> <span class="st">&quot;white&quot;</span>) <span class="op">+</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">scale_fill_hue</span>(<span class="dt">l=</span><span class="dv">30</span>)</code></pre></div>
 <pre><code>## Picking joint bandwidth of 12.4</code></pre>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-47-4.png" width="672" /></p>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-46-4.png" width="672" /></p>
 
 </div>
 </div>
@@ -658,7 +665,7 @@ datos2 =<span class="st"> </span>datos %&gt;%<span class="st"> </span><span clas
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
 <script>
-require(["gitbook"], function(gitbook) {
+gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
 "sharing": {
 "github": false,

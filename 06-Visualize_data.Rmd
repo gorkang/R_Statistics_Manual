@@ -62,6 +62,7 @@ hist(datos$Edad)
 Si queremos ver los histogramas de todas las variables numéricas de nuestro dataset:
 ```{r}
 # Metodo 1
+if (!require('pacman')) install.packages('pacman'); library('pacman')
 p_load(plyr, psych)
 # multi.hist(datos) #error, not numeric
 multi.hist(datos[,sapply(datos, is.numeric)])
@@ -81,6 +82,7 @@ ggplot(d,aes(x = value)) +
 Ver la web del creador: [Pirate plot](http://nathanieldphillips.com/) y su página de [Github](https://github.com/ndphillips/yarrr)
 ```{r}
 # Cargamos librerias
+if (!require('pacman')) install.packages('pacman'); library('pacman')
 p_load(yarrr)
     
 # Mostramos gráfico con opciones por defecto
@@ -90,11 +92,11 @@ pirateplot(formula = PPV_DECLARED ~ condition, datos)
 pirateplot(formula = PPV_DECLARED ~ condition,
            data = datos,
            main = "PPV by condition",
-           line.fun = median,
+           avg.line.fun = median,
            #theme.o = 2,
            jitter.val = .2,
-           inf = "ci", #Show confidence interval (95%)
-           inf.o = 0.2, #Opacity of ci
+           inf.method = "ci", #Show confidence interval (95%)
+           inf.f.o = 0.2, #Opacity of ci
            pal = "appletv")
 ```
 
@@ -111,6 +113,7 @@ Ver la web del paquete: [Correlation plot](https://cran.r-project.org/web/packag
 
 ```{r}
 # Cargamos libreria
+if (!require('pacman')) install.packages('pacman'); library('pacman')
 p_load(corrplot)
 
 corrplot(cor(datos[,c(2:5,7)]), mar = c(1,0, 0, 0),tl.cex = 0.9, 
@@ -123,6 +126,7 @@ Ver la web del paquete [Beanplot](https://cran.r-project.org/web/packages/beanpl
 
 ```{r}
 # Cargamos libreria
+if (!require('pacman')) install.packages('pacman'); library('pacman')
 p_load(beanplot)
     
 beanplot(FollowUP ~ Genero, data = datos,  side = "both", log = "", names = c("Hombre","Mujer"),
@@ -136,6 +140,7 @@ what = c(1,1,1,0), border = NA, col = list("black", c("grey", "white")))
 Ver la web del creador: [ggpubr](http://www.sthda.com/english/rpkgs/ggpubr/) y su página de [Github](https://github.com/kassambara/ggpubr)
 ```{r}
 # Cargamos libreria
+if (!require('pacman')) install.packages('pacman'); library('pacman')
 p_load(ggpubr)
 
 ggscatter(datos2, x = "Educacion", y = "Edad",
@@ -153,6 +158,7 @@ Ver la web de documentación de [ggplot2](http://docs.ggplot2.org/current/) y su
 
 ```{r}
 # Cargamos libreria
+if (!require('pacman')) install.packages('pacman'); library('pacman')
 p_load(tidyverse)
 
 ggplot(datos, aes(PPV_DECLARED, FollowUP, color=factor(Genero))) +
@@ -166,7 +172,7 @@ ggplot(datos, aes(PPV_DECLARED, FollowUP, color=factor(Genero))) +
 ### Multiple Scatterplots
 
 ```{r}
-library(pacman)
+if (!require('pacman')) install.packages('pacman'); library('pacman')
 p_load(tidyverse, ggthemes, Rmisc)
 
 a = read_csv("Data/06_Visualize_data/data_multiple_scatterplot.csv")
@@ -224,6 +230,9 @@ Ver la web del creador: [ggpubr](http://www.sthda.com/english/rpkgs/ggpubr/) y s
 * The variable we use to create two different sub-plots has to be a factor!  
 
 ```{r}
+if (!require('pacman')) install.packages('pacman'); library('pacman')
+p_load(tidyverse, ggpubr)
+
 datos = read_csv("Data/06_Visualize_data/Visualize_data.csv")
 
 datos = datos %>% 
@@ -239,7 +248,8 @@ ggdensity(datos, x = "PPV_DECLARED",
 ### ggjoy Plots
 
 ```{r}
-p_load(tidyverse, ggjoy)
+if (!require('pacman')) install.packages('pacman'); library('pacman')
+p_load(tidyverse, ggridges)
 
 datos2 = datos %>% drop_na() %>% 
   filter(Educacion < 8) %>% 
@@ -250,22 +260,22 @@ datos2 = datos %>% drop_na() %>%
 
 # Simple version
 ggplot(datos2, aes(x = FollowUP, y = Genero)) + 
-  geom_joy(scale = 2)
+  geom_density_ridges(scale = 2)
 
 # Tweak some aesthetics 
 ggplot(datos2, aes(x = FollowUP, y = Genero, fill = Genero)) + 
-  geom_joy(scale = 2, alpha = .7, color = "white") + 
+  geom_density_ridges(scale = 2, alpha = .7, color = "white") + 
   scale_fill_hue(l=30)
 
 # Histogram stat
 ggplot(datos2, aes(x = FollowUP, y = Genero, fill = Genero)) + 
-  geom_joy(scale = 2, alpha = .7, color = "white", stat = "binline", bins = 20) + 
+  geom_density_ridges(scale = 2, alpha = .7, color = "white", stat = "binline", bins = 20) + 
   scale_fill_hue(l=30)
 
 # Combined
 ggplot(datos2, aes(x = FollowUP, y = Genero, fill = Genero)) + 
-  geom_joy(scale = 2, alpha = .7, color = "white", stat = "binline", bins = 20) + 
-  geom_joy(scale = 2, alpha = .4, color = "white") + 
+  geom_density_ridges(scale = 2, alpha = .7, color = "white", stat = "binline", bins = 20) + 
+  geom_density_ridges(scale = 2, alpha = .4, color = "white") + 
   scale_fill_hue(l=30)
 ```
 

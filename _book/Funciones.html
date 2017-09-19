@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>R - Statistics Manual</title>
   <meta name="description" content="Statistics manual from CSCN.">
-  <meta name="generator" content="bookdown 0.4 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.5 and GitBook 2.6.7">
 
   <meta property="og:title" content="R - Statistics Manual" />
   <meta property="og:type" content="book" />
@@ -25,7 +25,7 @@
 <meta name="author" content="Center for Social and Cognitive Neuroscience - cscn.uai.cl">
 
 
-<meta name="date" content="2017-08-03">
+<meta name="date" content="2017-09-19">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -286,13 +286,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="18.1" data-path="other-stuff.html"><a href="other-stuff.html#maps---generate-and-locate-cities-in-a-world-map"><i class="fa fa-check"></i><b>18.1</b> Maps - Generate and locate cities in a world map</a></li>
 <li class="chapter" data-level="18.2" data-path="other-stuff.html"><a href="other-stuff.html#extract-tables-from-the-internet"><i class="fa fa-check"></i><b>18.2</b> Extract tables from the internet</a></li>
 </ul></li>
-<li class="chapter" data-level="19" data-path="exercices.html"><a href="exercices.html"><i class="fa fa-check"></i><b>19</b> Exercices</a><ul>
-<li class="chapter" data-level="19.1" data-path="exercices.html"><a href="exercices.html#Ejercicios1"><i class="fa fa-check"></i><b>19.1</b> Ejercicios 1</a></li>
-<li class="chapter" data-level="19.2" data-path="exercices.html"><a href="exercices.html#Ejercicios2"><i class="fa fa-check"></i><b>19.2</b> Ejercicios 2</a></li>
+<li class="chapter" data-level="19" data-path="exercices-solutions.html"><a href="exercices-solutions.html"><i class="fa fa-check"></i><b>19</b> Exercices solutions</a><ul>
+<li class="chapter" data-level="19.1" data-path="exercices-solutions.html"><a href="exercices-solutions.html#exercices-1"><i class="fa fa-check"></i><b>19.1</b> Exercices 1</a></li>
+<li class="chapter" data-level="19.2" data-path="exercices-solutions.html"><a href="exercices-solutions.html#Ejercicios2"><i class="fa fa-check"></i><b>19.2</b> Ejercicios 2</a></li>
 </ul></li>
-<li class="chapter" data-level="20" data-path="exercices-solutions.html"><a href="exercices-solutions.html"><i class="fa fa-check"></i><b>20</b> Exercices solutions</a><ul>
-<li class="chapter" data-level="20.1" data-path="exercices-solutions.html"><a href="exercices-solutions.html#exercices-1"><i class="fa fa-check"></i><b>20.1</b> Exercices 1</a></li>
-<li class="chapter" data-level="20.2" data-path="exercices.html"><a href="exercices.html#Ejercicios2"><i class="fa fa-check"></i><b>20.2</b> Ejercicios 2</a></li>
+<li class="chapter" data-level="20" data-path="exercices.html"><a href="exercices.html"><i class="fa fa-check"></i><b>20</b> Exercices</a><ul>
+<li class="chapter" data-level="20.1" data-path="exercices.html"><a href="exercices.html#Ejercicios1"><i class="fa fa-check"></i><b>20.1</b> Ejercicios 1</a></li>
+<li class="chapter" data-level="20.2" data-path="exercices-solutions.html"><a href="exercices-solutions.html#Ejercicios2"><i class="fa fa-check"></i><b>20.2</b> Ejercicios 2</a></li>
 </ul></li>
 <li class="chapter" data-level="21" data-path="todo-curso-basico-r-2016.html"><a href="todo-curso-basico-r-2016.html"><i class="fa fa-check"></i><b>21</b> TODO - Curso Basico R - 2016</a></li>
 <li class="chapter" data-level="22" data-path="en-ejercicios.html"><a href="en-ejercicios.html"><i class="fa fa-check"></i><b>22</b> EN EJERCICIOS:</a><ul>
@@ -338,7 +338,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li>Cargamos librerias y leemos datos</li>
 </ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Cargamos librerias</span>
-if (!<span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
+<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
 <span class="kw">p_load</span>(tidyverse)
 
 <span class="co"># Leemos datos y echamos un vistazo</span>
@@ -360,9 +360,10 @@ datos =<span class="st"> </span><span class="kw">read_csv</span>(<span class="st
 <h3><span class="header-section-number">13.1.1</span> Pirate plot original</h3>
 <p>Vimos que la función para graficar usando Pirate plot es la siguiente:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Cargamos librería</span>
+<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
 <span class="kw">p_load</span>(yarrr)    
 
-<span class="kw">pirateplot</span>(<span class="dt">formula =</span> PPV_DECLARED ~<span class="st"> </span>condition,
+<span class="kw">pirateplot</span>(<span class="dt">formula =</span> PPV_DECLARED <span class="op">~</span><span class="st"> </span>condition,
            <span class="dt">data =</span> datos,
            <span class="dt">main =</span> <span class="st">&quot;PPV by condition&quot;</span>,
            <span class="dt">avg.line.fun =</span> median,
@@ -385,7 +386,7 @@ Creamos una función llamada <code>Plot.me()</code> que tiene los siguientes par
 <li>Funcion (por defecto se usa <em>mean</em>, pero también se puede pedir <em>median</em>, etc.)</li>
 </ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Función Plot.me()</span>
-Plot.me &lt;-<span class="st"> </span>function(Formula, Datos, <span class="dt">Titulo =</span> Formula, <span class="dt">Funcion =</span> mean) {
+Plot.me &lt;-<span class="st"> </span><span class="cf">function</span>(Formula, Datos, <span class="dt">Titulo =</span> Formula, <span class="dt">Funcion =</span> mean) {
   
     <span class="kw">pirateplot</span>(<span class="dt">formula =</span> Formula,
                <span class="dt">data =</span> Datos,
@@ -399,17 +400,17 @@ Plot.me &lt;-<span class="st"> </span>function(Formula, Datos, <span class="dt">
 }</code></pre></div>
 <p><BR></p>
 <p>Usamos nuestra nueva función simplificada para crear algunas gráficas:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">Plot.me</span>(PPV_DECLARED ~<span class="st"> </span>condition, datos)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">Plot.me</span>(PPV_DECLARED <span class="op">~</span><span class="st"> </span>condition, datos)</code></pre></div>
 <pre><code>## inf is depricated. Use inf.method instead</code></pre>
 <p><img src="bookdown-demo_files/figure-html/unnamed-chunk-88-1.png" width="672" /></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">Plot.me</span>(PPV_DECLARED ~<span class="st"> </span>Genero, datos)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">Plot.me</span>(PPV_DECLARED <span class="op">~</span><span class="st"> </span>Genero, datos)</code></pre></div>
 <pre><code>## inf is depricated. Use inf.method instead</code></pre>
 <p><img src="bookdown-demo_files/figure-html/unnamed-chunk-88-2.png" width="672" /></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">Plot.me</span>(PPV_DECLARED ~<span class="st"> </span>Genero +<span class="st"> </span>condition, datos)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">Plot.me</span>(PPV_DECLARED <span class="op">~</span><span class="st"> </span>Genero <span class="op">+</span><span class="st"> </span>condition, datos)</code></pre></div>
 <pre><code>## inf is depricated. Use inf.method instead</code></pre>
 <p><img src="bookdown-demo_files/figure-html/unnamed-chunk-88-3.png" width="672" /></p>
 <p>Podemos personalizar algunas cosas:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">Plot.me</span>(PPV_DECLARED ~<span class="st"> </span>condition, datos, <span class="st">&quot;Titulo lindo&quot;</span>, median)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">Plot.me</span>(PPV_DECLARED <span class="op">~</span><span class="st"> </span>condition, datos, <span class="st">&quot;Titulo lindo&quot;</span>, median)</code></pre></div>
 <pre><code>## inf is depricated. Use inf.method instead</code></pre>
 <p><img src="bookdown-demo_files/figure-html/unnamed-chunk-89-1.png" width="672" /></p>
 
@@ -433,7 +434,7 @@ Plot.me &lt;-<span class="st"> </span>function(Formula, Datos, <span class="dt">
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
 <script>
-require(["gitbook"], function(gitbook) {
+gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
 "sharing": {
 "github": false,

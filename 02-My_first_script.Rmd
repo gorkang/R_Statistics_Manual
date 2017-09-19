@@ -18,6 +18,8 @@ Desde el panel **Files** de RStudio:
 ## Establecer nuestro directorio de trabajo
 Cuando queramos trabajar con archivos, tenemos que decirle a R donde se encuentran estos. Lo más sencillo es establecer un directorio de trabajo. Para ello, podemos usar la función `setwd()` (de *set working directory*). 
 
+**IMPORTANTE: Alguna gente recomienda NO establecer directorios de trabajo, sino trabajar con proyectos de RStudio. La ventaja de estos últimos es que se puede compartir la carpeta con otras personas y los scripts funcionaran sin tener que hacer cambios. **
+
 1. Click en More en el panel de abajo a la derecha: ![](Images/More.png)
 2. Click en "Set As Working Directory"
 3. En la Consola (abajo) aparecerá, en naranja, algo como `setwd("~/R workshop")`
@@ -28,12 +30,12 @@ Cuando queramos trabajar con archivos, tenemos que decirle a R donde se encuentr
 ## Nuestro primer script
 
 Al finalizar, tendremos un archivo llamado 'Script1.R' en la carpeta 'R Workshop' con el contenido de más abajo. Siempre que creemos un script, empezaremos del mismo modo:
-```{r}
+```{r mi_primer_script, message=FALSE, warning=FALSE}
 # Cargamos librerias
 if (!require('pacman')) install.packages('pacman'); library('pacman')
 p_load(tidyverse)
 
 # Establecemos directorio de trabajo
-setwd("~/R workshop")
+setwd("R workshop")
 
 ```

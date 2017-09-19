@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>R - Statistics Manual</title>
   <meta name="description" content="Statistics manual from CSCN.">
-  <meta name="generator" content="bookdown 0.4 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.5 and GitBook 2.6.7">
 
   <meta property="og:title" content="R - Statistics Manual" />
   <meta property="og:type" content="book" />
@@ -25,7 +25,7 @@
 <meta name="author" content="Center for Social and Cognitive Neuroscience - cscn.uai.cl">
 
 
-<meta name="date" content="2017-08-03">
+<meta name="date" content="2017-09-19">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -286,13 +286,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="18.1" data-path="other-stuff.html"><a href="other-stuff.html#maps---generate-and-locate-cities-in-a-world-map"><i class="fa fa-check"></i><b>18.1</b> Maps - Generate and locate cities in a world map</a></li>
 <li class="chapter" data-level="18.2" data-path="other-stuff.html"><a href="other-stuff.html#extract-tables-from-the-internet"><i class="fa fa-check"></i><b>18.2</b> Extract tables from the internet</a></li>
 </ul></li>
-<li class="chapter" data-level="19" data-path="exercices.html"><a href="exercices.html"><i class="fa fa-check"></i><b>19</b> Exercices</a><ul>
-<li class="chapter" data-level="19.1" data-path="exercices.html"><a href="exercices.html#Ejercicios1"><i class="fa fa-check"></i><b>19.1</b> Ejercicios 1</a></li>
-<li class="chapter" data-level="19.2" data-path="exercices.html"><a href="exercices.html#Ejercicios2"><i class="fa fa-check"></i><b>19.2</b> Ejercicios 2</a></li>
+<li class="chapter" data-level="19" data-path="exercices-solutions.html"><a href="exercices-solutions.html"><i class="fa fa-check"></i><b>19</b> Exercices solutions</a><ul>
+<li class="chapter" data-level="19.1" data-path="exercices-solutions.html"><a href="exercices-solutions.html#exercices-1"><i class="fa fa-check"></i><b>19.1</b> Exercices 1</a></li>
+<li class="chapter" data-level="19.2" data-path="exercices-solutions.html"><a href="exercices-solutions.html#Ejercicios2"><i class="fa fa-check"></i><b>19.2</b> Ejercicios 2</a></li>
 </ul></li>
-<li class="chapter" data-level="20" data-path="exercices-solutions.html"><a href="exercices-solutions.html"><i class="fa fa-check"></i><b>20</b> Exercices solutions</a><ul>
-<li class="chapter" data-level="20.1" data-path="exercices-solutions.html"><a href="exercices-solutions.html#exercices-1"><i class="fa fa-check"></i><b>20.1</b> Exercices 1</a></li>
-<li class="chapter" data-level="20.2" data-path="exercices.html"><a href="exercices.html#Ejercicios2"><i class="fa fa-check"></i><b>20.2</b> Ejercicios 2</a></li>
+<li class="chapter" data-level="20" data-path="exercices.html"><a href="exercices.html"><i class="fa fa-check"></i><b>20</b> Exercices</a><ul>
+<li class="chapter" data-level="20.1" data-path="exercices.html"><a href="exercices.html#Ejercicios1"><i class="fa fa-check"></i><b>20.1</b> Ejercicios 1</a></li>
+<li class="chapter" data-level="20.2" data-path="exercices-solutions.html"><a href="exercices-solutions.html#Ejercicios2"><i class="fa fa-check"></i><b>20.2</b> Ejercicios 2</a></li>
 </ul></li>
 <li class="chapter" data-level="21" data-path="todo-curso-basico-r-2016.html"><a href="todo-curso-basico-r-2016.html"><i class="fa fa-check"></i><b>21</b> TODO - Curso Basico R - 2016</a></li>
 <li class="chapter" data-level="22" data-path="en-ejercicios.html"><a href="en-ejercicios.html"><i class="fa fa-check"></i><b>22</b> EN EJERCICIOS:</a><ul>
@@ -341,7 +341,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <span class="co"># Exact::exact.test(table(DB_all$Ahorro_Dico, DB_all$Futuro_d))</span>
 <span class="co"># BayesFactor::contingencyTableBF(table(DB_all$Ahorro_Dico, DB_all$Futuro_d), sampleType = &quot;indepMulti&quot;, fixedMargin = &quot;rows&quot;)</span></code></pre></div>
 <p><strong>Libraries</strong></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">if (!<span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
 <span class="kw">p_load</span>(BayesFactor, lsr)</code></pre></div>
 <p><strong>Import data - WIP</strong> We use the following <a href="Data/08-Data_analysis/Association_test.csv">dataset</a>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Import to variable &quot;dataset&quot;</span>
@@ -372,18 +372,18 @@ dataset =<span class="st"> </span><span class="kw">read.csv</span>(<span class="
 ## 6          UNIDAD    26.169</code></pre>
 <p><strong>Prepare data</strong></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Convert to factors</span>
-dataset$Accuracy_factor =<span class="st"> </span><span class="kw">as.factor</span>(dataset$Accuracy)
-dataset$Formato_factor =<span class="st"> </span><span class="kw">as.factor</span>(dataset$Formato)
-dataset$Problema_factor =<span class="st"> </span><span class="kw">as.factor</span>(dataset$Problema)</code></pre></div>
+dataset<span class="op">$</span>Accuracy_factor =<span class="st"> </span><span class="kw">as.factor</span>(dataset<span class="op">$</span>Accuracy)
+dataset<span class="op">$</span>Formato_factor =<span class="st"> </span><span class="kw">as.factor</span>(dataset<span class="op">$</span>Formato)
+dataset<span class="op">$</span>Problema_factor =<span class="st"> </span><span class="kw">as.factor</span>(dataset<span class="op">$</span>Problema)</code></pre></div>
 <div id="frequentist-1" class="section level3">
 <h3><span class="header-section-number">10.0.1</span> Frequentist<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a></h3>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Accuracy_factor + Formato_factor</span>
-crosstab_Formato &lt;-<span class="st"> </span><span class="kw">xtabs</span>(~<span class="st"> </span>Accuracy_factor +<span class="st"> </span>Formato_factor, dataset); crosstab_Formato</code></pre></div>
+crosstab_Formato &lt;-<span class="st"> </span><span class="kw">xtabs</span>(<span class="op">~</span><span class="st"> </span>Accuracy_factor <span class="op">+</span><span class="st"> </span>Formato_factor, dataset); crosstab_Formato</code></pre></div>
 <pre><code>##                Formato_factor
 ## Accuracy_factor FN PR
 ##               0 18 24
 ##               1 66 57</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">associationTest</span>(<span class="dt">formula =</span> ~<span class="st"> </span>Accuracy_factor +<span class="st"> </span>Formato_factor, <span class="dt">data =</span> dataset )</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">associationTest</span>(<span class="dt">formula =</span> <span class="op">~</span><span class="st"> </span>Accuracy_factor <span class="op">+</span><span class="st"> </span>Formato_factor, <span class="dt">data =</span> dataset )</code></pre></div>
 <pre><code>## 
 ##      Chi-square test of categorical association
 ## 
@@ -414,12 +414,12 @@ crosstab_Formato &lt;-<span class="st"> </span><span class="kw">xtabs</span>(~<s
 ##    estimated effect size (Cramer&#39;s v):  0.08 
 ##    Yates&#39; continuity correction has been applied</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Accuracy_factor + Problema_factor</span>
-crosstab_Problema &lt;-<span class="st"> </span><span class="kw">xtabs</span>(~<span class="st"> </span>Accuracy_factor +<span class="st"> </span>Problema_factor, dataset); crosstab_Problema</code></pre></div>
+crosstab_Problema &lt;-<span class="st"> </span><span class="kw">xtabs</span>(<span class="op">~</span><span class="st"> </span>Accuracy_factor <span class="op">+</span><span class="st"> </span>Problema_factor, dataset); crosstab_Problema</code></pre></div>
 <pre><code>##                Problema_factor
 ## Accuracy_factor DECIMA UNIDAD
 ##               0     19     23
 ##               1     61     62</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">associationTest</span>(<span class="dt">formula =</span> ~<span class="st"> </span>Accuracy_factor +<span class="st"> </span>Problema_factor, <span class="dt">data =</span> dataset )</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">associationTest</span>(<span class="dt">formula =</span> <span class="op">~</span><span class="st"> </span>Accuracy_factor <span class="op">+</span><span class="st"> </span>Problema_factor, <span class="dt">data =</span> dataset )</code></pre></div>
 <pre><code>## 
 ##      Chi-square test of categorical association
 ## 
@@ -516,7 +516,7 @@ crosstab_Problema &lt;-<span class="st"> </span><span class="kw">xtabs</span>(~<
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
 <script>
-require(["gitbook"], function(gitbook) {
+gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
 "sharing": {
 "github": false,

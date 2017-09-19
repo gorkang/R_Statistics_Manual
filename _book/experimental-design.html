@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>R - Statistics Manual</title>
   <meta name="description" content="Statistics manual from CSCN.">
-  <meta name="generator" content="bookdown 0.4 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.5 and GitBook 2.6.7">
 
   <meta property="og:title" content="R - Statistics Manual" />
   <meta property="og:type" content="book" />
@@ -25,7 +25,7 @@
 <meta name="author" content="Center for Social and Cognitive Neuroscience - cscn.uai.cl">
 
 
-<meta name="date" content="2017-08-03">
+<meta name="date" content="2017-09-19">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -286,13 +286,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="18.1" data-path="other-stuff.html"><a href="other-stuff.html#maps---generate-and-locate-cities-in-a-world-map"><i class="fa fa-check"></i><b>18.1</b> Maps - Generate and locate cities in a world map</a></li>
 <li class="chapter" data-level="18.2" data-path="other-stuff.html"><a href="other-stuff.html#extract-tables-from-the-internet"><i class="fa fa-check"></i><b>18.2</b> Extract tables from the internet</a></li>
 </ul></li>
-<li class="chapter" data-level="19" data-path="exercices.html"><a href="exercices.html"><i class="fa fa-check"></i><b>19</b> Exercices</a><ul>
-<li class="chapter" data-level="19.1" data-path="exercices.html"><a href="exercices.html#Ejercicios1"><i class="fa fa-check"></i><b>19.1</b> Ejercicios 1</a></li>
-<li class="chapter" data-level="19.2" data-path="exercices.html"><a href="exercices.html#Ejercicios2"><i class="fa fa-check"></i><b>19.2</b> Ejercicios 2</a></li>
+<li class="chapter" data-level="19" data-path="exercices-solutions.html"><a href="exercices-solutions.html"><i class="fa fa-check"></i><b>19</b> Exercices solutions</a><ul>
+<li class="chapter" data-level="19.1" data-path="exercices-solutions.html"><a href="exercices-solutions.html#exercices-1"><i class="fa fa-check"></i><b>19.1</b> Exercices 1</a></li>
+<li class="chapter" data-level="19.2" data-path="exercices-solutions.html"><a href="exercices-solutions.html#Ejercicios2"><i class="fa fa-check"></i><b>19.2</b> Ejercicios 2</a></li>
 </ul></li>
-<li class="chapter" data-level="20" data-path="exercices-solutions.html"><a href="exercices-solutions.html"><i class="fa fa-check"></i><b>20</b> Exercices solutions</a><ul>
-<li class="chapter" data-level="20.1" data-path="exercices-solutions.html"><a href="exercices-solutions.html#exercices-1"><i class="fa fa-check"></i><b>20.1</b> Exercices 1</a></li>
-<li class="chapter" data-level="20.2" data-path="exercices.html"><a href="exercices.html#Ejercicios2"><i class="fa fa-check"></i><b>20.2</b> Ejercicios 2</a></li>
+<li class="chapter" data-level="20" data-path="exercices.html"><a href="exercices.html"><i class="fa fa-check"></i><b>20</b> Exercices</a><ul>
+<li class="chapter" data-level="20.1" data-path="exercices.html"><a href="exercices.html#Ejercicios1"><i class="fa fa-check"></i><b>20.1</b> Ejercicios 1</a></li>
+<li class="chapter" data-level="20.2" data-path="exercices-solutions.html"><a href="exercices-solutions.html#Ejercicios2"><i class="fa fa-check"></i><b>20.2</b> Ejercicios 2</a></li>
 </ul></li>
 <li class="chapter" data-level="21" data-path="todo-curso-basico-r-2016.html"><a href="todo-curso-basico-r-2016.html"><i class="fa fa-check"></i><b>21</b> TODO - Curso Basico R - 2016</a></li>
 <li class="chapter" data-level="22" data-path="en-ejercicios.html"><a href="en-ejercicios.html"><i class="fa fa-check"></i><b>22</b> EN EJERCICIOS:</a><ul>
@@ -344,9 +344,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <span class="co"># n = number of draws; p = number of variables</span>
 <span class="co"># u = mean of each variable; s = SD of each variable</span>
 <span class="co"># corMat = correlation matrix</span>
-mvrnorm &lt;-<span class="st"> </span>function(n, p, u, s, corMat) {
-  Z &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">rnorm</span>(n *<span class="st"> </span>p), p, n)
-  <span class="kw">t</span>(u +<span class="st"> </span>s *<span class="st"> </span><span class="kw">t</span>(<span class="kw">chol</span>(corMat)) %*%<span class="st"> </span>Z)
+mvrnorm &lt;-<span class="st"> </span><span class="cf">function</span>(n, p, u, s, corMat) {
+  Z &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">rnorm</span>(n <span class="op">*</span><span class="st"> </span>p), p, n)
+  <span class="kw">t</span>(u <span class="op">+</span><span class="st"> </span>s <span class="op">*</span><span class="st"> </span><span class="kw">t</span>(<span class="kw">chol</span>(corMat)) <span class="op">%*%</span><span class="st"> </span>Z)
 }
 
 <span class="co">#------------------------------------------------------------------------------</span>
@@ -377,8 +377,8 @@ final_data &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span cl
 <span class="co">#------------------------------------------------------------------------------</span>
 ### simulation execution
 
-for(i in <span class="dv">1</span>:<span class="kw">length</span>(sample_sizes)){
-  for(j in <span class="dv">1</span>:n_sims){
+<span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(sample_sizes)){
+  <span class="cf">for</span>(j <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>n_sims){
     
     <span class="co"># get the experiment data</span>
     sim_data &lt;-<span class="st"> </span><span class="kw">mvrnorm</span>(sample_sizes[i], <span class="dt">p =</span> <span class="dv">2</span>, <span class="dt">u =</span> means, <span class="dt">s =</span> sds, 
@@ -388,8 +388,8 @@ for(i in <span class="dv">1</span>:<span class="kw">length</span>(sample_sizes))
     sim_cor &lt;-<span class="st"> </span><span class="kw">cor.test</span>(sim_data[, <span class="dv">1</span>], sim_data[, <span class="dv">2</span>], <span class="dt">method =</span> <span class="st">&quot;pearson&quot;</span>)
     
     <span class="co"># if the correlation is significant, store the effect size</span>
-    if(sim_cor$p.value &lt;<span class="st"> </span><span class="fl">0.05</span>){
-      final_data[j, i] &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(<span class="kw">round</span>(<span class="kw">abs</span>(sim_cor$estimate), <span class="dv">3</span>))
+    <span class="cf">if</span>(sim_cor<span class="op">$</span>p.value <span class="op">&lt;</span><span class="st"> </span><span class="fl">0.05</span>){
+      final_data[j, i] &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(<span class="kw">round</span>(<span class="kw">abs</span>(sim_cor<span class="op">$</span>estimate), <span class="dv">3</span>))
     }
   }
 }
@@ -429,7 +429,7 @@ for(i in <span class="dv">1</span>:<span class="kw">length</span>(sample_sizes))
 <li>power = power</li>
 </ul>
 <p><strong>Libraries</strong></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">if (!<span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
 <span class="kw">p_load</span>(pwr)</code></pre></div>
 <p><strong>Code</strong></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#T-test</span>
@@ -495,7 +495,7 @@ for(i in <span class="dv">1</span>:<span class="kw">length</span>(sample_sizes))
 <h3><span class="header-section-number">16.2.1</span> Longitudinal designs</h3>
 <p>Calculate sample size for longitudinal designs</p>
 <p><strong>Libraries</strong></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">if (!<span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
 <span class="kw">p_load</span>(powerMediation)</code></pre></div>
 <p><strong>Code</strong></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ssLong</span>(<span class="dt">es =</span> <span class="fl">0.5</span>, <span class="co">#  effect size of the difference of mean change.</span>
@@ -509,7 +509,7 @@ for(i in <span class="dv">1</span>:<span class="kw">length</span>(sample_sizes))
 <div id="anonimizar-participantes---encriptar-ids" class="section level2">
 <h2><span class="header-section-number">16.3</span> Anonimizar participantes - Encriptar IDs</h2>
 <p><strong>Libraries</strong></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">if (!<span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
 <span class="kw">p_load</span>(hashids, tidyverse)</code></pre></div>
 <div id="encriptando-y-desencriptando-un-elemento" class="section level3">
 <h3><span class="header-section-number">16.3.1</span> Encriptando y desencriptando un elemento</h3>
@@ -527,28 +527,28 @@ Plain_ID =<span class="st"> </span><span class="kw">c</span>(<span class="dv">12
 <h3><span class="header-section-number">16.3.2</span> Encriptando y desencriptando la columna RUT de una DB completa.</h3>
 <p>Generamos aleatoriamente numeros de identificacion “similares” a RUTs, los encriptamos, y despues desencriptamos.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Cargamos librerias y leemos DB</span>
-if (!<span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
+<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
 <span class="kw">p_load</span>(hashids, tidyverse)
 
 <span class="co"># Pseudo RUTs generadas aleatoriamente</span>
-data =<span class="st"> </span><span class="kw">round</span>(<span class="kw">runif</span>(<span class="dv">100</span>)*<span class="dv">10000000</span>) %&gt;%<span class="st"> </span><span class="kw">as_tibble</span>() %&gt;%<span class="st"> </span>
-<span class="st">  </span>dplyr::<span class="kw">rename</span>(<span class="dt">RUT =</span> value)</code></pre></div>
+data =<span class="st"> </span><span class="kw">round</span>(<span class="kw">runif</span>(<span class="dv">100</span>)<span class="op">*</span><span class="dv">10000000</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as_tibble</span>() <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span>dplyr<span class="op">::</span><span class="kw">rename</span>(<span class="dt">RUT =</span> value)</code></pre></div>
 <p><strong>BUG: When building book with Bookdown, it ignores the rowwise() argument!?</strong></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">h =<span class="st"> </span><span class="kw">hashid_settings</span>(<span class="dt">salt =</span> <span class="st">&#39;this is my salt&#39;</span>)
 
 <span class="co"># Encriptamos</span>
-data =<span class="st"> </span>data %&gt;%<span class="st"> </span>
-<span class="st">  </span>dplyr::<span class="kw">rowwise</span>() %&gt;%<span class="st"> </span>
+data =<span class="st"> </span>data <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span>dplyr<span class="op">::</span><span class="kw">rowwise</span>() <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">mutate</span>(<span class="dt">RUT_Encripted =</span> <span class="kw">encode</span>(RUT, h))
 
 <span class="co"># Desencriptamos</span>
-data =<span class="st"> </span>data %&gt;%<span class="st"> </span>
-<span class="st">  </span>dplyr::<span class="kw">rowwise</span>() %&gt;%<span class="st"> </span>
+data =<span class="st"> </span>data <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span>dplyr<span class="op">::</span><span class="kw">rowwise</span>() <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">mutate</span>(<span class="dt">RUT_Decripted =</span> <span class="kw">decode</span>(RUT_Encripted, h))</code></pre></div>
 <pre><code>## Warning in if (hash_str == &quot;&quot;) stop(&quot;decode: invalid hashid&quot;): the
 ## condition has length &gt; 1 and only the first element will be used</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Mostramos los resultados</span>
-data %&gt;%<span class="st"> </span><span class="kw">select</span>(RUT_Encripted, RUT_Decripted, RUT)</code></pre></div>
+data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(RUT_Encripted, RUT_Decripted, RUT)</code></pre></div>
 <pre><code>## Source: local data frame [100 x 3]
 ## Groups: &lt;by row&gt;
 ## 
@@ -599,31 +599,31 @@ Criterio_ahorradores =<span class="st"> </span><span class="dv">20</span>
 Criterio_no_ahorradores =<span class="st"> </span><span class="dv">2</span>
 
 <span class="co"># Mostramos histograma</span>
-<span class="kw">hist</span>(data$Porcentaje_ahorro, <span class="dt">breaks =</span> <span class="dv">100</span>)</code></pre></div>
+<span class="kw">hist</span>(data<span class="op">$</span>Porcentaje_ahorro, <span class="dt">breaks =</span> <span class="dv">100</span>)</code></pre></div>
 <p><img src="bookdown-demo_files/figure-html/unnamed-chunk-118-1.png" width="672" /></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Creamos grupos de Ahorradores (0) y No ahorradores (1)</span>
-data$Ahorro =<span class="st"> </span><span class="kw">ifelse</span>(data$Porcentaje_ahorro &lt;=<span class="st"> </span>Criterio_no_ahorradores, <span class="dv">1</span>,
-                      <span class="kw">ifelse</span>(data$Porcentaje_ahorro &gt;=<span class="st"> </span>Criterio_ahorradores, <span class="dv">0</span>, <span class="ot">NA</span>
+data<span class="op">$</span>Ahorro =<span class="st"> </span><span class="kw">ifelse</span>(data<span class="op">$</span>Porcentaje_ahorro <span class="op">&lt;=</span><span class="st"> </span>Criterio_no_ahorradores, <span class="dv">1</span>,
+                      <span class="kw">ifelse</span>(data<span class="op">$</span>Porcentaje_ahorro <span class="op">&gt;=</span><span class="st"> </span>Criterio_ahorradores, <span class="dv">0</span>, <span class="ot">NA</span>
                       ))
 
 <span class="co"># Cuantos tenemos en cada grupo?</span>
-<span class="kw">table</span>(data$Ahorro)</code></pre></div>
+<span class="kw">table</span>(data<span class="op">$</span>Ahorro)</code></pre></div>
 <pre><code>## 
 ##   0   1 
 ## 113  66</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Limpiamos NAs en Ahorro y RUTs duplicados</span>
 data =<span class="st"> </span>data[<span class="kw">complete.cases</span>(data),]
-data =<span class="st"> </span>data[!<span class="kw">duplicated</span>(data$ID),]
+data =<span class="st"> </span>data[<span class="op">!</span><span class="kw">duplicated</span>(data<span class="op">$</span>ID),]
 
 <span class="co">#Eliminamos a los Estudiantes</span>
-data =<span class="st"> </span>data[!<span class="kw">grepl</span>(<span class="st">&quot;studiante&quot;</span>, data$Ocupacion),]
+data =<span class="st"> </span>data[<span class="op">!</span><span class="kw">grepl</span>(<span class="st">&quot;studiante&quot;</span>, data<span class="op">$</span>Ocupacion),]
 
 <span class="co">#Recreamos columna ID para los registros que quedan</span>
-data$ID =<span class="st"> </span><span class="kw">seq</span>(<span class="dv">1</span>:<span class="kw">nrow</span>(data))</code></pre></div>
+data<span class="op">$</span>ID =<span class="st"> </span><span class="kw">seq</span>(<span class="dv">1</span><span class="op">:</span><span class="kw">nrow</span>(data))</code></pre></div>
 <p>Realizamos el matching</p>
 <p><strong>TODO: Como evaluamos si el matching es bueno?</strong></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Creamos base de parejas</span>
-parejas =<span class="st"> </span><span class="kw">as.data.frame</span>((<span class="kw">pairmatch</span>(Ahorro ~<span class="st"> </span>Edad +<span class="st"> </span>Sexo +<span class="st"> </span>Educacion, <span class="dt">data =</span> data)))
+parejas =<span class="st"> </span><span class="kw">as.data.frame</span>((<span class="kw">pairmatch</span>(Ahorro <span class="op">~</span><span class="st"> </span>Edad <span class="op">+</span><span class="st"> </span>Sexo <span class="op">+</span><span class="st"> </span>Educacion, <span class="dt">data =</span> data)))
     <span class="co"># caliper establece limites para los matchings</span>
     <span class="co"># print(pairmatch(Ahorro ~ Edad + Sexo + Educacion, caliper = 4.9, data = data), grouped = TRUE)</span>
 
@@ -631,7 +631,7 @@ parejas =<span class="st"> </span><span class="kw">as.data.frame</span>((<span c
 <span class="co"># summary(lm(Ahorro ~ Edad + Sexo + Educacion, data = data))</span>
 
 <span class="co">#Añadimos columna ID y renombramos columnas</span>
-parejas$ID =<span class="st"> </span><span class="kw">seq</span>(<span class="dv">1</span>:<span class="kw">nrow</span>(data))
+parejas<span class="op">$</span>ID =<span class="st"> </span><span class="kw">seq</span>(<span class="dv">1</span><span class="op">:</span><span class="kw">nrow</span>(data))
 <span class="kw">colnames</span>(parejas) =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Group&quot;</span>, <span class="st">&quot;ID&quot;</span>)
 
 <span class="co">#Combinamos ambas bases y limpiamos</span>
@@ -639,9 +639,9 @@ datos_combinados =<span class="st"> </span><span class="kw">merge</span>(data, p
 datos_combinados =<span class="st"> </span>datos_combinados[<span class="kw">complete.cases</span>(datos_combinados),]
 
 <span class="co">#Ordenamos por Num de grupo y Ahorro</span>
-datos_finales =<span class="st"> </span>datos_combinados %&gt;%<span class="st"> </span><span class="kw">arrange</span>(Group, Ahorro)</code></pre></div>
+datos_finales =<span class="st"> </span>datos_combinados <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">arrange</span>(Group, Ahorro)</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Cuantos en cada grupo?</span>
-<span class="kw">table</span>(datos_finales$Ahorro)</code></pre></div>
+<span class="kw">table</span>(datos_finales<span class="op">$</span>Ahorro)</code></pre></div>
 <pre><code>## 
 ##  0  1 
 ## 58 58</code></pre>
@@ -652,7 +652,7 @@ datos_finales =<span class="st"> </span>datos_combinados %&gt;%<span class="st">
 <h2><span class="header-section-number">16.5</span> Determine distribution</h2>
 <p>FROM: <a href="https://stats.stackexchange.com/questions/132652/how-to-determine-which-distribution-fits-my-data-best" class="uri">https://stats.stackexchange.com/questions/132652/how-to-determine-which-distribution-fits-my-data-best</a></p>
 <p>Which ditribution best fits our data.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">if(!<span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span>(<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
 <span class="kw">p_load</span>(fitdistrplus, logspline)</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">37.50</span>,<span class="fl">46.79</span>,<span class="fl">48.30</span>,<span class="fl">46.04</span>,<span class="fl">43.40</span>,<span class="fl">39.25</span>,<span class="fl">38.49</span>,<span class="fl">49.51</span>,<span class="fl">40.38</span>,<span class="fl">36.98</span>,<span class="fl">40.00</span>,
        <span class="fl">38.49</span>,<span class="fl">37.74</span>,<span class="fl">47.92</span>,<span class="fl">44.53</span>,<span class="fl">44.91</span>,<span class="fl">44.91</span>,<span class="fl">40.00</span>,<span class="fl">41.51</span>,<span class="fl">47.92</span>,<span class="fl">36.98</span>,<span class="fl">43.40</span>,
@@ -691,7 +691,7 @@ datos_finales =<span class="st"> </span>datos_combinados %&gt;%<span class="st">
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
 <script>
-require(["gitbook"], function(gitbook) {
+gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
 "sharing": {
 "github": false,

@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>R - Statistics Manual</title>
   <meta name="description" content="Statistics manual from CSCN.">
-  <meta name="generator" content="bookdown 0.4 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.5 and GitBook 2.6.7">
 
   <meta property="og:title" content="R - Statistics Manual" />
   <meta property="og:type" content="book" />
@@ -25,7 +25,7 @@
 <meta name="author" content="Center for Social and Cognitive Neuroscience - cscn.uai.cl">
 
 
-<meta name="date" content="2017-08-03">
+<meta name="date" content="2017-09-19">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -286,13 +286,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="18.1" data-path="other-stuff.html"><a href="other-stuff.html#maps---generate-and-locate-cities-in-a-world-map"><i class="fa fa-check"></i><b>18.1</b> Maps - Generate and locate cities in a world map</a></li>
 <li class="chapter" data-level="18.2" data-path="other-stuff.html"><a href="other-stuff.html#extract-tables-from-the-internet"><i class="fa fa-check"></i><b>18.2</b> Extract tables from the internet</a></li>
 </ul></li>
-<li class="chapter" data-level="19" data-path="exercices.html"><a href="exercices.html"><i class="fa fa-check"></i><b>19</b> Exercices</a><ul>
-<li class="chapter" data-level="19.1" data-path="exercices.html"><a href="exercices.html#Ejercicios1"><i class="fa fa-check"></i><b>19.1</b> Ejercicios 1</a></li>
-<li class="chapter" data-level="19.2" data-path="exercices.html"><a href="exercices.html#Ejercicios2"><i class="fa fa-check"></i><b>19.2</b> Ejercicios 2</a></li>
+<li class="chapter" data-level="19" data-path="exercices-solutions.html"><a href="exercices-solutions.html"><i class="fa fa-check"></i><b>19</b> Exercices solutions</a><ul>
+<li class="chapter" data-level="19.1" data-path="exercices-solutions.html"><a href="exercices-solutions.html#exercices-1"><i class="fa fa-check"></i><b>19.1</b> Exercices 1</a></li>
+<li class="chapter" data-level="19.2" data-path="exercices-solutions.html"><a href="exercices-solutions.html#Ejercicios2"><i class="fa fa-check"></i><b>19.2</b> Ejercicios 2</a></li>
 </ul></li>
-<li class="chapter" data-level="20" data-path="exercices-solutions.html"><a href="exercices-solutions.html"><i class="fa fa-check"></i><b>20</b> Exercices solutions</a><ul>
-<li class="chapter" data-level="20.1" data-path="exercices-solutions.html"><a href="exercices-solutions.html#exercices-1"><i class="fa fa-check"></i><b>20.1</b> Exercices 1</a></li>
-<li class="chapter" data-level="20.2" data-path="exercices.html"><a href="exercices.html#Ejercicios2"><i class="fa fa-check"></i><b>20.2</b> Ejercicios 2</a></li>
+<li class="chapter" data-level="20" data-path="exercices.html"><a href="exercices.html"><i class="fa fa-check"></i><b>20</b> Exercices</a><ul>
+<li class="chapter" data-level="20.1" data-path="exercices.html"><a href="exercices.html#Ejercicios1"><i class="fa fa-check"></i><b>20.1</b> Ejercicios 1</a></li>
+<li class="chapter" data-level="20.2" data-path="exercices-solutions.html"><a href="exercices-solutions.html#Ejercicios2"><i class="fa fa-check"></i><b>20.2</b> Ejercicios 2</a></li>
 </ul></li>
 <li class="chapter" data-level="21" data-path="todo-curso-basico-r-2016.html"><a href="todo-curso-basico-r-2016.html"><i class="fa fa-check"></i><b>21</b> TODO - Curso Basico R - 2016</a></li>
 <li class="chapter" data-level="22" data-path="en-ejercicios.html"><a href="en-ejercicios.html"><i class="fa fa-check"></i><b>22</b> EN EJERCICIOS:</a><ul>
@@ -343,7 +343,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul>
 <hr />
 <p>Cargamos librerias</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">if (!<span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
 <span class="kw">p_load</span>(tidyverse, stringr)</code></pre></div>
 <div id="leer-y-guardar-datos" class="section level2">
 <h2><span class="header-section-number">6.1</span> Leer y guardar datos</h2>
@@ -377,7 +377,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 temp =<span class="st"> </span>raw_data
     
 <span class="co"># Seleccionamos la columna &quot;Columna basura&quot;, pero sin &quot;guardar&quot; el resultado</span>
-temp %&gt;%<span class="st"> </span><span class="kw">select</span>(<span class="st">`</span><span class="dt">Columna basura</span><span class="st">`</span>)</code></pre></div>
+temp <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(<span class="st">`</span><span class="dt">Columna basura</span><span class="st">`</span>)</code></pre></div>
 <pre><code>## # A tibble: 30 x 1
 ##    `Columna basura`
 ##               &lt;chr&gt;
@@ -409,7 +409,7 @@ temp</code></pre></div>
 ## 10    10               yy     1    19    41    42    18  2232  6105   227
 ## # ... with 20 more rows</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Lo mismo de antes pero ahora con &quot;temp =&quot; lo que hace que guardemos el resultado en &quot;temp&quot; </span>
-temp =<span class="st"> </span>temp %&gt;%<span class="st"> </span><span class="kw">select</span>(<span class="st">`</span><span class="dt">Columna basura</span><span class="st">`</span>)
+temp =<span class="st"> </span>temp <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(<span class="st">`</span><span class="dt">Columna basura</span><span class="st">`</span>)
   
 <span class="co"># temp ha cambiado</span>
 temp</code></pre></div>
@@ -432,11 +432,11 @@ temp</code></pre></div>
 <h2><span class="header-section-number">6.3</span> Verbos de dplyr</h2>
 <p><strong>TODO: ORDENAR SECCION PARA QUE SEA COHERENTE CON TABLA </strong><br />
 dplyr es un conjunto de funciones que nos permiten manipular los datos de manera relativamente sencilla y con una sintaxis muy legible. Con dplyr usamos el operador <code>%&gt;%</code> que es una “tubería” que traslada lo que esta a su izquierda hacia la derecha. Esto permite concatenar multiples funciones (verbos) y realizar operaciones muy complejas en un solo “paso” y con una sintaxis facil de leer.</p>
-<table style="width:43%;">
+<table style="width:100%;">
 <colgroup>
+<col width="9%" />
 <col width="12%" />
-<col width="15%" />
-<col width="15%" />
+<col width="78%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -511,7 +511,7 @@ dplyr es un conjunto de funciones que nos permiten manipular los datos de manera
 <div id="renombrar-variables" class="section level3">
 <h3><span class="header-section-number">6.3.1</span> Renombrar variables</h3>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Renombramos columna X. En este caso, como el nombre de columna contiene espacios, tenemos que usar ``</span>
-raw_data %&gt;%<span class="st"> </span><span class="kw">rename</span>(<span class="dt">Columna_basura =</span> <span class="st">`</span><span class="dt">Columna basura</span><span class="st">`</span>)</code></pre></div>
+raw_data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">rename</span>(<span class="dt">Columna_basura =</span> <span class="st">`</span><span class="dt">Columna basura</span><span class="st">`</span>)</code></pre></div>
 <pre><code>## # A tibble: 30 x 10
 ##       ID Columna_basura  Sexo  Edad   VI1   VI2   VI3 VI1_t VI2_t VI3_t
 ##    &lt;int&gt;          &lt;chr&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;
@@ -530,7 +530,7 @@ raw_data %&gt;%<span class="st"> </span><span class="kw">rename</span>(<span cla
 <div id="seleccionar-variables" class="section level3">
 <h3><span class="header-section-number">6.3.2</span> Seleccionar variables</h3>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Seleccionamos varias columnas</span>
-raw_data %&gt;%<span class="st"> </span><span class="kw">select</span>(ID, Sexo, Edad, VI1)</code></pre></div>
+raw_data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(ID, Sexo, Edad, VI1)</code></pre></div>
 <pre><code>## # A tibble: 30 x 4
 ##       ID  Sexo  Edad   VI1
 ##    &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;
@@ -546,7 +546,7 @@ raw_data %&gt;%<span class="st"> </span><span class="kw">select</span>(ID, Sexo,
 ## 10    10     1    19    41
 ## # ... with 20 more rows</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Podemos usar el número de columna    </span>
-raw_data %&gt;%<span class="st"> </span><span class="kw">select</span>(<span class="dv">1</span>,<span class="dv">3</span>:<span class="dv">4</span>)</code></pre></div>
+raw_data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(<span class="dv">1</span>,<span class="dv">3</span><span class="op">:</span><span class="dv">4</span>)</code></pre></div>
 <pre><code>## # A tibble: 30 x 3
 ##       ID  Sexo  Edad
 ##    &lt;int&gt; &lt;int&gt; &lt;int&gt;
@@ -563,12 +563,12 @@ raw_data %&gt;%<span class="st"> </span><span class="kw">select</span>(<span cla
 ## # ... with 20 more rows</code></pre>
 <p><BR> Para seleccionar varias columnas rapidamente usaremos la subfunción de select(), <code>matches()</code>. En esta podemos usar algo llamado <a href="http://www.zytrax.com/tech/web/regex.htm">Regular Expressions</a>, cuyo poder y dificultad es infinito. Ver por ejemplo, una expresión regular para validar numeros romanos: <code>^M{0,4}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})$</code></p>
 <div class="figure">
-<img src="https://imgs.xkcd.com/comics/regular_expressions.png" alt="FROM https://xkcd.com/208/" />
+<img src="Images/regular_expressions.png" alt="FROM https://xkcd.com/208/" />
 <p class="caption">FROM <a href="https://xkcd.com/208/" class="uri">https://xkcd.com/208/</a></p>
 </div>
 <p>Nosotros usaremos la versión para todos los públicos, en la que simplemente indicaremos un fragmento de texto que buscar en los títulos de las columnas de nuestro data frame.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Seleccionamos las columnas que nos interesan usando matches()</span>
-datos =<span class="st"> </span>raw_data %&gt;%<span class="st"> </span><span class="kw">select</span>(ID, Sexo, Edad, <span class="kw">matches</span>(<span class="st">&quot;VI&quot;</span>))
+datos =<span class="st"> </span>raw_data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(ID, Sexo, Edad, <span class="kw">matches</span>(<span class="st">&quot;VI&quot;</span>))
    
 <span class="co">#Vemos datos</span>
 datos</code></pre></div>
@@ -590,11 +590,11 @@ datos</code></pre></div>
 <div id="wide-to-long-format" class="section level3">
 <h3><span class="header-section-number">6.3.3</span> Wide to Long format</h3>
 <p>Cuando tenemos una condición por columna (como en la tabla de arriba) pero queremos los valores de las condiciones en una columna y los valores de la VD en otra:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">data_long_RAW =<span class="st"> </span>datos %&gt;%<span class="st"> </span>
-<span class="st">  </span><span class="kw">gather</span>(Condition, VD, <span class="dv">4</span>:<span class="dv">6</span>, <span class="dt">factor_key =</span> <span class="ot">TRUE</span>, <span class="dt">convert =</span> F) %&gt;%<span class="st"> </span>
-<span class="st">  </span><span class="kw">gather</span>(Condition_t, VD_t, <span class="dv">4</span>:<span class="dv">6</span>, <span class="dt">factor_key =</span> <span class="ot">TRUE</span>, <span class="dt">convert =</span> F)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">data_long_RAW =<span class="st"> </span>datos <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">gather</span>(Condition, VD, <span class="dv">4</span><span class="op">:</span><span class="dv">6</span>, <span class="dt">factor_key =</span> <span class="ot">TRUE</span>, <span class="dt">convert =</span> F) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">gather</span>(Condition_t, VD_t, <span class="dv">4</span><span class="op">:</span><span class="dv">6</span>, <span class="dt">factor_key =</span> <span class="ot">TRUE</span>, <span class="dt">convert =</span> F)
     
-data_long_RAW %&gt;%<span class="st"> </span><span class="kw">select</span>(-Condition_t) %&gt;%<span class="st"> </span><span class="kw">arrange</span>(ID)</code></pre></div>
+data_long_RAW <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(<span class="op">-</span>Condition_t) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">arrange</span>(ID)</code></pre></div>
 <pre><code>## # A tibble: 270 x 6
 ##       ID  Sexo  Edad Condition    VD  VD_t
 ##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;fctr&gt; &lt;int&gt; &lt;int&gt;
@@ -613,8 +613,8 @@ data_long_RAW %&gt;%<span class="st"> </span><span class="kw">select</span>(-Con
 <div id="long-to-wide" class="section level3">
 <h3><span class="header-section-number">6.3.4</span> Long to wide</h3>
 <p>Cuando tenemos unos datos en formato long y queremos formato wide.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">data_long_RAW %&gt;%
-<span class="st">  </span><span class="kw">spread</span>(Condition, VD) %&gt;%
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">data_long_RAW <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">spread</span>(Condition, VD) <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">spread</span>(Condition_t, VD_t) </code></pre></div>
 <pre><code>## # A tibble: 30 x 9
 ##       ID  Sexo  Edad   VI1   VI2   VI3 VI1_t VI2_t VI3_t
@@ -635,18 +635,18 @@ data_long_RAW %&gt;%<span class="st"> </span><span class="kw">select</span>(-Con
 <h3><span class="header-section-number">6.3.5</span> Omitir NAs</h3>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Filter OUT NAs in Follow_UP</span>
 <span class="co"># data_long_RAW %&gt;% na.omit(VD) #ESTE NO FUNCIONARA!!!!????</span>
-data_long_RAW =<span class="st"> </span>data_long_RAW %&gt;%<span class="st"> </span><span class="kw">drop_na</span>(VD) </code></pre></div>
+data_long_RAW =<span class="st"> </span>data_long_RAW <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">drop_na</span>(VD) </code></pre></div>
 </div>
 <div id="eliminar-variables" class="section level3">
 <h3><span class="header-section-number">6.3.6</span> Eliminar variables</h3>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Eliminamos columna X</span>
-data_long_RAW =<span class="st"> </span>data_long_RAW %&gt;%<span class="st"> </span><span class="kw">select</span>(-Condition_t)</code></pre></div>
+data_long_RAW =<span class="st"> </span>data_long_RAW <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(<span class="op">-</span>Condition_t)</code></pre></div>
 </div>
 <div id="crear-nuevas-variables" class="section level3">
 <h3><span class="header-section-number">6.3.7</span> Crear nuevas variables:</h3>
 <div id="a-partir-de-criterios-logicos" class="section level4">
 <h4><span class="header-section-number">6.3.7.1</span> A partir de criterios logicos</h4>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">data_long_RAW %&gt;%<span class="st"> </span><span class="kw">mutate</span>(<span class="dt">Viejuno =</span> Edad &gt;<span class="st"> </span><span class="dv">30</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">data_long_RAW <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">Viejuno =</span> Edad <span class="op">&gt;</span><span class="st"> </span><span class="dv">30</span>)</code></pre></div>
 <pre><code>## # A tibble: 270 x 7
 ##       ID  Sexo  Edad Condition    VD  VD_t Viejuno
 ##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;fctr&gt; &lt;int&gt; &lt;int&gt;   &lt;lgl&gt;
@@ -664,7 +664,7 @@ data_long_RAW =<span class="st"> </span>data_long_RAW %&gt;%<span class="st"> </
 </div>
 <div id="transformando-otras-variables" class="section level4">
 <h4><span class="header-section-number">6.3.7.2</span> Transformando otras variables</h4>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">data_long_RAW %&gt;%<span class="st"> </span><span class="kw">mutate</span>(<span class="dt">RT_log =</span> <span class="kw">log</span>(VD_t))</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">data_long_RAW <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">RT_log =</span> <span class="kw">log</span>(VD_t))</code></pre></div>
 <pre><code>## # A tibble: 270 x 7
 ##       ID  Sexo  Edad Condition    VD  VD_t   RT_log
 ##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;fctr&gt; &lt;int&gt; &lt;int&gt;    &lt;dbl&gt;
@@ -684,7 +684,7 @@ data_long_RAW =<span class="st"> </span>data_long_RAW %&gt;%<span class="st"> </
 <div id="filtrar-datos" class="section level3">
 <h3><span class="header-section-number">6.3.8</span> Filtrar datos</h3>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Nos quedamos solo con Sexo == 1</span>
-data_long_RAW %&gt;%<span class="st"> </span><span class="kw">filter</span>(Sexo ==<span class="st"> </span><span class="dv">1</span>) </code></pre></div>
+data_long_RAW <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Sexo <span class="op">==</span><span class="st"> </span><span class="dv">1</span>) </code></pre></div>
 <pre><code>## # A tibble: 162 x 6
 ##       ID  Sexo  Edad Condition    VD  VD_t
 ##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;fctr&gt; &lt;int&gt; &lt;int&gt;
@@ -700,7 +700,7 @@ data_long_RAW %&gt;%<span class="st"> </span><span class="kw">filter</span>(Sexo
 ## 10    19     1    23       VI1    96  4076
 ## # ... with 152 more rows</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Filtramos por sexo, edad, y Tiempo</span>
-data_long_RAW %&gt;%<span class="st"> </span><span class="kw">filter</span>(Sexo ==<span class="st"> </span><span class="dv">1</span>, Edad  &gt;<span class="st"> </span><span class="dv">25</span>, VD_t &lt;<span class="st"> </span><span class="kw">mean</span>(VD_t)) </code></pre></div>
+data_long_RAW <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Sexo <span class="op">==</span><span class="st"> </span><span class="dv">1</span>, Edad  <span class="op">&gt;</span><span class="st"> </span><span class="dv">25</span>, VD_t <span class="op">&lt;</span><span class="st"> </span><span class="kw">mean</span>(VD_t)) </code></pre></div>
 <pre><code>## # A tibble: 54 x 6
 ##       ID  Sexo  Edad Condition    VD  VD_t
 ##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;fctr&gt; &lt;int&gt; &lt;int&gt;
@@ -716,9 +716,9 @@ data_long_RAW %&gt;%<span class="st"> </span><span class="kw">filter</span>(Sexo
 ## 10    20     1    28       VI3     5   863
 ## # ... with 44 more rows</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Filtramos aquellas respuestas que se han dado 2.5 desviaciones tipicas por encima o debajo de la media</span>
-data_long_RAW %&gt;%<span class="st"> </span><span class="kw">filter</span>(
-  VD_t &lt;<span class="st"> </span><span class="kw">mean</span>(VD_t) +<span class="st"> </span><span class="fl">2.5</span> *<span class="st"> </span><span class="kw">sd</span>(VD_t),
-  VD_t &gt;<span class="st"> </span><span class="kw">mean</span>(VD_t) -<span class="st"> </span><span class="fl">2.5</span> *<span class="st"> </span><span class="kw">sd</span>(VD_t)
+data_long_RAW <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(
+  VD_t <span class="op">&lt;</span><span class="st"> </span><span class="kw">mean</span>(VD_t) <span class="op">+</span><span class="st"> </span><span class="fl">2.5</span> <span class="op">*</span><span class="st"> </span><span class="kw">sd</span>(VD_t),
+  VD_t <span class="op">&gt;</span><span class="st"> </span><span class="kw">mean</span>(VD_t) <span class="op">-</span><span class="st"> </span><span class="fl">2.5</span> <span class="op">*</span><span class="st"> </span><span class="kw">sd</span>(VD_t)
   ) </code></pre></div>
 <pre><code>## # A tibble: 264 x 6
 ##       ID  Sexo  Edad Condition    VD  VD_t
@@ -735,7 +735,7 @@ data_long_RAW %&gt;%<span class="st"> </span><span class="kw">filter</span>(
 ## 10    10     1    19       VI1    41  2232
 ## # ... with 254 more rows</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Filtrar filas donde aparece determinado texto</span>
-data_long_RAW %&gt;%<span class="st"> </span><span class="kw">filter</span>(<span class="kw">str_detect</span>(Condition, <span class="st">&quot;2&quot;</span>))</code></pre></div>
+data_long_RAW <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(<span class="kw">str_detect</span>(Condition, <span class="st">&quot;2&quot;</span>))</code></pre></div>
 <pre><code>## # A tibble: 90 x 6
 ##       ID  Sexo  Edad Condition    VD  VD_t
 ##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;fctr&gt; &lt;int&gt; &lt;int&gt;
@@ -757,7 +757,7 @@ data_long_RAW %&gt;%<span class="st"> </span><span class="kw">filter</span>(<spa
 <h4><span class="header-section-number">6.3.9.1</span> Cambiamos el tipo de datos</h4>
 <p><strong>TODO: masivamente, todos los integer a algo</strong></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Cambiamos a Character</span>
-data_long_RAW %&gt;%<span class="st"> </span><span class="kw">mutate</span>(<span class="dt">Edad =</span> <span class="kw">as.character</span>(Edad))</code></pre></div>
+data_long_RAW <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">Edad =</span> <span class="kw">as.character</span>(Edad))</code></pre></div>
 <pre><code>## # A tibble: 270 x 6
 ##       ID  Sexo  Edad Condition    VD  VD_t
 ##    &lt;int&gt; &lt;int&gt; &lt;chr&gt;    &lt;fctr&gt; &lt;int&gt; &lt;int&gt;
@@ -773,7 +773,7 @@ data_long_RAW %&gt;%<span class="st"> </span><span class="kw">mutate</span>(<spa
 ## 10    10     1    19       VI1    41  2232
 ## # ... with 260 more rows</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Cambiamos a Integer</span>
-data_long_RAW %&gt;%<span class="st"> </span><span class="kw">mutate</span>(<span class="dt">Edad =</span> <span class="kw">as.integer</span>(Edad))</code></pre></div>
+data_long_RAW <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">Edad =</span> <span class="kw">as.integer</span>(Edad))</code></pre></div>
 <pre><code>## # A tibble: 270 x 6
 ##       ID  Sexo  Edad Condition    VD  VD_t
 ##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;fctr&gt; &lt;int&gt; &lt;int&gt;
@@ -791,9 +791,9 @@ data_long_RAW %&gt;%<span class="st"> </span><span class="kw">mutate</span>(<spa
 </div>
 <div id="recodificamos-los-valores" class="section level4">
 <h4><span class="header-section-number">6.3.9.2</span> Recodificamos los valores</h4>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">data_long_RAW %&gt;%<span class="st"> </span><span class="kw">mutate</span>(<span class="dt">Edad2 =</span> 
-                           <span class="kw">ifelse</span>( Edad &gt;<span class="st"> </span><span class="dv">30</span>, <span class="st">&quot;Viejuno&quot;</span>, 
-                           <span class="kw">ifelse</span>( Edad &lt;<span class="st"> </span><span class="dv">30</span>, <span class="st">&quot;Pipiolo&quot;</span>, <span class="ot">NA</span>)))</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">data_long_RAW <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">Edad2 =</span> 
+                           <span class="kw">ifelse</span>( Edad <span class="op">&gt;</span><span class="st"> </span><span class="dv">30</span>, <span class="st">&quot;Viejuno&quot;</span>, 
+                           <span class="kw">ifelse</span>( Edad <span class="op">&lt;</span><span class="st"> </span><span class="dv">30</span>, <span class="st">&quot;Pipiolo&quot;</span>, <span class="ot">NA</span>)))</code></pre></div>
 <pre><code>## # A tibble: 270 x 7
 ##       ID  Sexo  Edad Condition    VD  VD_t   Edad2
 ##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;fctr&gt; &lt;int&gt; &lt;int&gt;   &lt;chr&gt;
@@ -808,10 +808,10 @@ data_long_RAW %&gt;%<span class="st"> </span><span class="kw">mutate</span>(<spa
 ##  9     9     0    23       VI1    81   516 Pipiolo
 ## 10    10     1    19       VI1    41  2232 Pipiolo
 ## # ... with 260 more rows</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">data_long_RAW %&gt;%<span class="st"> </span><span class="kw">mutate</span>(<span class="dt">Edad2 =</span> 
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">data_long_RAW <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">Edad2 =</span> 
                            <span class="kw">case_when</span>(
-                             .$Edad &gt;<span class="st"> </span><span class="dv">30</span> ~<span class="st"> &quot;Viejuno&quot;</span>,
-                             .$Edad &lt;<span class="st"> </span><span class="dv">30</span> ~<span class="st"> &quot;Pipiolo&quot;</span>))</code></pre></div>
+                             .<span class="op">$</span>Edad <span class="op">&gt;</span><span class="st"> </span><span class="dv">30</span> <span class="op">~</span><span class="st"> &quot;Viejuno&quot;</span>,
+                             .<span class="op">$</span>Edad <span class="op">&lt;</span><span class="st"> </span><span class="dv">30</span> <span class="op">~</span><span class="st"> &quot;Pipiolo&quot;</span>))</code></pre></div>
 <pre><code>## # A tibble: 270 x 7
 ##       ID  Sexo  Edad Condition    VD  VD_t   Edad2
 ##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;fctr&gt; &lt;int&gt; &lt;int&gt;   &lt;chr&gt;
@@ -831,7 +831,7 @@ data_long_RAW %&gt;%<span class="st"> </span><span class="kw">mutate</span>(<spa
 <div id="ordenar-db" class="section level3">
 <h3><span class="header-section-number">6.3.10</span> Ordenar DB</h3>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#data_long_RAW %&gt;% arrange(desc(VD))</span>
-data_long_RAW %&gt;%<span class="st"> </span><span class="kw">arrange</span>(VD_t, VD) </code></pre></div>
+data_long_RAW <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">arrange</span>(VD_t, VD) </code></pre></div>
 <pre><code>## # A tibble: 270 x 6
 ##       ID  Sexo  Edad Condition    VD  VD_t
 ##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;fctr&gt; &lt;int&gt; &lt;int&gt;
@@ -926,10 +926,10 @@ datos_combinados =<span class="st"> </span><span class="kw">left_join</span>(dat
 <h2><span class="header-section-number">6.5</span> Verbos avanzados</h2>
 <div id="cambiar-multiples-columnas-de-un-tipo-a-otro" class="section level3">
 <h3><span class="header-section-number">6.5.1</span> Cambiar multiples columnas de un tipo a otro</h3>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># raw_data %&gt;% mutate_if(is.character, as.double) # BUG: cuando alguna de las columnas tiene un espacio, falla</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># raw_data %&gt;% mutate_if(is.character, as.double) # </span><span class="al">BUG</span><span class="co">: cuando alguna de las columnas tiene un espacio, falla</span>
 
 <span class="co"># Cambiar las columnas numericas a character</span>
-raw_data %&gt;%<span class="st"> </span><span class="kw">mutate_if</span>(is.numeric, <span class="kw">as.character</span>())</code></pre></div>
+raw_data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate_if</span>(is.numeric, <span class="kw">as.character</span>())</code></pre></div>
 <pre><code>## # A tibble: 30 x 10
 ##       ID `Columna basura`  Sexo  Edad   VI1   VI2   VI3 VI1_t VI2_t VI3_t
 ##    &lt;int&gt;            &lt;chr&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;
@@ -945,7 +945,7 @@ raw_data %&gt;%<span class="st"> </span><span class="kw">mutate_if</span>(is.num
 ## 10    10               yy     1    19    41    42    18  2232  6105   227
 ## # ... with 20 more rows</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Cambiamos las variables de VI1 a VI3</span>
-raw_data %&gt;%<span class="st"> </span><span class="kw">mutate_at</span>(<span class="kw">vars</span>(VI1:VI3), as.numeric)</code></pre></div>
+raw_data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate_at</span>(<span class="kw">vars</span>(VI1<span class="op">:</span>VI3), as.numeric)</code></pre></div>
 <pre><code>## # A tibble: 30 x 10
 ##       ID `Columna basura`  Sexo  Edad   VI1   VI2   VI3 VI1_t VI2_t VI3_t
 ##    &lt;int&gt;            &lt;chr&gt; &lt;int&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;
@@ -961,7 +961,7 @@ raw_data %&gt;%<span class="st"> </span><span class="kw">mutate_at</span>(<span 
 ## 10    10               yy     1    19    41    42    18  2232  6105   227
 ## # ... with 20 more rows</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Cambiamos todas las variables que contienen &quot;VI&quot; en el nombre</span>
-raw_data %&gt;%<span class="st"> </span><span class="kw">mutate_at</span>(<span class="kw">vars</span>(<span class="kw">matches</span>(<span class="st">&quot;VI&quot;</span>)), as.numeric)</code></pre></div>
+raw_data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate_at</span>(<span class="kw">vars</span>(<span class="kw">matches</span>(<span class="st">&quot;VI&quot;</span>)), as.numeric)</code></pre></div>
 <pre><code>## # A tibble: 30 x 10
 ##       ID `Columna basura`  Sexo  Edad   VI1   VI2   VI3 VI1_t VI2_t VI3_t
 ##    &lt;int&gt;            &lt;chr&gt; &lt;int&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
@@ -1005,7 +1005,7 @@ raw_data %&gt;%<span class="st"> </span><span class="kw">mutate_at</span>(<span 
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
 <script>
-require(["gitbook"], function(gitbook) {
+gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
 "sharing": {
 "github": false,

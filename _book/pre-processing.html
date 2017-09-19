@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>R - Statistics Manual</title>
   <meta name="description" content="Statistics manual from CSCN.">
-  <meta name="generator" content="bookdown 0.4 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.5 and GitBook 2.6.7">
 
   <meta property="og:title" content="R - Statistics Manual" />
   <meta property="og:type" content="book" />
@@ -25,7 +25,7 @@
 <meta name="author" content="Center for Social and Cognitive Neuroscience - cscn.uai.cl">
 
 
-<meta name="date" content="2017-08-03">
+<meta name="date" content="2017-09-19">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -286,13 +286,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="18.1" data-path="other-stuff.html"><a href="other-stuff.html#maps---generate-and-locate-cities-in-a-world-map"><i class="fa fa-check"></i><b>18.1</b> Maps - Generate and locate cities in a world map</a></li>
 <li class="chapter" data-level="18.2" data-path="other-stuff.html"><a href="other-stuff.html#extract-tables-from-the-internet"><i class="fa fa-check"></i><b>18.2</b> Extract tables from the internet</a></li>
 </ul></li>
-<li class="chapter" data-level="19" data-path="exercices.html"><a href="exercices.html"><i class="fa fa-check"></i><b>19</b> Exercices</a><ul>
-<li class="chapter" data-level="19.1" data-path="exercices.html"><a href="exercices.html#Ejercicios1"><i class="fa fa-check"></i><b>19.1</b> Ejercicios 1</a></li>
-<li class="chapter" data-level="19.2" data-path="exercices.html"><a href="exercices.html#Ejercicios2"><i class="fa fa-check"></i><b>19.2</b> Ejercicios 2</a></li>
+<li class="chapter" data-level="19" data-path="exercices-solutions.html"><a href="exercices-solutions.html"><i class="fa fa-check"></i><b>19</b> Exercices solutions</a><ul>
+<li class="chapter" data-level="19.1" data-path="exercices-solutions.html"><a href="exercices-solutions.html#exercices-1"><i class="fa fa-check"></i><b>19.1</b> Exercices 1</a></li>
+<li class="chapter" data-level="19.2" data-path="exercices-solutions.html"><a href="exercices-solutions.html#Ejercicios2"><i class="fa fa-check"></i><b>19.2</b> Ejercicios 2</a></li>
 </ul></li>
-<li class="chapter" data-level="20" data-path="exercices-solutions.html"><a href="exercices-solutions.html"><i class="fa fa-check"></i><b>20</b> Exercices solutions</a><ul>
-<li class="chapter" data-level="20.1" data-path="exercices-solutions.html"><a href="exercices-solutions.html#exercices-1"><i class="fa fa-check"></i><b>20.1</b> Exercices 1</a></li>
-<li class="chapter" data-level="20.2" data-path="exercices.html"><a href="exercices.html#Ejercicios2"><i class="fa fa-check"></i><b>20.2</b> Ejercicios 2</a></li>
+<li class="chapter" data-level="20" data-path="exercices.html"><a href="exercices.html"><i class="fa fa-check"></i><b>20</b> Exercices</a><ul>
+<li class="chapter" data-level="20.1" data-path="exercices.html"><a href="exercices.html#Ejercicios1"><i class="fa fa-check"></i><b>20.1</b> Ejercicios 1</a></li>
+<li class="chapter" data-level="20.2" data-path="exercices-solutions.html"><a href="exercices-solutions.html#Ejercicios2"><i class="fa fa-check"></i><b>20.2</b> Ejercicios 2</a></li>
 </ul></li>
 <li class="chapter" data-level="21" data-path="todo-curso-basico-r-2016.html"><a href="todo-curso-basico-r-2016.html"><i class="fa fa-check"></i><b>21</b> TODO - Curso Basico R - 2016</a></li>
 <li class="chapter" data-level="22" data-path="en-ejercicios.html"><a href="en-ejercicios.html"><i class="fa fa-check"></i><b>22</b> EN EJERCICIOS:</a><ul>
@@ -342,20 +342,20 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)
 
 <span class="co"># RT Filtering function</span>
-Filter_FUN &lt;-<span class="st"> </span>function(DB, Column, <span class="dt">Low_PCT =</span> <span class="fl">0.05</span>, <span class="dt">High_PCT =</span> <span class="fl">0.95</span>) {
+Filter_FUN &lt;-<span class="st"> </span><span class="cf">function</span>(DB, Column, <span class="dt">Low_PCT =</span> <span class="fl">0.05</span>, <span class="dt">High_PCT =</span> <span class="fl">0.95</span>) {
   
   args =<span class="st"> </span><span class="kw">as.list</span>(<span class="kw">match.call</span>())
   
   <span class="co"># Creamos Column_LOG</span>
-  DB =<span class="st"> </span>DB %&gt;%<span class="st"> </span><span class="kw">mutate</span>(<span class="dt">Column_LOG =</span> <span class="kw">log</span>(<span class="kw">eval</span>(args$Column, DB)))
-  lowcut =<span class="st"> </span><span class="kw">quantile</span>(DB$Column_LOG, Low_PCT, <span class="dt">na.rm =</span> T)
-  highcut =<span class="st"> </span><span class="kw">quantile</span>(DB$Column_LOG, High_PCT, <span class="dt">na.rm =</span> T)
+  DB =<span class="st"> </span>DB <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">Column_LOG =</span> <span class="kw">log</span>(<span class="kw">eval</span>(args<span class="op">$</span>Column, DB)))
+  lowcut =<span class="st"> </span><span class="kw">quantile</span>(DB<span class="op">$</span>Column_LOG, Low_PCT, <span class="dt">na.rm =</span> T)
+  highcut =<span class="st"> </span><span class="kw">quantile</span>(DB<span class="op">$</span>Column_LOG, High_PCT, <span class="dt">na.rm =</span> T)
   
   <span class="co"># Returns DB_Filtered</span>
-  DB_Filtered &lt;&lt;-<span class="st"> </span><span class="kw">subset</span>(DB, DB$Column_LOG &gt;<span class="st"> </span>lowcut &amp;<span class="st"> </span>DB$Column_LOG &lt;<span class="st"> </span>highcut) 
+  DB_Filtered &lt;&lt;-<span class="st"> </span><span class="kw">subset</span>(DB, DB<span class="op">$</span>Column_LOG <span class="op">&gt;</span><span class="st"> </span>lowcut <span class="op">&amp;</span><span class="st"> </span>DB<span class="op">$</span>Column_LOG <span class="op">&lt;</span><span class="st"> </span>highcut) 
   
   <span class="co"># return(DB_Filtered)</span>
-  <span class="kw">cat</span>(<span class="st">&quot;**** Datos filtrados a partir de la columna&quot;</span>, args$Column, <span class="st">&quot;: &quot;</span>, <span class="kw">nrow</span>(DB) -<span class="st"> </span><span class="kw">nrow</span>(DB_Filtered), <span class="st">&quot;/&quot;</span>, <span class="kw">nrow</span>(DB), <span class="st">&quot;filas eliminadas ***&quot;</span>)
+  <span class="kw">cat</span>(<span class="st">&quot;**** Datos filtrados a partir de la columna&quot;</span>, args<span class="op">$</span>Column, <span class="st">&quot;: &quot;</span>, <span class="kw">nrow</span>(DB) <span class="op">-</span><span class="st"> </span><span class="kw">nrow</span>(DB_Filtered), <span class="st">&quot;/&quot;</span>, <span class="kw">nrow</span>(DB), <span class="st">&quot;filas eliminadas ***&quot;</span>)
   
 }</code></pre></div>
 <p>After creating the function, we read the DB and apply the filtering. A dataframe called DB_Filtered is created with the filtered data.</p>
@@ -425,23 +425,23 @@ Filter_FUN &lt;-<span class="st"> </span>function(DB, Column, <span class="dt">L
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#SD criteria</span>
 SD_filter =<span class="st"> </span><span class="fl">2.5</span>
 
-dataset_filtered =<span class="st"> </span>dataset %&gt;%<span class="st"> </span>
-<span class="st">  </span><span class="kw">filter</span>(Time &lt;<span class="st"> </span>(<span class="kw">median</span>(Time) +<span class="st"> </span>SD_filter *<span class="st"> </span><span class="kw">sd</span>(Time)) &amp;<span class="st"> </span>Time &gt;<span class="st"> </span>(<span class="kw">median</span>(Time) -<span class="st"> </span>SD_filter *<span class="st"> </span><span class="kw">sd</span>(Time)))
+dataset_filtered =<span class="st"> </span>dataset <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">filter</span>(Time <span class="op">&lt;</span><span class="st"> </span>(<span class="kw">median</span>(Time) <span class="op">+</span><span class="st"> </span>SD_filter <span class="op">*</span><span class="st"> </span><span class="kw">sd</span>(Time)) <span class="op">&amp;</span><span class="st"> </span>Time <span class="op">&gt;</span><span class="st"> </span>(<span class="kw">median</span>(Time) <span class="op">-</span><span class="st"> </span>SD_filter <span class="op">*</span><span class="st"> </span><span class="kw">sd</span>(Time)))
 
 <span class="co"># dataset_filtered = dataset[dataset$Time &lt; (median(dataset$Time) + SD_filter * sd(dataset$Time) )  &amp; dataset$Time &gt; (median(dataset$Time) - SD_filter * sd(dataset$Time) ), ]</span></code></pre></div>
 <ul>
 <li>Plots</li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(dataset$Time)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(dataset<span class="op">$</span>Time)</code></pre></div>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
 ##   1.242   7.686  15.453  24.252  28.858 165.529</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(dataset_filtered$Time)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(dataset_filtered<span class="op">$</span>Time)</code></pre></div>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
 ##   1.242   7.585  14.376  19.777  26.109  77.829</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))
     <span class="co">#</span>
-    <span class="kw">plot</span>(<span class="kw">density</span>(dataset$Time), <span class="dt">main =</span> <span class="st">&quot;Valid reaction time density&quot;</span>)
-    <span class="kw">plot</span>(<span class="kw">density</span>(dataset_filtered$Time), <span class="dt">main =</span> <span class="st">&quot;Valid reaction time density&quot;</span>)</code></pre></div>
+    <span class="kw">plot</span>(<span class="kw">density</span>(dataset<span class="op">$</span>Time), <span class="dt">main =</span> <span class="st">&quot;Valid reaction time density&quot;</span>)
+    <span class="kw">plot</span>(<span class="kw">density</span>(dataset_filtered<span class="op">$</span>Time), <span class="dt">main =</span> <span class="st">&quot;Valid reaction time density&quot;</span>)</code></pre></div>
 <p><img src="bookdown-demo_files/figure-html/unnamed-chunk-94-1.png" width="672" /></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))</code></pre></div>
 </div>
@@ -464,7 +464,7 @@ dataset =<span class="st"> </span><span class="kw">read.csv</span>(<span class="
 <li>Code</li>
 </ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Gamma</span>
-glm1 =<span class="st"> </span>(<span class="kw">glm</span>(Time ~<span class="st"> </span>Formato, <span class="dt">data =</span> dataset, <span class="dt">family =</span> Gamma))
+glm1 =<span class="st"> </span>(<span class="kw">glm</span>(Time <span class="op">~</span><span class="st"> </span>Formato, <span class="dt">data =</span> dataset, <span class="dt">family =</span> Gamma))
 <span class="kw">summary</span>(glm1)</code></pre></div>
 <pre><code>## 
 ## Call:
@@ -489,7 +489,7 @@ glm1 =<span class="st"> </span>(<span class="kw">glm</span>(Time ~<span class="s
 ## 
 ## Number of Fisher Scoring iterations: 6</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Gausian</span>
-glm2 =<span class="st"> </span>(<span class="kw">glm</span>(Time ~<span class="st"> </span>Formato, <span class="dt">data =</span> dataset))
+glm2 =<span class="st"> </span>(<span class="kw">glm</span>(Time <span class="op">~</span><span class="st"> </span>Formato, <span class="dt">data =</span> dataset))
 <span class="kw">summary</span>(glm2)</code></pre></div>
 <pre><code>## 
 ## Call:
@@ -501,7 +501,7 @@ glm2 =<span class="st"> </span>(<span class="kw">glm</span>(Time ~<span class="s
 ## 
 ## Coefficients:
 ##             Estimate Std. Error t value Pr(&gt;|t|)    
-## (Intercept)  23.8031     2.6346   9.035   &lt;2e-16 ***
+## (Intercept)  23.8030     2.6346   9.035   &lt;2e-16 ***
 ## FormatoPR     0.8972     3.7258   0.241     0.81    
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
@@ -539,37 +539,37 @@ dataset =<span class="st"> </span><span class="kw">read.csv</span>(<span class="
     
     <span class="co"># Add log-rt</span>
     <span class="co"># dataset_filtered = data_long_RAW</span>
-    dataset$logrt &lt;-<span class="st"> </span><span class="kw">log</span>(dataset$Time)
+    dataset<span class="op">$</span>logrt &lt;-<span class="st"> </span><span class="kw">log</span>(dataset<span class="op">$</span>Time)
     
     <span class="co"># Take correct answers</span>
         <span class="co"># WE USE CORRECT ANSWERS TO SET TIME LIMITS!!!</span>
         <span class="co"># BETTER USE dataset?</span>
-    corr =<span class="st"> </span><span class="kw">subset</span>(dataset, dataset$Accuracy ==<span class="st"> </span><span class="dv">1</span>)
-    lowcut =<span class="st"> </span><span class="kw">quantile</span>(corr$logrt, lowcutquant)
-    highcut =<span class="st"> </span><span class="kw">quantile</span>(corr$logrt, highcutquant)
-    dataset_filtered &lt;-<span class="st"> </span><span class="kw">subset</span>(dataset, dataset$logrt &gt;<span class="st"> </span>lowcut &amp;<span class="st"> </span>dataset$logrt &lt;<span class="st"> </span>highcut)</code></pre></div>
+    corr =<span class="st"> </span><span class="kw">subset</span>(dataset, dataset<span class="op">$</span>Accuracy <span class="op">==</span><span class="st"> </span><span class="dv">1</span>)
+    lowcut =<span class="st"> </span><span class="kw">quantile</span>(corr<span class="op">$</span>logrt, lowcutquant)
+    highcut =<span class="st"> </span><span class="kw">quantile</span>(corr<span class="op">$</span>logrt, highcutquant)
+    dataset_filtered &lt;-<span class="st"> </span><span class="kw">subset</span>(dataset, dataset<span class="op">$</span>logrt <span class="op">&gt;</span><span class="st"> </span>lowcut <span class="op">&amp;</span><span class="st"> </span>dataset<span class="op">$</span>logrt <span class="op">&lt;</span><span class="st"> </span>highcut)</code></pre></div>
 <ul>
 <li>Plots</li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(<span class="kw">density</span>(dataset_filtered$logrt), <span class="dt">main =</span> <span class="st">&quot;Log reaction time density&quot;</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(<span class="kw">density</span>(dataset_filtered<span class="op">$</span>logrt), <span class="dt">main =</span> <span class="st">&quot;Log reaction time density&quot;</span>)</code></pre></div>
 <p><img src="bookdown-demo_files/figure-html/unnamed-chunk-99-1.png" width="672" /></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))
 
     <span class="co">#</span>
-    <span class="kw">plot</span>(<span class="kw">density</span>(dataset$Time[dataset$Time &lt;<span class="st"> </span><span class="dv">10</span>]), <span class="dt">main =</span> <span class="st">&quot;Density of small reaction times&quot;</span>)
-    <span class="kw">plot</span>(<span class="kw">density</span>(dataset_filtered$Time[dataset_filtered$Time &lt;<span class="st"> </span><span class="dv">10</span>]), <span class="dt">main =</span> <span class="st">&quot;Density of small reaction times&quot;</span>)</code></pre></div>
+    <span class="kw">plot</span>(<span class="kw">density</span>(dataset<span class="op">$</span>Time[dataset<span class="op">$</span>Time <span class="op">&lt;</span><span class="st"> </span><span class="dv">10</span>]), <span class="dt">main =</span> <span class="st">&quot;Density of small reaction times&quot;</span>)
+    <span class="kw">plot</span>(<span class="kw">density</span>(dataset_filtered<span class="op">$</span>Time[dataset_filtered<span class="op">$</span>Time <span class="op">&lt;</span><span class="st"> </span><span class="dv">10</span>]), <span class="dt">main =</span> <span class="st">&quot;Density of small reaction times&quot;</span>)</code></pre></div>
 <p><img src="bookdown-demo_files/figure-html/unnamed-chunk-99-2.png" width="672" /></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">    <span class="co">#</span>
-    <span class="kw">plot</span>(<span class="kw">density</span>(dataset$Time), <span class="dt">main =</span> <span class="st">&quot;Valid reaction time density&quot;</span>)
-    <span class="kw">plot</span>(<span class="kw">density</span>(dataset_filtered$Time), <span class="dt">main =</span> <span class="st">&quot;Valid reaction time density&quot;</span>)</code></pre></div>
+    <span class="kw">plot</span>(<span class="kw">density</span>(dataset<span class="op">$</span>Time), <span class="dt">main =</span> <span class="st">&quot;Valid reaction time density&quot;</span>)
+    <span class="kw">plot</span>(<span class="kw">density</span>(dataset_filtered<span class="op">$</span>Time), <span class="dt">main =</span> <span class="st">&quot;Valid reaction time density&quot;</span>)</code></pre></div>
 <p><img src="bookdown-demo_files/figure-html/unnamed-chunk-99-3.png" width="672" /></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))
 
     <span class="co">#</span>
-    <span class="kw">summary</span>(dataset$Time)</code></pre></div>
+    <span class="kw">summary</span>(dataset<span class="op">$</span>Time)</code></pre></div>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
 ##   1.242   7.686  15.453  24.252  28.858 165.529</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">    <span class="kw">summary</span>(dataset_filtered$Time)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">    <span class="kw">summary</span>(dataset_filtered<span class="op">$</span>Time)</code></pre></div>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
 ##   3.770   9.318  16.484  21.066  26.824  64.141</code></pre>
 </div>
@@ -604,7 +604,7 @@ dataset =<span class="st"> </span><span class="kw">read.csv</span>(<span class="
 <ul>
 <li>Cargamos librerias</li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">if (!<span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
 <span class="kw">p_load</span>(readr, psych, dplyr)</code></pre></div>
 <hr />
 <p>We use the following <a href="Data/10-Pre_processing/Reliability.csv">dataset</a>.</p>
@@ -621,7 +621,7 @@ dataset =<span class="st"> </span><span class="kw">read.csv</span>(<span class="
 ##   OA.OA05. = col_integer(),
 ##   OA.OA06. = col_integer()
 ## )</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">temp =<span class="st"> </span>temp[-<span class="dv">1</span>] 
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">temp =<span class="st"> </span>temp[<span class="op">-</span><span class="dv">1</span>] 
 
 <span class="co">#Convierte todo a integer</span>
 <span class="co"># temp = temp %&gt;% dplyr::mutate_each(funs(as.integer))</span>
@@ -682,10 +682,8 @@ temp =<span class="st"> </span><span class="kw">as.data.frame</span>(<span class
 <span class="co"># alpha(temp2)</span>
 <span class="co"># temp2 = temp %&gt;% select(-1, -OA.OA05., -OA.OA04.)</span>
 <span class="co"># alpha(temp2)</span>
-temp2 =<span class="st"> </span>temp %&gt;%<span class="st"> </span><span class="kw">select</span>(-<span class="dv">1</span>, -OA.OA05., -OA.OA04., -OA.OA02.)
+temp2 =<span class="st"> </span>temp <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(<span class="op">-</span><span class="dv">1</span>, <span class="op">-</span>OA.OA05., <span class="op">-</span>OA.OA04., <span class="op">-</span>OA.OA02.)
 <span class="kw">alpha</span>(temp2)</code></pre></div>
-<pre><code>## Warning in matrix(unlist(drop.item), ncol = 8, byrow = TRUE): data length
-## [12] is not a sub-multiple or multiple of the number of columns [8]</code></pre>
 <pre><code>## 
 ## Reliability analysis   
 ## Call: alpha(x = temp2)
@@ -697,9 +695,9 @@ temp2 =<span class="st"> </span>temp %&gt;%<span class="st"> </span><span class=
 ## 0.47 0.57 0.67 
 ## 
 ##  Reliability if an item is dropped:
-##          raw_alpha std.alpha G6(smc) average_r  S/N alpha se
-## OA.OA03.      0.43      0.43    0.19      0.43   NA       NA
-## OA.OA06.      0.19      0.43      NA        NA 0.43    0.043
+##          raw_alpha std.alpha G6(smc) average_r S/N alpha se
+## OA.OA03.      0.43      0.43    0.19      0.43  NA       NA
+## OA.OA06.      0.43      0.43    0.19      0.43  NA       NA
 ## 
 ##  Item statistics 
 ##            n raw.r std.r r.cor r.drop mean   sd
@@ -716,7 +714,7 @@ temp2 =<span class="st"> </span>temp %&gt;%<span class="st"> </span><span class=
 <ul>
 <li>Cargamos librerias</li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">if (!<span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
 <span class="kw">p_load</span>(readr, psych, MBESS, dplyr, GPArotation)
 <span class="co"># install.packages(&quot;MBESS&quot;, dependencies = TRUE)</span></code></pre></div>
 <hr />
@@ -734,7 +732,7 @@ temp2 =<span class="st"> </span>temp %&gt;%<span class="st"> </span><span class=
 ##   OA.OA05. = col_integer(),
 ##   OA.OA06. = col_integer()
 ## )</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">temp =<span class="st"> </span>temp[-<span class="dv">1</span>] 
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">temp =<span class="st"> </span>temp[<span class="op">-</span><span class="dv">1</span>] 
 
 <span class="co">#Convierte todo a integer</span>
 <span class="co"># temp = temp %&gt;% dplyr::mutate_each(funs(as.integer))</span>
@@ -834,7 +832,7 @@ temp =<span class="st"> </span><span class="kw">as.data.frame</span>(<span class
 <h2><span class="header-section-number">14.3</span> Impute missing data</h2>
 <p>**TODO: see <a href="https://www.r-bloggers.com/imputing-missing-data-with-r-mice-package/**" class="uri">https://www.r-bloggers.com/imputing-missing-data-with-r-mice-package/**</a></p>
 <p>FROM: <a href="https://www.r-bloggers.com/graphical-presentation-of-missing-data-vim-package/" class="uri">https://www.r-bloggers.com/graphical-presentation-of-missing-data-vim-package/</a></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">if (!<span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
 <span class="kw">p_load</span>(VIM, mice, dplyr, tibble)
 
 dat &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="kw">url</span>(<span class="st">&quot;https://goo.gl/4DYzru&quot;</span>), <span class="dt">header =</span> <span class="ot">TRUE</span>, <span class="dt">sep =</span> <span class="st">&quot;,&quot;</span>)
@@ -848,12 +846,12 @@ dat &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="
 ## 6 44.9 Female       222.5      130.6 30.6      No       Low</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">10</span>)
 missing =<span class="st"> </span><span class="kw">rbinom</span>(<span class="dv">250</span>, <span class="dv">1</span>, <span class="fl">0.3</span>)
-dat$Cholesterol =<span class="st"> </span><span class="kw">with</span>(dat, <span class="kw">ifelse</span>(BMI &gt;=<span class="st"> </span><span class="dv">30</span> &amp;<span class="st"> </span>missing ==<span class="st"> </span><span class="dv">1</span>, <span class="ot">NA</span>, Cholesterol))
-<span class="kw">sum</span>(<span class="kw">is.na</span>(dat$Cholesterol))</code></pre></div>
+dat<span class="op">$</span>Cholesterol =<span class="st"> </span><span class="kw">with</span>(dat, <span class="kw">ifelse</span>(BMI <span class="op">&gt;=</span><span class="st"> </span><span class="dv">30</span> <span class="op">&amp;</span><span class="st"> </span>missing <span class="op">==</span><span class="st"> </span><span class="dv">1</span>, <span class="ot">NA</span>, Cholesterol))
+<span class="kw">sum</span>(<span class="kw">is.na</span>(dat<span class="op">$</span>Cholesterol))</code></pre></div>
 <pre><code>## [1] 16</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">init =<span class="st"> </span><span class="kw">mice</span>(dat, <span class="dt">maxit =</span> <span class="dv">0</span>) 
-meth =<span class="st"> </span>init$method
-predM =<span class="st"> </span>init$predictorMatrix
+meth =<span class="st"> </span>init<span class="op">$</span>method
+predM =<span class="st"> </span>init<span class="op">$</span>predictorMatrix
 meth[<span class="kw">c</span>(<span class="st">&quot;Cholesterol&quot;</span>)] =<span class="st"> &quot;pmm&quot;</span> 
 <span class="kw">set.seed</span>(<span class="dv">101</span>)
 imputed =<span class="st"> </span><span class="kw">mice</span>(dat, <span class="dt">method =</span> meth, <span class="dt">predictorMatrix =</span> predM, <span class="dt">m =</span> <span class="dv">1</span>)</code></pre></div>
@@ -866,16 +864,16 @@ imputed =<span class="st"> </span><span class="kw">mice</span>(dat, <span class=
 ##   5   1  Cholesterol</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">imp =<span class="st"> </span><span class="kw">complete</span>(imputed)
 
-dt1 =<span class="st"> </span>dat %&gt;%<span class="st"> </span>
-<span class="st">  </span><span class="kw">select</span>(Cholesterol, BMI) %&gt;%<span class="st"> </span>
-<span class="st">  </span>dplyr::<span class="kw">rename</span>(<span class="dt">Cholesterol_imp =</span> Cholesterol) %&gt;%<span class="st"> </span>
+dt1 =<span class="st"> </span>dat <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">select</span>(Cholesterol, BMI) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span>dplyr<span class="op">::</span><span class="kw">rename</span>(<span class="dt">Cholesterol_imp =</span> Cholesterol) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">mutate</span>(
     <span class="dt">Cholesterol_imp =</span> <span class="kw">as.logical</span>(<span class="kw">ifelse</span>(<span class="kw">is.na</span>(Cholesterol_imp), <span class="st">&quot;TRUE&quot;</span>, <span class="st">&quot;FALSE&quot;</span>))
-  ) %&gt;%<span class="st"> </span>
+  ) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">rownames_to_column</span>()
 
-dt2 =<span class="st"> </span>imp %&gt;%<span class="st"> </span>
-<span class="st">  </span><span class="kw">select</span>(Cholesterol, BMI) %&gt;%<span class="st"> </span>
+dt2 =<span class="st"> </span>imp <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">select</span>(Cholesterol, BMI) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">rownames_to_column</span>()
 
 dt =<span class="st"> </span><span class="kw">left_join</span>(dt1, dt2)</code></pre></div>
@@ -919,7 +917,7 @@ dt =<span class="st"> </span><span class="kw">left_join</span>(dt1, dt2)</code><
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
 <script>
-require(["gitbook"], function(gitbook) {
+gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
 "sharing": {
 "github": false,

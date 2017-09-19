@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>R - Statistics Manual</title>
   <meta name="description" content="Statistics manual from CSCN.">
-  <meta name="generator" content="bookdown 0.4 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.5 and GitBook 2.6.7">
 
   <meta property="og:title" content="R - Statistics Manual" />
   <meta property="og:type" content="book" />
@@ -25,7 +25,7 @@
 <meta name="author" content="Center for Social and Cognitive Neuroscience - cscn.uai.cl">
 
 
-<meta name="date" content="2017-08-03">
+<meta name="date" content="2017-09-19">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -33,7 +33,7 @@
   
   
 <link rel="prev" href="classification.html">
-<link rel="next" href="exercices.html">
+<link rel="next" href="exercices-solutions.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -286,13 +286,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="18.1" data-path="other-stuff.html"><a href="other-stuff.html#maps---generate-and-locate-cities-in-a-world-map"><i class="fa fa-check"></i><b>18.1</b> Maps - Generate and locate cities in a world map</a></li>
 <li class="chapter" data-level="18.2" data-path="other-stuff.html"><a href="other-stuff.html#extract-tables-from-the-internet"><i class="fa fa-check"></i><b>18.2</b> Extract tables from the internet</a></li>
 </ul></li>
-<li class="chapter" data-level="19" data-path="exercices.html"><a href="exercices.html"><i class="fa fa-check"></i><b>19</b> Exercices</a><ul>
-<li class="chapter" data-level="19.1" data-path="exercices.html"><a href="exercices.html#Ejercicios1"><i class="fa fa-check"></i><b>19.1</b> Ejercicios 1</a></li>
-<li class="chapter" data-level="19.2" data-path="exercices.html"><a href="exercices.html#Ejercicios2"><i class="fa fa-check"></i><b>19.2</b> Ejercicios 2</a></li>
+<li class="chapter" data-level="19" data-path="exercices-solutions.html"><a href="exercices-solutions.html"><i class="fa fa-check"></i><b>19</b> Exercices solutions</a><ul>
+<li class="chapter" data-level="19.1" data-path="exercices-solutions.html"><a href="exercices-solutions.html#exercices-1"><i class="fa fa-check"></i><b>19.1</b> Exercices 1</a></li>
+<li class="chapter" data-level="19.2" data-path="exercices-solutions.html"><a href="exercices-solutions.html#Ejercicios2"><i class="fa fa-check"></i><b>19.2</b> Ejercicios 2</a></li>
 </ul></li>
-<li class="chapter" data-level="20" data-path="exercices-solutions.html"><a href="exercices-solutions.html"><i class="fa fa-check"></i><b>20</b> Exercices solutions</a><ul>
-<li class="chapter" data-level="20.1" data-path="exercices-solutions.html"><a href="exercices-solutions.html#exercices-1"><i class="fa fa-check"></i><b>20.1</b> Exercices 1</a></li>
-<li class="chapter" data-level="20.2" data-path="exercices.html"><a href="exercices.html#Ejercicios2"><i class="fa fa-check"></i><b>20.2</b> Ejercicios 2</a></li>
+<li class="chapter" data-level="20" data-path="exercices.html"><a href="exercices.html"><i class="fa fa-check"></i><b>20</b> Exercices</a><ul>
+<li class="chapter" data-level="20.1" data-path="exercices.html"><a href="exercices.html#Ejercicios1"><i class="fa fa-check"></i><b>20.1</b> Ejercicios 1</a></li>
+<li class="chapter" data-level="20.2" data-path="exercices-solutions.html"><a href="exercices-solutions.html#Ejercicios2"><i class="fa fa-check"></i><b>20.2</b> Ejercicios 2</a></li>
 </ul></li>
 <li class="chapter" data-level="21" data-path="todo-curso-basico-r-2016.html"><a href="todo-curso-basico-r-2016.html"><i class="fa fa-check"></i><b>21</b> TODO - Curso Basico R - 2016</a></li>
 <li class="chapter" data-level="22" data-path="en-ejercicios.html"><a href="en-ejercicios.html"><i class="fa fa-check"></i><b>22</b> EN EJERCICIOS:</a><ul>
@@ -335,9 +335,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="maps---generate-and-locate-cities-in-a-world-map" class="section level2">
 <h2><span class="header-section-number">18.1</span> Maps - Generate and locate cities in a world map</h2>
 <hr />
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Cargamos librerias y leemos DBif (!require(&#39;pacman&#39;)) install.packages(&#39;pacman&#39;); library(&#39;pacman&#39;)</span>
-<span class="kw">library</span>(pacman)
-<span class="co"># loading the required packages</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Cargamos librerias y leemos DBif</span>
+<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
 <span class="kw">p_load</span>(ggplot2, ggmap, tidyverse, ggrepel, stringr)</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Creamos un vector con ciudades y paises</span>
 cities_vector =<span class="st"> </span><span class="kw">c</span>(
@@ -358,21 +357,17 @@ cities_vector =<span class="st"> </span><span class="kw">c</span>(
 )
 
 <span class="co"># Separamos el vector de ciudades para tener ciudades y paises por separado</span>
-cities =<span class="st"> </span>cities_vector %&gt;%<span class="st"> </span><span class="kw">as_tibble</span>() %&gt;%<span class="st"> </span>
-<span class="st">  </span><span class="kw">cbind</span>(<span class="kw">str_split_fixed</span>(cities_vector, <span class="st">&quot;, &quot;</span>, <span class="dv">2</span>)) %&gt;%<span class="st"> </span>
-<span class="st">  </span>dplyr::<span class="kw">rename</span>(<span class="dt">City_Country =</span> value, <span class="dt">City =</span> <span class="st">`</span><span class="dt">1</span><span class="st">`</span>, <span class="dt">Country =</span> <span class="st">`</span><span class="dt">2</span><span class="st">`</span>) %&gt;%<span class="st"> </span>
+cities =<span class="st"> </span>cities_vector <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as_tibble</span>() <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">cbind</span>(<span class="kw">str_split_fixed</span>(cities_vector, <span class="st">&quot;, &quot;</span>, <span class="dv">2</span>)) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span>dplyr<span class="op">::</span><span class="kw">rename</span>(<span class="dt">City_Country =</span> value, <span class="dt">City =</span> <span class="st">`</span><span class="dt">1</span><span class="st">`</span>, <span class="dt">Country =</span> <span class="st">`</span><span class="dt">2</span><span class="st">`</span>) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">mutate</span>(<span class="dt">City_Country =</span> <span class="kw">paste0</span>(City, <span class="st">&quot;, &quot;</span>, Country))</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Extraemos coordenadas a partir de las ciudades</span>
-Coordinates =<span class="st"> </span><span class="kw">geocode</span>(cities$City_Country)</code></pre></div>
+Coordinates =<span class="st"> </span><span class="kw">geocode</span>(cities<span class="op">$</span>City_Country)</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Combinamos ciudades con coordenadas</span>
-Coordinates_cities =<span class="st">  </span>cities %&gt;%<span class="st"> </span><span class="kw">cbind</span>(Coordinates)
+Coordinates_cities =<span class="st">  </span>cities <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">cbind</span>(Coordinates)
 
 <span class="co"># Usamos el mapa </span>
 which_map &lt;-<span class="st"> </span><span class="kw">map_data</span>(<span class="st">&quot;world&quot;</span>)</code></pre></div>
-<pre><code>## 
-##  # ATTENTION: maps v3.0 has an updated &#39;world&#39; map.        #
-##  # Many country borders and names have changed since 1990. #
-##  # Type &#39;?world&#39; or &#39;news(package=&quot;maps&quot;)&#39;. See README_v3. #</code></pre>
 <pre><code>## 
 ## Attaching package: &#39;maps&#39;</code></pre>
 <pre><code>## The following object is masked from &#39;package:plyr&#39;:
@@ -381,17 +376,17 @@ which_map &lt;-<span class="st"> </span><span class="kw">map_data</span>(<span c
 <pre><code>## The following object is masked from &#39;package:purrr&#39;:
 ## 
 ##     map</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>() +<span class="st"> </span><span class="kw">geom_polygon</span>(<span class="dt">data =</span> which_map, <span class="kw">aes</span>(<span class="dt">x =</span> long, <span class="dt">y =</span> lat, <span class="dt">group =</span> group, <span class="dt">alpha =</span> <span class="fl">0.8</span>)) +<span class="st"> </span><span class="co">#, fill = &quot;none&quot; </span>
-<span class="st">  </span><span class="kw">coord_fixed</span>(<span class="fl">1.3</span>) +
-<span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">data =</span> Coordinates_cities, <span class="kw">aes</span>(<span class="dt">x =</span> lon, <span class="dt">y =</span> lat, <span class="dt">color =</span> <span class="st">&quot;none&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;none&quot;</span>, <span class="dt">alpha =</span> <span class="fl">0.8</span>), <span class="dt">size =</span> <span class="dv">4</span>, <span class="dt">shape =</span> <span class="dv">21</span>) +
-<span class="st">  </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>, <span class="dt">alpha =</span> <span class="ot">FALSE</span>, <span class="dt">size =</span> <span class="ot">FALSE</span>, <span class="dt">color =</span> F) +
-<span class="st">  </span><span class="kw">scale_fill_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="st">&quot;orange3&quot;</span>)) +<span class="st"> </span>
-<span class="st">  </span><span class="kw">scale_colour_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="st">&quot;white&quot;</span>))  +
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_polygon</span>(<span class="dt">data =</span> which_map, <span class="kw">aes</span>(<span class="dt">x =</span> long, <span class="dt">y =</span> lat, <span class="dt">group =</span> group, <span class="dt">alpha =</span> <span class="fl">0.8</span>)) <span class="op">+</span><span class="st"> </span><span class="co">#, fill = &quot;none&quot; </span>
+<span class="st">  </span><span class="kw">coord_fixed</span>(<span class="fl">1.3</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">data =</span> Coordinates_cities, <span class="kw">aes</span>(<span class="dt">x =</span> lon, <span class="dt">y =</span> lat, <span class="dt">color =</span> <span class="st">&quot;none&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;none&quot;</span>, <span class="dt">alpha =</span> <span class="fl">0.8</span>), <span class="dt">size =</span> <span class="dv">4</span>, <span class="dt">shape =</span> <span class="dv">21</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>, <span class="dt">alpha =</span> <span class="ot">FALSE</span>, <span class="dt">size =</span> <span class="ot">FALSE</span>, <span class="dt">color =</span> F) <span class="op">+</span>
+<span class="st">  </span><span class="kw">scale_fill_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="st">&quot;orange3&quot;</span>)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">scale_colour_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="st">&quot;white&quot;</span>))  <span class="op">+</span>
 <span class="st">  </span>
 <span class="st">  </span><span class="co"># We plot Universities, or not</span>
-<span class="st">  </span><span class="kw">geom_text_repel</span>(<span class="dt">data =</span> Coordinates_cities, <span class="kw">aes</span>(<span class="dt">x =</span> lon, <span class="dt">y =</span> lat, <span class="dt">label =</span> City), <span class="dt">segment.alpha =</span> .<span class="dv">5</span>, <span class="dt">segment.color =</span> <span class="st">&#39;#cccccc&#39;</span>, <span class="dt">colour =</span> <span class="st">&quot;orange4&quot;</span>, <span class="dt">size =</span> <span class="dv">4</span> ) +<span class="st"> </span><span class="co">#hjust = 0.5, vjust = -0.5,</span>
+<span class="st">  </span><span class="kw">geom_text_repel</span>(<span class="dt">data =</span> Coordinates_cities, <span class="kw">aes</span>(<span class="dt">x =</span> lon, <span class="dt">y =</span> lat, <span class="dt">label =</span> City), <span class="dt">segment.alpha =</span> .<span class="dv">5</span>, <span class="dt">segment.color =</span> <span class="st">&#39;#cccccc&#39;</span>, <span class="dt">colour =</span> <span class="st">&quot;orange4&quot;</span>, <span class="dt">size =</span> <span class="dv">4</span> ) <span class="op">+</span><span class="st"> </span><span class="co">#hjust = 0.5, vjust = -0.5,</span>
 <span class="st">  </span>
-<span class="st">  </span><span class="kw">theme</span>(<span class="dt">panel.grid.major =</span> <span class="kw">element_blank</span>(), <span class="dt">panel.grid.minor =</span> <span class="kw">element_blank</span>()) +<span class="st"> </span>
+<span class="st">  </span><span class="kw">theme</span>(<span class="dt">panel.grid.major =</span> <span class="kw">element_blank</span>(), <span class="dt">panel.grid.minor =</span> <span class="kw">element_blank</span>()) <span class="op">+</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.line =</span> <span class="kw">element_blank</span>(), <span class="dt">axis.text.x =</span> <span class="kw">element_blank</span>(),
         <span class="dt">axis.text.y =</span> <span class="kw">element_blank</span>(), <span class="dt">axis.ticks =</span> <span class="kw">element_blank</span>(),
         <span class="dt">axis.title.x =</span> <span class="kw">element_blank</span>(),
@@ -417,9 +412,9 @@ which_map &lt;-<span class="st"> </span><span class="kw">map_data</span>(<span c
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#http://www.shanghairanking.com/ARWU-Methodology-2016.html</span>
 
 url &lt;-<span class="st"> &quot;http://www.shanghairanking.com/ARWU2016.html&quot;</span>
-population &lt;-<span class="st"> </span>url %&gt;%
-<span class="st">  </span><span class="kw">read_html</span>() %&gt;%
-<span class="st">  </span><span class="kw">html_nodes</span>(<span class="dt">xpath=</span><span class="st">&#39;//*[@id=&quot;UniversityRanking&quot;]&#39;</span>) %&gt;%
+population &lt;-<span class="st"> </span>url <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">read_html</span>() <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">html_nodes</span>(<span class="dt">xpath=</span><span class="st">&#39;//*[@id=&quot;UniversityRanking&quot;]&#39;</span>) <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">html_table</span>(<span class="dt">fill =</span> <span class="ot">TRUE</span>)
   population &lt;-<span class="st"> </span>population[[<span class="dv">1</span>]]
 
@@ -428,7 +423,7 @@ population &lt;-<span class="st"> </span>url %&gt;%
 
 <span class="kw">write_csv</span>(population, <span class="st">&quot;Data/15_Extract_tables_web/15_Extract_tables_web_Shanghai_2016.csv&quot;</span>)
 
-population %&gt;%<span class="st"> </span>dplyr::<span class="kw">select</span>(-<span class="st">`</span><span class="dt">Country/Region</span><span class="st">`</span>) %&gt;%<span class="st"> </span><span class="kw">as_tibble</span>()</code></pre></div>
+population <span class="op">%&gt;%</span><span class="st"> </span>dplyr<span class="op">::</span><span class="kw">select</span>(<span class="op">-</span><span class="st">`</span><span class="dt">Country/Region</span><span class="st">`</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as_tibble</span>()</code></pre></div>
 <pre><code>## # A tibble: 500 x 10
 ##    World_Rank                                 Institution National_Rank
 ##         &lt;chr&gt;                                       &lt;chr&gt;         &lt;chr&gt;
@@ -460,42 +455,42 @@ Universidades_destacadas =<span class="st"> </span><span class="kw">c</span>(<sp
                                <span class="st">&quot;California Institute of Technology&quot;</span>)
 
 <span class="co"># Prepare DB for plot  </span>
-population_scatter =<span class="st"> </span>population %&gt;%<span class="st"> </span><span class="kw">as_tibble</span>() %&gt;%<span class="st"> </span>dplyr::<span class="kw">select</span>(-<span class="st">`</span><span class="dt">Country/Region</span><span class="st">`</span>) %&gt;%<span class="st"> </span><span class="kw">drop_na</span>() %&gt;%
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">World_Rank =</span> <span class="kw">as.numeric</span>(World_Rank), <span class="dt">National_Rank =</span> <span class="kw">as.numeric</span>(National_Rank)) %&gt;%<span class="st"> </span>
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Institution_highlighted =</span> <span class="kw">ifelse</span>(Institution %in%<span class="st"> </span>Universidades_destacadas, Institution, <span class="ot">NA</span>),
-         <span class="dt">Institution =</span> <span class="kw">ifelse</span>(Institution %in%<span class="st"> </span>Universidades_destacadas, <span class="ot">NA</span>, Institution))
+population_scatter =<span class="st"> </span>population <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as_tibble</span>() <span class="op">%&gt;%</span><span class="st"> </span>dplyr<span class="op">::</span><span class="kw">select</span>(<span class="op">-</span><span class="st">`</span><span class="dt">Country/Region</span><span class="st">`</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">drop_na</span>() <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">World_Rank =</span> <span class="kw">as.numeric</span>(World_Rank), <span class="dt">National_Rank =</span> <span class="kw">as.numeric</span>(National_Rank)) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Institution_highlighted =</span> <span class="kw">ifelse</span>(Institution <span class="op">%in%</span><span class="st"> </span>Universidades_destacadas, Institution, <span class="ot">NA</span>),
+         <span class="dt">Institution =</span> <span class="kw">ifelse</span>(Institution <span class="op">%in%</span><span class="st"> </span>Universidades_destacadas, <span class="ot">NA</span>, Institution))
 
 
 <span class="co"># Plot</span>
-<span class="kw">ggplot</span>(population_scatter, <span class="kw">aes</span>(Nature_Science, World_Rank)) +<span class="st"> </span><span class="co">#, color=factor(P_s)</span>
-<span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="dv">4</span>, <span class="dt">color =</span> <span class="st">&#39;orange&#39;</span>) +
-<span class="st">  </span><span class="kw">scale_colour_hue</span>(<span class="dt">l=</span><span class="dv">50</span>) +<span class="st"> </span><span class="co"># Palette hue</span>
+<span class="kw">ggplot</span>(population_scatter, <span class="kw">aes</span>(Nature_Science, World_Rank)) <span class="op">+</span><span class="st"> </span><span class="co">#, color=factor(P_s)</span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="dv">4</span>, <span class="dt">color =</span> <span class="st">&#39;orange&#39;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">scale_colour_hue</span>(<span class="dt">l=</span><span class="dv">50</span>) <span class="op">+</span><span class="st"> </span><span class="co"># Palette hue</span>
 <span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span>lm,   <span class="co"># Linear regression lines</span>
               <span class="dt">se=</span>T,<span class="co"># level = .5,        # Confidence interval</span>
               <span class="dt">fullrange=</span>F, 
-              <span class="dt">color =</span> <span class="st">&quot;purple&quot;</span>) +
+              <span class="dt">color =</span> <span class="st">&quot;purple&quot;</span>) <span class="op">+</span>
 <span class="st">  </span><span class="co"># geom_text_repel(aes(label=Institution)) + </span>
-<span class="st">  </span><span class="kw">geom_text_repel</span>(<span class="kw">aes</span>(<span class="dt">label=</span>Institution_highlighted, <span class="dt">fontface=</span><span class="st">&quot;bold&quot;</span>), <span class="dt">size =</span> <span class="dv">3</span>) +<span class="st">   </span>
-<span class="st">  </span><span class="kw">theme_classic</span>(<span class="dt">base_size =</span> <span class="dv">16</span>) +<span class="st"> </span>
-<span class="st">  </span><span class="kw">scale_y_reverse</span>( <span class="dt">breaks=</span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">25</span>, <span class="dv">50</span>, <span class="dv">75</span>, <span class="dv">100</span>), <span class="dt">lim =</span> <span class="kw">c</span>(<span class="dv">100</span>,<span class="dv">1</span>)) +
+<span class="st">  </span><span class="kw">geom_text_repel</span>(<span class="kw">aes</span>(<span class="dt">label=</span>Institution_highlighted, <span class="dt">fontface=</span><span class="st">&quot;bold&quot;</span>), <span class="dt">size =</span> <span class="dv">3</span>) <span class="op">+</span><span class="st">   </span>
+<span class="st">  </span><span class="kw">theme_classic</span>(<span class="dt">base_size =</span> <span class="dv">16</span>) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">scale_y_reverse</span>( <span class="dt">breaks=</span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">25</span>, <span class="dv">50</span>, <span class="dv">75</span>, <span class="dv">100</span>), <span class="dt">lim =</span> <span class="kw">c</span>(<span class="dv">100</span>,<span class="dv">1</span>)) <span class="op">+</span>
 <span class="st">  </span><span class="kw">labs</span>(<span class="dt">x=</span><span class="st">&quot;Publications&quot;</span>, <span class="dt">y=</span><span class="st">&quot;Shanghai Ranking 2016&quot;</span>)</code></pre></div>
 <p><img src="bookdown-demo_files/figure-html/unnamed-chunk-131-1.png" width="672" /></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">  <span class="co"># Save the plot</span>
   file =<span class="st"> &quot;Images/Other/Shanghai_ Ranking.png&quot;</span>
   <span class="kw">ggsave</span>(file, <span class="dt">device =</span> <span class="st">&quot;png&quot;</span>, <span class="dt">dpi =</span> <span class="dv">300</span>)</code></pre></div>
 <p>When plotting, we can change the function behind the regression line.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">  <span class="kw">ggplot</span>(population_scatter, <span class="kw">aes</span>(Nature_Science, World_Rank)) +<span class="st"> </span><span class="co">#, color=factor(P_s)</span>
-<span class="st">    </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="dv">4</span>, <span class="dt">color =</span> <span class="st">&#39;orange&#39;</span>) +
-<span class="st">    </span><span class="kw">scale_colour_hue</span>(<span class="dt">l=</span><span class="dv">50</span>) +<span class="st"> </span><span class="co"># Palette hue</span>
-<span class="st">    </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span><span class="st">&quot;lm&quot;</span>, <span class="kw">aes</span>(<span class="dt">color=</span><span class="st">&quot;Log Model&quot;</span>), <span class="dt">formula=</span> (y ~<span class="st"> </span><span class="kw">log</span>(x)), <span class="dt">se=</span>T, <span class="dt">linetype =</span> <span class="dv">1</span>,  <span class="dt">level =</span> .<span class="dv">999</span>) +
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">  <span class="kw">ggplot</span>(population_scatter, <span class="kw">aes</span>(Nature_Science, World_Rank)) <span class="op">+</span><span class="st"> </span><span class="co">#, color=factor(P_s)</span>
+<span class="st">    </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="dv">4</span>, <span class="dt">color =</span> <span class="st">&#39;orange&#39;</span>) <span class="op">+</span>
+<span class="st">    </span><span class="kw">scale_colour_hue</span>(<span class="dt">l=</span><span class="dv">50</span>) <span class="op">+</span><span class="st"> </span><span class="co"># Palette hue</span>
+<span class="st">    </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span><span class="st">&quot;lm&quot;</span>, <span class="kw">aes</span>(<span class="dt">color=</span><span class="st">&quot;Log Model&quot;</span>), <span class="dt">formula=</span> (y <span class="op">~</span><span class="st"> </span><span class="kw">log</span>(x)), <span class="dt">se=</span>T, <span class="dt">linetype =</span> <span class="dv">1</span>,  <span class="dt">level =</span> .<span class="dv">999</span>) <span class="op">+</span>
 <span class="st">    </span><span class="co"># geom_smooth(method=&quot;lm&quot;, aes(color=&quot;Log Model&quot;), formula= (y ~  poly(x, 2, raw=TRUE)), se=T, linetype = 1) +</span>
 <span class="st">    </span><span class="co"># geom_smooth(method=&quot;lm&quot;, aes(color=&quot;Log Model&quot;), formula= (y ~  splines::bs(x, 3)), se=T, linetype = 1,  level = .999) +</span>
 <span class="st">    </span><span class="co"># method = &quot;lm&quot;, formula = y ~ </span>
-<span class="st">    </span><span class="kw">guides</span>(<span class="dt">color =</span> <span class="kw">guide_legend</span>(<span class="st">&quot;Model Type&quot;</span>)) +
+<span class="st">    </span><span class="kw">guides</span>(<span class="dt">color =</span> <span class="kw">guide_legend</span>(<span class="st">&quot;Model Type&quot;</span>)) <span class="op">+</span>
 <span class="st">    </span><span class="co"># geom_text_repel(aes(label=Institution)) + </span>
-<span class="st">    </span><span class="kw">geom_text_repel</span>(<span class="kw">aes</span>(<span class="dt">label=</span>Institution_highlighted, <span class="dt">fontface=</span><span class="st">&quot;bold&quot;</span>), <span class="dt">size =</span> <span class="dv">3</span>) +<span class="st">   </span>
-<span class="st">    </span><span class="kw">theme_classic</span>(<span class="dt">base_size =</span> <span class="dv">16</span>) +<span class="st"> </span>
-<span class="st">    </span><span class="kw">scale_y_reverse</span>(<span class="dt">breaks=</span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">25</span>, <span class="dv">50</span>, <span class="dv">75</span>, <span class="dv">100</span>)) +<span class="st"> </span><span class="co">#, lim = c(100, 1)</span>
+<span class="st">    </span><span class="kw">geom_text_repel</span>(<span class="kw">aes</span>(<span class="dt">label=</span>Institution_highlighted, <span class="dt">fontface=</span><span class="st">&quot;bold&quot;</span>), <span class="dt">size =</span> <span class="dv">3</span>) <span class="op">+</span><span class="st">   </span>
+<span class="st">    </span><span class="kw">theme_classic</span>(<span class="dt">base_size =</span> <span class="dv">16</span>) <span class="op">+</span><span class="st"> </span>
+<span class="st">    </span><span class="kw">scale_y_reverse</span>(<span class="dt">breaks=</span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">25</span>, <span class="dv">50</span>, <span class="dv">75</span>, <span class="dv">100</span>)) <span class="op">+</span><span class="st"> </span><span class="co">#, lim = c(100, 1)</span>
 <span class="st">    </span><span class="kw">labs</span>(<span class="dt">x=</span><span class="st">&quot;Publications&quot;</span>, <span class="dt">y=</span><span class="st">&quot;Shanghai Ranking 2016&quot;</span>)</code></pre></div>
 <pre><code>## Warning: Removed 94 rows containing missing values (geom_text_repel).</code></pre>
 <p><img src="bookdown-demo_files/figure-html/unnamed-chunk-132-1.png" width="672" /></p>
@@ -508,7 +503,7 @@ population_scatter =<span class="st"> </span>population %&gt;%<span class="st"> 
         </div>
       </div>
 <a href="classification.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="exercices.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="exercices-solutions.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -519,7 +514,7 @@ population_scatter =<span class="st"> </span>population %&gt;%<span class="st"> 
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
 <script>
-require(["gitbook"], function(gitbook) {
+gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
 "sharing": {
 "github": false,

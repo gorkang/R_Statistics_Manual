@@ -26,6 +26,7 @@ Vimos que la función para graficar usando Pirate plot es la siguiente:
 
 ```{r}
 # Cargamos librería
+if (!require('pacman')) install.packages('pacman'); library('pacman')
 p_load(yarrr)    
 
 pirateplot(formula = PPV_DECLARED ~ condition,

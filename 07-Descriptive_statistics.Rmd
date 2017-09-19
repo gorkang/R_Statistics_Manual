@@ -46,19 +46,23 @@ datos %>%
 
 ## Visualize missing values
 
+With Amelia
 ```{r}
-datos = datos %>% mutate(Sexo = ifelse(Edad == 37, NA, Sexo))
-
+if (!require('pacman')) install.packages('pacman'); library('pacman')
 p_load(Amelia)
+
+datos = datos %>% mutate(Sexo = ifelse(Edad == 37, NA, Sexo))
 
 missmap(datos)
 
-# With GGplot
-# A function that plots missingness
-# requires `reshape2`
+```
 
-library(reshape2)
-library(ggplot2)
+With ggplot and reshape2
+```{r}
+# With ggplot
+# A function that plots missingness
+if (!require('pacman')) install.packages('pacman'); library('pacman')
+p_load(reshape2, ggplot2)
 
 ggplot_missing <- function(x){
   
@@ -80,6 +84,7 @@ ggplot_missing <- function(x){
 ggplot_missing(datos)
 
 ```
+
 
 
 ## Tutorial externo

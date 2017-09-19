@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>R - Statistics Manual</title>
   <meta name="description" content="Statistics manual from CSCN.">
-  <meta name="generator" content="bookdown 0.4 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.5 and GitBook 2.6.7">
 
   <meta property="og:title" content="R - Statistics Manual" />
   <meta property="og:type" content="book" />
@@ -25,7 +25,7 @@
 <meta name="author" content="Center for Social and Cognitive Neuroscience - cscn.uai.cl">
 
 
-<meta name="date" content="2017-08-03">
+<meta name="date" content="2017-09-19">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -286,13 +286,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="18.1" data-path="other-stuff.html"><a href="other-stuff.html#maps---generate-and-locate-cities-in-a-world-map"><i class="fa fa-check"></i><b>18.1</b> Maps - Generate and locate cities in a world map</a></li>
 <li class="chapter" data-level="18.2" data-path="other-stuff.html"><a href="other-stuff.html#extract-tables-from-the-internet"><i class="fa fa-check"></i><b>18.2</b> Extract tables from the internet</a></li>
 </ul></li>
-<li class="chapter" data-level="19" data-path="exercices.html"><a href="exercices.html"><i class="fa fa-check"></i><b>19</b> Exercices</a><ul>
-<li class="chapter" data-level="19.1" data-path="exercices.html"><a href="exercices.html#Ejercicios1"><i class="fa fa-check"></i><b>19.1</b> Ejercicios 1</a></li>
-<li class="chapter" data-level="19.2" data-path="exercices.html"><a href="exercices.html#Ejercicios2"><i class="fa fa-check"></i><b>19.2</b> Ejercicios 2</a></li>
+<li class="chapter" data-level="19" data-path="exercices-solutions.html"><a href="exercices-solutions.html"><i class="fa fa-check"></i><b>19</b> Exercices solutions</a><ul>
+<li class="chapter" data-level="19.1" data-path="exercices-solutions.html"><a href="exercices-solutions.html#exercices-1"><i class="fa fa-check"></i><b>19.1</b> Exercices 1</a></li>
+<li class="chapter" data-level="19.2" data-path="exercices-solutions.html"><a href="exercices-solutions.html#Ejercicios2"><i class="fa fa-check"></i><b>19.2</b> Ejercicios 2</a></li>
 </ul></li>
-<li class="chapter" data-level="20" data-path="exercices-solutions.html"><a href="exercices-solutions.html"><i class="fa fa-check"></i><b>20</b> Exercices solutions</a><ul>
-<li class="chapter" data-level="20.1" data-path="exercices-solutions.html"><a href="exercices-solutions.html#exercices-1"><i class="fa fa-check"></i><b>20.1</b> Exercices 1</a></li>
-<li class="chapter" data-level="20.2" data-path="exercices.html"><a href="exercices.html#Ejercicios2"><i class="fa fa-check"></i><b>20.2</b> Ejercicios 2</a></li>
+<li class="chapter" data-level="20" data-path="exercices.html"><a href="exercices.html"><i class="fa fa-check"></i><b>20</b> Exercices</a><ul>
+<li class="chapter" data-level="20.1" data-path="exercices.html"><a href="exercices.html#Ejercicios1"><i class="fa fa-check"></i><b>20.1</b> Ejercicios 1</a></li>
+<li class="chapter" data-level="20.2" data-path="exercices-solutions.html"><a href="exercices-solutions.html#Ejercicios2"><i class="fa fa-check"></i><b>20.2</b> Ejercicios 2</a></li>
 </ul></li>
 <li class="chapter" data-level="21" data-path="todo-curso-basico-r-2016.html"><a href="todo-curso-basico-r-2016.html"><i class="fa fa-check"></i><b>21</b> TODO - Curso Basico R - 2016</a></li>
 <li class="chapter" data-level="22" data-path="en-ejercicios.html"><a href="en-ejercicios.html"><i class="fa fa-check"></i><b>22</b> EN EJERCICIOS:</a><ul>
@@ -344,7 +344,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="listas" class="section level3">
 <h3><span class="header-section-number">5.1.3</span> Listas</h3>
 <p>Las listas son una manera de almacenar datos muy potente pero cuya exploración puede resultar algo complicada. A continuación de puede ver una manera de visualizar interactivamente el contenido de una lista compleja.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">if (!<span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
 <span class="co"># p_load(repurrrsive)</span>
 <span class="co"># listviewer::jsonedit(got_chars)</span></code></pre></div>
 <p>El paquete repurrrsive de Jenny Bryan, contiene algunas listas para usar como ejemplos. Ver su <a href="https://github.com/jennybc/repurrrsive">Github</a> para más detalles, o mejor, su <a href="https://jennybc.github.io/purrr-tutorial/">página web</a>. Ésta contiene varios tutoriales muy interesantes.</p>
@@ -364,11 +364,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li><code>read_delim( ,  delim = &quot;|&quot;)</code> - values separated by an arbitrary delimiter</li>
 </ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Cargamos librerias</span>
-if (!<span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
+<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
 <span class="kw">p_load</span>(tidyverse)
 
 <span class="co"># Establecemos directorio de trabajo</span>
-<span class="kw">setwd</span>(<span class="st">&quot;~/R workshop&quot;</span>)</code></pre></div>
+<span class="kw">setwd</span>(<span class="st">&quot;R workshop&quot;</span>)</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Importar los datos</span>
 datos =<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;Data/04-Data_types_import_export/Import_CSV.csv&quot;</span>)</code></pre></div>
 <pre><code>## Warning: Missing column names filled in: &#39;X1&#39; [1]</code></pre>
@@ -408,11 +408,11 @@ datos</code></pre></div>
 <p>Vamos a usar la siguiente <a href="Data/04-Data_types_import_export/Import_XLS.xls">base de datos</a>.</p>
 <hr />
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Cargamos librerias</span>
-if (!<span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
+<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
 <span class="kw">p_load</span>(readxl)
 
 <span class="co"># Establecemos directorio de trabajo</span>
-<span class="kw">setwd</span>(<span class="st">&quot;~/R workshop&quot;</span>)</code></pre></div>
+<span class="kw">setwd</span>(<span class="st">&quot;R workshop&quot;</span>)</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Importar los datos</span>
 datos =<span class="st"> </span><span class="kw">read_excel</span>(<span class="st">&quot;Data/04-Data_types_import_export/Import_XLS.xls&quot;</span>)
     
@@ -440,11 +440,11 @@ datos</code></pre></div>
 <p>Vamos a usar la siguiente <a href="Data/04-Data_types_import_export/Import_SAV.sav">base de datos</a>.</p>
 <hr />
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Cargamos librerias</span>
-if (!<span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
+<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
 <span class="kw">p_load</span>(haven)
 
 <span class="co"># Establecemos directorio de trabajo</span>
-<span class="kw">setwd</span>(<span class="st">&quot;~/R workshop&quot;</span>)</code></pre></div>
+<span class="kw">setwd</span>(<span class="st">&quot;R workshop&quot;</span>)</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Importar los datos</span>
 datos =<span class="st"> </span><span class="kw">read_sav</span>(<span class="st">&quot;Data/04-Data_types_import_export/Import_SAV.sav&quot;</span>)
     
@@ -471,7 +471,7 @@ datos</code></pre></div>
 <hr />
 <p>Vamos a usar los siguientes <a href="Data/04-Data_types_import_export/CSVs/CSVs.zip">archivos</a>. Tendrás que descomprimirlos en una carpeta antes de usarlos.</p>
 <hr />
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">if (!<span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
 <span class="kw">p_load</span>(tidyverse)
 
 <span class="co"># We list all files in the desired folder</span>
@@ -483,7 +483,7 @@ file.list &lt;-<span class="st"> </span><span class="kw">paste0</span>(Path_Fold
 ## [4] &quot;Data/04-Data_types_import_export/CSVs/CSVs.zip&quot;</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Read and bind all of them</span>
     <span class="co"># We can use the function read_csv or any other</span>
-df =<span class="st"> </span><span class="kw">lapply</span>(file.list, read_csv) %&gt;%<span class="st"> </span>
+df =<span class="st"> </span><span class="kw">lapply</span>(file.list, read_csv) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">bind_rows</span>(<span class="dt">.id =</span> <span class="st">&quot;ID&quot;</span>)</code></pre></div>
 <pre><code>## Parsed with column specification:
 ## cols(
@@ -571,7 +571,7 @@ df =<span class="st"> </span><span class="kw">lapply</span>(file.list, read_csv)
 <div id="export-data-to-csv-file" class="section level3">
 <h3><span class="header-section-number">5.3.1</span> Export data to CSV file</h3>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Carga libreria</span>
-if (!<span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
+<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
 <span class="kw">p_load</span>(tidyverse)
     
 <span class="co"># Volcamos datos a archivo</span>
@@ -597,7 +597,7 @@ if (!<span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) 
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
 <script>
-require(["gitbook"], function(gitbook) {
+gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
 "sharing": {
 "github": false,

@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>R - Statistics Manual</title>
   <meta name="description" content="Statistics manual from CSCN.">
-  <meta name="generator" content="bookdown 0.4 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.5 and GitBook 2.6.7">
 
   <meta property="og:title" content="R - Statistics Manual" />
   <meta property="og:type" content="book" />
@@ -25,7 +25,7 @@
 <meta name="author" content="Center for Social and Cognitive Neuroscience - cscn.uai.cl">
 
 
-<meta name="date" content="2017-08-03">
+<meta name="date" content="2017-09-19">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -286,13 +286,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="18.1" data-path="other-stuff.html"><a href="other-stuff.html#maps---generate-and-locate-cities-in-a-world-map"><i class="fa fa-check"></i><b>18.1</b> Maps - Generate and locate cities in a world map</a></li>
 <li class="chapter" data-level="18.2" data-path="other-stuff.html"><a href="other-stuff.html#extract-tables-from-the-internet"><i class="fa fa-check"></i><b>18.2</b> Extract tables from the internet</a></li>
 </ul></li>
-<li class="chapter" data-level="19" data-path="exercices.html"><a href="exercices.html"><i class="fa fa-check"></i><b>19</b> Exercices</a><ul>
-<li class="chapter" data-level="19.1" data-path="exercices.html"><a href="exercices.html#Ejercicios1"><i class="fa fa-check"></i><b>19.1</b> Ejercicios 1</a></li>
-<li class="chapter" data-level="19.2" data-path="exercices.html"><a href="exercices.html#Ejercicios2"><i class="fa fa-check"></i><b>19.2</b> Ejercicios 2</a></li>
+<li class="chapter" data-level="19" data-path="exercices-solutions.html"><a href="exercices-solutions.html"><i class="fa fa-check"></i><b>19</b> Exercices solutions</a><ul>
+<li class="chapter" data-level="19.1" data-path="exercices-solutions.html"><a href="exercices-solutions.html#exercices-1"><i class="fa fa-check"></i><b>19.1</b> Exercices 1</a></li>
+<li class="chapter" data-level="19.2" data-path="exercices-solutions.html"><a href="exercices-solutions.html#Ejercicios2"><i class="fa fa-check"></i><b>19.2</b> Ejercicios 2</a></li>
 </ul></li>
-<li class="chapter" data-level="20" data-path="exercices-solutions.html"><a href="exercices-solutions.html"><i class="fa fa-check"></i><b>20</b> Exercices solutions</a><ul>
-<li class="chapter" data-level="20.1" data-path="exercices-solutions.html"><a href="exercices-solutions.html#exercices-1"><i class="fa fa-check"></i><b>20.1</b> Exercices 1</a></li>
-<li class="chapter" data-level="20.2" data-path="exercices.html"><a href="exercices.html#Ejercicios2"><i class="fa fa-check"></i><b>20.2</b> Ejercicios 2</a></li>
+<li class="chapter" data-level="20" data-path="exercices.html"><a href="exercices.html"><i class="fa fa-check"></i><b>20</b> Exercices</a><ul>
+<li class="chapter" data-level="20.1" data-path="exercices.html"><a href="exercices.html#Ejercicios1"><i class="fa fa-check"></i><b>20.1</b> Ejercicios 1</a></li>
+<li class="chapter" data-level="20.2" data-path="exercices-solutions.html"><a href="exercices-solutions.html#Ejercicios2"><i class="fa fa-check"></i><b>20.2</b> Ejercicios 2</a></li>
 </ul></li>
 <li class="chapter" data-level="21" data-path="todo-curso-basico-r-2016.html"><a href="todo-curso-basico-r-2016.html"><i class="fa fa-check"></i><b>21</b> TODO - Curso Basico R - 2016</a></li>
 <li class="chapter" data-level="22" data-path="en-ejercicios.html"><a href="en-ejercicios.html"><i class="fa fa-check"></i><b>22</b> EN EJERCICIOS:</a><ul>
@@ -379,7 +379,7 @@ formula =<span class="st"> &quot;~ Atractivo + Alcohol&quot;</span></code></pre>
 <h2><span class="header-section-number">9.2</span> Preparación de datos y packages</h2>
 <p>Para muchos de los análisis que vienen a continuación hemos creado una base de datos, la cual puedes descargar <a href="Data/08-Data_analysis/ANOVA_1.csv">Aquí</a>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Packages</span>
-if (!<span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
+<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
 <span class="kw">p_load</span>(tidyverse, yarrr, car)
 
 
@@ -415,7 +415,7 @@ df</code></pre></div>
 ## 10    10         27     0    20      51     1    52           9      24
 ## # ... with 227 more rows, and 1 more variables: FunEjec &lt;int&gt;</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Recodificar variable sexo de numérico a factor con etiquetas</span>
-df =<span class="st"> </span>df %&gt;%<span class="st"> </span><span class="kw">mutate</span>(<span class="dt">Sexo =</span> <span class="kw">ifelse</span>(Sexo ==<span class="st"> </span><span class="dv">0</span>, <span class="st">&quot;mujer&quot;</span>, <span class="st">&quot;hombre&quot;</span>)) %&gt;%<span class="st"> </span><span class="kw">mutate</span>(<span class="dt">Sexo =</span> <span class="kw">as.factor</span>(Sexo))</code></pre></div>
+df =<span class="st"> </span>df <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">Sexo =</span> <span class="kw">ifelse</span>(Sexo <span class="op">==</span><span class="st"> </span><span class="dv">0</span>, <span class="st">&quot;mujer&quot;</span>, <span class="st">&quot;hombre&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">Sexo =</span> <span class="kw">as.factor</span>(Sexo))</code></pre></div>
 </div>
 <div id="prueba-t-para-muestras-independientes" class="section level2">
 <h2><span class="header-section-number">9.3</span> Prueba t para muestras independientes</h2>
@@ -428,13 +428,13 @@ df =<span class="st"> </span>df %&gt;%<span class="st"> </span><span class="kw">
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#En primer lugar comprobamos el supuesto de homogeneidad de varianzas</span>
 
 <span class="co">#levene test {car} para homogeneidad de las varianzas</span>
-<span class="kw">leveneTest</span>(df$Tom ~<span class="st"> </span>df$Sexo)</code></pre></div>
+<span class="kw">leveneTest</span>(df<span class="op">$</span>Tom <span class="op">~</span><span class="st"> </span>df<span class="op">$</span>Sexo)</code></pre></div>
 <pre><code>## Levene&#39;s Test for Homogeneity of Variance (center = median)
 ##        Df F value Pr(&gt;F)
 ## group   1  0.7558 0.3856
 ##       228</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Ingresamos nuestro modelo en la función t.test()</span>
-<span class="kw">t.test</span>(Tom ~<span class="st"> </span>Sexo, df,  <span class="dt">var.equal =</span> T, <span class="dt">paired =</span> F)</code></pre></div>
+<span class="kw">t.test</span>(Tom <span class="op">~</span><span class="st"> </span>Sexo, df,  <span class="dt">var.equal =</span> T, <span class="dt">paired =</span> F)</code></pre></div>
 <pre><code>## 
 ##  Two Sample t-test
 ## 
@@ -447,13 +447,13 @@ df =<span class="st"> </span>df %&gt;%<span class="st"> </span><span class="kw">
 ## mean in group hombre  mean in group mujer 
 ##             21.28070             22.76724</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Reporte descriptivo y Vizualización</span>
-df %&gt;%<span class="st"> </span>
-<span class="st">  </span><span class="kw">na.omit</span>(Tom) %&gt;%<span class="st"> </span>
-<span class="st">  </span><span class="kw">group_by</span>(Sexo) %&gt;%<span class="st"> </span>
+df <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">na.omit</span>(Tom) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">group_by</span>(Sexo) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">summarise</span>(<span class="dt">mean =</span> <span class="kw">mean</span>(Tom), <span class="dt">sd =</span> <span class="kw">sd</span>(Tom))</code></pre></div>
 <pre><code>##       mean       sd
 ## 1 22.11574 4.495014</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pirateplot</span>(Tom ~<span class="st"> </span>Sexo, 
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pirateplot</span>(Tom <span class="op">~</span><span class="st"> </span>Sexo, 
            <span class="dt">data =</span> df, 
            <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">40</span>), 
            <span class="dt">xlab =</span> <span class="st">&quot;Metodo&quot;</span>, 
@@ -473,7 +473,7 @@ df %&gt;%<span class="st"> </span>
 <div id="test-1" class="section level3">
 <h3><span class="header-section-number">9.4.2</span> Test</h3>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Ingresamos nuestro modelo en la función t.test()</span>
-<span class="kw">t.test</span>(df$AccuracyIz, df$AccuracyDer, <span class="dt">paired =</span> T)</code></pre></div>
+<span class="kw">t.test</span>(df<span class="op">$</span>AccuracyIz, df<span class="op">$</span>AccuracyDer, <span class="dt">paired =</span> T)</code></pre></div>
 <pre><code>## 
 ##  Paired t-test
 ## 
@@ -496,7 +496,7 @@ df %&gt;%<span class="st"> </span>
 <div id="test-2" class="section level3">
 <h3><span class="header-section-number">9.5.2</span> Test</h3>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Correlación de Pearson</span>
-<span class="kw">cor.test</span>(~<span class="st"> </span>Tom +<span class="st"> </span>Empatia, <span class="dt">data =</span> df)</code></pre></div>
+<span class="kw">cor.test</span>(<span class="op">~</span><span class="st"> </span>Tom <span class="op">+</span><span class="st"> </span>Empatia, <span class="dt">data =</span> df)</code></pre></div>
 <pre><code>## 
 ##  Pearson&#39;s product-moment correlation
 ## 
@@ -509,13 +509,13 @@ df %&gt;%<span class="st"> </span>
 ##       cor 
 ## 0.1296633</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Visualizar Diagrama de Dispersión</span>
-<span class="kw">ggplot</span>(df, <span class="kw">aes</span>(Tom, Empatia)) +
-<span class="st">  </span><span class="kw">theme_bw</span>() +
+<span class="kw">ggplot</span>(df, <span class="kw">aes</span>(Tom, Empatia)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">shape =</span> <span class="dv">16</span>, <span class="dt">col =</span> <span class="kw">transparent</span>(<span class="st">&quot;red&quot;</span>, .<span class="dv">4</span>))</code></pre></div>
 <pre><code>## Warning: Removed 6 rows containing missing values (geom_point).</code></pre>
 <p><img src="bookdown-demo_files/figure-html/unnamed-chunk-59-1.png" width="672" /></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Selecione un subconjunto de variables para la correlación multiple</span>
-cordata =<span class="st"> </span>df %&gt;%<span class="st"> </span><span class="kw">select</span>(-Id,-Moral,-Sexo,-AccuracyIz,-AccuracyDer,-Edad)
+cordata =<span class="st"> </span>df <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(<span class="op">-</span>Id,<span class="op">-</span>Moral,<span class="op">-</span>Sexo,<span class="op">-</span>AccuracyIz,<span class="op">-</span>AccuracyDer,<span class="op">-</span>Edad)
 
 <span class="co">#carga libreria Hmisc</span>
 <span class="kw">p_load</span>(Hmisc)
@@ -551,15 +551,15 @@ cordata =<span class="st"> </span>df %&gt;%<span class="st"> </span><span class=
 <p>Para esto primero añadiremos una nueva variable <code>Accuracy</code> la cual será el promedio de precisión para los objetivos Derechos (<code>AccuracyDer</code>) e Izquierdos (<code>AccuracyIz</code>). Lo realizaremos con la función <code>mutate</code> antes revisada en el apartado de manipulación de datos.</p>
 <p>Además filtraremos a los sujetos con puntajes bajos (menos de 50 puntos).</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Creamos nueva variable &quot;Accuracy&quot; con la función mutate() {dplyr}</span>
-df =<span class="st"> </span>df %&gt;%<span class="st"> </span><span class="kw">mutate</span>(<span class="dt">Accuracy =</span> (AccuracyIz +<span class="st"> </span>AccuracyDer)/<span class="dv">2</span>)
+df =<span class="st"> </span>df <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">Accuracy =</span> (AccuracyIz <span class="op">+</span><span class="st"> </span>AccuracyDer)<span class="op">/</span><span class="dv">2</span>)
 
 <span class="co">#Utilizar observaciones con puntajes de Funcion ejecutiva sobre 50 puntos.</span>
-df =<span class="st"> </span>df %&gt;%<span class="st"> </span><span class="kw">filter</span>(FunEjec &gt;<span class="st"> </span><span class="dv">50</span>)</code></pre></div>
+df =<span class="st"> </span>df <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(FunEjec <span class="op">&gt;</span><span class="st"> </span><span class="dv">50</span>)</code></pre></div>
 </div>
 <div id="test-3" class="section level3">
 <h3><span class="header-section-number">9.6.2</span> Test</h3>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Insertamos nuestra fórmula al Modelo de Regresión Simple</span>
-fit =<span class="st"> </span><span class="kw">lm</span>(Accuracy ~<span class="st"> </span>FunEjec, df)
+fit =<span class="st"> </span><span class="kw">lm</span>(Accuracy <span class="op">~</span><span class="st"> </span>FunEjec, df)
 
 <span class="co">#Resumen de Coeficientes y Parametros del modelo</span>
 <span class="kw">summary</span>(fit)</code></pre></div>
@@ -588,9 +588,9 @@ fit =<span class="st"> </span><span class="kw">lm</span>(Accuracy ~<span class="
 ## (Intercept) 0.11419463 11.42458615
 ## FunEjec     0.03349037  0.09155961</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Visualizar Diagrama de Dispersión para Regresión</span>
-<span class="kw">ggplot</span>(df, <span class="kw">aes</span>(FunEjec, Accuracy)) +
-<span class="st">  </span><span class="kw">theme_bw</span>() +
-<span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">shape =</span> <span class="dv">16</span>, <span class="dt">col =</span> <span class="kw">transparent</span>(<span class="st">&quot;black&quot;</span>, .<span class="dv">4</span>)) +<span class="st"> </span>
+<span class="kw">ggplot</span>(df, <span class="kw">aes</span>(FunEjec, Accuracy)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">shape =</span> <span class="dv">16</span>, <span class="dt">col =</span> <span class="kw">transparent</span>(<span class="st">&quot;black&quot;</span>, .<span class="dv">4</span>)) <span class="op">+</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> lm , <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">se =</span> T)</code></pre></div>
 <pre><code>## Warning: Removed 2 rows containing non-finite values (stat_smooth).</code></pre>
 <pre><code>## Warning: Removed 2 rows containing missing values (geom_point).</code></pre>
@@ -604,7 +604,7 @@ fit =<span class="st"> </span><span class="kw">lm</span>(Accuracy ~<span class="
 <div id="preparacion-de-datos-y-packages-1" class="section level3">
 <h3><span class="header-section-number">9.7.1</span> Preparación de datos y packages</h3>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Packages</span>
-if (!<span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
+<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
 <span class="kw">p_load</span>(tidyverse, stats, car, apaTables)
 
 <span class="co">#Importar dataframe</span>
@@ -631,7 +631,7 @@ df</code></pre></div>
 ## 10      1    55
 ## # ... with 20 more rows</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Recodificar variable Metodo de numérico a factor con etiquetas</span>
-df =<span class="st"> </span>df %&gt;%<span class="st"> </span><span class="kw">mutate</span>(<span class="dt">Metodo =</span> <span class="kw">ifelse</span>(Metodo ==<span class="st"> </span><span class="dv">1</span>, <span class="st">&quot;Electroshock&quot;</span>, <span class="kw">ifelse</span>(Metodo ==<span class="st"> </span><span class="dv">2</span>, <span class="st">&quot;Indiferencia&quot;</span>, <span class="st">&quot;Buen trabajo&quot;</span>))) %&gt;%<span class="st"> </span><span class="kw">mutate</span>(<span class="dt">Metodo =</span> <span class="kw">as.factor</span>(Metodo))</code></pre></div>
+df =<span class="st"> </span>df <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">Metodo =</span> <span class="kw">ifelse</span>(Metodo <span class="op">==</span><span class="st"> </span><span class="dv">1</span>, <span class="st">&quot;Electroshock&quot;</span>, <span class="kw">ifelse</span>(Metodo <span class="op">==</span><span class="st"> </span><span class="dv">2</span>, <span class="st">&quot;Indiferencia&quot;</span>, <span class="st">&quot;Buen trabajo&quot;</span>))) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">Metodo =</span> <span class="kw">as.factor</span>(Metodo))</code></pre></div>
 </div>
 <div id="contando-la-historia-4" class="section level3">
 <h3><span class="header-section-number">9.7.2</span> Contando la historia…</h3>
@@ -640,7 +640,7 @@ df =<span class="st"> </span>df %&gt;%<span class="st"> </span><span class="kw">
 <div id="test-4" class="section level3">
 <h3><span class="header-section-number">9.7.3</span> Test</h3>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Introducimos la formula al Modelo con la función de ANOVA aov()</span>
-fit =<span class="st"> </span><span class="kw">aov</span>(Nota ~<span class="st"> </span>Metodo, df)
+fit =<span class="st"> </span><span class="kw">aov</span>(Nota <span class="op">~</span><span class="st"> </span>Metodo, df)
 
 <span class="co">#Summario de Parámetros y Coeficientes</span>
 <span class="kw">summary</span>(fit)</code></pre></div>
@@ -650,7 +650,7 @@ fit =<span class="st"> </span><span class="kw">aov</span>(Nota ~<span class="st"
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#levene test {car} para homogeneidad de las varianzas</span>
-<span class="kw">leveneTest</span>(df$Nota ~<span class="st"> </span>df$Metodo)</code></pre></div>
+<span class="kw">leveneTest</span>(df<span class="op">$</span>Nota <span class="op">~</span><span class="st"> </span>df<span class="op">$</span>Metodo)</code></pre></div>
 <pre><code>## Levene&#39;s Test for Homogeneity of Variance (center = median)
 ##       Df F value Pr(&gt;F)
 ## group  2  1.7343 0.1956
@@ -668,12 +668,12 @@ fit =<span class="st"> </span><span class="kw">aov</span>(Nota ~<span class="st"
 ## Indiferencia-Buen trabajo  -9.4 -15.33834579 -3.461654 0.0015175
 ## Indiferencia-Electroshock   6.0   0.06165421 11.938346 0.0472996</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Reporte descriptivo y Vizualización</span>
-df %&gt;%<span class="st"> </span>
-<span class="st">  </span><span class="kw">group_by</span>(Metodo) %&gt;%<span class="st"> </span>
+df <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">group_by</span>(Metodo) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">summarise</span>(<span class="dt">mean =</span> <span class="kw">mean</span>(Nota), <span class="dt">sd =</span> <span class="kw">sd</span>(Nota))</code></pre></div>
 <pre><code>##       mean       sd
 ## 1 57.13333 8.261808</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pirateplot</span>(Nota ~<span class="st"> </span>Metodo, 
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pirateplot</span>(Nota <span class="op">~</span><span class="st"> </span>Metodo, 
            <span class="dt">data =</span> df, 
            <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">100</span>), 
            <span class="dt">xlab =</span> <span class="st">&quot;Metodo&quot;</span>, 
@@ -729,7 +729,7 @@ df %&gt;%<span class="st"> </span>
 <div id="preparacion-de-datos-y-packages-2" class="section level3">
 <h3><span class="header-section-number">9.8.2</span> Preparación de datos y packages</h3>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Packages</span>
-if (!<span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
+<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
 <span class="kw">p_load</span>(tidyverse, yarrr, car, stats)
 
 
@@ -758,8 +758,8 @@ df</code></pre></div>
 ## 10     1       1        65
 ## # ... with 22 more rows</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Recodificar variable Sexo y Alcohol de numérico a factor con etiquetas</span>
-df =<span class="st"> </span>df %&gt;%<span class="st"> </span><span class="kw">mutate</span>(<span class="dt">Sexo =</span> <span class="kw">ifelse</span>(Sexo ==<span class="st"> </span><span class="dv">0</span>, <span class="st">&quot;mujer&quot;</span>, <span class="st">&quot;hombre&quot;</span>)) %&gt;%<span class="st"> </span><span class="kw">mutate</span>(<span class="dt">Sexo =</span> <span class="kw">as.factor</span>(Sexo))
-df =<span class="st"> </span>df %&gt;%<span class="st"> </span><span class="kw">mutate</span>(<span class="dt">Alcohol =</span> <span class="kw">ifelse</span>(Alcohol ==<span class="st"> </span><span class="dv">0</span>, <span class="st">&quot;No consume&quot;</span>, <span class="st">&quot;Tres Shop&quot;</span>)) %&gt;%<span class="st"> </span><span class="kw">mutate</span>(<span class="dt">Alcohol =</span> <span class="kw">as.factor</span>(Alcohol))</code></pre></div>
+df =<span class="st"> </span>df <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">Sexo =</span> <span class="kw">ifelse</span>(Sexo <span class="op">==</span><span class="st"> </span><span class="dv">0</span>, <span class="st">&quot;mujer&quot;</span>, <span class="st">&quot;hombre&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">Sexo =</span> <span class="kw">as.factor</span>(Sexo))
+df =<span class="st"> </span>df <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">Alcohol =</span> <span class="kw">ifelse</span>(Alcohol <span class="op">==</span><span class="st"> </span><span class="dv">0</span>, <span class="st">&quot;No consume&quot;</span>, <span class="st">&quot;Tres Shop&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">Alcohol =</span> <span class="kw">as.factor</span>(Alcohol))</code></pre></div>
 </div>
 <div id="contando-la-historia-5" class="section level3">
 <h3><span class="header-section-number">9.8.3</span> Contando la historia…</h3>
@@ -769,7 +769,7 @@ df =<span class="st"> </span>df %&gt;%<span class="st"> </span><span class="kw">
 <div id="test-5" class="section level3">
 <h3><span class="header-section-number">9.8.4</span> Test</h3>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Ajustamos el modelo con la funcion de ANOVA aov()</span>
-fit =<span class="st"> </span><span class="kw">aov</span>(Atractivo ~<span class="st"> </span>Sexo *<span class="st"> </span>Alcohol, df)
+fit =<span class="st"> </span><span class="kw">aov</span>(Atractivo <span class="op">~</span><span class="st"> </span>Sexo <span class="op">*</span><span class="st"> </span>Alcohol, df)
 
 <span class="co">#Summario de Parámetros y Coeficientes</span>
 <span class="kw">summary</span>(fit)</code></pre></div>
@@ -804,22 +804,22 @@ fit =<span class="st"> </span><span class="kw">aov</span>(Atractivo ~<span class
 ## mujer:Tres Shop-mujer:No consume   -31.250 -43.046177 -19.453823 0.0000004
 ## mujer:Tres Shop-hombre:Tres Shop   -21.875 -33.671177 -10.078823 0.0001309</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Reporte descriptivo y Vizualización</span>
-df %&gt;%<span class="st"> </span>
-<span class="st">  </span><span class="kw">group_by</span>(Alcohol,Sexo) %&gt;%<span class="st"> </span>
+df <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">group_by</span>(Alcohol,Sexo) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">summarise</span>(<span class="dt">mean =</span> <span class="kw">mean</span>(Atractivo), <span class="dt">sd =</span> <span class="kw">sd</span>(Atractivo))</code></pre></div>
 <pre><code>##       mean       sd
 ## 1 55.15625 14.50719</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df %&gt;%<span class="st"> </span>
-<span class="st">  </span><span class="kw">group_by</span>(Alcohol) %&gt;%<span class="st"> </span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">group_by</span>(Alcohol) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">summarise</span>(<span class="dt">mean =</span> <span class="kw">mean</span>(Atractivo), <span class="dt">sd =</span> <span class="kw">sd</span>(Atractivo))</code></pre></div>
 <pre><code>##       mean       sd
 ## 1 55.15625 14.50719</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df %&gt;%<span class="st"> </span>
-<span class="st">  </span><span class="kw">group_by</span>(Sexo) %&gt;%<span class="st"> </span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">group_by</span>(Sexo) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">summarise</span>(<span class="dt">mean =</span> <span class="kw">mean</span>(Atractivo), <span class="dt">sd =</span> <span class="kw">sd</span>(Atractivo))</code></pre></div>
 <pre><code>##       mean       sd
 ## 1 55.15625 14.50719</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pirateplot</span>(Atractivo ~<span class="st"> </span>Sexo +<span class="st"> </span>Alcohol, 
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pirateplot</span>(Atractivo <span class="op">~</span><span class="st"> </span>Sexo <span class="op">+</span><span class="st"> </span>Alcohol, 
            <span class="dt">data =</span> df, 
            <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">100</span>), 
            <span class="dt">xlab =</span> <span class="st">&quot;Sex*Alcohol&quot;</span>, 
@@ -895,7 +895,7 @@ df %&gt;%<span class="st"> </span>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
 <script>
-require(["gitbook"], function(gitbook) {
+gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
 "sharing": {
 "github": false,

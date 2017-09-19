@@ -49,8 +49,10 @@ if (!require('pacman')) install.packages('pacman'); library('pacman')
 p_load(tidyverse)
 
 # Establecemos directorio de trabajo
-setwd("~/R workshop")
+setwd("R workshop")
 ``` 
+
+
 ```{r}
 #Importar los datos
 datos = read_csv("Data/04-Data_types_import_export/Import_CSV.csv")
@@ -78,8 +80,9 @@ if (!require('pacman')) install.packages('pacman'); library('pacman')
 p_load(readxl)
 
 # Establecemos directorio de trabajo
-setwd("~/R workshop")
+setwd("R workshop")
 ``` 
+
 ```{r}    
 #Importar los datos
 datos = read_excel("Data/04-Data_types_import_export/Import_XLS.xls")
@@ -101,8 +104,9 @@ if (!require('pacman')) install.packages('pacman'); library('pacman')
 p_load(haven)
 
 # Establecemos directorio de trabajo
-setwd("~/R workshop")
+setwd("R workshop")
 ```
+
 ```{r}
 #Importar los datos
 datos = read_sav("Data/04-Data_types_import_export/Import_SAV.sav")

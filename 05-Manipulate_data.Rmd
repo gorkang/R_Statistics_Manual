@@ -63,20 +63,20 @@ temp
 **TODO: ORDENAR SECCION PARA QUE SEA COHERENTE CON TABLA **   
 dplyr es un conjunto de funciones que nos permiten manipular los datos de manera relativamente sencilla y con una sintaxis muy legible. Con dplyr usamos el operador ` %>% ` que es una "tubería" que traslada lo que esta a su izquierda hacia la derecha. Esto permite concatenar multiples funciones (verbos) y realizar operaciones muy complejas en un solo "paso" y con una sintaxis facil de leer. 
 
-| Tarea	 | Función | Ejemplo|
-|--------|----------|----------|
-|Filtrar | filter() | `datos %>% filter(Sexo == 1)` |
-|Ordenar | arrange() | `datos %>% arrange(Sexo)` |
-|Seleccionar/eliminar variables|	select() | `datos %>% select(-Sexo)` |
-|Renombrar variables|	rename() | `datos %>% rename(Genero = Sexo)` |
-|Extraer valores únicos|	distinct() | `datos %>% distinct(Edad, .keep_all = T)` |
-|Crear/modificar variables|	mutate() | `datos %>% mutate(Viejuno = Edad > 30)`|
-|Omitir NAs |	na.omit() o drop_na()  | `datos %>% drop_na(Sexo)` |
-|Wide to long |	gather() | `datos %>% gather(Condition, VD, 4:6)` |
-|Long to wide |	spread() | `datos %>% spread(Condition, VD)` |
-|Combinar bases de datos |	left_join() | `left_join(datos1, datos2, by = "ID")` |
-|Recodificar valores | ifelse() | `datos %>% mutate(Edad = ifelse ( Edad > 30, "Viejuno", "Pipiolo"))` |
-|Recodificar valores | case_when() | `datos %>% mutate(Edad = case_when(.$Edad > 30 ~ "Viejuno", "Pipiolo))"` |
+| Tarea	 | Función | Ejemplo    |   
+|--------|----------|---------------------------------------------------------------------- |
+|Filtrar | filter() | `datos %>% filter(Sexo == 1)`     |
+|Ordenar | arrange() | `datos %>% arrange(Sexo)`    |
+|Seleccionar/eliminar variables|	select() | `datos %>% select(-Sexo)`    |
+|Renombrar variables|	rename() | `datos %>% rename(Genero = Sexo)`    |
+|Extraer valores únicos|	distinct() | `datos %>% distinct(Edad, .keep_all = T)`    |
+|Crear/modificar variables|	mutate() | `datos %>% mutate(Viejuno = Edad > 30)`    |
+|Omitir NAs |	na.omit() o drop_na()  | `datos %>% drop_na(Sexo)`    |
+|Wide to long |	gather() | `datos %>% gather(Condition, VD, 4:6)`     |
+|Long to wide |	spread() | `datos %>% spread(Condition, VD)`    |
+|Combinar bases de datos |	left_join() | `left_join(datos1, datos2, by = "ID")`    |
+|Recodificar valores | ifelse() | `datos %>% mutate(Edad = ifelse ( Edad > 30, "Viejuno", "Pipiolo"))`    |
+|Recodificar valores | case_when() | `datos %>% mutate(Edad = case_when(.$Edad > 30 ~ "Viejuno", "Pipiolo))"`     |
 
 ### Renombrar variables
 
@@ -98,7 +98,7 @@ raw_data %>% select(1,3:4)
 <BR>
 Para seleccionar varias columnas rapidamente usaremos la subfunción de select(), `matches()`. En esta podemos usar algo llamado [Regular Expressions](http://www.zytrax.com/tech/web/regex.htm), cuyo poder y dificultad es infinito. Ver por ejemplo, una expresión regular para validar numeros romanos: `^M{0,4}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})$`  
 
-![FROM https://xkcd.com/208/](https://imgs.xkcd.com/comics/regular_expressions.png)
+![FROM https://xkcd.com/208/](Images/regular_expressions.png)
 
 
 Nosotros usaremos la versión para todos los públicos, en la que simplemente indicaremos un fragmento de texto que buscar en los títulos de las columnas de nuestro data frame.
