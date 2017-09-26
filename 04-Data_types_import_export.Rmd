@@ -122,7 +122,7 @@ Vamos a usar los siguientes [archivos](Data/04-Data_types_import_export/CSVs/CSV
 
 ***
 
-```{r}
+```{r message=FALSE, warning=FALSE}
 if (!require('pacman')) install.packages('pacman'); library('pacman')
 p_load(tidyverse)
 
@@ -130,10 +130,18 @@ p_load(tidyverse)
 Path_Folder = "Data/04-Data_types_import_export/CSVs/"
 file.list <- paste0(Path_Folder, list.files(Path_Folder)); file.list
 
+# Method 1
+
 # Read and bind all of them
     # We can use the function read_csv or any other
 df = lapply(file.list, read_csv) %>% 
   bind_rows(.id = "ID")
+
+df
+
+# Method 2
+df = do.call(rbind, lapply(file.list, function(x) read_csv(x)))
+      #%>% select(Rut, Nota, Prueba))) # We can add this if we have a set of common columns
 
 df
 ```

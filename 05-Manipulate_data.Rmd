@@ -36,6 +36,7 @@ write_csv(raw_data, "Data/05-Manipulate_data/Manipulate_saved_data.csv")
 
 ```
 
+
 ## Ver output vs asignar output
 
 Cuando usamos ` = ` o ` <- ` asignamos lo que ocurre a la derecha a la variable de la izquierda. En caso contrario, simplemente vemos el output, pero sin asignarlo.
@@ -78,13 +79,35 @@ dplyr es un conjunto de funciones que nos permiten manipular los datos de manera
 |Recodificar valores | ifelse() | `datos %>% mutate(Edad = ifelse ( Edad > 30, "Viejuno", "Pipiolo"))`    |
 |Recodificar valores | case_when() | `datos %>% mutate(Edad = case_when(.$Edad > 30 ~ "Viejuno", "Pipiolo))"`     |
 
-### Renombrar variables
 
+### Filtrar datos
 ```{r}
-# Renombramos columna X. En este caso, como el nombre de columna contiene espacios, tenemos que usar ``
-raw_data %>% rename(Columna_basura = `Columna basura`)
+# Nos quedamos solo con Sexo == 1
+raw_data %>% filter(Sexo == 1) 
+
+# Filtramos por sexo, edad, y Tiempo
+raw_data %>% filter(Sexo == 1, Edad  > 25, VI1_t < mean(VI1_t)) 
+
+# Filtramos aquellas respuestas que se han dado 2.5 desviaciones tipicas por encima o debajo de la media
+raw_data %>% filter(
+  VI1 < mean(VI1) + 2.5 * sd(VI1),
+  VI1 > mean(VI1) - 2.5 * sd(VI1)
+  ) 
+
+# Filtrar filas donde aparece determinado texto
+raw_data %>% filter(str_detect(`Columna basura`, "zz"))
 
 ```
+
+
+### Ordenar DB
+```{r}
+#raw_data %>% arrange(desc(Edad))
+raw_data %>% arrange(Edad, Sexo) 
+```
+
+
+
 ### Seleccionar variables
 
 ```{r}
@@ -108,6 +131,24 @@ datos = raw_data %>% select(ID, Sexo, Edad, matches("VI"))
    
 #Vemos datos
 datos
+
+```
+
+
+
+### Renombrar variables
+
+```{r}
+# Renombramos columna X. En este caso, como el nombre de columna contiene espacios, tenemos que usar ``
+raw_data %>% rename(Columna_basura = `Columna basura`)
+
+```
+
+**Renombrado avanzado**
+
+Rename using the position of the column
+```{r}
+raw_data %>% rename(second_column = !!names(.[2]), first_column = !!names(.[1]))
 
 ```
 
@@ -163,26 +204,6 @@ data_long_RAW %>% mutate(RT_log = log(VD_t))
 
 ```
 
-### Filtrar datos
-```{r}
-# Nos quedamos solo con Sexo == 1
-data_long_RAW %>% filter(Sexo == 1) 
-
-# Filtramos por sexo, edad, y Tiempo
-data_long_RAW %>% filter(Sexo == 1, Edad  > 25, VD_t < mean(VD_t)) 
-
-# Filtramos aquellas respuestas que se han dado 2.5 desviaciones tipicas por encima o debajo de la media
-data_long_RAW %>% filter(
-  VD_t < mean(VD_t) + 2.5 * sd(VD_t),
-  VD_t > mean(VD_t) - 2.5 * sd(VD_t)
-  ) 
-
-# Filtrar filas donde aparece determinado texto
-data_long_RAW %>% filter(str_detect(Condition, "2"))
-
-```
-
-
 ### Recodificamos datos
 
 #### Cambiamos el tipo de datos
@@ -210,12 +231,6 @@ data_long_RAW %>% mutate(Edad2 =
 
 ```
 
-
-### Ordenar DB
-```{r}
-#data_long_RAW %>% arrange(desc(VD))
-data_long_RAW %>% arrange(VD_t, VD) 
-```
 
 ## Combinar bases de datos
 Una funcionalidad muy potente (y sencilla!) es la de combinar bases de datos que tienen alguna columna en común. Para esto, usamos funciones como left_join(), right_join(), etc. Para más detalles, ver la sección *Combine Data Sets* del [Cheatsheet de dplyr](https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf).
