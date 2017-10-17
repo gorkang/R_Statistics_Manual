@@ -57,6 +57,13 @@ La función hist() nos permite crear de manera muy sencilla histogramas para ver
 # Histograma sencillo
 hist(datos$Edad)
 
+# Dotplot histogram
+qplot(datos$Edad, 
+      geom="dotplot", 
+      fill = I("forestgreen"),
+      xlab = "Age", 
+      main = "Age dotplot histogram")
+
 ```
 
 Si queremos ver los histogramas de todas las variables numéricas de nuestro dataset:
