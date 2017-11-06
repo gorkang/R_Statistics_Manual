@@ -1,4 +1,5 @@
 # Estadistica descriptiva{#Estadistica_descriptiva}
+
 ***
 * Vamos a usar la siguiente [base de datos](Data/07_Descriptive_statistics/Descriptive_statistics.csv).
 
@@ -36,13 +37,22 @@ datos %>%
 ```
 
 
-## Agrupamos por sujeto
+### Agrupamos por sujeto
 ```{r}
 datos %>%
   group_by(ID) %>%
   summarise(mean = mean(VD))
 
 ```
+
+## Descriptive tables latex
+
+Using stargazer we can create tables showing summary statistics or a lm output. Here we use `type = "html"` to be able to show the table in this book. `type = "latex"` (default) shows the latex code.
+```{r, results='asis'}
+p_load(stargazer)
+stargazer(datos %>% as.data.frame(), type="html") 
+```
+
 
 ## Visualize missing values
 

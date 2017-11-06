@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="Visualizar-datos.html">
-<link rel="next" href="Estadistica-inferencial.html">
+<link rel="prev" href="todo-2.html">
+
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -190,10 +190,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="Estadistica-descriptiva.html"><a href="Estadistica-descriptiva.html"><i class="fa fa-check"></i><b>8</b> Estadistica descriptiva</a><ul>
-<li class="chapter" data-level="8.1" data-path="Estadistica-descriptiva.html"><a href="Estadistica-descriptiva.html#summary-de-datos"><i class="fa fa-check"></i><b>8.1</b> Summary de datos</a><ul>
-<li class="chapter" data-level="8.1.1" data-path="Estadistica-descriptiva.html"><a href="Estadistica-descriptiva.html#agrupamos-por-sujeto"><i class="fa fa-check"></i><b>8.1.1</b> Agrupamos por sujeto</a></li>
-</ul></li>
-<li class="chapter" data-level="8.2" data-path="Estadistica-descriptiva.html"><a href="Estadistica-descriptiva.html#descriptive-tables-latex"><i class="fa fa-check"></i><b>8.2</b> Descriptive tables latex</a></li>
+<li class="chapter" data-level="8.1" data-path="Estadistica-descriptiva.html"><a href="Estadistica-descriptiva.html#summary-de-datos"><i class="fa fa-check"></i><b>8.1</b> Summary de datos</a></li>
+<li class="chapter" data-level="8.2" data-path="Estadistica-descriptiva.html"><a href="Estadistica-descriptiva.html#agrupamos-por-sujeto"><i class="fa fa-check"></i><b>8.2</b> Agrupamos por sujeto</a></li>
 <li class="chapter" data-level="8.3" data-path="Estadistica-descriptiva.html"><a href="Estadistica-descriptiva.html#visualize-missing-values"><i class="fa fa-check"></i><b>8.3</b> Visualize missing values</a></li>
 <li class="chapter" data-level="8.4" data-path="Estadistica-descriptiva.html"><a href="Estadistica-descriptiva.html#tutorial-externo"><i class="fa fa-check"></i><b>8.4</b> Tutorial externo</a></li>
 <li class="chapter" data-level="8.5" data-path="Estadistica-descriptiva.html"><a href="Estadistica-descriptiva.html#findviews"><i class="fa fa-check"></i><b>8.5</b> Findviews</a></li>
@@ -298,7 +296,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="29.6.2" data-path="todo-2.html"><a href="todo-2.html#notas"><i class="fa fa-check"></i><b>29.6.2</b> NOTAS</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="30" data-path="placeholder-2.html"><a href="placeholder-2.html"><i class="fa fa-check"></i><b>30</b> Placeholder</a></li>
+<li class="chapter" data-level="30" data-path="a-tibble-261-x-6.html"><a href="a-tibble-261-x-6.html"><i class="fa fa-check"></i><b>30</b> A tibble: 261 x 6</a></li>
 </ul>
 
       </nav>
@@ -316,97 +314,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="Estadistica_descriptiva" class="section level1">
-<h1><span class="header-section-number">Chapter 8</span> Estadistica descriptiva</h1>
-<hr />
-<ul>
-<li>Vamos a usar la siguiente <a href="Data/07_Descriptive_statistics/Descriptive_statistics.csv">base de datos</a>.</li>
-</ul>
-<hr />
-<p>Cargamos librerias y leemos los datos</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
-<span class="kw">p_load</span>(tidyverse, findviews)
-
-datos =<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;Data/07_Descriptive_statistics/Descriptive_statistics.csv&quot;</span>); datos</code></pre></div>
-<pre><code>## # A tibble: 261 x 6
-##       ID  Sexo  Edad Condition    VD  VD_t
-##    &lt;int&gt; &lt;int&gt; &lt;int&gt;     &lt;chr&gt; &lt;int&gt; &lt;int&gt;
-##  1     2     0    33       VI1    15  4893
-##  2     2     0    33       VI1    15  9918
-##  3     2     0    33       VI1    15   394
-##  4     3     1    37       VI1     7  4099
-##  5     3     1    37       VI1     7  6518
-##  6     3     1    37       VI1     7   304
-##  7     4     1    19       VI1    59  1792
-##  8     4     1    19       VI1    59  9476
-##  9     4     1    19       VI1    59   149
-## 10     5     0    29       VI1    65  3280
-## # ... with 251 more rows</code></pre>
-<div id="summary-de-datos" class="section level2">
-<h2><span class="header-section-number">8.1</span> Summary de datos</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># datos %&gt;% group_by(Condition)  %&gt;% summarise(VD = mean(VD), sd = sd(VD))</span>
-    
-datos <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">group_by</span>(Condition) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">sd =</span> <span class="kw">sd</span>(VD), <span class="dt">VD =</span> <span class="kw">mean</span>(VD))</code></pre></div>
-<pre><code>## # A tibble: 3 x 3
-##   Condition         sd         VD
-##       &lt;chr&gt;      &lt;dbl&gt;      &lt;dbl&gt;
-## 1       VI1 27.3321369 58.7586207
-## 2       VI2  1.6983883  2.8965517
-## 3       VI3  0.4880283  0.6206897</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># datos %&gt;% filter(Edad &gt; 18) %&gt;% group_by(Condition, Sexo)  %&gt;% summarise(VD = mean(VD), stdev = sd(VD), VD_t = mean(VD_t), num = length(VD))</span>
-    
-datos <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">filter</span>(Edad <span class="op">&gt;</span><span class="st"> </span><span class="dv">18</span>) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">group_by</span>(Condition, Sexo) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">num =</span> <span class="kw">length</span>(VD), <span class="dt">stdev =</span> <span class="kw">sd</span>(VD), <span class="dt">VD =</span> <span class="kw">mean</span>(VD), <span class="dt">VD_t =</span> <span class="kw">mean</span>(VD_t))</code></pre></div>
-<pre><code>## # A tibble: 6 x 6
-## # Groups:   Condition [?]
-##   Condition  Sexo   num      stdev         VD     VD_t
-##       &lt;chr&gt; &lt;int&gt; &lt;int&gt;      &lt;dbl&gt;      &lt;dbl&gt;    &lt;dbl&gt;
-## 1       VI1     0    33 31.9795744 56.5454545 2624.030
-## 2       VI1     1    54 24.2857724 60.1111111 2511.444
-## 3       VI2     0    33  1.5775412  2.6363636 2624.030
-## 4       VI2     1    54  1.7635370  3.0555556 2511.444
-## 5       VI3     0    33  0.4885042  0.6363636 2624.030
-## 6       VI3     1    54  0.4920756  0.6111111 2511.444</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Todo en uno</span>
-datos <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">group_by</span>(Condition) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">num =</span> <span class="kw">length</span>(VD), <span class="dt">stdev =</span> <span class="kw">sd</span>(VD), <span class="dt">mean =</span> <span class="kw">mean</span>(VD), <span class="kw">max</span>(VD), <span class="kw">min</span>(VD))</code></pre></div>
-<pre><code>## # A tibble: 3 x 6
-##   Condition   num      stdev       mean `max(VD)` `min(VD)`
-##       &lt;chr&gt; &lt;int&gt;      &lt;dbl&gt;      &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;
-## 1       VI1    87 27.3321369 58.7586207        99         7
-## 2       VI2    87  1.6983883  2.8965517         5         1
-## 3       VI3    87  0.4880283  0.6206897         1         0</code></pre>
-<div id="agrupamos-por-sujeto" class="section level3">
-<h3><span class="header-section-number">8.1.1</span> Agrupamos por sujeto</h3>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">datos <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">group_by</span>(ID) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">mean =</span> <span class="kw">mean</span>(VD))</code></pre></div>
-<pre><code>## # A tibble: 29 x 2
-##       ID     mean
-##    &lt;int&gt;    &lt;dbl&gt;
-##  1     2  6.00000
-##  2     3  4.00000
-##  3     4 21.66667
-##  4     5 23.66667
-##  5     6 15.33333
-##  6     7  4.00000
-##  7     8 31.33333
-##  8     9 28.33333
-##  9    10 14.00000
-## 10    11 18.66667
-## # ... with 19 more rows</code></pre>
-</div>
-</div>
-<div id="descriptive-tables-latex" class="section level2">
-<h2><span class="header-section-number">8.2</span> Descriptive tables latex</h2>
-<p>Using stargazer we can create tables showing summary statistics or a lm output. Here we use <code>type = &quot;html&quot;</code> to be able to show the table in this book. <code>type = &quot;latex&quot;</code> (default) shows the latex code.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">p_load</span>(stargazer)
-<span class="kw">stargazer</span>(datos <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as.data.frame</span>(), <span class="dt">type=</span><span class="st">&quot;html&quot;</span>) </code></pre></div>
+<div id="a-tibble-261-x-6" class="section level1">
+<h1><span class="header-section-number">Chapter 30</span> A tibble: 261 x 6</h1>
+<pre><code>  ID  Sexo  Edad Condition    VD  VD_t</code></pre>
+<p><int> <int> <int> <chr> <int> <int> 1 2 0 33 VI1 15 4893 2 2 0 33 VI1 15 9918 3 2 0 33 VI1 15 394 4 3 1 37 VI1 7 4099 5 3 1 37 VI1 7 6518 6 3 1 37 VI1 7 304 7 4 1 19 VI1 59 1792 8 4 1 19 VI1 59 9476 9 4 1 19 VI1 59 149 10 5 0 29 VI1 65 3280 # … with 251 more rows</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">stargazer</span>(datos, <span class="dt">type=</span><span class="st">&quot;html&quot;</span>)</code></pre></div>
 <table style="text-align:center">
 <tr>
 <td colspan="6" style="border-bottom: 1px solid black">
@@ -436,175 +348,16 @@ Max
 <td colspan="6" style="border-bottom: 1px solid black">
 </td>
 </tr>
-<tr>
-<td style="text-align:left">
-ID
-</td>
-<td>
-261
-</td>
-<td>
-16.000
-</td>
-<td>
-8.383
-</td>
-<td>
-2
-</td>
-<td>
-30
-</td>
-</tr>
-<tr>
-<td style="text-align:left">
-Sexo
-</td>
-<td>
-261
-</td>
-<td>
-0.621
-</td>
-<td>
-0.486
-</td>
-<td>
-0
-</td>
-<td>
-1
-</td>
-</tr>
-<tr>
-<td style="text-align:left">
-Edad
-</td>
-<td>
-261
-</td>
-<td>
-26.207
-</td>
-<td>
-5.767
-</td>
-<td>
-19
-</td>
-<td>
-37
-</td>
-</tr>
-<tr>
-<td style="text-align:left">
-VD
-</td>
-<td>
-261
-</td>
-<td>
-20.759
-</td>
-<td>
-31.205
-</td>
-<td>
-0
-</td>
-<td>
-99
-</td>
-</tr>
-<tr>
-<td style="text-align:left">
-VD_t
-</td>
-<td>
-261
-</td>
-<td>
-2,554.149
-</td>
-<td>
-2,702.144
-</td>
-<td>
-13
-</td>
-<td>
-9,918
-</td>
-</tr>
-<tr>
-<td colspan="6" style="border-bottom: 1px solid black">
-</td>
-</tr>
 </table>
-</div>
-<div id="visualize-missing-values" class="section level2">
-<h2><span class="header-section-number">8.3</span> Visualize missing values</h2>
-<p>With Amelia</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
-<span class="kw">p_load</span>(Amelia)
 
-datos =<span class="st"> </span>datos <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">Sexo =</span> <span class="kw">ifelse</span>(Edad <span class="op">==</span><span class="st"> </span><span class="dv">37</span>, <span class="ot">NA</span>, Sexo))
-
-<span class="kw">missmap</span>(datos)</code></pre></div>
-<pre><code>## Warning in if (class(obj) == &quot;amelia&quot;) {: the condition has length &gt; 1 and
-## only the first element will be used</code></pre>
-<pre><code>## Warning: Unknown or uninitialised column: &#39;arguments&#39;.
-
-## Warning: Unknown or uninitialised column: &#39;arguments&#39;.</code></pre>
-<pre><code>## Warning: Unknown or uninitialised column: &#39;imputations&#39;.</code></pre>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
-<p>With ggplot and reshape2</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># With ggplot</span>
-<span class="co"># A function that plots missingness</span>
-<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
-<span class="kw">p_load</span>(reshape2, ggplot2)
-
-ggplot_missing &lt;-<span class="st"> </span><span class="cf">function</span>(x){
-  
-  x <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">    </span>is.na <span class="op">%&gt;%</span>
-<span class="st">    </span>melt <span class="op">%&gt;%</span>
-<span class="st">    </span><span class="kw">ggplot</span>(<span class="dt">data =</span> .,
-           <span class="kw">aes</span>(<span class="dt">x =</span> Var2,
-               <span class="dt">y =</span> Var1)) <span class="op">+</span>
-<span class="st">    </span><span class="kw">geom_raster</span>(<span class="kw">aes</span>(<span class="dt">fill =</span> value)) <span class="op">+</span>
-<span class="st">    </span><span class="kw">scale_fill_grey</span>(<span class="dt">name =</span> <span class="st">&quot;&quot;</span>,
-                    <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;Present&quot;</span>,<span class="st">&quot;Missing&quot;</span>)) <span class="op">+</span>
-<span class="st">    </span><span class="kw">theme_minimal</span>() <span class="op">+</span><span class="st"> </span>
-<span class="st">    </span><span class="kw">theme</span>(<span class="dt">axis.text.x  =</span> <span class="kw">element_text</span>(<span class="dt">angle=</span><span class="dv">45</span>, <span class="dt">vjust=</span><span class="fl">0.5</span>)) <span class="op">+</span><span class="st"> </span>
-<span class="st">    </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Variables in Dataset&quot;</span>,
-         <span class="dt">y =</span> <span class="st">&quot;Rows / observations&quot;</span>)
-}
-
-<span class="kw">ggplot_missing</span>(datos)</code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
-</div>
-<div id="tutorial-externo" class="section level2">
-<h2><span class="header-section-number">8.4</span> Tutorial externo</h2>
-<ul>
-<li><a href="http://stanford.edu/~ejdemyr/r-tutorials/collapsing-data/">Tutorial para colapsar datos</a></li>
-</ul>
-</div>
-<div id="findviews" class="section level2">
-<h2><span class="header-section-number">8.5</span> Findviews</h2>
-<p>Lanzar el siguiente comando para explorar visualmente los datos:</p>
-<p>´findviews(datos)´</p>
-<p>Ver pagina en <a href="https://github.com/tsellam/findviews">Github</a></p>
-
-</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="Visualizar-datos.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="Estadistica-inferencial.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="todo-2.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
