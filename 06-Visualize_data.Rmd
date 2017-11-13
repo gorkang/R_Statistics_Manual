@@ -286,3 +286,37 @@ ggplot(datos2, aes(x = FollowUP, y = Genero, fill = Genero)) +
   scale_fill_hue(l=30)
 ```
 
+
+### PP plots
+
+Plots of distributional differences... See http://www.dandersondata.com/post/esvis-part-1/
+
+```{r message=FALSE, warning=FALSE}
+devtools::install_github("DJAnderson07/esvis")
+library(esvis)
+
+pp_plot(reading ~ frl, benchmarks)
+
+```
+
+
+
+```{r message=FALSE, warning=FALSE}
+pp_plot(reading ~ ell, benchmarks, ref_group = "Non-ELL")
+
+```
+
+
+"*Notice in this plot there is actually a reversal of the effect for monitor students. On the lower end of the scale, Monitor students are actually out-performing non-ELL students, but this effect reverses at the top of the scale. A summary measure would not provide this type of information, but it may be incredibly valuable for theory development. For example, for this finding we may theorize that students with very low achievement receive a benefit from essentially any additional attention, even if that attention is not directly related to academics.*"(http://www.dandersondata.com/post/esvis-part-1/)
+
+
+For the sake of comparison, here are the distributions plotted with geom_density_ridges:
+```{r message=FALSE, warning=FALSE}
+
+ggplot(benchmarks, aes(x = reading, y = ell, fill = ell)) + 
+  geom_density_ridges(scale = 2, alpha = .7, color = "white", stat = "binline", bins = 20) + 
+  geom_density_ridges(scale = 2, alpha = .4, color = "white") + 
+  scale_fill_hue(l=30)
+```
+
+
