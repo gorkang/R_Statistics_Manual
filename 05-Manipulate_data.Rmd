@@ -70,6 +70,7 @@ dplyr es un conjunto de funciones que nos permiten manipular los datos de manera
 |Ordenar | arrange() | `datos %>% arrange(Sexo)`    |
 |Seleccionar/eliminar variables|	select() | `datos %>% select(-Sexo)`    |
 |Renombrar variables|	rename() | `datos %>% rename(Genero = Sexo)`    |
+|Separate contents of variable|	separate() | `datos %>% separate(Composited_var, c("First", "Second"), sep = "_")`    |
 |Extraer valores únicos|	distinct() | `datos %>% distinct(Edad, .keep_all = T)`    |
 |Crear/modificar variables|	mutate() | `datos %>% mutate(Viejuno = Edad > 30)`    |
 |Omitir NAs |	na.omit() o drop_na()  | `datos %>% drop_na(Sexo)`    |
@@ -150,6 +151,12 @@ Rename using the position of the column
 ```{r}
 raw_data %>% rename(second_column = !!names(.[2]), first_column = !!names(.[1]))
 
+```
+
+### Separate contents of a single variable
+
+```{r}
+raw_data %>% separate(Composited_var, c("First", "Second"), sep = "_")
 ```
 
 
