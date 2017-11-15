@@ -27,7 +27,7 @@ En R hay, al menos, dos funciones:
 
 
 * Cargamos librerias  
-```{r, message=FALSE}
+```{r alpha_libraries, message=FALSE}
 if (!require('pacman')) install.packages('pacman'); library('pacman')
 p_load(readr, psych, dplyr)
 ```
@@ -36,7 +36,7 @@ p_load(readr, psych, dplyr)
 We use the following [dataset](Data/10-Pre_processing/Reliability.csv).
 
 ***  
-```{r}
+```{r alpha_data_preparation}
 temp = read_csv("Data/10-Pre_processing/Reliability.csv")
 temp = temp[-1] 
 
@@ -49,7 +49,7 @@ head(temp)
 ```
 
 
-```{r}
+```{r alpha}
 alpha(temp)
 # temp2 = temp %>% select(-1, -OA.OA05.)
 # alpha(temp2)
@@ -64,7 +64,7 @@ alpha(temp2)
 ### Omega
 
 * Cargamos librerias
-```{r, message=FALSE}
+```{r omega_libraries, message=FALSE}
 if (!require('pacman')) install.packages('pacman'); library('pacman')
 p_load(readr, psych, MBESS, dplyr, GPArotation)
 # install.packages("MBESS", dependencies = TRUE)
@@ -74,7 +74,7 @@ p_load(readr, psych, MBESS, dplyr, GPArotation)
 We use the following [dataset](Data/10-Pre_processing/Reliability.csv).
 
 ***  
-```{r}
+```{r omega_data_preparation}
 temp = read_csv("Data/10-Pre_processing/Reliability.csv")
 temp = temp[-1] 
 
@@ -88,19 +88,19 @@ head(temp)
 
 #### Method 1 - with Bootstrap ^1^
 
-```{r}
+```{r omega_bootstrap, cache=TRUE}
 # Use at least (?) B = 1000
 
-# Commented here because execution time is non-trivial
-# set.seed(1)
-# ci.reliability(data = temp, type = "omega", conf.level = 0.95, interval.type = "bca", B = 1000)
+# Execution time is non-trivial
+set.seed(1)
+ci.reliability(data = temp, type = "omega", conf.level = 0.95, interval.type = "bca", B = 1000)
 
 
 ```
 
 #### Method 2 ^2^
 
-```{r}
+```{r omega}
 
 # See options
 omega(temp)

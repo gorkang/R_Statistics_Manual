@@ -41,7 +41,7 @@ Tambien es importante saber que una vez instalado un paquete, no es necesario vo
 Las funciones, datos y documentación dentro de nuestros paquetes no podran ser utilizadas hasta que se cargen en R.
 Para cargar los packages utilizaremos la siguiente función:
 
-```{r}
+```{r load_library}
 library(pacman)
 ```
 
@@ -49,7 +49,7 @@ library(pacman)
 ## Todo en uno
 El siguiente código permite resumir la instalación y la carga de un package determinado. En este caso, el codigo primero comprueba primero si el package se encuentra ya instalado; Si no se encuentra instalado, lo instala. Finalmente lo carga.
 
-```{r}
+```{r install_pacman}
 if (!require('pacman')) install.packages('pacman'); library('pacman')
 ```
 
@@ -59,7 +59,7 @@ El paquete pacman contiene una función llamada p_load(), que permite hacer lo d
 
 **Copia y pega el codigo de abajo y ejecutalo [tecla ENTER] en la consola de R Studio.** La función p_load() se encargará de todo por nosotros. El proceso de instalación requiere internet y durará unos minutos.
 
-```{r, message=FALSE, warning=FALSE}
+```{r install_workshop_packages, message=FALSE, warning=FALSE}
 if (!require('pacman')) install.packages('pacman'); library('pacman')
 p_load(tidyverse, tidyverse, lavaan, yarrr, semTools, corrplot, reshape2, stringr, psych, ggpubr, corrplot, beanplot)
 

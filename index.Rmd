@@ -11,7 +11,7 @@ link-citations: yes
 github-repo: rstudio/bookdown-demo
 description: "Statistics manual from CSCN."
 ---
-```{r, message=FALSE, warning=FALSE, include=FALSE}
+```{r load_packages, message=FALSE, warning=FALSE, include=FALSE}
 if (!require('pacman')) install.packages('pacman'); library('pacman')
 p_load(tidyverse, Amelia)
 ```
@@ -103,7 +103,7 @@ http://r4ds.had.co.nz/data-visualisation.html
 
 
 
-```{r include=FALSE}
+```{r bibliography, include=FALSE}
 # automatically create a bib database for R packages
 knitr::write_bib(c(
 .packages(), 'bookdown', 'knitr', 'rmarkdown'

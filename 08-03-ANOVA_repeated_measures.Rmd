@@ -1,4 +1,4 @@
-# ANOVA repeated measures
+## ANOVA repeated measures
 
 Perform a repeated measures ANOVA and get posthocs
 

@@ -1,4 +1,4 @@
-# Association test
+## Association test
 
 A.K.A. X square test of independence
 
