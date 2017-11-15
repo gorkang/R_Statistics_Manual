@@ -1,6 +1,6 @@
 # TODO - Curso Basico R - 2016
 
-# EN EJERCICIOS: 
+## EN EJERCICIOS: 
 library(readr)
 datos_raw = read_csv("data_escala.csv")
 datos_raw

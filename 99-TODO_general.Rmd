@@ -2,12 +2,18 @@
 
 ## Urgent stuff
 
+* Review Shaded geom area BUG and move to the end of Visualize data
+* Replace setwd() part with create RStudio projects (leave setwd as legacy...)
+
 ***
 
 ## Important
+
+* Name all the R chunks
+* use ", cache=TRUE" in time-consuming chunks
 * Complete most commonly used analysis
 * ANOVA with afex!
-* Name chunks of code
+* Reorganize a bit the sections/files. 
 
 ## Various
 * Long to wide in a between participants experiment.

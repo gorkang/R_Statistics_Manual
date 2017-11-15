@@ -15,7 +15,7 @@ Cuando trabajamos únicamente con datos numéricos, las matrices son el método 
 ### Listas
 
 Las listas son una manera de almacenar datos muy potente pero cuya exploración puede resultar algo complicada. A continuación de puede ver una manera de visualizar interactivamente el contenido de una lista compleja.
-```{r}
+```{r repurrrsive}
 if (!require('pacman')) install.packages('pacman'); library('pacman')
 # p_load(repurrrsive)
 # listviewer::jsonedit(got_chars)
@@ -43,17 +43,14 @@ Tras descargar el archivo de arriba, lo **moveremos a nuestro directorio de trab
 * `read_delim( ,  delim = "|")` - values separated by an arbitrary delimiter
 
 
-```{r, message=FALSE, warning=FALSE}
+```{r import_data_csv, message=FALSE, warning=FALSE}
 # Cargamos librerias
 if (!require('pacman')) install.packages('pacman'); library('pacman')
 p_load(tidyverse)
 
 # Establecemos directorio de trabajo
-setwd("R workshop")
-``` 
+# setwd("R workshop")
 
-
-```{r}
 #Importar los datos
 datos = read_csv("Data/04-Data_types_import_export/Import_CSV.csv")
     
@@ -74,16 +71,14 @@ Vamos a usar la siguiente [base de datos](Data/04-Data_types_import_export/Impor
 
 ***
 
-```{r, message=FALSE, warning=FALSE}
+```{r import_data_xls, message=FALSE, warning=FALSE}
 # Cargamos librerias
 if (!require('pacman')) install.packages('pacman'); library('pacman')
 p_load(readxl)
 
 # Establecemos directorio de trabajo
-setwd("R workshop")
-``` 
+# setwd("R workshop")
 
-```{r}    
 #Importar los datos
 datos = read_excel("Data/04-Data_types_import_export/Import_XLS.xls")
     
@@ -98,16 +93,15 @@ Vamos a usar la siguiente [base de datos](Data/04-Data_types_import_export/Impor
 
 ***
 
-```{r, message=FALSE, warning=FALSE}
+```{r import_data_sav, message=FALSE, warning=FALSE}
 # Cargamos librerias
 if (!require('pacman')) install.packages('pacman'); library('pacman')
 p_load(haven)
 
 # Establecemos directorio de trabajo
-setwd("R workshop")
-```
+# setwd("R workshop")
 
-```{r}
+
 #Importar los datos
 datos = read_sav("Data/04-Data_types_import_export/Import_SAV.sav")
     
@@ -122,7 +116,7 @@ Vamos a usar los siguientes [archivos](Data/04-Data_types_import_export/CSVs/CSV
 
 ***
 
-```{r message=FALSE, warning=FALSE}
+```{r import_all_files_from_folder, message=FALSE, warning=FALSE}
 if (!require('pacman')) install.packages('pacman'); library('pacman')
 p_load(tidyverse)
 
@@ -168,7 +162,7 @@ A partir de la version 1.0 de RStudio podemos importar archivos de datos usando 
 
 ### Export data to CSV file
 
-```{r}
+```{r export_data}
 # Carga libreria
 if (!require('pacman')) install.packages('pacman'); library('pacman')
 p_load(tidyverse)

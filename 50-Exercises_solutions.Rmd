@@ -1,11 +1,13 @@
-# Exercices
+# Exercises solutions
 
-A continuación tienes algunos ejercicios sugeridos para practicar habilidades clave. Al final de cada sección podrás descargar un script con respuestas para cada ejercicio. Intenta resolverlo por ti misma antes de descargar el script! :)
+***
+
+**Please, do try to solve the problems on your own before reading this section! :)**
+
+***
 
 
-
-
-## Ejercicios 1{#Ejercicios1}
+## Exercices 1
 
 Tu misión, si deseas aceptarla, es completar una serie de tareas usando las funciones aprendidas.
 Para esto deberás utilizar la siguiente [base de datos](Data/50-Exercices/Exercices_1.csv).

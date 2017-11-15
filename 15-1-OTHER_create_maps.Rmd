@@ -40,7 +40,7 @@ cities = cities_vector %>% as_tibble() %>%
 
 ```
 
-```{r, message=FALSE, warning=FALSE}
+```{r, message=FALSE, warning=FALSE, cache=TRUE}
 # Extraemos coordenadas a partir de las ciudades
 Coordinates = geocode(cities$City_Country)
 

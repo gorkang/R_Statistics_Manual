@@ -25,7 +25,7 @@
 <meta name="author" content="Center for Social and Cognitive Neuroscience - cscn.uai.cl">
 
 
-<meta name="date" content="2017-09-26">
+<meta name="date" content="2017-11-15">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -33,7 +33,7 @@
   
   
 <link rel="prev" href="Estadistica-descriptiva.html">
-<link rel="next" href="association-test.html">
+<link rel="next" href="Funciones.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -160,12 +160,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="6.3.2" data-path="Manipular-datos.html"><a href="Manipular-datos.html#ordenar-db"><i class="fa fa-check"></i><b>6.3.2</b> Ordenar DB</a></li>
 <li class="chapter" data-level="6.3.3" data-path="Manipular-datos.html"><a href="Manipular-datos.html#seleccionar-variables"><i class="fa fa-check"></i><b>6.3.3</b> Seleccionar variables</a></li>
 <li class="chapter" data-level="6.3.4" data-path="Manipular-datos.html"><a href="Manipular-datos.html#renombrar-variables"><i class="fa fa-check"></i><b>6.3.4</b> Renombrar variables</a></li>
-<li class="chapter" data-level="6.3.5" data-path="Manipular-datos.html"><a href="Manipular-datos.html#wide-to-long-format"><i class="fa fa-check"></i><b>6.3.5</b> Wide to Long format</a></li>
-<li class="chapter" data-level="6.3.6" data-path="Manipular-datos.html"><a href="Manipular-datos.html#long-to-wide"><i class="fa fa-check"></i><b>6.3.6</b> Long to wide</a></li>
-<li class="chapter" data-level="6.3.7" data-path="Manipular-datos.html"><a href="Manipular-datos.html#omitir-nas"><i class="fa fa-check"></i><b>6.3.7</b> Omitir NAs</a></li>
-<li class="chapter" data-level="6.3.8" data-path="Manipular-datos.html"><a href="Manipular-datos.html#eliminar-variables"><i class="fa fa-check"></i><b>6.3.8</b> Eliminar variables</a></li>
-<li class="chapter" data-level="6.3.9" data-path="Manipular-datos.html"><a href="Manipular-datos.html#crear-nuevas-variables"><i class="fa fa-check"></i><b>6.3.9</b> Crear nuevas variables:</a></li>
-<li class="chapter" data-level="6.3.10" data-path="Manipular-datos.html"><a href="Manipular-datos.html#recodificamos-datos"><i class="fa fa-check"></i><b>6.3.10</b> Recodificamos datos</a></li>
+<li class="chapter" data-level="6.3.5" data-path="Manipular-datos.html"><a href="Manipular-datos.html#separate-contents-of-a-single-variable"><i class="fa fa-check"></i><b>6.3.5</b> Separate contents of a single variable</a></li>
+<li class="chapter" data-level="6.3.6" data-path="Manipular-datos.html"><a href="Manipular-datos.html#wide-to-long-format"><i class="fa fa-check"></i><b>6.3.6</b> Wide to Long format</a></li>
+<li class="chapter" data-level="6.3.7" data-path="Manipular-datos.html"><a href="Manipular-datos.html#long-to-wide"><i class="fa fa-check"></i><b>6.3.7</b> Long to wide</a></li>
+<li class="chapter" data-level="6.3.8" data-path="Manipular-datos.html"><a href="Manipular-datos.html#omitir-nas"><i class="fa fa-check"></i><b>6.3.8</b> Omitir NAs</a></li>
+<li class="chapter" data-level="6.3.9" data-path="Manipular-datos.html"><a href="Manipular-datos.html#eliminar-variables"><i class="fa fa-check"></i><b>6.3.9</b> Eliminar variables</a></li>
+<li class="chapter" data-level="6.3.10" data-path="Manipular-datos.html"><a href="Manipular-datos.html#crear-nuevas-variables"><i class="fa fa-check"></i><b>6.3.10</b> Crear nuevas variables:</a></li>
+<li class="chapter" data-level="6.3.11" data-path="Manipular-datos.html"><a href="Manipular-datos.html#recodificamos-datos"><i class="fa fa-check"></i><b>6.3.11</b> Recodificamos datos</a></li>
 </ul></li>
 <li class="chapter" data-level="6.4" data-path="Manipular-datos.html"><a href="Manipular-datos.html#combinar-bases-de-datos"><i class="fa fa-check"></i><b>6.4</b> Combinar bases de datos</a></li>
 <li class="chapter" data-level="6.5" data-path="Manipular-datos.html"><a href="Manipular-datos.html#verbos-avanzados"><i class="fa fa-check"></i><b>6.5</b> Verbos avanzados</a><ul>
@@ -177,21 +178,25 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="7.1" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#todo-1"><i class="fa fa-check"></i><b>7.1</b> TODO</a></li>
 <li class="chapter" data-level="7.2" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#que-grafica-puedo-usar-wip"><i class="fa fa-check"></i><b>7.2</b> Que gráfica puedo usar (WIP)</a></li>
 <li class="chapter" data-level="7.3" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#tipos-de-graficas"><i class="fa fa-check"></i><b>7.3</b> Tipos de gráficas</a><ul>
-<li class="chapter" data-level="7.3.1" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#histogramas"><i class="fa fa-check"></i><b>7.3.1</b> Histogramas</a></li>
-<li class="chapter" data-level="7.3.2" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#Pirate-Plot"><i class="fa fa-check"></i><b>7.3.2</b> Pirate plot</a></li>
-<li class="chapter" data-level="7.3.3" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#diagrama-de-caja-y-bigotes"><i class="fa fa-check"></i><b>7.3.3</b> Diagrama de caja y bigotes</a></li>
-<li class="chapter" data-level="7.3.4" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#correlation-plot"><i class="fa fa-check"></i><b>7.3.4</b> Correlation plot</a></li>
-<li class="chapter" data-level="7.3.5" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#beanplot"><i class="fa fa-check"></i><b>7.3.5</b> Beanplot</a></li>
-<li class="chapter" data-level="7.3.6" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#scatterplot"><i class="fa fa-check"></i><b>7.3.6</b> Scatterplot</a></li>
-<li class="chapter" data-level="7.3.7" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#scatterplot-con-3-variables"><i class="fa fa-check"></i><b>7.3.7</b> Scatterplot con 3 variables</a></li>
-<li class="chapter" data-level="7.3.8" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#multiple-scatterplots"><i class="fa fa-check"></i><b>7.3.8</b> Multiple Scatterplots</a></li>
-<li class="chapter" data-level="7.3.9" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#density-plots"><i class="fa fa-check"></i><b>7.3.9</b> Density plots</a></li>
-<li class="chapter" data-level="7.3.10" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#ggjoy-plots"><i class="fa fa-check"></i><b>7.3.10</b> ggjoy Plots</a></li>
+<li class="chapter" data-level="7.3.1" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#shaded-geom-area"><i class="fa fa-check"></i><b>7.3.1</b> Shaded geom area</a></li>
+<li class="chapter" data-level="7.3.2" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#histogramas"><i class="fa fa-check"></i><b>7.3.2</b> Histogramas</a></li>
+<li class="chapter" data-level="7.3.3" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#Pirate-Plot"><i class="fa fa-check"></i><b>7.3.3</b> Pirate plot</a></li>
+<li class="chapter" data-level="7.3.4" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#diagrama-de-caja-y-bigotes"><i class="fa fa-check"></i><b>7.3.4</b> Diagrama de caja y bigotes</a></li>
+<li class="chapter" data-level="7.3.5" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#correlation-plot"><i class="fa fa-check"></i><b>7.3.5</b> Correlation plot</a></li>
+<li class="chapter" data-level="7.3.6" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#beanplot"><i class="fa fa-check"></i><b>7.3.6</b> Beanplot</a></li>
+<li class="chapter" data-level="7.3.7" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#scatterplot"><i class="fa fa-check"></i><b>7.3.7</b> Scatterplot</a></li>
+<li class="chapter" data-level="7.3.8" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#scatterplot-con-3-variables"><i class="fa fa-check"></i><b>7.3.8</b> Scatterplot con 3 variables</a></li>
+<li class="chapter" data-level="7.3.9" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#multiple-scatterplots"><i class="fa fa-check"></i><b>7.3.9</b> Multiple Scatterplots</a></li>
+<li class="chapter" data-level="7.3.10" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#density-plots"><i class="fa fa-check"></i><b>7.3.10</b> Density plots</a></li>
+<li class="chapter" data-level="7.3.11" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#density-ridges-plots-ggjoy"><i class="fa fa-check"></i><b>7.3.11</b> Density Ridges Plots (ggjoy)</a></li>
+<li class="chapter" data-level="7.3.12" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#pp-plots"><i class="fa fa-check"></i><b>7.3.12</b> PP plots</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="Estadistica-descriptiva.html"><a href="Estadistica-descriptiva.html"><i class="fa fa-check"></i><b>8</b> Estadistica descriptiva</a><ul>
-<li class="chapter" data-level="8.1" data-path="Estadistica-descriptiva.html"><a href="Estadistica-descriptiva.html#summary-de-datos"><i class="fa fa-check"></i><b>8.1</b> Summary de datos</a></li>
-<li class="chapter" data-level="8.2" data-path="Estadistica-descriptiva.html"><a href="Estadistica-descriptiva.html#agrupamos-por-sujeto"><i class="fa fa-check"></i><b>8.2</b> Agrupamos por sujeto</a></li>
+<li class="chapter" data-level="8.1" data-path="Estadistica-descriptiva.html"><a href="Estadistica-descriptiva.html#summary-de-datos"><i class="fa fa-check"></i><b>8.1</b> Summary de datos</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="Estadistica-descriptiva.html"><a href="Estadistica-descriptiva.html#agrupamos-por-sujeto"><i class="fa fa-check"></i><b>8.1.1</b> Agrupamos por sujeto</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="Estadistica-descriptiva.html"><a href="Estadistica-descriptiva.html#descriptive-tables-latex"><i class="fa fa-check"></i><b>8.2</b> Descriptive tables latex</a></li>
 <li class="chapter" data-level="8.3" data-path="Estadistica-descriptiva.html"><a href="Estadistica-descriptiva.html#visualize-missing-values"><i class="fa fa-check"></i><b>8.3</b> Visualize missing values</a></li>
 <li class="chapter" data-level="8.4" data-path="Estadistica-descriptiva.html"><a href="Estadistica-descriptiva.html#tutorial-externo"><i class="fa fa-check"></i><b>8.4</b> Tutorial externo</a></li>
 <li class="chapter" data-level="8.5" data-path="Estadistica-descriptiva.html"><a href="Estadistica-descriptiva.html#findviews"><i class="fa fa-check"></i><b>8.5</b> Findviews</a></li>
@@ -229,87 +234,88 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="9.8.5" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#tablas-1"><i class="fa fa-check"></i><b>9.8.5</b> Tablas</a></li>
 </ul></li>
 <li class="chapter" data-level="9.9" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#referencias-y-fuentes"><i class="fa fa-check"></i><b>9.9</b> Referencias y Fuentes</a></li>
+<li class="chapter" data-level="9.10" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#association-test"><i class="fa fa-check"></i><b>9.10</b> Association test</a><ul>
+<li class="chapter" data-level="9.10.1" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#frequentist-1"><i class="fa fa-check"></i><b>9.10.1</b> Frequentist</a></li>
+<li class="chapter" data-level="9.10.2" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#bayesian-2"><i class="fa fa-check"></i><b>9.10.2</b> Bayesian</a></li>
+<li class="chapter" data-level="9.10.3" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#results-report---wip"><i class="fa fa-check"></i><b>9.10.3</b> Results report - WIP</a></li>
+<li class="chapter" data-level="9.10.4" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#references"><i class="fa fa-check"></i><b>9.10.4</b> References</a></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="association-test.html"><a href="association-test.html"><i class="fa fa-check"></i><b>10</b> Association test</a><ul>
-<li class="chapter" data-level="10.0.1" data-path="association-test.html"><a href="association-test.html#frequentist-1"><i class="fa fa-check"></i><b>10.0.1</b> Frequentist</a></li>
-<li class="chapter" data-level="10.0.2" data-path="association-test.html"><a href="association-test.html#bayesian-2"><i class="fa fa-check"></i><b>10.0.2</b> Bayesian</a></li>
-<li class="chapter" data-level="10.0.3" data-path="association-test.html"><a href="association-test.html#results-report---wip"><i class="fa fa-check"></i><b>10.0.3</b> Results report - WIP</a></li>
-<li class="chapter" data-level="10.0.4" data-path="association-test.html"><a href="association-test.html#references"><i class="fa fa-check"></i><b>10.0.4</b> References</a></li>
-</ul></li>
-<li class="chapter" data-level="11" data-path="anova-repeated-measures.html"><a href="anova-repeated-measures.html"><i class="fa fa-check"></i><b>11</b> ANOVA repeated measures</a></li>
-<li class="chapter" data-level="12" data-path="meta-analysis.html"><a href="meta-analysis.html"><i class="fa fa-check"></i><b>12</b> Meta analysis</a><ul>
-<li class="chapter" data-level="12.1" data-path="meta-analysis.html"><a href="meta-analysis.html#natural-frequencies-effect"><i class="fa fa-check"></i><b>12.1</b> Natural Frequencies Effect</a></li>
-<li class="chapter" data-level="12.2" data-path="meta-analysis.html"><a href="meta-analysis.html#pictures-effect"><i class="fa fa-check"></i><b>12.2</b> Pictures Effect</a></li>
-<li class="chapter" data-level="12.3" data-path="meta-analysis.html"><a href="meta-analysis.html#notes-on-meta-analysis"><i class="fa fa-check"></i><b>12.3</b> Notes on Meta-analysis</a></li>
-</ul></li>
-<li class="chapter" data-level="13" data-path="Funciones.html"><a href="Funciones.html"><i class="fa fa-check"></i><b>13</b> Funciones</a><ul>
-<li class="chapter" data-level="13.1" data-path="Funciones.html"><a href="Funciones.html#creando-mi-primera-funcion"><i class="fa fa-check"></i><b>13.1</b> Creando mi primera función</a><ul>
-<li class="chapter" data-level="13.1.1" data-path="Funciones.html"><a href="Funciones.html#pirate-plot-original"><i class="fa fa-check"></i><b>13.1.1</b> Pirate plot original</a></li>
-<li class="chapter" data-level="13.1.2" data-path="Funciones.html"><a href="Funciones.html#nuestra-funcion"><i class="fa fa-check"></i><b>13.1.2</b> Nuestra función</a></li>
+<li class="chapter" data-level="9.11" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#anova-repeated-measures"><i class="fa fa-check"></i><b>9.11</b> ANOVA repeated measures</a></li>
+<li class="chapter" data-level="9.12" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#mixed-models"><i class="fa fa-check"></i><b>9.12</b> Mixed Models</a></li>
+<li class="chapter" data-level="9.13" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#meta-analysis"><i class="fa fa-check"></i><b>9.13</b> Meta analysis</a><ul>
+<li class="chapter" data-level="9.13.1" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#natural-frequencies-effect"><i class="fa fa-check"></i><b>9.13.1</b> Natural Frequencies Effect</a></li>
+<li class="chapter" data-level="9.13.2" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#pictures-effect"><i class="fa fa-check"></i><b>9.13.2</b> Pictures Effect</a></li>
+<li class="chapter" data-level="9.13.3" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#notes-on-meta-analysis"><i class="fa fa-check"></i><b>9.13.3</b> Notes on Meta-analysis</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="14" data-path="pre-processing.html"><a href="pre-processing.html"><i class="fa fa-check"></i><b>14</b> Pre-processing</a><ul>
-<li class="chapter" data-level="14.1" data-path="pre-processing.html"><a href="pre-processing.html#rt-filtering"><i class="fa fa-check"></i><b>14.1</b> RT filtering</a><ul>
-<li class="chapter" data-level="14.1.1" data-path="pre-processing.html"><a href="pre-processing.html#function-to-filter-by-rt"><i class="fa fa-check"></i><b>14.1.1</b> Function to filter by RT</a></li>
-<li class="chapter" data-level="14.1.2" data-path="pre-processing.html"><a href="pre-processing.html#n-sd-from-the-median-mad-1"><i class="fa fa-check"></i><b>14.1.2</b> n SD from the median (MAD)</a></li>
-<li class="chapter" data-level="14.1.3" data-path="pre-processing.html"><a href="pre-processing.html#gamma-law-regression-analyses-2"><i class="fa fa-check"></i><b>14.1.3</b> Gamma law regression analyses</a></li>
-<li class="chapter" data-level="14.1.4" data-path="pre-processing.html"><a href="pre-processing.html#logarithms"><i class="fa fa-check"></i><b>14.1.4</b> Logarithms</a></li>
-<li class="chapter" data-level="14.1.5" data-path="pre-processing.html"><a href="pre-processing.html#references-1"><i class="fa fa-check"></i><b>14.1.5</b> References</a></li>
+<li class="chapter" data-level="10" data-path="Funciones.html"><a href="Funciones.html"><i class="fa fa-check"></i><b>10</b> Funciones</a><ul>
+<li class="chapter" data-level="10.1" data-path="Funciones.html"><a href="Funciones.html#creando-mi-primera-funcion"><i class="fa fa-check"></i><b>10.1</b> Creando mi primera función</a><ul>
+<li class="chapter" data-level="10.1.1" data-path="Funciones.html"><a href="Funciones.html#pirate-plot-original"><i class="fa fa-check"></i><b>10.1.1</b> Pirate plot original</a></li>
+<li class="chapter" data-level="10.1.2" data-path="Funciones.html"><a href="Funciones.html#nuestra-funcion"><i class="fa fa-check"></i><b>10.1.2</b> Nuestra función</a></li>
 </ul></li>
-<li class="chapter" data-level="14.2" data-path="pre-processing.html"><a href="pre-processing.html#reliability"><i class="fa fa-check"></i><b>14.2</b> Reliability</a><ul>
-<li class="chapter" data-level="14.2.1" data-path="pre-processing.html"><a href="pre-processing.html#cronbachs-alpha"><i class="fa fa-check"></i><b>14.2.1</b> Cronbach’s Alpha</a></li>
-<li class="chapter" data-level="14.2.2" data-path="pre-processing.html"><a href="pre-processing.html#omega"><i class="fa fa-check"></i><b>14.2.2</b> Omega</a></li>
-<li class="chapter" data-level="14.2.3" data-path="pre-processing.html"><a href="pre-processing.html#references-2"><i class="fa fa-check"></i><b>14.2.3</b> References</a></li>
 </ul></li>
-<li class="chapter" data-level="14.3" data-path="pre-processing.html"><a href="pre-processing.html#impute-missing-data"><i class="fa fa-check"></i><b>14.3</b> Impute missing data</a></li>
+<li class="chapter" data-level="11" data-path="pre-processing.html"><a href="pre-processing.html"><i class="fa fa-check"></i><b>11</b> Pre-processing</a><ul>
+<li class="chapter" data-level="11.1" data-path="pre-processing.html"><a href="pre-processing.html#rt-filtering"><i class="fa fa-check"></i><b>11.1</b> RT filtering</a><ul>
+<li class="chapter" data-level="11.1.1" data-path="pre-processing.html"><a href="pre-processing.html#function-to-filter-by-rt"><i class="fa fa-check"></i><b>11.1.1</b> Function to filter by RT</a></li>
+<li class="chapter" data-level="11.1.2" data-path="pre-processing.html"><a href="pre-processing.html#n-sd-from-the-median-mad-1"><i class="fa fa-check"></i><b>11.1.2</b> n SD from the median (MAD)</a></li>
+<li class="chapter" data-level="11.1.3" data-path="pre-processing.html"><a href="pre-processing.html#gamma-law-regression-analyses-2"><i class="fa fa-check"></i><b>11.1.3</b> Gamma law regression analyses</a></li>
+<li class="chapter" data-level="11.1.4" data-path="pre-processing.html"><a href="pre-processing.html#logarithms"><i class="fa fa-check"></i><b>11.1.4</b> Logarithms</a></li>
+<li class="chapter" data-level="11.1.5" data-path="pre-processing.html"><a href="pre-processing.html#references-1"><i class="fa fa-check"></i><b>11.1.5</b> References</a></li>
 </ul></li>
-<li class="chapter" data-level="15" data-path="bibliography-and-interesting-resources.html"><a href="bibliography-and-interesting-resources.html"><i class="fa fa-check"></i><b>15</b> Bibliography and interesting resources</a><ul>
-<li class="chapter" data-level="15.1" data-path="bibliography-and-interesting-resources.html"><a href="bibliography-and-interesting-resources.html#bibliography"><i class="fa fa-check"></i><b>15.1</b> Bibliography</a></li>
-<li class="chapter" data-level="15.2" data-path="bibliography-and-interesting-resources.html"><a href="bibliography-and-interesting-resources.html#interesting-resources---potentially"><i class="fa fa-check"></i><b>15.2</b> Interesting resources - potentially</a></li>
+<li class="chapter" data-level="11.2" data-path="pre-processing.html"><a href="pre-processing.html#reliability"><i class="fa fa-check"></i><b>11.2</b> Reliability</a><ul>
+<li class="chapter" data-level="11.2.1" data-path="pre-processing.html"><a href="pre-processing.html#cronbachs-alpha"><i class="fa fa-check"></i><b>11.2.1</b> Cronbach’s Alpha</a></li>
+<li class="chapter" data-level="11.2.2" data-path="pre-processing.html"><a href="pre-processing.html#omega"><i class="fa fa-check"></i><b>11.2.2</b> Omega</a></li>
+<li class="chapter" data-level="11.2.3" data-path="pre-processing.html"><a href="pre-processing.html#references-2"><i class="fa fa-check"></i><b>11.2.3</b> References</a></li>
 </ul></li>
-<li class="chapter" data-level="16" data-path="experimental-design.html"><a href="experimental-design.html"><i class="fa fa-check"></i><b>16</b> Experimental design</a><ul>
-<li class="chapter" data-level="16.1" data-path="experimental-design.html"><a href="experimental-design.html#tamano-de-muestra-y-efecto-detectado"><i class="fa fa-check"></i><b>16.1</b> Tamaño de muestra y efecto detectado</a></li>
-<li class="chapter" data-level="16.2" data-path="experimental-design.html"><a href="experimental-design.html#power-analysis"><i class="fa fa-check"></i><b>16.2</b> Power analysis</a><ul>
-<li class="chapter" data-level="16.2.1" data-path="experimental-design.html"><a href="experimental-design.html#longitudinal-designs"><i class="fa fa-check"></i><b>16.2.1</b> Longitudinal designs</a></li>
+<li class="chapter" data-level="11.3" data-path="pre-processing.html"><a href="pre-processing.html#impute-missing-data"><i class="fa fa-check"></i><b>11.3</b> Impute missing data</a></li>
 </ul></li>
-<li class="chapter" data-level="16.3" data-path="experimental-design.html"><a href="experimental-design.html#anonimizar-participantes---encriptar-ids"><i class="fa fa-check"></i><b>16.3</b> Anonimizar participantes - Encriptar IDs</a><ul>
-<li class="chapter" data-level="16.3.1" data-path="experimental-design.html"><a href="experimental-design.html#encriptando-y-desencriptando-un-elemento"><i class="fa fa-check"></i><b>16.3.1</b> Encriptando y desencriptando un elemento</a></li>
-<li class="chapter" data-level="16.3.2" data-path="experimental-design.html"><a href="experimental-design.html#encriptando-y-desencriptando-la-columna-rut-de-una-db-completa."><i class="fa fa-check"></i><b>16.3.2</b> Encriptando y desencriptando la columna RUT de una DB completa.</a></li>
+<li class="chapter" data-level="12" data-path="experimental-design.html"><a href="experimental-design.html"><i class="fa fa-check"></i><b>12</b> Experimental design</a><ul>
+<li class="chapter" data-level="12.1" data-path="experimental-design.html"><a href="experimental-design.html#tamano-de-muestra-y-efecto-detectado"><i class="fa fa-check"></i><b>12.1</b> Tamaño de muestra y efecto detectado</a></li>
+<li class="chapter" data-level="12.2" data-path="experimental-design.html"><a href="experimental-design.html#power-analysis"><i class="fa fa-check"></i><b>12.2</b> Power analysis</a><ul>
+<li class="chapter" data-level="12.2.1" data-path="experimental-design.html"><a href="experimental-design.html#longitudinal-designs"><i class="fa fa-check"></i><b>12.2.1</b> Longitudinal designs</a></li>
 </ul></li>
-<li class="chapter" data-level="16.4" data-path="experimental-design.html"><a href="experimental-design.html#match-participants"><i class="fa fa-check"></i><b>16.4</b> Match participants</a></li>
-<li class="chapter" data-level="16.5" data-path="experimental-design.html"><a href="experimental-design.html#determine-distribution"><i class="fa fa-check"></i><b>16.5</b> Determine distribution</a></li>
+<li class="chapter" data-level="12.3" data-path="experimental-design.html"><a href="experimental-design.html#anonimizar-participantes---encriptar-ids"><i class="fa fa-check"></i><b>12.3</b> Anonimizar participantes - Encriptar IDs</a><ul>
+<li class="chapter" data-level="12.3.1" data-path="experimental-design.html"><a href="experimental-design.html#encriptando-y-desencriptando-un-elemento"><i class="fa fa-check"></i><b>12.3.1</b> Encriptando y desencriptando un elemento</a></li>
+<li class="chapter" data-level="12.3.2" data-path="experimental-design.html"><a href="experimental-design.html#encriptando-y-desencriptando-la-columna-rut-de-una-db-completa."><i class="fa fa-check"></i><b>12.3.2</b> Encriptando y desencriptando la columna RUT de una DB completa.</a></li>
 </ul></li>
-<li class="chapter" data-level="17" data-path="classification.html"><a href="classification.html"><i class="fa fa-check"></i><b>17</b> Classification</a><ul>
-<li class="chapter" data-level="17.1" data-path="classification.html"><a href="classification.html#fast-and-frugal-trees"><i class="fa fa-check"></i><b>17.1</b> Fast and frugal trees</a></li>
+<li class="chapter" data-level="12.4" data-path="experimental-design.html"><a href="experimental-design.html#match-participants"><i class="fa fa-check"></i><b>12.4</b> Match participants</a></li>
+<li class="chapter" data-level="12.5" data-path="experimental-design.html"><a href="experimental-design.html#determine-distribution"><i class="fa fa-check"></i><b>12.5</b> Determine distribution</a></li>
 </ul></li>
-<li class="chapter" data-level="18" data-path="other-stuff.html"><a href="other-stuff.html"><i class="fa fa-check"></i><b>18</b> Other stuff</a><ul>
-<li class="chapter" data-level="18.1" data-path="other-stuff.html"><a href="other-stuff.html#maps---generate-and-locate-cities-in-a-world-map"><i class="fa fa-check"></i><b>18.1</b> Maps - Generate and locate cities in a world map</a></li>
-<li class="chapter" data-level="18.2" data-path="other-stuff.html"><a href="other-stuff.html#extract-tables-from-the-internet"><i class="fa fa-check"></i><b>18.2</b> Extract tables from the internet</a></li>
+<li class="chapter" data-level="13" data-path="classification.html"><a href="classification.html"><i class="fa fa-check"></i><b>13</b> Classification</a><ul>
+<li class="chapter" data-level="13.1" data-path="classification.html"><a href="classification.html#fast-and-frugal-trees"><i class="fa fa-check"></i><b>13.1</b> Fast and frugal trees</a></li>
 </ul></li>
-<li class="chapter" data-level="19" data-path="exercices-solutions.html"><a href="exercices-solutions.html"><i class="fa fa-check"></i><b>19</b> Exercices solutions</a><ul>
-<li class="chapter" data-level="19.1" data-path="exercices-solutions.html"><a href="exercices-solutions.html#exercices-1"><i class="fa fa-check"></i><b>19.1</b> Exercices 1</a></li>
-<li class="chapter" data-level="19.2" data-path="exercices-solutions.html"><a href="exercices-solutions.html#Ejercicios2"><i class="fa fa-check"></i><b>19.2</b> Ejercicios 2</a></li>
+<li class="chapter" data-level="14" data-path="other-stuff.html"><a href="other-stuff.html"><i class="fa fa-check"></i><b>14</b> Other stuff</a><ul>
+<li class="chapter" data-level="14.1" data-path="other-stuff.html"><a href="other-stuff.html#maps---generate-and-locate-cities-in-a-world-map"><i class="fa fa-check"></i><b>14.1</b> Maps - Generate and locate cities in a world map</a></li>
+<li class="chapter" data-level="14.2" data-path="other-stuff.html"><a href="other-stuff.html#extract-tables-from-the-internet"><i class="fa fa-check"></i><b>14.2</b> Extract tables from the internet</a></li>
 </ul></li>
-<li class="chapter" data-level="20" data-path="exercices.html"><a href="exercices.html"><i class="fa fa-check"></i><b>20</b> Exercices</a><ul>
-<li class="chapter" data-level="20.1" data-path="exercices.html"><a href="exercices.html#Ejercicios1"><i class="fa fa-check"></i><b>20.1</b> Ejercicios 1</a></li>
-<li class="chapter" data-level="20.2" data-path="exercices-solutions.html"><a href="exercices-solutions.html#Ejercicios2"><i class="fa fa-check"></i><b>20.2</b> Ejercicios 2</a></li>
+<li class="chapter" data-level="15" data-path="exercises-solutions.html"><a href="exercises-solutions.html"><i class="fa fa-check"></i><b>15</b> Exercises solutions</a><ul>
+<li class="chapter" data-level="15.1" data-path="exercises-solutions.html"><a href="exercises-solutions.html#exercices-1"><i class="fa fa-check"></i><b>15.1</b> Exercices 1</a></li>
+<li class="chapter" data-level="15.2" data-path="exercises-solutions.html"><a href="exercises-solutions.html#Ejercicios2"><i class="fa fa-check"></i><b>15.2</b> Ejercicios 2</a></li>
 </ul></li>
-<li class="chapter" data-level="21" data-path="todo-curso-basico-r-2016.html"><a href="todo-curso-basico-r-2016.html"><i class="fa fa-check"></i><b>21</b> TODO - Curso Basico R - 2016</a></li>
-<li class="chapter" data-level="22" data-path="en-ejercicios.html"><a href="en-ejercicios.html"><i class="fa fa-check"></i><b>22</b> EN EJERCICIOS:</a><ul>
-<li class="chapter" data-level="22.1" data-path="en-ejercicios.html"><a href="en-ejercicios.html#todo---limpieza-general"><i class="fa fa-check"></i><b>22.1</b> TODO - Limpieza general</a></li>
+<li class="chapter" data-level="16" data-path="exercises.html"><a href="exercises.html"><i class="fa fa-check"></i><b>16</b> Exercises</a><ul>
+<li class="chapter" data-level="16.1" data-path="exercises.html"><a href="exercises.html#Ejercicios1"><i class="fa fa-check"></i><b>16.1</b> Ejercicios 1</a></li>
+<li class="chapter" data-level="16.2" data-path="exercises-solutions.html"><a href="exercises-solutions.html#Ejercicios2"><i class="fa fa-check"></i><b>16.2</b> Ejercicios 2</a></li>
 </ul></li>
-<li class="chapter" data-level="23" data-path="todo-2.html"><a href="todo-2.html"><i class="fa fa-check"></i><b>23</b> TODO</a><ul>
-<li class="chapter" data-level="23.1" data-path="todo-2.html"><a href="todo-2.html#urgent-stuff"><i class="fa fa-check"></i><b>23.1</b> Urgent stuff</a></li>
-<li class="chapter" data-level="23.2" data-path="todo-2.html"><a href="todo-2.html#important"><i class="fa fa-check"></i><b>23.2</b> Important</a></li>
-<li class="chapter" data-level="23.3" data-path="todo-2.html"><a href="todo-2.html#various"><i class="fa fa-check"></i><b>23.3</b> Various</a></li>
-<li class="chapter" data-level="23.4" data-path="todo-2.html"><a href="todo-2.html#index-proposal"><i class="fa fa-check"></i><b>23.4</b> <strong>INDEX PROPOSAL</strong></a></li>
-<li class="chapter" data-level="23.5" data-path="todo-2.html"><a href="todo-2.html#style-guide"><i class="fa fa-check"></i><b>23.5</b> Style guide</a><ul>
-<li class="chapter" data-level="23.5.1" data-path="todo-2.html"><a href="todo-2.html#sections"><i class="fa fa-check"></i><b>23.5.1</b> Sections</a></li>
-<li class="chapter" data-level="23.5.2" data-path="todo-2.html"><a href="todo-2.html#general"><i class="fa fa-check"></i><b>23.5.2</b> General</a></li>
+<li class="chapter" data-level="17" data-path="bibliography-and-interesting-resources.html"><a href="bibliography-and-interesting-resources.html"><i class="fa fa-check"></i><b>17</b> Bibliography and interesting resources</a><ul>
+<li class="chapter" data-level="17.1" data-path="bibliography-and-interesting-resources.html"><a href="bibliography-and-interesting-resources.html#bibliography"><i class="fa fa-check"></i><b>17.1</b> Bibliography</a></li>
+<li class="chapter" data-level="17.2" data-path="bibliography-and-interesting-resources.html"><a href="bibliography-and-interesting-resources.html#interesting-resources---potentially"><i class="fa fa-check"></i><b>17.2</b> Interesting resources - potentially</a></li>
 </ul></li>
-<li class="chapter" data-level="23.6" data-path="todo-2.html"><a href="todo-2.html#notas---remember"><i class="fa fa-check"></i><b>23.6</b> NOTAS - REMEMBER</a><ul>
-<li class="chapter" data-level="23.6.1" data-path="todo-2.html"><a href="todo-2.html#refs"><i class="fa fa-check"></i><b>23.6.1</b> REFS</a></li>
-<li class="chapter" data-level="23.6.2" data-path="todo-2.html"><a href="todo-2.html#notas"><i class="fa fa-check"></i><b>23.6.2</b> NOTAS</a></li>
+<li class="chapter" data-level="18" data-path="todo-curso-basico-r-2016.html"><a href="todo-curso-basico-r-2016.html"><i class="fa fa-check"></i><b>18</b> TODO - Curso Basico R - 2016</a><ul>
+<li class="chapter" data-level="18.1" data-path="todo-curso-basico-r-2016.html"><a href="todo-curso-basico-r-2016.html#en-ejercicios"><i class="fa fa-check"></i><b>18.1</b> EN EJERCICIOS:</a></li>
+<li class="chapter" data-level="18.2" data-path="todo-curso-basico-r-2016.html"><a href="todo-curso-basico-r-2016.html#todo---limpieza-general"><i class="fa fa-check"></i><b>18.2</b> TODO - Limpieza general</a></li>
+</ul></li>
+<li class="chapter" data-level="19" data-path="todo-2.html"><a href="todo-2.html"><i class="fa fa-check"></i><b>19</b> TODO</a><ul>
+<li class="chapter" data-level="19.1" data-path="todo-2.html"><a href="todo-2.html#urgent-stuff"><i class="fa fa-check"></i><b>19.1</b> Urgent stuff</a></li>
+<li class="chapter" data-level="19.2" data-path="todo-2.html"><a href="todo-2.html#important"><i class="fa fa-check"></i><b>19.2</b> Important</a></li>
+<li class="chapter" data-level="19.3" data-path="todo-2.html"><a href="todo-2.html#various"><i class="fa fa-check"></i><b>19.3</b> Various</a></li>
+<li class="chapter" data-level="19.4" data-path="todo-2.html"><a href="todo-2.html#index-proposal"><i class="fa fa-check"></i><b>19.4</b> <strong>INDEX PROPOSAL</strong></a></li>
+<li class="chapter" data-level="19.5" data-path="todo-2.html"><a href="todo-2.html#style-guide"><i class="fa fa-check"></i><b>19.5</b> Style guide</a><ul>
+<li class="chapter" data-level="19.5.1" data-path="todo-2.html"><a href="todo-2.html#sections"><i class="fa fa-check"></i><b>19.5.1</b> Sections</a></li>
+<li class="chapter" data-level="19.5.2" data-path="todo-2.html"><a href="todo-2.html#general"><i class="fa fa-check"></i><b>19.5.2</b> General</a></li>
+</ul></li>
+<li class="chapter" data-level="19.6" data-path="todo-2.html"><a href="todo-2.html#notas---remember"><i class="fa fa-check"></i><b>19.6</b> NOTAS - REMEMBER</a><ul>
+<li class="chapter" data-level="19.6.1" data-path="todo-2.html"><a href="todo-2.html#refs"><i class="fa fa-check"></i><b>19.6.1</b> REFS</a></li>
+<li class="chapter" data-level="19.6.2" data-path="todo-2.html"><a href="todo-2.html#notas"><i class="fa fa-check"></i><b>19.6.2</b> NOTAS</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -461,7 +467,7 @@ df <span class="op">%&gt;%</span><span class="st"> </span>
            <span class="dt">main =</span> <span class="st">&quot;t test Pirateplot&quot;</span>, 
            <span class="dt">point.pch =</span> <span class="dv">16</span>, 
            <span class="dt">pal =</span> <span class="st">&quot;basel&quot;</span>)</code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-58-1.png" width="672" /></p>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-34-1.png" width="672" /></p>
 </div>
 </div>
 <div id="prueba-t-para-muestras-dependientes" class="section level2">
@@ -513,7 +519,7 @@ df <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">shape =</span> <span class="dv">16</span>, <span class="dt">col =</span> <span class="kw">transparent</span>(<span class="st">&quot;red&quot;</span>, .<span class="dv">4</span>))</code></pre></div>
 <pre><code>## Warning: Removed 6 rows containing missing values (geom_point).</code></pre>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-60-1.png" width="672" /></p>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-36-1.png" width="672" /></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Selecione un subconjunto de variables para la correlación multiple</span>
 cordata =<span class="st"> </span>df <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(<span class="op">-</span>Id,<span class="op">-</span>Moral,<span class="op">-</span>Sexo,<span class="op">-</span>AccuracyIz,<span class="op">-</span>AccuracyDer,<span class="op">-</span>Edad)
 
@@ -594,7 +600,7 @@ fit =<span class="st"> </span><span class="kw">lm</span>(Accuracy <span class="o
 <span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> lm , <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">se =</span> T)</code></pre></div>
 <pre><code>## Warning: Removed 2 rows containing non-finite values (stat_smooth).</code></pre>
 <pre><code>## Warning: Removed 2 rows containing missing values (geom_point).</code></pre>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-63-1.png" width="672" /></p>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-39-1.png" width="672" /></p>
 </div>
 </div>
 <div id="analsis-de-la-varianza-1-factor" class="section level2">
@@ -681,7 +687,7 @@ df <span class="op">%&gt;%</span><span class="st"> </span>
            <span class="dt">main =</span> <span class="st">&quot;ANOVA Pirateplot&quot;</span>, 
            <span class="dt">point.pch =</span> <span class="dv">16</span>, 
            <span class="dt">pal =</span> <span class="st">&quot;basel&quot;</span>)</code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-66-1.png" width="672" /></p>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-42-1.png" width="672" /></p>
 </div>
 <div id="tablas" class="section level3">
 <h3><span class="header-section-number">9.7.4</span> Tablas</h3>
@@ -827,7 +833,7 @@ df <span class="op">%&gt;%</span><span class="st"> </span>
            <span class="dt">main =</span> <span class="st">&quot;ANOVA Pirateplot&quot;</span>, 
            <span class="dt">point.pch =</span> <span class="dv">16</span>, 
            <span class="dt">pal =</span> <span class="st">&quot;basel&quot;</span>)</code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-70-1.png" width="672" /></p>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-46-1.png" width="672" /></p>
 </div>
 <div id="tablas-1" class="section level3">
 <h3><span class="header-section-number">9.8.5</span> Tablas</h3>
@@ -877,6 +883,521 @@ df <span class="op">%&gt;%</span><span class="st"> </span>
 </ul>
 
 </div>
+<div id="association-test" class="section level2">
+<h2><span class="header-section-number">9.10</span> Association test</h2>
+<p>A.K.A. X square test of independence</p>
+<p><strong>WIP - Alternatives</strong></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Con datos de estudio Merlin</span>
+<span class="co"># prop.test(table(DB_all$Ahorro_Dico, DB_all$Futuro_d))</span>
+<span class="co"># chisq.test(table(DB_all$Ahorro_Dico, DB_all$Futuro_d))</span>
+
+<span class="co"># # More powerful</span>
+<span class="co"># Exact::exact.test(table(DB_all$Ahorro_Dico, DB_all$Futuro_d))</span>
+<span class="co"># BayesFactor::contingencyTableBF(table(DB_all$Ahorro_Dico, DB_all$Futuro_d), sampleType = &quot;indepMulti&quot;, fixedMargin = &quot;rows&quot;)</span></code></pre></div>
+<p><strong>Libraries</strong></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
+<span class="kw">p_load</span>(BayesFactor, lsr)</code></pre></div>
+<p><strong>Import data - WIP</strong> We use the following <a href="Data/08-Data_analysis/Association_test.csv">dataset</a>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Import to variable &quot;dataset&quot;</span>
+dataset =<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;Data/08-Data_analysis/Association_test.csv&quot;</span>)
+
+<span class="co">#Show first 5 rows</span>
+<span class="kw">head</span>(dataset)</code></pre></div>
+<pre><code>##    X    ID Dem_Gender Dem_Age Dem_Education       SET    answer   Time
+## 1  4 71827          2      34             4 Resp_SET1 0.3333333 12.905
+## 2  5  1946          1      29             6 Resp_SET1 0.3333333 38.895
+## 3  6 83294          2      25             6 Resp_SET1 0.3333333 42.473
+## 4  8 34065          1      29             6 Resp_SET1 0.6666667 16.438
+## 5  9 39707          1      30             5 Resp_SET1 0.3333333 60.794
+## 6 10 69772          2      28             2 Resp_SET1 0.5000000 26.169
+##   Formato Problema Accuracy      Error Accuracy_factor Formato_factor
+## 1      FN   DECIMA        1  0.0000000               1             FN
+## 2      FN   DECIMA        1  0.0000000               1             FN
+## 3      FN   UNIDAD        1  0.0000000               1             FN
+## 4      PR   UNIDAD        0 -0.3333333               0             PR
+## 5      PR   DECIMA        1  0.0000000               1             PR
+## 6      PR   UNIDAD        0 -0.1666667               0             PR
+##   Problema_factor Time_set1
+## 1          DECIMA    12.905
+## 2          DECIMA    38.895
+## 3          UNIDAD    42.473
+## 4          UNIDAD    16.438
+## 5          DECIMA    60.794
+## 6          UNIDAD    26.169</code></pre>
+<p><strong>Prepare data</strong></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Convert to factors</span>
+dataset<span class="op">$</span>Accuracy_factor =<span class="st"> </span><span class="kw">as.factor</span>(dataset<span class="op">$</span>Accuracy)
+dataset<span class="op">$</span>Formato_factor =<span class="st"> </span><span class="kw">as.factor</span>(dataset<span class="op">$</span>Formato)
+dataset<span class="op">$</span>Problema_factor =<span class="st"> </span><span class="kw">as.factor</span>(dataset<span class="op">$</span>Problema)</code></pre></div>
+<div id="frequentist-1" class="section level3">
+<h3><span class="header-section-number">9.10.1</span> Frequentist<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a></h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Accuracy_factor + Formato_factor</span>
+crosstab_Formato &lt;-<span class="st"> </span><span class="kw">xtabs</span>(<span class="op">~</span><span class="st"> </span>Accuracy_factor <span class="op">+</span><span class="st"> </span>Formato_factor, dataset); crosstab_Formato</code></pre></div>
+<pre><code>##                Formato_factor
+## Accuracy_factor FN PR
+##               0 18 24
+##               1 66 57</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">associationTest</span>(<span class="dt">formula =</span> <span class="op">~</span><span class="st"> </span>Accuracy_factor <span class="op">+</span><span class="st"> </span>Formato_factor, <span class="dt">data =</span> dataset )</code></pre></div>
+<pre><code>## 
+##      Chi-square test of categorical association
+## 
+## Variables:   Accuracy_factor, Formato_factor 
+## 
+## Hypotheses: 
+##    null:        variables are independent of one another
+##    alternative: some contingency exists between variables
+## 
+## Observed contingency table:
+##                Formato_factor
+## Accuracy_factor FN PR
+##               0 18 24
+##               1 66 57
+## 
+## Expected contingency table under the null hypothesis:
+##                Formato_factor
+## Accuracy_factor   FN   PR
+##               0 21.4 20.6
+##               1 62.6 60.4
+## 
+## Test results: 
+##    X-squared statistic:  1.061 
+##    degrees of freedom:  1 
+##    p-value:  0.303 
+## 
+## Other information: 
+##    estimated effect size (Cramer&#39;s v):  0.08 
+##    Yates&#39; continuity correction has been applied</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Accuracy_factor + Problema_factor</span>
+crosstab_Problema &lt;-<span class="st"> </span><span class="kw">xtabs</span>(<span class="op">~</span><span class="st"> </span>Accuracy_factor <span class="op">+</span><span class="st"> </span>Problema_factor, dataset); crosstab_Problema</code></pre></div>
+<pre><code>##                Problema_factor
+## Accuracy_factor DECIMA UNIDAD
+##               0     19     23
+##               1     61     62</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">associationTest</span>(<span class="dt">formula =</span> <span class="op">~</span><span class="st"> </span>Accuracy_factor <span class="op">+</span><span class="st"> </span>Problema_factor, <span class="dt">data =</span> dataset )</code></pre></div>
+<pre><code>## 
+##      Chi-square test of categorical association
+## 
+## Variables:   Accuracy_factor, Problema_factor 
+## 
+## Hypotheses: 
+##    null:        variables are independent of one another
+##    alternative: some contingency exists between variables
+## 
+## Observed contingency table:
+##                Problema_factor
+## Accuracy_factor DECIMA UNIDAD
+##               0     19     23
+##               1     61     62
+## 
+## Expected contingency table under the null hypothesis:
+##                Problema_factor
+## Accuracy_factor DECIMA UNIDAD
+##               0   20.4   21.6
+##               1   59.6   63.4
+## 
+## Test results: 
+##    X-squared statistic:  0.095 
+##    degrees of freedom:  1 
+##    p-value:  0.757 
+## 
+## Other information: 
+##    estimated effect size (Cramer&#39;s v):  0.024 
+##    Yates&#39; continuity correction has been applied</code></pre>
+</div>
+<div id="bayesian-2" class="section level3">
+<h3><span class="header-section-number">9.10.2</span> Bayesian<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a></h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Accuracy_factor + Formato_factor</span>
+<span class="kw">contingencyTableBF</span>( crosstab_Formato, <span class="dt">sampleType =</span> <span class="st">&quot;jointMulti&quot;</span> ) </code></pre></div>
+<pre><code>## Bayes factor analysis
+## --------------
+## [1] Non-indep. (a=1) : 0.5146257 ±0%
+## 
+## Against denominator:
+##   Null, independence, a = 1 
+## ---
+## Bayes factor type: BFcontingencyTable, joint multinomial</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Accuracy_factor + Problema_factor</span>
+<span class="kw">contingencyTableBF</span>( crosstab_Problema, <span class="dt">sampleType =</span> <span class="st">&quot;jointMulti&quot;</span> ) </code></pre></div>
+<pre><code>## Bayes factor analysis
+## --------------
+## [1] Non-indep. (a=1) : 0.2811145 ±0%
+## 
+## Against denominator:
+##   Null, independence, a = 1 
+## ---
+## Bayes factor type: BFcontingencyTable, joint multinomial</code></pre>
+</div>
+<div id="results-report---wip" class="section level3">
+<h3><span class="header-section-number">9.10.3</span> Results report - WIP</h3>
+<blockquote>
+<p>TODO: Use an example where we have both a null a and a significant finding</p>
+</blockquote>
+<div id="frequentist---wip" class="section level4">
+<h4><span class="header-section-number">9.10.3.1</span> Frequentist - WIP</h4>
+<p>Pearson’s X<sup>2</sup> revealed a significant association between species and choice (X<sup>2</sup> = 10.7, p = .01): robots appeared to be more likely to say that they prefer flowers, but the humans were more likely to say they prefer data.</p>
+</div>
+<div id="bayesian" class="section level4">
+<h4><span class="header-section-number">9.10.3.2</span> Bayesian</h4>
+<p>We ran a Bayesian test of association (see Gunel &amp; Dickey, 1974) using version 0.9.12-2 of the BayesFactor package (Morey &amp; Rouder, 2015) using default priors and a joint multinomial sampling plan. The resulting Bayes factor of 3.65 to 1 in favour of the null hypothesis indicates that there is moderately strong evidence for the non-independence of Problem and accuracy.</p>
+</div>
+</div>
+<div id="references" class="section level3">
+<h3><span class="header-section-number">9.10.4</span> References</h3>
+
+</div>
+</div>
+<div id="anova-repeated-measures" class="section level2">
+<h2><span class="header-section-number">9.11</span> ANOVA repeated measures</h2>
+<p>Perform a repeated measures ANOVA and get posthocs</p>
+<p><strong>Libraries</strong></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
+<span class="kw">p_load</span>(tidyverse, yarrr, readxl, stringr, afex) </code></pre></div>
+<p><strong>Import data</strong><br />
+We use the following <a href="Data/08-Data_analysis/ANOVA_repeated_measures.xlsx">dataset</a>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Import to variable &quot;datos&quot;</span>
+datos =<span class="st"> </span><span class="kw">read_excel</span>(<span class="st">&quot;Data/08-Data_analysis/ANOVA_repeated_measures.xlsx&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span>dplyr<span class="op">::</span><span class="kw">mutate</span>(<span class="dt">ID =</span> <span class="dv">1</span><span class="op">:</span><span class="kw">n</span>())
+
+datos</code></pre></div>
+<pre><code>## # A tibble: 29 x 9
+##          ENDObch       ENDOacm       ENDObcm       ENDOach        EXObch
+##            &lt;dbl&gt;         &lt;dbl&gt;         &lt;dbl&gt;         &lt;dbl&gt;         &lt;dbl&gt;
+##  1 -0.0134618198  0.0079598110 -1.724309e-03  0.0001241273  0.0033291737
+##  2 -0.0007571547  0.0001350424  1.087823e-02 -0.0044011702  0.0225063299
+##  3 -0.0021596171  0.0018874678  1.396156e-03  0.0002438996 -0.0009685716
+##  4 -0.0021261532  0.0017017525  7.949985e-03 -0.0009560923  0.0019598747
+##  5 -0.0014105901 -0.0009019787  1.158694e-03 -0.0006908299 -0.0008552055
+##  6  0.0031665364 -0.0016276746  1.400152e-03 -0.0035374637 -0.0017644341
+##  7 -0.0034358999 -0.0005719841 -7.021927e-03  0.0033983457  0.0109482298
+##  8 -0.0038080731  0.0054854822  4.322780e-04 -0.0033633460  0.0098447537
+##  9 -0.0003044510 -0.0004639236 -1.068726e-02  0.0075849477 -0.0046718045
+## 10 -0.0016039516  0.0008493854  6.954175e-05  0.0002653357  0.0042829250
+## # ... with 19 more rows, and 4 more variables: EXOacm &lt;dbl&gt;, EXObcm &lt;dbl&gt;,
+## #   EXOach &lt;dbl&gt;, ID &lt;int&gt;</code></pre>
+<hr />
+<p><strong>EXPERIMENT DESIGN</strong><br />
+2 x 2 x 2 - Repeated measures</p>
+<ul>
+<li>VI1 = ENDO / EXO</li>
+<li>VI2 = Temporal windows (bc - before change vs ac - after change)</li>
+<li>VI3 = Percepts (h - horse vs m - morse)</li>
+</ul>
+<hr />
+<p><strong>Prepare data</strong></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Wide to Long</span>
+datos_long =<span class="st"> </span>datos <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">gather</span>(Condicion, VD, <span class="dv">1</span><span class="op">:</span><span class="dv">8</span>)
+
+
+<span class="co"># We extract conditions from Condicion column. Convert char variables to factor</span>
+datos_long =<span class="st"> </span>datos_long <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">VI1 =</span> <span class="kw">str_sub</span>(datos_long<span class="op">$</span>Condicion, <span class="dv">1</span>,<span class="dv">3</span>)) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">VI2 =</span> 
+           <span class="kw">ifelse</span>(VI1 <span class="op">==</span><span class="st"> &quot;END&quot;</span>, 
+                  <span class="kw">str_sub</span>(datos_long<span class="op">$</span>Condicion, <span class="dv">5</span>,<span class="dv">6</span>), 
+                  <span class="kw">str_sub</span>(datos_long<span class="op">$</span>Condicion, <span class="dv">4</span>,<span class="dv">5</span>))) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">VI3 =</span> 
+           <span class="kw">ifelse</span>(VI1 <span class="op">==</span><span class="st"> &quot;END&quot;</span>, 
+                  <span class="kw">str_sub</span>(datos_long<span class="op">$</span>Condicion, <span class="dv">7</span>,<span class="dv">7</span>), 
+                  <span class="kw">str_sub</span>(datos_long<span class="op">$</span>Condicion, <span class="dv">6</span>,<span class="dv">6</span>))) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">VI1 =</span> <span class="kw">as.factor</span>(VI1)) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">VI2 =</span> <span class="kw">as.factor</span>(VI2)) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">VI3 =</span> <span class="kw">as.factor</span>(VI3)) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Condicion =</span> <span class="kw">as.factor</span>(Condicion))
+
+datos_long</code></pre></div>
+<pre><code>## # A tibble: 232 x 6
+##       ID Condicion            VD    VI1    VI2    VI3
+##    &lt;int&gt;    &lt;fctr&gt;         &lt;dbl&gt; &lt;fctr&gt; &lt;fctr&gt; &lt;fctr&gt;
+##  1     1   ENDObch -0.0134618198    END     bc      h
+##  2     2   ENDObch -0.0007571547    END     bc      h
+##  3     3   ENDObch -0.0021596171    END     bc      h
+##  4     4   ENDObch -0.0021261532    END     bc      h
+##  5     5   ENDObch -0.0014105901    END     bc      h
+##  6     6   ENDObch  0.0031665364    END     bc      h
+##  7     7   ENDObch -0.0034358999    END     bc      h
+##  8     8   ENDObch -0.0038080731    END     bc      h
+##  9     9   ENDObch -0.0003044510    END     bc      h
+## 10    10   ENDObch -0.0016039516    END     bc      h
+## # ... with 222 more rows</code></pre>
+<p>Repeated measures ANOVA</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># AFEX PACKAGE</span>
+<span class="co"># https://cran.r-project.org/web/packages/afex/afex.pdf</span>
+
+a =<span class="st"> </span><span class="kw">aov_ez</span>(<span class="st">&quot;ID&quot;</span>, <span class="st">&quot;VD&quot;</span>, datos_long,
+           <span class="dt">within =</span> <span class="kw">c</span>(<span class="st">&quot;VI1&quot;</span>, <span class="st">&quot;VI2&quot;</span>, <span class="st">&quot;VI3&quot;</span>))
+
+<span class="co"># Show results</span>
+<span class="kw">summary</span>(a)</code></pre></div>
+<pre><code>## 
+## Univariate Type III Repeated-Measures ANOVA Assuming Sphericity
+## 
+##                     SS num Df   Error SS den Df       F   Pr(&gt;F)   
+## (Intercept) 0.00000013      1 0.00014494     28  0.0251 0.875310   
+## VI1         0.00001238      1 0.00022796     28  1.5210 0.227715   
+## VI2         0.00001502      1 0.00147081     28  0.2859 0.597112   
+## VI3         0.00004282      1 0.00089968     28  1.3327 0.258083   
+## VI1:VI2     0.00045494      1 0.00125821     28 10.1241 0.003565 **
+## VI1:VI3     0.00028700      1 0.00113938     28  7.0531 0.012911 * 
+## VI2:VI3     0.00000883      1 0.00010388     28  2.3811 0.134039   
+## VI1:VI2:VI3 0.00000323      1 0.00015865     28  0.5709 0.456198   
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Plot results</span>
+<span class="kw">lsmip</span>(a, VI1 <span class="op">~</span><span class="st"> </span>VI2 <span class="op">*</span><span class="st"> </span>VI3)</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-57-1.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pirateplot</span>(VD <span class="op">~</span><span class="st"> </span>VI1 <span class="op">*</span><span class="st"> </span>VI2 <span class="op">*</span><span class="st"> </span>VI3, datos_long)</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-57-2.png" width="672" /></p>
+<p>Post-hocs</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">lsmeans</span>(a, <span class="kw">c</span>(<span class="st">&quot;VI1&quot;</span>, <span class="st">&quot;VI2&quot;</span>, <span class="st">&quot;VI3&quot;</span>), <span class="dt">contr =</span> <span class="st">&quot;pairwise&quot;</span>)</code></pre></div>
+<pre><code>## $lsmeans
+##  VI1 VI2 VI3        lsmean           SE    df      lower.CL      upper.CL
+##  END ac  h    1.714029e-04 0.0009120423 137.1 -0.0016320858  0.0019748915
+##  EXO ac  h   -1.788841e-04 0.0009120423 137.1 -0.0019823727  0.0016246046
+##  END bc  h   -3.764511e-03 0.0009120423 137.1 -0.0055680000 -0.0019610227
+##  EXO bc  h    1.958877e-03 0.0009120423 137.1  0.0001553885  0.0037623657
+##  END ac  m    2.628704e-03 0.0009120423 137.1  0.0008252155  0.0044321928
+##  EXO ac  m   -1.698224e-03 0.0009120423 137.1 -0.0035017124  0.0001052648
+##  END bc  m   -5.434844e-05 0.0009120423 137.1 -0.0018578371  0.0017491402
+##  EXO bc  m    7.477451e-04 0.0009120423 137.1 -0.0010557436  0.0025512337
+## 
+## Confidence level used: 0.95 
+## 
+## $contrasts
+##  contrast                 estimate          SE     df t.ratio p.value
+##  END,ac,h - EXO,ac,h  0.0003502869 0.001309353  73.37   0.268  1.0000
+##  END,ac,h - END,bc,h  0.0039359142 0.001357235  66.25   2.900  0.0890
+##  END,ac,h - EXO,bc,h -0.0017874742 0.001345954  68.77  -1.328  0.8850
+##  END,ac,h - END,ac,m -0.0024573013 0.001190476  69.20  -2.064  0.4479
+##  END,ac,h - EXO,ac,m  0.0018696267 0.001238179  70.69   1.510  0.7996
+##  END,ac,h - END,bc,m  0.0002257513 0.001713480 108.74   0.132  1.0000
+##  END,ac,h - EXO,bc,m -0.0005763422 0.001302966  69.79  -0.442  0.9998
+##  EXO,ac,h - END,bc,h  0.0035856273 0.001345954  68.77   2.664  0.1517
+##  EXO,ac,h - EXO,bc,h -0.0021377612 0.001357235  66.25  -1.575  0.7631
+##  EXO,ac,h - END,ac,m -0.0028075882 0.001238179  70.69  -2.268  0.3259
+##  EXO,ac,h - EXO,ac,m  0.0015193397 0.001190476  69.20   1.276  0.9045
+##  EXO,ac,h - END,bc,m -0.0001245356 0.001302966  69.79  -0.096  1.0000
+##  EXO,ac,h - EXO,bc,m -0.0009266291 0.001713480 108.74  -0.541  0.9994
+##  END,bc,h - EXO,bc,h -0.0057233885 0.001309353  73.37  -4.371  0.0010
+##  END,bc,h - END,ac,m -0.0063932155 0.001713480 108.74  -3.731  0.0071
+##  END,bc,h - EXO,ac,m -0.0020662876 0.001302966  69.79  -1.586  0.7570
+##  END,bc,h - END,bc,m -0.0037101629 0.001190476  69.20  -3.117  0.0512
+##  END,bc,h - EXO,bc,m -0.0045122564 0.001238179  70.69  -3.644  0.0113
+##  EXO,bc,h - END,ac,m -0.0006698271 0.001302966  69.79  -0.514  0.9996
+##  EXO,bc,h - EXO,ac,m  0.0036571009 0.001713480 108.74   2.134  0.4000
+##  EXO,bc,h - END,bc,m  0.0020132255 0.001238179  70.69   1.626  0.7332
+##  EXO,bc,h - EXO,bc,m  0.0012111320 0.001190476  69.20   1.017  0.9703
+##  END,ac,m - EXO,ac,m  0.0043269280 0.001309353  73.37   3.305  0.0302
+##  END,ac,m - END,bc,m  0.0026830526 0.001357235  66.25   1.977  0.5049
+##  END,ac,m - EXO,bc,m  0.0018809591 0.001345954  68.77   1.397  0.8553
+##  EXO,ac,m - END,bc,m -0.0016438754 0.001345954  68.77  -1.221  0.9228
+##  EXO,ac,m - EXO,bc,m -0.0024459689 0.001357235  66.25  -1.802  0.6209
+##  END,bc,m - EXO,bc,m -0.0008020935 0.001309353  73.37  -0.613  0.9986
+## 
+## P value adjustment: tukey method for comparing a family of 8 estimates</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">lsmeans</span>(a, <span class="st">&quot;VI1&quot;</span>, <span class="dt">contr =</span> <span class="st">&quot;pairwise&quot;</span>)</code></pre></div>
+<pre><code>## NOTE: Results may be misleading due to involvement in interactions</code></pre>
+<pre><code>## $lsmeans
+##  VI1        lsmean           SE    df      lower.CL     upper.CL
+##  END -0.0002546882 0.0002395926 53.36 -0.0007351753 0.0002257989
+##  EXO  0.0002073786 0.0002395926 53.36 -0.0002731085 0.0006878657
+## 
+## Results are averaged over the levels of: VI2, VI3 
+## Confidence level used: 0.95 
+## 
+## $contrasts
+##  contrast       estimate           SE df t.ratio p.value
+##  END - EXO -0.0004620668 0.0003746565 28  -1.233  0.2277
+## 
+## Results are averaged over the levels of: VI2, VI3</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">lsmeans</span>(a, <span class="st">&quot;VI2&quot;</span>, <span class="dt">contr =</span> <span class="st">&quot;pairwise&quot;</span>)</code></pre></div>
+<pre><code>## NOTE: Results may be misleading due to involvement in interactions</code></pre>
+<pre><code>## $lsmeans
+##  VI2        lsmean           SE    df      lower.CL     upper.CL
+##  ac   0.0002307498 0.0004987291 33.47 -0.0007833862 0.0012448858
+##  bc  -0.0002780594 0.0004987291 33.47 -0.0012921954 0.0007360766
+## 
+## Results are averaged over the levels of: VI1, VI3 
+## Confidence level used: 0.95 
+## 
+## $contrasts
+##  contrast     estimate           SE df t.ratio p.value
+##  ac - bc  0.0005088092 0.0009516679 28   0.535  0.5971
+## 
+## Results are averaged over the levels of: VI1, VI3</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">lsmeans</span>(a, <span class="st">&quot;VI3&quot;</span>, <span class="dt">contr =</span> <span class="st">&quot;pairwise&quot;</span>)</code></pre></div>
+<pre><code>## NOTE: Results may be misleading due to involvement in interactions</code></pre>
+<pre><code>## $lsmeans
+##  VI3        lsmean           SE    df      lower.CL     upper.CL
+##  h   -0.0004532789 0.0004010121 36.79 -0.0012659605 0.0003594027
+##  m    0.0004059692 0.0004010121 36.79 -0.0004067123 0.0012186508
+## 
+## Results are averaged over the levels of: VI1, VI2 
+## Confidence level used: 0.95 
+## 
+## $contrasts
+##  contrast      estimate           SE df t.ratio p.value
+##  h - m    -0.0008592481 0.0007443063 28  -1.154  0.2581
+## 
+## Results are averaged over the levels of: VI1, VI2</code></pre>
+
+</div>
+<div id="mixed-models" class="section level2">
+<h2><span class="header-section-number">9.12</span> Mixed Models</h2>
+<p><a href="http://mfviz.com/hierarchical-models/" class="uri">http://mfviz.com/hierarchical-models/</a></p>
+
+</div>
+<div id="meta-analysis" class="section level2">
+<h2><span class="header-section-number">9.13</span> Meta analysis</h2>
+<p>Code adapted from an example sent by Miro on 20170509</p>
+<hr />
+<p>Meta-analysis of Brase, G. L., &amp; Hill, W. T. (2017). Adding up to good Bayesian reasoning: Problem format manipulations and individual skill differences. Journal of Experimental Psychology: General, 146(4), 577–591. <a href="http://doi.org/10.1037/xge0000280" class="uri">http://doi.org/10.1037/xge0000280</a></p>
+<hr />
+<p><strong>Factorial 2x2 design (aggreagted data from Experiment1 &amp; Experiment2)</strong></p>
+<p>IV1: Representation format (Natural Frequencies x Probabilities)<br />
+IV2: Pictorial aid (No pictorial aid x Pictorial aid)</p>
+<p>Experiment1 <img src="Images/Data_analysis/Meta_analysis/Brase_Experiment_1.png" /></p>
+<p>Experiment2 <img src="Images/Data_analysis/Meta_analysis/Brase_Experiment_2.png" /></p>
+<p><strong>Libraries</strong></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
+<span class="kw">p_load</span>(metafor)</code></pre></div>
+<div id="natural-frequencies-effect" class="section level3">
+<h3><span class="header-section-number">9.13.1</span> Natural Frequencies Effect</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># input of the data from the two experiments, each is featuring two comparison (note: ai to di are corresponding to the 2x2 table, n1i and n2i are row sums)</span>
+
+Contrast =<span class="st"> &quot;NF - Perc&quot;</span>
+Comparisons =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Exp 1a No Picture&quot;</span>, <span class="st">&quot;Exp 1b Picture&quot;</span>, <span class="st">&quot;Exp 2a No Picture&quot;</span>,<span class="st">&quot;Exp 2b Picture&quot;</span>)
+
+<span class="co"># NF with and without pictures</span>
+<span class="co"># E1_NF, E1_NF+Pic, E2_NF, E2_NF+Pic</span>
+<span class="co"># (84*.373, 85*.416, 172*.419, 186*.484)</span>
+ai &lt;-<span class="st">  </span><span class="kw">c</span>(<span class="dv">31</span>, <span class="dv">35</span>, <span class="dv">72</span>, <span class="dv">90</span>)
+n1i &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">84</span>, <span class="dv">85</span>, <span class="dv">172</span>, <span class="dv">186</span>)
+bi &lt;-<span class="st"> </span>n1i<span class="op">-</span><span class="st"> </span>ai <span class="co"># c(53, 50, 100, 96)</span>
+
+<span class="co"># Prob with and without pictures</span>
+<span class="co"># E1_Perc, E1_Perc+Pic, E2_Perc, E2_Perc+Pic</span>
+<span class="co"># (83*.049, 84*.194, 172*.087, 181*.265)</span>
+ci &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">16</span>, <span class="dv">15</span>, <span class="dv">48</span>)
+n2i &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">83</span>, <span class="dv">84</span>, <span class="dv">172</span>, <span class="dv">181</span>)
+di &lt;-<span class="st"> </span>n2i <span class="op">-</span><span class="st"> </span>ci <span class="co"># di &lt;- c(79, 68, 157, 133)</span>
+
+<span class="co"># mod &lt;- c(0, 1, 0, 1)</span>
+
+<span class="co"># fit the fixed model and return its value for OR</span>
+rma.overallOR &lt;-<span class="st"> </span><span class="kw">rma.uni</span>(<span class="dt">ai=</span>ai, <span class="dt">bi=</span>bi, <span class="dt">ci=</span>ci, <span class="dt">di=</span>di, <span class="dt">n1i=</span>n1i, <span class="dt">n2i=</span>n2i, <span class="dt">measure=</span><span class="st">&quot;OR&quot;</span>, 
+                         <span class="dt">method=</span><span class="st">&quot;REML&quot;</span>, <span class="dt">weighted=</span><span class="ot">TRUE</span>,
+                         <span class="dt">level=</span><span class="dv">95</span>, <span class="dt">digits=</span><span class="dv">3</span>)
+
+<span class="kw">summary</span>(rma.overallOR)</code></pre></div>
+<pre><code>## 
+## Random-Effects Model (k = 4; tau^2 estimator: REML)
+## 
+##   logLik  deviance       AIC       BIC      AICc  
+##   -3.205     6.410    10.410     8.607    22.410  
+## 
+## tau^2 (estimated amount of total heterogeneity): 0.339 (SE = 0.382)
+## tau (square root of estimated tau^2 value):      0.583
+## I^2 (total heterogeneity / total variability):   75.66%
+## H^2 (total variability / sampling variability):  4.11
+## 
+## Test for Heterogeneity: 
+## Q(df = 3) = 12.128, p-val = 0.007
+## 
+## Model Results:
+## 
+## estimate     se   zval   pval  ci.lb  ci.ub     
+##    1.542  0.342  4.507  &lt;.001  0.871  2.213  ***
+## 
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># rma.overallOR</span>
+
+<span class="kw">forest</span>(rma.overallOR, 
+       <span class="dt">showweight =</span> <span class="ot">TRUE</span>,
+       <span class="dt">slab=</span>Comparisons, 
+       <span class="dt">xlab=</span><span class="st">&quot;Log Odds Ratio&quot;</span>, <span class="dt">mlab=</span><span class="st">&quot;FE Model for All Comparisons&quot;</span>, <span class="dt">main =</span> Contrast )</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-60-1.png" width="672" /></p>
+</div>
+<div id="pictures-effect" class="section level3">
+<h3><span class="header-section-number">9.13.2</span> Pictures Effect</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># input of the data from the two experiments, each is featuring two comparison (note: ai to di are corresponding to the 2x2 table, n1i and n2i are row sums)</span>
+<span class="co"># Here we use the parameter mod to assess moderation (???)</span>
+
+Contrast =<span class="st"> &quot;Pictures - No pictures&quot;</span>
+Comparisons =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Exp 1a Perc&quot;</span>, <span class="st">&quot;Exp 1b NF&quot;</span>, <span class="st">&quot;Exp 2a Perc&quot;</span>,<span class="st">&quot;Exp 2b NF&quot;</span>)
+
+
+<span class="co"># Prob and  NF with Pictures</span>
+<span class="co"># E1_Perc+Pic, E1_NF+Pic, E2_Perc+Pic, E2_NF+Pic</span>
+<span class="co"># (84*.194,   85*.416,  181*.265, 186*.484)</span>
+ai &lt;-<span class="st">  </span><span class="kw">c</span>(<span class="dv">16</span>, <span class="dv">35</span>, <span class="dv">48</span>, <span class="dv">90</span>)
+n1i &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">84</span>, <span class="dv">85</span>, <span class="dv">181</span>, <span class="dv">186</span>)
+bi &lt;-<span class="st"> </span>n1i<span class="op">-</span><span class="st"> </span>ai <span class="co"># bi &lt;- c(68, 50, 133, 96)</span>
+
+<span class="co"># Prob and  NF without Pictures</span>
+<span class="co"># E1_Perc, E1_NF, E2_Perc , E2_NF</span>
+<span class="co"># (83*.049,   84*.373,  172*.087, 172*.419)</span>
+ci &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">31</span>, <span class="dv">15</span>, <span class="dv">72</span>)
+n2i &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">83</span>, <span class="dv">84</span>, <span class="dv">172</span>, <span class="dv">172</span>)
+di &lt;-<span class="st"> </span>n2i <span class="op">-</span><span class="st"> </span>ci <span class="co"># di &lt;- c(79, 53, 157, 100)</span>
+
+
+mod &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>)
+
+<span class="co"># fit the fixed model and return its value for OR</span>
+  <span class="co"># Here we use the moderator mod</span>
+rma.overallOR &lt;-<span class="st"> </span><span class="kw">rma.uni</span>(<span class="dt">ai=</span>ai, <span class="dt">bi=</span>bi, <span class="dt">ci=</span>ci, <span class="dt">di=</span>di, <span class="dt">n1i=</span>n1i, <span class="dt">n2i=</span>n2i, <span class="dt">mod=</span>mod, <span class="dt">measure=</span><span class="st">&quot;OR&quot;</span>, 
+                         <span class="dt">method=</span><span class="st">&quot;REML&quot;</span>, <span class="dt">weighted=</span>T,
+                         <span class="dt">level=</span><span class="dv">95</span>, <span class="dt">digits=</span><span class="dv">3</span>)
+
+<span class="kw">summary</span>(rma.overallOR)</code></pre></div>
+<pre><code>## 
+## Mixed-Effects Model (k = 4; tau^2 estimator: REML)
+## 
+##   logLik  deviance       AIC       BIC      AICc  
+##    0.156    -0.313     5.687     1.767    29.687  
+## 
+## tau^2 (estimated amount of residual heterogeneity):     0 (SE = 0.097)
+## tau (square root of estimated tau^2 value):             0
+## I^2 (residual heterogeneity / unaccounted variability): 0.00%
+## H^2 (unaccounted variability / sampling variability):   1.00
+## R^2 (amount of heterogeneity accounted for):            100.00%
+## 
+## Test for Residual Heterogeneity: 
+## QE(df = 2) = 0.146, p-val = 0.929
+## 
+## Test of Moderators (coefficient(s) 2): 
+## QM(df = 1) = 11.872, p-val &lt; .001
+## 
+## Model Results:
+## 
+##          estimate     se    zval   pval   ci.lb   ci.ub     
+## intrcpt     1.377  0.279   4.926  &lt;.001   0.829   1.924  ***
+## mods       -1.139  0.331  -3.446  &lt;.001  -1.787  -0.491  ***
+## 
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># rma.overallOR</span>
+
+<span class="kw">forest</span>(rma.overallOR, 
+       <span class="dt">showweight =</span> <span class="ot">TRUE</span>,
+       <span class="dt">slab=</span> Comparisons, 
+       <span class="dt">xlab=</span><span class="st">&quot;Log Odds Ratio&quot;</span>, <span class="dt">mlab=</span><span class="st">&quot;REML Model for All Comparisons&quot;</span>, <span class="dt">main =</span> Contrast)</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-61-1.png" width="672" /></p>
+</div>
+<div id="notes-on-meta-analysis" class="section level3">
+<h3><span class="header-section-number">9.13.3</span> Notes on Meta-analysis</h3>
+<p><a href="http://www.nicebread.de/meta-showdown-1/" class="uri">http://www.nicebread.de/meta-showdown-1/</a></p>
+
+</div>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p>Leys, C., Ley, C., Klein, O., Bernard, P. &amp; Licata, L. Detecting outliers: Do not use standard deviation around the mean, use absolute deviation around the median. J. Exp. Soc. Psychol. 49, 764–766 (2013).<a href="Estadistica-inferencial.html#fnref1">↩</a></p></li>
+<li id="fn2"><p><a href="https://www.researchgate.net/post/For_decision_times_do_you_first_take_the_logarithm_and_then_exclude_extreme_outliers_or_the_other_way_around_And_how_do_you_define_outliers">See <strong>Serban C. Musca</strong> post</a><a href="Estadistica-inferencial.html#fnref2">↩</a></p></li>
+</ol>
 </div>
             </section>
 
@@ -884,7 +1405,7 @@ df <span class="op">%&gt;%</span><span class="st"> </span>
         </div>
       </div>
 <a href="Estadistica-descriptiva.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="association-test.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="Funciones.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

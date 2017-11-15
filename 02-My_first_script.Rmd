@@ -30,7 +30,10 @@ Cuando queramos trabajar con archivos, tenemos que decirle a R donde se encuentr
 ## Nuestro primer script
 
 Al finalizar, tendremos un archivo llamado 'Script1.R' en la carpeta 'R Workshop' con el contenido de más abajo. Siempre que creemos un script, empezaremos del mismo modo:
-```{r mi_primer_script, message=FALSE, warning=FALSE}
+
+Mucha gente recomienda NO usar la funcion setwd(), y en su lugar, crear proyectos de RStudio.
+
+```{r first_script, message=FALSE, warning=FALSE}
 # Cargamos librerias
 if (!require('pacman')) install.packages('pacman'); library('pacman')
 p_load(tidyverse)

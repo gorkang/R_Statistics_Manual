@@ -3,7 +3,7 @@
 ## Cuando sabemos que función usar, pero dudamos de la sintaxis:
 
 Podemos usar la funcion `help()` o podemos hacer click sobre la función y presionar la tecla F1. Por ejemplo, si queremos usar la función `summary()` pero dudamos sobre como usarla... 
-```{r}
+```{r help}
 # Ejemplo para la función summary()
 help(summary)
 ```

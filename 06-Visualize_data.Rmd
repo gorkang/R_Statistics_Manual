@@ -50,10 +50,65 @@ En muchos de los gráficos, análisis estadísticos, etc, usaremos la sintaxis: 
 
 ## Tipos de gráficas
 
+
+
+### Shaded geom area
+
+FROM \@kara_woo: https://gist.github.com/karawoo/14f4f46da900b09997d26171d092fb92
+
+** BUG: If we run this code at the end of the file (or even before Pirate plot), the y axis gets mangled. Something happens in the histograms? **
+
+```{r shaded_area, message=FALSE, warning=FALSE}
+library(tidyverse, ggplot2)
+
+data_for_plot = read_csv("Data/06_Visualize_data/data_shaded_geom_area.csv")
+
+# Deaths by cause
+p_area <- ggplot(data_for_plot, aes(x=year, y=count, group=cat, order=cat)) +
+  geom_area(aes(fill=cat), position='stack')
+
+p_area
+
+
+## Calculate total deaths by year
+dat <- data_for_plot %>%
+  group_by(year) %>%
+  mutate(total = sum(count))
+
+## Colors I chose
+mycolors <- c("#00bf7b", "#59004d", "#ffcb89", "#a76e61", "#ac270d", "#7890ff",
+              "#6ca013", "#c2e05e", "#00300d", "#ff7b90")
+
+
+## Plot as small multiples
+p_small_mult <- ggplot(dat, aes(x = year)) +
+  ## Gray background showing total
+  geom_area(aes(y = total), fill = "grey80", alpha = 0.7) +
+  ## Individual areas for each category
+  geom_area(aes(y = count, fill = cat)) +
+  facet_wrap(~ cat, nrow = 2) +
+  ## Further customization
+  scale_fill_manual(values = mycolors) +
+  scale_y_continuous(limits = c(0, max(dat$total) + 5), expand = c(0, 0)) +
+  theme_minimal() +
+  theme(
+    legend.position = "none",
+    axis.text = element_text(size = 7)
+  ) +
+  labs(
+    y = "Total deaths",
+    x = "Year",
+    title = "On-duty police officer deaths",
+    subtitle = "Data: https://github.com/fivethirtyeight/data/police-deaths"
+  )
+
+p_small_mult
+``` 
+
 ### Histogramas
 
 La función hist() nos permite crear de manera muy sencilla histogramas para ver 
-```{r}
+```{r histograms}
 # Histograma sencillo
 hist(datos$Edad)
 
@@ -67,7 +122,7 @@ qplot(datos$Edad,
 ```
 
 Si queremos ver los histogramas de todas las variables numéricas de nuestro dataset:
-```{r}
+```{r multiple_histograms}
 # Metodo 1
 if (!require('pacman')) install.packages('pacman'); library('pacman')
 p_load(plyr, psych)
@@ -87,7 +142,7 @@ ggplot(d,aes(x = value)) +
 ### Pirate plot{#Pirate-Plot}
 
 Ver la web del creador: [Pirate plot](http://nathanieldphillips.com/) y su página de [Github](https://github.com/ndphillips/yarrr)
-```{r}
+```{r pirate}
 # Cargamos librerias
 if (!require('pacman')) install.packages('pacman'); library('pacman')
 p_load(yarrr)
@@ -109,7 +164,7 @@ pirateplot(formula = PPV_DECLARED ~ condition,
 
 ### Diagrama de caja y bigotes
 
-```{r}
+```{r boxplot}
 boxplot(PPV_DECLARED ~ condition, datos)
 ```
 
@@ -118,7 +173,7 @@ boxplot(PPV_DECLARED ~ condition, datos)
 
 Ver la web del paquete: [Correlation plot](https://cran.r-project.org/web/packages/corrplot/vignettes/corrplot-intro.html) y su página de [Github](https://github.com/taiyun/corrplot)
 
-```{r}
+```{r correlation_plot}
 # Cargamos libreria
 if (!require('pacman')) install.packages('pacman'); library('pacman')
 p_load(corrplot)
@@ -131,7 +186,7 @@ corrplot(cor(datos[,c(2:5,7)]), mar = c(1,0, 0, 0),tl.cex = 0.9,
 
 Ver la web del paquete [Beanplot](https://cran.r-project.org/web/packages/beanplot/index.html)
 
-```{r}
+```{r bean_plot}
 # Cargamos libreria
 if (!require('pacman')) install.packages('pacman'); library('pacman')
 p_load(beanplot)
@@ -142,10 +197,12 @@ what = c(1,1,1,0), border = NA, col = list("black", c("grey", "white")))
 
 ```
 
+
+
 ### Scatterplot
 
 Ver la web del creador: [ggpubr](http://www.sthda.com/english/rpkgs/ggpubr/) y su página de [Github](https://github.com/kassambara/ggpubr)
-```{r}
+```{r scatterplot}
 # Cargamos libreria
 if (!require('pacman')) install.packages('pacman'); library('pacman')
 p_load(ggpubr)
@@ -163,7 +220,7 @@ ggscatter(datos2, x = "Educacion", y = "Edad",
 
 Ver la web de documentación de [ggplot2](http://docs.ggplot2.org/current/) y su página de [Github](https://github.com/hadley/ggplot2)
 
-```{r}
+```{r scatterplot_3v}
 # Cargamos libreria
 if (!require('pacman')) install.packages('pacman'); library('pacman')
 p_load(tidyverse)
@@ -178,7 +235,7 @@ ggplot(datos, aes(PPV_DECLARED, FollowUP, color=factor(Genero))) +
 
 ### Multiple Scatterplots
 
-```{r}
+```{r scatterplot_multiple}
 if (!require('pacman')) install.packages('pacman'); library('pacman')
 p_load(tidyverse, ggthemes, Rmisc)
 
@@ -236,7 +293,7 @@ Ver la web del creador: [ggpubr](http://www.sthda.com/english/rpkgs/ggpubr/) y s
 
 * The variable we use to create two different sub-plots has to be a factor!  
 
-```{r}
+```{r dentity_plot}
 if (!require('pacman')) install.packages('pacman'); library('pacman')
 p_load(tidyverse, ggpubr)
 
@@ -252,9 +309,9 @@ ggdensity(datos, x = "PPV_DECLARED",
 
 ```
 
-### ggjoy Plots
+### Density Ridges Plots (ggjoy)
 
-```{r}
+```{r density_ridges}
 if (!require('pacman')) install.packages('pacman'); library('pacman')
 p_load(tidyverse, ggridges)
 
@@ -291,7 +348,7 @@ ggplot(datos2, aes(x = FollowUP, y = Genero, fill = Genero)) +
 
 Plots of distributional differences... See http://www.dandersondata.com/post/esvis-part-1/
 
-```{r message=FALSE, warning=FALSE}
+```{r PP_plot, message=FALSE, warning=FALSE}
 devtools::install_github("DJAnderson07/esvis")
 library(esvis)
 
@@ -301,7 +358,7 @@ pp_plot(reading ~ frl, benchmarks)
 
 
 
-```{r message=FALSE, warning=FALSE}
+```{r PP_plot_2, message=FALSE, warning=FALSE}
 pp_plot(reading ~ ell, benchmarks, ref_group = "Non-ELL")
 
 ```
@@ -311,12 +368,13 @@ pp_plot(reading ~ ell, benchmarks, ref_group = "Non-ELL")
 
 
 For the sake of comparison, here are the distributions plotted with geom_density_ridges:
-```{r message=FALSE, warning=FALSE}
+```{r PP_plot_comparison, message=FALSE, warning=FALSE}
 
 ggplot(benchmarks, aes(x = reading, y = ell, fill = ell)) + 
   geom_density_ridges(scale = 2, alpha = .7, color = "white", stat = "binline", bins = 20) + 
   geom_density_ridges(scale = 2, alpha = .4, color = "white") + 
   scale_fill_hue(l=30)
 ```
+
 
 

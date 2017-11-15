@@ -1,4 +1,4 @@
-# Meta analysis
+## Meta analysis
 
 Code adapted from an example sent by Miro on 20170509
 
@@ -28,7 +28,7 @@ if (!require('pacman')) install.packages('pacman'); library('pacman')
 p_load(metafor)
 ```
 
-## Natural Frequencies Effect
+### Natural Frequencies Effect
 
 ```{r}
 
@@ -69,7 +69,7 @@ forest(rma.overallOR,
 ```
 
 
-##Pictures Effect
+### Pictures Effect
 
 ```{r}
 
@@ -112,6 +112,6 @@ forest(rma.overallOR,
        xlab="Log Odds Ratio", mlab="REML Model for All Comparisons", main = Contrast)
 ```
 
-## Notes on Meta-analysis
+### Notes on Meta-analysis
 
 http://www.nicebread.de/meta-showdown-1/
