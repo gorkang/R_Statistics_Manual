@@ -50,13 +50,5 @@ datos = datos %>% mutate(sexo = ifelse(sexo == 0, "femenino", "masculino")) %>% 
     + datos_visualizar.csv
     + ...
     
-* Usar pacman para instalar y cargar paquetes:
-```{r}
-# Gestor librerias
-# install.packages("pacman")
-library(pacman)
-
-#Instalamos librerias
-p_load(lavaan, simsem, semTools, semPlot, devtools, tidyverse)
-```
+* Usar pacman para instalar y cargar paquetes
 

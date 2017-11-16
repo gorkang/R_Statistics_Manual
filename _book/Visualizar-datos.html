@@ -25,7 +25,7 @@
 <meta name="author" content="Center for Social and Cognitive Neuroscience - cscn.uai.cl">
 
 
-<meta name="date" content="2017-11-15">
+<meta name="date" content="2017-11-16">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -47,6 +47,9 @@
 
 
 
+<script src="libs/htmlwidgets-0.9/htmlwidgets.js"></script>
+<link href="libs/str_view-0.1.0/str_view.css" rel="stylesheet" />
+<script src="libs/str_view-binding-1.2.0/str_view.js"></script>
 
 
 <style type="text/css">
@@ -172,24 +175,25 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="6.5" data-path="Manipular-datos.html"><a href="Manipular-datos.html#verbos-avanzados"><i class="fa fa-check"></i><b>6.5</b> Verbos avanzados</a><ul>
 <li class="chapter" data-level="6.5.1" data-path="Manipular-datos.html"><a href="Manipular-datos.html#cambiar-multiples-columnas-de-un-tipo-a-otro"><i class="fa fa-check"></i><b>6.5.1</b> Cambiar multiples columnas de un tipo a otro</a></li>
 </ul></li>
-<li class="chapter" data-level="6.6" data-path="Manipular-datos.html"><a href="Manipular-datos.html#tutoriales-externos"><i class="fa fa-check"></i><b>6.6</b> Tutoriales externos</a></li>
+<li class="chapter" data-level="6.6" data-path="Manipular-datos.html"><a href="Manipular-datos.html#regular-expressions"><i class="fa fa-check"></i><b>6.6</b> Regular expressions</a></li>
+<li class="chapter" data-level="6.7" data-path="Manipular-datos.html"><a href="Manipular-datos.html#tutoriales-externos"><i class="fa fa-check"></i><b>6.7</b> Tutoriales externos</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html"><i class="fa fa-check"></i><b>7</b> Visualizar datos</a><ul>
 <li class="chapter" data-level="7.1" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#todo-1"><i class="fa fa-check"></i><b>7.1</b> TODO</a></li>
 <li class="chapter" data-level="7.2" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#que-grafica-puedo-usar-wip"><i class="fa fa-check"></i><b>7.2</b> Que gráfica puedo usar (WIP)</a></li>
 <li class="chapter" data-level="7.3" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#tipos-de-graficas"><i class="fa fa-check"></i><b>7.3</b> Tipos de gráficas</a><ul>
-<li class="chapter" data-level="7.3.1" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#shaded-geom-area"><i class="fa fa-check"></i><b>7.3.1</b> Shaded geom area</a></li>
-<li class="chapter" data-level="7.3.2" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#histogramas"><i class="fa fa-check"></i><b>7.3.2</b> Histogramas</a></li>
-<li class="chapter" data-level="7.3.3" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#Pirate-Plot"><i class="fa fa-check"></i><b>7.3.3</b> Pirate plot</a></li>
-<li class="chapter" data-level="7.3.4" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#diagrama-de-caja-y-bigotes"><i class="fa fa-check"></i><b>7.3.4</b> Diagrama de caja y bigotes</a></li>
-<li class="chapter" data-level="7.3.5" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#correlation-plot"><i class="fa fa-check"></i><b>7.3.5</b> Correlation plot</a></li>
-<li class="chapter" data-level="7.3.6" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#beanplot"><i class="fa fa-check"></i><b>7.3.6</b> Beanplot</a></li>
-<li class="chapter" data-level="7.3.7" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#scatterplot"><i class="fa fa-check"></i><b>7.3.7</b> Scatterplot</a></li>
-<li class="chapter" data-level="7.3.8" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#scatterplot-con-3-variables"><i class="fa fa-check"></i><b>7.3.8</b> Scatterplot con 3 variables</a></li>
-<li class="chapter" data-level="7.3.9" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#multiple-scatterplots"><i class="fa fa-check"></i><b>7.3.9</b> Multiple Scatterplots</a></li>
-<li class="chapter" data-level="7.3.10" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#density-plots"><i class="fa fa-check"></i><b>7.3.10</b> Density plots</a></li>
-<li class="chapter" data-level="7.3.11" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#density-ridges-plots-ggjoy"><i class="fa fa-check"></i><b>7.3.11</b> Density Ridges Plots (ggjoy)</a></li>
-<li class="chapter" data-level="7.3.12" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#pp-plots"><i class="fa fa-check"></i><b>7.3.12</b> PP plots</a></li>
+<li class="chapter" data-level="7.3.1" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#histogramas"><i class="fa fa-check"></i><b>7.3.1</b> Histogramas</a></li>
+<li class="chapter" data-level="7.3.2" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#Pirate-Plot"><i class="fa fa-check"></i><b>7.3.2</b> Pirate plot</a></li>
+<li class="chapter" data-level="7.3.3" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#diagrama-de-caja-y-bigotes"><i class="fa fa-check"></i><b>7.3.3</b> Diagrama de caja y bigotes</a></li>
+<li class="chapter" data-level="7.3.4" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#correlation-plot"><i class="fa fa-check"></i><b>7.3.4</b> Correlation plot</a></li>
+<li class="chapter" data-level="7.3.5" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#beanplot"><i class="fa fa-check"></i><b>7.3.5</b> Beanplot</a></li>
+<li class="chapter" data-level="7.3.6" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#scatterplot"><i class="fa fa-check"></i><b>7.3.6</b> Scatterplot</a></li>
+<li class="chapter" data-level="7.3.7" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#scatterplot-con-3-variables"><i class="fa fa-check"></i><b>7.3.7</b> Scatterplot con 3 variables</a></li>
+<li class="chapter" data-level="7.3.8" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#density-plots"><i class="fa fa-check"></i><b>7.3.8</b> Density plots</a></li>
+<li class="chapter" data-level="7.3.9" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#density-ridges-plots-ggjoy"><i class="fa fa-check"></i><b>7.3.9</b> Density Ridges Plots (ggjoy)</a></li>
+<li class="chapter" data-level="7.3.10" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#pp-plots"><i class="fa fa-check"></i><b>7.3.10</b> PP plots</a></li>
+<li class="chapter" data-level="7.3.11" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#shaded-geom-area"><i class="fa fa-check"></i><b>7.3.11</b> Shaded geom area</a></li>
+<li class="chapter" data-level="7.3.12" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#multiple-scatterplots"><i class="fa fa-check"></i><b>7.3.12</b> Multiple Scatterplots</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="Estadistica-descriptiva.html"><a href="Estadistica-descriptiva.html"><i class="fa fa-check"></i><b>8</b> Estadistica descriptiva</a><ul>
@@ -288,13 +292,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="14.1" data-path="other-stuff.html"><a href="other-stuff.html#maps---generate-and-locate-cities-in-a-world-map"><i class="fa fa-check"></i><b>14.1</b> Maps - Generate and locate cities in a world map</a></li>
 <li class="chapter" data-level="14.2" data-path="other-stuff.html"><a href="other-stuff.html#extract-tables-from-the-internet"><i class="fa fa-check"></i><b>14.2</b> Extract tables from the internet</a></li>
 </ul></li>
-<li class="chapter" data-level="15" data-path="exercises-solutions.html"><a href="exercises-solutions.html"><i class="fa fa-check"></i><b>15</b> Exercises solutions</a><ul>
-<li class="chapter" data-level="15.1" data-path="exercises-solutions.html"><a href="exercises-solutions.html#exercices-1"><i class="fa fa-check"></i><b>15.1</b> Exercices 1</a></li>
-<li class="chapter" data-level="15.2" data-path="exercises-solutions.html"><a href="exercises-solutions.html#Ejercicios2"><i class="fa fa-check"></i><b>15.2</b> Ejercicios 2</a></li>
+<li class="chapter" data-level="15" data-path="exercises.html"><a href="exercises.html"><i class="fa fa-check"></i><b>15</b> Exercises</a><ul>
+<li class="chapter" data-level="15.1" data-path="exercises.html"><a href="exercises.html#Ejercicios1"><i class="fa fa-check"></i><b>15.1</b> Ejercicios 1</a></li>
+<li class="chapter" data-level="15.2" data-path="exercises.html"><a href="exercises.html#Ejercicios2"><i class="fa fa-check"></i><b>15.2</b> Ejercicios 2</a></li>
 </ul></li>
-<li class="chapter" data-level="16" data-path="exercises.html"><a href="exercises.html"><i class="fa fa-check"></i><b>16</b> Exercises</a><ul>
-<li class="chapter" data-level="16.1" data-path="exercises.html"><a href="exercises.html#Ejercicios1"><i class="fa fa-check"></i><b>16.1</b> Ejercicios 1</a></li>
-<li class="chapter" data-level="16.2" data-path="exercises-solutions.html"><a href="exercises-solutions.html#Ejercicios2"><i class="fa fa-check"></i><b>16.2</b> Ejercicios 2</a></li>
+<li class="chapter" data-level="16" data-path="exercises-solutions.html"><a href="exercises-solutions.html"><i class="fa fa-check"></i><b>16</b> Exercises solutions</a><ul>
+<li class="chapter" data-level="16.1" data-path="exercises-solutions.html"><a href="exercises-solutions.html#exercices-1"><i class="fa fa-check"></i><b>16.1</b> Exercices 1</a></li>
+<li class="chapter" data-level="16.2" data-path="exercises.html"><a href="exercises.html#Ejercicios2"><i class="fa fa-check"></i><b>16.2</b> Ejercicios 2</a></li>
 </ul></li>
 <li class="chapter" data-level="17" data-path="bibliography-and-interesting-resources.html"><a href="bibliography-and-interesting-resources.html"><i class="fa fa-check"></i><b>17</b> Bibliography and interesting resources</a><ul>
 <li class="chapter" data-level="17.1" data-path="bibliography-and-interesting-resources.html"><a href="bibliography-and-interesting-resources.html#bibliography"><i class="fa fa-check"></i><b>17.1</b> Bibliography</a></li>
@@ -414,10 +418,203 @@ datos2 =<span class="st"> </span><span class="kw">read.csv</span>(<span class="s
 </div>
 <div id="tipos-de-graficas" class="section level2">
 <h2><span class="header-section-number">7.3</span> Tipos de gráficas</h2>
+<div id="histogramas" class="section level3">
+<h3><span class="header-section-number">7.3.1</span> Histogramas</h3>
+<p>La función hist() nos permite crear de manera muy sencilla histogramas para ver</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Histograma sencillo</span>
+<span class="kw">hist</span>(datos<span class="op">$</span>Edad)</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/histograms-1.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Dotplot histogram</span>
+<span class="kw">qplot</span>(datos<span class="op">$</span>Edad, 
+      <span class="dt">geom=</span><span class="st">&quot;dotplot&quot;</span>, 
+      <span class="dt">fill =</span> <span class="kw">I</span>(<span class="st">&quot;forestgreen&quot;</span>),
+      <span class="dt">xlab =</span> <span class="st">&quot;Age&quot;</span>, 
+      <span class="dt">main =</span> <span class="st">&quot;Age dotplot histogram&quot;</span>)</code></pre></div>
+<pre><code>## `stat_bindot()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<p><img src="bookdown-demo_files/figure-html/histograms-2.png" width="672" /></p>
+<p>Si queremos ver los histogramas de todas las variables numéricas de nuestro dataset:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Metodo 1</span>
+<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
+<span class="kw">p_load</span>(psych) <span class="co">#plyr</span>
+<span class="co"># multi.hist(datos) #error, not numeric</span>
+<span class="kw">multi.hist</span>(datos[,<span class="kw">sapply</span>(datos, is.numeric)])</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/multiple_histograms-1.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Metodo 2</span>
+<span class="kw">p_load</span>(reshape2, ggplot2)
+d &lt;-<span class="st"> </span><span class="kw">melt</span>(datos)</code></pre></div>
+<pre><code>## Using condition as id variables</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(d,<span class="kw">aes</span>(<span class="dt">x =</span> value)) <span class="op">+</span><span class="st"> </span>
+<span class="st">    </span><span class="kw">facet_wrap</span>(<span class="op">~</span>variable,<span class="dt">scales =</span> <span class="st">&quot;free_x&quot;</span>) <span class="op">+</span><span class="st"> </span>
+<span class="st">    </span><span class="kw">geom_histogram</span>(<span class="dt">bins =</span> <span class="dv">15</span>) <span class="co">#+ coord_cartesian(ylim = c(0, 100))</span></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/multiple_histograms-2.png" width="672" /></p>
+</div>
+<div id="Pirate-Plot" class="section level3">
+<h3><span class="header-section-number">7.3.2</span> Pirate plot</h3>
+<p>Ver la web del creador: <a href="http://nathanieldphillips.com/">Pirate plot</a> y su página de <a href="https://github.com/ndphillips/yarrr">Github</a></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Cargamos librerias</span>
+<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
+<span class="kw">p_load</span>(yarrr)
+    
+<span class="co"># Mostramos gráfico con opciones por defecto</span>
+<span class="kw">pirateplot</span>(<span class="dt">formula =</span> PPV_DECLARED <span class="op">~</span><span class="st"> </span>condition, datos)</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/pirate-1.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Personalizamos el gráfico</span>
+<span class="kw">pirateplot</span>(<span class="dt">formula =</span> PPV_DECLARED <span class="op">~</span><span class="st"> </span>condition,
+           <span class="dt">data =</span> datos,
+           <span class="dt">main =</span> <span class="st">&quot;PPV by condition&quot;</span>,
+           <span class="dt">avg.line.fun =</span> median,
+           <span class="co">#theme.o = 2,</span>
+           <span class="dt">jitter.val =</span> .<span class="dv">2</span>,
+           <span class="dt">inf.method =</span> <span class="st">&quot;ci&quot;</span>, <span class="co">#Show confidence interval (95%)</span>
+           <span class="dt">inf.f.o =</span> <span class="fl">0.2</span>, <span class="co">#Opacity of ci</span>
+           <span class="dt">pal =</span> <span class="st">&quot;appletv&quot;</span>)</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/pirate-2.png" width="672" /></p>
+</div>
+<div id="diagrama-de-caja-y-bigotes" class="section level3">
+<h3><span class="header-section-number">7.3.3</span> Diagrama de caja y bigotes</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">boxplot</span>(PPV_DECLARED <span class="op">~</span><span class="st"> </span>condition, datos)</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/boxplot-1.png" width="672" /></p>
+</div>
+<div id="correlation-plot" class="section level3">
+<h3><span class="header-section-number">7.3.4</span> Correlation plot</h3>
+<p>Ver la web del paquete: <a href="https://cran.r-project.org/web/packages/corrplot/vignettes/corrplot-intro.html">Correlation plot</a> y su página de <a href="https://github.com/taiyun/corrplot">Github</a></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Cargamos libreria</span>
+<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
+<span class="kw">p_load</span>(corrplot)
+
+<span class="kw">corrplot</span>(<span class="kw">cor</span>(datos[,<span class="kw">c</span>(<span class="dv">2</span><span class="op">:</span><span class="dv">5</span>,<span class="dv">7</span>)]), <span class="dt">mar =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>),<span class="dt">tl.cex =</span> <span class="fl">0.9</span>, 
+         <span class="dt">method =</span> <span class="st">&quot;square&quot;</span>, <span class="dt">type =</span> <span class="st">&quot;lower&quot;</span>, <span class="dt">tl.col =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">diag =</span> T)</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/correlation_plot-1.png" width="672" /></p>
+</div>
+<div id="beanplot" class="section level3">
+<h3><span class="header-section-number">7.3.5</span> Beanplot</h3>
+<p>Ver la web del paquete <a href="https://cran.r-project.org/web/packages/beanplot/index.html">Beanplot</a></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Cargamos libreria</span>
+<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
+<span class="kw">p_load</span>(beanplot)
+    
+<span class="kw">beanplot</span>(FollowUP <span class="op">~</span><span class="st"> </span>Genero, <span class="dt">data =</span> datos,  <span class="dt">side =</span> <span class="st">&quot;both&quot;</span>, <span class="dt">log =</span> <span class="st">&quot;&quot;</span>, <span class="dt">names =</span> <span class="kw">c</span>(<span class="st">&quot;Hombre&quot;</span>,<span class="st">&quot;Mujer&quot;</span>),
+<span class="dt">what =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>), <span class="dt">border =</span> <span class="ot">NA</span>, <span class="dt">col =</span> <span class="kw">list</span>(<span class="st">&quot;black&quot;</span>, <span class="kw">c</span>(<span class="st">&quot;grey&quot;</span>, <span class="st">&quot;white&quot;</span>)))</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/bean_plot-1.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># legend(&quot;bottomleft&quot;, fill = c(&quot;black&quot;, &quot;grey&quot;), legend = c(&quot;H&quot;, &quot;M&quot;), title = &quot;Genero&quot;)</span></code></pre></div>
+</div>
+<div id="scatterplot" class="section level3">
+<h3><span class="header-section-number">7.3.6</span> Scatterplot</h3>
+<p>Ver la web del creador: <a href="http://www.sthda.com/english/rpkgs/ggpubr/">ggpubr</a> y su página de <a href="https://github.com/kassambara/ggpubr">Github</a></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Cargamos libreria</span>
+<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
+<span class="kw">p_load</span>(ggpubr)
+
+<span class="kw">ggscatter</span>(datos2, <span class="dt">x =</span> <span class="st">&quot;Educacion&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Edad&quot;</span>,
+   <span class="dt">color =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">shape =</span> <span class="dv">21</span>, <span class="dt">size =</span> <span class="dv">4</span>, <span class="co"># Points color, shape and size</span>
+   <span class="dt">add =</span> <span class="st">&quot;reg.line&quot;</span>,  <span class="co"># Add regressin line</span>
+   <span class="dt">add.params =</span> <span class="kw">list</span>(<span class="dt">color =</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;lightgray&quot;</span>), <span class="co"># Customize reg. line</span>
+   <span class="dt">conf.int =</span> <span class="ot">TRUE</span>, <span class="co"># Add confidence interval</span>
+   <span class="dt">cor.coef =</span> <span class="ot">TRUE</span> <span class="co"># Add correlation coefficient</span>
+   )</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/scatterplot-1.png" width="672" /></p>
+</div>
+<div id="scatterplot-con-3-variables" class="section level3">
+<h3><span class="header-section-number">7.3.7</span> Scatterplot con 3 variables</h3>
+<p>Ver la web de documentación de <a href="http://docs.ggplot2.org/current/">ggplot2</a> y su página de <a href="https://github.com/hadley/ggplot2">Github</a></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Cargamos libreria</span>
+<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
+<span class="kw">p_load</span>(tidyverse)
+
+<span class="kw">ggplot</span>(datos, <span class="kw">aes</span>(PPV_DECLARED, FollowUP, <span class="dt">color=</span><span class="kw">factor</span>(Genero))) <span class="op">+</span>
+<span class="st">    </span><span class="kw">geom_point</span>(<span class="dt">shape=</span><span class="dv">1</span>, <span class="dt">size =</span> <span class="dv">2</span>) <span class="op">+</span>
+<span class="st">    </span><span class="kw">scale_colour_hue</span>(<span class="dt">l=</span><span class="dv">50</span>) <span class="op">+</span><span class="st"> </span><span class="co"># Palette hue</span>
+<span class="st">    </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span>lm,   <span class="co"># Linear regression lines</span>
+                <span class="dt">se=</span>T,        <span class="co"># Confidence interval</span>
+                <span class="dt">fullrange=</span>F) <span class="co"># Extend regression lines</span></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/scatterplot_3v-1.png" width="672" /></p>
+</div>
+<div id="density-plots" class="section level3">
+<h3><span class="header-section-number">7.3.8</span> Density plots</h3>
+<p>Ver la web del creador: <a href="http://www.sthda.com/english/rpkgs/ggpubr/">ggpubr</a> y su página de <a href="https://github.com/kassambara/ggpubr">Github</a></p>
+<ul>
+<li>The variable we use to create two different sub-plots has to be a factor!</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
+<span class="kw">p_load</span>(tidyverse, ggpubr)
+
+datos =<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;Data/06_Visualize_data/Visualize_data.csv&quot;</span>)</code></pre></div>
+<pre><code>## Parsed with column specification:
+## cols(
+##   ID = col_integer(),
+##   Genero = col_integer(),
+##   Edad = col_integer(),
+##   Educacion = col_integer(),
+##   FollowUP = col_integer(),
+##   condition = col_character(),
+##   PPV_DECLARED = col_integer()
+## )</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">datos =<span class="st"> </span>datos <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Genero =</span> <span class="kw">as.factor</span>(<span class="kw">unlist</span>(Genero))) <span class="op">%&gt;%</span><span class="st"> </span><span class="co">#Make Genero a factor</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">PPV_DECLARED =</span> <span class="kw">as.numeric</span>(<span class="kw">unlist</span>(PPV_DECLARED)))
+
+<span class="kw">ggdensity</span>(datos, <span class="dt">x =</span> <span class="st">&quot;PPV_DECLARED&quot;</span>,
+   <span class="dt">add =</span> <span class="st">&quot;mean&quot;</span>, <span class="dt">rug =</span> <span class="ot">TRUE</span>,
+   <span class="dt">color =</span> <span class="st">&quot;Genero&quot;</span>, <span class="dt">palette =</span> <span class="kw">c</span>(<span class="st">&quot;#00AFBB&quot;</span>, <span class="st">&quot;#E7B800&quot;</span>), <span class="dt">fill =</span> <span class="st">&quot;Genero&quot;</span>)</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/dentity_plot-1.png" width="672" /></p>
+</div>
+<div id="density-ridges-plots-ggjoy" class="section level3">
+<h3><span class="header-section-number">7.3.9</span> Density Ridges Plots (ggjoy)</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
+<span class="kw">p_load</span>(tidyverse, ggridges)
+
+datos2 =<span class="st"> </span>datos <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">drop_na</span>() <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">filter</span>(Educacion <span class="op">&lt;</span><span class="st"> </span><span class="dv">8</span>) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Educacion =</span> <span class="kw">as.factor</span>(Educacion)) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">PPV_DECLARED =</span> <span class="kw">as.double</span>(PPV_DECLARED))
+
+<span class="co"># datos2 %&gt;% group_by(Genero) %&gt;% dplyr::summarise(N = n())</span>
+
+<span class="co"># Simple version</span>
+<span class="kw">ggplot</span>(datos2, <span class="kw">aes</span>(<span class="dt">x =</span> FollowUP, <span class="dt">y =</span> Genero)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_density_ridges</span>(<span class="dt">scale =</span> <span class="dv">2</span>)</code></pre></div>
+<pre><code>## Picking joint bandwidth of 12.4</code></pre>
+<p><img src="bookdown-demo_files/figure-html/density_ridges-1.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Tweak some aesthetics </span>
+<span class="kw">ggplot</span>(datos2, <span class="kw">aes</span>(<span class="dt">x =</span> FollowUP, <span class="dt">y =</span> Genero, <span class="dt">fill =</span> Genero)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_density_ridges</span>(<span class="dt">scale =</span> <span class="dv">2</span>, <span class="dt">alpha =</span> .<span class="dv">7</span>, <span class="dt">color =</span> <span class="st">&quot;white&quot;</span>) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">scale_fill_hue</span>(<span class="dt">l=</span><span class="dv">30</span>)</code></pre></div>
+<pre><code>## Picking joint bandwidth of 12.4</code></pre>
+<p><img src="bookdown-demo_files/figure-html/density_ridges-2.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Histogram stat</span>
+<span class="kw">ggplot</span>(datos2, <span class="kw">aes</span>(<span class="dt">x =</span> FollowUP, <span class="dt">y =</span> Genero, <span class="dt">fill =</span> Genero)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_density_ridges</span>(<span class="dt">scale =</span> <span class="dv">2</span>, <span class="dt">alpha =</span> .<span class="dv">7</span>, <span class="dt">color =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">stat =</span> <span class="st">&quot;binline&quot;</span>, <span class="dt">bins =</span> <span class="dv">20</span>) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">scale_fill_hue</span>(<span class="dt">l=</span><span class="dv">30</span>)</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/density_ridges-3.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Combined</span>
+<span class="kw">ggplot</span>(datos2, <span class="kw">aes</span>(<span class="dt">x =</span> FollowUP, <span class="dt">y =</span> Genero, <span class="dt">fill =</span> Genero)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_density_ridges</span>(<span class="dt">scale =</span> <span class="dv">2</span>, <span class="dt">alpha =</span> .<span class="dv">7</span>, <span class="dt">color =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">stat =</span> <span class="st">&quot;binline&quot;</span>, <span class="dt">bins =</span> <span class="dv">20</span>) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_density_ridges</span>(<span class="dt">scale =</span> <span class="dv">2</span>, <span class="dt">alpha =</span> .<span class="dv">4</span>, <span class="dt">color =</span> <span class="st">&quot;white&quot;</span>) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">scale_fill_hue</span>(<span class="dt">l=</span><span class="dv">30</span>)</code></pre></div>
+<pre><code>## Picking joint bandwidth of 12.4</code></pre>
+<p><img src="bookdown-demo_files/figure-html/density_ridges-4.png" width="672" /></p>
+</div>
+<div id="pp-plots" class="section level3">
+<h3><span class="header-section-number">7.3.10</span> PP plots</h3>
+<p>Plots of distributional differences… See <a href="http://www.dandersondata.com/post/esvis-part-1/" class="uri">http://www.dandersondata.com/post/esvis-part-1/</a></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;DJAnderson07/esvis&quot;</span>)
+<span class="kw">library</span>(esvis)
+
+<span class="kw">pp_plot</span>(reading <span class="op">~</span><span class="st"> </span>frl, benchmarks)</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/PP_plot-1.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pp_plot</span>(reading <span class="op">~</span><span class="st"> </span>ell, benchmarks, <span class="dt">ref_group =</span> <span class="st">&quot;Non-ELL&quot;</span>)</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/PP_plot_2-1.png" width="672" /></p>
+<p>“<em>Notice in this plot there is actually a reversal of the effect for monitor students. On the lower end of the scale, Monitor students are actually out-performing non-ELL students, but this effect reverses at the top of the scale. A summary measure would not provide this type of information, but it may be incredibly valuable for theory development. For example, for this finding we may theorize that students with very low achievement receive a benefit from essentially any additional attention, even if that attention is not directly related to academics.</em>”(<a href="http://www.dandersondata.com/post/esvis-part-1/" class="uri">http://www.dandersondata.com/post/esvis-part-1/</a>)</p>
+<p>For the sake of comparison, here are the distributions plotted with geom_density_ridges:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(benchmarks, <span class="kw">aes</span>(<span class="dt">x =</span> reading, <span class="dt">y =</span> ell, <span class="dt">fill =</span> ell)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_density_ridges</span>(<span class="dt">scale =</span> <span class="dv">2</span>, <span class="dt">alpha =</span> .<span class="dv">7</span>, <span class="dt">color =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">stat =</span> <span class="st">&quot;binline&quot;</span>, <span class="dt">bins =</span> <span class="dv">20</span>) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_density_ridges</span>(<span class="dt">scale =</span> <span class="dv">2</span>, <span class="dt">alpha =</span> .<span class="dv">4</span>, <span class="dt">color =</span> <span class="st">&quot;white&quot;</span>) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">scale_fill_hue</span>(<span class="dt">l=</span><span class="dv">30</span>)</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/PP_plot_comparison-1.png" width="672" /></p>
+</div>
 <div id="shaded-geom-area" class="section level3">
-<h3><span class="header-section-number">7.3.1</span> Shaded geom area</h3>
+<h3><span class="header-section-number">7.3.11</span> Shaded geom area</h3>
 <p>FROM @kara_woo: <a href="https://gist.github.com/karawoo/14f4f46da900b09997d26171d092fb92" class="uri">https://gist.github.com/karawoo/14f4f46da900b09997d26171d092fb92</a></p>
-<p>** BUG: If we run this code at the end of the file (or even before Pirate plot), the y axis gets mangled. Something happens in the histograms? **</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse, ggplot2)
 
 data_for_plot =<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;Data/06_Visualize_data/data_shaded_geom_area.csv&quot;</span>)
@@ -439,6 +636,7 @@ mycolors &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st
 
 
 ## Plot as small multiples
+<span class="co">#** </span><span class="al">BUG</span><span class="co">: If we run the code for this plot in bookdown after loading packages plyr, Rmisc, the y axis gets mangled.**</span>
 p_small_mult &lt;-<span class="st"> </span><span class="kw">ggplot</span>(dat, <span class="kw">aes</span>(<span class="dt">x =</span> year)) <span class="op">+</span>
 <span class="st">  </span>## Gray background showing total
 <span class="st">  </span><span class="kw">geom_area</span>(<span class="kw">aes</span>(<span class="dt">y =</span> total), <span class="dt">fill =</span> <span class="st">&quot;grey80&quot;</span>, <span class="dt">alpha =</span> <span class="fl">0.7</span>) <span class="op">+</span>
@@ -463,119 +661,8 @@ p_small_mult &lt;-<span class="st"> </span><span class="kw">ggplot</span>(dat, <
 p_small_mult</code></pre></div>
 <p><img src="bookdown-demo_files/figure-html/shaded_area-2.png" width="672" /></p>
 </div>
-<div id="histogramas" class="section level3">
-<h3><span class="header-section-number">7.3.2</span> Histogramas</h3>
-<p>La función hist() nos permite crear de manera muy sencilla histogramas para ver</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Histograma sencillo</span>
-<span class="kw">hist</span>(datos<span class="op">$</span>Edad)</code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/histograms-1.png" width="672" /></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Dotplot histogram</span>
-<span class="kw">qplot</span>(datos<span class="op">$</span>Edad, 
-      <span class="dt">geom=</span><span class="st">&quot;dotplot&quot;</span>, 
-      <span class="dt">fill =</span> <span class="kw">I</span>(<span class="st">&quot;forestgreen&quot;</span>),
-      <span class="dt">xlab =</span> <span class="st">&quot;Age&quot;</span>, 
-      <span class="dt">main =</span> <span class="st">&quot;Age dotplot histogram&quot;</span>)</code></pre></div>
-<pre><code>## `stat_bindot()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
-<p><img src="bookdown-demo_files/figure-html/histograms-2.png" width="672" /></p>
-<p>Si queremos ver los histogramas de todas las variables numéricas de nuestro dataset:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Metodo 1</span>
-<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
-<span class="kw">p_load</span>(plyr, psych)
-<span class="co"># multi.hist(datos) #error, not numeric</span>
-<span class="kw">multi.hist</span>(datos[,<span class="kw">sapply</span>(datos, is.numeric)])</code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/multiple_histograms-1.png" width="672" /></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Metodo 2</span>
-<span class="kw">p_load</span>(reshape2, ggplot2)
-d &lt;-<span class="st"> </span><span class="kw">melt</span>(datos)</code></pre></div>
-<pre><code>## Using condition as id variables</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(d,<span class="kw">aes</span>(<span class="dt">x =</span> value)) <span class="op">+</span><span class="st"> </span>
-<span class="st">    </span><span class="kw">facet_wrap</span>(<span class="op">~</span>variable,<span class="dt">scales =</span> <span class="st">&quot;free_x&quot;</span>) <span class="op">+</span><span class="st"> </span>
-<span class="st">    </span><span class="kw">geom_histogram</span>(<span class="dt">bins =</span> <span class="dv">15</span>) <span class="co">#+ coord_cartesian(ylim = c(0, 100))</span></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/multiple_histograms-2.png" width="672" /></p>
-</div>
-<div id="Pirate-Plot" class="section level3">
-<h3><span class="header-section-number">7.3.3</span> Pirate plot</h3>
-<p>Ver la web del creador: <a href="http://nathanieldphillips.com/">Pirate plot</a> y su página de <a href="https://github.com/ndphillips/yarrr">Github</a></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Cargamos librerias</span>
-<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
-<span class="kw">p_load</span>(yarrr)
-    
-<span class="co"># Mostramos gráfico con opciones por defecto</span>
-<span class="kw">pirateplot</span>(<span class="dt">formula =</span> PPV_DECLARED <span class="op">~</span><span class="st"> </span>condition, datos)</code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/pirate-1.png" width="672" /></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Personalizamos el gráfico</span>
-<span class="kw">pirateplot</span>(<span class="dt">formula =</span> PPV_DECLARED <span class="op">~</span><span class="st"> </span>condition,
-           <span class="dt">data =</span> datos,
-           <span class="dt">main =</span> <span class="st">&quot;PPV by condition&quot;</span>,
-           <span class="dt">avg.line.fun =</span> median,
-           <span class="co">#theme.o = 2,</span>
-           <span class="dt">jitter.val =</span> .<span class="dv">2</span>,
-           <span class="dt">inf.method =</span> <span class="st">&quot;ci&quot;</span>, <span class="co">#Show confidence interval (95%)</span>
-           <span class="dt">inf.f.o =</span> <span class="fl">0.2</span>, <span class="co">#Opacity of ci</span>
-           <span class="dt">pal =</span> <span class="st">&quot;appletv&quot;</span>)</code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/pirate-2.png" width="672" /></p>
-</div>
-<div id="diagrama-de-caja-y-bigotes" class="section level3">
-<h3><span class="header-section-number">7.3.4</span> Diagrama de caja y bigotes</h3>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">boxplot</span>(PPV_DECLARED <span class="op">~</span><span class="st"> </span>condition, datos)</code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/boxplot-1.png" width="672" /></p>
-</div>
-<div id="correlation-plot" class="section level3">
-<h3><span class="header-section-number">7.3.5</span> Correlation plot</h3>
-<p>Ver la web del paquete: <a href="https://cran.r-project.org/web/packages/corrplot/vignettes/corrplot-intro.html">Correlation plot</a> y su página de <a href="https://github.com/taiyun/corrplot">Github</a></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Cargamos libreria</span>
-<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
-<span class="kw">p_load</span>(corrplot)
-
-<span class="kw">corrplot</span>(<span class="kw">cor</span>(datos[,<span class="kw">c</span>(<span class="dv">2</span><span class="op">:</span><span class="dv">5</span>,<span class="dv">7</span>)]), <span class="dt">mar =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>),<span class="dt">tl.cex =</span> <span class="fl">0.9</span>, 
-         <span class="dt">method =</span> <span class="st">&quot;square&quot;</span>, <span class="dt">type =</span> <span class="st">&quot;lower&quot;</span>, <span class="dt">tl.col =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">diag =</span> T)</code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/correlation_plot-1.png" width="672" /></p>
-</div>
-<div id="beanplot" class="section level3">
-<h3><span class="header-section-number">7.3.6</span> Beanplot</h3>
-<p>Ver la web del paquete <a href="https://cran.r-project.org/web/packages/beanplot/index.html">Beanplot</a></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Cargamos libreria</span>
-<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
-<span class="kw">p_load</span>(beanplot)
-    
-<span class="kw">beanplot</span>(FollowUP <span class="op">~</span><span class="st"> </span>Genero, <span class="dt">data =</span> datos,  <span class="dt">side =</span> <span class="st">&quot;both&quot;</span>, <span class="dt">log =</span> <span class="st">&quot;&quot;</span>, <span class="dt">names =</span> <span class="kw">c</span>(<span class="st">&quot;Hombre&quot;</span>,<span class="st">&quot;Mujer&quot;</span>),
-<span class="dt">what =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>), <span class="dt">border =</span> <span class="ot">NA</span>, <span class="dt">col =</span> <span class="kw">list</span>(<span class="st">&quot;black&quot;</span>, <span class="kw">c</span>(<span class="st">&quot;grey&quot;</span>, <span class="st">&quot;white&quot;</span>)))</code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/bean_plot-1.png" width="672" /></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># legend(&quot;bottomleft&quot;, fill = c(&quot;black&quot;, &quot;grey&quot;), legend = c(&quot;H&quot;, &quot;M&quot;), title = &quot;Genero&quot;)</span></code></pre></div>
-</div>
-<div id="scatterplot" class="section level3">
-<h3><span class="header-section-number">7.3.7</span> Scatterplot</h3>
-<p>Ver la web del creador: <a href="http://www.sthda.com/english/rpkgs/ggpubr/">ggpubr</a> y su página de <a href="https://github.com/kassambara/ggpubr">Github</a></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Cargamos libreria</span>
-<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
-<span class="kw">p_load</span>(ggpubr)
-
-<span class="kw">ggscatter</span>(datos2, <span class="dt">x =</span> <span class="st">&quot;Educacion&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Edad&quot;</span>,
-   <span class="dt">color =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">shape =</span> <span class="dv">21</span>, <span class="dt">size =</span> <span class="dv">4</span>, <span class="co"># Points color, shape and size</span>
-   <span class="dt">add =</span> <span class="st">&quot;reg.line&quot;</span>,  <span class="co"># Add regressin line</span>
-   <span class="dt">add.params =</span> <span class="kw">list</span>(<span class="dt">color =</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;lightgray&quot;</span>), <span class="co"># Customize reg. line</span>
-   <span class="dt">conf.int =</span> <span class="ot">TRUE</span>, <span class="co"># Add confidence interval</span>
-   <span class="dt">cor.coef =</span> <span class="ot">TRUE</span> <span class="co"># Add correlation coefficient</span>
-   )</code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/scatterplot-1.png" width="672" /></p>
-</div>
-<div id="scatterplot-con-3-variables" class="section level3">
-<h3><span class="header-section-number">7.3.8</span> Scatterplot con 3 variables</h3>
-<p>Ver la web de documentación de <a href="http://docs.ggplot2.org/current/">ggplot2</a> y su página de <a href="https://github.com/hadley/ggplot2">Github</a></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Cargamos libreria</span>
-<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
-<span class="kw">p_load</span>(tidyverse)
-
-<span class="kw">ggplot</span>(datos, <span class="kw">aes</span>(PPV_DECLARED, FollowUP, <span class="dt">color=</span><span class="kw">factor</span>(Genero))) <span class="op">+</span>
-<span class="st">    </span><span class="kw">geom_point</span>(<span class="dt">shape=</span><span class="dv">1</span>, <span class="dt">size =</span> <span class="dv">2</span>) <span class="op">+</span>
-<span class="st">    </span><span class="kw">scale_colour_hue</span>(<span class="dt">l=</span><span class="dv">50</span>) <span class="op">+</span><span class="st"> </span><span class="co"># Palette hue</span>
-<span class="st">    </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span>lm,   <span class="co"># Linear regression lines</span>
-                <span class="dt">se=</span>T,        <span class="co"># Confidence interval</span>
-                <span class="dt">fullrange=</span>F) <span class="co"># Extend regression lines</span></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/scatterplot_3v-1.png" width="672" /></p>
-</div>
 <div id="multiple-scatterplots" class="section level3">
-<h3><span class="header-section-number">7.3.9</span> Multiple Scatterplots</h3>
+<h3><span class="header-section-number">7.3.12</span> Multiple Scatterplots</h3>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
 <span class="kw">p_load</span>(tidyverse, ggthemes, Rmisc)
 
@@ -635,96 +722,7 @@ p12 =<span class="st"> </span><span class="kw">ggplot</span>(a, <span class="kw"
 
 
 <span class="kw">multiplot</span>(p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, <span class="dt">cols=</span><span class="dv">3</span>)</code></pre></div>
-<pre><code>## Warning: Removed 1 rows containing non-finite values (stat_smooth).</code></pre>
-<pre><code>## Warning: Removed 1 rows containing missing values (geom_point).</code></pre>
-<pre><code>## Warning: Removed 1 rows containing non-finite values (stat_smooth).</code></pre>
-<pre><code>## Warning: Removed 1 rows containing missing values (geom_point).</code></pre>
-<pre><code>## Warning: Removed 1 rows containing non-finite values (stat_smooth).</code></pre>
-<pre><code>## Warning: Removed 1 rows containing missing values (geom_point).</code></pre>
 <p><img src="bookdown-demo_files/figure-html/scatterplot_multiple-1.png" width="672" /></p>
-</div>
-<div id="density-plots" class="section level3">
-<h3><span class="header-section-number">7.3.10</span> Density plots</h3>
-<p>Ver la web del creador: <a href="http://www.sthda.com/english/rpkgs/ggpubr/">ggpubr</a> y su página de <a href="https://github.com/kassambara/ggpubr">Github</a></p>
-<ul>
-<li>The variable we use to create two different sub-plots has to be a factor!</li>
-</ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
-<span class="kw">p_load</span>(tidyverse, ggpubr)
-
-datos =<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;Data/06_Visualize_data/Visualize_data.csv&quot;</span>)</code></pre></div>
-<pre><code>## Parsed with column specification:
-## cols(
-##   ID = col_integer(),
-##   Genero = col_integer(),
-##   Edad = col_integer(),
-##   Educacion = col_integer(),
-##   FollowUP = col_integer(),
-##   condition = col_character(),
-##   PPV_DECLARED = col_integer()
-## )</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">datos =<span class="st"> </span>datos <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Genero =</span> <span class="kw">as.factor</span>(<span class="kw">unlist</span>(Genero))) <span class="op">%&gt;%</span><span class="st"> </span><span class="co">#Make Genero a factor</span>
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">PPV_DECLARED =</span> <span class="kw">as.numeric</span>(<span class="kw">unlist</span>(PPV_DECLARED)))
-
-<span class="kw">ggdensity</span>(datos, <span class="dt">x =</span> <span class="st">&quot;PPV_DECLARED&quot;</span>,
-   <span class="dt">add =</span> <span class="st">&quot;mean&quot;</span>, <span class="dt">rug =</span> <span class="ot">TRUE</span>,
-   <span class="dt">color =</span> <span class="st">&quot;Genero&quot;</span>, <span class="dt">palette =</span> <span class="kw">c</span>(<span class="st">&quot;#00AFBB&quot;</span>, <span class="st">&quot;#E7B800&quot;</span>), <span class="dt">fill =</span> <span class="st">&quot;Genero&quot;</span>)</code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/dentity_plot-1.png" width="672" /></p>
-</div>
-<div id="density-ridges-plots-ggjoy" class="section level3">
-<h3><span class="header-section-number">7.3.11</span> Density Ridges Plots (ggjoy)</h3>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
-<span class="kw">p_load</span>(tidyverse, ggridges)
-
-datos2 =<span class="st"> </span>datos <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">drop_na</span>() <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">filter</span>(Educacion <span class="op">&lt;</span><span class="st"> </span><span class="dv">8</span>) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Educacion =</span> <span class="kw">as.factor</span>(Educacion)) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">PPV_DECLARED =</span> <span class="kw">as.double</span>(PPV_DECLARED))
-
-<span class="co"># datos2 %&gt;% group_by(Genero) %&gt;% dplyr::summarise(N = n())</span>
-
-<span class="co"># Simple version</span>
-<span class="kw">ggplot</span>(datos2, <span class="kw">aes</span>(<span class="dt">x =</span> FollowUP, <span class="dt">y =</span> Genero)) <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_density_ridges</span>(<span class="dt">scale =</span> <span class="dv">2</span>)</code></pre></div>
-<pre><code>## Picking joint bandwidth of 12.4</code></pre>
-<p><img src="bookdown-demo_files/figure-html/density_ridges-1.png" width="672" /></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Tweak some aesthetics </span>
-<span class="kw">ggplot</span>(datos2, <span class="kw">aes</span>(<span class="dt">x =</span> FollowUP, <span class="dt">y =</span> Genero, <span class="dt">fill =</span> Genero)) <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_density_ridges</span>(<span class="dt">scale =</span> <span class="dv">2</span>, <span class="dt">alpha =</span> .<span class="dv">7</span>, <span class="dt">color =</span> <span class="st">&quot;white&quot;</span>) <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">scale_fill_hue</span>(<span class="dt">l=</span><span class="dv">30</span>)</code></pre></div>
-<pre><code>## Picking joint bandwidth of 12.4</code></pre>
-<p><img src="bookdown-demo_files/figure-html/density_ridges-2.png" width="672" /></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Histogram stat</span>
-<span class="kw">ggplot</span>(datos2, <span class="kw">aes</span>(<span class="dt">x =</span> FollowUP, <span class="dt">y =</span> Genero, <span class="dt">fill =</span> Genero)) <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_density_ridges</span>(<span class="dt">scale =</span> <span class="dv">2</span>, <span class="dt">alpha =</span> .<span class="dv">7</span>, <span class="dt">color =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">stat =</span> <span class="st">&quot;binline&quot;</span>, <span class="dt">bins =</span> <span class="dv">20</span>) <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">scale_fill_hue</span>(<span class="dt">l=</span><span class="dv">30</span>)</code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/density_ridges-3.png" width="672" /></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Combined</span>
-<span class="kw">ggplot</span>(datos2, <span class="kw">aes</span>(<span class="dt">x =</span> FollowUP, <span class="dt">y =</span> Genero, <span class="dt">fill =</span> Genero)) <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_density_ridges</span>(<span class="dt">scale =</span> <span class="dv">2</span>, <span class="dt">alpha =</span> .<span class="dv">7</span>, <span class="dt">color =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">stat =</span> <span class="st">&quot;binline&quot;</span>, <span class="dt">bins =</span> <span class="dv">20</span>) <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_density_ridges</span>(<span class="dt">scale =</span> <span class="dv">2</span>, <span class="dt">alpha =</span> .<span class="dv">4</span>, <span class="dt">color =</span> <span class="st">&quot;white&quot;</span>) <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">scale_fill_hue</span>(<span class="dt">l=</span><span class="dv">30</span>)</code></pre></div>
-<pre><code>## Picking joint bandwidth of 12.4</code></pre>
-<p><img src="bookdown-demo_files/figure-html/density_ridges-4.png" width="672" /></p>
-</div>
-<div id="pp-plots" class="section level3">
-<h3><span class="header-section-number">7.3.12</span> PP plots</h3>
-<p>Plots of distributional differences… See <a href="http://www.dandersondata.com/post/esvis-part-1/" class="uri">http://www.dandersondata.com/post/esvis-part-1/</a></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;DJAnderson07/esvis&quot;</span>)
-<span class="kw">library</span>(esvis)
-
-<span class="kw">pp_plot</span>(reading <span class="op">~</span><span class="st"> </span>frl, benchmarks)</code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/PP_plot-1.png" width="672" /></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pp_plot</span>(reading <span class="op">~</span><span class="st"> </span>ell, benchmarks, <span class="dt">ref_group =</span> <span class="st">&quot;Non-ELL&quot;</span>)</code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/PP_plot_2-1.png" width="672" /></p>
-<p>“<em>Notice in this plot there is actually a reversal of the effect for monitor students. On the lower end of the scale, Monitor students are actually out-performing non-ELL students, but this effect reverses at the top of the scale. A summary measure would not provide this type of information, but it may be incredibly valuable for theory development. For example, for this finding we may theorize that students with very low achievement receive a benefit from essentially any additional attention, even if that attention is not directly related to academics.</em>”(<a href="http://www.dandersondata.com/post/esvis-part-1/" class="uri">http://www.dandersondata.com/post/esvis-part-1/</a>)</p>
-<p>For the sake of comparison, here are the distributions plotted with geom_density_ridges:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(benchmarks, <span class="kw">aes</span>(<span class="dt">x =</span> reading, <span class="dt">y =</span> ell, <span class="dt">fill =</span> ell)) <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_density_ridges</span>(<span class="dt">scale =</span> <span class="dv">2</span>, <span class="dt">alpha =</span> .<span class="dv">7</span>, <span class="dt">color =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">stat =</span> <span class="st">&quot;binline&quot;</span>, <span class="dt">bins =</span> <span class="dv">20</span>) <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_density_ridges</span>(<span class="dt">scale =</span> <span class="dv">2</span>, <span class="dt">alpha =</span> .<span class="dv">4</span>, <span class="dt">color =</span> <span class="st">&quot;white&quot;</span>) <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">scale_fill_hue</span>(<span class="dt">l=</span><span class="dv">30</span>)</code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/PP_plot_comparison-1.png" width="672" /></p>
 
 </div>
 </div>

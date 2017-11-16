@@ -1,7 +1,7 @@
 ## Extract tables from the internet
 
 ***
-```{r, message=FALSE, warning=FALSE}
+```{r extract_tables_internet, message=FALSE, warning=FALSE}
 # Cargamos librerias y leemos DBif (!require('pacman')) install.packages('pacman'); library('pacman')
 library(pacman)
 p_load(rvest, tidyverse, ggrepel)
@@ -18,7 +18,7 @@ To extract a table we use the package `rvest`. We need the **XPath** of the tabl
 
 Below there is an example using the Shanghai Ranking. First, we extract the table:  
 
-```{r, warning=FALSE}
+```{r extract_tables_shanghai, warning=FALSE}
 #http://www.shanghairanking.com/ARWU-Methodology-2016.html
 
 url <- "http://www.shanghairanking.com/ARWU2016.html"
@@ -39,7 +39,7 @@ population %>% dplyr::select(-`Country/Region`) %>% as_tibble()
 
    
 We prepare the DB and create the plot...
-```{r, message=FALSE, warning=FALSE}
+```{r extract_tables_shanghai_plot1, message=FALSE, warning=FALSE}
 # Scatter -----------------------------------------------------------------
 
 # Read the DB
@@ -84,7 +84,7 @@ ggplot(population_scatter, aes(Nature_Science, World_Rank)) + #, color=factor(P_
 
 When plotting, we can change the function behind the regression line.
 
-```{r}
+```{r extract_tables_shanghai_plot2, message=FALSE, warning=FALSE}
 
   ggplot(population_scatter, aes(Nature_Science, World_Rank)) + #, color=factor(P_s)
     geom_point(size = 4, color = 'orange') +

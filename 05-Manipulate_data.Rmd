@@ -276,6 +276,18 @@ raw_data %>% mutate_at(vars(matches("VI")), as.numeric)
 
 ```
 
+## Regular expressions
+
+The following function can be used to check how a specific regexp is working.
+```{r}
+
+library(stringr)
+see <- function(rx) str_view_all("abc ABC 123\t.!?\\(){}\n", rx)
+
+see("[aA]")
+
+```
+
 
 ## Tutoriales externos
 

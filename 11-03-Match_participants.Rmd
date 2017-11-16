@@ -4,7 +4,7 @@
 Usaremos la siguiente [Base de datos](Data/11-Experimental_design/Match_participants.csv)
 
 ***
-```{r, message=FALSE, warning=FALSE}
+```{r match_participants_libraries, message=FALSE, warning=FALSE}
 # Cargamos librerias y leemos DBif (!require('pacman')) install.packages('pacman'); library('pacman')
 p_load(optmatch, tidyverse)
 
@@ -18,7 +18,7 @@ head(data)
 
 
 Preparamos la base de datos
-```{r}
+```{r match_participants_data_preparation}
 
 # Umbrales para ahorradores y no ahorradores
 Criterio_ahorradores = 20
@@ -49,7 +49,7 @@ data$ID = seq(1:nrow(data))
 Realizamos el matching
 
 **TODO: Como evaluamos si el matching es bueno?**
-```{r}
+```{r match_participants}
 #Creamos base de parejas
 parejas = as.data.frame((pairmatch(Ahorro ~ Edad + Sexo + Educacion, data = data)))
     # caliper establece limites para los matchings
@@ -71,7 +71,7 @@ datos_finales = datos_combinados %>% arrange(Group, Ahorro)
 
 ```
 
-```{r}
+```{r match_participants_table}
 
 #Cuantos en cada grupo?
 table(datos_finales$Ahorro)

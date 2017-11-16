@@ -1,13 +1,13 @@
 ## Anonimizar participantes - Encriptar IDs
 
 **Libraries**
-```{r, message=FALSE, warning=FALSE}
+```{r anonimization_libraries, message=FALSE, warning=FALSE}
 if (!require('pacman')) install.packages('pacman'); library('pacman')
 p_load(hashids, tidyverse)
 ```
 
 ### Encriptando y desencriptando un elemento
-```{r}
+```{r anonimization_encrypt}
 h = hashid_settings(salt = 'this is my salt')
 
 # Numbers to encode
@@ -21,7 +21,7 @@ decode("BZ9RNV", h) #12345678
 ### Encriptando y desencriptando la columna RUT de una DB completa.
 
 Generamos aleatoriamente numeros de identificacion "similares" a RUTs, los encriptamos, y despues desencriptamos.
-```{r, message=FALSE, warning=FALSE}
+```{r anonimization_encrypt_column, message=FALSE, warning=FALSE}
 # Cargamos librerias y leemos DB
 if (!require('pacman')) install.packages('pacman'); library('pacman')
 p_load(hashids, tidyverse)
@@ -32,7 +32,7 @@ data = round(runif(100)*10000000) %>% as_tibble() %>%
 ```
 
 **BUG: When building book with Bookdown, it ignores the rowwise() argument!?**
-```{r}
+```{r anonimization_full}
 
 h = hashid_settings(salt = 'this is my salt')
 

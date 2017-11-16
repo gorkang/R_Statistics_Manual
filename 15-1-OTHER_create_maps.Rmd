@@ -6,14 +6,14 @@ Interesting stuff not necessarily related to stats :)
 ## Maps - Generate and locate cities in a world map
 
 ***
-```{r, message=FALSE, warning=FALSE}
+```{r generate_maps_libraries, message=FALSE, warning=FALSE}
 # Cargamos librerias y leemos DBif
 if (!require('pacman')) install.packages('pacman'); library('pacman')
 p_load(ggplot2, ggmap, tidyverse, ggrepel, stringr)
 
 ```
 
-```{r}
+```{r, generate_maps_data_preparation}
 # Creamos un vector con ciudades y paises
 cities_vector = c(
 "Cambridge, UK",
@@ -40,14 +40,14 @@ cities = cities_vector %>% as_tibble() %>%
 
 ```
 
-```{r, message=FALSE, warning=FALSE, cache=TRUE}
+```{r generate_maps_coordinate_extraction, message=FALSE, warning=FALSE, cache=TRUE}
 # Extraemos coordenadas a partir de las ciudades
 Coordinates = geocode(cities$City_Country)
 
 
 ```
 
-```{r}
+```{r generate_maps_plot}
 # Combinamos ciudades con coordenadas
 Coordinates_cities =  cities %>% cbind(Coordinates)
 

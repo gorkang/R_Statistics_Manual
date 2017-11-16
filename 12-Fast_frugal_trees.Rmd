@@ -6,7 +6,7 @@
 For more details and the source code, visit the Github page of the [FFTrees package](https://github.com/ndphillips/FFTrees)  
 
 **Libraries**
-```{r, message=FALSE}
+```{r FFT_libraries, message=FALSE}
 if (!require('pacman')) install.packages('pacman'); library('pacman')
 p_load(FFTrees)
 ```
@@ -14,7 +14,7 @@ p_load(FFTrees)
 
 *Example from the [FFTrees guide](https://cran.r-project.org/web/packages/FFTrees/vignettes/guide.html)*  
 
-```{r, fig.height=10, fig.width=8}
+```{r FFT_plot, fig.height=10, fig.width=8}
 
 # Create an FFT from the heartdisease dataset
 heart.fft <- FFTrees(formula = diagnosis ~.,

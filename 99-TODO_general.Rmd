@@ -23,7 +23,7 @@
 
 ## **INDEX PROPOSAL**
 
-```{r}
+```{r index_proposal}
 
 # # Before we start
 # 
