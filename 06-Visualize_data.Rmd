@@ -30,7 +30,7 @@ DV dicotómica   | ...                           | ...                 | ...
 
 
 * Cargamos librerias y leemos datos
-```{r, message=FALSE, warning=FALSE}
+```{r read_data, message=FALSE, warning=FALSE}
 # Cargamos librerias
 if (!require('pacman')) install.packages('pacman'); library('pacman')
 p_load(tidyverse, yarrr)  
@@ -107,6 +107,33 @@ pirateplot(formula = PPV_DECLARED ~ condition,
            inf.f.o = 0.2, #Opacity of ci
            pal = "appletv")
 ```
+
+
+### Barplots with individual responses
+
+```{r barplot_individual_response}
+# https://mvuorre.github.io/post/2017/within-subject-scatter/
+  
+
+barplot <- ggplot(datos, aes(x = condition, y = PPV_DECLARED, color = condition)) +
+  stat_summary(
+    geom = "bar",
+    fun.y = "mean",
+    # col = "black",
+    fill = "gray70",
+    alpha = .6
+    
+  ) +
+  geom_point(position = position_jitter(h = 0, w = 0.2)) +
+  scale_y_continuous(limits = c(0, 100),
+                     expand = c(0, 0))
+barplot
+
+
+
+```
+
+
 
 ### Diagrama de caja y bigotes
 

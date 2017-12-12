@@ -73,7 +73,7 @@ dataset_filtered = dataset %>%
 ```
 
 * Plots
-```{r}
+```{r rt_filtering_MAD_plots}
 summary(dataset$Time)
 summary(dataset_filtered$Time)
 
@@ -149,7 +149,7 @@ head(dataset)
 ```
 
 * Plots
-```{r}
+```{r rt_filtering_LOG_plots}
 plot(density(dataset_filtered$logrt), main = "Log reaction time density")
     
 par(mfrow = c(1,2))

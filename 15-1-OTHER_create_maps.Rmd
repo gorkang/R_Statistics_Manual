@@ -13,7 +13,7 @@ p_load(ggplot2, ggmap, tidyverse, ggrepel, stringr)
 
 ```
 
-```{r, generate_maps_data_preparation}
+```{r generate_maps_data_preparation}
 # Creamos un vector con ciudades y paises
 cities_vector = c(
 "Cambridge, UK",

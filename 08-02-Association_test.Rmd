@@ -15,7 +15,7 @@ A.K.A. X square test of independence
 ```
 
 **Libraries**
-```{r, message=FALSE}
+```{r association_test_libraries, message=FALSE}
 if (!require('pacman')) install.packages('pacman'); library('pacman')
 p_load(BayesFactor, lsr)
 ```
@@ -24,7 +24,7 @@ p_load(BayesFactor, lsr)
 
 **Import data - WIP**
 We use the following [dataset](Data/08-Data_analysis/Association_test.csv).
-```{r}
+```{r association_test_data_import}
 #Import to variable "dataset"
 dataset = read.csv("Data/08-Data_analysis/Association_test.csv")
 
@@ -33,7 +33,7 @@ head(dataset)
 ```
 
 **Prepare data**
-```{r}
+```{r association_test_data_preparation}
 # Convert to factors
 dataset$Accuracy_factor = as.factor(dataset$Accuracy)
 dataset$Formato_factor = as.factor(dataset$Formato)
@@ -42,7 +42,7 @@ dataset$Problema_factor = as.factor(dataset$Problema)
 
 
 ### Frequentist [^1]
-```{r}
+```{r association_test_frequentist}
 # Accuracy_factor + Formato_factor
 crosstab_Formato <- xtabs(~ Accuracy_factor + Formato_factor, dataset); crosstab_Formato
 associationTest(formula = ~ Accuracy_factor + Formato_factor, data = dataset )
@@ -53,7 +53,7 @@ associationTest(formula = ~ Accuracy_factor + Problema_factor, data = dataset )
 ```
 
 ### Bayesian [^2]
-```{r}
+```{r association_test_bayesian}
 # Accuracy_factor + Formato_factor
 contingencyTableBF( crosstab_Formato, sampleType = "jointMulti" ) 
 

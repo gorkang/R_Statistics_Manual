@@ -3,7 +3,7 @@
 Perform a repeated measures ANOVA and get posthocs
 
 **Libraries**
-```{r, message=FALSE}
+```{r libraries, message=FALSE}
 if (!require('pacman')) install.packages('pacman'); library('pacman')
 p_load(tidyverse, yarrr, readxl, stringr, afex) 
 ```
@@ -12,7 +12,7 @@ p_load(tidyverse, yarrr, readxl, stringr, afex)
 
 **Import data**  
 We use the following [dataset](Data/08-Data_analysis/ANOVA_repeated_measures.xlsx).
-```{r}
+```{r import_data}
 #Import to variable "datos"
 datos = read_excel("Data/08-Data_analysis/ANOVA_repeated_measures.xlsx") %>% 
   dplyr::mutate(ID = 1:n())
@@ -32,7 +32,7 @@ datos
 ***
 
 **Prepare data**
-```{r}
+```{r anova_prepare_data}
 # Wide to Long
 datos_long = datos %>% gather(Condicion, VD, 1:8)
 
@@ -58,7 +58,7 @@ datos_long
 
 
 Repeated measures ANOVA
-```{r}
+```{r anova_afex_repeated_measures}
 # AFEX PACKAGE
 # https://cran.r-project.org/web/packages/afex/afex.pdf
 
@@ -75,7 +75,7 @@ pirateplot(VD ~ VI1 * VI2 * VI3, datos_long)
 ```
 
 Post-hocs
-```{r}
+```{r anova_posthocs}
 lsmeans(a, c("VI1", "VI2", "VI3"), contr = "pairwise")
 
 lsmeans(a, "VI1", contr = "pairwise")
