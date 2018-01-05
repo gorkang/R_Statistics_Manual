@@ -116,6 +116,24 @@ Vamos a usar los siguientes [archivos](Data/04-Data_types_import_export/CSVs/CSV
 
 ***
 
+#### Using purrr
+From: https://gist.github.com/ColinFay/d74d331825868b181860212cd1577b69 by `@_ColinFay`
+
+```{r import_all_files_from_folder_purrr, message=FALSE, warning=FALSE}
+library(tidyverse)
+files <- list.files("Data/04-Data_types_import_export/CSVs", pattern = "^0", full.names = TRUE)
+full <- map_df(files, read_csv)
+dplyr::glimpse(full)
+
+# Including filenames in a column 
+files <- list.files("Data/04-Data_types_import_export/CSVs", pattern = "^0", full.names = TRUE) %>% 
+  set_names(basename(.))
+full2 <- map_df(files, read_csv, .id = "file")
+full2
+```
+
+#### Traditional way
+
 ```{r import_all_files_from_folder, message=FALSE, warning=FALSE}
 if (!require('pacman')) install.packages('pacman'); library('pacman')
 p_load(tidyverse)
