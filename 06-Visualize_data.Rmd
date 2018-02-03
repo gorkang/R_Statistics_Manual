@@ -54,7 +54,7 @@ En muchos de los gráficos, análisis estadísticos, etc, usaremos la sintaxis: 
 ### Histogramas
 
 La función hist() nos permite crear de manera muy sencilla histogramas para ver 
-```{r histograms}
+```{r histograms, fig.height=10}
 # Histograma sencillo
 hist(datos$Edad)
 
@@ -63,7 +63,18 @@ qplot(datos$Edad,
       geom="dotplot", 
       fill = I("forestgreen"),
       xlab = "Age", 
-      main = "Age dotplot histogram")
+      main = "Age dotplot histogram") +
+    theme_minimal()
+
+
+# Y axis shows the proper number
+max_bins = datos %>% group_by(Edad) %>% summarise(N = n()) %>% arrange(desc(N))#distinct(N) %>% filter(N == max(N)) 
+ggplot(datos, aes(Edad)) +
+  geom_dotplot(binwidth = 1, fill = "forestgreen") +
+  coord_fixed(ratio=1) +
+  ylim(0, max_bins$N[1] * 1.5) +
+  theme_minimal() 
+
 
 ```
 
@@ -116,20 +127,32 @@ pirateplot(formula = PPV_DECLARED ~ condition,
   
 
 barplot <- ggplot(datos, aes(x = condition, y = PPV_DECLARED, color = condition)) +
-  stat_summary(
-    geom = "bar",
-    fun.y = "mean",
-    # col = "black",
-    fill = "gray70",
-    alpha = .6
-    
-  ) +
-  geom_point(position = position_jitter(h = 0, w = 0.2)) +
+  stat_summary( geom = "bar",
+                fun.y = "mean",
+                # col = "black",
+                fill = "gray70",
+                alpha = .6 ) +
+  geom_point(position = position_jitter(h = 0, w = 0.5)) +
   scale_y_continuous(limits = c(0, 100),
                      expand = c(0, 0))
 barplot
 
 
+# Adding more geoms
+barplot2 <- ggplot(datos, aes(x = condition, y = PPV_DECLARED, color = condition)) +
+  stat_summary( geom = "bar",
+                fun.y = "mean",
+                # col = "black",
+                fill = "gray70",
+                alpha = .6 ) +
+  # stat_summary(fun.data = mean_se, geom = "errorbar") +
+  geom_point(position = position_jitter(h = 0, w = 0.5)) +
+  geom_boxplot(alpha = .2, outlier.alpha = .1) +
+  geom_dotplot(binaxis ="y", stackdir = "center", binwidth = 2) +
+  geom_violin(alpha = .2) +
+  scale_y_continuous(limits = c(0, 100),
+                     expand = c(0, 0))
+barplot2
 
 ```
 
