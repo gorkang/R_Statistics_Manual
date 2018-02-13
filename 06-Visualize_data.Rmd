@@ -176,7 +176,29 @@ p_load(corrplot)
 
 corrplot(cor(datos[,c(2:5,7)]), mar = c(1,0, 0, 0),tl.cex = 0.9, 
          method = "square", type = "lower", tl.col = "black", diag = T)
+
+
+
+# Correlation with ggplot
+# From http://r-statistics.co/Top50-Ggplot2-Visualizations-MasterList-R-Code.html
+if (!require('pacman')) install.packages('pacman'); library('pacman')
+p_load(ggplot2, ggcorrplot)
+corr = round(cor(datos[,c(2:5,7)]), 1)
+
+# Plot
+ggcorrplot(corr, hc.order = TRUE, 
+           type = "lower", 
+           lab = TRUE, 
+           lab_size = 3, 
+           method="circle", 
+           colors = c("tomato2", "white", "springgreen3"), 
+           title="Correlogram", 
+           ggtheme=theme_bw)
+
 ```
+
+
+
 
 ### Beanplot
 

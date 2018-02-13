@@ -23,6 +23,10 @@ lsmeans(a, “VI1”, contr = “pairwise”) lsmeans(a, “VI2”, contr = “p
 lsmeans(a, c(“VI1”, “VI2”, “VI3”), contr = “pairwise”) 
 
 
+Why Psychologists Should Always Report the W-test Instead of the F-Test ANOVA 
+https://psyarxiv.com/wnezg
+
+
 **WIP: REVISAR**
 
 * http://www.quantide.com/raccoon-ch-2-4-3-way-anova/

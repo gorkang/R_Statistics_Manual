@@ -25,7 +25,7 @@
 <meta name="author" content="Center for Social and Cognitive Neuroscience - cscn.uai.cl">
 
 
-<meta name="date" content="2018-02-03">
+<meta name="date" content="2018-02-13">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -277,13 +277,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="21" data-path="cargamos-librerias-y-leemos-dbif-requirepacman-install-packagespacman-librarypacman-1.html"><a href="cargamos-librerias-y-leemos-dbif-requirepacman-install-packagespacman-librarypacman-1.html"><i class="fa fa-check"></i><b>21</b> Cargamos librerias y leemos DBif (!require(‘pacman’)) install.packages(‘pacman’); library(‘pacman’)</a><ul>
 <li class="chapter" data-level="21.1" data-path="cargamos-librerias-y-leemos-dbif-requirepacman-install-packagespacman-librarypacman-1.html"><a href="cargamos-librerias-y-leemos-dbif-requirepacman-install-packagespacman-librarypacman-1.html#extract-tables-from-the-internet"><i class="fa fa-check"></i><b>21.1</b> Extract tables from the internet</a></li>
 </ul></li>
-<li class="chapter" data-level="22" data-path="exercises.html"><a href="exercises.html"><i class="fa fa-check"></i><b>22</b> Exercises</a><ul>
-<li class="chapter" data-level="22.1" data-path="exercises.html"><a href="exercises.html#Ejercicios1"><i class="fa fa-check"></i><b>22.1</b> Ejercicios 1</a></li>
-<li class="chapter" data-level="22.2" data-path="exercises.html"><a href="exercises.html#Ejercicios2"><i class="fa fa-check"></i><b>22.2</b> Ejercicios 2</a></li>
+<li class="chapter" data-level="22" data-path="exercises-solutions.html"><a href="exercises-solutions.html"><i class="fa fa-check"></i><b>22</b> Exercises solutions</a><ul>
+<li class="chapter" data-level="22.1" data-path="exercises-solutions.html"><a href="exercises-solutions.html#exercices-1"><i class="fa fa-check"></i><b>22.1</b> Exercices 1</a></li>
+<li class="chapter" data-level="22.2" data-path="exercises-solutions.html"><a href="exercises-solutions.html#Ejercicios2"><i class="fa fa-check"></i><b>22.2</b> Ejercicios 2</a></li>
 </ul></li>
-<li class="chapter" data-level="23" data-path="exercises-solutions.html"><a href="exercises-solutions.html"><i class="fa fa-check"></i><b>23</b> Exercises solutions</a><ul>
-<li class="chapter" data-level="23.1" data-path="exercises-solutions.html"><a href="exercises-solutions.html#exercices-1"><i class="fa fa-check"></i><b>23.1</b> Exercices 1</a></li>
-<li class="chapter" data-level="23.2" data-path="exercises.html"><a href="exercises.html#Ejercicios2"><i class="fa fa-check"></i><b>23.2</b> Ejercicios 2</a></li>
+<li class="chapter" data-level="23" data-path="exercises.html"><a href="exercises.html"><i class="fa fa-check"></i><b>23</b> Exercises</a><ul>
+<li class="chapter" data-level="23.1" data-path="exercises.html"><a href="exercises.html#Ejercicios1"><i class="fa fa-check"></i><b>23.1</b> Ejercicios 1</a></li>
+<li class="chapter" data-level="23.2" data-path="exercises-solutions.html"><a href="exercises-solutions.html#Ejercicios2"><i class="fa fa-check"></i><b>23.2</b> Ejercicios 2</a></li>
 </ul></li>
 <li class="chapter" data-level="24" data-path="bibliography-and-interesting-resources.html"><a href="bibliography-and-interesting-resources.html"><i class="fa fa-check"></i><b>24</b> Bibliography and interesting resources</a><ul>
 <li class="chapter" data-level="24.1" data-path="bibliography-and-interesting-resources.html"><a href="bibliography-and-interesting-resources.html#bibliography"><i class="fa fa-check"></i><b>24.1</b> Bibliography</a></li>
@@ -423,7 +423,7 @@ max_bins =<span class="st"> </span>datos <span class="op">%&gt;%</span><span cla
 <span class="kw">ggplot</span>(datos, <span class="kw">aes</span>(Edad)) <span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_dotplot</span>(<span class="dt">binwidth =</span> <span class="dv">1</span>, <span class="dt">fill =</span> <span class="st">&quot;forestgreen&quot;</span>) <span class="op">+</span>
 <span class="st">  </span><span class="kw">coord_fixed</span>(<span class="dt">ratio=</span><span class="dv">1</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">ylim</span>(<span class="dv">0</span>, max_bins<span class="op">$</span>N[<span class="dv">1</span>]) <span class="op">+</span>
+<span class="st">  </span><span class="kw">ylim</span>(<span class="dv">0</span>, max_bins<span class="op">$</span>N[<span class="dv">1</span>] <span class="op">*</span><span class="st"> </span><span class="fl">1.5</span>) <span class="op">+</span>
 <span class="st">  </span><span class="kw">theme_minimal</span>() </code></pre></div>
 <p><img src="bookdown-demo_files/figure-html/histograms-3.png" width="672" /></p>
 <p>Si queremos ver los histogramas de todas las variables numéricas de nuestro dataset:</p>
@@ -512,6 +512,22 @@ barplot2</code></pre></div>
 <span class="kw">corrplot</span>(<span class="kw">cor</span>(datos[,<span class="kw">c</span>(<span class="dv">2</span><span class="op">:</span><span class="dv">5</span>,<span class="dv">7</span>)]), <span class="dt">mar =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>),<span class="dt">tl.cex =</span> <span class="fl">0.9</span>, 
          <span class="dt">method =</span> <span class="st">&quot;square&quot;</span>, <span class="dt">type =</span> <span class="st">&quot;lower&quot;</span>, <span class="dt">tl.col =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">diag =</span> T)</code></pre></div>
 <p><img src="bookdown-demo_files/figure-html/correlation_plot-1.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Correlation with ggplot</span>
+<span class="co"># From http://r-statistics.co/Top50-Ggplot2-Visualizations-MasterList-R-Code.html</span>
+<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
+<span class="kw">p_load</span>(ggplot2, ggcorrplot)
+corr =<span class="st"> </span><span class="kw">round</span>(<span class="kw">cor</span>(datos[,<span class="kw">c</span>(<span class="dv">2</span><span class="op">:</span><span class="dv">5</span>,<span class="dv">7</span>)]), <span class="dv">1</span>)
+
+<span class="co"># Plot</span>
+<span class="kw">ggcorrplot</span>(corr, <span class="dt">hc.order =</span> <span class="ot">TRUE</span>, 
+           <span class="dt">type =</span> <span class="st">&quot;lower&quot;</span>, 
+           <span class="dt">lab =</span> <span class="ot">TRUE</span>, 
+           <span class="dt">lab_size =</span> <span class="dv">3</span>, 
+           <span class="dt">method=</span><span class="st">&quot;circle&quot;</span>, 
+           <span class="dt">colors =</span> <span class="kw">c</span>(<span class="st">&quot;tomato2&quot;</span>, <span class="st">&quot;white&quot;</span>, <span class="st">&quot;springgreen3&quot;</span>), 
+           <span class="dt">title=</span><span class="st">&quot;Correlogram&quot;</span>, 
+           <span class="dt">ggtheme=</span>theme_bw)</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/correlation_plot-2.png" width="672" /></p>
 </div>
 <div id="beanplot" class="section level3">
 <h3><span class="header-section-number">7.3.6</span> Beanplot</h3>
