@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>R - Statistics Manual</title>
   <meta name="description" content="Statistics manual from CSCN.">
-  <meta name="generator" content="bookdown 0.5 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
 
   <meta property="og:title" content="R - Statistics Manual" />
   <meta property="og:type" content="book" />
@@ -25,7 +25,7 @@
 <meta name="author" content="Center for Social and Cognitive Neuroscience - cscn.uai.cl">
 
 
-<meta name="date" content="2017-12-12">
+<meta name="date" content="2018-02-23">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -47,9 +47,9 @@
 
 
 
-<script src="libs/htmlwidgets-0.9/htmlwidgets.js"></script>
+<script src="libs/htmlwidgets-1.0/htmlwidgets.js"></script>
 <link href="libs/str_view-0.1.0/str_view.css" rel="stylesheet" />
-<script src="libs/str_view-binding-1.2.0/str_view.js"></script>
+<script src="libs/str_view-binding-1.3.0/str_view.js"></script>
 
 
 <style type="text/css">
@@ -341,7 +341,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
             <section class="normal" id="section-">
 <div id="experimental-design" class="section level1">
-<h1><span class="header-section-number">Chapter 12</span> Experimental design</h1>
+<h1><span class="header-section-number">12</span> Experimental design</h1>
 <div id="tamano-de-muestra-y-efecto-detectado" class="section level2">
 <h2><span class="header-section-number">12.1</span> Tamaño de muestra y efecto detectado</h2>
 <p>En esta simulación se muestra como con tamaños de muestra pequeños, se sobreestima el tamaño de efecto real. Como se puede ver en el codigo, solo se muestran los estudios simulados donde la correlacion es significativa. Ver el <a href="https://jimgrange.wordpress.com/2017/03/06/low-power-effect-sizes/">blog de Jim Grange</a> para una explicación más detallada.</p>
@@ -414,7 +414,7 @@ final_data &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span cl
 
 <span class="kw">legend</span>(<span class="st">&quot;topright&quot;</span>, <span class="st">&quot;True Effect Size&quot;</span>, <span class="dt">cex =</span> <span class="fl">1.5</span>,  <span class="dt">lty =</span> <span class="dv">2</span>, <span class="dt">bty=</span><span class="st">&quot;n&quot;</span>, 
        <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">lwd =</span> <span class="dv">3</span>)</code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-66-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-66-1.png" width="672" /></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#------------------------------------------------------------------------------</span></code></pre></div>
 </div>
 <div id="power-analysis" class="section level2">
@@ -564,20 +564,19 @@ data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">sel
 ## Groups: &lt;by row&gt;
 ## 
 ## # A tibble: 100 x 3
-##                                                                  RUT_Encripted
-##  *                                                                       &lt;chr&gt;
-##  1 kB3YkhnpJ2WCB7aDLh5knmJcN7oetq9xPmIv59o8C53r8tPR7kzcXqoWXCVrPEeTWyNlLuneaXJ
-##  2 kB3YkhnpJ2WCB7aDLh5knmJcN7oetq9xPmIv59o8C53r8tPR7kzcXqoWXCVrPEeTWyNlLuneaXJ
-##  3 kB3YkhnpJ2WCB7aDLh5knmJcN7oetq9xPmIv59o8C53r8tPR7kzcXqoWXCVrPEeTWyNlLuneaXJ
-##  4 kB3YkhnpJ2WCB7aDLh5knmJcN7oetq9xPmIv59o8C53r8tPR7kzcXqoWXCVrPEeTWyNlLuneaXJ
-##  5 kB3YkhnpJ2WCB7aDLh5knmJcN7oetq9xPmIv59o8C53r8tPR7kzcXqoWXCVrPEeTWyNlLuneaXJ
-##  6 kB3YkhnpJ2WCB7aDLh5knmJcN7oetq9xPmIv59o8C53r8tPR7kzcXqoWXCVrPEeTWyNlLuneaXJ
-##  7 kB3YkhnpJ2WCB7aDLh5knmJcN7oetq9xPmIv59o8C53r8tPR7kzcXqoWXCVrPEeTWyNlLuneaXJ
-##  8 kB3YkhnpJ2WCB7aDLh5knmJcN7oetq9xPmIv59o8C53r8tPR7kzcXqoWXCVrPEeTWyNlLuneaXJ
-##  9 kB3YkhnpJ2WCB7aDLh5knmJcN7oetq9xPmIv59o8C53r8tPR7kzcXqoWXCVrPEeTWyNlLuneaXJ
-## 10 kB3YkhnpJ2WCB7aDLh5knmJcN7oetq9xPmIv59o8C53r8tPR7kzcXqoWXCVrPEeTWyNlLuneaXJ
-## # ... with 90 more rows, and 2 more variables: RUT_Decripted &lt;dbl&gt;,
-## #   RUT &lt;dbl&gt;</code></pre>
+##    RUT_Encripted                                      RUT_Decripted    RUT
+##  * &lt;chr&gt;                                                      &lt;dbl&gt;  &lt;dbl&gt;
+##  1 kB3YkhnpJ2WCB7aDLh5knmJcN7oetq9xPmIv59o8C53r8tPR7…       2832261 2.83e⁶
+##  2 kB3YkhnpJ2WCB7aDLh5knmJcN7oetq9xPmIv59o8C53r8tPR7…       7583306 7.58e⁶
+##  3 kB3YkhnpJ2WCB7aDLh5knmJcN7oetq9xPmIv59o8C53r8tPR7…       3955537 3.96e⁶
+##  4 kB3YkhnpJ2WCB7aDLh5knmJcN7oetq9xPmIv59o8C53r8tPR7…       8587857 8.59e⁶
+##  5 kB3YkhnpJ2WCB7aDLh5knmJcN7oetq9xPmIv59o8C53r8tPR7…       2879598 2.88e⁶
+##  6 kB3YkhnpJ2WCB7aDLh5knmJcN7oetq9xPmIv59o8C53r8tPR7…       9179372 9.18e⁶
+##  7 kB3YkhnpJ2WCB7aDLh5knmJcN7oetq9xPmIv59o8C53r8tPR7…       5208890 5.21e⁶
+##  8 kB3YkhnpJ2WCB7aDLh5knmJcN7oetq9xPmIv59o8C53r8tPR7…       1422724 1.42e⁶
+##  9 kB3YkhnpJ2WCB7aDLh5knmJcN7oetq9xPmIv59o8C53r8tPR7…       5975451 5.98e⁶
+## 10 kB3YkhnpJ2WCB7aDLh5knmJcN7oetq9xPmIv59o8C53r8tPR7…       9688978 9.69e⁶
+## # ... with 90 more rows</code></pre>
 
 </div>
 </div>
@@ -595,15 +594,14 @@ data =<span class="st"> </span><span class="kw">read_csv</span>(<span class="st"
 
 <span class="kw">head</span>(data)</code></pre></div>
 <pre><code>## # A tibble: 6 x 7
-##      ID    RUT   Sexo  Edad                           Ocupacion Educacion
-##   &lt;int&gt;  &lt;int&gt;  &lt;chr&gt; &lt;int&gt;                               &lt;chr&gt;     &lt;chr&gt;
-## 1     1 588006  Mujer    29              ASISTENTE DE TESORERIA   Técnica
-## 2     2 188576  Mujer    21                 Ingeniero Comercial  Maestría
-## 3     3 206609 Hombre    46                          trabajador   Técnica
-## 4     4 404898  Mujer    52                           Psicóloga  Maestría
-## 5     5 533281  Mujer    63 Controller Postgrados Ejecutivos EN  Maestría
-## 6     6  60824 Hombre    29                  Ingeniro Comercial  Maestría
-## # ... with 1 more variables: Porcentaje_ahorro &lt;dbl&gt;</code></pre>
+##      ID    RUT Sexo    Edad Ocupacion           Educacion Porcentaje_ahor…
+##   &lt;int&gt;  &lt;int&gt; &lt;chr&gt;  &lt;int&gt; &lt;chr&gt;               &lt;chr&gt;                &lt;dbl&gt;
+## 1     1 588006 Mujer     29 ASISTENTE DE TESOR… Técnica              10.0 
+## 2     2 188576 Mujer     21 Ingeniero Comercial Maestría             50.0 
+## 3     3 206609 Hombre    46 trabajador          Técnica               5.00
+## 4     4 404898 Mujer     52 Psicóloga           Maestría              0   
+## 5     5 533281 Mujer     63 Controller Postgra… Maestría              4.00
+## 6     6  60824 Hombre    29 Ingeniro Comercial  Maestría              8.00</code></pre>
 <p>Preparamos la base de datos</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Umbrales para ahorradores y no ahorradores</span>
 Criterio_ahorradores =<span class="st"> </span><span class="dv">20</span>
@@ -611,7 +609,7 @@ Criterio_no_ahorradores =<span class="st"> </span><span class="dv">2</span>
 
 <span class="co"># Mostramos histograma</span>
 <span class="kw">hist</span>(data<span class="op">$</span>Porcentaje_ahorro, <span class="dt">breaks =</span> <span class="dv">100</span>)</code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/match_participants_data_preparation-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/match_participants_data_preparation-1.png" width="672" /></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Creamos grupos de Ahorradores (0) y No ahorradores (1)</span>
 data<span class="op">$</span>Ahorro =<span class="st"> </span><span class="kw">ifelse</span>(data<span class="op">$</span>Porcentaje_ahorro <span class="op">&lt;=</span><span class="st"> </span>Criterio_no_ahorradores, <span class="dv">1</span>,
                       <span class="kw">ifelse</span>(data<span class="op">$</span>Porcentaje_ahorro <span class="op">&gt;=</span><span class="st"> </span>Criterio_ahorradores, <span class="dv">0</span>, <span class="ot">NA</span>
@@ -673,7 +671,7 @@ datos_finales =<span class="st"> </span>datos_combinados <span class="op">%&gt;%
        <span class="fl">36.39</span>,<span class="fl">28.60</span>,<span class="fl">28.53</span>,<span class="fl">35.84</span>,<span class="fl">31.10</span>,<span class="fl">34.55</span>,<span class="fl">52.65</span>,<span class="fl">48.81</span>,<span class="fl">43.42</span>,<span class="fl">52.49</span>,<span class="fl">38.00</span>,
        <span class="fl">38.65</span>,<span class="fl">34.54</span>,<span class="fl">37.70</span>,<span class="fl">38.11</span>,<span class="fl">43.05</span>,<span class="fl">29.95</span>,<span class="fl">32.48</span>,<span class="fl">24.63</span>,<span class="fl">35.33</span>,<span class="fl">41.34</span>)
 <span class="kw">descdist</span>(x, <span class="dt">discrete =</span> <span class="ot">FALSE</span>)</code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-71-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-71-1.png" width="672" /></p>
 <pre><code>## summary statistics
 ## ------
 ## min:  16.62   max:  54.15 
@@ -709,10 +707,11 @@ gitbook.start({
 "facebook": true,
 "twitter": true,
 "google": false,
+"linkedin": false,
 "weibo": false,
 "instapper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",

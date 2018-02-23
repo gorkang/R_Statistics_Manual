@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>R - Statistics Manual</title>
   <meta name="description" content="Statistics manual from CSCN.">
-  <meta name="generator" content="bookdown 0.5 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
 
   <meta property="og:title" content="R - Statistics Manual" />
   <meta property="og:type" content="book" />
@@ -25,7 +25,7 @@
 <meta name="author" content="Center for Social and Cognitive Neuroscience - cscn.uai.cl">
 
 
-<meta name="date" content="2017-12-12">
+<meta name="date" content="2018-02-23">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -47,9 +47,9 @@
 
 
 
-<script src="libs/htmlwidgets-0.9/htmlwidgets.js"></script>
+<script src="libs/htmlwidgets-1.0/htmlwidgets.js"></script>
 <link href="libs/str_view-0.1.0/str_view.css" rel="stylesheet" />
-<script src="libs/str_view-binding-1.2.0/str_view.js"></script>
+<script src="libs/str_view-binding-1.3.0/str_view.js"></script>
 
 
 <style type="text/css">
@@ -341,7 +341,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
             <section class="normal" id="section-">
 <div id="Estadistica_inferencial" class="section level1">
-<h1><span class="header-section-number">Chapter 9</span> Estadistica inferencial</h1>
+<h1><span class="header-section-number">9</span> Estadistica inferencial</h1>
 <!-- # REVISAR -->
 <!-- http://www.cookbook-r.com/Statistical_analysis/ANOVA/ -->
 <!-- # REVISAR -->
@@ -357,6 +357,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>lsmip(a, VI1 ~ VI2 * VI3)</p>
 <p>lsmeans(a, “VI1”, contr = “pairwise”) lsmeans(a, “VI2”, contr = “pairwise”) lsmeans(a, “VI3”, contr = “pairwise”)</p>
 <p>lsmeans(a, c(“VI1”, “VI2”, “VI3”), contr = “pairwise”)</p>
+<p>Why Psychologists Should Always Report the W-test Instead of the F-Test ANOVA <a href="https://psyarxiv.com/wnezg" class="uri">https://psyarxiv.com/wnezg</a></p>
 <p><strong>WIP: REVISAR</strong></p>
 <ul>
 <li><a href="http://www.quantide.com/raccoon-ch-2-4-3-way-anova/" class="uri">http://www.quantide.com/raccoon-ch-2-4-3-way-anova/</a></li>
@@ -424,7 +425,7 @@ df</code></pre></div>
 ##  8     8         27     1    15      42     1    70           8      41
 ##  9     9         37     1    23      36     0    43          23      38
 ## 10    10         27     0    20      51     1    52           9      24
-## # ... with 227 more rows, and 1 more variables: FunEjec &lt;int&gt;</code></pre>
+## # ... with 227 more rows, and 1 more variable: FunEjec &lt;int&gt;</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Recodificar variable sexo de numérico a factor con etiquetas</span>
 df =<span class="st"> </span>df <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">Sexo =</span> <span class="kw">ifelse</span>(Sexo <span class="op">==</span><span class="st"> </span><span class="dv">0</span>, <span class="st">&quot;mujer&quot;</span>, <span class="st">&quot;hombre&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">Sexo =</span> <span class="kw">as.factor</span>(Sexo))</code></pre></div>
 </div>
@@ -472,7 +473,7 @@ df <span class="op">%&gt;%</span><span class="st"> </span>
            <span class="dt">main =</span> <span class="st">&quot;t test Pirateplot&quot;</span>, 
            <span class="dt">point.pch =</span> <span class="dv">16</span>, 
            <span class="dt">pal =</span> <span class="st">&quot;basel&quot;</span>)</code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-34-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-34-1.png" width="672" /></p>
 </div>
 </div>
 <div id="prueba-t-para-muestras-dependientes" class="section level2">
@@ -524,7 +525,7 @@ df <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">shape =</span> <span class="dv">16</span>, <span class="dt">col =</span> <span class="kw">transparent</span>(<span class="st">&quot;red&quot;</span>, .<span class="dv">4</span>))</code></pre></div>
 <pre><code>## Warning: Removed 6 rows containing missing values (geom_point).</code></pre>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-36-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-36-1.png" width="672" /></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Selecione un subconjunto de variables para la correlación multiple</span>
 cordata =<span class="st"> </span>df <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(<span class="op">-</span>Id,<span class="op">-</span>Moral,<span class="op">-</span>Sexo,<span class="op">-</span>AccuracyIz,<span class="op">-</span>AccuracyDer,<span class="op">-</span>Edad)
 
@@ -605,7 +606,7 @@ fit =<span class="st"> </span><span class="kw">lm</span>(Accuracy <span class="o
 <span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> lm , <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">se =</span> T)</code></pre></div>
 <pre><code>## Warning: Removed 2 rows containing non-finite values (stat_smooth).</code></pre>
 <pre><code>## Warning: Removed 2 rows containing missing values (geom_point).</code></pre>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-39-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-39-1.png" width="672" /></p>
 </div>
 </div>
 <div id="analsis-de-la-varianza-1-factor" class="section level2">
@@ -692,7 +693,7 @@ df <span class="op">%&gt;%</span><span class="st"> </span>
            <span class="dt">main =</span> <span class="st">&quot;ANOVA Pirateplot&quot;</span>, 
            <span class="dt">point.pch =</span> <span class="dv">16</span>, 
            <span class="dt">pal =</span> <span class="st">&quot;basel&quot;</span>)</code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-42-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-42-1.png" width="672" /></p>
 </div>
 <div id="tablas" class="section level3">
 <h3><span class="header-section-number">9.7.4</span> Tablas</h3>
@@ -838,7 +839,7 @@ df <span class="op">%&gt;%</span><span class="st"> </span>
            <span class="dt">main =</span> <span class="st">&quot;ANOVA Pirateplot&quot;</span>, 
            <span class="dt">point.pch =</span> <span class="dv">16</span>, 
            <span class="dt">pal =</span> <span class="st">&quot;basel&quot;</span>)</code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-46-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-46-1.png" width="672" /></p>
 </div>
 <div id="tablas-1" class="section level3">
 <h3><span class="header-section-number">9.8.5</span> Tablas</h3>
@@ -1065,20 +1066,19 @@ datos =<span class="st"> </span><span class="kw">read_excel</span>(<span class="
 
 datos</code></pre></div>
 <pre><code>## # A tibble: 29 x 9
-##          ENDObch       ENDOacm       ENDObcm       ENDOach        EXObch
-##            &lt;dbl&gt;         &lt;dbl&gt;         &lt;dbl&gt;         &lt;dbl&gt;         &lt;dbl&gt;
-##  1 -0.0134618198  0.0079598110 -1.724309e-03  0.0001241273  0.0033291737
-##  2 -0.0007571547  0.0001350424  1.087823e-02 -0.0044011702  0.0225063299
-##  3 -0.0021596171  0.0018874678  1.396156e-03  0.0002438996 -0.0009685716
-##  4 -0.0021261532  0.0017017525  7.949985e-03 -0.0009560923  0.0019598747
-##  5 -0.0014105901 -0.0009019787  1.158694e-03 -0.0006908299 -0.0008552055
-##  6  0.0031665364 -0.0016276746  1.400152e-03 -0.0035374637 -0.0017644341
-##  7 -0.0034358999 -0.0005719841 -7.021927e-03  0.0033983457  0.0109482298
-##  8 -0.0038080731  0.0054854822  4.322780e-04 -0.0033633460  0.0098447537
-##  9 -0.0003044510 -0.0004639236 -1.068726e-02  0.0075849477 -0.0046718045
-## 10 -0.0016039516  0.0008493854  6.954175e-05  0.0002653357  0.0042829250
-## # ... with 19 more rows, and 4 more variables: EXOacm &lt;dbl&gt;, EXObcm &lt;dbl&gt;,
-## #   EXOach &lt;dbl&gt;, ID &lt;int&gt;</code></pre>
+##     ENDObch  ENDOacm  ENDObcm  ENDOach   EXObch   EXOacm   EXObcm   EXOach
+##       &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;
+##  1 -1.35e⁻²  7.96e⁻³ -1.72e⁻³  1.24e⁻⁴  3.33e⁻³ -8.77e⁻⁴  3.20e⁻³ -2.77e⁻³
+##  2 -7.57e⁻⁴  1.35e⁻⁴  1.09e⁻² -4.40e⁻³  2.25e⁻² -2.55e⁻²  5.22e⁻³ -6.68e⁻³
+##  3 -2.16e⁻³  1.89e⁻³  1.40e⁻³  2.44e⁻⁴ -9.69e⁻⁴ -5.20e⁻⁴ -1.43e⁻³  1.89e⁻³
+##  4 -2.13e⁻³  1.70e⁻³  7.95e⁻³ -9.56e⁻⁴  1.96e⁻³  1.04e⁻⁴ -3.45e⁻³  9.01e⁻⁴
+##  5 -1.41e⁻³ -9.02e⁻⁴  1.16e⁻³ -6.91e⁻⁴ -8.55e⁻⁴ -1.73e⁻³ -1.36e⁻²  6.31e⁻³
+##  6  3.17e⁻³ -1.63e⁻³  1.40e⁻³ -3.54e⁻³ -1.76e⁻³ -1.50e⁻³ -8.49e⁻⁶  3.57e⁻³
+##  7 -3.44e⁻³ -5.72e⁻⁴ -7.02e⁻³  3.40e⁻³  1.09e⁻² -5.72e⁻³  9.24e⁻³ -1.99e⁻³
+##  8 -3.81e⁻³  5.49e⁻³  4.32e⁻⁴ -3.36e⁻³  9.84e⁻³ -1.10e⁻² -4.83e⁻³  4.47e⁻³
+##  9 -3.04e⁻⁴ -4.64e⁻⁴ -1.07e⁻²  7.58e⁻³ -4.67e⁻³  4.79e⁻³ -5.55e⁻³  3.64e⁻³
+## 10 -1.60e⁻³  8.49e⁻⁴  6.95e⁻⁵  2.65e⁻⁴  4.28e⁻³ -3.72e⁻³  5.97e⁻³  1.57e⁻³
+## # ... with 19 more rows, and 1 more variable: ID &lt;int&gt;</code></pre>
 <hr />
 <p><strong>EXPERIMENT DESIGN</strong><br />
 2 x 2 x 2 - Repeated measures</p>
@@ -1111,18 +1111,18 @@ datos_long =<span class="st"> </span>datos_long <span class="op">%&gt;%</span>
 
 datos_long</code></pre></div>
 <pre><code>## # A tibble: 232 x 6
-##       ID Condicion            VD    VI1    VI2    VI3
-##    &lt;int&gt;    &lt;fctr&gt;         &lt;dbl&gt; &lt;fctr&gt; &lt;fctr&gt; &lt;fctr&gt;
-##  1     1   ENDObch -0.0134618198    END     bc      h
-##  2     2   ENDObch -0.0007571547    END     bc      h
-##  3     3   ENDObch -0.0021596171    END     bc      h
-##  4     4   ENDObch -0.0021261532    END     bc      h
-##  5     5   ENDObch -0.0014105901    END     bc      h
-##  6     6   ENDObch  0.0031665364    END     bc      h
-##  7     7   ENDObch -0.0034358999    END     bc      h
-##  8     8   ENDObch -0.0038080731    END     bc      h
-##  9     9   ENDObch -0.0003044510    END     bc      h
-## 10    10   ENDObch -0.0016039516    END     bc      h
+##       ID Condicion        VD VI1   VI2   VI3  
+##    &lt;int&gt; &lt;fct&gt;         &lt;dbl&gt; &lt;fct&gt; &lt;fct&gt; &lt;fct&gt;
+##  1     1 ENDObch   -0.0135   END   bc    h    
+##  2     2 ENDObch   -0.000757 END   bc    h    
+##  3     3 ENDObch   -0.00216  END   bc    h    
+##  4     4 ENDObch   -0.00213  END   bc    h    
+##  5     5 ENDObch   -0.00141  END   bc    h    
+##  6     6 ENDObch    0.00317  END   bc    h    
+##  7     7 ENDObch   -0.00344  END   bc    h    
+##  8     8 ENDObch   -0.00381  END   bc    h    
+##  9     9 ENDObch   -0.000304 END   bc    h    
+## 10    10 ENDObch   -0.00160  END   bc    h    
 ## # ... with 222 more rows</code></pre>
 <p>Repeated measures ANOVA</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># AFEX PACKAGE</span>
@@ -1149,9 +1149,9 @@ a =<span class="st"> </span><span class="kw">aov_ez</span>(<span class="st">&quo
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Plot results</span>
 <span class="kw">lsmip</span>(a, VI1 <span class="op">~</span><span class="st"> </span>VI2 <span class="op">*</span><span class="st"> </span>VI3)</code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/anova_afex_repeated_measures-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/anova_afex_repeated_measures-1.png" width="672" /></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pirateplot</span>(VD <span class="op">~</span><span class="st"> </span>VI1 <span class="op">*</span><span class="st"> </span>VI2 <span class="op">*</span><span class="st"> </span>VI3, datos_long)</code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/anova_afex_repeated_measures-2.png" width="672" /></p>
+<p><img src="_main_files/figure-html/anova_afex_repeated_measures-2.png" width="672" /></p>
 <p>Post-hocs</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">lsmeans</span>(a, <span class="kw">c</span>(<span class="st">&quot;VI1&quot;</span>, <span class="st">&quot;VI2&quot;</span>, <span class="st">&quot;VI3&quot;</span>), <span class="dt">contr =</span> <span class="st">&quot;pairwise&quot;</span>)</code></pre></div>
 <pre><code>## $lsmeans
@@ -1321,7 +1321,7 @@ rma.overallOR &lt;-<span class="st"> </span><span class="kw">rma.uni</span>(<spa
        <span class="dt">showweight =</span> <span class="ot">TRUE</span>,
        <span class="dt">slab=</span>Comparisons, 
        <span class="dt">xlab=</span><span class="st">&quot;Log Odds Ratio&quot;</span>, <span class="dt">mlab=</span><span class="st">&quot;FE Model for All Comparisons&quot;</span>, <span class="dt">main =</span> Contrast )</code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-50-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-50-1.png" width="672" /></p>
 </div>
 <div id="pictures-effect" class="section level3">
 <h3><span class="header-section-number">9.13.2</span> Pictures Effect</h3>
@@ -1388,7 +1388,7 @@ rma.overallOR &lt;-<span class="st"> </span><span class="kw">rma.uni</span>(<spa
        <span class="dt">showweight =</span> <span class="ot">TRUE</span>,
        <span class="dt">slab=</span> Comparisons, 
        <span class="dt">xlab=</span><span class="st">&quot;Log Odds Ratio&quot;</span>, <span class="dt">mlab=</span><span class="st">&quot;REML Model for All Comparisons&quot;</span>, <span class="dt">main =</span> Contrast)</code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-51-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-51-1.png" width="672" /></p>
 </div>
 <div id="notes-on-meta-analysis" class="section level3">
 <h3><span class="header-section-number">9.13.3</span> Notes on Meta-analysis</h3>
@@ -1428,10 +1428,11 @@ gitbook.start({
 "facebook": true,
 "twitter": true,
 "google": false,
+"linkedin": false,
 "weibo": false,
 "instapper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",

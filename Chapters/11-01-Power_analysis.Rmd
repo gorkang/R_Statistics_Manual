@@ -1,0 +1,147 @@
+# Experimental design
+
+## Tamaño de muestra y efecto detectado
+
+En esta simulación se muestra como con tamaños de muestra pequeños, se sobreestima el tamaño de efecto real. Como se puede ver en el codigo, solo se muestran los estudios simulados donde la correlacion es significativa. Ver el [blog de Jim Grange](https://jimgrange.wordpress.com/2017/03/06/low-power-effect-sizes/) para una explicación más detallada.
+```{r sample_size_calculation}
+# https://jimgrange.wordpress.com/2017/03/06/low-power-effect-sizes/
+#------------------------------------------------------------------------------
+rm(list = ls())
+
+set.seed(50)
+
+# function for generating random draws from multivariate distribution
+# n = number of draws; p = number of variables
+# u = mean of each variable; s = SD of each variable
+# corMat = correlation matrix
+mvrnorm <- function(n, p, u, s, corMat) {
+  Z <- matrix(rnorm(n * p), p, n)
+  t(u + s * t(chol(corMat)) %*% Z)
+}
+
+#------------------------------------------------------------------------------
+
+#------------------------------------------------------------------------------
+### simulation setup
+
+# declare simulation parameters
+means <- c(100, 600)
+sds <- c(20, 80)
+n_sims = 1000
+
+# declare correlation coefficient & generate cor. matrix
+cor <- 0.3
+cor_mat <- matrix(c(1, cor, 
+                    cor, 1), nrow = 2, ncol = 2, byrow = TRUE)
+
+# sample sizes to simulate
+sample_sizes <- c(10, 20, 30, 50, 85, 170, 500, 1000)
+
+# number of simulations
+
+# create variable to store data in
+final_data <- matrix(nrow = n_sims, ncol = length(sample_sizes))
+colnames(final_data) <- sample_sizes
+#------------------------------------------------------------------------------
+
+#------------------------------------------------------------------------------
+### simulation execution
+
+for(i in 1:length(sample_sizes)){
+  for(j in 1:n_sims){
+    
+    # get the experiment data
+    sim_data <- mvrnorm(sample_sizes[i], p = 2, u = means, s = sds, 
+                        corMat = cor_mat)
+    
+    # perform the correlation
+    sim_cor <- cor.test(sim_data[, 1], sim_data[, 2], method = "pearson")
+    
+    # if the correlation is significant, store the effect size
+    if(sim_cor$p.value < 0.05){
+      final_data[j, i] <- as.numeric(round(abs(sim_cor$estimate), 3))
+    }
+  }
+}
+#------------------------------------------------------------------------------
+
+#------------------------------------------------------------------------------
+## draw the plot
+boxplot(final_data, na.action=na.omit, xlab = "Simulated Sample Size", 
+        ylab = "Measured Effect Size")
+abline(h = cor, col = "red", lty = 2, lwd = 3)
+
+legend("topright", "True Effect Size", cex = 1.5,  lty = 2, bty="n", 
+       col = "red", lwd = 3)
+#------------------------------------------------------------------------------
+```
+
+
+
+## Power analysis
+
+Tenemos un conjunto de funciones que nos permiten hacer power analysis para distintos tipos de diseños:  
+
+* pwr.t.test  
+* pwr.t2n.test  
+* pwr.anova.test  
+
+En cada uno de ellos podemos modificar varios parámetros. El parámetro que dejemos sin especificar será el que se calculará:  
+
+* k = groups  
+* n = participants (in each group)  
+* f = effect size  
+* sig.level = sig level  
+* power = power  
+
+
+
+**Libraries**
+```{r power_analysis_libraries, message=FALSE, warning=FALSE}
+if (!require('pacman')) install.packages('pacman'); library('pacman')
+p_load(pwr)
+```
+
+
+**Code**
+```{r power_analysis_code}
+
+#T-test
+pwr.t.test(n = , d = 0.8, sig.level = 0.05, power = 0.95, type = c("two.sample"))
+
+#T-test 
+pwr.t2n.test(n1 = 150, n2 = 75, d = , sig.level = 0.05, power = 0.8)
+
+
+#Anova 
+pwr.anova.test(k = 3, n = , f = .25, sig.level = 0.05, power = .8)
+
+
+#Effect size that we can detect
+pwr.anova.test(k = 6, n = 42, sig.level = 0.05, power = .95)
+
+
+#Sample size needed to detect an effect of f=0.5
+pwr.anova.test(k = 2, f = 0.5, sig.level = 0.05, power = .95)
+
+```
+
+### Longitudinal designs
+
+Calculate sample size for longitudinal designs
+
+**Libraries**
+```{r power_analysis_longitudinal_libs, message=FALSE, warning=FALSE}
+if (!require('pacman')) install.packages('pacman'); library('pacman')
+p_load(powerMediation)
+```
+
+
+**Code**
+```{r power_analysislongitudinal}
+ssLong(es = 0.5, #	effect size of the difference of mean change.
+       rho = 0.5, # correlation coefficient between baseline and follow-up values within a treatment group.
+       alpha = 0.05, 
+       power = 0.95)
+```
+

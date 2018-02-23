@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>R - Statistics Manual</title>
   <meta name="description" content="Statistics manual from CSCN.">
-  <meta name="generator" content="bookdown 0.5 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
 
   <meta property="og:title" content="R - Statistics Manual" />
   <meta property="og:type" content="book" />
@@ -25,7 +25,7 @@
 <meta name="author" content="Center for Social and Cognitive Neuroscience - cscn.uai.cl">
 
 
-<meta name="date" content="2017-12-12">
+<meta name="date" content="2018-02-23">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -47,9 +47,9 @@
 
 
 
-<script src="libs/htmlwidgets-0.9/htmlwidgets.js"></script>
+<script src="libs/htmlwidgets-1.0/htmlwidgets.js"></script>
 <link href="libs/str_view-0.1.0/str_view.css" rel="stylesheet" />
-<script src="libs/str_view-binding-1.2.0/str_view.js"></script>
+<script src="libs/str_view-binding-1.3.0/str_view.js"></script>
 
 
 <style type="text/css">
@@ -341,7 +341,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
             <section class="normal" id="section-">
 <div id="Manipular_datos" class="section level1">
-<h1><span class="header-section-number">Chapter 6</span> Manipular datos</h1>
+<h1><span class="header-section-number">6</span> Manipular datos</h1>
 <hr />
 <p><strong>TODO</strong> * Ver <a href="https://rpubs.com/bradleyboehmke/data_wrangling">Data Processing with dplyr &amp; tidyr</a>. Hay algunas buenas ideas ahi que nos deberian servir para mejorar nuestro documento.</p>
 <ul>
@@ -363,18 +363,18 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">raw_data =<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;Data/05-Manipulate_data/Manipulate_data_1.csv&quot;</span>); raw_data</code></pre></div>
 <pre><code>## # A tibble: 30 x 11
 ##       ID `Columna basura`  Sexo  Edad   VI1   VI2   VI3 VI1_t VI2_t VI3_t
-##    &lt;int&gt;            &lt;chr&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;
-##  1     1               xx     0    26    98    29    19  2398  7432   404
-##  2     2               yy     0    33    15    35     4  4893  9918   394
-##  3     3               xx     1    37     7     6     3  4099  6518   304
-##  4     4               yy     1    19    59    32    14  1792  9476   149
-##  5     5               zz     0    29    65    12    17  3280  3438    18
-##  6     6               xx     1    34    43    17     7  1350   433   168
-##  7     7               yy     0    21     8    32     1  3405  1265   413
-##  8     8               zz     0    35    93    12    17  1014  8018    50
-##  9     9               xx     0    23    81    42     8   516   548   491
-## 10    10               yy     1    19    41    42    18  2232  6105   227
-## # ... with 20 more rows, and 1 more variables: Composited_var &lt;chr&gt;</code></pre>
+##    &lt;int&gt; &lt;chr&gt;            &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;
+##  1     1 xx                   0    26    98    29    19  2398  7432   404
+##  2     2 yy                   0    33    15    35     4  4893  9918   394
+##  3     3 xx                   1    37     7     6     3  4099  6518   304
+##  4     4 yy                   1    19    59    32    14  1792  9476   149
+##  5     5 zz                   0    29    65    12    17  3280  3438    18
+##  6     6 xx                   1    34    43    17     7  1350   433   168
+##  7     7 yy                   0    21     8    32     1  3405  1265   413
+##  8     8 zz                   0    35    93    12    17  1014  8018    50
+##  9     9 xx                   0    23    81    42     8   516   548   491
+## 10    10 yy                   1    19    41    42    18  2232  6105   227
+## # ... with 20 more rows, and 1 more variable: Composited_var &lt;chr&gt;</code></pre>
 </div>
 <div id="guardar-db-a-archivo" class="section level3">
 <h3><span class="header-section-number">6.1.2</span> Guardar DB a archivo</h3>
@@ -391,34 +391,34 @@ temp =<span class="st"> </span>raw_data
 temp <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(<span class="st">`</span><span class="dt">Columna basura</span><span class="st">`</span>)</code></pre></div>
 <pre><code>## # A tibble: 30 x 1
 ##    `Columna basura`
-##               &lt;chr&gt;
-##  1               xx
-##  2               yy
-##  3               xx
-##  4               yy
-##  5               zz
-##  6               xx
-##  7               yy
-##  8               zz
-##  9               xx
-## 10               yy
+##    &lt;chr&gt;           
+##  1 xx              
+##  2 yy              
+##  3 xx              
+##  4 yy              
+##  5 zz              
+##  6 xx              
+##  7 yy              
+##  8 zz              
+##  9 xx              
+## 10 yy              
 ## # ... with 20 more rows</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># temp no ha cambiado</span>
 temp</code></pre></div>
 <pre><code>## # A tibble: 30 x 11
 ##       ID `Columna basura`  Sexo  Edad   VI1   VI2   VI3 VI1_t VI2_t VI3_t
-##    &lt;int&gt;            &lt;chr&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;
-##  1     1               xx     0    26    98    29    19  2398  7432   404
-##  2     2               yy     0    33    15    35     4  4893  9918   394
-##  3     3               xx     1    37     7     6     3  4099  6518   304
-##  4     4               yy     1    19    59    32    14  1792  9476   149
-##  5     5               zz     0    29    65    12    17  3280  3438    18
-##  6     6               xx     1    34    43    17     7  1350   433   168
-##  7     7               yy     0    21     8    32     1  3405  1265   413
-##  8     8               zz     0    35    93    12    17  1014  8018    50
-##  9     9               xx     0    23    81    42     8   516   548   491
-## 10    10               yy     1    19    41    42    18  2232  6105   227
-## # ... with 20 more rows, and 1 more variables: Composited_var &lt;chr&gt;</code></pre>
+##    &lt;int&gt; &lt;chr&gt;            &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;
+##  1     1 xx                   0    26    98    29    19  2398  7432   404
+##  2     2 yy                   0    33    15    35     4  4893  9918   394
+##  3     3 xx                   1    37     7     6     3  4099  6518   304
+##  4     4 yy                   1    19    59    32    14  1792  9476   149
+##  5     5 zz                   0    29    65    12    17  3280  3438    18
+##  6     6 xx                   1    34    43    17     7  1350   433   168
+##  7     7 yy                   0    21     8    32     1  3405  1265   413
+##  8     8 zz                   0    35    93    12    17  1014  8018    50
+##  9     9 xx                   0    23    81    42     8   516   548   491
+## 10    10 yy                   1    19    41    42    18  2232  6105   227
+## # ... with 20 more rows, and 1 more variable: Composited_var &lt;chr&gt;</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Lo mismo de antes pero ahora con &quot;temp =&quot; lo que hace que guardemos el resultado en &quot;temp&quot; </span>
 temp =<span class="st"> </span>temp <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(<span class="st">`</span><span class="dt">Columna basura</span><span class="st">`</span>)
   
@@ -426,17 +426,17 @@ temp =<span class="st"> </span>temp <span class="op">%&gt;%</span><span class="s
 temp</code></pre></div>
 <pre><code>## # A tibble: 30 x 1
 ##    `Columna basura`
-##               &lt;chr&gt;
-##  1               xx
-##  2               yy
-##  3               xx
-##  4               yy
-##  5               zz
-##  6               xx
-##  7               yy
-##  8               zz
-##  9               xx
-## 10               yy
+##    &lt;chr&gt;           
+##  1 xx              
+##  2 yy              
+##  3 xx              
+##  4 yy              
+##  5 zz              
+##  6 xx              
+##  7 yy              
+##  8 zz              
+##  9 xx              
+## 10 yy              
 ## # ... with 20 more rows</code></pre>
 </div>
 <div id="verbos-de-dplyr" class="section level2">
@@ -530,36 +530,36 @@ dplyr es un conjunto de funciones que nos permiten manipular los datos de manera
 raw_data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Sexo <span class="op">==</span><span class="st"> </span><span class="dv">1</span>) </code></pre></div>
 <pre><code>## # A tibble: 18 x 11
 ##       ID `Columna basura`  Sexo  Edad   VI1   VI2   VI3 VI1_t VI2_t VI3_t
-##    &lt;int&gt;            &lt;chr&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;
-##  1     3               xx     1    37     7     6     3  4099  6518   304
-##  2     4               yy     1    19    59    32    14  1792  9476   149
-##  3     6               xx     1    34    43    17     7  1350   433   168
-##  4    10               yy     1    19    41    42    18  2232  6105   227
-##  5    12               xx     1    27    23    40    19  4407  3987   141
-##  6    15               xx     1    20    61     1    15  2140  3305   168
-##  7    16               yy     1    21    99     3    16   679  7278   401
-##  8    17               zz     1    30    70     3     3  4902  1229   435
-##  9    18               xx     1    20    65     5    13  4846  3906    13
-## 10    19               yy     1    23    96    15     5  4076  5883   369
-## 11    20               zz     1    28    68    12     5   863   847   335
-## 12    21               xx     1    23    67    45     4  3368  8611   295
-## 13    22               yy     1    32    78     8    11  3311  7164   333
-## 14    23               zz     1    28    25    12     8  3558   617    98
-## 15    24               xx     1    25    72    48     6  1917  2501   310
-## 16    25               yy     1    28    53    34    14  1974   582   493
-## 17    27               xx     1    22    68    44     2   537  6455    88
-## 18    30               xx     1    35    87    18     5  1682  8256   405
-## # ... with 1 more variables: Composited_var &lt;chr&gt;</code></pre>
+##    &lt;int&gt; &lt;chr&gt;            &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;
+##  1     3 xx                   1    37     7     6     3  4099  6518   304
+##  2     4 yy                   1    19    59    32    14  1792  9476   149
+##  3     6 xx                   1    34    43    17     7  1350   433   168
+##  4    10 yy                   1    19    41    42    18  2232  6105   227
+##  5    12 xx                   1    27    23    40    19  4407  3987   141
+##  6    15 xx                   1    20    61     1    15  2140  3305   168
+##  7    16 yy                   1    21    99     3    16   679  7278   401
+##  8    17 zz                   1    30    70     3     3  4902  1229   435
+##  9    18 xx                   1    20    65     5    13  4846  3906    13
+## 10    19 yy                   1    23    96    15     5  4076  5883   369
+## 11    20 zz                   1    28    68    12     5   863   847   335
+## 12    21 xx                   1    23    67    45     4  3368  8611   295
+## 13    22 yy                   1    32    78     8    11  3311  7164   333
+## 14    23 zz                   1    28    25    12     8  3558   617    98
+## 15    24 xx                   1    25    72    48     6  1917  2501   310
+## 16    25 yy                   1    28    53    34    14  1974   582   493
+## 17    27 xx                   1    22    68    44     2   537  6455    88
+## 18    30 xx                   1    35    87    18     5  1682  8256   405
+## # ... with 1 more variable: Composited_var &lt;chr&gt;</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Filtramos por sexo, edad, y Tiempo</span>
 raw_data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Sexo <span class="op">==</span><span class="st"> </span><span class="dv">1</span>, Edad  <span class="op">&gt;</span><span class="st"> </span><span class="dv">25</span>, VI1_t <span class="op">&lt;</span><span class="st"> </span><span class="kw">mean</span>(VI1_t)) </code></pre></div>
 <pre><code>## # A tibble: 4 x 11
 ##      ID `Columna basura`  Sexo  Edad   VI1   VI2   VI3 VI1_t VI2_t VI3_t
-##   &lt;int&gt;            &lt;chr&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;
-## 1     6               xx     1    34    43    17     7  1350   433   168
-## 2    20               zz     1    28    68    12     5   863   847   335
-## 3    25               yy     1    28    53    34    14  1974   582   493
-## 4    30               xx     1    35    87    18     5  1682  8256   405
-## # ... with 1 more variables: Composited_var &lt;chr&gt;</code></pre>
+##   &lt;int&gt; &lt;chr&gt;            &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;
+## 1     6 xx                   1    34    43    17     7  1350   433   168
+## 2    20 zz                   1    28    68    12     5   863   847   335
+## 3    25 yy                   1    28    53    34    14  1974   582   493
+## 4    30 xx                   1    35    87    18     5  1682  8256   405
+## # ... with 1 more variable: Composited_var &lt;chr&gt;</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Filtramos aquellas respuestas que se han dado 2.5 desviaciones tipicas por encima o debajo de la media</span>
 raw_data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(
   VI1 <span class="op">&lt;</span><span class="st"> </span><span class="kw">mean</span>(VI1) <span class="op">+</span><span class="st"> </span><span class="fl">2.5</span> <span class="op">*</span><span class="st"> </span><span class="kw">sd</span>(VI1),
@@ -567,33 +567,33 @@ raw_data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw"
   ) </code></pre></div>
 <pre><code>## # A tibble: 30 x 11
 ##       ID `Columna basura`  Sexo  Edad   VI1   VI2   VI3 VI1_t VI2_t VI3_t
-##    &lt;int&gt;            &lt;chr&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;
-##  1     1               xx     0    26    98    29    19  2398  7432   404
-##  2     2               yy     0    33    15    35     4  4893  9918   394
-##  3     3               xx     1    37     7     6     3  4099  6518   304
-##  4     4               yy     1    19    59    32    14  1792  9476   149
-##  5     5               zz     0    29    65    12    17  3280  3438    18
-##  6     6               xx     1    34    43    17     7  1350   433   168
-##  7     7               yy     0    21     8    32     1  3405  1265   413
-##  8     8               zz     0    35    93    12    17  1014  8018    50
-##  9     9               xx     0    23    81    42     8   516   548   491
-## 10    10               yy     1    19    41    42    18  2232  6105   227
-## # ... with 20 more rows, and 1 more variables: Composited_var &lt;chr&gt;</code></pre>
+##    &lt;int&gt; &lt;chr&gt;            &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;
+##  1     1 xx                   0    26    98    29    19  2398  7432   404
+##  2     2 yy                   0    33    15    35     4  4893  9918   394
+##  3     3 xx                   1    37     7     6     3  4099  6518   304
+##  4     4 yy                   1    19    59    32    14  1792  9476   149
+##  5     5 zz                   0    29    65    12    17  3280  3438    18
+##  6     6 xx                   1    34    43    17     7  1350   433   168
+##  7     7 yy                   0    21     8    32     1  3405  1265   413
+##  8     8 zz                   0    35    93    12    17  1014  8018    50
+##  9     9 xx                   0    23    81    42     8   516   548   491
+## 10    10 yy                   1    19    41    42    18  2232  6105   227
+## # ... with 20 more rows, and 1 more variable: Composited_var &lt;chr&gt;</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Filtrar filas donde aparece determinado texto</span>
 raw_data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(<span class="kw">str_detect</span>(<span class="st">`</span><span class="dt">Columna basura</span><span class="st">`</span>, <span class="st">&quot;zz&quot;</span>))</code></pre></div>
 <pre><code>## # A tibble: 9 x 11
 ##      ID `Columna basura`  Sexo  Edad   VI1   VI2   VI3 VI1_t VI2_t VI3_t
-##   &lt;int&gt;            &lt;chr&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;
-## 1     5               zz     0    29    65    12    17  3280  3438    18
-## 2     8               zz     0    35    93    12    17  1014  8018    50
-## 3    11               zz     0    23    51    45    12  2629  6950   464
-## 4    14               zz     0    27    89     9     7  1897  9155    80
-## 5    17               zz     1    30    70     3     3  4902  1229   435
-## 6    20               zz     1    28    68    12     5   863   847   335
-## 7    23               zz     1    28    25    12     8  3558   617    98
-## 8    26               zz     0    21    83    26     6  3305  6470   318
-## 9    29               zz     0    37    88    12    11  4546  5188   380
-## # ... with 1 more variables: Composited_var &lt;chr&gt;</code></pre>
+##   &lt;int&gt; &lt;chr&gt;            &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;
+## 1     5 zz                   0    29    65    12    17  3280  3438    18
+## 2     8 zz                   0    35    93    12    17  1014  8018    50
+## 3    11 zz                   0    23    51    45    12  2629  6950   464
+## 4    14 zz                   0    27    89     9     7  1897  9155    80
+## 5    17 zz                   1    30    70     3     3  4902  1229   435
+## 6    20 zz                   1    28    68    12     5   863   847   335
+## 7    23 zz                   1    28    25    12     8  3558   617    98
+## 8    26 zz                   0    21    83    26     6  3305  6470   318
+## 9    29 zz                   0    37    88    12    11  4546  5188   380
+## # ... with 1 more variable: Composited_var &lt;chr&gt;</code></pre>
 </div>
 <div id="ordenar-db" class="section level3">
 <h3><span class="header-section-number">6.3.2</span> Ordenar DB</h3>
@@ -601,18 +601,18 @@ raw_data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw"
 raw_data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">arrange</span>(Edad, Sexo) </code></pre></div>
 <pre><code>## # A tibble: 30 x 11
 ##       ID `Columna basura`  Sexo  Edad   VI1   VI2   VI3 VI1_t VI2_t VI3_t
-##    &lt;int&gt;            &lt;chr&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;
-##  1     4               yy     1    19    59    32    14  1792  9476   149
-##  2    10               yy     1    19    41    42    18  2232  6105   227
-##  3    13               yy     0    20    24    41     0  4680   192   195
-##  4    28               yy     0    20    25     2     2   964  1484    35
-##  5    15               xx     1    20    61     1    15  2140  3305   168
-##  6    18               xx     1    20    65     5    13  4846  3906    13
-##  7     7               yy     0    21     8    32     1  3405  1265   413
-##  8    26               zz     0    21    83    26     6  3305  6470   318
-##  9    16               yy     1    21    99     3    16   679  7278   401
-## 10    27               xx     1    22    68    44     2   537  6455    88
-## # ... with 20 more rows, and 1 more variables: Composited_var &lt;chr&gt;</code></pre>
+##    &lt;int&gt; &lt;chr&gt;            &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;
+##  1     4 yy                   1    19    59    32    14  1792  9476   149
+##  2    10 yy                   1    19    41    42    18  2232  6105   227
+##  3    13 yy                   0    20    24    41     0  4680   192   195
+##  4    28 yy                   0    20    25     2     2   964  1484    35
+##  5    15 xx                   1    20    61     1    15  2140  3305   168
+##  6    18 xx                   1    20    65     5    13  4846  3906    13
+##  7     7 yy                   0    21     8    32     1  3405  1265   413
+##  8    26 zz                   0    21    83    26     6  3305  6470   318
+##  9    16 yy                   1    21    99     3    16   679  7278   401
+## 10    27 xx                   1    22    68    44     2   537  6455    88
+## # ... with 20 more rows, and 1 more variable: Composited_var &lt;chr&gt;</code></pre>
 </div>
 <div id="seleccionar-variables" class="section level3">
 <h3><span class="header-section-number">6.3.3</span> Seleccionar variables</h3>
@@ -680,34 +680,34 @@ datos</code></pre></div>
 raw_data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">rename</span>(<span class="dt">Columna_basura =</span> <span class="st">`</span><span class="dt">Columna basura</span><span class="st">`</span>)</code></pre></div>
 <pre><code>## # A tibble: 30 x 11
 ##       ID Columna_basura  Sexo  Edad   VI1   VI2   VI3 VI1_t VI2_t VI3_t
-##    &lt;int&gt;          &lt;chr&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;
-##  1     1             xx     0    26    98    29    19  2398  7432   404
-##  2     2             yy     0    33    15    35     4  4893  9918   394
-##  3     3             xx     1    37     7     6     3  4099  6518   304
-##  4     4             yy     1    19    59    32    14  1792  9476   149
-##  5     5             zz     0    29    65    12    17  3280  3438    18
-##  6     6             xx     1    34    43    17     7  1350   433   168
-##  7     7             yy     0    21     8    32     1  3405  1265   413
-##  8     8             zz     0    35    93    12    17  1014  8018    50
-##  9     9             xx     0    23    81    42     8   516   548   491
-## 10    10             yy     1    19    41    42    18  2232  6105   227
-## # ... with 20 more rows, and 1 more variables: Composited_var &lt;chr&gt;</code></pre>
+##    &lt;int&gt; &lt;chr&gt;          &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;
+##  1     1 xx                 0    26    98    29    19  2398  7432   404
+##  2     2 yy                 0    33    15    35     4  4893  9918   394
+##  3     3 xx                 1    37     7     6     3  4099  6518   304
+##  4     4 yy                 1    19    59    32    14  1792  9476   149
+##  5     5 zz                 0    29    65    12    17  3280  3438    18
+##  6     6 xx                 1    34    43    17     7  1350   433   168
+##  7     7 yy                 0    21     8    32     1  3405  1265   413
+##  8     8 zz                 0    35    93    12    17  1014  8018    50
+##  9     9 xx                 0    23    81    42     8   516   548   491
+## 10    10 yy                 1    19    41    42    18  2232  6105   227
+## # ... with 20 more rows, and 1 more variable: Composited_var &lt;chr&gt;</code></pre>
 <p><strong>Renombrado avanzado</strong></p>
 <p>Rename using the position of the column</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">raw_data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">rename</span>(<span class="dt">second_column =</span> <span class="op">!!</span><span class="kw">names</span>(.[<span class="dv">2</span>]), <span class="dt">first_column =</span> <span class="op">!!</span><span class="kw">names</span>(.[<span class="dv">1</span>]))</code></pre></div>
 <pre><code>## # A tibble: 30 x 11
 ##    first_column second_column  Sexo  Edad   VI1   VI2   VI3 VI1_t VI2_t
-##           &lt;int&gt;         &lt;chr&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;
-##  1            1            xx     0    26    98    29    19  2398  7432
-##  2            2            yy     0    33    15    35     4  4893  9918
-##  3            3            xx     1    37     7     6     3  4099  6518
-##  4            4            yy     1    19    59    32    14  1792  9476
-##  5            5            zz     0    29    65    12    17  3280  3438
-##  6            6            xx     1    34    43    17     7  1350   433
-##  7            7            yy     0    21     8    32     1  3405  1265
-##  8            8            zz     0    35    93    12    17  1014  8018
-##  9            9            xx     0    23    81    42     8   516   548
-## 10           10            yy     1    19    41    42    18  2232  6105
+##           &lt;int&gt; &lt;chr&gt;         &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;
+##  1            1 xx                0    26    98    29    19  2398  7432
+##  2            2 yy                0    33    15    35     4  4893  9918
+##  3            3 xx                1    37     7     6     3  4099  6518
+##  4            4 yy                1    19    59    32    14  1792  9476
+##  5            5 zz                0    29    65    12    17  3280  3438
+##  6            6 xx                1    34    43    17     7  1350   433
+##  7            7 yy                0    21     8    32     1  3405  1265
+##  8            8 zz                0    35    93    12    17  1014  8018
+##  9            9 xx                0    23    81    42     8   516   548
+## 10           10 yy                1    19    41    42    18  2232  6105
 ## # ... with 20 more rows, and 2 more variables: VI3_t &lt;int&gt;,
 ## #   Composited_var &lt;chr&gt;</code></pre>
 </div>
@@ -716,17 +716,17 @@ raw_data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw"
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">raw_data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">separate</span>(Composited_var, <span class="kw">c</span>(<span class="st">&quot;First&quot;</span>, <span class="st">&quot;Second&quot;</span>), <span class="dt">sep =</span> <span class="st">&quot;_&quot;</span>)</code></pre></div>
 <pre><code>## # A tibble: 30 x 12
 ##       ID `Columna basura`  Sexo  Edad   VI1   VI2   VI3 VI1_t VI2_t VI3_t
-##  * &lt;int&gt;            &lt;chr&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;
-##  1     1               xx     0    26    98    29    19  2398  7432   404
-##  2     2               yy     0    33    15    35     4  4893  9918   394
-##  3     3               xx     1    37     7     6     3  4099  6518   304
-##  4     4               yy     1    19    59    32    14  1792  9476   149
-##  5     5               zz     0    29    65    12    17  3280  3438    18
-##  6     6               xx     1    34    43    17     7  1350   433   168
-##  7     7               yy     0    21     8    32     1  3405  1265   413
-##  8     8               zz     0    35    93    12    17  1014  8018    50
-##  9     9               xx     0    23    81    42     8   516   548   491
-## 10    10               yy     1    19    41    42    18  2232  6105   227
+##    &lt;int&gt; &lt;chr&gt;            &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;
+##  1     1 xx                   0    26    98    29    19  2398  7432   404
+##  2     2 yy                   0    33    15    35     4  4893  9918   394
+##  3     3 xx                   1    37     7     6     3  4099  6518   304
+##  4     4 yy                   1    19    59    32    14  1792  9476   149
+##  5     5 zz                   0    29    65    12    17  3280  3438    18
+##  6     6 xx                   1    34    43    17     7  1350   433   168
+##  7     7 yy                   0    21     8    32     1  3405  1265   413
+##  8     8 zz                   0    35    93    12    17  1014  8018    50
+##  9     9 xx                   0    23    81    42     8   516   548   491
+## 10    10 yy                   1    19    41    42    18  2232  6105   227
 ## # ... with 20 more rows, and 2 more variables: First &lt;chr&gt;, Second &lt;chr&gt;</code></pre>
 </div>
 <div id="wide-to-long-format" class="section level3">
@@ -739,17 +739,17 @@ raw_data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw"
 data_long_RAW <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(<span class="op">-</span>Condition_t) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">arrange</span>(ID)</code></pre></div>
 <pre><code>## # A tibble: 270 x 6
 ##       ID  Sexo  Edad Condition    VD  VD_t
-##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;fctr&gt; &lt;int&gt; &lt;int&gt;
-##  1     1     0    26       VI1    98  2398
-##  2     1     0    26       VI2    29  2398
-##  3     1     0    26       VI3    19  2398
-##  4     1     0    26       VI1    98  7432
-##  5     1     0    26       VI2    29  7432
-##  6     1     0    26       VI3    19  7432
-##  7     1     0    26       VI1    98   404
-##  8     1     0    26       VI2    29   404
-##  9     1     0    26       VI3    19   404
-## 10     2     0    33       VI1    15  4893
+##    &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;fct&gt;     &lt;int&gt; &lt;int&gt;
+##  1     1     0    26 VI1          98  2398
+##  2     1     0    26 VI2          29  2398
+##  3     1     0    26 VI3          19  2398
+##  4     1     0    26 VI1          98  7432
+##  5     1     0    26 VI2          29  7432
+##  6     1     0    26 VI3          19  7432
+##  7     1     0    26 VI1          98   404
+##  8     1     0    26 VI2          29   404
+##  9     1     0    26 VI3          19   404
+## 10     2     0    33 VI1          15  4893
 ## # ... with 260 more rows</code></pre>
 </div>
 <div id="long-to-wide" class="section level3">
@@ -760,7 +760,7 @@ data_long_RAW <span class="op">%&gt;%</span><span class="st"> </span><span class
 <span class="st">  </span><span class="kw">spread</span>(Condition_t, VD_t) </code></pre></div>
 <pre><code>## # A tibble: 30 x 9
 ##       ID  Sexo  Edad   VI1   VI2   VI3 VI1_t VI2_t VI3_t
-##  * &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;
+##    &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;
 ##  1     1     0    26    98    29    19  2398  7432   404
 ##  2     2     0    33    15    35     4  4893  9918   394
 ##  3     3     1    37     7     6     3  4099  6518   304
@@ -791,35 +791,35 @@ data_long_RAW =<span class="st"> </span>data_long_RAW <span class="op">%&gt;%</s
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">data_long_RAW <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">Viejuno =</span> Edad <span class="op">&gt;</span><span class="st"> </span><span class="dv">30</span>)</code></pre></div>
 <pre><code>## # A tibble: 270 x 7
 ##       ID  Sexo  Edad Condition    VD  VD_t Viejuno
-##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;fctr&gt; &lt;int&gt; &lt;int&gt;   &lt;lgl&gt;
-##  1     1     0    26       VI1    98  2398   FALSE
-##  2     2     0    33       VI1    15  4893    TRUE
-##  3     3     1    37       VI1     7  4099    TRUE
-##  4     4     1    19       VI1    59  1792   FALSE
-##  5     5     0    29       VI1    65  3280   FALSE
-##  6     6     1    34       VI1    43  1350    TRUE
-##  7     7     0    21       VI1     8  3405   FALSE
-##  8     8     0    35       VI1    93  1014    TRUE
-##  9     9     0    23       VI1    81   516   FALSE
-## 10    10     1    19       VI1    41  2232   FALSE
+##    &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;fct&gt;     &lt;int&gt; &lt;int&gt; &lt;lgl&gt;  
+##  1     1     0    26 VI1          98  2398 F      
+##  2     2     0    33 VI1          15  4893 T      
+##  3     3     1    37 VI1           7  4099 T      
+##  4     4     1    19 VI1          59  1792 F      
+##  5     5     0    29 VI1          65  3280 F      
+##  6     6     1    34 VI1          43  1350 T      
+##  7     7     0    21 VI1           8  3405 F      
+##  8     8     0    35 VI1          93  1014 T      
+##  9     9     0    23 VI1          81   516 F      
+## 10    10     1    19 VI1          41  2232 F      
 ## # ... with 260 more rows</code></pre>
 </div>
 <div id="transformando-otras-variables" class="section level4">
 <h4><span class="header-section-number">6.3.10.2</span> Transformando otras variables</h4>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">data_long_RAW <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">RT_log =</span> <span class="kw">log</span>(VD_t))</code></pre></div>
 <pre><code>## # A tibble: 270 x 7
-##       ID  Sexo  Edad Condition    VD  VD_t   RT_log
-##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;fctr&gt; &lt;int&gt; &lt;int&gt;    &lt;dbl&gt;
-##  1     1     0    26       VI1    98  2398 7.782390
-##  2     2     0    33       VI1    15  4893 8.495561
-##  3     3     1    37       VI1     7  4099 8.318498
-##  4     4     1    19       VI1    59  1792 7.491088
-##  5     5     0    29       VI1    65  3280 8.095599
-##  6     6     1    34       VI1    43  1350 7.207860
-##  7     7     0    21       VI1     8  3405 8.133000
-##  8     8     0    35       VI1    93  1014 6.921658
-##  9     9     0    23       VI1    81   516 6.246107
-## 10    10     1    19       VI1    41  2232 7.710653
+##       ID  Sexo  Edad Condition    VD  VD_t RT_log
+##    &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;fct&gt;     &lt;int&gt; &lt;int&gt;  &lt;dbl&gt;
+##  1     1     0    26 VI1          98  2398   7.78
+##  2     2     0    33 VI1          15  4893   8.50
+##  3     3     1    37 VI1           7  4099   8.32
+##  4     4     1    19 VI1          59  1792   7.49
+##  5     5     0    29 VI1          65  3280   8.10
+##  6     6     1    34 VI1          43  1350   7.21
+##  7     7     0    21 VI1           8  3405   8.13
+##  8     8     0    35 VI1          93  1014   6.92
+##  9     9     0    23 VI1          81   516   6.25
+## 10    10     1    19 VI1          41  2232   7.71
 ## # ... with 260 more rows</code></pre>
 </div>
 </div>
@@ -831,34 +831,34 @@ data_long_RAW =<span class="st"> </span>data_long_RAW <span class="op">%&gt;%</s
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Cambiamos a Character</span>
 data_long_RAW <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">Edad =</span> <span class="kw">as.character</span>(Edad))</code></pre></div>
 <pre><code>## # A tibble: 270 x 6
-##       ID  Sexo  Edad Condition    VD  VD_t
-##    &lt;int&gt; &lt;int&gt; &lt;chr&gt;    &lt;fctr&gt; &lt;int&gt; &lt;int&gt;
-##  1     1     0    26       VI1    98  2398
-##  2     2     0    33       VI1    15  4893
-##  3     3     1    37       VI1     7  4099
-##  4     4     1    19       VI1    59  1792
-##  5     5     0    29       VI1    65  3280
-##  6     6     1    34       VI1    43  1350
-##  7     7     0    21       VI1     8  3405
-##  8     8     0    35       VI1    93  1014
-##  9     9     0    23       VI1    81   516
-## 10    10     1    19       VI1    41  2232
+##       ID  Sexo Edad  Condition    VD  VD_t
+##    &lt;int&gt; &lt;int&gt; &lt;chr&gt; &lt;fct&gt;     &lt;int&gt; &lt;int&gt;
+##  1     1     0 26    VI1          98  2398
+##  2     2     0 33    VI1          15  4893
+##  3     3     1 37    VI1           7  4099
+##  4     4     1 19    VI1          59  1792
+##  5     5     0 29    VI1          65  3280
+##  6     6     1 34    VI1          43  1350
+##  7     7     0 21    VI1           8  3405
+##  8     8     0 35    VI1          93  1014
+##  9     9     0 23    VI1          81   516
+## 10    10     1 19    VI1          41  2232
 ## # ... with 260 more rows</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Cambiamos a Integer</span>
 data_long_RAW <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">Edad =</span> <span class="kw">as.integer</span>(Edad))</code></pre></div>
 <pre><code>## # A tibble: 270 x 6
 ##       ID  Sexo  Edad Condition    VD  VD_t
-##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;fctr&gt; &lt;int&gt; &lt;int&gt;
-##  1     1     0    26       VI1    98  2398
-##  2     2     0    33       VI1    15  4893
-##  3     3     1    37       VI1     7  4099
-##  4     4     1    19       VI1    59  1792
-##  5     5     0    29       VI1    65  3280
-##  6     6     1    34       VI1    43  1350
-##  7     7     0    21       VI1     8  3405
-##  8     8     0    35       VI1    93  1014
-##  9     9     0    23       VI1    81   516
-## 10    10     1    19       VI1    41  2232
+##    &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;fct&gt;     &lt;int&gt; &lt;int&gt;
+##  1     1     0    26 VI1          98  2398
+##  2     2     0    33 VI1          15  4893
+##  3     3     1    37 VI1           7  4099
+##  4     4     1    19 VI1          59  1792
+##  5     5     0    29 VI1          65  3280
+##  6     6     1    34 VI1          43  1350
+##  7     7     0    21 VI1           8  3405
+##  8     8     0    35 VI1          93  1014
+##  9     9     0    23 VI1          81   516
+## 10    10     1    19 VI1          41  2232
 ## # ... with 260 more rows</code></pre>
 </div>
 <div id="recodificamos-los-valores" class="section level4">
@@ -867,36 +867,36 @@ data_long_RAW <span class="op">%&gt;%</span><span class="st"> </span><span class
                            <span class="kw">ifelse</span>( Edad <span class="op">&gt;</span><span class="st"> </span><span class="dv">30</span>, <span class="st">&quot;Viejuno&quot;</span>, 
                            <span class="kw">ifelse</span>( Edad <span class="op">&lt;</span><span class="st"> </span><span class="dv">30</span>, <span class="st">&quot;Pipiolo&quot;</span>, <span class="ot">NA</span>)))</code></pre></div>
 <pre><code>## # A tibble: 270 x 7
-##       ID  Sexo  Edad Condition    VD  VD_t   Edad2
-##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;fctr&gt; &lt;int&gt; &lt;int&gt;   &lt;chr&gt;
-##  1     1     0    26       VI1    98  2398 Pipiolo
-##  2     2     0    33       VI1    15  4893 Viejuno
-##  3     3     1    37       VI1     7  4099 Viejuno
-##  4     4     1    19       VI1    59  1792 Pipiolo
-##  5     5     0    29       VI1    65  3280 Pipiolo
-##  6     6     1    34       VI1    43  1350 Viejuno
-##  7     7     0    21       VI1     8  3405 Pipiolo
-##  8     8     0    35       VI1    93  1014 Viejuno
-##  9     9     0    23       VI1    81   516 Pipiolo
-## 10    10     1    19       VI1    41  2232 Pipiolo
+##       ID  Sexo  Edad Condition    VD  VD_t Edad2  
+##    &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;fct&gt;     &lt;int&gt; &lt;int&gt; &lt;chr&gt;  
+##  1     1     0    26 VI1          98  2398 Pipiolo
+##  2     2     0    33 VI1          15  4893 Viejuno
+##  3     3     1    37 VI1           7  4099 Viejuno
+##  4     4     1    19 VI1          59  1792 Pipiolo
+##  5     5     0    29 VI1          65  3280 Pipiolo
+##  6     6     1    34 VI1          43  1350 Viejuno
+##  7     7     0    21 VI1           8  3405 Pipiolo
+##  8     8     0    35 VI1          93  1014 Viejuno
+##  9     9     0    23 VI1          81   516 Pipiolo
+## 10    10     1    19 VI1          41  2232 Pipiolo
 ## # ... with 260 more rows</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">data_long_RAW <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">Edad2 =</span> 
                            <span class="kw">case_when</span>(
                              .<span class="op">$</span>Edad <span class="op">&gt;</span><span class="st"> </span><span class="dv">30</span> <span class="op">~</span><span class="st"> &quot;Viejuno&quot;</span>,
                              .<span class="op">$</span>Edad <span class="op">&lt;</span><span class="st"> </span><span class="dv">30</span> <span class="op">~</span><span class="st"> &quot;Pipiolo&quot;</span>))</code></pre></div>
 <pre><code>## # A tibble: 270 x 7
-##       ID  Sexo  Edad Condition    VD  VD_t   Edad2
-##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;fctr&gt; &lt;int&gt; &lt;int&gt;   &lt;chr&gt;
-##  1     1     0    26       VI1    98  2398 Pipiolo
-##  2     2     0    33       VI1    15  4893 Viejuno
-##  3     3     1    37       VI1     7  4099 Viejuno
-##  4     4     1    19       VI1    59  1792 Pipiolo
-##  5     5     0    29       VI1    65  3280 Pipiolo
-##  6     6     1    34       VI1    43  1350 Viejuno
-##  7     7     0    21       VI1     8  3405 Pipiolo
-##  8     8     0    35       VI1    93  1014 Viejuno
-##  9     9     0    23       VI1    81   516 Pipiolo
-## 10    10     1    19       VI1    41  2232 Pipiolo
+##       ID  Sexo  Edad Condition    VD  VD_t Edad2  
+##    &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;fct&gt;     &lt;int&gt; &lt;int&gt; &lt;chr&gt;  
+##  1     1     0    26 VI1          98  2398 Pipiolo
+##  2     2     0    33 VI1          15  4893 Viejuno
+##  3     3     1    37 VI1           7  4099 Viejuno
+##  4     4     1    19 VI1          59  1792 Pipiolo
+##  5     5     0    29 VI1          65  3280 Pipiolo
+##  6     6     1    34 VI1          43  1350 Viejuno
+##  7     7     0    21 VI1           8  3405 Pipiolo
+##  8     8     0    35 VI1          93  1014 Viejuno
+##  9     9     0    23 VI1          81   516 Pipiolo
+## 10    10     1    19 VI1          41  2232 Pipiolo
 ## # ... with 260 more rows</code></pre>
 </div>
 </div>
@@ -985,50 +985,50 @@ datos_combinados =<span class="st"> </span><span class="kw">left_join</span>(dat
 raw_data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate_if</span>(is.numeric, <span class="kw">as.character</span>())</code></pre></div>
 <pre><code>## # A tibble: 30 x 11
 ##       ID `Columna basura`  Sexo  Edad   VI1   VI2   VI3 VI1_t VI2_t VI3_t
-##    &lt;int&gt;            &lt;chr&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;
-##  1     1               xx     0    26    98    29    19  2398  7432   404
-##  2     2               yy     0    33    15    35     4  4893  9918   394
-##  3     3               xx     1    37     7     6     3  4099  6518   304
-##  4     4               yy     1    19    59    32    14  1792  9476   149
-##  5     5               zz     0    29    65    12    17  3280  3438    18
-##  6     6               xx     1    34    43    17     7  1350   433   168
-##  7     7               yy     0    21     8    32     1  3405  1265   413
-##  8     8               zz     0    35    93    12    17  1014  8018    50
-##  9     9               xx     0    23    81    42     8   516   548   491
-## 10    10               yy     1    19    41    42    18  2232  6105   227
-## # ... with 20 more rows, and 1 more variables: Composited_var &lt;chr&gt;</code></pre>
+##    &lt;int&gt; &lt;chr&gt;            &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;
+##  1     1 xx                   0    26    98    29    19  2398  7432   404
+##  2     2 yy                   0    33    15    35     4  4893  9918   394
+##  3     3 xx                   1    37     7     6     3  4099  6518   304
+##  4     4 yy                   1    19    59    32    14  1792  9476   149
+##  5     5 zz                   0    29    65    12    17  3280  3438    18
+##  6     6 xx                   1    34    43    17     7  1350   433   168
+##  7     7 yy                   0    21     8    32     1  3405  1265   413
+##  8     8 zz                   0    35    93    12    17  1014  8018    50
+##  9     9 xx                   0    23    81    42     8   516   548   491
+## 10    10 yy                   1    19    41    42    18  2232  6105   227
+## # ... with 20 more rows, and 1 more variable: Composited_var &lt;chr&gt;</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Cambiamos las variables de VI1 a VI3</span>
 raw_data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate_at</span>(<span class="kw">vars</span>(VI1<span class="op">:</span>VI3), as.numeric)</code></pre></div>
 <pre><code>## # A tibble: 30 x 11
 ##       ID `Columna basura`  Sexo  Edad   VI1   VI2   VI3 VI1_t VI2_t VI3_t
-##    &lt;int&gt;            &lt;chr&gt; &lt;int&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;
-##  1     1               xx     0    26    98    29    19  2398  7432   404
-##  2     2               yy     0    33    15    35     4  4893  9918   394
-##  3     3               xx     1    37     7     6     3  4099  6518   304
-##  4     4               yy     1    19    59    32    14  1792  9476   149
-##  5     5               zz     0    29    65    12    17  3280  3438    18
-##  6     6               xx     1    34    43    17     7  1350   433   168
-##  7     7               yy     0    21     8    32     1  3405  1265   413
-##  8     8               zz     0    35    93    12    17  1014  8018    50
-##  9     9               xx     0    23    81    42     8   516   548   491
-## 10    10               yy     1    19    41    42    18  2232  6105   227
-## # ... with 20 more rows, and 1 more variables: Composited_var &lt;chr&gt;</code></pre>
+##    &lt;int&gt; &lt;chr&gt;            &lt;int&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;
+##  1     1 xx                   0    26 98.0  29.0  19.0   2398  7432   404
+##  2     2 yy                   0    33 15.0  35.0   4.00  4893  9918   394
+##  3     3 xx                   1    37  7.00  6.00  3.00  4099  6518   304
+##  4     4 yy                   1    19 59.0  32.0  14.0   1792  9476   149
+##  5     5 zz                   0    29 65.0  12.0  17.0   3280  3438    18
+##  6     6 xx                   1    34 43.0  17.0   7.00  1350   433   168
+##  7     7 yy                   0    21  8.00 32.0   1.00  3405  1265   413
+##  8     8 zz                   0    35 93.0  12.0  17.0   1014  8018    50
+##  9     9 xx                   0    23 81.0  42.0   8.00   516   548   491
+## 10    10 yy                   1    19 41.0  42.0  18.0   2232  6105   227
+## # ... with 20 more rows, and 1 more variable: Composited_var &lt;chr&gt;</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Cambiamos todas las variables que contienen &quot;VI&quot; en el nombre</span>
 raw_data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate_at</span>(<span class="kw">vars</span>(<span class="kw">matches</span>(<span class="st">&quot;VI&quot;</span>)), as.numeric)</code></pre></div>
 <pre><code>## # A tibble: 30 x 11
 ##       ID `Columna basura`  Sexo  Edad   VI1   VI2   VI3 VI1_t VI2_t VI3_t
-##    &lt;int&gt;            &lt;chr&gt; &lt;int&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
-##  1     1               xx     0    26    98    29    19  2398  7432   404
-##  2     2               yy     0    33    15    35     4  4893  9918   394
-##  3     3               xx     1    37     7     6     3  4099  6518   304
-##  4     4               yy     1    19    59    32    14  1792  9476   149
-##  5     5               zz     0    29    65    12    17  3280  3438    18
-##  6     6               xx     1    34    43    17     7  1350   433   168
-##  7     7               yy     0    21     8    32     1  3405  1265   413
-##  8     8               zz     0    35    93    12    17  1014  8018    50
-##  9     9               xx     0    23    81    42     8   516   548   491
-## 10    10               yy     1    19    41    42    18  2232  6105   227
-## # ... with 20 more rows, and 1 more variables: Composited_var &lt;chr&gt;</code></pre>
+##    &lt;int&gt; &lt;chr&gt;            &lt;int&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+##  1     1 xx                   0    26 98.0  29.0  19.0   2398  7432 404  
+##  2     2 yy                   0    33 15.0  35.0   4.00  4893  9918 394  
+##  3     3 xx                   1    37  7.00  6.00  3.00  4099  6518 304  
+##  4     4 yy                   1    19 59.0  32.0  14.0   1792  9476 149  
+##  5     5 zz                   0    29 65.0  12.0  17.0   3280  3438  18.0
+##  6     6 xx                   1    34 43.0  17.0   7.00  1350   433 168  
+##  7     7 yy                   0    21  8.00 32.0   1.00  3405  1265 413  
+##  8     8 zz                   0    35 93.0  12.0  17.0   1014  8018  50.0
+##  9     9 xx                   0    23 81.0  42.0   8.00   516   548 491  
+## 10    10 yy                   1    19 41.0  42.0  18.0   2232  6105 227  
+## # ... with 20 more rows, and 1 more variable: Composited_var &lt;chr&gt;</code></pre>
 </div>
 </div>
 <div id="regular-expressions" class="section level2">
@@ -1038,8 +1038,8 @@ raw_data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw"
 see &lt;-<span class="st"> </span><span class="cf">function</span>(rx) <span class="kw">str_view_all</span>(<span class="st">&quot;abc ABC 123</span><span class="ch">\t</span><span class="st">.!?</span><span class="ch">\\</span><span class="st">(){}</span><span class="ch">\n</span><span class="st">&quot;</span>, rx)
 
 <span class="kw">see</span>(<span class="st">&quot;[aA]&quot;</span>)</code></pre></div>
-<div id="htmlwidget-7428d10479e3e373d84a" style="width:960px;height:auto;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-7428d10479e3e373d84a">{"x":{"html":"<ul>\n  <li><span class='match'>a<\/span>bc <span class='match'>A<\/span>BC 123\t.!?\\(){}\n<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-9d8c66ec63f708665728" style="width:960px;height:auto;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-9d8c66ec63f708665728">{"x":{"html":"<ul>\n  <li><span class='match'>a<\/span>bc <span class='match'>A<\/span>BC 123\t.!?\\(){}\n<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 </div>
 <div id="tutoriales-externos" class="section level2">
 <h2><span class="header-section-number">6.7</span> Tutoriales externos</h2>
@@ -1075,10 +1075,11 @@ gitbook.start({
 "facebook": true,
 "twitter": true,
 "google": false,
+"linkedin": false,
 "weibo": false,
 "instapper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
