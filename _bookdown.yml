@@ -1,4 +1,4 @@
-rmd_subdir: TRUE
+rmd_subdir: FALSE
 
 rmd_files: [
   "index.Rmd",
@@ -25,6 +25,7 @@ rmd_files: [
   "Chapters/12-Fast_frugal_trees.Rmd",
   "Chapters/15-1-OTHER_create_maps.Rmd",
   "Chapters/15-2-OTHER_extract_tables_web.Rmd",
+  "Chapters/16-Extract_tables_web.Rmd",
   "Chapters/50-Exercises_solutions.Rmd",
   "Chapters/50-Exercises.Rmd",
   "Chapters/90-bibliography.Rmd",

@@ -292,6 +292,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="14" data-path="other-stuff.html"><a href="other-stuff.html"><i class="fa fa-check"></i><b>14</b> Other stuff</a><ul>
 <li class="chapter" data-level="14.1" data-path="other-stuff.html"><a href="other-stuff.html#maps---generate-and-locate-cities-in-a-world-map"><i class="fa fa-check"></i><b>14.1</b> Maps - Generate and locate cities in a world map</a></li>
 <li class="chapter" data-level="14.2" data-path="other-stuff.html"><a href="other-stuff.html#extract-tables-from-the-internet"><i class="fa fa-check"></i><b>14.2</b> Extract tables from the internet</a></li>
+<li class="chapter" data-level="14.3" data-path="other-stuff.html"><a href="other-stuff.html#extract-tables-from-the-internet-1"><i class="fa fa-check"></i><b>14.3</b> Extract tables from the internet</a></li>
 </ul></li>
 <li class="chapter" data-level="15" data-path="exercises-solutions.html"><a href="exercises-solutions.html"><i class="fa fa-check"></i><b>15</b> Exercises solutions</a><ul>
 <li class="chapter" data-level="15.1" data-path="exercises-solutions.html"><a href="exercises-solutions.html#exercices-1"><i class="fa fa-check"></i><b>15.1</b> Exercices 1</a></li>
@@ -408,8 +409,8 @@ which_map &lt;-<span class="st"> </span><span class="kw">map_data</span>(<span c
         <span class="dt">axis.title.y =</span> <span class="kw">element_blank</span>(), <span class="dt">legend.position =</span> <span class="st">&quot;none&quot;</span>,
         <span class="co"># panel.background=element_blank(),panel.border=element_blank(),panel.grid.major=element_blank(),</span>
         <span class="dt">panel.grid.minor =</span> <span class="kw">element_blank</span>(), <span class="dt">plot.background =</span> <span class="kw">element_blank</span>())</code></pre></div>
-<pre><code>## Warning: Removed 4 rows containing missing values (geom_point).</code></pre>
-<pre><code>## Warning: Removed 4 rows containing missing values (geom_text_repel).</code></pre>
+<pre><code>## Warning: Removed 5 rows containing missing values (geom_point).</code></pre>
+<pre><code>## Warning: Removed 5 rows containing missing values (geom_text_repel).</code></pre>
 <p><img src="_main_files/figure-html/generate_maps_plot-1.png" width="672" /></p>
 
 </div>
@@ -510,6 +511,106 @@ population_scatter =<span class="st"> </span>population <span class="op">%&gt;%<
 <span class="st">    </span><span class="kw">scale_y_reverse</span>(<span class="dt">breaks=</span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">25</span>, <span class="dv">50</span>, <span class="dv">75</span>, <span class="dv">100</span>)) <span class="op">+</span><span class="st"> </span><span class="co">#, lim = c(100, 1)</span>
 <span class="st">    </span><span class="kw">labs</span>(<span class="dt">x=</span><span class="st">&quot;Publications&quot;</span>, <span class="dt">y=</span><span class="st">&quot;Shanghai Ranking 2016&quot;</span>)</code></pre></div>
 <p><img src="_main_files/figure-html/extract_tables_shanghai_plot2-1.png" width="672" /></p>
+
+</div>
+<div id="extract-tables-from-the-internet-1" class="section level2">
+<h2><span class="header-section-number">14.3</span> Extract tables from the internet</h2>
+<hr />
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Cargamos librerias y leemos DBif (!require(&#39;pacman&#39;)) install.packages(&#39;pacman&#39;); library(&#39;pacman&#39;)</span>
+<span class="kw">library</span>(pacman)
+<span class="kw">p_load</span>(rvest, tidyverse, ggrepel)</code></pre></div>
+<p>To extract a table we use the package <code>rvest</code>. We need the <strong>XPath</strong> of the table. To get it, we need to use the Devtools of Chrome or Firefox, locate the table, and right click, Copy, Copy XPath, as shown in the Figure below.</p>
+<div class="figure">
+<img src="Images/Other/16_Extract_tables_web.png" />
+
+</div>
+<hr />
+<p>Below there is an example using the Shanghai Ranking. First, we extract the table:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#http://www.shanghairanking.com/ARWU-Methodology-2016.html</span>
+
+url &lt;-<span class="st"> &quot;http://www.shanghairanking.com/ARWU2016.html&quot;</span>
+population &lt;-<span class="st"> </span>url <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">read_html</span>() <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">html_nodes</span>(<span class="dt">xpath=</span><span class="st">&#39;//*[@id=&quot;UniversityRanking&quot;]&#39;</span>) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">html_table</span>(<span class="dt">fill =</span> <span class="ot">TRUE</span>)
+  population &lt;-<span class="st"> </span>population[[<span class="dv">1</span>]]
+
+  <span class="co"># Rename columns </span>
+  <span class="kw">colnames</span>(population) =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;World_Rank&quot;</span>, <span class="st">&quot;Institution&quot;</span>, <span class="st">&quot;Country/Region&quot;</span>, <span class="st">&quot;National_Rank&quot;</span>, <span class="st">&quot;Total_Score&quot;</span>, <span class="st">&quot;Alumni&quot;</span>, <span class="st">&quot;Awards&quot;</span>, <span class="st">&quot;Higly_Cited_Researchers&quot;</span>, <span class="st">&quot;Nature_Science&quot;</span>, <span class="st">&quot;Publications&quot;</span>, <span class="st">&quot;PCP&quot;</span>)
+
+<span class="co"># write_csv(population, &quot;Data/15_Extract_tables_web/15_Extract_tables_web_Shanghai_2016.csv&quot;)</span>
+
+population <span class="op">%&gt;%</span><span class="st"> </span>dplyr<span class="op">::</span><span class="kw">select</span>(<span class="op">-</span><span class="st">`</span><span class="dt">Country/Region</span><span class="st">`</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as_tibble</span>()</code></pre></div>
+<pre><code>## # A tibble: 500 x 10
+##    World_Rank Institution          National_Rank Total_Score Alumni Awards
+##    &lt;chr&gt;      &lt;chr&gt;                &lt;chr&gt;               &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
+##  1 1          Harvard University   1                   100    100    100  
+##  2 2          Stanford University  2                    74.7   42.9   89.6
+##  3 3          University of Calif… 3                    70.1   65.1   79.4
+##  4 4          University of Cambr… 1                    69.6   78.3   96.6
+##  5 5          Massachusetts Insti… 4                    69.2   69.4   80.7
+##  6 6          Princeton University 5                    62.0   53.3   98.0
+##  7 7          University of Oxford 2                    58.9   49.7   54.9
+##  8 8          California Institut… 6                    57.8   51.0   66.7
+##  9 9          Columbia University  7                    56.7   63.5   65.9
+## 10 10         University of Chica… 8                    54.2   59.8   86.3
+## # ... with 490 more rows, and 4 more variables:
+## #   Higly_Cited_Researchers &lt;dbl&gt;, Nature_Science &lt;dbl&gt;,
+## #   Publications &lt;dbl&gt;, PCP &lt;dbl&gt;</code></pre>
+<p>We prepare the DB and create the plot…</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Scatter -----------------------------------------------------------------</span>
+
+<span class="co"># Read the DB</span>
+<span class="co"># population = read_csv(&quot;Data/15_Extract_tables_web/15_Extract_tables_web_Shanghai_2016.csv&quot;)</span>
+  
+<span class="co"># We will show the names of this set of universities</span>
+Universidades_destacadas =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;University of Cambridge&quot;</span>, 
+                               <span class="st">&quot;University of Oxford&quot;</span>, 
+                               <span class="st">&quot;University of Toronto&quot;</span>, 
+                               <span class="st">&quot;University of Chicago&quot;</span>, 
+                               <span class="st">&quot;The University of Edinburgh&quot;</span>,
+                               <span class="st">&quot;California Institute of Technology&quot;</span>)
+
+<span class="co"># Prepare DB for plot  </span>
+population_scatter =<span class="st"> </span>population <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as_tibble</span>() <span class="op">%&gt;%</span><span class="st"> </span>dplyr<span class="op">::</span><span class="kw">select</span>(<span class="op">-</span><span class="st">`</span><span class="dt">Country/Region</span><span class="st">`</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">drop_na</span>() <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">World_Rank =</span> <span class="kw">as.numeric</span>(World_Rank), <span class="dt">National_Rank =</span> <span class="kw">as.numeric</span>(National_Rank)) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Institution_highlighted =</span> <span class="kw">ifelse</span>(Institution <span class="op">%in%</span><span class="st"> </span>Universidades_destacadas, Institution, <span class="ot">NA</span>),
+         <span class="dt">Institution =</span> <span class="kw">ifelse</span>(Institution <span class="op">%in%</span><span class="st"> </span>Universidades_destacadas, <span class="ot">NA</span>, Institution))
+
+
+<span class="co"># Plot</span>
+<span class="kw">ggplot</span>(population_scatter, <span class="kw">aes</span>(Nature_Science, World_Rank)) <span class="op">+</span><span class="st"> </span><span class="co">#, color=factor(P_s)</span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="dv">4</span>, <span class="dt">color =</span> <span class="st">&#39;orange&#39;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">scale_colour_hue</span>(<span class="dt">l=</span><span class="dv">50</span>) <span class="op">+</span><span class="st"> </span><span class="co"># Palette hue</span>
+<span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span>lm,   <span class="co"># Linear regression lines</span>
+              <span class="dt">se=</span>T,<span class="co"># level = .5,        # Confidence interval</span>
+              <span class="dt">fullrange=</span>F, 
+              <span class="dt">color =</span> <span class="st">&quot;purple&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="co"># geom_text_repel(aes(label=Institution)) + </span>
+<span class="st">  </span><span class="kw">geom_text_repel</span>(<span class="kw">aes</span>(<span class="dt">label=</span>Institution_highlighted, <span class="dt">fontface=</span><span class="st">&quot;bold&quot;</span>), <span class="dt">size =</span> <span class="dv">3</span>) <span class="op">+</span><span class="st">   </span>
+<span class="st">  </span><span class="kw">theme_classic</span>(<span class="dt">base_size =</span> <span class="dv">16</span>) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">scale_y_reverse</span>( <span class="dt">breaks=</span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">25</span>, <span class="dv">50</span>, <span class="dv">75</span>, <span class="dv">100</span>), <span class="dt">lim =</span> <span class="kw">c</span>(<span class="dv">100</span>,<span class="dv">1</span>)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x=</span><span class="st">&quot;Publications&quot;</span>, <span class="dt">y=</span><span class="st">&quot;Shanghai Ranking 2016&quot;</span>)</code></pre></div>
+<p><img src="_main_files/figure-html/extract_tables_plot1-1.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">  <span class="co"># Save the plot</span>
+  <span class="co"># file = &quot;Images/Other/Shanghai_ Ranking.png&quot;</span>
+  <span class="co"># ggsave(file, device = &quot;png&quot;, dpi = 300)</span></code></pre></div>
+<p>When plotting, we can change the function behind the regression line.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">  <span class="kw">ggplot</span>(population_scatter, <span class="kw">aes</span>(Nature_Science, World_Rank)) <span class="op">+</span><span class="st"> </span><span class="co">#, color=factor(P_s)</span>
+<span class="st">    </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="dv">4</span>, <span class="dt">color =</span> <span class="st">&#39;orange&#39;</span>) <span class="op">+</span>
+<span class="st">    </span><span class="kw">scale_colour_hue</span>(<span class="dt">l=</span><span class="dv">50</span>) <span class="op">+</span><span class="st"> </span><span class="co"># Palette hue</span>
+<span class="st">    </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span><span class="st">&quot;lm&quot;</span>, <span class="kw">aes</span>(<span class="dt">color=</span><span class="st">&quot;Log Model&quot;</span>), <span class="dt">formula=</span> (y <span class="op">~</span><span class="st"> </span><span class="kw">log</span>(x)), <span class="dt">se=</span>T, <span class="dt">linetype =</span> <span class="dv">1</span>,  <span class="dt">level =</span> .<span class="dv">999</span>) <span class="op">+</span>
+<span class="st">    </span><span class="co"># geom_smooth(method=&quot;lm&quot;, aes(color=&quot;Log Model&quot;), formula= (y ~  poly(x, 2, raw=TRUE)), se=T, linetype = 1) +</span>
+<span class="st">    </span><span class="co"># geom_smooth(method=&quot;lm&quot;, aes(color=&quot;Log Model&quot;), formula= (y ~  splines::bs(x, 3)), se=T, linetype = 1,  level = .999) +</span>
+<span class="st">    </span><span class="co"># method = &quot;lm&quot;, formula = y ~ </span>
+<span class="st">    </span><span class="kw">guides</span>(<span class="dt">color =</span> <span class="kw">guide_legend</span>(<span class="st">&quot;Model Type&quot;</span>)) <span class="op">+</span>
+<span class="st">    </span><span class="co"># geom_text_repel(aes(label=Institution)) + </span>
+<span class="st">    </span><span class="kw">geom_text_repel</span>(<span class="kw">aes</span>(<span class="dt">label=</span>Institution_highlighted, <span class="dt">fontface=</span><span class="st">&quot;bold&quot;</span>), <span class="dt">size =</span> <span class="dv">3</span>) <span class="op">+</span><span class="st">   </span>
+<span class="st">    </span><span class="kw">theme_classic</span>(<span class="dt">base_size =</span> <span class="dv">16</span>) <span class="op">+</span><span class="st"> </span>
+<span class="st">    </span><span class="kw">scale_y_reverse</span>(<span class="dt">breaks=</span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">25</span>, <span class="dv">50</span>, <span class="dv">75</span>, <span class="dv">100</span>)) <span class="op">+</span><span class="st"> </span><span class="co">#, lim = c(100, 1)</span>
+<span class="st">    </span><span class="kw">labs</span>(<span class="dt">x=</span><span class="st">&quot;Publications&quot;</span>, <span class="dt">y=</span><span class="st">&quot;Shanghai Ranking 2016&quot;</span>)</code></pre></div>
+<pre><code>## Warning: Removed 94 rows containing missing values (geom_text_repel).</code></pre>
+<p><img src="_main_files/figure-html/extract_tables_plot2-1.png" width="672" /></p>
 
 </div>
 </div>
