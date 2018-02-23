@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>R - Statistics Manual</title>
   <meta name="description" content="Statistics manual from CSCN.">
-  <meta name="generator" content="bookdown 0.5 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
 
   <meta property="og:title" content="R - Statistics Manual" />
   <meta property="og:type" content="book" />
@@ -25,7 +25,7 @@
 <meta name="author" content="Center for Social and Cognitive Neuroscience - cscn.uai.cl">
 
 
-<meta name="date" content="2017-12-12">
+<meta name="date" content="2018-02-23">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -47,9 +47,9 @@
 
 
 
-<script src="libs/htmlwidgets-0.9/htmlwidgets.js"></script>
+<script src="libs/htmlwidgets-1.0/htmlwidgets.js"></script>
 <link href="libs/str_view-0.1.0/str_view.css" rel="stylesheet" />
-<script src="libs/str_view-binding-1.2.0/str_view.js"></script>
+<script src="libs/str_view-binding-1.3.0/str_view.js"></script>
 
 
 <style type="text/css">
@@ -341,7 +341,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
             <section class="normal" id="section-">
 <div id="other-stuff" class="section level1">
-<h1><span class="header-section-number">Chapter 14</span> Other stuff</h1>
+<h1><span class="header-section-number">14</span> Other stuff</h1>
 <p>Interesting stuff not necessarily related to stats :)</p>
 <div id="maps---generate-and-locate-cities-in-a-world-map" class="section level2">
 <h2><span class="header-section-number">14.1</span> Maps - Generate and locate cities in a world map</h2>
@@ -380,6 +380,10 @@ Coordinates_cities =<span class="st">  </span>cities <span class="op">%&gt;%</sp
 <span class="co"># Usamos el mapa </span>
 which_map &lt;-<span class="st"> </span><span class="kw">map_data</span>(<span class="st">&quot;world&quot;</span>)</code></pre></div>
 <pre><code>## 
+##  # ATTENTION: maps v3.0 has an updated &#39;world&#39; map.        #
+##  # Many country borders and names have changed since 1990. #
+##  # Type &#39;?world&#39; or &#39;news(package=&quot;maps&quot;)&#39;. See README_v3. #</code></pre>
+<pre><code>## 
 ## Attaching package: &#39;maps&#39;</code></pre>
 <pre><code>## The following object is masked from &#39;package:plyr&#39;:
 ## 
@@ -404,9 +408,9 @@ which_map &lt;-<span class="st"> </span><span class="kw">map_data</span>(<span c
         <span class="dt">axis.title.y =</span> <span class="kw">element_blank</span>(), <span class="dt">legend.position =</span> <span class="st">&quot;none&quot;</span>,
         <span class="co"># panel.background=element_blank(),panel.border=element_blank(),panel.grid.major=element_blank(),</span>
         <span class="dt">panel.grid.minor =</span> <span class="kw">element_blank</span>(), <span class="dt">plot.background =</span> <span class="kw">element_blank</span>())</code></pre></div>
-<pre><code>## Warning: Removed 3 rows containing missing values (geom_point).</code></pre>
-<pre><code>## Warning: Removed 3 rows containing missing values (geom_text_repel).</code></pre>
-<p><img src="bookdown-demo_files/figure-html/generate_maps_plot-1.png" width="672" /></p>
+<pre><code>## Warning: Removed 4 rows containing missing values (geom_point).</code></pre>
+<pre><code>## Warning: Removed 4 rows containing missing values (geom_text_repel).</code></pre>
+<p><img src="_main_files/figure-html/generate_maps_plot-1.png" width="672" /></p>
 
 </div>
 <div id="extract-tables-from-the-internet" class="section level2">
@@ -438,21 +442,21 @@ population &lt;-<span class="st"> </span>url <span class="op">%&gt;%</span>
 
 population <span class="op">%&gt;%</span><span class="st"> </span>dplyr<span class="op">::</span><span class="kw">select</span>(<span class="op">-</span><span class="st">`</span><span class="dt">Country/Region</span><span class="st">`</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as_tibble</span>()</code></pre></div>
 <pre><code>## # A tibble: 500 x 10
-##    World_Rank                                 Institution National_Rank
-##         &lt;chr&gt;                                       &lt;chr&gt;         &lt;chr&gt;
-##  1          1                          Harvard University             1
-##  2          2                         Stanford University             2
-##  3          3          University of California, Berkeley             3
-##  4          4                     University of Cambridge             1
-##  5          5 Massachusetts Institute of Technology (MIT)             4
-##  6          6                        Princeton University             5
-##  7          7                        University of Oxford             2
-##  8          8          California Institute of Technology             6
-##  9          9                         Columbia University             7
-## 10         10                       University of Chicago             8
-## # ... with 490 more rows, and 7 more variables: Total_Score &lt;dbl&gt;,
-## #   Alumni &lt;dbl&gt;, Awards &lt;dbl&gt;, Higly_Cited_Researchers &lt;dbl&gt;,
-## #   Nature_Science &lt;dbl&gt;, Publications &lt;dbl&gt;, PCP &lt;dbl&gt;</code></pre>
+##    World_Rank Institution          National_Rank Total_Score Alumni Awards
+##    &lt;chr&gt;      &lt;chr&gt;                &lt;chr&gt;               &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
+##  1 1          Harvard University   1                   100    100    100  
+##  2 2          Stanford University  2                    74.7   42.9   89.6
+##  3 3          University of Calif… 3                    70.1   65.1   79.4
+##  4 4          University of Cambr… 1                    69.6   78.3   96.6
+##  5 5          Massachusetts Insti… 4                    69.2   69.4   80.7
+##  6 6          Princeton University 5                    62.0   53.3   98.0
+##  7 7          University of Oxford 2                    58.9   49.7   54.9
+##  8 8          California Institut… 6                    57.8   51.0   66.7
+##  9 9          Columbia University  7                    56.7   63.5   65.9
+## 10 10         University of Chica… 8                    54.2   59.8   86.3
+## # ... with 490 more rows, and 4 more variables:
+## #   Higly_Cited_Researchers &lt;dbl&gt;, Nature_Science &lt;dbl&gt;,
+## #   Publications &lt;dbl&gt;, PCP &lt;dbl&gt;</code></pre>
 <p>We prepare the DB and create the plot…</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Scatter -----------------------------------------------------------------</span>
 
@@ -487,7 +491,7 @@ population_scatter =<span class="st"> </span>population <span class="op">%&gt;%<
 <span class="st">  </span><span class="kw">theme_classic</span>(<span class="dt">base_size =</span> <span class="dv">16</span>) <span class="op">+</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">scale_y_reverse</span>( <span class="dt">breaks=</span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">25</span>, <span class="dv">50</span>, <span class="dv">75</span>, <span class="dv">100</span>), <span class="dt">lim =</span> <span class="kw">c</span>(<span class="dv">100</span>,<span class="dv">1</span>)) <span class="op">+</span>
 <span class="st">  </span><span class="kw">labs</span>(<span class="dt">x=</span><span class="st">&quot;Publications&quot;</span>, <span class="dt">y=</span><span class="st">&quot;Shanghai Ranking 2016&quot;</span>)</code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/extract_tables_shanghai_plot1-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/extract_tables_shanghai_plot1-1.png" width="672" /></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">  <span class="co"># Save the plot</span>
   file =<span class="st"> &quot;Images/Other/Shanghai_ Ranking.png&quot;</span>
   <span class="kw">ggsave</span>(file, <span class="dt">device =</span> <span class="st">&quot;png&quot;</span>, <span class="dt">dpi =</span> <span class="dv">300</span>)</code></pre></div>
@@ -505,7 +509,7 @@ population_scatter =<span class="st"> </span>population <span class="op">%&gt;%<
 <span class="st">    </span><span class="kw">theme_classic</span>(<span class="dt">base_size =</span> <span class="dv">16</span>) <span class="op">+</span><span class="st"> </span>
 <span class="st">    </span><span class="kw">scale_y_reverse</span>(<span class="dt">breaks=</span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">25</span>, <span class="dv">50</span>, <span class="dv">75</span>, <span class="dv">100</span>)) <span class="op">+</span><span class="st"> </span><span class="co">#, lim = c(100, 1)</span>
 <span class="st">    </span><span class="kw">labs</span>(<span class="dt">x=</span><span class="st">&quot;Publications&quot;</span>, <span class="dt">y=</span><span class="st">&quot;Shanghai Ranking 2016&quot;</span>)</code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/extract_tables_shanghai_plot2-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/extract_tables_shanghai_plot2-1.png" width="672" /></p>
 
 </div>
 </div>
@@ -533,10 +537,11 @@ gitbook.start({
 "facebook": true,
 "twitter": true,
 "google": false,
+"linkedin": false,
 "weibo": false,
 "instapper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",

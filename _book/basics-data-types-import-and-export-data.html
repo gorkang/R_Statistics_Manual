@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>R - Statistics Manual</title>
   <meta name="description" content="Statistics manual from CSCN.">
-  <meta name="generator" content="bookdown 0.5 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
 
   <meta property="og:title" content="R - Statistics Manual" />
   <meta property="og:type" content="book" />
@@ -25,7 +25,7 @@
 <meta name="author" content="Center for Social and Cognitive Neuroscience - cscn.uai.cl">
 
 
-<meta name="date" content="2018-01-05">
+<meta name="date" content="2018-02-23">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -47,6 +47,9 @@
 
 
 
+<script src="libs/htmlwidgets-1.0/htmlwidgets.js"></script>
+<link href="libs/str_view-0.1.0/str_view.css" rel="stylesheet" />
+<script src="libs/str_view-binding-1.3.0/str_view.js"></script>
 
 
 <style type="text/css">
@@ -191,11 +194,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="7.3.10" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#density-ridges-plots-ggjoy"><i class="fa fa-check"></i><b>7.3.10</b> Density Ridges Plots (ggjoy)</a></li>
 <li class="chapter" data-level="7.3.11" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#pp-plots"><i class="fa fa-check"></i><b>7.3.11</b> PP plots</a></li>
 <li class="chapter" data-level="7.3.12" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#shaded-geom-area"><i class="fa fa-check"></i><b>7.3.12</b> Shaded geom area</a></li>
-</ul></li>
-<li class="chapter" data-level="7.4" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#calculate-total-deaths-by-year"><i class="fa fa-check"></i><b>7.4</b> Calculate total deaths by year</a></li>
-<li class="chapter" data-level="7.5" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#colors-i-chose"><i class="fa fa-check"></i><b>7.5</b> Colors I chose</a></li>
-<li class="chapter" data-level="7.6" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#plot-as-small-multiples"><i class="fa fa-check"></i><b>7.6</b> Plot as small multiples</a><ul>
-<li class="chapter" data-level="7.6.1" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#multiple-scatterplots"><i class="fa fa-check"></i><b>7.6.1</b> Multiple Scatterplots</a></li>
+<li class="chapter" data-level="7.3.13" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#multiple-scatterplots"><i class="fa fa-check"></i><b>7.3.13</b> Multiple Scatterplots</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="Estadistica-descriptiva.html"><a href="Estadistica-descriptiva.html"><i class="fa fa-check"></i><b>8</b> Estadistica descriptiva</a><ul>
@@ -208,113 +207,120 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="8.5" data-path="Estadistica-descriptiva.html"><a href="Estadistica-descriptiva.html#findviews"><i class="fa fa-check"></i><b>8.5</b> Findviews</a></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html"><i class="fa fa-check"></i><b>9</b> Estadistica inferencial</a><ul>
-<li class="chapter" data-level="9.1" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#referencias-y-fuentes"><i class="fa fa-check"></i><b>9.1</b> Referencias y Fuentes</a></li>
+<li class="chapter" data-level="9.1" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#algo-sobre-modelos-y-formulas"><i class="fa fa-check"></i><b>9.1</b> Algo sobre Modelos y Fórmulas</a></li>
+<li class="chapter" data-level="9.2" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#preparacion-de-datos-y-packages"><i class="fa fa-check"></i><b>9.2</b> Preparación de datos y packages</a></li>
+<li class="chapter" data-level="9.3" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#prueba-t-para-muestras-independientes"><i class="fa fa-check"></i><b>9.3</b> Prueba t para muestras independientes</a><ul>
+<li class="chapter" data-level="9.3.1" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#contando-la-historia"><i class="fa fa-check"></i><b>9.3.1</b> Contando la historia…</a></li>
+<li class="chapter" data-level="9.3.2" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#test"><i class="fa fa-check"></i><b>9.3.2</b> Test</a></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="con-datos-de-estudio-merlin.html"><a href="con-datos-de-estudio-merlin.html"><i class="fa fa-check"></i><b>10</b> Con datos de estudio Merlin</a><ul>
-<li class="chapter" data-level="10.1" data-path="con-datos-de-estudio-merlin.html"><a href="con-datos-de-estudio-merlin.html#association-test"><i class="fa fa-check"></i><b>10.1</b> Association test</a><ul>
-<li class="chapter" data-level="10.1.1" data-path="con-datos-de-estudio-merlin.html"><a href="con-datos-de-estudio-merlin.html#frequentist-1"><i class="fa fa-check"></i><b>10.1.1</b> Frequentist [^1]</a></li>
-<li class="chapter" data-level="10.1.2" data-path="con-datos-de-estudio-merlin.html"><a href="con-datos-de-estudio-merlin.html#bayesian-2"><i class="fa fa-check"></i><b>10.1.2</b> Bayesian [^2]</a></li>
-<li class="chapter" data-level="10.1.3" data-path="con-datos-de-estudio-merlin.html"><a href="con-datos-de-estudio-merlin.html#results-report---wip"><i class="fa fa-check"></i><b>10.1.3</b> Results report - WIP</a></li>
-<li class="chapter" data-level="10.1.4" data-path="con-datos-de-estudio-merlin.html"><a href="con-datos-de-estudio-merlin.html#references"><i class="fa fa-check"></i><b>10.1.4</b> References</a></li>
+<li class="chapter" data-level="9.4" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#prueba-t-para-muestras-dependientes"><i class="fa fa-check"></i><b>9.4</b> Prueba t para muestras dependientes</a><ul>
+<li class="chapter" data-level="9.4.1" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#contando-la-historia-1"><i class="fa fa-check"></i><b>9.4.1</b> Contando la historia…</a></li>
+<li class="chapter" data-level="9.4.2" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#test-1"><i class="fa fa-check"></i><b>9.4.2</b> Test</a></li>
 </ul></li>
+<li class="chapter" data-level="9.5" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#correlacion-de-pearson"><i class="fa fa-check"></i><b>9.5</b> Correlación de Pearson</a><ul>
+<li class="chapter" data-level="9.5.1" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#contando-la-historia-2"><i class="fa fa-check"></i><b>9.5.1</b> Contando la historia…</a></li>
+<li class="chapter" data-level="9.5.2" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#test-2"><i class="fa fa-check"></i><b>9.5.2</b> Test</a></li>
 </ul></li>
-<li class="chapter" data-level="11" data-path="wide-to-long.html"><a href="wide-to-long.html"><i class="fa fa-check"></i><b>11</b> Wide to Long</a><ul>
-<li class="chapter" data-level="11.1" data-path="wide-to-long.html"><a href="wide-to-long.html#anova-repeated-measures"><i class="fa fa-check"></i><b>11.1</b> ANOVA repeated measures</a></li>
+<li class="chapter" data-level="9.6" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#regresion-simple"><i class="fa fa-check"></i><b>9.6</b> Regresión Simple</a><ul>
+<li class="chapter" data-level="9.6.1" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#contando-la-historia-3"><i class="fa fa-check"></i><b>9.6.1</b> Contando la historia…</a></li>
+<li class="chapter" data-level="9.6.2" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#test-3"><i class="fa fa-check"></i><b>9.6.2</b> Test</a></li>
 </ul></li>
-<li class="chapter" data-level="12" data-path="placeholder.html"><a href="placeholder.html"><i class="fa fa-check"></i><b>12</b> Placeholder</a><ul>
-<li class="chapter" data-level="12.1" data-path="placeholder.html"><a href="placeholder.html#mixed-models"><i class="fa fa-check"></i><b>12.1</b> Mixed Models</a></li>
+<li class="chapter" data-level="9.7" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#analsis-de-la-varianza-1-factor"><i class="fa fa-check"></i><b>9.7</b> Análsis de la Varianza (1 Factor)</a><ul>
+<li class="chapter" data-level="9.7.1" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#preparacion-de-datos-y-packages-1"><i class="fa fa-check"></i><b>9.7.1</b> Preparación de datos y packages</a></li>
+<li class="chapter" data-level="9.7.2" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#contando-la-historia-4"><i class="fa fa-check"></i><b>9.7.2</b> Contando la historia…</a></li>
+<li class="chapter" data-level="9.7.3" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#test-4"><i class="fa fa-check"></i><b>9.7.3</b> Test</a></li>
+<li class="chapter" data-level="9.7.4" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#tablas"><i class="fa fa-check"></i><b>9.7.4</b> Tablas</a></li>
 </ul></li>
-<li class="chapter" data-level="13" data-path="input-of-the-data-from-the-two-experiments-each-is-featuring-two-comparison-note-ai-to-di-are-corresponding-to-the-2x2-table-n1i-and-n2i-are-row-sums.html"><a href="input-of-the-data-from-the-two-experiments-each-is-featuring-two-comparison-note-ai-to-di-are-corresponding-to-the-2x2-table-n1i-and-n2i-are-row-sums.html"><i class="fa fa-check"></i><b>13</b> input of the data from the two experiments, each is featuring two comparison (note: ai to di are corresponding to the 2x2 table, n1i and n2i are row sums)</a><ul>
-<li class="chapter" data-level="13.1" data-path="input-of-the-data-from-the-two-experiments-each-is-featuring-two-comparison-note-ai-to-di-are-corresponding-to-the-2x2-table-n1i-and-n2i-are-row-sums.html"><a href="input-of-the-data-from-the-two-experiments-each-is-featuring-two-comparison-note-ai-to-di-are-corresponding-to-the-2x2-table-n1i-and-n2i-are-row-sums.html#meta-analysis"><i class="fa fa-check"></i><b>13.1</b> Meta analysis</a><ul>
-<li class="chapter" data-level="13.1.1" data-path="input-of-the-data-from-the-two-experiments-each-is-featuring-two-comparison-note-ai-to-di-are-corresponding-to-the-2x2-table-n1i-and-n2i-are-row-sums.html"><a href="input-of-the-data-from-the-two-experiments-each-is-featuring-two-comparison-note-ai-to-di-are-corresponding-to-the-2x2-table-n1i-and-n2i-are-row-sums.html#natural-frequencies-effect"><i class="fa fa-check"></i><b>13.1.1</b> Natural Frequencies Effect</a></li>
-<li class="chapter" data-level="13.1.2" data-path="input-of-the-data-from-the-two-experiments-each-is-featuring-two-comparison-note-ai-to-di-are-corresponding-to-the-2x2-table-n1i-and-n2i-are-row-sums.html"><a href="input-of-the-data-from-the-two-experiments-each-is-featuring-two-comparison-note-ai-to-di-are-corresponding-to-the-2x2-table-n1i-and-n2i-are-row-sums.html#pictures-effect"><i class="fa fa-check"></i><b>13.1.2</b> Pictures Effect</a></li>
-<li class="chapter" data-level="13.1.3" data-path="input-of-the-data-from-the-two-experiments-each-is-featuring-two-comparison-note-ai-to-di-are-corresponding-to-the-2x2-table-n1i-and-n2i-are-row-sums.html"><a href="input-of-the-data-from-the-two-experiments-each-is-featuring-two-comparison-note-ai-to-di-are-corresponding-to-the-2x2-table-n1i-and-n2i-are-row-sums.html#notes-on-meta-analysis"><i class="fa fa-check"></i><b>13.1.3</b> Notes on Meta-analysis</a></li>
+<li class="chapter" data-level="9.8" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#analsis-de-la-varianza-2-factores"><i class="fa fa-check"></i><b>9.8</b> Análsis de la Varianza (2 Factores)</a><ul>
+<li class="chapter" data-level="9.8.1" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#descarga"><i class="fa fa-check"></i><b>9.8.1</b> Descarga</a></li>
+<li class="chapter" data-level="9.8.2" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#preparacion-de-datos-y-packages-2"><i class="fa fa-check"></i><b>9.8.2</b> Preparación de datos y packages</a></li>
+<li class="chapter" data-level="9.8.3" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#contando-la-historia-5"><i class="fa fa-check"></i><b>9.8.3</b> Contando la historia…</a></li>
+<li class="chapter" data-level="9.8.4" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#test-5"><i class="fa fa-check"></i><b>9.8.4</b> Test</a></li>
+<li class="chapter" data-level="9.8.5" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#tablas-1"><i class="fa fa-check"></i><b>9.8.5</b> Tablas</a></li>
 </ul></li>
+<li class="chapter" data-level="9.9" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#referencias-y-fuentes"><i class="fa fa-check"></i><b>9.9</b> Referencias y Fuentes</a></li>
+<li class="chapter" data-level="9.10" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#association-test"><i class="fa fa-check"></i><b>9.10</b> Association test</a><ul>
+<li class="chapter" data-level="9.10.1" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#frequentist-1"><i class="fa fa-check"></i><b>9.10.1</b> Frequentist</a></li>
+<li class="chapter" data-level="9.10.2" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#bayesian-2"><i class="fa fa-check"></i><b>9.10.2</b> Bayesian</a></li>
+<li class="chapter" data-level="9.10.3" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#results-report---wip"><i class="fa fa-check"></i><b>9.10.3</b> Results report - WIP</a></li>
+<li class="chapter" data-level="9.10.4" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#references"><i class="fa fa-check"></i><b>9.10.4</b> References</a></li>
 </ul></li>
-<li class="chapter" data-level="14" data-path="Funciones.html"><a href="Funciones.html"><i class="fa fa-check"></i><b>14</b> Funciones</a><ul>
-<li class="chapter" data-level="14.1" data-path="Funciones.html"><a href="Funciones.html#creando-mi-primera-funcion"><i class="fa fa-check"></i><b>14.1</b> Creando mi primera función</a><ul>
-<li class="chapter" data-level="14.1.1" data-path="Funciones.html"><a href="Funciones.html#pirate-plot-original"><i class="fa fa-check"></i><b>14.1.1</b> Pirate plot original</a></li>
-<li class="chapter" data-level="14.1.2" data-path="Funciones.html"><a href="Funciones.html#nuestra-funcion"><i class="fa fa-check"></i><b>14.1.2</b> Nuestra función</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="15" data-path="pre-processing.html"><a href="pre-processing.html"><i class="fa fa-check"></i><b>15</b> Pre-processing</a><ul>
-<li class="chapter" data-level="15.1" data-path="pre-processing.html"><a href="pre-processing.html#rt-filtering"><i class="fa fa-check"></i><b>15.1</b> RT filtering</a><ul>
-<li class="chapter" data-level="15.1.1" data-path="pre-processing.html"><a href="pre-processing.html#function-to-filter-by-rt"><i class="fa fa-check"></i><b>15.1.1</b> Function to filter by RT</a></li>
-<li class="chapter" data-level="15.1.2" data-path="pre-processing.html"><a href="pre-processing.html#n-sd-from-the-median-mad-1"><i class="fa fa-check"></i><b>15.1.2</b> n SD from the median (MAD) [^1]</a></li>
-<li class="chapter" data-level="15.1.3" data-path="pre-processing.html"><a href="pre-processing.html#gamma-law-regression-analyses-2"><i class="fa fa-check"></i><b>15.1.3</b> Gamma law regression analyses [^2]</a></li>
-<li class="chapter" data-level="15.1.4" data-path="pre-processing.html"><a href="pre-processing.html#logarithms"><i class="fa fa-check"></i><b>15.1.4</b> Logarithms</a></li>
-<li class="chapter" data-level="15.1.5" data-path="pre-processing.html"><a href="pre-processing.html#references-1"><i class="fa fa-check"></i><b>15.1.5</b> References</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="16" data-path="temp-temp-dplyrmutate-eachfunsas-integer.html"><a href="temp-temp-dplyrmutate-eachfunsas-integer.html"><i class="fa fa-check"></i><b>16</b> temp = temp %&gt;% dplyr::mutate_each(funs(as.integer))</a><ul>
-<li class="chapter" data-level="16.1" data-path="temp-temp-dplyrmutate-eachfunsas-integer.html"><a href="temp-temp-dplyrmutate-eachfunsas-integer.html#reliability"><i class="fa fa-check"></i><b>16.1</b> Reliability</a><ul>
-<li class="chapter" data-level="16.1.1" data-path="temp-temp-dplyrmutate-eachfunsas-integer.html"><a href="temp-temp-dplyrmutate-eachfunsas-integer.html#cronbachs-alpha"><i class="fa fa-check"></i><b>16.1.1</b> Cronbach’s Alpha</a></li>
-<li class="chapter" data-level="16.1.2" data-path="temp-temp-dplyrmutate-eachfunsas-integer.html"><a href="temp-temp-dplyrmutate-eachfunsas-integer.html#omega"><i class="fa fa-check"></i><b>16.1.2</b> Omega</a></li>
-<li class="chapter" data-level="16.1.3" data-path="temp-temp-dplyrmutate-eachfunsas-integer.html"><a href="temp-temp-dplyrmutate-eachfunsas-integer.html#references-2"><i class="fa fa-check"></i><b>16.1.3</b> References</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="17" data-path="placeholder-1.html"><a href="placeholder-1.html"><i class="fa fa-check"></i><b>17</b> Placeholder</a><ul>
-<li class="chapter" data-level="17.1" data-path="placeholder-1.html"><a href="placeholder-1.html#impute-missing-data"><i class="fa fa-check"></i><b>17.1</b> Impute missing data</a></li>
-</ul></li>
-<li class="chapter" data-level="18" data-path="experimental-design.html"><a href="experimental-design.html"><i class="fa fa-check"></i><b>18</b> Experimental design</a><ul>
-<li class="chapter" data-level="18.1" data-path="experimental-design.html"><a href="experimental-design.html#tamano-de-muestra-y-efecto-detectado"><i class="fa fa-check"></i><b>18.1</b> Tamaño de muestra y efecto detectado</a><ul>
-<li class="chapter" data-level="18.1.1" data-path="experimental-design.html"><a href="experimental-design.html#simulation-setup"><i class="fa fa-check"></i><b>18.1.1</b> simulation setup</a></li>
-<li class="chapter" data-level="18.1.2" data-path="experimental-design.html"><a href="experimental-design.html#simulation-execution"><i class="fa fa-check"></i><b>18.1.2</b> simulation execution</a></li>
-</ul></li>
-<li class="chapter" data-level="18.2" data-path="experimental-design.html"><a href="experimental-design.html#draw-the-plot"><i class="fa fa-check"></i><b>18.2</b> draw the plot</a></li>
-<li class="chapter" data-level="18.3" data-path="experimental-design.html"><a href="experimental-design.html#power-analysis"><i class="fa fa-check"></i><b>18.3</b> Power analysis</a><ul>
-<li class="chapter" data-level="18.3.1" data-path="experimental-design.html"><a href="experimental-design.html#longitudinal-designs"><i class="fa fa-check"></i><b>18.3.1</b> Longitudinal designs</a></li>
+<li class="chapter" data-level="9.11" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#anova-repeated-measures"><i class="fa fa-check"></i><b>9.11</b> ANOVA repeated measures</a></li>
+<li class="chapter" data-level="9.12" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#mixed-models"><i class="fa fa-check"></i><b>9.12</b> Mixed Models</a></li>
+<li class="chapter" data-level="9.13" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#meta-analysis"><i class="fa fa-check"></i><b>9.13</b> Meta analysis</a><ul>
+<li class="chapter" data-level="9.13.1" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#natural-frequencies-effect"><i class="fa fa-check"></i><b>9.13.1</b> Natural Frequencies Effect</a></li>
+<li class="chapter" data-level="9.13.2" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#pictures-effect"><i class="fa fa-check"></i><b>9.13.2</b> Pictures Effect</a></li>
+<li class="chapter" data-level="9.13.3" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#notes-on-meta-analysis"><i class="fa fa-check"></i><b>9.13.3</b> Notes on Meta-analysis</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="19" data-path="numbers-to-encode.html"><a href="numbers-to-encode.html"><i class="fa fa-check"></i><b>19</b> Numbers to encode</a><ul>
-<li class="chapter" data-level="19.1" data-path="numbers-to-encode.html"><a href="numbers-to-encode.html#anonimizar-participantes---encriptar-ids"><i class="fa fa-check"></i><b>19.1</b> Anonimizar participantes - Encriptar IDs</a><ul>
-<li class="chapter" data-level="19.1.1" data-path="numbers-to-encode.html"><a href="numbers-to-encode.html#encriptando-y-desencriptando-un-elemento"><i class="fa fa-check"></i><b>19.1.1</b> Encriptando y desencriptando un elemento</a></li>
-<li class="chapter" data-level="19.1.2" data-path="numbers-to-encode.html"><a href="numbers-to-encode.html#encriptando-y-desencriptando-la-columna-rut-de-una-db-completa."><i class="fa fa-check"></i><b>19.1.2</b> Encriptando y desencriptando la columna RUT de una DB completa.</a></li>
+<li class="chapter" data-level="10" data-path="Funciones.html"><a href="Funciones.html"><i class="fa fa-check"></i><b>10</b> Funciones</a><ul>
+<li class="chapter" data-level="10.1" data-path="Funciones.html"><a href="Funciones.html#creando-mi-primera-funcion"><i class="fa fa-check"></i><b>10.1</b> Creando mi primera función</a><ul>
+<li class="chapter" data-level="10.1.1" data-path="Funciones.html"><a href="Funciones.html#pirate-plot-original"><i class="fa fa-check"></i><b>10.1.1</b> Pirate plot original</a></li>
+<li class="chapter" data-level="10.1.2" data-path="Funciones.html"><a href="Funciones.html#nuestra-funcion"><i class="fa fa-check"></i><b>10.1.2</b> Nuestra función</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="20" data-path="cargamos-librerias-y-leemos-dbif-requirepacman-install-packagespacman-librarypacman.html"><a href="cargamos-librerias-y-leemos-dbif-requirepacman-install-packagespacman-librarypacman.html"><i class="fa fa-check"></i><b>20</b> Cargamos librerias y leemos DBif (!require(‘pacman’)) install.packages(‘pacman’); library(‘pacman’)</a><ul>
-<li class="chapter" data-level="20.1" data-path="cargamos-librerias-y-leemos-dbif-requirepacman-install-packagespacman-librarypacman.html"><a href="cargamos-librerias-y-leemos-dbif-requirepacman-install-packagespacman-librarypacman.html#match-participants"><i class="fa fa-check"></i><b>20.1</b> Match participants</a></li>
+<li class="chapter" data-level="11" data-path="pre-processing.html"><a href="pre-processing.html"><i class="fa fa-check"></i><b>11</b> Pre-processing</a><ul>
+<li class="chapter" data-level="11.1" data-path="pre-processing.html"><a href="pre-processing.html#rt-filtering"><i class="fa fa-check"></i><b>11.1</b> RT filtering</a><ul>
+<li class="chapter" data-level="11.1.1" data-path="pre-processing.html"><a href="pre-processing.html#function-to-filter-by-rt"><i class="fa fa-check"></i><b>11.1.1</b> Function to filter by RT</a></li>
+<li class="chapter" data-level="11.1.2" data-path="pre-processing.html"><a href="pre-processing.html#n-sd-from-the-median-mad-1"><i class="fa fa-check"></i><b>11.1.2</b> n SD from the median (MAD)</a></li>
+<li class="chapter" data-level="11.1.3" data-path="pre-processing.html"><a href="pre-processing.html#gamma-law-regression-analyses-2"><i class="fa fa-check"></i><b>11.1.3</b> Gamma law regression analyses</a></li>
+<li class="chapter" data-level="11.1.4" data-path="pre-processing.html"><a href="pre-processing.html#logarithms"><i class="fa fa-check"></i><b>11.1.4</b> Logarithms</a></li>
+<li class="chapter" data-level="11.1.5" data-path="pre-processing.html"><a href="pre-processing.html#references-1"><i class="fa fa-check"></i><b>11.1.5</b> References</a></li>
 </ul></li>
-<li class="chapter" data-level="21" data-path="placeholder-2.html"><a href="placeholder-2.html"><i class="fa fa-check"></i><b>21</b> Placeholder</a><ul>
-<li class="chapter" data-level="21.1" data-path="placeholder-2.html"><a href="placeholder-2.html#determine-distribution"><i class="fa fa-check"></i><b>21.1</b> Determine distribution</a></li>
+<li class="chapter" data-level="11.2" data-path="pre-processing.html"><a href="pre-processing.html#reliability"><i class="fa fa-check"></i><b>11.2</b> Reliability</a><ul>
+<li class="chapter" data-level="11.2.1" data-path="pre-processing.html"><a href="pre-processing.html#cronbachs-alpha"><i class="fa fa-check"></i><b>11.2.1</b> Cronbach’s Alpha</a></li>
+<li class="chapter" data-level="11.2.2" data-path="pre-processing.html"><a href="pre-processing.html#omega"><i class="fa fa-check"></i><b>11.2.2</b> Omega</a></li>
+<li class="chapter" data-level="11.2.3" data-path="pre-processing.html"><a href="pre-processing.html#references-2"><i class="fa fa-check"></i><b>11.2.3</b> References</a></li>
 </ul></li>
-<li class="chapter" data-level="22" data-path="classification.html"><a href="classification.html"><i class="fa fa-check"></i><b>22</b> Classification</a><ul>
-<li class="chapter" data-level="22.1" data-path="classification.html"><a href="classification.html#fast-and-frugal-trees"><i class="fa fa-check"></i><b>22.1</b> Fast and frugal trees</a></li>
+<li class="chapter" data-level="11.3" data-path="pre-processing.html"><a href="pre-processing.html#impute-missing-data"><i class="fa fa-check"></i><b>11.3</b> Impute missing data</a></li>
 </ul></li>
-<li class="chapter" data-level="23" data-path="other-stuff.html"><a href="other-stuff.html"><i class="fa fa-check"></i><b>23</b> Other stuff</a><ul>
-<li class="chapter" data-level="23.1" data-path="other-stuff.html"><a href="other-stuff.html#maps---generate-and-locate-cities-in-a-world-map"><i class="fa fa-check"></i><b>23.1</b> Maps - Generate and locate cities in a world map</a></li>
+<li class="chapter" data-level="12" data-path="experimental-design.html"><a href="experimental-design.html"><i class="fa fa-check"></i><b>12</b> Experimental design</a><ul>
+<li class="chapter" data-level="12.1" data-path="experimental-design.html"><a href="experimental-design.html#tamano-de-muestra-y-efecto-detectado"><i class="fa fa-check"></i><b>12.1</b> Tamaño de muestra y efecto detectado</a></li>
+<li class="chapter" data-level="12.2" data-path="experimental-design.html"><a href="experimental-design.html#power-analysis"><i class="fa fa-check"></i><b>12.2</b> Power analysis</a><ul>
+<li class="chapter" data-level="12.2.1" data-path="experimental-design.html"><a href="experimental-design.html#longitudinal-designs"><i class="fa fa-check"></i><b>12.2.1</b> Longitudinal designs</a></li>
 </ul></li>
-<li class="chapter" data-level="24" data-path="cargamos-librerias-y-leemos-dbif-requirepacman-install-packagespacman-librarypacman-1.html"><a href="cargamos-librerias-y-leemos-dbif-requirepacman-install-packagespacman-librarypacman-1.html"><i class="fa fa-check"></i><b>24</b> Cargamos librerias y leemos DBif (!require(‘pacman’)) install.packages(‘pacman’); library(‘pacman’)</a><ul>
-<li class="chapter" data-level="24.1" data-path="cargamos-librerias-y-leemos-dbif-requirepacman-install-packagespacman-librarypacman-1.html"><a href="cargamos-librerias-y-leemos-dbif-requirepacman-install-packagespacman-librarypacman-1.html#extract-tables-from-the-internet"><i class="fa fa-check"></i><b>24.1</b> Extract tables from the internet</a></li>
+<li class="chapter" data-level="12.3" data-path="experimental-design.html"><a href="experimental-design.html#anonimizar-participantes---encriptar-ids"><i class="fa fa-check"></i><b>12.3</b> Anonimizar participantes - Encriptar IDs</a><ul>
+<li class="chapter" data-level="12.3.1" data-path="experimental-design.html"><a href="experimental-design.html#encriptando-y-desencriptando-un-elemento"><i class="fa fa-check"></i><b>12.3.1</b> Encriptando y desencriptando un elemento</a></li>
+<li class="chapter" data-level="12.3.2" data-path="experimental-design.html"><a href="experimental-design.html#encriptando-y-desencriptando-la-columna-rut-de-una-db-completa."><i class="fa fa-check"></i><b>12.3.2</b> Encriptando y desencriptando la columna RUT de una DB completa.</a></li>
 </ul></li>
-<li class="chapter" data-level="25" data-path="exercises-solutions.html"><a href="exercises-solutions.html"><i class="fa fa-check"></i><b>25</b> Exercises solutions</a><ul>
-<li class="chapter" data-level="25.1" data-path="exercises-solutions.html"><a href="exercises-solutions.html#exercices-1"><i class="fa fa-check"></i><b>25.1</b> Exercices 1</a></li>
-<li class="chapter" data-level="25.2" data-path="exercises-solutions.html"><a href="exercises-solutions.html#Ejercicios2"><i class="fa fa-check"></i><b>25.2</b> Ejercicios 2</a></li>
+<li class="chapter" data-level="12.4" data-path="experimental-design.html"><a href="experimental-design.html#match-participants"><i class="fa fa-check"></i><b>12.4</b> Match participants</a></li>
+<li class="chapter" data-level="12.5" data-path="experimental-design.html"><a href="experimental-design.html#determine-distribution"><i class="fa fa-check"></i><b>12.5</b> Determine distribution</a></li>
 </ul></li>
-<li class="chapter" data-level="26" data-path="exercises.html"><a href="exercises.html"><i class="fa fa-check"></i><b>26</b> Exercises</a><ul>
-<li class="chapter" data-level="26.1" data-path="exercises.html"><a href="exercises.html#Ejercicios1"><i class="fa fa-check"></i><b>26.1</b> Ejercicios 1</a></li>
-<li class="chapter" data-level="26.2" data-path="exercises-solutions.html"><a href="exercises-solutions.html#Ejercicios2"><i class="fa fa-check"></i><b>26.2</b> Ejercicios 2</a></li>
+<li class="chapter" data-level="13" data-path="classification.html"><a href="classification.html"><i class="fa fa-check"></i><b>13</b> Classification</a><ul>
+<li class="chapter" data-level="13.1" data-path="classification.html"><a href="classification.html#fast-and-frugal-trees"><i class="fa fa-check"></i><b>13.1</b> Fast and frugal trees</a></li>
 </ul></li>
-<li class="chapter" data-level="27" data-path="bibliography-and-interesting-resources.html"><a href="bibliography-and-interesting-resources.html"><i class="fa fa-check"></i><b>27</b> Bibliography and interesting resources</a><ul>
-<li class="chapter" data-level="27.1" data-path="bibliography-and-interesting-resources.html"><a href="bibliography-and-interesting-resources.html#bibliography"><i class="fa fa-check"></i><b>27.1</b> Bibliography</a></li>
-<li class="chapter" data-level="27.2" data-path="bibliography-and-interesting-resources.html"><a href="bibliography-and-interesting-resources.html#interesting-resources---potentially"><i class="fa fa-check"></i><b>27.2</b> Interesting resources - potentially</a></li>
+<li class="chapter" data-level="14" data-path="other-stuff.html"><a href="other-stuff.html"><i class="fa fa-check"></i><b>14</b> Other stuff</a><ul>
+<li class="chapter" data-level="14.1" data-path="other-stuff.html"><a href="other-stuff.html#maps---generate-and-locate-cities-in-a-world-map"><i class="fa fa-check"></i><b>14.1</b> Maps - Generate and locate cities in a world map</a></li>
+<li class="chapter" data-level="14.2" data-path="other-stuff.html"><a href="other-stuff.html#extract-tables-from-the-internet"><i class="fa fa-check"></i><b>14.2</b> Extract tables from the internet</a></li>
 </ul></li>
-<li class="chapter" data-level="28" data-path="todo-curso-basico-r-2016.html"><a href="todo-curso-basico-r-2016.html"><i class="fa fa-check"></i><b>28</b> TODO - Curso Basico R - 2016</a><ul>
-<li class="chapter" data-level="28.1" data-path="todo-curso-basico-r-2016.html"><a href="todo-curso-basico-r-2016.html#en-ejercicios"><i class="fa fa-check"></i><b>28.1</b> EN EJERCICIOS:</a></li>
-<li class="chapter" data-level="28.2" data-path="todo-curso-basico-r-2016.html"><a href="todo-curso-basico-r-2016.html#todo---limpieza-general"><i class="fa fa-check"></i><b>28.2</b> TODO - Limpieza general</a></li>
+<li class="chapter" data-level="15" data-path="exercises-solutions.html"><a href="exercises-solutions.html"><i class="fa fa-check"></i><b>15</b> Exercises solutions</a><ul>
+<li class="chapter" data-level="15.1" data-path="exercises-solutions.html"><a href="exercises-solutions.html#exercices-1"><i class="fa fa-check"></i><b>15.1</b> Exercices 1</a></li>
+<li class="chapter" data-level="15.2" data-path="exercises-solutions.html"><a href="exercises-solutions.html#Ejercicios2"><i class="fa fa-check"></i><b>15.2</b> Ejercicios 2</a></li>
 </ul></li>
-<li class="chapter" data-level="29" data-path="todo-2.html"><a href="todo-2.html"><i class="fa fa-check"></i><b>29</b> TODO</a><ul>
-<li class="chapter" data-level="29.1" data-path="todo-2.html"><a href="todo-2.html#urgent-stuff"><i class="fa fa-check"></i><b>29.1</b> Urgent stuff</a></li>
-<li class="chapter" data-level="29.2" data-path="todo-2.html"><a href="todo-2.html#important"><i class="fa fa-check"></i><b>29.2</b> Important</a></li>
-<li class="chapter" data-level="29.3" data-path="todo-2.html"><a href="todo-2.html#various"><i class="fa fa-check"></i><b>29.3</b> Various</a></li>
-<li class="chapter" data-level="29.4" data-path="todo-2.html"><a href="todo-2.html#index-proposal"><i class="fa fa-check"></i><b>29.4</b> <strong>INDEX PROPOSAL</strong></a></li>
-<li class="chapter" data-level="29.5" data-path="todo-2.html"><a href="todo-2.html#style-guide"><i class="fa fa-check"></i><b>29.5</b> Style guide</a><ul>
-<li class="chapter" data-level="29.5.1" data-path="todo-2.html"><a href="todo-2.html#sections"><i class="fa fa-check"></i><b>29.5.1</b> Sections</a></li>
-<li class="chapter" data-level="29.5.2" data-path="todo-2.html"><a href="todo-2.html#general"><i class="fa fa-check"></i><b>29.5.2</b> General</a></li>
+<li class="chapter" data-level="16" data-path="exercises.html"><a href="exercises.html"><i class="fa fa-check"></i><b>16</b> Exercises</a><ul>
+<li class="chapter" data-level="16.1" data-path="exercises.html"><a href="exercises.html#Ejercicios1"><i class="fa fa-check"></i><b>16.1</b> Ejercicios 1</a></li>
+<li class="chapter" data-level="16.2" data-path="exercises-solutions.html"><a href="exercises-solutions.html#Ejercicios2"><i class="fa fa-check"></i><b>16.2</b> Ejercicios 2</a></li>
 </ul></li>
-<li class="chapter" data-level="29.6" data-path="todo-2.html"><a href="todo-2.html#notas---remember"><i class="fa fa-check"></i><b>29.6</b> NOTAS - REMEMBER</a><ul>
-<li class="chapter" data-level="29.6.1" data-path="todo-2.html"><a href="todo-2.html#refs"><i class="fa fa-check"></i><b>29.6.1</b> REFS</a></li>
-<li class="chapter" data-level="29.6.2" data-path="todo-2.html"><a href="todo-2.html#notas"><i class="fa fa-check"></i><b>29.6.2</b> NOTAS</a></li>
+<li class="chapter" data-level="17" data-path="bibliography-and-interesting-resources.html"><a href="bibliography-and-interesting-resources.html"><i class="fa fa-check"></i><b>17</b> Bibliography and interesting resources</a><ul>
+<li class="chapter" data-level="17.1" data-path="bibliography-and-interesting-resources.html"><a href="bibliography-and-interesting-resources.html#bibliography"><i class="fa fa-check"></i><b>17.1</b> Bibliography</a></li>
+<li class="chapter" data-level="17.2" data-path="bibliography-and-interesting-resources.html"><a href="bibliography-and-interesting-resources.html#interesting-resources---potentially"><i class="fa fa-check"></i><b>17.2</b> Interesting resources - potentially</a></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="todo-curso-basico-r-2016.html"><a href="todo-curso-basico-r-2016.html"><i class="fa fa-check"></i><b>18</b> TODO - Curso Basico R - 2016</a><ul>
+<li class="chapter" data-level="18.1" data-path="todo-curso-basico-r-2016.html"><a href="todo-curso-basico-r-2016.html#en-ejercicios"><i class="fa fa-check"></i><b>18.1</b> EN EJERCICIOS:</a></li>
+<li class="chapter" data-level="18.2" data-path="todo-curso-basico-r-2016.html"><a href="todo-curso-basico-r-2016.html#todo---limpieza-general"><i class="fa fa-check"></i><b>18.2</b> TODO - Limpieza general</a></li>
+</ul></li>
+<li class="chapter" data-level="19" data-path="todo-2.html"><a href="todo-2.html"><i class="fa fa-check"></i><b>19</b> TODO</a><ul>
+<li class="chapter" data-level="19.1" data-path="todo-2.html"><a href="todo-2.html#urgent-stuff"><i class="fa fa-check"></i><b>19.1</b> Urgent stuff</a></li>
+<li class="chapter" data-level="19.2" data-path="todo-2.html"><a href="todo-2.html#important"><i class="fa fa-check"></i><b>19.2</b> Important</a></li>
+<li class="chapter" data-level="19.3" data-path="todo-2.html"><a href="todo-2.html#various"><i class="fa fa-check"></i><b>19.3</b> Various</a></li>
+<li class="chapter" data-level="19.4" data-path="todo-2.html"><a href="todo-2.html#index-proposal"><i class="fa fa-check"></i><b>19.4</b> <strong>INDEX PROPOSAL</strong></a></li>
+<li class="chapter" data-level="19.5" data-path="todo-2.html"><a href="todo-2.html#style-guide"><i class="fa fa-check"></i><b>19.5</b> Style guide</a><ul>
+<li class="chapter" data-level="19.5.1" data-path="todo-2.html"><a href="todo-2.html#sections"><i class="fa fa-check"></i><b>19.5.1</b> Sections</a></li>
+<li class="chapter" data-level="19.5.2" data-path="todo-2.html"><a href="todo-2.html#general"><i class="fa fa-check"></i><b>19.5.2</b> General</a></li>
+</ul></li>
+<li class="chapter" data-level="19.6" data-path="todo-2.html"><a href="todo-2.html#notas---remember"><i class="fa fa-check"></i><b>19.6</b> NOTAS - REMEMBER</a><ul>
+<li class="chapter" data-level="19.6.1" data-path="todo-2.html"><a href="todo-2.html#refs"><i class="fa fa-check"></i><b>19.6.1</b> REFS</a></li>
+<li class="chapter" data-level="19.6.2" data-path="todo-2.html"><a href="todo-2.html#notas"><i class="fa fa-check"></i><b>19.6.2</b> NOTAS</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -335,7 +341,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
             <section class="normal" id="section-">
 <div id="basics---data-types-import-and-export-data" class="section level1">
-<h1><span class="header-section-number">Chapter 5</span> Basics - Data types, import and export data</h1>
+<h1><span class="header-section-number">5</span> Basics - Data types, import and export data</h1>
 <div id="data-types" class="section level2">
 <h2><span class="header-section-number">5.1</span> Data types</h2>
 <div id="data-frames" class="section level3">
@@ -349,9 +355,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="listas" class="section level3">
 <h3><span class="header-section-number">5.1.3</span> Listas</h3>
 <p>Las listas son una manera de almacenar datos muy potente pero cuya exploración puede resultar algo complicada. A continuación de puede ver una manera de visualizar interactivamente el contenido de una lista compleja.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)</code></pre></div>
-<pre><code>## Loading required package: pacman</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># p_load(repurrrsive)</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
+<span class="co"># p_load(repurrrsive)</span>
 <span class="co"># listviewer::jsonedit(got_chars)</span></code></pre></div>
 <p>El paquete repurrrsive de Jenny Bryan, contiene algunas listas para usar como ejemplos. Ver su <a href="https://github.com/jennybc/repurrrsive">Github</a> para más detalles, o mejor, su <a href="https://jennybc.github.io/purrr-tutorial/">página web</a>. Ésta contiene varios tutoriales muy interesantes.</p>
 </div>
@@ -416,19 +421,20 @@ datos =<span class="st"> </span><span class="kw">read_excel</span>(<span class="
 <span class="co">#Muestra las primeras 10 observaciones</span>
 datos</code></pre></div>
 <pre><code>## # A tibble: 237 x 13
-##     name wais… bost… mora… mora… mini… eqsc…   sex   age wais…  eyes sass…
-##    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
-##  1  1.00 34.0  28.0   1.00  1.00  29.0  63.0  0     62.0 13.0  12.0   40.0
-##  2  2.00 13.0  23.0  NA     0     23.0  55.0  0     53.0  8.00 11.0   43.0
-##  3  3.00 20.0  16.0   1.00  1.00  26.0  27.0  0     18.0 14.0  12.0   38.0
-##  4  4.00 24.0  23.0   1.00  1.00  21.0  33.0  0     40.0 14.0   8.00  48.0
-##  5  5.00 20.0  24.0   1.00  1.00  18.0  35.0  1.00  65.0 15.0   9.00  48.0
-##  6  6.00  2.00  3.00  0     0     23.0  38.0 NA     NA   12.0  12.0   35.0
-##  7  7.00 13.0  15.0   1.00 NA     19.0  38.0  0     56.0  5.00  5.00  16.0
-##  8  8.00 27.0  18.0   1.00  0     15.0  42.0  1.00  70.0  8.00 10.0   41.0
-##  9  9.00 37.0  28.0   1.00  0     23.0  36.0  0     43.0 23.0  14.0   38.0
-## 10 10.0  27.0  24.0   0     0     20.0  51.0  1.00  52.0  9.00 12.0   24.0
-## # ... with 227 more rows, and 1 more variable: ifs_score &lt;dbl&gt;</code></pre>
+##     name wais_voc boston moral_02i moral_20p minisea_caras eqscore   sex
+##    &lt;dbl&gt;    &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;         &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;
+##  1  1.00    34.0   28.0       1.00      1.00          29.0    63.0  0   
+##  2  2.00    13.0   23.0      NA         0             23.0    55.0  0   
+##  3  3.00    20.0   16.0       1.00      1.00          26.0    27.0  0   
+##  4  4.00    24.0   23.0       1.00      1.00          21.0    33.0  0   
+##  5  5.00    20.0   24.0       1.00      1.00          18.0    35.0  1.00
+##  6  6.00     2.00   3.00      0         0             23.0    38.0 NA   
+##  7  7.00    13.0   15.0       1.00     NA             19.0    38.0  0   
+##  8  8.00    27.0   18.0       1.00      0             15.0    42.0  1.00
+##  9  9.00    37.0   28.0       1.00      0             23.0    36.0  0   
+## 10 10.0     27.0   24.0       0         0             20.0    51.0  1.00
+## # ... with 227 more rows, and 5 more variables: age &lt;dbl&gt;, wais_mp &lt;dbl&gt;,
+## #   eyes &lt;dbl&gt;, sass_score &lt;dbl&gt;, ifs_score &lt;dbl&gt;</code></pre>
 </div>
 <div id="from-sav-file-spss" class="section level3">
 <h3><span class="header-section-number">5.2.3</span> From SAV file (SPSS)</h3>
@@ -449,19 +455,20 @@ datos =<span class="st"> </span><span class="kw">read_sav</span>(<span class="st
 <span class="co">#Muestra las primeras 10 observaciones</span>
 datos</code></pre></div>
 <pre><code>## # A tibble: 237 x 13
-##       ID wais… bost… mora… mora… mini… eqsc…   sex   age wais…  eyes sass…
-##    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
-##  1  1.00 34.0  28.0   1.00  1.00  29.0  63.0  0     62.0 13.0  12.0   40.0
-##  2  2.00 13.0  23.0  NA     0     23.0  55.0  0     53.0  8.00 11.0   43.0
-##  3  3.00 20.0  16.0   1.00  1.00  26.0  27.0  0     18.0 14.0  12.0   38.0
-##  4  4.00 24.0  23.0   1.00  1.00  21.0  33.0  0     40.0 14.0   8.00  48.0
-##  5  5.00 20.0  24.0   1.00  1.00  18.0  35.0  1.00  65.0 15.0   9.00  48.0
-##  6  6.00  2.00  3.00  0     0     23.0  38.0 NA     NA   12.0  12.0   35.0
-##  7  7.00 13.0  15.0   1.00 NA     19.0  38.0  0     56.0  5.00  5.00  16.0
-##  8  8.00 27.0  18.0   1.00  0     15.0  42.0  1.00  70.0  8.00 10.0   41.0
-##  9  9.00 37.0  28.0   1.00  0     23.0  36.0  0     43.0 23.0  14.0   38.0
-## 10 10.0  27.0  24.0   0     0     20.0  51.0  1.00  52.0  9.00 12.0   24.0
-## # ... with 227 more rows, and 1 more variable: ifs_score &lt;dbl&gt;</code></pre>
+##       ID wais_voc boston moral_02i moral_20p minisea_caras eqscore   sex
+##    &lt;dbl&gt;    &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;         &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;
+##  1  1.00    34.0   28.0       1.00      1.00          29.0    63.0  0   
+##  2  2.00    13.0   23.0      NA         0             23.0    55.0  0   
+##  3  3.00    20.0   16.0       1.00      1.00          26.0    27.0  0   
+##  4  4.00    24.0   23.0       1.00      1.00          21.0    33.0  0   
+##  5  5.00    20.0   24.0       1.00      1.00          18.0    35.0  1.00
+##  6  6.00     2.00   3.00      0         0             23.0    38.0 NA   
+##  7  7.00    13.0   15.0       1.00     NA             19.0    38.0  0   
+##  8  8.00    27.0   18.0       1.00      0             15.0    42.0  1.00
+##  9  9.00    37.0   28.0       1.00      0             23.0    36.0  0   
+## 10 10.0     27.0   24.0       0         0             20.0    51.0  1.00
+## # ... with 227 more rows, and 5 more variables: age &lt;dbl&gt;, wais_mp &lt;dbl&gt;,
+## #   eyes &lt;dbl&gt;, sass_score &lt;dbl&gt;, ifs_score &lt;dbl&gt;</code></pre>
 </div>
 <div id="import-all-files-from-a-folder" class="section level3">
 <h3><span class="header-section-number">5.2.4</span> Import all files from a folder</h3>
@@ -492,18 +499,18 @@ files &lt;-<span class="st"> </span><span class="kw">list.files</span>(<span cla
 full2 &lt;-<span class="st"> </span><span class="kw">map_df</span>(files, read_csv, <span class="dt">.id =</span> <span class="st">&quot;file&quot;</span>)
 full2</code></pre></div>
 <pre><code>## # A tibble: 1,200 x 10
-##    file   Sex   Priming    trialN Block Adjective  Vale… Answ… Arrow    rT
-##    &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;       &lt;int&gt; &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;int&gt;
-##  1 01.csv male  Collective      1 we    ofensivo   nega… yes   left    623
-##  2 01.csv male  Collective      2 we    resentido  nega… no    right  1235
-##  3 01.csv male  Collective      3 we    ego�sta    nega… yes   left    335
-##  4 01.csv male  Collective      4 we    indiscreto nega… yes   left    355
-##  5 01.csv male  Collective      5 we    sumiso     nega… yes   left    618
-##  6 01.csv male  Collective      6 we    agradable  posi… yes   left    328
-##  7 01.csv male  Collective      7 we    clasista   nega… yes   left    348
-##  8 01.csv male  Collective      8 we    altruista  posi… yes   left   1620
-##  9 01.csv male  Collective      9 we    ansioso    nega… yes   left    346
-## 10 01.csv male  Collective     10 we    presumido  nega… yes   left    778
+##    file   Sex   Priming  trialN Block Adjective Valence Answer Arrow    rT
+##    &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;     &lt;int&gt; &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt; &lt;int&gt;
+##  1 01.csv male  Collect…      1 we    ofensivo  negati… yes    left    623
+##  2 01.csv male  Collect…      2 we    resentido negati… no     right  1235
+##  3 01.csv male  Collect…      3 we    ego�sta   negati… yes    left    335
+##  4 01.csv male  Collect…      4 we    indiscre… negati… yes    left    355
+##  5 01.csv male  Collect…      5 we    sumiso    negati… yes    left    618
+##  6 01.csv male  Collect…      6 we    agradable positi… yes    left    328
+##  7 01.csv male  Collect…      7 we    clasista  negati… yes    left    348
+##  8 01.csv male  Collect…      8 we    altruista positi… yes    left   1620
+##  9 01.csv male  Collect…      9 we    ansioso   negati… yes    left    346
+## 10 01.csv male  Collect…     10 we    presumido negati… yes    left    778
 ## # ... with 1,190 more rows</code></pre>
 </div>
 <div id="traditional-way" class="section level4">
@@ -527,18 +534,18 @@ df =<span class="st"> </span><span class="kw">lapply</span>(file.list, read_csv)
 
 df</code></pre></div>
 <pre><code>## # A tibble: 1,600 x 10
-##    ID    Sex   Priming    trialN Block Adjective  Valen… Answ… Arrow    rT
-##    &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;       &lt;int&gt; &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt; &lt;int&gt;
-##  1 1     male  Collective      1 we    ofensivo   negat… yes   left    623
-##  2 1     male  Collective      2 we    resentido  negat… no    right  1235
-##  3 1     male  Collective      3 we    ego�sta    negat… yes   left    335
-##  4 1     male  Collective      4 we    indiscreto negat… yes   left    355
-##  5 1     male  Collective      5 we    sumiso     negat… yes   left    618
-##  6 1     male  Collective      6 we    agradable  posit… yes   left    328
-##  7 1     male  Collective      7 we    clasista   negat… yes   left    348
-##  8 1     male  Collective      8 we    altruista  posit… yes   left   1620
-##  9 1     male  Collective      9 we    ansioso    negat… yes   left    346
-## 10 1     male  Collective     10 we    presumido  negat… yes   left    778
+##    ID    Sex   Priming   trialN Block Adjective Valence Answer Arrow    rT
+##    &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;      &lt;int&gt; &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt; &lt;int&gt;
+##  1 1     male  Collecti…      1 we    ofensivo  negati… yes    left    623
+##  2 1     male  Collecti…      2 we    resentido negati… no     right  1235
+##  3 1     male  Collecti…      3 we    ego�sta   negati… yes    left    335
+##  4 1     male  Collecti…      4 we    indiscre… negati… yes    left    355
+##  5 1     male  Collecti…      5 we    sumiso    negati… yes    left    618
+##  6 1     male  Collecti…      6 we    agradable positi… yes    left    328
+##  7 1     male  Collecti…      7 we    clasista  negati… yes    left    348
+##  8 1     male  Collecti…      8 we    altruista positi… yes    left   1620
+##  9 1     male  Collecti…      9 we    ansioso   negati… yes    left    346
+## 10 1     male  Collecti…     10 we    presumido negati… yes    left    778
 ## # ... with 1,590 more rows</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Method 2</span>
 df =<span class="st"> </span><span class="kw">do.call</span>(rbind, <span class="kw">lapply</span>(file.list, <span class="cf">function</span>(x) <span class="kw">read_csv</span>(x)))
@@ -615,10 +622,11 @@ gitbook.start({
 "facebook": true,
 "twitter": true,
 "google": false,
+"linkedin": false,
 "weibo": false,
 "instapper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",

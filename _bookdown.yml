@@ -1,4 +1,34 @@
-book_filename: "bookdown-demo"
-language:
-  ui:
-    chapter_name: "Chapter "
+rmd_subdir: TRUE
+
+rmd_files: [
+  "index.Rmd",
+  "Chapters/01-Starting.Rmd",
+  "Chapters/02-My_first_script.Rmd",
+  "Chapters/03-Getting_help.Rmd",
+  "Chapters/04-Data_types_import_export.Rmd",
+  "Chapters/05-Manipulate_data.Rmd",
+  "Chapters/06-Visualize_data.Rmd",
+  "Chapters/07-Descriptive_statistics.Rmd",
+  "Chapters/08-01-Introduction_data_analysis.Rmd",
+  "Chapters/08-02-Association_test.Rmd",
+  "Chapters/08-03-ANOVA_repeated_measures.Rmd",
+  "Chapters/08-08-Mixed_models.Rmd",
+  "Chapters/08-10-Meta_analysis.Rmd",
+  "Chapters/09-Functions.Rmd",
+  "Chapters/10-01-RT_filtering.Rmd",
+  "Chapters/10-02-Reliability_analysis.Rmd",
+  "Chapters/10-03-Impute_missing_values.Rmd",
+  "Chapters/11-01-Power_analysis.Rmd",
+  "Chapters/11-02-Anonymization.Rmd",
+  "Chapters/11-03-Match_participants.Rmd",
+  "Chapters/11-04-Determine_distribution.Rmd",
+  "Chapters/12-Fast_frugal_trees.Rmd",
+  "Chapters/15-1-OTHER_create_maps.Rmd",
+  "Chapters/15-2-OTHER_extract_tables_web.Rmd",
+  "Chapters/50-Exercises_solutions.Rmd",
+  "Chapters/50-Exercises.Rmd",
+  "Chapters/90-bibliography.Rmd",
+  "Chapters/98-TODO_basic_workshop.Rmd",
+  "Chapters/99-TODO_general.Rmd",
+  ]
+
