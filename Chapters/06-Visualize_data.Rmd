@@ -356,7 +356,8 @@ data_for_plot = read_csv("Data/06_Visualize_data/data_shaded_geom_area.csv")
 
 # Deaths by cause
 p_area <- ggplot(data_for_plot, aes(x=year, y=count, group=cat, order=cat)) +
-  geom_area(aes(fill=cat), position='stack')
+  geom_area(aes(fill=cat), position='stack') + 
+  theme_minimal()
 
 p_area
 
@@ -366,35 +367,44 @@ dat <- data_for_plot %>%
   group_by(year) %>%
   mutate(total = sum(count))
 
-## Colors I chose
-mycolors <- c("#00bf7b", "#59004d", "#ffcb89", "#a76e61", "#ac270d", "#7890ff",
-              "#6ca013", "#c2e05e", "#00300d", "#ff7b90")
+ggplot(dat, aes(x = year, y = count, group = cat, order = cat, fill = cat)) +
+  geom_area(data = dat, aes(y = total), fill = "grey", alpha = .5, position = 'stack') +
+  geom_area(position = 'stack') + #colour = "black",
+  facet_wrap(~ cat) +
+  guides(fill = FALSE) +  # to remove the legend
+  theme_minimal()              # for clean look overall
+# 
+# 
+# 
+# ## Colors I chose
+# mycolors <- c("#00bf7b", "#59004d", "#ffcb89", "#a76e61", "#ac270d", "#7890ff",
+#               "#6ca013", "#c2e05e", "#00300d", "#ff7b90")
+# 
+# 
+# ## Plot as small multiples
+# #** BUG: If we run the code for this plot in bookdown after loading packages plyr, Rmisc, the y axis gets mangled.**
+# p_small_mult <- ggplot(dat, aes(x = year)) +
+#   ## Gray background showing total
+#   geom_area(aes(y = total), fill = "grey80", alpha = 0.7) +
+#   ## Individual areas for each category
+#   geom_area(aes(y = count, fill = cat)) +
+#   facet_wrap(~ cat, nrow = 2) +
+#   ## Further customization
+#   scale_fill_manual(values = mycolors) +
+#   scale_y_continuous(limits = c(0, max(dat$total) + 5), expand = c(0, 0)) +
+#   theme_minimal() +
+#   theme(
+#     legend.position = "none",
+#     axis.text = element_text(size = 7)
+#   ) +
+#   labs(
+#     y = "Total deaths",
+#     x = "Year",
+#     title = "On-duty police officer deaths",
+#     subtitle = "Data: https://github.com/fivethirtyeight/data/police-deaths"
+#   )
 
-
-## Plot as small multiples
-#** BUG: If we run the code for this plot in bookdown after loading packages plyr, Rmisc, the y axis gets mangled.**
-p_small_mult <- ggplot(dat, aes(x = year)) +
-  ## Gray background showing total
-  geom_area(aes(y = total), fill = "grey80", alpha = 0.7) +
-  ## Individual areas for each category
-  geom_area(aes(y = count, fill = cat)) +
-  facet_wrap(~ cat, nrow = 2) +
-  ## Further customization
-  scale_fill_manual(values = mycolors) +
-  scale_y_continuous(limits = c(0, max(dat$total) + 5), expand = c(0, 0)) +
-  theme_minimal() +
-  theme(
-    legend.position = "none",
-    axis.text = element_text(size = 7)
-  ) +
-  labs(
-    y = "Total deaths",
-    x = "Year",
-    title = "On-duty police officer deaths",
-    subtitle = "Data: https://github.com/fivethirtyeight/data/police-deaths"
-  )
-
-p_small_mult
+# p_small_mult
 ``` 
 
 
@@ -451,3 +461,32 @@ p12 = ggplot(a, aes(x = `Fluid intelligence`, y = `Inhibitory verbal control`)) 
 multiplot(p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, cols=3)
 
 ```
+
+### Background data
+
+FROM: https://drsimonj.svbtle.com/plotting-background-data-for-groups-with-ggplot2
+
+```{r background_data, warning=FALSE}
+library(tidyverse)
+d <- iris        # Full data set
+d_bg <- d[, -5]  # Background Data - full without the 5th column (Species)
+
+ggplot(d, aes(x = Sepal.Width, fill = Species)) +
+  geom_histogram(data = d_bg, fill = "grey", alpha = .5) +
+  geom_histogram(colour = "black") +
+  facet_wrap(~ Species) +
+  guides(fill = FALSE) +  # to remove the legend
+  theme_bw()              # for clean look overall
+
+
+
+
+ggplot(d, aes(x = Sepal.Width, y = Sepal.Length, colour = Species)) +
+  geom_point(data = d_bg, colour = "grey", alpha = .2) +
+  geom_point() + 
+  facet_wrap(~ Species) +
+  guides(colour = FALSE) +
+  theme_bw()
+
+```
+

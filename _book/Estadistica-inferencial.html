@@ -25,7 +25,7 @@
 <meta name="author" content="Center for Social and Cognitive Neuroscience - cscn.uai.cl">
 
 
-<meta name="date" content="2018-02-23">
+<meta name="date" content="2018-03-13">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -195,6 +195,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="7.3.11" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#pp-plots"><i class="fa fa-check"></i><b>7.3.11</b> PP plots</a></li>
 <li class="chapter" data-level="7.3.12" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#shaded-geom-area"><i class="fa fa-check"></i><b>7.3.12</b> Shaded geom area</a></li>
 <li class="chapter" data-level="7.3.13" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#multiple-scatterplots"><i class="fa fa-check"></i><b>7.3.13</b> Multiple Scatterplots</a></li>
+<li class="chapter" data-level="7.3.14" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#background-data"><i class="fa fa-check"></i><b>7.3.14</b> Background data</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="Estadistica-descriptiva.html"><a href="Estadistica-descriptiva.html"><i class="fa fa-check"></i><b>8</b> Estadistica descriptiva</a><ul>
@@ -1069,16 +1070,16 @@ datos</code></pre></div>
 <pre><code>## # A tibble: 29 x 9
 ##     ENDObch  ENDOacm  ENDObcm  ENDOach   EXObch   EXOacm   EXObcm   EXOach
 ##       &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;
-##  1 -1.35e⁻²  7.96e⁻³ -1.72e⁻³  1.24e⁻⁴  3.33e⁻³ -8.77e⁻⁴  3.20e⁻³ -2.77e⁻³
-##  2 -7.57e⁻⁴  1.35e⁻⁴  1.09e⁻² -4.40e⁻³  2.25e⁻² -2.55e⁻²  5.22e⁻³ -6.68e⁻³
-##  3 -2.16e⁻³  1.89e⁻³  1.40e⁻³  2.44e⁻⁴ -9.69e⁻⁴ -5.20e⁻⁴ -1.43e⁻³  1.89e⁻³
-##  4 -2.13e⁻³  1.70e⁻³  7.95e⁻³ -9.56e⁻⁴  1.96e⁻³  1.04e⁻⁴ -3.45e⁻³  9.01e⁻⁴
-##  5 -1.41e⁻³ -9.02e⁻⁴  1.16e⁻³ -6.91e⁻⁴ -8.55e⁻⁴ -1.73e⁻³ -1.36e⁻²  6.31e⁻³
-##  6  3.17e⁻³ -1.63e⁻³  1.40e⁻³ -3.54e⁻³ -1.76e⁻³ -1.50e⁻³ -8.49e⁻⁶  3.57e⁻³
-##  7 -3.44e⁻³ -5.72e⁻⁴ -7.02e⁻³  3.40e⁻³  1.09e⁻² -5.72e⁻³  9.24e⁻³ -1.99e⁻³
-##  8 -3.81e⁻³  5.49e⁻³  4.32e⁻⁴ -3.36e⁻³  9.84e⁻³ -1.10e⁻² -4.83e⁻³  4.47e⁻³
-##  9 -3.04e⁻⁴ -4.64e⁻⁴ -1.07e⁻²  7.58e⁻³ -4.67e⁻³  4.79e⁻³ -5.55e⁻³  3.64e⁻³
-## 10 -1.60e⁻³  8.49e⁻⁴  6.95e⁻⁵  2.65e⁻⁴  4.28e⁻³ -3.72e⁻³  5.97e⁻³  1.57e⁻³
+##  1 -1.35e-2  7.96e-3 -1.72e-3  1.24e-4  3.33e-3 -8.77e-4  3.20e-3 -2.77e-3
+##  2 -7.57e-4  1.35e-4  1.09e-2 -4.40e-3  2.25e-2 -2.55e-2  5.22e-3 -6.68e-3
+##  3 -2.16e-3  1.89e-3  1.40e-3  2.44e-4 -9.69e-4 -5.20e-4 -1.43e-3  1.89e-3
+##  4 -2.13e-3  1.70e-3  7.95e-3 -9.56e-4  1.96e-3  1.04e-4 -3.45e-3  9.01e-4
+##  5 -1.41e-3 -9.02e-4  1.16e-3 -6.91e-4 -8.55e-4 -1.73e-3 -1.36e-2  6.31e-3
+##  6  3.17e-3 -1.63e-3  1.40e-3 -3.54e-3 -1.76e-3 -1.50e-3 -8.49e-6  3.57e-3
+##  7 -3.44e-3 -5.72e-4 -7.02e-3  3.40e-3  1.09e-2 -5.72e-3  9.24e-3 -1.99e-3
+##  8 -3.81e-3  5.49e-3  4.32e-4 -3.36e-3  9.84e-3 -1.10e-2 -4.83e-3  4.47e-3
+##  9 -3.04e-4 -4.64e-4 -1.07e-2  7.58e-3 -4.67e-3  4.79e-3 -5.55e-3  3.64e-3
+## 10 -1.60e-3  8.49e-4  6.95e-5  2.65e-4  4.28e-3 -3.72e-3  5.97e-3  1.57e-3
 ## # ... with 19 more rows, and 1 more variable: ID &lt;int&gt;</code></pre>
 <hr />
 <p><strong>EXPERIMENT DESIGN</strong><br />

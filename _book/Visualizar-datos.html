@@ -25,7 +25,7 @@
 <meta name="author" content="Center for Social and Cognitive Neuroscience - cscn.uai.cl">
 
 
-<meta name="date" content="2018-02-23">
+<meta name="date" content="2018-03-13">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -195,6 +195,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="7.3.11" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#pp-plots"><i class="fa fa-check"></i><b>7.3.11</b> PP plots</a></li>
 <li class="chapter" data-level="7.3.12" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#shaded-geom-area"><i class="fa fa-check"></i><b>7.3.12</b> Shaded geom area</a></li>
 <li class="chapter" data-level="7.3.13" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#multiple-scatterplots"><i class="fa fa-check"></i><b>7.3.13</b> Multiple Scatterplots</a></li>
+<li class="chapter" data-level="7.3.14" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#background-data"><i class="fa fa-check"></i><b>7.3.14</b> Background data</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="Estadistica-descriptiva.html"><a href="Estadistica-descriptiva.html"><i class="fa fa-check"></i><b>8</b> Estadistica descriptiva</a><ul>
@@ -681,7 +682,8 @@ data_for_plot =<span class="st"> </span><span class="kw">read_csv</span>(<span c
 
 <span class="co"># Deaths by cause</span>
 p_area &lt;-<span class="st"> </span><span class="kw">ggplot</span>(data_for_plot, <span class="kw">aes</span>(<span class="dt">x=</span>year, <span class="dt">y=</span>count, <span class="dt">group=</span>cat, <span class="dt">order=</span>cat)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_area</span>(<span class="kw">aes</span>(<span class="dt">fill=</span>cat), <span class="dt">position=</span><span class="st">&#39;stack&#39;</span>)
+<span class="st">  </span><span class="kw">geom_area</span>(<span class="kw">aes</span>(<span class="dt">fill=</span>cat), <span class="dt">position=</span><span class="st">&#39;stack&#39;</span>) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">theme_minimal</span>()
 
 p_area</code></pre></div>
 <p><img src="_main_files/figure-html/shaded_area-1.png" width="672" /></p>
@@ -690,36 +692,45 @@ dat &lt;-<span class="st"> </span>data_for_plot <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">group_by</span>(year) <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">mutate</span>(<span class="dt">total =</span> <span class="kw">sum</span>(count))
 
-## Colors I chose
-mycolors &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;#00bf7b&quot;</span>, <span class="st">&quot;#59004d&quot;</span>, <span class="st">&quot;#ffcb89&quot;</span>, <span class="st">&quot;#a76e61&quot;</span>, <span class="st">&quot;#ac270d&quot;</span>, <span class="st">&quot;#7890ff&quot;</span>,
-              <span class="st">&quot;#6ca013&quot;</span>, <span class="st">&quot;#c2e05e&quot;</span>, <span class="st">&quot;#00300d&quot;</span>, <span class="st">&quot;#ff7b90&quot;</span>)
-
-
-## Plot as small multiples
-<span class="co">#** </span><span class="al">BUG</span><span class="co">: If we run the code for this plot in bookdown after loading packages plyr, Rmisc, the y axis gets mangled.**</span>
-p_small_mult &lt;-<span class="st"> </span><span class="kw">ggplot</span>(dat, <span class="kw">aes</span>(<span class="dt">x =</span> year)) <span class="op">+</span>
-<span class="st">  </span>## Gray background showing total
-<span class="st">  </span><span class="kw">geom_area</span>(<span class="kw">aes</span>(<span class="dt">y =</span> total), <span class="dt">fill =</span> <span class="st">&quot;grey80&quot;</span>, <span class="dt">alpha =</span> <span class="fl">0.7</span>) <span class="op">+</span>
-<span class="st">  </span>## Individual areas for each category
-<span class="st">  </span><span class="kw">geom_area</span>(<span class="kw">aes</span>(<span class="dt">y =</span> count, <span class="dt">fill =</span> cat)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>cat, <span class="dt">nrow =</span> <span class="dv">2</span>) <span class="op">+</span>
-<span class="st">  </span>## Further customization
-<span class="st">  </span><span class="kw">scale_fill_manual</span>(<span class="dt">values =</span> mycolors) <span class="op">+</span>
-<span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="kw">max</span>(dat<span class="op">$</span>total) <span class="op">+</span><span class="st"> </span><span class="dv">5</span>), <span class="dt">expand =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">theme_minimal</span>() <span class="op">+</span>
-<span class="st">  </span><span class="kw">theme</span>(
-    <span class="dt">legend.position =</span> <span class="st">&quot;none&quot;</span>,
-    <span class="dt">axis.text =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">7</span>)
-  ) <span class="op">+</span>
-<span class="st">  </span><span class="kw">labs</span>(
-    <span class="dt">y =</span> <span class="st">&quot;Total deaths&quot;</span>,
-    <span class="dt">x =</span> <span class="st">&quot;Year&quot;</span>,
-    <span class="dt">title =</span> <span class="st">&quot;On-duty police officer deaths&quot;</span>,
-    <span class="dt">subtitle =</span> <span class="st">&quot;Data: https://github.com/fivethirtyeight/data/police-deaths&quot;</span>
-  )
-
-p_small_mult</code></pre></div>
+<span class="kw">ggplot</span>(dat, <span class="kw">aes</span>(<span class="dt">x =</span> year, <span class="dt">y =</span> count, <span class="dt">group =</span> cat, <span class="dt">order =</span> cat, <span class="dt">fill =</span> cat)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_area</span>(<span class="dt">data =</span> dat, <span class="kw">aes</span>(<span class="dt">y =</span> total), <span class="dt">fill =</span> <span class="st">&quot;grey&quot;</span>, <span class="dt">alpha =</span> .<span class="dv">5</span>, <span class="dt">position =</span> <span class="st">&#39;stack&#39;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_area</span>(<span class="dt">position =</span> <span class="st">&#39;stack&#39;</span>) <span class="op">+</span><span class="st"> </span><span class="co">#colour = &quot;black&quot;,</span>
+<span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>cat) <span class="op">+</span>
+<span class="st">  </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>) <span class="op">+</span><span class="st">  </span><span class="co"># to remove the legend</span>
+<span class="st">  </span><span class="kw">theme_minimal</span>()              <span class="co"># for clean look overall</span></code></pre></div>
 <p><img src="_main_files/figure-html/shaded_area-2.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># </span>
+<span class="co"># </span>
+<span class="co"># </span>
+<span class="co"># ## Colors I chose</span>
+<span class="co"># mycolors &lt;- c(&quot;#00bf7b&quot;, &quot;#59004d&quot;, &quot;#ffcb89&quot;, &quot;#a76e61&quot;, &quot;#ac270d&quot;, &quot;#7890ff&quot;,</span>
+<span class="co">#               &quot;#6ca013&quot;, &quot;#c2e05e&quot;, &quot;#00300d&quot;, &quot;#ff7b90&quot;)</span>
+<span class="co"># </span>
+<span class="co"># </span>
+<span class="co"># ## Plot as small multiples</span>
+<span class="co"># #** </span><span class="al">BUG</span><span class="co">: If we run the code for this plot in bookdown after loading packages plyr, Rmisc, the y axis gets mangled.**</span>
+<span class="co"># p_small_mult &lt;- ggplot(dat, aes(x = year)) +</span>
+<span class="co">#   ## Gray background showing total</span>
+<span class="co">#   geom_area(aes(y = total), fill = &quot;grey80&quot;, alpha = 0.7) +</span>
+<span class="co">#   ## Individual areas for each category</span>
+<span class="co">#   geom_area(aes(y = count, fill = cat)) +</span>
+<span class="co">#   facet_wrap(~ cat, nrow = 2) +</span>
+<span class="co">#   ## Further customization</span>
+<span class="co">#   scale_fill_manual(values = mycolors) +</span>
+<span class="co">#   scale_y_continuous(limits = c(0, max(dat$total) + 5), expand = c(0, 0)) +</span>
+<span class="co">#   theme_minimal() +</span>
+<span class="co">#   theme(</span>
+<span class="co">#     legend.position = &quot;none&quot;,</span>
+<span class="co">#     axis.text = element_text(size = 7)</span>
+<span class="co">#   ) +</span>
+<span class="co">#   labs(</span>
+<span class="co">#     y = &quot;Total deaths&quot;,</span>
+<span class="co">#     x = &quot;Year&quot;,</span>
+<span class="co">#     title = &quot;On-duty police officer deaths&quot;,</span>
+<span class="co">#     subtitle = &quot;Data: https://github.com/fivethirtyeight/data/police-deaths&quot;</span>
+<span class="co">#   )</span>
+
+<span class="co"># p_small_mult</span></code></pre></div>
 </div>
 <div id="multiple-scatterplots" class="section level3">
 <h3><span class="header-section-number">7.3.13</span> Multiple Scatterplots</h3>
@@ -783,6 +794,30 @@ p12 =<span class="st"> </span><span class="kw">ggplot</span>(a, <span class="kw"
 
 <span class="kw">multiplot</span>(p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, <span class="dt">cols=</span><span class="dv">3</span>)</code></pre></div>
 <p><img src="_main_files/figure-html/scatterplot_multiple-1.png" width="672" /></p>
+</div>
+<div id="background-data" class="section level3">
+<h3><span class="header-section-number">7.3.14</span> Background data</h3>
+<p>FROM: <a href="https://drsimonj.svbtle.com/plotting-background-data-for-groups-with-ggplot2" class="uri">https://drsimonj.svbtle.com/plotting-background-data-for-groups-with-ggplot2</a></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)
+d &lt;-<span class="st"> </span>iris        <span class="co"># Full data set</span>
+d_bg &lt;-<span class="st"> </span>d[, <span class="op">-</span><span class="dv">5</span>]  <span class="co"># Background Data - full without the 5th column (Species)</span>
+
+<span class="kw">ggplot</span>(d, <span class="kw">aes</span>(<span class="dt">x =</span> Sepal.Width, <span class="dt">fill =</span> Species)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">data =</span> d_bg, <span class="dt">fill =</span> <span class="st">&quot;grey&quot;</span>, <span class="dt">alpha =</span> .<span class="dv">5</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">colour =</span> <span class="st">&quot;black&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>Species) <span class="op">+</span>
+<span class="st">  </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>) <span class="op">+</span><span class="st">  </span><span class="co"># to remove the legend</span>
+<span class="st">  </span><span class="kw">theme_bw</span>()              <span class="co"># for clean look overall</span></code></pre></div>
+<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<p><img src="_main_files/figure-html/background_data-1.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(d, <span class="kw">aes</span>(<span class="dt">x =</span> Sepal.Width, <span class="dt">y =</span> Sepal.Length, <span class="dt">colour =</span> Species)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">data =</span> d_bg, <span class="dt">colour =</span> <span class="st">&quot;grey&quot;</span>, <span class="dt">alpha =</span> .<span class="dv">2</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>Species) <span class="op">+</span>
+<span class="st">  </span><span class="kw">guides</span>(<span class="dt">colour =</span> <span class="ot">FALSE</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_bw</span>()</code></pre></div>
+<p><img src="_main_files/figure-html/background_data-2.png" width="672" /></p>
 
 </div>
 </div>

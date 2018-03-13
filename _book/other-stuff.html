@@ -25,7 +25,7 @@
 <meta name="author" content="Center for Social and Cognitive Neuroscience - cscn.uai.cl">
 
 
-<meta name="date" content="2018-02-23">
+<meta name="date" content="2018-03-13">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -195,6 +195,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="7.3.11" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#pp-plots"><i class="fa fa-check"></i><b>7.3.11</b> PP plots</a></li>
 <li class="chapter" data-level="7.3.12" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#shaded-geom-area"><i class="fa fa-check"></i><b>7.3.12</b> Shaded geom area</a></li>
 <li class="chapter" data-level="7.3.13" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#multiple-scatterplots"><i class="fa fa-check"></i><b>7.3.13</b> Multiple Scatterplots</a></li>
+<li class="chapter" data-level="7.3.14" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#background-data"><i class="fa fa-check"></i><b>7.3.14</b> Background data</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="Estadistica-descriptiva.html"><a href="Estadistica-descriptiva.html"><i class="fa fa-check"></i><b>8</b> Estadistica descriptiva</a><ul>
@@ -381,10 +382,6 @@ Coordinates_cities =<span class="st">  </span>cities <span class="op">%&gt;%</sp
 <span class="co"># Usamos el mapa </span>
 which_map &lt;-<span class="st"> </span><span class="kw">map_data</span>(<span class="st">&quot;world&quot;</span>)</code></pre></div>
 <pre><code>## 
-##  # ATTENTION: maps v3.0 has an updated &#39;world&#39; map.        #
-##  # Many country borders and names have changed since 1990. #
-##  # Type &#39;?world&#39; or &#39;news(package=&quot;maps&quot;)&#39;. See README_v3. #</code></pre>
-<pre><code>## 
 ## Attaching package: &#39;maps&#39;</code></pre>
 <pre><code>## The following object is masked from &#39;package:plyr&#39;:
 ## 
@@ -445,7 +442,7 @@ population <span class="op">%&gt;%</span><span class="st"> </span>dplyr<span cla
 <pre><code>## # A tibble: 500 x 10
 ##    World_Rank Institution          National_Rank Total_Score Alumni Awards
 ##    &lt;chr&gt;      &lt;chr&gt;                &lt;chr&gt;               &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
-##  1 1          Harvard University   1                   100    100    100  
+##  1 1          Harvard University   1                   100.   100.   100. 
 ##  2 2          Stanford University  2                    74.7   42.9   89.6
 ##  3 3          University of Calif… 3                    70.1   65.1   79.4
 ##  4 4          University of Cambr… 1                    69.6   78.3   96.6
@@ -544,7 +541,7 @@ population <span class="op">%&gt;%</span><span class="st"> </span>dplyr<span cla
 <pre><code>## # A tibble: 500 x 10
 ##    World_Rank Institution          National_Rank Total_Score Alumni Awards
 ##    &lt;chr&gt;      &lt;chr&gt;                &lt;chr&gt;               &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
-##  1 1          Harvard University   1                   100    100    100  
+##  1 1          Harvard University   1                   100.   100.   100. 
 ##  2 2          Stanford University  2                    74.7   42.9   89.6
 ##  3 3          University of Calif… 3                    70.1   65.1   79.4
 ##  4 4          University of Cambr… 1                    69.6   78.3   96.6
