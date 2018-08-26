@@ -73,18 +73,24 @@ abline(h = cor, col = "red", lty = 2, lwd = 3)
 
 legend("topright", "True Effect Size", cex = 1.5,  lty = 2, bty="n", 
        col = "red", lwd = 3)
-#------------------------------------------------------------------------------
+
 ```
 
 
 
 ## Power analysis
 
-Tenemos un conjunto de funciones que nos permiten hacer power analysis para distintos tipos de diseños:  
+Usamos el paquete `pwr`: https://cran.r-project.org/web/packages/pwr/vignettes/pwr-vignette.html. En este tenemos un conjunto de funciones que nos permiten hacer power analysis para distintos tipos de diseños:  
 
-* pwr.t.test  
-* pwr.t2n.test  
-* pwr.anova.test  
+* pwr.p.test: one-sample proportion test
+* pwr.2p.test: two-sample proportion test
+* pwr.2p2n.test: two-sample proportion test (unequal sample sizes)
+* vpwr.t.test: two-sample, one-sample and paired t-tests
+* pwr.t2n.test: two-sample t-tests (unequal sample sizes)
+* pwr.anova.test: one-way balanced ANOVA
+* pwr.r.test: correlation test
+* pwr.chisq.test: chi-squared test (goodness of fit and association)
+* pwr.f2.test: test for the general linear model
 
 En cada uno de ellos podemos modificar varios parámetros. El parámetro que dejemos sin especificar será el que se calculará:  
 
@@ -93,6 +99,19 @@ En cada uno de ellos podemos modificar varios parámetros. El parámetro que dej
 * f = effect size  
 * sig.level = sig level  
 * power = power  
+* etc.  
+
+
+Conventional effect sizes for all tests in the pwr package (SOURCE: https://cran.r-project.org/web/packages/pwr/vignettes/pwr-vignette.html):  
+
+|Test  |	small|	medium|	large|
+|-----|-----|------|------|
+|tests for proportions (p)	|0.2	|0.5	|0.8|
+|tests for means (t)	|0.2	|0.5	|0.8|
+|chi-square tests (chisq)	|0.1|	0.3|	0.5|
+|correlation test (r)|	0.1	|0.3	|0.5|
+|anova (anov)|	0.1|	0.25	|0.4|
+|general linear model (f2)	|0.02	|0.15|	0.35|  
 
 
 
@@ -124,6 +143,10 @@ pwr.anova.test(k = 6, n = 42, sig.level = 0.05, power = .95)
 #Sample size needed to detect an effect of f=0.5
 pwr.anova.test(k = 2, f = 0.5, sig.level = 0.05, power = .95)
 
+# General linear model
+  # See example in https://cran.r-project.org/web/packages/pwr/vignettes/pwr-vignette.html
+  pwr.f2.test(u = 2, f2 = 0.3/(1 - 0.3), sig.level = 0.001, power = 0.8)
+  #  n=v+u+1. Therefore he needs 50 + 2 + 1 = 53 student records.
 ```
 
 ### Longitudinal designs
