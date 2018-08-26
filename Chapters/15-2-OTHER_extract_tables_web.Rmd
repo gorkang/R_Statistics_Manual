@@ -76,8 +76,8 @@ ggplot(population_scatter, aes(Nature_Science, World_Rank)) + #, color=factor(P_
 
   
   # Save the plot
-  file = "Images/Other/Shanghai_ Ranking.png"
-  ggsave(file, device = "png", dpi = 300)
+    # file = "Images/Other/Shanghai_ Ranking.png"
+    # ggsave(file, device = "png", dpi = 300)
   
 ```
 
