@@ -7,6 +7,11 @@
 
 WHY Data visualization matters: https://www.autodeskresearch.com/publications/samestats
 
+## Other resources
+
+http://chartmaker.visualisingdata.com/  
+https://www.r-graph-gallery.com/  
+
 ***  
 
 Vamos a usar la siguiente [base de datos](Data/06_Visualize_data/Visualize_data.csv).
@@ -314,8 +319,8 @@ ggplot(datos2, aes(x = FollowUP, y = Genero, fill = Genero)) +
 Plots of distributional differences... See http://www.dandersondata.com/post/esvis-part-1/
 
 ```{r PP_plot, message=FALSE, warning=FALSE}
-devtools::install_github("DJAnderson07/esvis")
-library(esvis)
+p_load(esvis)
+# devtools::install_github("DJAnderson07/esvis")
 
 pp_plot(reading ~ frl, benchmarks)
 
@@ -487,6 +492,36 @@ ggplot(d, aes(x = Sepal.Width, y = Sepal.Length, colour = Species)) +
   facet_wrap(~ Species) +
   guides(colour = FALSE) +
   theme_bw()
+
+```
+
+
+### Flip plots
+
+FROM: https://www.displayr.com/how-to-create-sankey-diagrams-from-tables-using-r/?utm_medium=Feed&utm_source=Syndication  
+
+```{r Flip-plots, message=FALSE, warning=FALSE}
+devtools::install_github("Displayr/flipPlots")
+
+library(flipPlots)
+
+
+my.data = data.frame(Married = c("Yes","Yes", "Yes", "No", "No"),
+                     Pet = c("Yes", "Yes", "No", "Yes", "No"),
+                     Happy = c("Yes", "Yes", "Yes", "Yes", "No"),
+                     freq = 5:1)
+
+SankeyDiagram(my.data[, -4],
+              link.color = "Source", 
+              weights = my.data$freq) 
+
+
+SankeyDiagram(my.data[, -4],
+              link.color = "Source", 
+              label.show.varname = FALSE,
+              weights = my.data$freq) 
+
+
 
 ```
 
