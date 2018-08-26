@@ -25,7 +25,7 @@
 <meta name="author" content="Center for Social and Cognitive Neuroscience - cscn.uai.cl">
 
 
-<meta name="date" content="2018-03-13">
+<meta name="date" content="2018-08-26">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -47,47 +47,78 @@
 
 
 
-<script src="libs/htmlwidgets-1.0/htmlwidgets.js"></script>
+<script src="libs/htmlwidgets-1.2/htmlwidgets.js"></script>
 <link href="libs/str_view-0.1.0/str_view.css" rel="stylesheet" />
-<script src="libs/str_view-binding-1.3.0/str_view.js"></script>
+<script src="libs/str_view-binding-1.3.1/str_view.js"></script>
+<script src="libs/d3-4.5.0/d3.min.js"></script>
+<script src="libs/sankey-1/sankey.js"></script>
+<script src="libs/sankeyNetwork-binding-0.4/sankeyNetwork.js"></script>
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 </head>
@@ -180,22 +211,24 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="7" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html"><i class="fa fa-check"></i><b>7</b> Visualizar datos</a><ul>
 <li class="chapter" data-level="7.1" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#todo-1"><i class="fa fa-check"></i><b>7.1</b> TODO</a></li>
-<li class="chapter" data-level="7.2" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#que-grafica-puedo-usar-wip"><i class="fa fa-check"></i><b>7.2</b> Que gráfica puedo usar (WIP)</a></li>
-<li class="chapter" data-level="7.3" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#tipos-de-graficas"><i class="fa fa-check"></i><b>7.3</b> Tipos de gráficas</a><ul>
-<li class="chapter" data-level="7.3.1" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#histogramas"><i class="fa fa-check"></i><b>7.3.1</b> Histogramas</a></li>
-<li class="chapter" data-level="7.3.2" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#Pirate-Plot"><i class="fa fa-check"></i><b>7.3.2</b> Pirate plot</a></li>
-<li class="chapter" data-level="7.3.3" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#barplots-with-individual-responses"><i class="fa fa-check"></i><b>7.3.3</b> Barplots with individual responses</a></li>
-<li class="chapter" data-level="7.3.4" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#diagrama-de-caja-y-bigotes"><i class="fa fa-check"></i><b>7.3.4</b> Diagrama de caja y bigotes</a></li>
-<li class="chapter" data-level="7.3.5" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#correlation-plot"><i class="fa fa-check"></i><b>7.3.5</b> Correlation plot</a></li>
-<li class="chapter" data-level="7.3.6" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#beanplot"><i class="fa fa-check"></i><b>7.3.6</b> Beanplot</a></li>
-<li class="chapter" data-level="7.3.7" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#scatterplot"><i class="fa fa-check"></i><b>7.3.7</b> Scatterplot</a></li>
-<li class="chapter" data-level="7.3.8" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#scatterplot-con-3-variables"><i class="fa fa-check"></i><b>7.3.8</b> Scatterplot con 3 variables</a></li>
-<li class="chapter" data-level="7.3.9" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#density-plots"><i class="fa fa-check"></i><b>7.3.9</b> Density plots</a></li>
-<li class="chapter" data-level="7.3.10" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#density-ridges-plots-ggjoy"><i class="fa fa-check"></i><b>7.3.10</b> Density Ridges Plots (ggjoy)</a></li>
-<li class="chapter" data-level="7.3.11" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#pp-plots"><i class="fa fa-check"></i><b>7.3.11</b> PP plots</a></li>
-<li class="chapter" data-level="7.3.12" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#shaded-geom-area"><i class="fa fa-check"></i><b>7.3.12</b> Shaded geom area</a></li>
-<li class="chapter" data-level="7.3.13" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#multiple-scatterplots"><i class="fa fa-check"></i><b>7.3.13</b> Multiple Scatterplots</a></li>
-<li class="chapter" data-level="7.3.14" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#background-data"><i class="fa fa-check"></i><b>7.3.14</b> Background data</a></li>
+<li class="chapter" data-level="7.2" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#other-resources"><i class="fa fa-check"></i><b>7.2</b> Other resources</a></li>
+<li class="chapter" data-level="7.3" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#que-grafica-puedo-usar-wip"><i class="fa fa-check"></i><b>7.3</b> Que gráfica puedo usar (WIP)</a></li>
+<li class="chapter" data-level="7.4" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#tipos-de-graficas"><i class="fa fa-check"></i><b>7.4</b> Tipos de gráficas</a><ul>
+<li class="chapter" data-level="7.4.1" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#histogramas"><i class="fa fa-check"></i><b>7.4.1</b> Histogramas</a></li>
+<li class="chapter" data-level="7.4.2" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#Pirate-Plot"><i class="fa fa-check"></i><b>7.4.2</b> Pirate plot</a></li>
+<li class="chapter" data-level="7.4.3" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#barplots-with-individual-responses"><i class="fa fa-check"></i><b>7.4.3</b> Barplots with individual responses</a></li>
+<li class="chapter" data-level="7.4.4" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#diagrama-de-caja-y-bigotes"><i class="fa fa-check"></i><b>7.4.4</b> Diagrama de caja y bigotes</a></li>
+<li class="chapter" data-level="7.4.5" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#correlation-plot"><i class="fa fa-check"></i><b>7.4.5</b> Correlation plot</a></li>
+<li class="chapter" data-level="7.4.6" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#beanplot"><i class="fa fa-check"></i><b>7.4.6</b> Beanplot</a></li>
+<li class="chapter" data-level="7.4.7" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#scatterplot"><i class="fa fa-check"></i><b>7.4.7</b> Scatterplot</a></li>
+<li class="chapter" data-level="7.4.8" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#scatterplot-con-3-variables"><i class="fa fa-check"></i><b>7.4.8</b> Scatterplot con 3 variables</a></li>
+<li class="chapter" data-level="7.4.9" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#density-plots"><i class="fa fa-check"></i><b>7.4.9</b> Density plots</a></li>
+<li class="chapter" data-level="7.4.10" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#density-ridges-plots-ggjoy"><i class="fa fa-check"></i><b>7.4.10</b> Density Ridges Plots (ggjoy)</a></li>
+<li class="chapter" data-level="7.4.11" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#pp-plots"><i class="fa fa-check"></i><b>7.4.11</b> PP plots</a></li>
+<li class="chapter" data-level="7.4.12" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#shaded-geom-area"><i class="fa fa-check"></i><b>7.4.12</b> Shaded geom area</a></li>
+<li class="chapter" data-level="7.4.13" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#multiple-scatterplots"><i class="fa fa-check"></i><b>7.4.13</b> Multiple Scatterplots</a></li>
+<li class="chapter" data-level="7.4.14" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#background-data"><i class="fa fa-check"></i><b>7.4.14</b> Background data</a></li>
+<li class="chapter" data-level="7.4.15" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#flip-plots"><i class="fa fa-check"></i><b>7.4.15</b> Flip plots</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="Estadistica-descriptiva.html"><a href="Estadistica-descriptiva.html"><i class="fa fa-check"></i><b>8</b> Estadistica descriptiva</a><ul>
@@ -208,50 +241,19 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="8.5" data-path="Estadistica-descriptiva.html"><a href="Estadistica-descriptiva.html#findviews"><i class="fa fa-check"></i><b>8.5</b> Findviews</a></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html"><i class="fa fa-check"></i><b>9</b> Estadistica inferencial</a><ul>
-<li class="chapter" data-level="9.1" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#algo-sobre-modelos-y-formulas"><i class="fa fa-check"></i><b>9.1</b> Algo sobre Modelos y Fórmulas</a></li>
-<li class="chapter" data-level="9.2" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#preparacion-de-datos-y-packages"><i class="fa fa-check"></i><b>9.2</b> Preparación de datos y packages</a></li>
-<li class="chapter" data-level="9.3" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#prueba-t-para-muestras-independientes"><i class="fa fa-check"></i><b>9.3</b> Prueba t para muestras independientes</a><ul>
-<li class="chapter" data-level="9.3.1" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#contando-la-historia"><i class="fa fa-check"></i><b>9.3.1</b> Contando la historia…</a></li>
-<li class="chapter" data-level="9.3.2" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#test"><i class="fa fa-check"></i><b>9.3.2</b> Test</a></li>
+<li class="chapter" data-level="9.1" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#referencias-y-fuentes"><i class="fa fa-check"></i><b>9.1</b> Referencias y Fuentes</a></li>
+<li class="chapter" data-level="9.2" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#association-test"><i class="fa fa-check"></i><b>9.2</b> Association test</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#frequentist-1"><i class="fa fa-check"></i><b>9.2.1</b> Frequentist</a></li>
+<li class="chapter" data-level="9.2.2" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#bayesian-2"><i class="fa fa-check"></i><b>9.2.2</b> Bayesian</a></li>
+<li class="chapter" data-level="9.2.3" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#results-report---wip"><i class="fa fa-check"></i><b>9.2.3</b> Results report - WIP</a></li>
+<li class="chapter" data-level="9.2.4" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#references"><i class="fa fa-check"></i><b>9.2.4</b> References</a></li>
 </ul></li>
-<li class="chapter" data-level="9.4" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#prueba-t-para-muestras-dependientes"><i class="fa fa-check"></i><b>9.4</b> Prueba t para muestras dependientes</a><ul>
-<li class="chapter" data-level="9.4.1" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#contando-la-historia-1"><i class="fa fa-check"></i><b>9.4.1</b> Contando la historia…</a></li>
-<li class="chapter" data-level="9.4.2" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#test-1"><i class="fa fa-check"></i><b>9.4.2</b> Test</a></li>
-</ul></li>
-<li class="chapter" data-level="9.5" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#correlacion-de-pearson"><i class="fa fa-check"></i><b>9.5</b> Correlación de Pearson</a><ul>
-<li class="chapter" data-level="9.5.1" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#contando-la-historia-2"><i class="fa fa-check"></i><b>9.5.1</b> Contando la historia…</a></li>
-<li class="chapter" data-level="9.5.2" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#test-2"><i class="fa fa-check"></i><b>9.5.2</b> Test</a></li>
-</ul></li>
-<li class="chapter" data-level="9.6" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#regresion-simple"><i class="fa fa-check"></i><b>9.6</b> Regresión Simple</a><ul>
-<li class="chapter" data-level="9.6.1" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#contando-la-historia-3"><i class="fa fa-check"></i><b>9.6.1</b> Contando la historia…</a></li>
-<li class="chapter" data-level="9.6.2" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#test-3"><i class="fa fa-check"></i><b>9.6.2</b> Test</a></li>
-</ul></li>
-<li class="chapter" data-level="9.7" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#analsis-de-la-varianza-1-factor"><i class="fa fa-check"></i><b>9.7</b> Análsis de la Varianza (1 Factor)</a><ul>
-<li class="chapter" data-level="9.7.1" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#preparacion-de-datos-y-packages-1"><i class="fa fa-check"></i><b>9.7.1</b> Preparación de datos y packages</a></li>
-<li class="chapter" data-level="9.7.2" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#contando-la-historia-4"><i class="fa fa-check"></i><b>9.7.2</b> Contando la historia…</a></li>
-<li class="chapter" data-level="9.7.3" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#test-4"><i class="fa fa-check"></i><b>9.7.3</b> Test</a></li>
-<li class="chapter" data-level="9.7.4" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#tablas"><i class="fa fa-check"></i><b>9.7.4</b> Tablas</a></li>
-</ul></li>
-<li class="chapter" data-level="9.8" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#analsis-de-la-varianza-2-factores"><i class="fa fa-check"></i><b>9.8</b> Análsis de la Varianza (2 Factores)</a><ul>
-<li class="chapter" data-level="9.8.1" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#descarga"><i class="fa fa-check"></i><b>9.8.1</b> Descarga</a></li>
-<li class="chapter" data-level="9.8.2" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#preparacion-de-datos-y-packages-2"><i class="fa fa-check"></i><b>9.8.2</b> Preparación de datos y packages</a></li>
-<li class="chapter" data-level="9.8.3" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#contando-la-historia-5"><i class="fa fa-check"></i><b>9.8.3</b> Contando la historia…</a></li>
-<li class="chapter" data-level="9.8.4" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#test-5"><i class="fa fa-check"></i><b>9.8.4</b> Test</a></li>
-<li class="chapter" data-level="9.8.5" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#tablas-1"><i class="fa fa-check"></i><b>9.8.5</b> Tablas</a></li>
-</ul></li>
-<li class="chapter" data-level="9.9" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#referencias-y-fuentes"><i class="fa fa-check"></i><b>9.9</b> Referencias y Fuentes</a></li>
-<li class="chapter" data-level="9.10" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#association-test"><i class="fa fa-check"></i><b>9.10</b> Association test</a><ul>
-<li class="chapter" data-level="9.10.1" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#frequentist-1"><i class="fa fa-check"></i><b>9.10.1</b> Frequentist</a></li>
-<li class="chapter" data-level="9.10.2" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#bayesian-2"><i class="fa fa-check"></i><b>9.10.2</b> Bayesian</a></li>
-<li class="chapter" data-level="9.10.3" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#results-report---wip"><i class="fa fa-check"></i><b>9.10.3</b> Results report - WIP</a></li>
-<li class="chapter" data-level="9.10.4" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#references"><i class="fa fa-check"></i><b>9.10.4</b> References</a></li>
-</ul></li>
-<li class="chapter" data-level="9.11" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#anova-repeated-measures"><i class="fa fa-check"></i><b>9.11</b> ANOVA repeated measures</a></li>
-<li class="chapter" data-level="9.12" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#mixed-models"><i class="fa fa-check"></i><b>9.12</b> Mixed Models</a></li>
-<li class="chapter" data-level="9.13" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#meta-analysis"><i class="fa fa-check"></i><b>9.13</b> Meta analysis</a><ul>
-<li class="chapter" data-level="9.13.1" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#natural-frequencies-effect"><i class="fa fa-check"></i><b>9.13.1</b> Natural Frequencies Effect</a></li>
-<li class="chapter" data-level="9.13.2" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#pictures-effect"><i class="fa fa-check"></i><b>9.13.2</b> Pictures Effect</a></li>
-<li class="chapter" data-level="9.13.3" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#notes-on-meta-analysis"><i class="fa fa-check"></i><b>9.13.3</b> Notes on Meta-analysis</a></li>
+<li class="chapter" data-level="9.3" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#anova-repeated-measures"><i class="fa fa-check"></i><b>9.3</b> ANOVA repeated measures</a></li>
+<li class="chapter" data-level="9.4" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#mixed-models"><i class="fa fa-check"></i><b>9.4</b> Mixed Models</a></li>
+<li class="chapter" data-level="9.5" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#meta-analysis"><i class="fa fa-check"></i><b>9.5</b> Meta analysis</a><ul>
+<li class="chapter" data-level="9.5.1" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#natural-frequencies-effect"><i class="fa fa-check"></i><b>9.5.1</b> Natural Frequencies Effect</a></li>
+<li class="chapter" data-level="9.5.2" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#pictures-effect"><i class="fa fa-check"></i><b>9.5.2</b> Pictures Effect</a></li>
+<li class="chapter" data-level="9.5.3" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#notes-on-meta-analysis"><i class="fa fa-check"></i><b>9.5.3</b> Notes on Meta-analysis</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="Funciones.html"><a href="Funciones.html"><i class="fa fa-check"></i><b>10</b> Funciones</a><ul>
@@ -356,7 +358,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li><strong>Ubuntu Linux</strong>: <a href="https://cran.r-project.org/bin/linux/debian/">más detalles en la web de R</a>. En un terminal:
 <ul>
 <li><code>sudo apt-get install r-base</code></li>
-<li><code>sudo apt-get install libxml2-dev r-cran-rjava libcurl4-gnutls-dev libgsl0-dev libssl-dev libatlas3-base</code> # Otras librerias <!-- TODO: Definir librerias minimas necesarias en ubuntu --></li>
+<li><code>sudo apt-get install libxml2-dev r-cran-rjava libcurl4-gnutls-dev libgsl0-dev libssl-dev libatlas3-base</code> # Otras librerias
+<!-- TODO: Definir librerias minimas necesarias en ubuntu --></li>
 </ul></li>
 </ul>
 </div>
@@ -367,39 +370,41 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li><a href="http://www.rstudio.com/download">Descargar e instalar RStudio</a>.</li>
 <li>Una vez descargado e instalado, <strong>abre</strong> RStudio. Deberías ver algo parecido a lo siguiente:</li>
 </ul>
-<div class="figure">
-<img src="Images/Empezando2.png" />
-
-</div>
+<p><img src="Images/Empezando2.png" /></p>
 </div>
 <div id="instalar-packages" class="section level2">
 <h2><span class="header-section-number">2.3</span> Instalar Packages</h2>
-<p>También será necesario instalar algunos paquetes. Estos son una colección de funciones, datos y documentación que amplian las capacidacidades basicas de R. Empezando 2017, el numero de paquetes en R-cran ha superado los 10,000. Gran parte de las funciones y paquetes que utilizaremos en este tutorial se encuentran contenidas en el meta-paquete “tideverse” (este es un paquete de paquetes). Para instalarlo solo debes ejecutar la siguiente linea en la <strong>consola</strong> de RStudio ((1) en la imagen de arriba):</p>
+<p>También será necesario instalar algunos paquetes. Estos son una colección de funciones, datos y documentación que amplian las capacidacidades basicas de R. Empezando 2017, el numero de paquetes en R-cran ha superado los 10,000.
+Gran parte de las funciones y paquetes que utilizaremos en este tutorial se encuentran contenidas en el meta-paquete “tideverse” (este es un paquete de paquetes).
+Para instalarlo solo debes ejecutar la siguiente linea en la <strong>consola</strong> de RStudio ((1) en la imagen de arriba):</p>
 <ul>
-<li><strong>Copia y pega la linea de abajo en la consola de R Studio. Ejecutala con la tecla ENTER</strong>: <code>install.packages(&quot;tidyverse&quot;)</code></li>
+<li><strong>Copia y pega la linea de abajo en la consola de R Studio. Ejecutala con la tecla ENTER</strong>:
+<code>install.packages(&quot;tidyverse&quot;)</code></li>
 </ul>
-<p>Si desea instalar otro paquete diferente de “tideverse” solo debe remplazar su nombre entre comillas dentro de la funcion <code>install.packages()</code>. Tambien es importante saber que una vez instalado un paquete, no es necesario volver hacerlo, a menos que reinstales R.</p>
+<p>Si desea instalar otro paquete diferente de “tideverse” solo debe remplazar su nombre entre comillas dentro de la funcion <code>install.packages()</code>.
+Tambien es importante saber que una vez instalado un paquete, no es necesario volver hacerlo, a menos que reinstales R.</p>
 </div>
 <div id="cargar-packages" class="section level2">
 <h2><span class="header-section-number">2.4</span> Cargar Packages</h2>
-<p>Las funciones, datos y documentación dentro de nuestros paquetes no podran ser utilizadas hasta que se cargen en R. Para cargar los packages utilizaremos la siguiente función:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(pacman)</code></pre></div>
+<p>Las funciones, datos y documentación dentro de nuestros paquetes no podran ser utilizadas hasta que se cargen en R.
+Para cargar los packages utilizaremos la siguiente función:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">library</span>(pacman)</a></code></pre></div>
 </div>
 <div id="todo-en-uno" class="section level2">
 <h2><span class="header-section-number">2.5</span> Todo en uno</h2>
 <p>El siguiente código permite resumir la instalación y la carga de un package determinado. En este caso, el codigo primero comprueba primero si el package se encuentra ya instalado; Si no se encuentra instalado, lo instala. Finalmente lo carga.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)</code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)</a></code></pre></div>
 </div>
 <div id="c-librerias-para-el-workshop" class="section level2">
 <h2><span class="header-section-number">2.6</span> <strong>(C)</strong> Librerias para el workshop</h2>
 <p>Usaremos las siguientes librerias: tidyverse, psych, lavaan, semTools, semPlot, yarrr, ggpubr, corrplot, beanplot…<br />
 El paquete pacman contiene una función llamada p_load(), que permite hacer lo de arriba automaticamente. También tiene una función llamada <code>p_install_gh</code> que nos permite instalar directamente la versión en desarrollo del paquete desde <a href="https://github.com/">Github</a>.</p>
 <p><strong>Copia y pega el codigo de abajo y ejecutalo [tecla ENTER] en la consola de R Studio.</strong> La función p_load() se encargará de todo por nosotros. El proceso de instalación requiere internet y durará unos minutos.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
-<span class="kw">p_load</span>(tidyverse, tidyverse, lavaan, yarrr, semTools, corrplot, reshape2, stringr, psych, ggpubr, corrplot, beanplot)
-
-<span class="co"># Instalamos la version del desarrollador desde Github: https://github.com/SachaEpskamp/semPlot</span>
-<span class="kw">p_install_gh</span>(<span class="st">&quot;SachaEpskamp/semPlot&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)</a>
+<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="kw">p_load</span>(tidyverse, tidyverse, lavaan, yarrr, semTools, corrplot, reshape2, stringr, psych, ggpubr, corrplot, beanplot)</a>
+<a class="sourceLine" id="cb3-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb3-4" data-line-number="4"><span class="co"># Instalamos la version del desarrollador desde Github: https://github.com/SachaEpskamp/semPlot</span></a>
+<a class="sourceLine" id="cb3-5" data-line-number="5"><span class="kw">p_install_gh</span>(<span class="st">&quot;SachaEpskamp/semPlot&quot;</span>)</a></code></pre></div>
 
 </div>
 </div>

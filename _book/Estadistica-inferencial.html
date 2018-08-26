@@ -25,7 +25,7 @@
 <meta name="author" content="Center for Social and Cognitive Neuroscience - cscn.uai.cl">
 
 
-<meta name="date" content="2018-03-13">
+<meta name="date" content="2018-08-26">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -47,47 +47,78 @@
 
 
 
-<script src="libs/htmlwidgets-1.0/htmlwidgets.js"></script>
+<script src="libs/htmlwidgets-1.2/htmlwidgets.js"></script>
 <link href="libs/str_view-0.1.0/str_view.css" rel="stylesheet" />
-<script src="libs/str_view-binding-1.3.0/str_view.js"></script>
+<script src="libs/str_view-binding-1.3.1/str_view.js"></script>
+<script src="libs/d3-4.5.0/d3.min.js"></script>
+<script src="libs/sankey-1/sankey.js"></script>
+<script src="libs/sankeyNetwork-binding-0.4/sankeyNetwork.js"></script>
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 </head>
@@ -180,22 +211,24 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="7" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html"><i class="fa fa-check"></i><b>7</b> Visualizar datos</a><ul>
 <li class="chapter" data-level="7.1" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#todo-1"><i class="fa fa-check"></i><b>7.1</b> TODO</a></li>
-<li class="chapter" data-level="7.2" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#que-grafica-puedo-usar-wip"><i class="fa fa-check"></i><b>7.2</b> Que gráfica puedo usar (WIP)</a></li>
-<li class="chapter" data-level="7.3" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#tipos-de-graficas"><i class="fa fa-check"></i><b>7.3</b> Tipos de gráficas</a><ul>
-<li class="chapter" data-level="7.3.1" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#histogramas"><i class="fa fa-check"></i><b>7.3.1</b> Histogramas</a></li>
-<li class="chapter" data-level="7.3.2" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#Pirate-Plot"><i class="fa fa-check"></i><b>7.3.2</b> Pirate plot</a></li>
-<li class="chapter" data-level="7.3.3" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#barplots-with-individual-responses"><i class="fa fa-check"></i><b>7.3.3</b> Barplots with individual responses</a></li>
-<li class="chapter" data-level="7.3.4" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#diagrama-de-caja-y-bigotes"><i class="fa fa-check"></i><b>7.3.4</b> Diagrama de caja y bigotes</a></li>
-<li class="chapter" data-level="7.3.5" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#correlation-plot"><i class="fa fa-check"></i><b>7.3.5</b> Correlation plot</a></li>
-<li class="chapter" data-level="7.3.6" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#beanplot"><i class="fa fa-check"></i><b>7.3.6</b> Beanplot</a></li>
-<li class="chapter" data-level="7.3.7" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#scatterplot"><i class="fa fa-check"></i><b>7.3.7</b> Scatterplot</a></li>
-<li class="chapter" data-level="7.3.8" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#scatterplot-con-3-variables"><i class="fa fa-check"></i><b>7.3.8</b> Scatterplot con 3 variables</a></li>
-<li class="chapter" data-level="7.3.9" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#density-plots"><i class="fa fa-check"></i><b>7.3.9</b> Density plots</a></li>
-<li class="chapter" data-level="7.3.10" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#density-ridges-plots-ggjoy"><i class="fa fa-check"></i><b>7.3.10</b> Density Ridges Plots (ggjoy)</a></li>
-<li class="chapter" data-level="7.3.11" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#pp-plots"><i class="fa fa-check"></i><b>7.3.11</b> PP plots</a></li>
-<li class="chapter" data-level="7.3.12" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#shaded-geom-area"><i class="fa fa-check"></i><b>7.3.12</b> Shaded geom area</a></li>
-<li class="chapter" data-level="7.3.13" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#multiple-scatterplots"><i class="fa fa-check"></i><b>7.3.13</b> Multiple Scatterplots</a></li>
-<li class="chapter" data-level="7.3.14" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#background-data"><i class="fa fa-check"></i><b>7.3.14</b> Background data</a></li>
+<li class="chapter" data-level="7.2" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#other-resources"><i class="fa fa-check"></i><b>7.2</b> Other resources</a></li>
+<li class="chapter" data-level="7.3" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#que-grafica-puedo-usar-wip"><i class="fa fa-check"></i><b>7.3</b> Que gráfica puedo usar (WIP)</a></li>
+<li class="chapter" data-level="7.4" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#tipos-de-graficas"><i class="fa fa-check"></i><b>7.4</b> Tipos de gráficas</a><ul>
+<li class="chapter" data-level="7.4.1" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#histogramas"><i class="fa fa-check"></i><b>7.4.1</b> Histogramas</a></li>
+<li class="chapter" data-level="7.4.2" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#Pirate-Plot"><i class="fa fa-check"></i><b>7.4.2</b> Pirate plot</a></li>
+<li class="chapter" data-level="7.4.3" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#barplots-with-individual-responses"><i class="fa fa-check"></i><b>7.4.3</b> Barplots with individual responses</a></li>
+<li class="chapter" data-level="7.4.4" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#diagrama-de-caja-y-bigotes"><i class="fa fa-check"></i><b>7.4.4</b> Diagrama de caja y bigotes</a></li>
+<li class="chapter" data-level="7.4.5" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#correlation-plot"><i class="fa fa-check"></i><b>7.4.5</b> Correlation plot</a></li>
+<li class="chapter" data-level="7.4.6" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#beanplot"><i class="fa fa-check"></i><b>7.4.6</b> Beanplot</a></li>
+<li class="chapter" data-level="7.4.7" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#scatterplot"><i class="fa fa-check"></i><b>7.4.7</b> Scatterplot</a></li>
+<li class="chapter" data-level="7.4.8" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#scatterplot-con-3-variables"><i class="fa fa-check"></i><b>7.4.8</b> Scatterplot con 3 variables</a></li>
+<li class="chapter" data-level="7.4.9" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#density-plots"><i class="fa fa-check"></i><b>7.4.9</b> Density plots</a></li>
+<li class="chapter" data-level="7.4.10" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#density-ridges-plots-ggjoy"><i class="fa fa-check"></i><b>7.4.10</b> Density Ridges Plots (ggjoy)</a></li>
+<li class="chapter" data-level="7.4.11" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#pp-plots"><i class="fa fa-check"></i><b>7.4.11</b> PP plots</a></li>
+<li class="chapter" data-level="7.4.12" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#shaded-geom-area"><i class="fa fa-check"></i><b>7.4.12</b> Shaded geom area</a></li>
+<li class="chapter" data-level="7.4.13" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#multiple-scatterplots"><i class="fa fa-check"></i><b>7.4.13</b> Multiple Scatterplots</a></li>
+<li class="chapter" data-level="7.4.14" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#background-data"><i class="fa fa-check"></i><b>7.4.14</b> Background data</a></li>
+<li class="chapter" data-level="7.4.15" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#flip-plots"><i class="fa fa-check"></i><b>7.4.15</b> Flip plots</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="Estadistica-descriptiva.html"><a href="Estadistica-descriptiva.html"><i class="fa fa-check"></i><b>8</b> Estadistica descriptiva</a><ul>
@@ -208,50 +241,19 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="8.5" data-path="Estadistica-descriptiva.html"><a href="Estadistica-descriptiva.html#findviews"><i class="fa fa-check"></i><b>8.5</b> Findviews</a></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html"><i class="fa fa-check"></i><b>9</b> Estadistica inferencial</a><ul>
-<li class="chapter" data-level="9.1" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#algo-sobre-modelos-y-formulas"><i class="fa fa-check"></i><b>9.1</b> Algo sobre Modelos y Fórmulas</a></li>
-<li class="chapter" data-level="9.2" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#preparacion-de-datos-y-packages"><i class="fa fa-check"></i><b>9.2</b> Preparación de datos y packages</a></li>
-<li class="chapter" data-level="9.3" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#prueba-t-para-muestras-independientes"><i class="fa fa-check"></i><b>9.3</b> Prueba t para muestras independientes</a><ul>
-<li class="chapter" data-level="9.3.1" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#contando-la-historia"><i class="fa fa-check"></i><b>9.3.1</b> Contando la historia…</a></li>
-<li class="chapter" data-level="9.3.2" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#test"><i class="fa fa-check"></i><b>9.3.2</b> Test</a></li>
+<li class="chapter" data-level="9.1" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#referencias-y-fuentes"><i class="fa fa-check"></i><b>9.1</b> Referencias y Fuentes</a></li>
+<li class="chapter" data-level="9.2" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#association-test"><i class="fa fa-check"></i><b>9.2</b> Association test</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#frequentist-1"><i class="fa fa-check"></i><b>9.2.1</b> Frequentist</a></li>
+<li class="chapter" data-level="9.2.2" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#bayesian-2"><i class="fa fa-check"></i><b>9.2.2</b> Bayesian</a></li>
+<li class="chapter" data-level="9.2.3" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#results-report---wip"><i class="fa fa-check"></i><b>9.2.3</b> Results report - WIP</a></li>
+<li class="chapter" data-level="9.2.4" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#references"><i class="fa fa-check"></i><b>9.2.4</b> References</a></li>
 </ul></li>
-<li class="chapter" data-level="9.4" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#prueba-t-para-muestras-dependientes"><i class="fa fa-check"></i><b>9.4</b> Prueba t para muestras dependientes</a><ul>
-<li class="chapter" data-level="9.4.1" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#contando-la-historia-1"><i class="fa fa-check"></i><b>9.4.1</b> Contando la historia…</a></li>
-<li class="chapter" data-level="9.4.2" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#test-1"><i class="fa fa-check"></i><b>9.4.2</b> Test</a></li>
-</ul></li>
-<li class="chapter" data-level="9.5" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#correlacion-de-pearson"><i class="fa fa-check"></i><b>9.5</b> Correlación de Pearson</a><ul>
-<li class="chapter" data-level="9.5.1" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#contando-la-historia-2"><i class="fa fa-check"></i><b>9.5.1</b> Contando la historia…</a></li>
-<li class="chapter" data-level="9.5.2" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#test-2"><i class="fa fa-check"></i><b>9.5.2</b> Test</a></li>
-</ul></li>
-<li class="chapter" data-level="9.6" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#regresion-simple"><i class="fa fa-check"></i><b>9.6</b> Regresión Simple</a><ul>
-<li class="chapter" data-level="9.6.1" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#contando-la-historia-3"><i class="fa fa-check"></i><b>9.6.1</b> Contando la historia…</a></li>
-<li class="chapter" data-level="9.6.2" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#test-3"><i class="fa fa-check"></i><b>9.6.2</b> Test</a></li>
-</ul></li>
-<li class="chapter" data-level="9.7" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#analsis-de-la-varianza-1-factor"><i class="fa fa-check"></i><b>9.7</b> Análsis de la Varianza (1 Factor)</a><ul>
-<li class="chapter" data-level="9.7.1" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#preparacion-de-datos-y-packages-1"><i class="fa fa-check"></i><b>9.7.1</b> Preparación de datos y packages</a></li>
-<li class="chapter" data-level="9.7.2" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#contando-la-historia-4"><i class="fa fa-check"></i><b>9.7.2</b> Contando la historia…</a></li>
-<li class="chapter" data-level="9.7.3" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#test-4"><i class="fa fa-check"></i><b>9.7.3</b> Test</a></li>
-<li class="chapter" data-level="9.7.4" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#tablas"><i class="fa fa-check"></i><b>9.7.4</b> Tablas</a></li>
-</ul></li>
-<li class="chapter" data-level="9.8" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#analsis-de-la-varianza-2-factores"><i class="fa fa-check"></i><b>9.8</b> Análsis de la Varianza (2 Factores)</a><ul>
-<li class="chapter" data-level="9.8.1" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#descarga"><i class="fa fa-check"></i><b>9.8.1</b> Descarga</a></li>
-<li class="chapter" data-level="9.8.2" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#preparacion-de-datos-y-packages-2"><i class="fa fa-check"></i><b>9.8.2</b> Preparación de datos y packages</a></li>
-<li class="chapter" data-level="9.8.3" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#contando-la-historia-5"><i class="fa fa-check"></i><b>9.8.3</b> Contando la historia…</a></li>
-<li class="chapter" data-level="9.8.4" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#test-5"><i class="fa fa-check"></i><b>9.8.4</b> Test</a></li>
-<li class="chapter" data-level="9.8.5" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#tablas-1"><i class="fa fa-check"></i><b>9.8.5</b> Tablas</a></li>
-</ul></li>
-<li class="chapter" data-level="9.9" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#referencias-y-fuentes"><i class="fa fa-check"></i><b>9.9</b> Referencias y Fuentes</a></li>
-<li class="chapter" data-level="9.10" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#association-test"><i class="fa fa-check"></i><b>9.10</b> Association test</a><ul>
-<li class="chapter" data-level="9.10.1" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#frequentist-1"><i class="fa fa-check"></i><b>9.10.1</b> Frequentist</a></li>
-<li class="chapter" data-level="9.10.2" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#bayesian-2"><i class="fa fa-check"></i><b>9.10.2</b> Bayesian</a></li>
-<li class="chapter" data-level="9.10.3" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#results-report---wip"><i class="fa fa-check"></i><b>9.10.3</b> Results report - WIP</a></li>
-<li class="chapter" data-level="9.10.4" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#references"><i class="fa fa-check"></i><b>9.10.4</b> References</a></li>
-</ul></li>
-<li class="chapter" data-level="9.11" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#anova-repeated-measures"><i class="fa fa-check"></i><b>9.11</b> ANOVA repeated measures</a></li>
-<li class="chapter" data-level="9.12" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#mixed-models"><i class="fa fa-check"></i><b>9.12</b> Mixed Models</a></li>
-<li class="chapter" data-level="9.13" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#meta-analysis"><i class="fa fa-check"></i><b>9.13</b> Meta analysis</a><ul>
-<li class="chapter" data-level="9.13.1" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#natural-frequencies-effect"><i class="fa fa-check"></i><b>9.13.1</b> Natural Frequencies Effect</a></li>
-<li class="chapter" data-level="9.13.2" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#pictures-effect"><i class="fa fa-check"></i><b>9.13.2</b> Pictures Effect</a></li>
-<li class="chapter" data-level="9.13.3" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#notes-on-meta-analysis"><i class="fa fa-check"></i><b>9.13.3</b> Notes on Meta-analysis</a></li>
+<li class="chapter" data-level="9.3" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#anova-repeated-measures"><i class="fa fa-check"></i><b>9.3</b> ANOVA repeated measures</a></li>
+<li class="chapter" data-level="9.4" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#mixed-models"><i class="fa fa-check"></i><b>9.4</b> Mixed Models</a></li>
+<li class="chapter" data-level="9.5" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#meta-analysis"><i class="fa fa-check"></i><b>9.5</b> Meta analysis</a><ul>
+<li class="chapter" data-level="9.5.1" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#natural-frequencies-effect"><i class="fa fa-check"></i><b>9.5.1</b> Natural Frequencies Effect</a></li>
+<li class="chapter" data-level="9.5.2" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#pictures-effect"><i class="fa fa-check"></i><b>9.5.2</b> Pictures Effect</a></li>
+<li class="chapter" data-level="9.5.3" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#notes-on-meta-analysis"><i class="fa fa-check"></i><b>9.5.3</b> Notes on Meta-analysis</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="Funciones.html"><a href="Funciones.html"><i class="fa fa-check"></i><b>10</b> Funciones</a><ul>
@@ -359,7 +361,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>lsmip(a, VI1 ~ VI2 * VI3)</p>
 <p>lsmeans(a, “VI1”, contr = “pairwise”) lsmeans(a, “VI2”, contr = “pairwise”) lsmeans(a, “VI3”, contr = “pairwise”)</p>
 <p>lsmeans(a, c(“VI1”, “VI2”, “VI3”), contr = “pairwise”)</p>
-<p>Why Psychologists Should Always Report the W-test Instead of the F-Test ANOVA <a href="https://psyarxiv.com/wnezg" class="uri">https://psyarxiv.com/wnezg</a></p>
+<p>Why Psychologists Should Always Report the W-test Instead of the F-Test ANOVA
+<a href="https://psyarxiv.com/wnezg" class="uri">https://psyarxiv.com/wnezg</a></p>
 <p><strong>WIP: REVISAR</strong></p>
 <ul>
 <li><a href="http://www.quantide.com/raccoon-ch-2-4-3-way-anova/" class="uri">http://www.quantide.com/raccoon-ch-2-4-3-way-anova/</a></li>
@@ -367,38 +370,35 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <hr />
 <p>Luego de tener algo parecido a una base de datos ordenada, y haber examinado y vizualizado nuestros datos, es posible que quieras analizarlos.</p>
 <p>Para esto aprenderemos algo sobre la lógica de contrucción de modelos y formulas con los cuales podremos armar varias de las pruebas estadísticas clásicas y facilitara la comprensión de otras funciones más complejas como las relacionadas a Modelos re regresión más complejos y Modelos de Ecuaciones Estructurales.</p>
-<div id="algo-sobre-modelos-y-formulas" class="section level2">
-<h2><span class="header-section-number">9.1</span> Algo sobre Modelos y Fórmulas</h2>
-<p>En terminos sencillos, un modelo es una conjetura sobre que tipo de relación tienen las variables en juego.</p>
+<p>##Algo sobre Modelos y Fórmulas
+En terminos sencillos, un modelo es una conjetura sobre que tipo de relación tienen las variables en juego.</p>
 <p>Por ejemplo yo podria suponer que a medida que aumenta el consumo de alcohol, nuestra percepción de belleza decae.</p>
 <p>R tiene sencillas fórmulas para representar este tipo de relaciones.</p>
 <p>Si nosotros pensamos que el consumo <code>Alcohol</code> predice el <code>Atractivo</code> de la persona con la que filteamos, podemos formularlo como un modelo de la forma:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#fórmula básica</span>
-formula =<span class="st"> &quot;Atractivo ~ Alcohol&quot;</span></code></pre></div>
+<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb151-1" data-line-number="1"><span class="co">#fórmula básica</span></a>
+<a class="sourceLine" id="cb151-2" data-line-number="2">formula =<span class="st"> &quot;Atractivo ~ Alcohol&quot;</span></a></code></pre></div>
 <p>Si además pensamos que el <code>Sexo</code> tambien puede ser un predictor, modificamos el modelo inicial:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#añadir variables predictoras</span>
-formula =<span class="st"> &quot;Atractivo ~ Alcohol + Sexo&quot;</span></code></pre></div>
+<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb152-1" data-line-number="1"><span class="co">#añadir variables predictoras</span></a>
+<a class="sourceLine" id="cb152-2" data-line-number="2">formula =<span class="st"> &quot;Atractivo ~ Alcohol + Sexo&quot;</span></a></code></pre></div>
 <p>En el caso de que 2 variables, <code>Alcohol</code> y <code>Sexo</code> sean predictores, es posible pensar que estas pueden interaccionas. Podemos agregar la interación de varias formas:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#versión extendida</span>
-formula =<span class="st"> &quot;Atractivo ~ Alcohol + Sexo + Alcohol*Sexo&quot;</span>
-
-<span class="co">#versión corta</span>
-formula =<span class="st"> &quot;Atractivo ~ Alcohol*Sexo&quot;</span></code></pre></div>
+<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb153-1" data-line-number="1"><span class="co">#versión extendida</span></a>
+<a class="sourceLine" id="cb153-2" data-line-number="2">formula =<span class="st"> &quot;Atractivo ~ Alcohol + Sexo + Alcohol*Sexo&quot;</span></a>
+<a class="sourceLine" id="cb153-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb153-4" data-line-number="4"><span class="co">#versión corta</span></a>
+<a class="sourceLine" id="cb153-5" data-line-number="5">formula =<span class="st"> &quot;Atractivo ~ Alcohol*Sexo&quot;</span></a></code></pre></div>
 <p>En resumen, todo lo que esta a la derecha del simbolo <code>~</code> es considerado un predictor o variable independiente, y todo lo que esta a la izquierda es una variable de resultado o una variable dependiente. No utilizamos el simbolo <code>=</code>, <code>&lt;-</code> o <code>==</code> ya que no estamos ni asignando ni haciendo una equivalencia lógica, y podriamos confundir a R.</p>
 <p>Existen casos (por ejemplo, correlación o chi-cuadrado) en donde no hay una predicción propiamente tal. En estos casos se elimina del modelo la variable de resultado:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#fórmula para modelo sin predictor o asociativo</span>
-formula =<span class="st"> &quot;~ Atractivo + Alcohol&quot;</span></code></pre></div>
-</div>
-<div id="preparacion-de-datos-y-packages" class="section level2">
-<h2><span class="header-section-number">9.2</span> Preparación de datos y packages</h2>
+<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb154-1" data-line-number="1"><span class="co">#fórmula para modelo sin predictor o asociativo</span></a>
+<a class="sourceLine" id="cb154-2" data-line-number="2">formula =<span class="st"> &quot;~ Atractivo + Alcohol&quot;</span></a></code></pre></div>
+<p>##Preparación de datos y packages</p>
 <p>Para muchos de los análisis que vienen a continuación hemos creado una base de datos, la cual puedes descargar <a href="Data/08-Data_analysis/ANOVA_1.csv">Aquí</a>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Packages</span>
-<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
-<span class="kw">p_load</span>(tidyverse, yarrr, car)
-
-
-<span class="co">#Importar dataframe</span>
-df =<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;Data/08-Data_analysis/ANOVA_1.csv&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb155-1" data-line-number="1"><span class="co">#Packages</span></a>
+<a class="sourceLine" id="cb155-2" data-line-number="2"><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)</a>
+<a class="sourceLine" id="cb155-3" data-line-number="3"><span class="kw">p_load</span>(tidyverse, yarrr, car)</a>
+<a class="sourceLine" id="cb155-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb155-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb155-6" data-line-number="6"><span class="co">#Importar dataframe</span></a>
+<a class="sourceLine" id="cb155-7" data-line-number="7">df =<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;Data/08-Data_analysis/ANOVA_1.csv&quot;</span>)</a></code></pre></div>
 <pre><code>## Parsed with column specification:
 ## cols(
 ##   Id = col_integer(),
@@ -412,8 +412,8 @@ df =<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&
 ##   AdapSoc = col_integer(),
 ##   FunEjec = col_integer()
 ## )</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Muestra las primeras 10 observaciones</span>
-df</code></pre></div>
+<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb157-1" data-line-number="1"><span class="co">#Muestra las primeras 10 observaciones</span></a>
+<a class="sourceLine" id="cb157-2" data-line-number="2">df</a></code></pre></div>
 <pre><code>## # A tibble: 237 x 10
 ##       Id AccuracyIz Moral   Tom Empatia  Sexo  Edad AccuracyDer AdapSoc
 ##    &lt;int&gt;      &lt;int&gt; &lt;int&gt; &lt;int&gt;   &lt;int&gt; &lt;int&gt; &lt;int&gt;       &lt;int&gt;   &lt;int&gt;
@@ -428,27 +428,22 @@ df</code></pre></div>
 ##  9     9         37     1    23      36     0    43          23      38
 ## 10    10         27     0    20      51     1    52           9      24
 ## # ... with 227 more rows, and 1 more variable: FunEjec &lt;int&gt;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Recodificar variable sexo de numérico a factor con etiquetas</span>
-df =<span class="st"> </span>df <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">Sexo =</span> <span class="kw">ifelse</span>(Sexo <span class="op">==</span><span class="st"> </span><span class="dv">0</span>, <span class="st">&quot;mujer&quot;</span>, <span class="st">&quot;hombre&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">Sexo =</span> <span class="kw">as.factor</span>(Sexo))</code></pre></div>
-</div>
-<div id="prueba-t-para-muestras-independientes" class="section level2">
-<h2><span class="header-section-number">9.3</span> Prueba t para muestras independientes</h2>
-<div id="contando-la-historia" class="section level3">
-<h3><span class="header-section-number">9.3.1</span> Contando la historia…</h3>
-<p>Evaluación de diferencias por <code>Sexo</code> en una prueba de Teoría de la mente <code>Tom</code></p>
-</div>
-<div id="test" class="section level3">
-<h3><span class="header-section-number">9.3.2</span> Test</h3>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#En primer lugar comprobamos el supuesto de homogeneidad de varianzas</span>
-
-<span class="co">#levene test {car} para homogeneidad de las varianzas</span>
-<span class="kw">leveneTest</span>(df<span class="op">$</span>Tom <span class="op">~</span><span class="st"> </span>df<span class="op">$</span>Sexo)</code></pre></div>
+<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb159-1" data-line-number="1"><span class="co">#Recodificar variable sexo de numérico a factor con etiquetas</span></a>
+<a class="sourceLine" id="cb159-2" data-line-number="2">df =<span class="st"> </span>df <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">Sexo =</span> <span class="kw">ifelse</span>(Sexo <span class="op">==</span><span class="st"> </span><span class="dv">0</span>, <span class="st">&quot;mujer&quot;</span>, <span class="st">&quot;hombre&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">Sexo =</span> <span class="kw">as.factor</span>(Sexo))</a></code></pre></div>
+<p>##Prueba t para muestras independientes</p>
+<p>###Contando la historia…
+Evaluación de diferencias por <code>Sexo</code> en una prueba de Teoría de la mente <code>Tom</code></p>
+<p>###Test</p>
+<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb160-1" data-line-number="1"><span class="co">#En primer lugar comprobamos el supuesto de homogeneidad de varianzas</span></a>
+<a class="sourceLine" id="cb160-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb160-3" data-line-number="3"><span class="co">#levene test {car} para homogeneidad de las varianzas</span></a>
+<a class="sourceLine" id="cb160-4" data-line-number="4"><span class="kw">leveneTest</span>(df<span class="op">$</span>Tom <span class="op">~</span><span class="st"> </span>df<span class="op">$</span>Sexo)</a></code></pre></div>
 <pre><code>## Levene&#39;s Test for Homogeneity of Variance (center = median)
 ##        Df F value Pr(&gt;F)
 ## group   1  0.7558 0.3856
 ##       228</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Ingresamos nuestro modelo en la función t.test()</span>
-<span class="kw">t.test</span>(Tom <span class="op">~</span><span class="st"> </span>Sexo, df,  <span class="dt">var.equal =</span> T, <span class="dt">paired =</span> F)</code></pre></div>
+<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb162-1" data-line-number="1"><span class="co">#Ingresamos nuestro modelo en la función t.test()</span></a>
+<a class="sourceLine" id="cb162-2" data-line-number="2"><span class="kw">t.test</span>(Tom <span class="op">~</span><span class="st"> </span>Sexo, df,  <span class="dt">var.equal =</span> T, <span class="dt">paired =</span> F)</a></code></pre></div>
 <pre><code>## 
 ##  Two Sample t-test
 ## 
@@ -460,34 +455,28 @@ df =<span class="st"> </span>df <span class="op">%&gt;%</span><span class="st"> 
 ## sample estimates:
 ## mean in group hombre  mean in group mujer 
 ##             21.28070             22.76724</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Reporte descriptivo y Vizualización</span>
-df <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">na.omit</span>(Tom) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">group_by</span>(Sexo) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">mean =</span> <span class="kw">mean</span>(Tom), <span class="dt">sd =</span> <span class="kw">sd</span>(Tom))</code></pre></div>
+<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb164-1" data-line-number="1"><span class="co">#Reporte descriptivo y Vizualización</span></a>
+<a class="sourceLine" id="cb164-2" data-line-number="2">df <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb164-3" data-line-number="3"><span class="st">  </span><span class="kw">na.omit</span>(Tom) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb164-4" data-line-number="4"><span class="st">  </span><span class="kw">group_by</span>(Sexo) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb164-5" data-line-number="5"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">mean =</span> <span class="kw">mean</span>(Tom), <span class="dt">sd =</span> <span class="kw">sd</span>(Tom))</a></code></pre></div>
 <pre><code>##       mean       sd
 ## 1 22.11574 4.495014</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pirateplot</span>(Tom <span class="op">~</span><span class="st"> </span>Sexo, 
-           <span class="dt">data =</span> df, 
-           <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">40</span>), 
-           <span class="dt">xlab =</span> <span class="st">&quot;Metodo&quot;</span>, 
-           <span class="dt">ylab =</span> <span class="st">&quot;Nota&quot;</span>, 
-           <span class="dt">main =</span> <span class="st">&quot;t test Pirateplot&quot;</span>, 
-           <span class="dt">point.pch =</span> <span class="dv">16</span>, 
-           <span class="dt">pal =</span> <span class="st">&quot;basel&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb166-1" data-line-number="1"><span class="kw">pirateplot</span>(Tom <span class="op">~</span><span class="st"> </span>Sexo, </a>
+<a class="sourceLine" id="cb166-2" data-line-number="2">           <span class="dt">data =</span> df, </a>
+<a class="sourceLine" id="cb166-3" data-line-number="3">           <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">40</span>), </a>
+<a class="sourceLine" id="cb166-4" data-line-number="4">           <span class="dt">xlab =</span> <span class="st">&quot;Metodo&quot;</span>, </a>
+<a class="sourceLine" id="cb166-5" data-line-number="5">           <span class="dt">ylab =</span> <span class="st">&quot;Nota&quot;</span>, </a>
+<a class="sourceLine" id="cb166-6" data-line-number="6">           <span class="dt">main =</span> <span class="st">&quot;t test Pirateplot&quot;</span>, </a>
+<a class="sourceLine" id="cb166-7" data-line-number="7">           <span class="dt">point.pch =</span> <span class="dv">16</span>, </a>
+<a class="sourceLine" id="cb166-8" data-line-number="8">           <span class="dt">pal =</span> <span class="st">&quot;basel&quot;</span>)</a></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-34-1.png" width="672" /></p>
-</div>
-</div>
-<div id="prueba-t-para-muestras-dependientes" class="section level2">
-<h2><span class="header-section-number">9.4</span> Prueba t para muestras dependientes</h2>
-<div id="contando-la-historia-1" class="section level3">
-<h3><span class="header-section-number">9.4.1</span> Contando la historia…</h3>
-<p>En una tarea de disparo a objetivos, queremos evaluar si existen diferencias en la precisión de los sujetos a objetivos que aparecen a la Izquierda (<code>AccuracyIz</code>) o a la Derecha (<code>AccuracyDer</code>) del monitor.</p>
-</div>
-<div id="test-1" class="section level3">
-<h3><span class="header-section-number">9.4.2</span> Test</h3>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Ingresamos nuestro modelo en la función t.test()</span>
-<span class="kw">t.test</span>(df<span class="op">$</span>AccuracyIz, df<span class="op">$</span>AccuracyDer, <span class="dt">paired =</span> T)</code></pre></div>
+<p>##Prueba t para muestras dependientes</p>
+<p>###Contando la historia…
+En una tarea de disparo a objetivos, queremos evaluar si existen diferencias en la precisión de los sujetos a objetivos que aparecen a la Izquierda (<code>AccuracyIz</code>) o a la Derecha (<code>AccuracyDer</code>) del monitor.</p>
+<p>###Test</p>
+<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb167-1" data-line-number="1"><span class="co">#Ingresamos nuestro modelo en la función t.test()</span></a>
+<a class="sourceLine" id="cb167-2" data-line-number="2"><span class="kw">t.test</span>(df<span class="op">$</span>AccuracyIz, df<span class="op">$</span>AccuracyDer, <span class="dt">paired =</span> T)</a></code></pre></div>
 <pre><code>## 
 ##  Paired t-test
 ## 
@@ -499,18 +488,12 @@ df <span class="op">%&gt;%</span><span class="st"> </span>
 ## sample estimates:
 ## mean of the differences 
 ##                      11</code></pre>
-</div>
-</div>
-<div id="correlacion-de-pearson" class="section level2">
-<h2><span class="header-section-number">9.5</span> Correlación de Pearson</h2>
-<div id="contando-la-historia-2" class="section level3">
-<h3><span class="header-section-number">9.5.1</span> Contando la historia…</h3>
-<p>Se desea evaluar si existe alguna relación entre Teoria de la Mente (<code>Tom</code>) y el grado de Empatía de los sujetos (<code>Empatia</code>).</p>
-</div>
-<div id="test-2" class="section level3">
-<h3><span class="header-section-number">9.5.2</span> Test</h3>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Correlación de Pearson</span>
-<span class="kw">cor.test</span>(<span class="op">~</span><span class="st"> </span>Tom <span class="op">+</span><span class="st"> </span>Empatia, <span class="dt">data =</span> df)</code></pre></div>
+<p>##Correlación de Pearson</p>
+<p>###Contando la historia…
+Se desea evaluar si existe alguna relación entre Teoria de la Mente (<code>Tom</code>) y el grado de Empatía de los sujetos (<code>Empatia</code>).</p>
+<p>###Test</p>
+<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb169-1" data-line-number="1"><span class="co">#Correlación de Pearson</span></a>
+<a class="sourceLine" id="cb169-2" data-line-number="2"><span class="kw">cor.test</span>(<span class="op">~</span><span class="st"> </span>Tom <span class="op">+</span><span class="st"> </span>Empatia, <span class="dt">data =</span> df)</a></code></pre></div>
 <pre><code>## 
 ##  Pearson&#39;s product-moment correlation
 ## 
@@ -522,20 +505,20 @@ df <span class="op">%&gt;%</span><span class="st"> </span>
 ## sample estimates:
 ##       cor 
 ## 0.1296633</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Visualizar Diagrama de Dispersión</span>
-<span class="kw">ggplot</span>(df, <span class="kw">aes</span>(Tom, Empatia)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">shape =</span> <span class="dv">16</span>, <span class="dt">col =</span> <span class="kw">transparent</span>(<span class="st">&quot;red&quot;</span>, .<span class="dv">4</span>))</code></pre></div>
+<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb171-1" data-line-number="1"><span class="co">#Visualizar Diagrama de Dispersión</span></a>
+<a class="sourceLine" id="cb171-2" data-line-number="2"><span class="kw">ggplot</span>(df, <span class="kw">aes</span>(Tom, Empatia)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb171-3" data-line-number="3"><span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb171-4" data-line-number="4"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">shape =</span> <span class="dv">16</span>, <span class="dt">col =</span> <span class="kw">transparent</span>(<span class="st">&quot;red&quot;</span>, <span class="fl">.4</span>))</a></code></pre></div>
 <pre><code>## Warning: Removed 6 rows containing missing values (geom_point).</code></pre>
 <p><img src="_main_files/figure-html/unnamed-chunk-36-1.png" width="672" /></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Selecione un subconjunto de variables para la correlación multiple</span>
-cordata =<span class="st"> </span>df <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(<span class="op">-</span>Id,<span class="op">-</span>Moral,<span class="op">-</span>Sexo,<span class="op">-</span>AccuracyIz,<span class="op">-</span>AccuracyDer,<span class="op">-</span>Edad)
-
-<span class="co">#carga libreria Hmisc</span>
-<span class="kw">p_load</span>(Hmisc)
-
-<span class="co">#correlación multiple</span>
-<span class="kw">rcorr</span>(<span class="kw">as.matrix</span>(cordata), <span class="dt">type =</span> <span class="st">&quot;pearson&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb173-1" data-line-number="1"><span class="co">#Selecione un subconjunto de variables para la correlación multiple</span></a>
+<a class="sourceLine" id="cb173-2" data-line-number="2">cordata =<span class="st"> </span>df <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(<span class="op">-</span>Id,<span class="op">-</span>Moral,<span class="op">-</span>Sexo,<span class="op">-</span>AccuracyIz,<span class="op">-</span>AccuracyDer,<span class="op">-</span>Edad)</a>
+<a class="sourceLine" id="cb173-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb173-4" data-line-number="4"><span class="co">#carga libreria Hmisc</span></a>
+<a class="sourceLine" id="cb173-5" data-line-number="5"><span class="kw">p_load</span>(Hmisc)</a>
+<a class="sourceLine" id="cb173-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb173-7" data-line-number="7"><span class="co">#correlación multiple</span></a>
+<a class="sourceLine" id="cb173-8" data-line-number="8"><span class="kw">rcorr</span>(<span class="kw">as.matrix</span>(cordata), <span class="dt">type =</span> <span class="st">&quot;pearson&quot;</span>)</a></code></pre></div>
 <pre><code>##          Tom Empatia AdapSoc FunEjec
 ## Tom     1.00    0.13    0.16    0.10
 ## Empatia 0.13    1.00    0.25    0.06
@@ -555,28 +538,22 @@ cordata =<span class="st"> </span>df <span class="op">%&gt;%</span><span class="
 ## Empatia 0.0490         0.0001  0.3760 
 ## AdapSoc 0.0130 0.0001          0.0204 
 ## FunEjec 0.1331 0.3760  0.0204</code></pre>
-</div>
-</div>
-<div id="regresion-simple" class="section level2">
-<h2><span class="header-section-number">9.6</span> Regresión Simple</h2>
-<div id="contando-la-historia-3" class="section level3">
-<h3><span class="header-section-number">9.6.1</span> Contando la historia…</h3>
+<p>##Regresión Simple</p>
+<p>###Contando la historia…</p>
 <p>Evaluaremos como las Funciones ejecutivas (<code>FunEjec</code>) pueden predecir la Precisión a objetivos en una tarea atencional (<code>Accuracy</code>).</p>
 <p>Para esto primero añadiremos una nueva variable <code>Accuracy</code> la cual será el promedio de precisión para los objetivos Derechos (<code>AccuracyDer</code>) e Izquierdos (<code>AccuracyIz</code>). Lo realizaremos con la función <code>mutate</code> antes revisada en el apartado de manipulación de datos.</p>
 <p>Además filtraremos a los sujetos con puntajes bajos (menos de 50 puntos).</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Creamos nueva variable &quot;Accuracy&quot; con la función mutate() {dplyr}</span>
-df =<span class="st"> </span>df <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">Accuracy =</span> (AccuracyIz <span class="op">+</span><span class="st"> </span>AccuracyDer)<span class="op">/</span><span class="dv">2</span>)
-
-<span class="co">#Utilizar observaciones con puntajes de Funcion ejecutiva sobre 50 puntos.</span>
-df =<span class="st"> </span>df <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(FunEjec <span class="op">&gt;</span><span class="st"> </span><span class="dv">50</span>)</code></pre></div>
-</div>
-<div id="test-3" class="section level3">
-<h3><span class="header-section-number">9.6.2</span> Test</h3>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Insertamos nuestra fórmula al Modelo de Regresión Simple</span>
-fit =<span class="st"> </span><span class="kw">lm</span>(Accuracy <span class="op">~</span><span class="st"> </span>FunEjec, df)
-
-<span class="co">#Resumen de Coeficientes y Parametros del modelo</span>
-<span class="kw">summary</span>(fit)</code></pre></div>
+<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb175-1" data-line-number="1"><span class="co">#Creamos nueva variable &quot;Accuracy&quot; con la función mutate() {dplyr}</span></a>
+<a class="sourceLine" id="cb175-2" data-line-number="2">df =<span class="st"> </span>df <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">Accuracy =</span> (AccuracyIz <span class="op">+</span><span class="st"> </span>AccuracyDer)<span class="op">/</span><span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb175-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb175-4" data-line-number="4"><span class="co">#Utilizar observaciones con puntajes de Funcion ejecutiva sobre 50 puntos.</span></a>
+<a class="sourceLine" id="cb175-5" data-line-number="5">df =<span class="st"> </span>df <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(FunEjec <span class="op">&gt;</span><span class="st"> </span><span class="dv">50</span>)</a></code></pre></div>
+<p>###Test</p>
+<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb176-1" data-line-number="1"><span class="co">#Insertamos nuestra fórmula al Modelo de Regresión Simple</span></a>
+<a class="sourceLine" id="cb176-2" data-line-number="2">fit =<span class="st"> </span><span class="kw">lm</span>(Accuracy <span class="op">~</span><span class="st"> </span>FunEjec, df)</a>
+<a class="sourceLine" id="cb176-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb176-4" data-line-number="4"><span class="co">#Resumen de Coeficientes y Parametros del modelo</span></a>
+<a class="sourceLine" id="cb176-5" data-line-number="5"><span class="kw">summary</span>(fit)</a></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = Accuracy ~ FunEjec, data = df)
@@ -596,40 +573,37 @@ fit =<span class="st"> </span><span class="kw">lm</span>(Accuracy <span class="o
 ##   (2 observations deleted due to missingness)
 ## Multiple R-squared:  0.2015, Adjusted R-squared:  0.1905 
 ## F-statistic: 18.42 on 1 and 73 DF,  p-value: 5.363e-05</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Intevalos de Confianza de los parámetros del modelo</span>
-<span class="kw">confint</span>(fit, <span class="dt">level =</span> <span class="fl">0.95</span>)</code></pre></div>
+<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb178-1" data-line-number="1"><span class="co">#Intevalos de Confianza de los parámetros del modelo</span></a>
+<a class="sourceLine" id="cb178-2" data-line-number="2"><span class="kw">confint</span>(fit, <span class="dt">level =</span> <span class="fl">0.95</span>)</a></code></pre></div>
 <pre><code>##                  2.5 %      97.5 %
 ## (Intercept) 0.11419463 11.42458615
 ## FunEjec     0.03349037  0.09155961</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Visualizar Diagrama de Dispersión para Regresión</span>
-<span class="kw">ggplot</span>(df, <span class="kw">aes</span>(FunEjec, Accuracy)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">shape =</span> <span class="dv">16</span>, <span class="dt">col =</span> <span class="kw">transparent</span>(<span class="st">&quot;black&quot;</span>, .<span class="dv">4</span>)) <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> lm , <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">se =</span> T)</code></pre></div>
+<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb180-1" data-line-number="1"><span class="co">#Visualizar Diagrama de Dispersión para Regresión</span></a>
+<a class="sourceLine" id="cb180-2" data-line-number="2"><span class="kw">ggplot</span>(df, <span class="kw">aes</span>(FunEjec, Accuracy)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb180-3" data-line-number="3"><span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb180-4" data-line-number="4"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">shape =</span> <span class="dv">16</span>, <span class="dt">col =</span> <span class="kw">transparent</span>(<span class="st">&quot;black&quot;</span>, <span class="fl">.4</span>)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb180-5" data-line-number="5"><span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> lm , <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">se =</span> T)</a></code></pre></div>
 <pre><code>## Warning: Removed 2 rows containing non-finite values (stat_smooth).</code></pre>
 <pre><code>## Warning: Removed 2 rows containing missing values (geom_point).</code></pre>
 <p><img src="_main_files/figure-html/unnamed-chunk-39-1.png" width="672" /></p>
-</div>
-</div>
-<div id="analsis-de-la-varianza-1-factor" class="section level2">
-<h2><span class="header-section-number">9.7</span> Análsis de la Varianza (1 Factor)</h2>
-<p>Esta vez trabajaremos con otra base de datos, la cual puedes descargar <a href="Data/08-Data_analysis/ANOVA_2.csv">Aquí</a>. Se recomienda en esta oportunidad limpiar nuestro espacio de trabajo. Para esto podemos presionar <code>Ctrl + Shift + F10</code> o utilizar la función:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rm</span>(<span class="dt">list=</span><span class="kw">ls</span>())</code></pre></div>
-<div id="preparacion-de-datos-y-packages-1" class="section level3">
-<h3><span class="header-section-number">9.7.1</span> Preparación de datos y packages</h3>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Packages</span>
-<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
-<span class="kw">p_load</span>(tidyverse, stats, car, apaTables)
-
-<span class="co">#Importar dataframe</span>
-df =<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;Data/08-Data_analysis/ANOVA_2.csv&quot;</span>)</code></pre></div>
+<p>##Análsis de la Varianza (1 Factor)
+Esta vez trabajaremos con otra base de datos, la cual puedes descargar <a href="Data/08-Data_analysis/ANOVA_2.csv">Aquí</a>.
+Se recomienda en esta oportunidad limpiar nuestro espacio de trabajo. Para esto podemos presionar <code>Ctrl + Shift + F10</code> o utilizar la función:</p>
+<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb183-1" data-line-number="1"><span class="kw">rm</span>(<span class="dt">list=</span><span class="kw">ls</span>())</a></code></pre></div>
+<p>###Preparación de datos y packages</p>
+<div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb184-1" data-line-number="1"><span class="co">#Packages</span></a>
+<a class="sourceLine" id="cb184-2" data-line-number="2"><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)</a>
+<a class="sourceLine" id="cb184-3" data-line-number="3"><span class="kw">p_load</span>(tidyverse, stats, car, apaTables)</a>
+<a class="sourceLine" id="cb184-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb184-5" data-line-number="5"><span class="co">#Importar dataframe</span></a>
+<a class="sourceLine" id="cb184-6" data-line-number="6">df =<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;Data/08-Data_analysis/ANOVA_2.csv&quot;</span>)</a></code></pre></div>
 <pre><code>## Parsed with column specification:
 ## cols(
 ##   Metodo = col_integer(),
 ##   Nota = col_integer()
 ## )</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Muestra las primeras 10 observaciones</span>
-df</code></pre></div>
+<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb186-1" data-line-number="1"><span class="co">#Muestra las primeras 10 observaciones</span></a>
+<a class="sourceLine" id="cb186-2" data-line-number="2">df</a></code></pre></div>
 <pre><code>## # A tibble: 30 x 2
 ##    Metodo  Nota
 ##     &lt;int&gt; &lt;int&gt;
@@ -644,33 +618,29 @@ df</code></pre></div>
 ##  9      1    57
 ## 10      1    55
 ## # ... with 20 more rows</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Recodificar variable Metodo de numérico a factor con etiquetas</span>
-df =<span class="st"> </span>df <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">Metodo =</span> <span class="kw">ifelse</span>(Metodo <span class="op">==</span><span class="st"> </span><span class="dv">1</span>, <span class="st">&quot;Electroshock&quot;</span>, <span class="kw">ifelse</span>(Metodo <span class="op">==</span><span class="st"> </span><span class="dv">2</span>, <span class="st">&quot;Indiferencia&quot;</span>, <span class="st">&quot;Buen trabajo&quot;</span>))) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">Metodo =</span> <span class="kw">as.factor</span>(Metodo))</code></pre></div>
-</div>
-<div id="contando-la-historia-4" class="section level3">
-<h3><span class="header-section-number">9.7.2</span> Contando la historia…</h3>
-<p>Se desea evaluar que métodos pueden contribuir (o no) al aprendizaje de estadísticas en R. Para esto tenemos las variables <code>Metodo</code> (si se uso Electroshock, la fria Indiferencia o un “Buen trabajo!”) y la <code>Nota</code> nota que se obtuvo en el curso.</p>
-</div>
-<div id="test-4" class="section level3">
-<h3><span class="header-section-number">9.7.3</span> Test</h3>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Introducimos la formula al Modelo con la función de ANOVA aov()</span>
-fit =<span class="st"> </span><span class="kw">aov</span>(Nota <span class="op">~</span><span class="st"> </span>Metodo, df)
-
-<span class="co">#Summario de Parámetros y Coeficientes</span>
-<span class="kw">summary</span>(fit)</code></pre></div>
+<div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb188-1" data-line-number="1"><span class="co">#Recodificar variable Metodo de numérico a factor con etiquetas</span></a>
+<a class="sourceLine" id="cb188-2" data-line-number="2">df =<span class="st"> </span>df <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">Metodo =</span> <span class="kw">ifelse</span>(Metodo <span class="op">==</span><span class="st"> </span><span class="dv">1</span>, <span class="st">&quot;Electroshock&quot;</span>, <span class="kw">ifelse</span>(Metodo <span class="op">==</span><span class="st"> </span><span class="dv">2</span>, <span class="st">&quot;Indiferencia&quot;</span>, <span class="st">&quot;Buen trabajo&quot;</span>))) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">Metodo =</span> <span class="kw">as.factor</span>(Metodo))</a></code></pre></div>
+<p>###Contando la historia…
+Se desea evaluar que métodos pueden contribuir (o no) al aprendizaje de estadísticas en R. Para esto tenemos las variables <code>Metodo</code> (si se uso Electroshock, la fria Indiferencia o un “Buen trabajo!”) y la <code>Nota</code> nota que se obtuvo en el curso.</p>
+<p>###Test</p>
+<div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb189-1" data-line-number="1"><span class="co">#Introducimos la formula al Modelo con la función de ANOVA aov()</span></a>
+<a class="sourceLine" id="cb189-2" data-line-number="2">fit =<span class="st"> </span><span class="kw">aov</span>(Nota <span class="op">~</span><span class="st"> </span>Metodo, df)</a>
+<a class="sourceLine" id="cb189-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb189-4" data-line-number="4"><span class="co">#Summario de Parámetros y Coeficientes</span></a>
+<a class="sourceLine" id="cb189-5" data-line-number="5"><span class="kw">summary</span>(fit)</a></code></pre></div>
 <pre><code>##             Df Sum Sq Mean Sq F value   Pr(&gt;F)    
 ## Metodo       2 1205.1   602.5   21.01 3.15e-06 ***
 ## Residuals   27  774.4    28.7                     
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#levene test {car} para homogeneidad de las varianzas</span>
-<span class="kw">leveneTest</span>(df<span class="op">$</span>Nota <span class="op">~</span><span class="st"> </span>df<span class="op">$</span>Metodo)</code></pre></div>
+<div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb191-1" data-line-number="1"><span class="co">#levene test {car} para homogeneidad de las varianzas</span></a>
+<a class="sourceLine" id="cb191-2" data-line-number="2"><span class="kw">leveneTest</span>(df<span class="op">$</span>Nota <span class="op">~</span><span class="st"> </span>df<span class="op">$</span>Metodo)</a></code></pre></div>
 <pre><code>## Levene&#39;s Test for Homogeneity of Variance (center = median)
 ##       Df F value Pr(&gt;F)
 ## group  2  1.7343 0.1956
 ##       27</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Comparaciones Multiples mediante función TukeyHSD() {stats}</span>
-<span class="kw">TukeyHSD</span>(fit)</code></pre></div>
+<div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb193-1" data-line-number="1"><span class="co">#Comparaciones Multiples mediante función TukeyHSD() {stats}</span></a>
+<a class="sourceLine" id="cb193-2" data-line-number="2"><span class="kw">TukeyHSD</span>(fit)</a></code></pre></div>
 <pre><code>##   Tukey multiple comparisons of means
 ##     95% family-wise confidence level
 ## 
@@ -681,25 +651,23 @@ fit =<span class="st"> </span><span class="kw">aov</span>(Nota <span class="op">
 ## Electroshock-Buen trabajo -15.4 -21.33834579 -9.461654 0.0000020
 ## Indiferencia-Buen trabajo  -9.4 -15.33834579 -3.461654 0.0015175
 ## Indiferencia-Electroshock   6.0   0.06165421 11.938346 0.0472996</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Reporte descriptivo y Vizualización</span>
-df <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">group_by</span>(Metodo) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">mean =</span> <span class="kw">mean</span>(Nota), <span class="dt">sd =</span> <span class="kw">sd</span>(Nota))</code></pre></div>
+<div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb195-1" data-line-number="1"><span class="co">#Reporte descriptivo y Vizualización</span></a>
+<a class="sourceLine" id="cb195-2" data-line-number="2">df <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb195-3" data-line-number="3"><span class="st">  </span><span class="kw">group_by</span>(Metodo) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb195-4" data-line-number="4"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">mean =</span> <span class="kw">mean</span>(Nota), <span class="dt">sd =</span> <span class="kw">sd</span>(Nota))</a></code></pre></div>
 <pre><code>##       mean       sd
 ## 1 57.13333 8.261808</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pirateplot</span>(Nota <span class="op">~</span><span class="st"> </span>Metodo, 
-           <span class="dt">data =</span> df, 
-           <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">100</span>), 
-           <span class="dt">xlab =</span> <span class="st">&quot;Metodo&quot;</span>, 
-           <span class="dt">ylab =</span> <span class="st">&quot;Nota&quot;</span>, 
-           <span class="dt">main =</span> <span class="st">&quot;ANOVA Pirateplot&quot;</span>, 
-           <span class="dt">point.pch =</span> <span class="dv">16</span>, 
-           <span class="dt">pal =</span> <span class="st">&quot;basel&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb197-1" data-line-number="1"><span class="kw">pirateplot</span>(Nota <span class="op">~</span><span class="st"> </span>Metodo, </a>
+<a class="sourceLine" id="cb197-2" data-line-number="2">           <span class="dt">data =</span> df, </a>
+<a class="sourceLine" id="cb197-3" data-line-number="3">           <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">100</span>), </a>
+<a class="sourceLine" id="cb197-4" data-line-number="4">           <span class="dt">xlab =</span> <span class="st">&quot;Metodo&quot;</span>, </a>
+<a class="sourceLine" id="cb197-5" data-line-number="5">           <span class="dt">ylab =</span> <span class="st">&quot;Nota&quot;</span>, </a>
+<a class="sourceLine" id="cb197-6" data-line-number="6">           <span class="dt">main =</span> <span class="st">&quot;ANOVA Pirateplot&quot;</span>, </a>
+<a class="sourceLine" id="cb197-7" data-line-number="7">           <span class="dt">point.pch =</span> <span class="dv">16</span>, </a>
+<a class="sourceLine" id="cb197-8" data-line-number="8">           <span class="dt">pal =</span> <span class="st">&quot;basel&quot;</span>)</a></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-42-1.png" width="672" /></p>
-</div>
-<div id="tablas" class="section level3">
-<h3><span class="header-section-number">9.7.4</span> Tablas</h3>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">apa.1way.table</span>(<span class="dt">iv =</span> Metodo, <span class="dt">dv =</span> Nota, <span class="dt">data =</span> df, <span class="dt">filename =</span> <span class="st">&quot;Resultados/Figure1_APA.doc&quot;</span>, <span class="dt">table.number =</span> <span class="dv">1</span>)</code></pre></div>
+<p>###Tablas</p>
+<div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb198-1" data-line-number="1"><span class="kw">apa.1way.table</span>(<span class="dt">iv =</span> Metodo, <span class="dt">dv =</span> Nota, <span class="dt">data =</span> df, <span class="dt">filename =</span> <span class="st">&quot;Resultados/Figure1_APA.doc&quot;</span>, <span class="dt">table.number =</span> <span class="dv">1</span>)</a></code></pre></div>
 <pre><code>## 
 ## 
 ## Table 1 
@@ -713,7 +681,7 @@ df <span class="op">%&gt;%</span><span class="st"> </span>
 ## 
 ## Note. M and SD represent mean and standard deviation, respectively.
 ## </code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">apa.aov.table</span>(fit, <span class="dt">filename =</span> <span class="st">&quot;Resultados/Figure2_APA.doc&quot;</span>,<span class="dt">table.number =</span> <span class="dv">2</span>)</code></pre></div>
+<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb200-1" data-line-number="1"><span class="kw">apa.aov.table</span>(fit, <span class="dt">filename =</span> <span class="st">&quot;Resultados/Figure2_APA.doc&quot;</span>,<span class="dt">table.number =</span> <span class="dv">2</span>)</a></code></pre></div>
 <pre><code>## 
 ## 
 ## Table 2 
@@ -731,32 +699,27 @@ df <span class="op">%&gt;%</span><span class="st"> </span>
 ##                    
 ## 
 ## Note: Values in square brackets indicate the bounds of the 90% confidence interval for partial eta-squared</code></pre>
-</div>
-</div>
-<div id="analsis-de-la-varianza-2-factores" class="section level2">
-<h2><span class="header-section-number">9.8</span> Análsis de la Varianza (2 Factores)</h2>
-<div id="descarga" class="section level3">
-<h3><span class="header-section-number">9.8.1</span> Descarga</h3>
-<p>Esta vez nuevamente trabajaremos con otra base de datos, la cual puedes descargar <a href="Data/08-Data_analysis/ANOVA_3.csv">Aquí</a>. Se recomienda nuevamente limpiar nuestro espacio de trabajo. Para esto podemos presionar <code>Ctrl + Shift + F10</code> o utilizar la función:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rm</span>(<span class="dt">list =</span> <span class="kw">ls</span>())</code></pre></div>
-</div>
-<div id="preparacion-de-datos-y-packages-2" class="section level3">
-<h3><span class="header-section-number">9.8.2</span> Preparación de datos y packages</h3>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Packages</span>
-<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
-<span class="kw">p_load</span>(tidyverse, yarrr, car, stats)
-
-
-<span class="co">#Importar dataframe</span>
-df =<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;Data/08-Data_analysis/ANOVA_3.csv&quot;</span>)</code></pre></div>
+<p>##Análsis de la Varianza (2 Factores)</p>
+<p>###Descarga</p>
+<p>Esta vez nuevamente trabajaremos con otra base de datos, la cual puedes descargar <a href="Data/08-Data_analysis/ANOVA_3.csv">Aquí</a>.
+Se recomienda nuevamente limpiar nuestro espacio de trabajo. Para esto podemos presionar <code>Ctrl + Shift + F10</code> o utilizar la función:</p>
+<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb202-1" data-line-number="1"><span class="kw">rm</span>(<span class="dt">list =</span> <span class="kw">ls</span>())</a></code></pre></div>
+<p>###Preparación de datos y packages</p>
+<div class="sourceCode" id="cb203"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb203-1" data-line-number="1"><span class="co">#Packages</span></a>
+<a class="sourceLine" id="cb203-2" data-line-number="2"><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)</a>
+<a class="sourceLine" id="cb203-3" data-line-number="3"><span class="kw">p_load</span>(tidyverse, yarrr, car, stats)</a>
+<a class="sourceLine" id="cb203-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb203-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb203-6" data-line-number="6"><span class="co">#Importar dataframe</span></a>
+<a class="sourceLine" id="cb203-7" data-line-number="7">df =<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;Data/08-Data_analysis/ANOVA_3.csv&quot;</span>)</a></code></pre></div>
 <pre><code>## Parsed with column specification:
 ## cols(
 ##   Sexo = col_integer(),
 ##   Alcohol = col_integer(),
 ##   Atractivo = col_integer()
 ## )</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Muestra las primeras 10 observaciones</span>
-df</code></pre></div>
+<div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb205-1" data-line-number="1"><span class="co">#Muestra las primeras 10 observaciones</span></a>
+<a class="sourceLine" id="cb205-2" data-line-number="2">df</a></code></pre></div>
 <pre><code>## # A tibble: 32 x 3
 ##     Sexo Alcohol Atractivo
 ##    &lt;int&gt;   &lt;int&gt;     &lt;int&gt;
@@ -771,22 +734,19 @@ df</code></pre></div>
 ##  9     1       1        55
 ## 10     1       1        65
 ## # ... with 22 more rows</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Recodificar variable Sexo y Alcohol de numérico a factor con etiquetas</span>
-df =<span class="st"> </span>df <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">Sexo =</span> <span class="kw">ifelse</span>(Sexo <span class="op">==</span><span class="st"> </span><span class="dv">0</span>, <span class="st">&quot;mujer&quot;</span>, <span class="st">&quot;hombre&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">Sexo =</span> <span class="kw">as.factor</span>(Sexo))
-df =<span class="st"> </span>df <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">Alcohol =</span> <span class="kw">ifelse</span>(Alcohol <span class="op">==</span><span class="st"> </span><span class="dv">0</span>, <span class="st">&quot;No consume&quot;</span>, <span class="st">&quot;Tres Shop&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">Alcohol =</span> <span class="kw">as.factor</span>(Alcohol))</code></pre></div>
-</div>
-<div id="contando-la-historia-5" class="section level3">
-<h3><span class="header-section-number">9.8.3</span> Contando la historia…</h3>
-<p>A veces cuando bebemos bebidas espirituosas, podemos sobreestimar el atractivo de otras personas. Esto en psicología lo conocemos como “Beer Glass Effect”. Deseamos ver este efecto, pero además ver si el Sexo influye también.</p>
+<div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb207-1" data-line-number="1"><span class="co">#Recodificar variable Sexo y Alcohol de numérico a factor con etiquetas</span></a>
+<a class="sourceLine" id="cb207-2" data-line-number="2">df =<span class="st"> </span>df <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">Sexo =</span> <span class="kw">ifelse</span>(Sexo <span class="op">==</span><span class="st"> </span><span class="dv">0</span>, <span class="st">&quot;mujer&quot;</span>, <span class="st">&quot;hombre&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">Sexo =</span> <span class="kw">as.factor</span>(Sexo))</a>
+<a class="sourceLine" id="cb207-3" data-line-number="3">df =<span class="st"> </span>df <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">Alcohol =</span> <span class="kw">ifelse</span>(Alcohol <span class="op">==</span><span class="st"> </span><span class="dv">0</span>, <span class="st">&quot;No consume&quot;</span>, <span class="st">&quot;Tres Shop&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">Alcohol =</span> <span class="kw">as.factor</span>(Alcohol))</a></code></pre></div>
+<p>###Contando la historia…
+A veces cuando bebemos bebidas espirituosas, podemos sobreestimar el atractivo de otras personas. Esto en psicología lo conocemos como “Beer Glass Effect”.
+Deseamos ver este efecto, pero además ver si el Sexo influye también.</p>
 <p>Para esto tenemos las variables <code>Alcohol</code> (Si ha bebido o no), el <code>Sexo</code> del bebedor y la puntuación de <code>Atractivo</code> de la persona con la que flirtea aquella noche.</p>
-</div>
-<div id="test-5" class="section level3">
-<h3><span class="header-section-number">9.8.4</span> Test</h3>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Ajustamos el modelo con la funcion de ANOVA aov()</span>
-fit =<span class="st"> </span><span class="kw">aov</span>(Atractivo <span class="op">~</span><span class="st"> </span>Sexo <span class="op">*</span><span class="st"> </span>Alcohol, df)
-
-<span class="co">#Summario de Parámetros y Coeficientes</span>
-<span class="kw">summary</span>(fit)</code></pre></div>
+<p>###Test</p>
+<div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb208-1" data-line-number="1"><span class="co">#Ajustamos el modelo con la funcion de ANOVA aov()</span></a>
+<a class="sourceLine" id="cb208-2" data-line-number="2">fit =<span class="st"> </span><span class="kw">aov</span>(Atractivo <span class="op">~</span><span class="st"> </span>Sexo <span class="op">*</span><span class="st"> </span>Alcohol, df)</a>
+<a class="sourceLine" id="cb208-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb208-4" data-line-number="4"><span class="co">#Summario de Parámetros y Coeficientes</span></a>
+<a class="sourceLine" id="cb208-5" data-line-number="5"><span class="kw">summary</span>(fit)</a></code></pre></div>
 <pre><code>##              Df Sum Sq Mean Sq F value   Pr(&gt;F)    
 ## Sexo          1  488.3   488.3    6.54   0.0163 *  
 ## Alcohol       1 2363.3  2363.3   31.65 5.03e-06 ***
@@ -794,8 +754,8 @@ fit =<span class="st"> </span><span class="kw">aov</span>(Atractivo <span class=
 ## Residuals    28 2090.6    74.7                     
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Comparaciones Multiples mediante función TukeyHSD() {stats}</span>
-<span class="kw">TukeyHSD</span>(fit)</code></pre></div>
+<div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb210-1" data-line-number="1"><span class="co">#Comparaciones Multiples mediante función TukeyHSD() {stats}</span></a>
+<a class="sourceLine" id="cb210-2" data-line-number="2"><span class="kw">TukeyHSD</span>(fit)</a></code></pre></div>
 <pre><code>##   Tukey multiple comparisons of means
 ##     95% family-wise confidence level
 ## 
@@ -817,35 +777,33 @@ fit =<span class="st"> </span><span class="kw">aov</span>(Atractivo <span class=
 ## hombre:Tres Shop-mujer:No consume   -9.375 -21.171177   2.421177 0.1564908
 ## mujer:Tres Shop-mujer:No consume   -31.250 -43.046177 -19.453823 0.0000004
 ## mujer:Tres Shop-hombre:Tres Shop   -21.875 -33.671177 -10.078823 0.0001309</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Reporte descriptivo y Vizualización</span>
-df <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">group_by</span>(Alcohol,Sexo) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">mean =</span> <span class="kw">mean</span>(Atractivo), <span class="dt">sd =</span> <span class="kw">sd</span>(Atractivo))</code></pre></div>
+<div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb212-1" data-line-number="1"><span class="co">#Reporte descriptivo y Vizualización</span></a>
+<a class="sourceLine" id="cb212-2" data-line-number="2">df <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb212-3" data-line-number="3"><span class="st">  </span><span class="kw">group_by</span>(Alcohol,Sexo) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb212-4" data-line-number="4"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">mean =</span> <span class="kw">mean</span>(Atractivo), <span class="dt">sd =</span> <span class="kw">sd</span>(Atractivo))</a></code></pre></div>
 <pre><code>##       mean       sd
 ## 1 55.15625 14.50719</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">group_by</span>(Alcohol) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">mean =</span> <span class="kw">mean</span>(Atractivo), <span class="dt">sd =</span> <span class="kw">sd</span>(Atractivo))</code></pre></div>
+<div class="sourceCode" id="cb214"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb214-1" data-line-number="1">df <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb214-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(Alcohol) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb214-3" data-line-number="3"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">mean =</span> <span class="kw">mean</span>(Atractivo), <span class="dt">sd =</span> <span class="kw">sd</span>(Atractivo))</a></code></pre></div>
 <pre><code>##       mean       sd
 ## 1 55.15625 14.50719</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">group_by</span>(Sexo) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">mean =</span> <span class="kw">mean</span>(Atractivo), <span class="dt">sd =</span> <span class="kw">sd</span>(Atractivo))</code></pre></div>
+<div class="sourceCode" id="cb216"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb216-1" data-line-number="1">df <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb216-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(Sexo) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb216-3" data-line-number="3"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">mean =</span> <span class="kw">mean</span>(Atractivo), <span class="dt">sd =</span> <span class="kw">sd</span>(Atractivo))</a></code></pre></div>
 <pre><code>##       mean       sd
 ## 1 55.15625 14.50719</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pirateplot</span>(Atractivo <span class="op">~</span><span class="st"> </span>Sexo <span class="op">+</span><span class="st"> </span>Alcohol, 
-           <span class="dt">data =</span> df, 
-           <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">100</span>), 
-           <span class="dt">xlab =</span> <span class="st">&quot;Sex*Alcohol&quot;</span>, 
-           <span class="dt">ylab =</span> <span class="st">&quot;Attractiveness Score&quot;</span>, 
-           <span class="dt">main =</span> <span class="st">&quot;ANOVA Pirateplot&quot;</span>, 
-           <span class="dt">point.pch =</span> <span class="dv">16</span>, 
-           <span class="dt">pal =</span> <span class="st">&quot;basel&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb218"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb218-1" data-line-number="1"><span class="kw">pirateplot</span>(Atractivo <span class="op">~</span><span class="st"> </span>Sexo <span class="op">+</span><span class="st"> </span>Alcohol, </a>
+<a class="sourceLine" id="cb218-2" data-line-number="2">           <span class="dt">data =</span> df, </a>
+<a class="sourceLine" id="cb218-3" data-line-number="3">           <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">100</span>), </a>
+<a class="sourceLine" id="cb218-4" data-line-number="4">           <span class="dt">xlab =</span> <span class="st">&quot;Sex*Alcohol&quot;</span>, </a>
+<a class="sourceLine" id="cb218-5" data-line-number="5">           <span class="dt">ylab =</span> <span class="st">&quot;Attractiveness Score&quot;</span>, </a>
+<a class="sourceLine" id="cb218-6" data-line-number="6">           <span class="dt">main =</span> <span class="st">&quot;ANOVA Pirateplot&quot;</span>, </a>
+<a class="sourceLine" id="cb218-7" data-line-number="7">           <span class="dt">point.pch =</span> <span class="dv">16</span>, </a>
+<a class="sourceLine" id="cb218-8" data-line-number="8">           <span class="dt">pal =</span> <span class="st">&quot;basel&quot;</span>)</a></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-46-1.png" width="672" /></p>
-</div>
-<div id="tablas-1" class="section level3">
-<h3><span class="header-section-number">9.8.5</span> Tablas</h3>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">apa.2way.table</span>(<span class="dt">iv1 =</span> Sexo, <span class="dt">iv2 =</span> Alcohol, <span class="dt">dv =</span> Atractivo, <span class="dt">data =</span> df, <span class="dt">filename =</span> <span class="st">&quot;Resultados/Figure3_APA.doc&quot;</span>, <span class="dt">table.number =</span> <span class="dv">3</span>)</code></pre></div>
+<p>###Tablas</p>
+<div class="sourceCode" id="cb219"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb219-1" data-line-number="1"><span class="kw">apa.2way.table</span>(<span class="dt">iv1 =</span> Sexo, <span class="dt">iv2 =</span> Alcohol, <span class="dt">dv =</span> Atractivo, <span class="dt">data =</span> df, <span class="dt">filename =</span> <span class="st">&quot;Resultados/Figure3_APA.doc&quot;</span>, <span class="dt">table.number =</span> <span class="dv">3</span>)</a></code></pre></div>
 <pre><code>## 
 ## 
 ## Table 3 
@@ -859,7 +817,7 @@ df <span class="op">%&gt;%</span><span class="st"> </span>
 ##   mujer      66.88 10.33     35.62 10.84
 ## 
 ## Note. M and SD represent mean and standard deviation, respectively.</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">apa.aov.table</span>(fit, <span class="dt">filename =</span> <span class="st">&quot;Resultados/Figure4_APA.doc&quot;</span>,<span class="dt">table.number =</span> <span class="dv">4</span>)</code></pre></div>
+<div class="sourceCode" id="cb221"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb221-1" data-line-number="1"><span class="kw">apa.aov.table</span>(fit, <span class="dt">filename =</span> <span class="st">&quot;Resultados/Figure4_APA.doc&quot;</span>,<span class="dt">table.number =</span> <span class="dv">4</span>)</a></code></pre></div>
 <pre><code>## 
 ## 
 ## Table 4 
@@ -881,10 +839,8 @@ df <span class="op">%&gt;%</span><span class="st"> </span>
 ##                    
 ## 
 ## Note: Values in square brackets indicate the bounds of the 90% confidence interval for partial eta-squared</code></pre>
-</div>
-</div>
 <div id="referencias-y-fuentes" class="section level2">
-<h2><span class="header-section-number">9.9</span> Referencias y Fuentes</h2>
+<h2><span class="header-section-number">9.1</span> Referencias y Fuentes</h2>
 <ul>
 <li><p><a href="https://uk.sagepub.com/en-gb/eur/discovering-statistics-using-r/book236067">Field, A. (2012). Discovering statistics using R.</a></p></li>
 <li><p><a href="https://www.manning.com/books/r-in-action">Kabacoff, R. (2015). R in action: data analysis and graphics with R.</a></p></li>
@@ -892,25 +848,26 @@ df <span class="op">%&gt;%</span><span class="st"> </span>
 
 </div>
 <div id="association-test" class="section level2">
-<h2><span class="header-section-number">9.10</span> Association test</h2>
+<h2><span class="header-section-number">9.2</span> Association test</h2>
 <p>A.K.A. X square test of independence</p>
 <p><strong>WIP - Alternatives</strong></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Con datos de estudio Merlin</span>
-<span class="co"># prop.test(table(DB_all$Ahorro_Dico, DB_all$Futuro_d))</span>
-<span class="co"># chisq.test(table(DB_all$Ahorro_Dico, DB_all$Futuro_d))</span>
-
-<span class="co"># # More powerful</span>
-<span class="co"># Exact::exact.test(table(DB_all$Ahorro_Dico, DB_all$Futuro_d))</span>
-<span class="co"># BayesFactor::contingencyTableBF(table(DB_all$Ahorro_Dico, DB_all$Futuro_d), sampleType = &quot;indepMulti&quot;, fixedMargin = &quot;rows&quot;)</span></code></pre></div>
+<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb223-1" data-line-number="1"><span class="co"># Con datos de estudio Merlin</span></a>
+<a class="sourceLine" id="cb223-2" data-line-number="2"><span class="co"># prop.test(table(DB_all$Ahorro_Dico, DB_all$Futuro_d))</span></a>
+<a class="sourceLine" id="cb223-3" data-line-number="3"><span class="co"># chisq.test(table(DB_all$Ahorro_Dico, DB_all$Futuro_d))</span></a>
+<a class="sourceLine" id="cb223-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb223-5" data-line-number="5"><span class="co"># # More powerful</span></a>
+<a class="sourceLine" id="cb223-6" data-line-number="6"><span class="co"># Exact::exact.test(table(DB_all$Ahorro_Dico, DB_all$Futuro_d))</span></a>
+<a class="sourceLine" id="cb223-7" data-line-number="7"><span class="co"># BayesFactor::contingencyTableBF(table(DB_all$Ahorro_Dico, DB_all$Futuro_d), sampleType = &quot;indepMulti&quot;, fixedMargin = &quot;rows&quot;)</span></a></code></pre></div>
 <p><strong>Libraries</strong></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
-<span class="kw">p_load</span>(BayesFactor, lsr)</code></pre></div>
-<p><strong>Import data - WIP</strong> We use the following <a href="Data/08-Data_analysis/Association_test.csv">dataset</a>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Import to variable &quot;dataset&quot;</span>
-dataset =<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;Data/08-Data_analysis/Association_test.csv&quot;</span>)
-
-<span class="co">#Show first 5 rows</span>
-<span class="kw">head</span>(dataset)</code></pre></div>
+<div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb224-1" data-line-number="1"><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)</a>
+<a class="sourceLine" id="cb224-2" data-line-number="2"><span class="kw">p_load</span>(BayesFactor, lsr)</a></code></pre></div>
+<p><strong>Import data - WIP</strong>
+We use the following <a href="Data/08-Data_analysis/Association_test.csv">dataset</a>.</p>
+<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb225-1" data-line-number="1"><span class="co">#Import to variable &quot;dataset&quot;</span></a>
+<a class="sourceLine" id="cb225-2" data-line-number="2">dataset =<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;Data/08-Data_analysis/Association_test.csv&quot;</span>)</a>
+<a class="sourceLine" id="cb225-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb225-4" data-line-number="4"><span class="co">#Show first 5 rows</span></a>
+<a class="sourceLine" id="cb225-5" data-line-number="5"><span class="kw">head</span>(dataset)</a></code></pre></div>
 <pre><code>##    X    ID Dem_Gender Dem_Age Dem_Education       SET    answer   Time
 ## 1  4 71827          2      34             4 Resp_SET1 0.3333333 12.905
 ## 2  5  1946          1      29             6 Resp_SET1 0.3333333 38.895
@@ -933,19 +890,19 @@ dataset =<span class="st"> </span><span class="kw">read.csv</span>(<span class="
 ## 5          DECIMA    60.794
 ## 6          UNIDAD    26.169</code></pre>
 <p><strong>Prepare data</strong></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Convert to factors</span>
-dataset<span class="op">$</span>Accuracy_factor =<span class="st"> </span><span class="kw">as.factor</span>(dataset<span class="op">$</span>Accuracy)
-dataset<span class="op">$</span>Formato_factor =<span class="st"> </span><span class="kw">as.factor</span>(dataset<span class="op">$</span>Formato)
-dataset<span class="op">$</span>Problema_factor =<span class="st"> </span><span class="kw">as.factor</span>(dataset<span class="op">$</span>Problema)</code></pre></div>
+<div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb227-1" data-line-number="1"><span class="co"># Convert to factors</span></a>
+<a class="sourceLine" id="cb227-2" data-line-number="2">dataset<span class="op">$</span>Accuracy_factor =<span class="st"> </span><span class="kw">as.factor</span>(dataset<span class="op">$</span>Accuracy)</a>
+<a class="sourceLine" id="cb227-3" data-line-number="3">dataset<span class="op">$</span>Formato_factor =<span class="st"> </span><span class="kw">as.factor</span>(dataset<span class="op">$</span>Formato)</a>
+<a class="sourceLine" id="cb227-4" data-line-number="4">dataset<span class="op">$</span>Problema_factor =<span class="st"> </span><span class="kw">as.factor</span>(dataset<span class="op">$</span>Problema)</a></code></pre></div>
 <div id="frequentist-1" class="section level3">
-<h3><span class="header-section-number">9.10.1</span> Frequentist<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a></h3>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Accuracy_factor + Formato_factor</span>
-crosstab_Formato &lt;-<span class="st"> </span><span class="kw">xtabs</span>(<span class="op">~</span><span class="st"> </span>Accuracy_factor <span class="op">+</span><span class="st"> </span>Formato_factor, dataset); crosstab_Formato</code></pre></div>
+<h3><span class="header-section-number">9.2.1</span> Frequentist<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></h3>
+<div class="sourceCode" id="cb228"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb228-1" data-line-number="1"><span class="co"># Accuracy_factor + Formato_factor</span></a>
+<a class="sourceLine" id="cb228-2" data-line-number="2">crosstab_Formato &lt;-<span class="st"> </span><span class="kw">xtabs</span>(<span class="op">~</span><span class="st"> </span>Accuracy_factor <span class="op">+</span><span class="st"> </span>Formato_factor, dataset); crosstab_Formato</a></code></pre></div>
 <pre><code>##                Formato_factor
 ## Accuracy_factor FN PR
 ##               0 18 24
 ##               1 66 57</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">associationTest</span>(<span class="dt">formula =</span> <span class="op">~</span><span class="st"> </span>Accuracy_factor <span class="op">+</span><span class="st"> </span>Formato_factor, <span class="dt">data =</span> dataset )</code></pre></div>
+<div class="sourceCode" id="cb230"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb230-1" data-line-number="1"><span class="kw">associationTest</span>(<span class="dt">formula =</span> <span class="op">~</span><span class="st"> </span>Accuracy_factor <span class="op">+</span><span class="st"> </span>Formato_factor, <span class="dt">data =</span> dataset )</a></code></pre></div>
 <pre><code>## 
 ##      Chi-square test of categorical association
 ## 
@@ -975,13 +932,13 @@ crosstab_Formato &lt;-<span class="st"> </span><span class="kw">xtabs</span>(<sp
 ## Other information: 
 ##    estimated effect size (Cramer&#39;s v):  0.08 
 ##    Yates&#39; continuity correction has been applied</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Accuracy_factor + Problema_factor</span>
-crosstab_Problema &lt;-<span class="st"> </span><span class="kw">xtabs</span>(<span class="op">~</span><span class="st"> </span>Accuracy_factor <span class="op">+</span><span class="st"> </span>Problema_factor, dataset); crosstab_Problema</code></pre></div>
+<div class="sourceCode" id="cb232"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb232-1" data-line-number="1"><span class="co"># Accuracy_factor + Problema_factor</span></a>
+<a class="sourceLine" id="cb232-2" data-line-number="2">crosstab_Problema &lt;-<span class="st"> </span><span class="kw">xtabs</span>(<span class="op">~</span><span class="st"> </span>Accuracy_factor <span class="op">+</span><span class="st"> </span>Problema_factor, dataset); crosstab_Problema</a></code></pre></div>
 <pre><code>##                Problema_factor
 ## Accuracy_factor DECIMA UNIDAD
 ##               0     19     23
 ##               1     61     62</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">associationTest</span>(<span class="dt">formula =</span> <span class="op">~</span><span class="st"> </span>Accuracy_factor <span class="op">+</span><span class="st"> </span>Problema_factor, <span class="dt">data =</span> dataset )</code></pre></div>
+<div class="sourceCode" id="cb234"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb234-1" data-line-number="1"><span class="kw">associationTest</span>(<span class="dt">formula =</span> <span class="op">~</span><span class="st"> </span>Accuracy_factor <span class="op">+</span><span class="st"> </span>Problema_factor, <span class="dt">data =</span> dataset )</a></code></pre></div>
 <pre><code>## 
 ##      Chi-square test of categorical association
 ## 
@@ -1013,9 +970,9 @@ crosstab_Problema &lt;-<span class="st"> </span><span class="kw">xtabs</span>(<s
 ##    Yates&#39; continuity correction has been applied</code></pre>
 </div>
 <div id="bayesian-2" class="section level3">
-<h3><span class="header-section-number">9.10.2</span> Bayesian<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a></h3>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Accuracy_factor + Formato_factor</span>
-<span class="kw">contingencyTableBF</span>( crosstab_Formato, <span class="dt">sampleType =</span> <span class="st">&quot;jointMulti&quot;</span> ) </code></pre></div>
+<h3><span class="header-section-number">9.2.2</span> Bayesian<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a></h3>
+<div class="sourceCode" id="cb236"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb236-1" data-line-number="1"><span class="co"># Accuracy_factor + Formato_factor</span></a>
+<a class="sourceLine" id="cb236-2" data-line-number="2"><span class="kw">contingencyTableBF</span>( crosstab_Formato, <span class="dt">sampleType =</span> <span class="st">&quot;jointMulti&quot;</span> ) </a></code></pre></div>
 <pre><code>## Bayes factor analysis
 ## --------------
 ## [1] Non-indep. (a=1) : 0.5146257 ±0%
@@ -1024,8 +981,8 @@ crosstab_Problema &lt;-<span class="st"> </span><span class="kw">xtabs</span>(<s
 ##   Null, independence, a = 1 
 ## ---
 ## Bayes factor type: BFcontingencyTable, joint multinomial</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Accuracy_factor + Problema_factor</span>
-<span class="kw">contingencyTableBF</span>( crosstab_Problema, <span class="dt">sampleType =</span> <span class="st">&quot;jointMulti&quot;</span> ) </code></pre></div>
+<div class="sourceCode" id="cb238"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb238-1" data-line-number="1"><span class="co"># Accuracy_factor + Problema_factor</span></a>
+<a class="sourceLine" id="cb238-2" data-line-number="2"><span class="kw">contingencyTableBF</span>( crosstab_Problema, <span class="dt">sampleType =</span> <span class="st">&quot;jointMulti&quot;</span> ) </a></code></pre></div>
 <pre><code>## Bayes factor analysis
 ## --------------
 ## [1] Non-indep. (a=1) : 0.2811145 ±0%
@@ -1036,37 +993,37 @@ crosstab_Problema &lt;-<span class="st"> </span><span class="kw">xtabs</span>(<s
 ## Bayes factor type: BFcontingencyTable, joint multinomial</code></pre>
 </div>
 <div id="results-report---wip" class="section level3">
-<h3><span class="header-section-number">9.10.3</span> Results report - WIP</h3>
+<h3><span class="header-section-number">9.2.3</span> Results report - WIP</h3>
 <blockquote>
 <p>TODO: Use an example where we have both a null a and a significant finding</p>
 </blockquote>
 <div id="frequentist---wip" class="section level4">
-<h4><span class="header-section-number">9.10.3.1</span> Frequentist - WIP</h4>
+<h4><span class="header-section-number">9.2.3.1</span> Frequentist - WIP</h4>
 <p>Pearson’s X<sup>2</sup> revealed a significant association between species and choice (X<sup>2</sup> = 10.7, p = .01): robots appeared to be more likely to say that they prefer flowers, but the humans were more likely to say they prefer data.</p>
 </div>
 <div id="bayesian" class="section level4">
-<h4><span class="header-section-number">9.10.3.2</span> Bayesian</h4>
+<h4><span class="header-section-number">9.2.3.2</span> Bayesian</h4>
 <p>We ran a Bayesian test of association (see Gunel &amp; Dickey, 1974) using version 0.9.12-2 of the BayesFactor package (Morey &amp; Rouder, 2015) using default priors and a joint multinomial sampling plan. The resulting Bayes factor of 3.65 to 1 in favour of the null hypothesis indicates that there is moderately strong evidence for the non-independence of Problem and accuracy.</p>
 </div>
 </div>
 <div id="references" class="section level3">
-<h3><span class="header-section-number">9.10.4</span> References</h3>
+<h3><span class="header-section-number">9.2.4</span> References</h3>
 
 </div>
 </div>
 <div id="anova-repeated-measures" class="section level2">
-<h2><span class="header-section-number">9.11</span> ANOVA repeated measures</h2>
+<h2><span class="header-section-number">9.3</span> ANOVA repeated measures</h2>
 <p>Perform a repeated measures ANOVA and get posthocs</p>
 <p><strong>Libraries</strong></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
-<span class="kw">p_load</span>(tidyverse, yarrr, readxl, stringr, afex) </code></pre></div>
+<div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb240-1" data-line-number="1"><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)</a>
+<a class="sourceLine" id="cb240-2" data-line-number="2"><span class="kw">p_load</span>(tidyverse, yarrr, readxl, stringr, afex) </a></code></pre></div>
 <p><strong>Import data</strong><br />
 We use the following <a href="Data/08-Data_analysis/ANOVA_repeated_measures.xlsx">dataset</a>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Import to variable &quot;datos&quot;</span>
-datos =<span class="st"> </span><span class="kw">read_excel</span>(<span class="st">&quot;Data/08-Data_analysis/ANOVA_repeated_measures.xlsx&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span>dplyr<span class="op">::</span><span class="kw">mutate</span>(<span class="dt">ID =</span> <span class="dv">1</span><span class="op">:</span><span class="kw">n</span>())
-
-datos</code></pre></div>
+<div class="sourceCode" id="cb241"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb241-1" data-line-number="1"><span class="co">#Import to variable &quot;datos&quot;</span></a>
+<a class="sourceLine" id="cb241-2" data-line-number="2">datos =<span class="st"> </span><span class="kw">read_excel</span>(<span class="st">&quot;Data/08-Data_analysis/ANOVA_repeated_measures.xlsx&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb241-3" data-line-number="3"><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">mutate</span>(<span class="dt">ID =</span> <span class="dv">1</span><span class="op">:</span><span class="kw">n</span>())</a>
+<a class="sourceLine" id="cb241-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb241-5" data-line-number="5">datos</a></code></pre></div>
 <pre><code>## # A tibble: 29 x 9
 ##     ENDObch  ENDOacm  ENDObcm  ENDOach   EXObch   EXOacm   EXObcm   EXOach
 ##       &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;
@@ -1091,27 +1048,27 @@ datos</code></pre></div>
 </ul>
 <hr />
 <p><strong>Prepare data</strong></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Wide to Long</span>
-datos_long =<span class="st"> </span>datos <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">gather</span>(Condicion, VD, <span class="dv">1</span><span class="op">:</span><span class="dv">8</span>)
-
-
-<span class="co"># We extract conditions from Condicion column. Convert char variables to factor</span>
-datos_long =<span class="st"> </span>datos_long <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">VI1 =</span> <span class="kw">str_sub</span>(datos_long<span class="op">$</span>Condicion, <span class="dv">1</span>,<span class="dv">3</span>)) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">VI2 =</span> 
-           <span class="kw">ifelse</span>(VI1 <span class="op">==</span><span class="st"> &quot;END&quot;</span>, 
-                  <span class="kw">str_sub</span>(datos_long<span class="op">$</span>Condicion, <span class="dv">5</span>,<span class="dv">6</span>), 
-                  <span class="kw">str_sub</span>(datos_long<span class="op">$</span>Condicion, <span class="dv">4</span>,<span class="dv">5</span>))) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">VI3 =</span> 
-           <span class="kw">ifelse</span>(VI1 <span class="op">==</span><span class="st"> &quot;END&quot;</span>, 
-                  <span class="kw">str_sub</span>(datos_long<span class="op">$</span>Condicion, <span class="dv">7</span>,<span class="dv">7</span>), 
-                  <span class="kw">str_sub</span>(datos_long<span class="op">$</span>Condicion, <span class="dv">6</span>,<span class="dv">6</span>))) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">VI1 =</span> <span class="kw">as.factor</span>(VI1)) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">VI2 =</span> <span class="kw">as.factor</span>(VI2)) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">VI3 =</span> <span class="kw">as.factor</span>(VI3)) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Condicion =</span> <span class="kw">as.factor</span>(Condicion))
-
-datos_long</code></pre></div>
+<div class="sourceCode" id="cb243"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb243-1" data-line-number="1"><span class="co"># Wide to Long</span></a>
+<a class="sourceLine" id="cb243-2" data-line-number="2">datos_long =<span class="st"> </span>datos <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">gather</span>(Condicion, VD, <span class="dv">1</span><span class="op">:</span><span class="dv">8</span>)</a>
+<a class="sourceLine" id="cb243-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb243-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb243-5" data-line-number="5"><span class="co"># We extract conditions from Condicion column. Convert char variables to factor</span></a>
+<a class="sourceLine" id="cb243-6" data-line-number="6">datos_long =<span class="st"> </span>datos_long <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb243-7" data-line-number="7"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">VI1 =</span> <span class="kw">str_sub</span>(datos_long<span class="op">$</span>Condicion, <span class="dv">1</span>,<span class="dv">3</span>)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb243-8" data-line-number="8"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">VI2 =</span> </a>
+<a class="sourceLine" id="cb243-9" data-line-number="9">           <span class="kw">ifelse</span>(VI1 <span class="op">==</span><span class="st"> &quot;END&quot;</span>, </a>
+<a class="sourceLine" id="cb243-10" data-line-number="10">                  <span class="kw">str_sub</span>(datos_long<span class="op">$</span>Condicion, <span class="dv">5</span>,<span class="dv">6</span>), </a>
+<a class="sourceLine" id="cb243-11" data-line-number="11">                  <span class="kw">str_sub</span>(datos_long<span class="op">$</span>Condicion, <span class="dv">4</span>,<span class="dv">5</span>))) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb243-12" data-line-number="12"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">VI3 =</span> </a>
+<a class="sourceLine" id="cb243-13" data-line-number="13">           <span class="kw">ifelse</span>(VI1 <span class="op">==</span><span class="st"> &quot;END&quot;</span>, </a>
+<a class="sourceLine" id="cb243-14" data-line-number="14">                  <span class="kw">str_sub</span>(datos_long<span class="op">$</span>Condicion, <span class="dv">7</span>,<span class="dv">7</span>), </a>
+<a class="sourceLine" id="cb243-15" data-line-number="15">                  <span class="kw">str_sub</span>(datos_long<span class="op">$</span>Condicion, <span class="dv">6</span>,<span class="dv">6</span>))) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb243-16" data-line-number="16"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">VI1 =</span> <span class="kw">as.factor</span>(VI1)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb243-17" data-line-number="17"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">VI2 =</span> <span class="kw">as.factor</span>(VI2)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb243-18" data-line-number="18"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">VI3 =</span> <span class="kw">as.factor</span>(VI3)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb243-19" data-line-number="19"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Condicion =</span> <span class="kw">as.factor</span>(Condicion))</a>
+<a class="sourceLine" id="cb243-20" data-line-number="20"></a>
+<a class="sourceLine" id="cb243-21" data-line-number="21">datos_long</a></code></pre></div>
 <pre><code>## # A tibble: 232 x 6
 ##       ID Condicion        VD VI1   VI2   VI3  
 ##    &lt;int&gt; &lt;fct&gt;         &lt;dbl&gt; &lt;fct&gt; &lt;fct&gt; &lt;fct&gt;
@@ -1127,18 +1084,18 @@ datos_long</code></pre></div>
 ## 10    10 ENDObch   -0.00160  END   bc    h    
 ## # ... with 222 more rows</code></pre>
 <p>Repeated measures ANOVA</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># AFEX PACKAGE</span>
-<span class="co"># https://cran.r-project.org/web/packages/afex/afex.pdf</span>
-
-a =<span class="st"> </span><span class="kw">aov_ez</span>(<span class="st">&quot;ID&quot;</span>, <span class="st">&quot;VD&quot;</span>, datos_long,
-           <span class="dt">within =</span> <span class="kw">c</span>(<span class="st">&quot;VI1&quot;</span>, <span class="st">&quot;VI2&quot;</span>, <span class="st">&quot;VI3&quot;</span>))
-
-<span class="co"># Show results</span>
-<span class="kw">summary</span>(a)</code></pre></div>
+<div class="sourceCode" id="cb245"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb245-1" data-line-number="1"><span class="co"># AFEX PACKAGE</span></a>
+<a class="sourceLine" id="cb245-2" data-line-number="2"><span class="co"># https://cran.r-project.org/web/packages/afex/afex.pdf</span></a>
+<a class="sourceLine" id="cb245-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb245-4" data-line-number="4">a =<span class="st"> </span><span class="kw">aov_ez</span>(<span class="st">&quot;ID&quot;</span>, <span class="st">&quot;VD&quot;</span>, datos_long,</a>
+<a class="sourceLine" id="cb245-5" data-line-number="5">           <span class="dt">within =</span> <span class="kw">c</span>(<span class="st">&quot;VI1&quot;</span>, <span class="st">&quot;VI2&quot;</span>, <span class="st">&quot;VI3&quot;</span>))</a>
+<a class="sourceLine" id="cb245-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb245-7" data-line-number="7"><span class="co"># Show results</span></a>
+<a class="sourceLine" id="cb245-8" data-line-number="8"><span class="kw">summary</span>(a)</a></code></pre></div>
 <pre><code>## 
 ## Univariate Type III Repeated-Measures ANOVA Assuming Sphericity
 ## 
-##                     SS num Df   Error SS den Df       F   Pr(&gt;F)   
+##                 Sum Sq num Df   Error SS den Df F value   Pr(&gt;F)   
 ## (Intercept) 0.00000013      1 0.00014494     28  0.0251 0.875310   
 ## VI1         0.00001238      1 0.00022796     28  1.5210 0.227715   
 ## VI2         0.00001502      1 0.00147081     28  0.2859 0.597112   
@@ -1149,13 +1106,13 @@ a =<span class="st"> </span><span class="kw">aov_ez</span>(<span class="st">&quo
 ## VI1:VI2:VI3 0.00000323      1 0.00015865     28  0.5709 0.456198   
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Plot results</span>
-<span class="kw">lsmip</span>(a, VI1 <span class="op">~</span><span class="st"> </span>VI2 <span class="op">*</span><span class="st"> </span>VI3)</code></pre></div>
+<div class="sourceCode" id="cb247"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb247-1" data-line-number="1"><span class="co"># Plot results</span></a>
+<a class="sourceLine" id="cb247-2" data-line-number="2"><span class="kw">lsmip</span>(a, VI1 <span class="op">~</span><span class="st"> </span>VI2 <span class="op">*</span><span class="st"> </span>VI3)</a></code></pre></div>
 <p><img src="_main_files/figure-html/anova_afex_repeated_measures-1.png" width="672" /></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pirateplot</span>(VD <span class="op">~</span><span class="st"> </span>VI1 <span class="op">*</span><span class="st"> </span>VI2 <span class="op">*</span><span class="st"> </span>VI3, datos_long)</code></pre></div>
+<div class="sourceCode" id="cb248"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb248-1" data-line-number="1"><span class="kw">pirateplot</span>(VD <span class="op">~</span><span class="st"> </span>VI1 <span class="op">*</span><span class="st"> </span>VI2 <span class="op">*</span><span class="st"> </span>VI3, datos_long)</a></code></pre></div>
 <p><img src="_main_files/figure-html/anova_afex_repeated_measures-2.png" width="672" /></p>
 <p>Post-hocs</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">lsmeans</span>(a, <span class="kw">c</span>(<span class="st">&quot;VI1&quot;</span>, <span class="st">&quot;VI2&quot;</span>, <span class="st">&quot;VI3&quot;</span>), <span class="dt">contr =</span> <span class="st">&quot;pairwise&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb249"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb249-1" data-line-number="1"><span class="kw">lsmeans</span>(a, <span class="kw">c</span>(<span class="st">&quot;VI1&quot;</span>, <span class="st">&quot;VI2&quot;</span>, <span class="st">&quot;VI3&quot;</span>), <span class="dt">contr =</span> <span class="st">&quot;pairwise&quot;</span>)</a></code></pre></div>
 <pre><code>## $lsmeans
 ##  VI1 VI2 VI3        lsmean           SE    df      lower.CL      upper.CL
 ##  END ac  h    1.714029e-04 0.0009120423 137.1 -0.0016320858  0.0019748915
@@ -1201,7 +1158,7 @@ a =<span class="st"> </span><span class="kw">aov_ez</span>(<span class="st">&quo
 ##  END,bc,m - EXO,bc,m -0.0008020935 0.001309353  73.37  -0.613  0.9986
 ## 
 ## P value adjustment: tukey method for comparing a family of 8 estimates</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">lsmeans</span>(a, <span class="st">&quot;VI1&quot;</span>, <span class="dt">contr =</span> <span class="st">&quot;pairwise&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb251"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb251-1" data-line-number="1"><span class="kw">lsmeans</span>(a, <span class="st">&quot;VI1&quot;</span>, <span class="dt">contr =</span> <span class="st">&quot;pairwise&quot;</span>)</a></code></pre></div>
 <pre><code>## NOTE: Results may be misleading due to involvement in interactions</code></pre>
 <pre><code>## $lsmeans
 ##  VI1        lsmean           SE    df      lower.CL     upper.CL
@@ -1216,7 +1173,7 @@ a =<span class="st"> </span><span class="kw">aov_ez</span>(<span class="st">&quo
 ##  END - EXO -0.0004620668 0.0003746565 28  -1.233  0.2277
 ## 
 ## Results are averaged over the levels of: VI2, VI3</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">lsmeans</span>(a, <span class="st">&quot;VI2&quot;</span>, <span class="dt">contr =</span> <span class="st">&quot;pairwise&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb254"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb254-1" data-line-number="1"><span class="kw">lsmeans</span>(a, <span class="st">&quot;VI2&quot;</span>, <span class="dt">contr =</span> <span class="st">&quot;pairwise&quot;</span>)</a></code></pre></div>
 <pre><code>## NOTE: Results may be misleading due to involvement in interactions</code></pre>
 <pre><code>## $lsmeans
 ##  VI2        lsmean           SE    df      lower.CL     upper.CL
@@ -1231,7 +1188,7 @@ a =<span class="st"> </span><span class="kw">aov_ez</span>(<span class="st">&quo
 ##  ac - bc  0.0005088092 0.0009516679 28   0.535  0.5971
 ## 
 ## Results are averaged over the levels of: VI1, VI3</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">lsmeans</span>(a, <span class="st">&quot;VI3&quot;</span>, <span class="dt">contr =</span> <span class="st">&quot;pairwise&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb257"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb257-1" data-line-number="1"><span class="kw">lsmeans</span>(a, <span class="st">&quot;VI3&quot;</span>, <span class="dt">contr =</span> <span class="st">&quot;pairwise&quot;</span>)</a></code></pre></div>
 <pre><code>## NOTE: Results may be misleading due to involvement in interactions</code></pre>
 <pre><code>## $lsmeans
 ##  VI3        lsmean           SE    df      lower.CL     upper.CL
@@ -1249,12 +1206,12 @@ a =<span class="st"> </span><span class="kw">aov_ez</span>(<span class="st">&quo
 
 </div>
 <div id="mixed-models" class="section level2">
-<h2><span class="header-section-number">9.12</span> Mixed Models</h2>
+<h2><span class="header-section-number">9.4</span> Mixed Models</h2>
 <p><a href="http://mfviz.com/hierarchical-models/" class="uri">http://mfviz.com/hierarchical-models/</a></p>
 
 </div>
 <div id="meta-analysis" class="section level2">
-<h2><span class="header-section-number">9.13</span> Meta analysis</h2>
+<h2><span class="header-section-number">9.5</span> Meta analysis</h2>
 <p>Code adapted from an example sent by Miro on 20170509</p>
 <hr />
 <p>Meta-analysis of Brase, G. L., &amp; Hill, W. T. (2017). Adding up to good Bayesian reasoning: Problem format manipulations and individual skill differences. Journal of Experimental Psychology: General, 146(4), 577–591. <a href="http://doi.org/10.1037/xge0000280" class="uri">http://doi.org/10.1037/xge0000280</a></p>
@@ -1262,40 +1219,42 @@ a =<span class="st"> </span><span class="kw">aov_ez</span>(<span class="st">&quo
 <p><strong>Factorial 2x2 design (aggreagted data from Experiment1 &amp; Experiment2)</strong></p>
 <p>IV1: Representation format (Natural Frequencies x Probabilities)<br />
 IV2: Pictorial aid (No pictorial aid x Pictorial aid)</p>
-<p>Experiment1 <img src="Images/Data_analysis/Meta_analysis/Brase_Experiment_1.png" /></p>
-<p>Experiment2 <img src="Images/Data_analysis/Meta_analysis/Brase_Experiment_2.png" /></p>
+<p>Experiment1
+<img src="Images/Data_analysis/Meta_analysis/Brase_Experiment_1.png" /></p>
+<p>Experiment2
+<img src="Images/Data_analysis/Meta_analysis/Brase_Experiment_2.png" /></p>
 <p><strong>Libraries</strong></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
-<span class="kw">p_load</span>(metafor)</code></pre></div>
+<div class="sourceCode" id="cb260"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb260-1" data-line-number="1"><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)</a>
+<a class="sourceLine" id="cb260-2" data-line-number="2"><span class="kw">p_load</span>(metafor)</a></code></pre></div>
 <div id="natural-frequencies-effect" class="section level3">
-<h3><span class="header-section-number">9.13.1</span> Natural Frequencies Effect</h3>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># input of the data from the two experiments, each is featuring two comparison (note: ai to di are corresponding to the 2x2 table, n1i and n2i are row sums)</span>
-
-Contrast =<span class="st"> &quot;NF - Perc&quot;</span>
-Comparisons =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Exp 1a No Picture&quot;</span>, <span class="st">&quot;Exp 1b Picture&quot;</span>, <span class="st">&quot;Exp 2a No Picture&quot;</span>,<span class="st">&quot;Exp 2b Picture&quot;</span>)
-
-<span class="co"># NF with and without pictures</span>
-<span class="co"># E1_NF, E1_NF+Pic, E2_NF, E2_NF+Pic</span>
-<span class="co"># (84*.373, 85*.416, 172*.419, 186*.484)</span>
-ai &lt;-<span class="st">  </span><span class="kw">c</span>(<span class="dv">31</span>, <span class="dv">35</span>, <span class="dv">72</span>, <span class="dv">90</span>)
-n1i &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">84</span>, <span class="dv">85</span>, <span class="dv">172</span>, <span class="dv">186</span>)
-bi &lt;-<span class="st"> </span>n1i<span class="op">-</span><span class="st"> </span>ai <span class="co"># c(53, 50, 100, 96)</span>
-
-<span class="co"># Prob with and without pictures</span>
-<span class="co"># E1_Perc, E1_Perc+Pic, E2_Perc, E2_Perc+Pic</span>
-<span class="co"># (83*.049, 84*.194, 172*.087, 181*.265)</span>
-ci &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">16</span>, <span class="dv">15</span>, <span class="dv">48</span>)
-n2i &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">83</span>, <span class="dv">84</span>, <span class="dv">172</span>, <span class="dv">181</span>)
-di &lt;-<span class="st"> </span>n2i <span class="op">-</span><span class="st"> </span>ci <span class="co"># di &lt;- c(79, 68, 157, 133)</span>
-
-<span class="co"># mod &lt;- c(0, 1, 0, 1)</span>
-
-<span class="co"># fit the fixed model and return its value for OR</span>
-rma.overallOR &lt;-<span class="st"> </span><span class="kw">rma.uni</span>(<span class="dt">ai=</span>ai, <span class="dt">bi=</span>bi, <span class="dt">ci=</span>ci, <span class="dt">di=</span>di, <span class="dt">n1i=</span>n1i, <span class="dt">n2i=</span>n2i, <span class="dt">measure=</span><span class="st">&quot;OR&quot;</span>, 
-                         <span class="dt">method=</span><span class="st">&quot;REML&quot;</span>, <span class="dt">weighted=</span><span class="ot">TRUE</span>,
-                         <span class="dt">level=</span><span class="dv">95</span>, <span class="dt">digits=</span><span class="dv">3</span>)
-
-<span class="kw">summary</span>(rma.overallOR)</code></pre></div>
+<h3><span class="header-section-number">9.5.1</span> Natural Frequencies Effect</h3>
+<div class="sourceCode" id="cb261"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb261-1" data-line-number="1"><span class="co"># input of the data from the two experiments, each is featuring two comparison (note: ai to di are corresponding to the 2x2 table, n1i and n2i are row sums)</span></a>
+<a class="sourceLine" id="cb261-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb261-3" data-line-number="3">Contrast =<span class="st"> &quot;NF - Perc&quot;</span></a>
+<a class="sourceLine" id="cb261-4" data-line-number="4">Comparisons =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Exp 1a No Picture&quot;</span>, <span class="st">&quot;Exp 1b Picture&quot;</span>, <span class="st">&quot;Exp 2a No Picture&quot;</span>,<span class="st">&quot;Exp 2b Picture&quot;</span>)</a>
+<a class="sourceLine" id="cb261-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb261-6" data-line-number="6"><span class="co"># NF with and without pictures</span></a>
+<a class="sourceLine" id="cb261-7" data-line-number="7"><span class="co"># E1_NF, E1_NF+Pic, E2_NF, E2_NF+Pic</span></a>
+<a class="sourceLine" id="cb261-8" data-line-number="8"><span class="co"># (84*.373, 85*.416, 172*.419, 186*.484)</span></a>
+<a class="sourceLine" id="cb261-9" data-line-number="9">ai &lt;-<span class="st">  </span><span class="kw">c</span>(<span class="dv">31</span>, <span class="dv">35</span>, <span class="dv">72</span>, <span class="dv">90</span>)</a>
+<a class="sourceLine" id="cb261-10" data-line-number="10">n1i &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">84</span>, <span class="dv">85</span>, <span class="dv">172</span>, <span class="dv">186</span>)</a>
+<a class="sourceLine" id="cb261-11" data-line-number="11">bi &lt;-<span class="st"> </span>n1i<span class="op">-</span><span class="st"> </span>ai <span class="co"># c(53, 50, 100, 96)</span></a>
+<a class="sourceLine" id="cb261-12" data-line-number="12"></a>
+<a class="sourceLine" id="cb261-13" data-line-number="13"><span class="co"># Prob with and without pictures</span></a>
+<a class="sourceLine" id="cb261-14" data-line-number="14"><span class="co"># E1_Perc, E1_Perc+Pic, E2_Perc, E2_Perc+Pic</span></a>
+<a class="sourceLine" id="cb261-15" data-line-number="15"><span class="co"># (83*.049, 84*.194, 172*.087, 181*.265)</span></a>
+<a class="sourceLine" id="cb261-16" data-line-number="16">ci &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">16</span>, <span class="dv">15</span>, <span class="dv">48</span>)</a>
+<a class="sourceLine" id="cb261-17" data-line-number="17">n2i &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">83</span>, <span class="dv">84</span>, <span class="dv">172</span>, <span class="dv">181</span>)</a>
+<a class="sourceLine" id="cb261-18" data-line-number="18">di &lt;-<span class="st"> </span>n2i <span class="op">-</span><span class="st"> </span>ci <span class="co"># di &lt;- c(79, 68, 157, 133)</span></a>
+<a class="sourceLine" id="cb261-19" data-line-number="19"></a>
+<a class="sourceLine" id="cb261-20" data-line-number="20"><span class="co"># mod &lt;- c(0, 1, 0, 1)</span></a>
+<a class="sourceLine" id="cb261-21" data-line-number="21"></a>
+<a class="sourceLine" id="cb261-22" data-line-number="22"><span class="co"># fit the fixed model and return its value for OR</span></a>
+<a class="sourceLine" id="cb261-23" data-line-number="23">rma.overallOR &lt;-<span class="st"> </span><span class="kw">rma.uni</span>(<span class="dt">ai=</span>ai, <span class="dt">bi=</span>bi, <span class="dt">ci=</span>ci, <span class="dt">di=</span>di, <span class="dt">n1i=</span>n1i, <span class="dt">n2i=</span>n2i, <span class="dt">measure=</span><span class="st">&quot;OR&quot;</span>, </a>
+<a class="sourceLine" id="cb261-24" data-line-number="24">                         <span class="dt">method=</span><span class="st">&quot;REML&quot;</span>, <span class="dt">weighted=</span><span class="ot">TRUE</span>,</a>
+<a class="sourceLine" id="cb261-25" data-line-number="25">                         <span class="dt">level=</span><span class="dv">95</span>, <span class="dt">digits=</span><span class="dv">3</span>)</a>
+<a class="sourceLine" id="cb261-26" data-line-number="26"></a>
+<a class="sourceLine" id="cb261-27" data-line-number="27"><span class="kw">summary</span>(rma.overallOR)</a></code></pre></div>
 <pre><code>## 
 ## Random-Effects Model (k = 4; tau^2 estimator: REML)
 ## 
@@ -1317,47 +1276,47 @@ rma.overallOR &lt;-<span class="st"> </span><span class="kw">rma.uni</span>(<spa
 ## 
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># rma.overallOR</span>
-
-<span class="kw">forest</span>(rma.overallOR, 
-       <span class="dt">showweight =</span> <span class="ot">TRUE</span>,
-       <span class="dt">slab=</span>Comparisons, 
-       <span class="dt">xlab=</span><span class="st">&quot;Log Odds Ratio&quot;</span>, <span class="dt">mlab=</span><span class="st">&quot;FE Model for All Comparisons&quot;</span>, <span class="dt">main =</span> Contrast )</code></pre></div>
+<div class="sourceCode" id="cb263"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb263-1" data-line-number="1"><span class="co"># rma.overallOR</span></a>
+<a class="sourceLine" id="cb263-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb263-3" data-line-number="3"><span class="kw">forest</span>(rma.overallOR, </a>
+<a class="sourceLine" id="cb263-4" data-line-number="4">       <span class="dt">showweight =</span> <span class="ot">TRUE</span>,</a>
+<a class="sourceLine" id="cb263-5" data-line-number="5">       <span class="dt">slab=</span>Comparisons, </a>
+<a class="sourceLine" id="cb263-6" data-line-number="6">       <span class="dt">xlab=</span><span class="st">&quot;Log Odds Ratio&quot;</span>, <span class="dt">mlab=</span><span class="st">&quot;FE Model for All Comparisons&quot;</span>, <span class="dt">main =</span> Contrast )</a></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-50-1.png" width="672" /></p>
 </div>
 <div id="pictures-effect" class="section level3">
-<h3><span class="header-section-number">9.13.2</span> Pictures Effect</h3>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># input of the data from the two experiments, each is featuring two comparison (note: ai to di are corresponding to the 2x2 table, n1i and n2i are row sums)</span>
-<span class="co"># Here we use the parameter mod to assess moderation (???)</span>
-
-Contrast =<span class="st"> &quot;Pictures - No pictures&quot;</span>
-Comparisons =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Exp 1a Perc&quot;</span>, <span class="st">&quot;Exp 1b NF&quot;</span>, <span class="st">&quot;Exp 2a Perc&quot;</span>,<span class="st">&quot;Exp 2b NF&quot;</span>)
-
-
-<span class="co"># Prob and  NF with Pictures</span>
-<span class="co"># E1_Perc+Pic, E1_NF+Pic, E2_Perc+Pic, E2_NF+Pic</span>
-<span class="co"># (84*.194,   85*.416,  181*.265, 186*.484)</span>
-ai &lt;-<span class="st">  </span><span class="kw">c</span>(<span class="dv">16</span>, <span class="dv">35</span>, <span class="dv">48</span>, <span class="dv">90</span>)
-n1i &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">84</span>, <span class="dv">85</span>, <span class="dv">181</span>, <span class="dv">186</span>)
-bi &lt;-<span class="st"> </span>n1i<span class="op">-</span><span class="st"> </span>ai <span class="co"># bi &lt;- c(68, 50, 133, 96)</span>
-
-<span class="co"># Prob and  NF without Pictures</span>
-<span class="co"># E1_Perc, E1_NF, E2_Perc , E2_NF</span>
-<span class="co"># (83*.049,   84*.373,  172*.087, 172*.419)</span>
-ci &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">31</span>, <span class="dv">15</span>, <span class="dv">72</span>)
-n2i &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">83</span>, <span class="dv">84</span>, <span class="dv">172</span>, <span class="dv">172</span>)
-di &lt;-<span class="st"> </span>n2i <span class="op">-</span><span class="st"> </span>ci <span class="co"># di &lt;- c(79, 53, 157, 100)</span>
-
-
-mod &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>)
-
-<span class="co"># fit the fixed model and return its value for OR</span>
-  <span class="co"># Here we use the moderator mod</span>
-rma.overallOR &lt;-<span class="st"> </span><span class="kw">rma.uni</span>(<span class="dt">ai=</span>ai, <span class="dt">bi=</span>bi, <span class="dt">ci=</span>ci, <span class="dt">di=</span>di, <span class="dt">n1i=</span>n1i, <span class="dt">n2i=</span>n2i, <span class="dt">mod=</span>mod, <span class="dt">measure=</span><span class="st">&quot;OR&quot;</span>, 
-                         <span class="dt">method=</span><span class="st">&quot;REML&quot;</span>, <span class="dt">weighted=</span>T,
-                         <span class="dt">level=</span><span class="dv">95</span>, <span class="dt">digits=</span><span class="dv">3</span>)
-
-<span class="kw">summary</span>(rma.overallOR)</code></pre></div>
+<h3><span class="header-section-number">9.5.2</span> Pictures Effect</h3>
+<div class="sourceCode" id="cb264"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb264-1" data-line-number="1"><span class="co"># input of the data from the two experiments, each is featuring two comparison (note: ai to di are corresponding to the 2x2 table, n1i and n2i are row sums)</span></a>
+<a class="sourceLine" id="cb264-2" data-line-number="2"><span class="co"># Here we use the parameter mod to assess moderation (???)</span></a>
+<a class="sourceLine" id="cb264-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb264-4" data-line-number="4">Contrast =<span class="st"> &quot;Pictures - No pictures&quot;</span></a>
+<a class="sourceLine" id="cb264-5" data-line-number="5">Comparisons =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Exp 1a Perc&quot;</span>, <span class="st">&quot;Exp 1b NF&quot;</span>, <span class="st">&quot;Exp 2a Perc&quot;</span>,<span class="st">&quot;Exp 2b NF&quot;</span>)</a>
+<a class="sourceLine" id="cb264-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb264-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb264-8" data-line-number="8"><span class="co"># Prob and  NF with Pictures</span></a>
+<a class="sourceLine" id="cb264-9" data-line-number="9"><span class="co"># E1_Perc+Pic, E1_NF+Pic, E2_Perc+Pic, E2_NF+Pic</span></a>
+<a class="sourceLine" id="cb264-10" data-line-number="10"><span class="co"># (84*.194,   85*.416,  181*.265, 186*.484)</span></a>
+<a class="sourceLine" id="cb264-11" data-line-number="11">ai &lt;-<span class="st">  </span><span class="kw">c</span>(<span class="dv">16</span>, <span class="dv">35</span>, <span class="dv">48</span>, <span class="dv">90</span>)</a>
+<a class="sourceLine" id="cb264-12" data-line-number="12">n1i &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">84</span>, <span class="dv">85</span>, <span class="dv">181</span>, <span class="dv">186</span>)</a>
+<a class="sourceLine" id="cb264-13" data-line-number="13">bi &lt;-<span class="st"> </span>n1i<span class="op">-</span><span class="st"> </span>ai <span class="co"># bi &lt;- c(68, 50, 133, 96)</span></a>
+<a class="sourceLine" id="cb264-14" data-line-number="14"></a>
+<a class="sourceLine" id="cb264-15" data-line-number="15"><span class="co"># Prob and  NF without Pictures</span></a>
+<a class="sourceLine" id="cb264-16" data-line-number="16"><span class="co"># E1_Perc, E1_NF, E2_Perc , E2_NF</span></a>
+<a class="sourceLine" id="cb264-17" data-line-number="17"><span class="co"># (83*.049,   84*.373,  172*.087, 172*.419)</span></a>
+<a class="sourceLine" id="cb264-18" data-line-number="18">ci &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">31</span>, <span class="dv">15</span>, <span class="dv">72</span>)</a>
+<a class="sourceLine" id="cb264-19" data-line-number="19">n2i &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">83</span>, <span class="dv">84</span>, <span class="dv">172</span>, <span class="dv">172</span>)</a>
+<a class="sourceLine" id="cb264-20" data-line-number="20">di &lt;-<span class="st"> </span>n2i <span class="op">-</span><span class="st"> </span>ci <span class="co"># di &lt;- c(79, 53, 157, 100)</span></a>
+<a class="sourceLine" id="cb264-21" data-line-number="21"></a>
+<a class="sourceLine" id="cb264-22" data-line-number="22"></a>
+<a class="sourceLine" id="cb264-23" data-line-number="23">mod &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb264-24" data-line-number="24"></a>
+<a class="sourceLine" id="cb264-25" data-line-number="25"><span class="co"># fit the fixed model and return its value for OR</span></a>
+<a class="sourceLine" id="cb264-26" data-line-number="26">  <span class="co"># Here we use the moderator mod</span></a>
+<a class="sourceLine" id="cb264-27" data-line-number="27">rma.overallOR &lt;-<span class="st"> </span><span class="kw">rma.uni</span>(<span class="dt">ai=</span>ai, <span class="dt">bi=</span>bi, <span class="dt">ci=</span>ci, <span class="dt">di=</span>di, <span class="dt">n1i=</span>n1i, <span class="dt">n2i=</span>n2i, <span class="dt">mod=</span>mod, <span class="dt">measure=</span><span class="st">&quot;OR&quot;</span>, </a>
+<a class="sourceLine" id="cb264-28" data-line-number="28">                         <span class="dt">method=</span><span class="st">&quot;REML&quot;</span>, <span class="dt">weighted=</span>T,</a>
+<a class="sourceLine" id="cb264-29" data-line-number="29">                         <span class="dt">level=</span><span class="dv">95</span>, <span class="dt">digits=</span><span class="dv">3</span>)</a>
+<a class="sourceLine" id="cb264-30" data-line-number="30"></a>
+<a class="sourceLine" id="cb264-31" data-line-number="31"><span class="kw">summary</span>(rma.overallOR)</a></code></pre></div>
 <pre><code>## 
 ## Mixed-Effects Model (k = 4; tau^2 estimator: REML)
 ## 
@@ -1384,16 +1343,16 @@ rma.overallOR &lt;-<span class="st"> </span><span class="kw">rma.uni</span>(<spa
 ## 
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># rma.overallOR</span>
-
-<span class="kw">forest</span>(rma.overallOR, 
-       <span class="dt">showweight =</span> <span class="ot">TRUE</span>,
-       <span class="dt">slab=</span> Comparisons, 
-       <span class="dt">xlab=</span><span class="st">&quot;Log Odds Ratio&quot;</span>, <span class="dt">mlab=</span><span class="st">&quot;REML Model for All Comparisons&quot;</span>, <span class="dt">main =</span> Contrast)</code></pre></div>
+<div class="sourceCode" id="cb266"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb266-1" data-line-number="1"><span class="co"># rma.overallOR</span></a>
+<a class="sourceLine" id="cb266-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb266-3" data-line-number="3"><span class="kw">forest</span>(rma.overallOR, </a>
+<a class="sourceLine" id="cb266-4" data-line-number="4">       <span class="dt">showweight =</span> <span class="ot">TRUE</span>,</a>
+<a class="sourceLine" id="cb266-5" data-line-number="5">       <span class="dt">slab=</span> Comparisons, </a>
+<a class="sourceLine" id="cb266-6" data-line-number="6">       <span class="dt">xlab=</span><span class="st">&quot;Log Odds Ratio&quot;</span>, <span class="dt">mlab=</span><span class="st">&quot;REML Model for All Comparisons&quot;</span>, <span class="dt">main =</span> Contrast)</a></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-51-1.png" width="672" /></p>
 </div>
 <div id="notes-on-meta-analysis" class="section level3">
-<h3><span class="header-section-number">9.13.3</span> Notes on Meta-analysis</h3>
+<h3><span class="header-section-number">9.5.3</span> Notes on Meta-analysis</h3>
 <p><a href="http://www.nicebread.de/meta-showdown-1/" class="uri">http://www.nicebread.de/meta-showdown-1/</a></p>
 
 </div>
@@ -1402,8 +1361,8 @@ rma.overallOR &lt;-<span class="st"> </span><span class="kw">rma.uni</span>(<spa
 <div class="footnotes">
 <hr />
 <ol start="1">
-<li id="fn1"><p>Leys, C., Ley, C., Klein, O., Bernard, P. &amp; Licata, L. Detecting outliers: Do not use standard deviation around the mean, use absolute deviation around the median. J. Exp. Soc. Psychol. 49, 764–766 (2013).<a href="Estadistica-inferencial.html#fnref1">↩</a></p></li>
-<li id="fn2"><p><a href="https://www.researchgate.net/post/For_decision_times_do_you_first_take_the_logarithm_and_then_exclude_extreme_outliers_or_the_other_way_around_And_how_do_you_define_outliers">See <strong>Serban C. Musca</strong> post</a><a href="Estadistica-inferencial.html#fnref2">↩</a></p></li>
+<li id="fn1"><p>Leys, C., Ley, C., Klein, O., Bernard, P. &amp; Licata, L. Detecting outliers: Do not use standard deviation around the mean, use absolute deviation around the median. J. Exp. Soc. Psychol. 49, 764–766 (2013).<a href="Estadistica-inferencial.html#fnref1" class="footnote-back">↩</a></p></li>
+<li id="fn2"><p><a href="https://www.researchgate.net/post/For_decision_times_do_you_first_take_the_logarithm_and_then_exclude_extreme_outliers_or_the_other_way_around_And_how_do_you_define_outliers">See <strong>Serban C. Musca</strong> post</a><a href="Estadistica-inferencial.html#fnref2" class="footnote-back">↩</a></p></li>
 </ol>
 </div>
             </section>

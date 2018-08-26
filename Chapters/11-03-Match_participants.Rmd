@@ -51,7 +51,7 @@ Realizamos el matching
 **TODO: Como evaluamos si el matching es bueno?**
 ```{r match_participants}
 #Creamos base de parejas
-parejas = as.data.frame((pairmatch(Ahorro ~ Edad + Sexo + Educacion, data = data)))
+parejas = as.data.frame((optmatch::pairmatch(Ahorro ~ Edad + Sexo + Educacion, data = data)))
     # caliper establece limites para los matchings
     # print(pairmatch(Ahorro ~ Edad + Sexo + Educacion, caliper = 4.9, data = data), grouped = TRUE)
 

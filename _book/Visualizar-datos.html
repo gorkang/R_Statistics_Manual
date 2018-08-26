@@ -25,7 +25,7 @@
 <meta name="author" content="Center for Social and Cognitive Neuroscience - cscn.uai.cl">
 
 
-<meta name="date" content="2018-03-13">
+<meta name="date" content="2018-08-26">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -47,47 +47,78 @@
 
 
 
-<script src="libs/htmlwidgets-1.0/htmlwidgets.js"></script>
+<script src="libs/htmlwidgets-1.2/htmlwidgets.js"></script>
 <link href="libs/str_view-0.1.0/str_view.css" rel="stylesheet" />
-<script src="libs/str_view-binding-1.3.0/str_view.js"></script>
+<script src="libs/str_view-binding-1.3.1/str_view.js"></script>
+<script src="libs/d3-4.5.0/d3.min.js"></script>
+<script src="libs/sankey-1/sankey.js"></script>
+<script src="libs/sankeyNetwork-binding-0.4/sankeyNetwork.js"></script>
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 </head>
@@ -180,22 +211,24 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="7" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html"><i class="fa fa-check"></i><b>7</b> Visualizar datos</a><ul>
 <li class="chapter" data-level="7.1" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#todo-1"><i class="fa fa-check"></i><b>7.1</b> TODO</a></li>
-<li class="chapter" data-level="7.2" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#que-grafica-puedo-usar-wip"><i class="fa fa-check"></i><b>7.2</b> Que gráfica puedo usar (WIP)</a></li>
-<li class="chapter" data-level="7.3" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#tipos-de-graficas"><i class="fa fa-check"></i><b>7.3</b> Tipos de gráficas</a><ul>
-<li class="chapter" data-level="7.3.1" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#histogramas"><i class="fa fa-check"></i><b>7.3.1</b> Histogramas</a></li>
-<li class="chapter" data-level="7.3.2" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#Pirate-Plot"><i class="fa fa-check"></i><b>7.3.2</b> Pirate plot</a></li>
-<li class="chapter" data-level="7.3.3" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#barplots-with-individual-responses"><i class="fa fa-check"></i><b>7.3.3</b> Barplots with individual responses</a></li>
-<li class="chapter" data-level="7.3.4" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#diagrama-de-caja-y-bigotes"><i class="fa fa-check"></i><b>7.3.4</b> Diagrama de caja y bigotes</a></li>
-<li class="chapter" data-level="7.3.5" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#correlation-plot"><i class="fa fa-check"></i><b>7.3.5</b> Correlation plot</a></li>
-<li class="chapter" data-level="7.3.6" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#beanplot"><i class="fa fa-check"></i><b>7.3.6</b> Beanplot</a></li>
-<li class="chapter" data-level="7.3.7" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#scatterplot"><i class="fa fa-check"></i><b>7.3.7</b> Scatterplot</a></li>
-<li class="chapter" data-level="7.3.8" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#scatterplot-con-3-variables"><i class="fa fa-check"></i><b>7.3.8</b> Scatterplot con 3 variables</a></li>
-<li class="chapter" data-level="7.3.9" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#density-plots"><i class="fa fa-check"></i><b>7.3.9</b> Density plots</a></li>
-<li class="chapter" data-level="7.3.10" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#density-ridges-plots-ggjoy"><i class="fa fa-check"></i><b>7.3.10</b> Density Ridges Plots (ggjoy)</a></li>
-<li class="chapter" data-level="7.3.11" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#pp-plots"><i class="fa fa-check"></i><b>7.3.11</b> PP plots</a></li>
-<li class="chapter" data-level="7.3.12" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#shaded-geom-area"><i class="fa fa-check"></i><b>7.3.12</b> Shaded geom area</a></li>
-<li class="chapter" data-level="7.3.13" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#multiple-scatterplots"><i class="fa fa-check"></i><b>7.3.13</b> Multiple Scatterplots</a></li>
-<li class="chapter" data-level="7.3.14" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#background-data"><i class="fa fa-check"></i><b>7.3.14</b> Background data</a></li>
+<li class="chapter" data-level="7.2" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#other-resources"><i class="fa fa-check"></i><b>7.2</b> Other resources</a></li>
+<li class="chapter" data-level="7.3" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#que-grafica-puedo-usar-wip"><i class="fa fa-check"></i><b>7.3</b> Que gráfica puedo usar (WIP)</a></li>
+<li class="chapter" data-level="7.4" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#tipos-de-graficas"><i class="fa fa-check"></i><b>7.4</b> Tipos de gráficas</a><ul>
+<li class="chapter" data-level="7.4.1" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#histogramas"><i class="fa fa-check"></i><b>7.4.1</b> Histogramas</a></li>
+<li class="chapter" data-level="7.4.2" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#Pirate-Plot"><i class="fa fa-check"></i><b>7.4.2</b> Pirate plot</a></li>
+<li class="chapter" data-level="7.4.3" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#barplots-with-individual-responses"><i class="fa fa-check"></i><b>7.4.3</b> Barplots with individual responses</a></li>
+<li class="chapter" data-level="7.4.4" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#diagrama-de-caja-y-bigotes"><i class="fa fa-check"></i><b>7.4.4</b> Diagrama de caja y bigotes</a></li>
+<li class="chapter" data-level="7.4.5" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#correlation-plot"><i class="fa fa-check"></i><b>7.4.5</b> Correlation plot</a></li>
+<li class="chapter" data-level="7.4.6" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#beanplot"><i class="fa fa-check"></i><b>7.4.6</b> Beanplot</a></li>
+<li class="chapter" data-level="7.4.7" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#scatterplot"><i class="fa fa-check"></i><b>7.4.7</b> Scatterplot</a></li>
+<li class="chapter" data-level="7.4.8" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#scatterplot-con-3-variables"><i class="fa fa-check"></i><b>7.4.8</b> Scatterplot con 3 variables</a></li>
+<li class="chapter" data-level="7.4.9" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#density-plots"><i class="fa fa-check"></i><b>7.4.9</b> Density plots</a></li>
+<li class="chapter" data-level="7.4.10" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#density-ridges-plots-ggjoy"><i class="fa fa-check"></i><b>7.4.10</b> Density Ridges Plots (ggjoy)</a></li>
+<li class="chapter" data-level="7.4.11" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#pp-plots"><i class="fa fa-check"></i><b>7.4.11</b> PP plots</a></li>
+<li class="chapter" data-level="7.4.12" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#shaded-geom-area"><i class="fa fa-check"></i><b>7.4.12</b> Shaded geom area</a></li>
+<li class="chapter" data-level="7.4.13" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#multiple-scatterplots"><i class="fa fa-check"></i><b>7.4.13</b> Multiple Scatterplots</a></li>
+<li class="chapter" data-level="7.4.14" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#background-data"><i class="fa fa-check"></i><b>7.4.14</b> Background data</a></li>
+<li class="chapter" data-level="7.4.15" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#flip-plots"><i class="fa fa-check"></i><b>7.4.15</b> Flip plots</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="Estadistica-descriptiva.html"><a href="Estadistica-descriptiva.html"><i class="fa fa-check"></i><b>8</b> Estadistica descriptiva</a><ul>
@@ -208,50 +241,19 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="8.5" data-path="Estadistica-descriptiva.html"><a href="Estadistica-descriptiva.html#findviews"><i class="fa fa-check"></i><b>8.5</b> Findviews</a></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html"><i class="fa fa-check"></i><b>9</b> Estadistica inferencial</a><ul>
-<li class="chapter" data-level="9.1" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#algo-sobre-modelos-y-formulas"><i class="fa fa-check"></i><b>9.1</b> Algo sobre Modelos y Fórmulas</a></li>
-<li class="chapter" data-level="9.2" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#preparacion-de-datos-y-packages"><i class="fa fa-check"></i><b>9.2</b> Preparación de datos y packages</a></li>
-<li class="chapter" data-level="9.3" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#prueba-t-para-muestras-independientes"><i class="fa fa-check"></i><b>9.3</b> Prueba t para muestras independientes</a><ul>
-<li class="chapter" data-level="9.3.1" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#contando-la-historia"><i class="fa fa-check"></i><b>9.3.1</b> Contando la historia…</a></li>
-<li class="chapter" data-level="9.3.2" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#test"><i class="fa fa-check"></i><b>9.3.2</b> Test</a></li>
+<li class="chapter" data-level="9.1" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#referencias-y-fuentes"><i class="fa fa-check"></i><b>9.1</b> Referencias y Fuentes</a></li>
+<li class="chapter" data-level="9.2" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#association-test"><i class="fa fa-check"></i><b>9.2</b> Association test</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#frequentist-1"><i class="fa fa-check"></i><b>9.2.1</b> Frequentist</a></li>
+<li class="chapter" data-level="9.2.2" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#bayesian-2"><i class="fa fa-check"></i><b>9.2.2</b> Bayesian</a></li>
+<li class="chapter" data-level="9.2.3" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#results-report---wip"><i class="fa fa-check"></i><b>9.2.3</b> Results report - WIP</a></li>
+<li class="chapter" data-level="9.2.4" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#references"><i class="fa fa-check"></i><b>9.2.4</b> References</a></li>
 </ul></li>
-<li class="chapter" data-level="9.4" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#prueba-t-para-muestras-dependientes"><i class="fa fa-check"></i><b>9.4</b> Prueba t para muestras dependientes</a><ul>
-<li class="chapter" data-level="9.4.1" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#contando-la-historia-1"><i class="fa fa-check"></i><b>9.4.1</b> Contando la historia…</a></li>
-<li class="chapter" data-level="9.4.2" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#test-1"><i class="fa fa-check"></i><b>9.4.2</b> Test</a></li>
-</ul></li>
-<li class="chapter" data-level="9.5" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#correlacion-de-pearson"><i class="fa fa-check"></i><b>9.5</b> Correlación de Pearson</a><ul>
-<li class="chapter" data-level="9.5.1" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#contando-la-historia-2"><i class="fa fa-check"></i><b>9.5.1</b> Contando la historia…</a></li>
-<li class="chapter" data-level="9.5.2" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#test-2"><i class="fa fa-check"></i><b>9.5.2</b> Test</a></li>
-</ul></li>
-<li class="chapter" data-level="9.6" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#regresion-simple"><i class="fa fa-check"></i><b>9.6</b> Regresión Simple</a><ul>
-<li class="chapter" data-level="9.6.1" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#contando-la-historia-3"><i class="fa fa-check"></i><b>9.6.1</b> Contando la historia…</a></li>
-<li class="chapter" data-level="9.6.2" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#test-3"><i class="fa fa-check"></i><b>9.6.2</b> Test</a></li>
-</ul></li>
-<li class="chapter" data-level="9.7" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#analsis-de-la-varianza-1-factor"><i class="fa fa-check"></i><b>9.7</b> Análsis de la Varianza (1 Factor)</a><ul>
-<li class="chapter" data-level="9.7.1" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#preparacion-de-datos-y-packages-1"><i class="fa fa-check"></i><b>9.7.1</b> Preparación de datos y packages</a></li>
-<li class="chapter" data-level="9.7.2" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#contando-la-historia-4"><i class="fa fa-check"></i><b>9.7.2</b> Contando la historia…</a></li>
-<li class="chapter" data-level="9.7.3" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#test-4"><i class="fa fa-check"></i><b>9.7.3</b> Test</a></li>
-<li class="chapter" data-level="9.7.4" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#tablas"><i class="fa fa-check"></i><b>9.7.4</b> Tablas</a></li>
-</ul></li>
-<li class="chapter" data-level="9.8" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#analsis-de-la-varianza-2-factores"><i class="fa fa-check"></i><b>9.8</b> Análsis de la Varianza (2 Factores)</a><ul>
-<li class="chapter" data-level="9.8.1" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#descarga"><i class="fa fa-check"></i><b>9.8.1</b> Descarga</a></li>
-<li class="chapter" data-level="9.8.2" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#preparacion-de-datos-y-packages-2"><i class="fa fa-check"></i><b>9.8.2</b> Preparación de datos y packages</a></li>
-<li class="chapter" data-level="9.8.3" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#contando-la-historia-5"><i class="fa fa-check"></i><b>9.8.3</b> Contando la historia…</a></li>
-<li class="chapter" data-level="9.8.4" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#test-5"><i class="fa fa-check"></i><b>9.8.4</b> Test</a></li>
-<li class="chapter" data-level="9.8.5" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#tablas-1"><i class="fa fa-check"></i><b>9.8.5</b> Tablas</a></li>
-</ul></li>
-<li class="chapter" data-level="9.9" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#referencias-y-fuentes"><i class="fa fa-check"></i><b>9.9</b> Referencias y Fuentes</a></li>
-<li class="chapter" data-level="9.10" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#association-test"><i class="fa fa-check"></i><b>9.10</b> Association test</a><ul>
-<li class="chapter" data-level="9.10.1" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#frequentist-1"><i class="fa fa-check"></i><b>9.10.1</b> Frequentist</a></li>
-<li class="chapter" data-level="9.10.2" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#bayesian-2"><i class="fa fa-check"></i><b>9.10.2</b> Bayesian</a></li>
-<li class="chapter" data-level="9.10.3" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#results-report---wip"><i class="fa fa-check"></i><b>9.10.3</b> Results report - WIP</a></li>
-<li class="chapter" data-level="9.10.4" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#references"><i class="fa fa-check"></i><b>9.10.4</b> References</a></li>
-</ul></li>
-<li class="chapter" data-level="9.11" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#anova-repeated-measures"><i class="fa fa-check"></i><b>9.11</b> ANOVA repeated measures</a></li>
-<li class="chapter" data-level="9.12" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#mixed-models"><i class="fa fa-check"></i><b>9.12</b> Mixed Models</a></li>
-<li class="chapter" data-level="9.13" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#meta-analysis"><i class="fa fa-check"></i><b>9.13</b> Meta analysis</a><ul>
-<li class="chapter" data-level="9.13.1" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#natural-frequencies-effect"><i class="fa fa-check"></i><b>9.13.1</b> Natural Frequencies Effect</a></li>
-<li class="chapter" data-level="9.13.2" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#pictures-effect"><i class="fa fa-check"></i><b>9.13.2</b> Pictures Effect</a></li>
-<li class="chapter" data-level="9.13.3" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#notes-on-meta-analysis"><i class="fa fa-check"></i><b>9.13.3</b> Notes on Meta-analysis</a></li>
+<li class="chapter" data-level="9.3" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#anova-repeated-measures"><i class="fa fa-check"></i><b>9.3</b> ANOVA repeated measures</a></li>
+<li class="chapter" data-level="9.4" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#mixed-models"><i class="fa fa-check"></i><b>9.4</b> Mixed Models</a></li>
+<li class="chapter" data-level="9.5" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#meta-analysis"><i class="fa fa-check"></i><b>9.5</b> Meta analysis</a><ul>
+<li class="chapter" data-level="9.5.1" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#natural-frequencies-effect"><i class="fa fa-check"></i><b>9.5.1</b> Natural Frequencies Effect</a></li>
+<li class="chapter" data-level="9.5.2" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#pictures-effect"><i class="fa fa-check"></i><b>9.5.2</b> Pictures Effect</a></li>
+<li class="chapter" data-level="9.5.3" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#notes-on-meta-analysis"><i class="fa fa-check"></i><b>9.5.3</b> Notes on Meta-analysis</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="Funciones.html"><a href="Funciones.html"><i class="fa fa-check"></i><b>10</b> Funciones</a><ul>
@@ -351,14 +353,20 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li><strong>TABLA RESUMEN CON IMAGENES DE GRAFICAS</strong></li>
 </ul>
 <p>WHY Data visualization matters: <a href="https://www.autodeskresearch.com/publications/samestats" class="uri">https://www.autodeskresearch.com/publications/samestats</a></p>
+</div>
+<div id="other-resources" class="section level2">
+<h2><span class="header-section-number">7.2</span> Other resources</h2>
+<p><a href="http://chartmaker.visualisingdata.com/" class="uri">http://chartmaker.visualisingdata.com/</a><br />
+<a href="https://www.r-graph-gallery.com/" class="uri">https://www.r-graph-gallery.com/</a></p>
 <hr />
 <p>Vamos a usar la siguiente <a href="Data/06_Visualize_data/Visualize_data.csv">base de datos</a>.</p>
 <hr />
 <p>R es un lenguaje especialmente potente para la visualización de datos. Librerias como ggplot2 permiten una cantidad abrumadora de opciones. Aqui presentamos ejemplos de algunas de las posibilidades de R.</p>
 </div>
 <div id="que-grafica-puedo-usar-wip" class="section level2">
-<h2><span class="header-section-number">7.2</span> Que gráfica puedo usar (WIP)</h2>
-<p><img src="Images/coggleviz.png" /> * Image FROM <a href="https://ismayc.github.io/moderndiver-book/4-viz.html#resources">Modern Dive</a></p>
+<h2><span class="header-section-number">7.3</span> Que gráfica puedo usar (WIP)</h2>
+<p><img src="Images/coggleviz.png" />
+* Image FROM <a href="https://ismayc.github.io/moderndiver-book/4-viz.html#resources">Modern Dive</a></p>
 <table>
 <thead>
 <tr class="header">
@@ -392,12 +400,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <ul>
 <li>Cargamos librerias y leemos datos</li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Cargamos librerias</span>
-<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
-<span class="kw">p_load</span>(tidyverse, yarrr)  
-    
-<span class="co"># Leemos datos y echamos un vistazo</span>
-datos =<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;Data/06_Visualize_data/Visualize_data.csv&quot;</span>); datos  </code></pre></div>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb89-1" data-line-number="1"><span class="co"># Cargamos librerias</span></a>
+<a class="sourceLine" id="cb89-2" data-line-number="2"><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)</a>
+<a class="sourceLine" id="cb89-3" data-line-number="3"><span class="kw">p_load</span>(tidyverse, yarrr)  </a>
+<a class="sourceLine" id="cb89-4" data-line-number="4">    </a>
+<a class="sourceLine" id="cb89-5" data-line-number="5"><span class="co"># Leemos datos y echamos un vistazo</span></a>
+<a class="sourceLine" id="cb89-6" data-line-number="6">datos =<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;Data/06_Visualize_data/Visualize_data.csv&quot;</span>); datos  </a></code></pre></div>
 <pre><code>## # A tibble: 103 x 7
 ##       ID Genero  Edad Educacion FollowUP condition PPV_DECLARED
 ##    &lt;int&gt;  &lt;int&gt; &lt;int&gt;     &lt;int&gt;    &lt;int&gt; &lt;chr&gt;            &lt;int&gt;
@@ -412,194 +420,194 @@ datos =<span class="st"> </span><span class="kw">read_csv</span>(<span class="st
 ##  9     9      2    28         6        6 PPV_Cond1           99
 ## 10    10      1    46         5        0 PPV_Cond1            1
 ## # ... with 93 more rows</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># A algunas de las funciones no les gustan las tibbles! </span>
-datos2 =<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;Data/06_Visualize_data/Visualize_data.csv&quot;</span>) </code></pre></div>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb91-1" data-line-number="1"><span class="co"># A algunas de las funciones no les gustan las tibbles! </span></a>
+<a class="sourceLine" id="cb91-2" data-line-number="2">datos2 =<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;Data/06_Visualize_data/Visualize_data.csv&quot;</span>) </a></code></pre></div>
 <ul>
 <li>Nota sobre sintaxis</li>
 </ul>
 <p>En muchos de los gráficos, análisis estadísticos, etc, usaremos la sintaxis: <code>Var_Dep ~ Var_Indep_1 + Var_Indep_2</code></p>
 </div>
 <div id="tipos-de-graficas" class="section level2">
-<h2><span class="header-section-number">7.3</span> Tipos de gráficas</h2>
+<h2><span class="header-section-number">7.4</span> Tipos de gráficas</h2>
 <div id="histogramas" class="section level3">
-<h3><span class="header-section-number">7.3.1</span> Histogramas</h3>
+<h3><span class="header-section-number">7.4.1</span> Histogramas</h3>
 <p>La función hist() nos permite crear de manera muy sencilla histogramas para ver</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Histograma sencillo</span>
-<span class="kw">hist</span>(datos<span class="op">$</span>Edad)</code></pre></div>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb92-1" data-line-number="1"><span class="co"># Histograma sencillo</span></a>
+<a class="sourceLine" id="cb92-2" data-line-number="2"><span class="kw">hist</span>(datos<span class="op">$</span>Edad)</a></code></pre></div>
 <p><img src="_main_files/figure-html/histograms-1.png" width="672" /></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Dotplot histogram</span>
-<span class="kw">qplot</span>(datos<span class="op">$</span>Edad, 
-      <span class="dt">geom=</span><span class="st">&quot;dotplot&quot;</span>, 
-      <span class="dt">fill =</span> <span class="kw">I</span>(<span class="st">&quot;forestgreen&quot;</span>),
-      <span class="dt">xlab =</span> <span class="st">&quot;Age&quot;</span>, 
-      <span class="dt">main =</span> <span class="st">&quot;Age dotplot histogram&quot;</span>) <span class="op">+</span>
-<span class="st">    </span><span class="kw">theme_minimal</span>()</code></pre></div>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb93-1" data-line-number="1"><span class="co"># Dotplot histogram</span></a>
+<a class="sourceLine" id="cb93-2" data-line-number="2"><span class="kw">qplot</span>(datos<span class="op">$</span>Edad, </a>
+<a class="sourceLine" id="cb93-3" data-line-number="3">      <span class="dt">geom=</span><span class="st">&quot;dotplot&quot;</span>, </a>
+<a class="sourceLine" id="cb93-4" data-line-number="4">      <span class="dt">fill =</span> <span class="kw">I</span>(<span class="st">&quot;forestgreen&quot;</span>),</a>
+<a class="sourceLine" id="cb93-5" data-line-number="5">      <span class="dt">xlab =</span> <span class="st">&quot;Age&quot;</span>, </a>
+<a class="sourceLine" id="cb93-6" data-line-number="6">      <span class="dt">main =</span> <span class="st">&quot;Age dotplot histogram&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb93-7" data-line-number="7"><span class="st">    </span><span class="kw">theme_minimal</span>()</a></code></pre></div>
 <pre><code>## `stat_bindot()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 <p><img src="_main_files/figure-html/histograms-2.png" width="672" /></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Y axis shows the proper number</span>
-max_bins =<span class="st"> </span>datos <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(Edad) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarise</span>(<span class="dt">N =</span> <span class="kw">n</span>()) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">arrange</span>(<span class="kw">desc</span>(N))<span class="co">#distinct(N) %&gt;% filter(N == max(N)) </span>
-<span class="kw">ggplot</span>(datos, <span class="kw">aes</span>(Edad)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_dotplot</span>(<span class="dt">binwidth =</span> <span class="dv">1</span>, <span class="dt">fill =</span> <span class="st">&quot;forestgreen&quot;</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">coord_fixed</span>(<span class="dt">ratio=</span><span class="dv">1</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">ylim</span>(<span class="dv">0</span>, max_bins<span class="op">$</span>N[<span class="dv">1</span>] <span class="op">*</span><span class="st"> </span><span class="fl">1.5</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">theme_minimal</span>() </code></pre></div>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb95-1" data-line-number="1"><span class="co"># Y axis shows the proper number</span></a>
+<a class="sourceLine" id="cb95-2" data-line-number="2">max_bins =<span class="st"> </span>datos <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(Edad) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarise</span>(<span class="dt">N =</span> <span class="kw">n</span>()) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">arrange</span>(<span class="kw">desc</span>(N))<span class="co">#distinct(N) %&gt;% filter(N == max(N)) </span></a>
+<a class="sourceLine" id="cb95-3" data-line-number="3"><span class="kw">ggplot</span>(datos, <span class="kw">aes</span>(Edad)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb95-4" data-line-number="4"><span class="st">  </span><span class="kw">geom_dotplot</span>(<span class="dt">binwidth =</span> <span class="dv">1</span>, <span class="dt">fill =</span> <span class="st">&quot;forestgreen&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb95-5" data-line-number="5"><span class="st">  </span><span class="kw">coord_fixed</span>(<span class="dt">ratio=</span><span class="dv">1</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb95-6" data-line-number="6"><span class="st">  </span><span class="kw">ylim</span>(<span class="dv">0</span>, max_bins<span class="op">$</span>N[<span class="dv">1</span>] <span class="op">*</span><span class="st"> </span><span class="fl">1.5</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb95-7" data-line-number="7"><span class="st">  </span><span class="kw">theme_minimal</span>() </a></code></pre></div>
 <p><img src="_main_files/figure-html/histograms-3.png" width="672" /></p>
 <p>Si queremos ver los histogramas de todas las variables numéricas de nuestro dataset:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Metodo 1</span>
-<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
-<span class="kw">p_load</span>(psych) <span class="co">#plyr</span>
-<span class="co"># multi.hist(datos) #error, not numeric</span>
-<span class="kw">multi.hist</span>(datos[,<span class="kw">sapply</span>(datos, is.numeric)])</code></pre></div>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb96-1" data-line-number="1"><span class="co"># Metodo 1</span></a>
+<a class="sourceLine" id="cb96-2" data-line-number="2"><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)</a>
+<a class="sourceLine" id="cb96-3" data-line-number="3"><span class="kw">p_load</span>(psych) <span class="co">#plyr</span></a>
+<a class="sourceLine" id="cb96-4" data-line-number="4"><span class="co"># multi.hist(datos) #error, not numeric</span></a>
+<a class="sourceLine" id="cb96-5" data-line-number="5"><span class="kw">multi.hist</span>(datos[,<span class="kw">sapply</span>(datos, is.numeric)])</a></code></pre></div>
 <p><img src="_main_files/figure-html/multiple_histograms-1.png" width="672" /></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Metodo 2</span>
-<span class="kw">p_load</span>(reshape2, ggplot2)
-d &lt;-<span class="st"> </span><span class="kw">melt</span>(datos)</code></pre></div>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb97-1" data-line-number="1"><span class="co"># Metodo 2</span></a>
+<a class="sourceLine" id="cb97-2" data-line-number="2"><span class="kw">p_load</span>(reshape2, ggplot2)</a>
+<a class="sourceLine" id="cb97-3" data-line-number="3">d &lt;-<span class="st"> </span><span class="kw">melt</span>(datos)</a></code></pre></div>
 <pre><code>## Using condition as id variables</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(d,<span class="kw">aes</span>(<span class="dt">x =</span> value)) <span class="op">+</span><span class="st"> </span>
-<span class="st">    </span><span class="kw">facet_wrap</span>(<span class="op">~</span>variable,<span class="dt">scales =</span> <span class="st">&quot;free_x&quot;</span>) <span class="op">+</span><span class="st"> </span>
-<span class="st">    </span><span class="kw">geom_histogram</span>(<span class="dt">bins =</span> <span class="dv">15</span>) <span class="co">#+ coord_cartesian(ylim = c(0, 100))</span></code></pre></div>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb99-1" data-line-number="1"><span class="kw">ggplot</span>(d,<span class="kw">aes</span>(<span class="dt">x =</span> value)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb99-2" data-line-number="2"><span class="st">    </span><span class="kw">facet_wrap</span>(<span class="op">~</span>variable,<span class="dt">scales =</span> <span class="st">&quot;free_x&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb99-3" data-line-number="3"><span class="st">    </span><span class="kw">geom_histogram</span>(<span class="dt">bins =</span> <span class="dv">15</span>) <span class="co">#+ coord_cartesian(ylim = c(0, 100))</span></a></code></pre></div>
 <p><img src="_main_files/figure-html/multiple_histograms-2.png" width="672" /></p>
 </div>
 <div id="Pirate-Plot" class="section level3">
-<h3><span class="header-section-number">7.3.2</span> Pirate plot</h3>
+<h3><span class="header-section-number">7.4.2</span> Pirate plot</h3>
 <p>Ver la web del creador: <a href="http://nathanieldphillips.com/">Pirate plot</a> y su página de <a href="https://github.com/ndphillips/yarrr">Github</a></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Cargamos librerias</span>
-<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
-<span class="kw">p_load</span>(yarrr)
-    
-<span class="co"># Mostramos gráfico con opciones por defecto</span>
-<span class="kw">pirateplot</span>(<span class="dt">formula =</span> PPV_DECLARED <span class="op">~</span><span class="st"> </span>condition, datos)</code></pre></div>
+<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb100-1" data-line-number="1"><span class="co"># Cargamos librerias</span></a>
+<a class="sourceLine" id="cb100-2" data-line-number="2"><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)</a>
+<a class="sourceLine" id="cb100-3" data-line-number="3"><span class="kw">p_load</span>(yarrr)</a>
+<a class="sourceLine" id="cb100-4" data-line-number="4">    </a>
+<a class="sourceLine" id="cb100-5" data-line-number="5"><span class="co"># Mostramos gráfico con opciones por defecto</span></a>
+<a class="sourceLine" id="cb100-6" data-line-number="6"><span class="kw">pirateplot</span>(<span class="dt">formula =</span> PPV_DECLARED <span class="op">~</span><span class="st"> </span>condition, datos)</a></code></pre></div>
 <p><img src="_main_files/figure-html/pirate-1.png" width="672" /></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Personalizamos el gráfico</span>
-<span class="kw">pirateplot</span>(<span class="dt">formula =</span> PPV_DECLARED <span class="op">~</span><span class="st"> </span>condition,
-           <span class="dt">data =</span> datos,
-           <span class="dt">main =</span> <span class="st">&quot;PPV by condition&quot;</span>,
-           <span class="dt">avg.line.fun =</span> median,
-           <span class="co">#theme.o = 2,</span>
-           <span class="dt">jitter.val =</span> .<span class="dv">2</span>,
-           <span class="dt">inf.method =</span> <span class="st">&quot;ci&quot;</span>, <span class="co">#Show confidence interval (95%)</span>
-           <span class="dt">inf.f.o =</span> <span class="fl">0.2</span>, <span class="co">#Opacity of ci</span>
-           <span class="dt">pal =</span> <span class="st">&quot;appletv&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb101-1" data-line-number="1"><span class="co"># Personalizamos el gráfico</span></a>
+<a class="sourceLine" id="cb101-2" data-line-number="2"><span class="kw">pirateplot</span>(<span class="dt">formula =</span> PPV_DECLARED <span class="op">~</span><span class="st"> </span>condition,</a>
+<a class="sourceLine" id="cb101-3" data-line-number="3">           <span class="dt">data =</span> datos,</a>
+<a class="sourceLine" id="cb101-4" data-line-number="4">           <span class="dt">main =</span> <span class="st">&quot;PPV by condition&quot;</span>,</a>
+<a class="sourceLine" id="cb101-5" data-line-number="5">           <span class="dt">avg.line.fun =</span> median,</a>
+<a class="sourceLine" id="cb101-6" data-line-number="6">           <span class="co">#theme.o = 2,</span></a>
+<a class="sourceLine" id="cb101-7" data-line-number="7">           <span class="dt">jitter.val =</span> <span class="fl">.2</span>,</a>
+<a class="sourceLine" id="cb101-8" data-line-number="8">           <span class="dt">inf.method =</span> <span class="st">&quot;ci&quot;</span>, <span class="co">#Show confidence interval (95%)</span></a>
+<a class="sourceLine" id="cb101-9" data-line-number="9">           <span class="dt">inf.f.o =</span> <span class="fl">0.2</span>, <span class="co">#Opacity of ci</span></a>
+<a class="sourceLine" id="cb101-10" data-line-number="10">           <span class="dt">pal =</span> <span class="st">&quot;appletv&quot;</span>)</a></code></pre></div>
 <p><img src="_main_files/figure-html/pirate-2.png" width="672" /></p>
 </div>
 <div id="barplots-with-individual-responses" class="section level3">
-<h3><span class="header-section-number">7.3.3</span> Barplots with individual responses</h3>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># https://mvuorre.github.io/post/2017/within-subject-scatter/</span>
-  
-
-barplot &lt;-<span class="st"> </span><span class="kw">ggplot</span>(datos, <span class="kw">aes</span>(<span class="dt">x =</span> condition, <span class="dt">y =</span> PPV_DECLARED, <span class="dt">color =</span> condition)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">stat_summary</span>( <span class="dt">geom =</span> <span class="st">&quot;bar&quot;</span>,
-                <span class="dt">fun.y =</span> <span class="st">&quot;mean&quot;</span>,
-                <span class="co"># col = &quot;black&quot;,</span>
-                <span class="dt">fill =</span> <span class="st">&quot;gray70&quot;</span>,
-                <span class="dt">alpha =</span> .<span class="dv">6</span> ) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">position =</span> <span class="kw">position_jitter</span>(<span class="dt">h =</span> <span class="dv">0</span>, <span class="dt">w =</span> <span class="fl">0.5</span>)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">100</span>),
-                     <span class="dt">expand =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">0</span>))
-barplot</code></pre></div>
+<h3><span class="header-section-number">7.4.3</span> Barplots with individual responses</h3>
+<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb102-1" data-line-number="1"><span class="co"># https://mvuorre.github.io/post/2017/within-subject-scatter/</span></a>
+<a class="sourceLine" id="cb102-2" data-line-number="2">  </a>
+<a class="sourceLine" id="cb102-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb102-4" data-line-number="4">barplot &lt;-<span class="st"> </span><span class="kw">ggplot</span>(datos, <span class="kw">aes</span>(<span class="dt">x =</span> condition, <span class="dt">y =</span> PPV_DECLARED, <span class="dt">color =</span> condition)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb102-5" data-line-number="5"><span class="st">  </span><span class="kw">stat_summary</span>( <span class="dt">geom =</span> <span class="st">&quot;bar&quot;</span>,</a>
+<a class="sourceLine" id="cb102-6" data-line-number="6">                <span class="dt">fun.y =</span> <span class="st">&quot;mean&quot;</span>,</a>
+<a class="sourceLine" id="cb102-7" data-line-number="7">                <span class="co"># col = &quot;black&quot;,</span></a>
+<a class="sourceLine" id="cb102-8" data-line-number="8">                <span class="dt">fill =</span> <span class="st">&quot;gray70&quot;</span>,</a>
+<a class="sourceLine" id="cb102-9" data-line-number="9">                <span class="dt">alpha =</span> <span class="fl">.6</span> ) <span class="op">+</span></a>
+<a class="sourceLine" id="cb102-10" data-line-number="10"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">position =</span> <span class="kw">position_jitter</span>(<span class="dt">h =</span> <span class="dv">0</span>, <span class="dt">w =</span> <span class="fl">0.5</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb102-11" data-line-number="11"><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">100</span>),</a>
+<a class="sourceLine" id="cb102-12" data-line-number="12">                     <span class="dt">expand =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">0</span>))</a>
+<a class="sourceLine" id="cb102-13" data-line-number="13">barplot</a></code></pre></div>
 <p><img src="_main_files/figure-html/barplot_individual_response-1.png" width="672" /></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Adding more geoms</span>
-barplot2 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(datos, <span class="kw">aes</span>(<span class="dt">x =</span> condition, <span class="dt">y =</span> PPV_DECLARED, <span class="dt">color =</span> condition)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">stat_summary</span>( <span class="dt">geom =</span> <span class="st">&quot;bar&quot;</span>,
-                <span class="dt">fun.y =</span> <span class="st">&quot;mean&quot;</span>,
-                <span class="co"># col = &quot;black&quot;,</span>
-                <span class="dt">fill =</span> <span class="st">&quot;gray70&quot;</span>,
-                <span class="dt">alpha =</span> .<span class="dv">6</span> ) <span class="op">+</span>
-<span class="st">  </span><span class="co"># stat_summary(fun.data = mean_se, geom = &quot;errorbar&quot;) +</span>
-<span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">position =</span> <span class="kw">position_jitter</span>(<span class="dt">h =</span> <span class="dv">0</span>, <span class="dt">w =</span> <span class="fl">0.5</span>)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="dt">alpha =</span> .<span class="dv">2</span>, <span class="dt">outlier.alpha =</span> .<span class="dv">1</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_dotplot</span>(<span class="dt">binaxis =</span><span class="st">&quot;y&quot;</span>, <span class="dt">stackdir =</span> <span class="st">&quot;center&quot;</span>, <span class="dt">binwidth =</span> <span class="dv">2</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_violin</span>(<span class="dt">alpha =</span> .<span class="dv">2</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">100</span>),
-                     <span class="dt">expand =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">0</span>))
-barplot2</code></pre></div>
+<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb103-1" data-line-number="1"><span class="co"># Adding more geoms</span></a>
+<a class="sourceLine" id="cb103-2" data-line-number="2">barplot2 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(datos, <span class="kw">aes</span>(<span class="dt">x =</span> condition, <span class="dt">y =</span> PPV_DECLARED, <span class="dt">color =</span> condition)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb103-3" data-line-number="3"><span class="st">  </span><span class="kw">stat_summary</span>( <span class="dt">geom =</span> <span class="st">&quot;bar&quot;</span>,</a>
+<a class="sourceLine" id="cb103-4" data-line-number="4">                <span class="dt">fun.y =</span> <span class="st">&quot;mean&quot;</span>,</a>
+<a class="sourceLine" id="cb103-5" data-line-number="5">                <span class="co"># col = &quot;black&quot;,</span></a>
+<a class="sourceLine" id="cb103-6" data-line-number="6">                <span class="dt">fill =</span> <span class="st">&quot;gray70&quot;</span>,</a>
+<a class="sourceLine" id="cb103-7" data-line-number="7">                <span class="dt">alpha =</span> <span class="fl">.6</span> ) <span class="op">+</span></a>
+<a class="sourceLine" id="cb103-8" data-line-number="8"><span class="st">  </span><span class="co"># stat_summary(fun.data = mean_se, geom = &quot;errorbar&quot;) +</span></a>
+<a class="sourceLine" id="cb103-9" data-line-number="9"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">position =</span> <span class="kw">position_jitter</span>(<span class="dt">h =</span> <span class="dv">0</span>, <span class="dt">w =</span> <span class="fl">0.5</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb103-10" data-line-number="10"><span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="dt">alpha =</span> <span class="fl">.2</span>, <span class="dt">outlier.alpha =</span> <span class="fl">.1</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb103-11" data-line-number="11"><span class="st">  </span><span class="kw">geom_dotplot</span>(<span class="dt">binaxis =</span><span class="st">&quot;y&quot;</span>, <span class="dt">stackdir =</span> <span class="st">&quot;center&quot;</span>, <span class="dt">binwidth =</span> <span class="dv">2</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb103-12" data-line-number="12"><span class="st">  </span><span class="kw">geom_violin</span>(<span class="dt">alpha =</span> <span class="fl">.2</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb103-13" data-line-number="13"><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">100</span>),</a>
+<a class="sourceLine" id="cb103-14" data-line-number="14">                     <span class="dt">expand =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">0</span>))</a>
+<a class="sourceLine" id="cb103-15" data-line-number="15">barplot2</a></code></pre></div>
 <p><img src="_main_files/figure-html/barplot_individual_response-2.png" width="672" /></p>
 </div>
 <div id="diagrama-de-caja-y-bigotes" class="section level3">
-<h3><span class="header-section-number">7.3.4</span> Diagrama de caja y bigotes</h3>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">boxplot</span>(PPV_DECLARED <span class="op">~</span><span class="st"> </span>condition, datos)</code></pre></div>
+<h3><span class="header-section-number">7.4.4</span> Diagrama de caja y bigotes</h3>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb104-1" data-line-number="1"><span class="kw">boxplot</span>(PPV_DECLARED <span class="op">~</span><span class="st"> </span>condition, datos)</a></code></pre></div>
 <p><img src="_main_files/figure-html/boxplot-1.png" width="672" /></p>
 </div>
 <div id="correlation-plot" class="section level3">
-<h3><span class="header-section-number">7.3.5</span> Correlation plot</h3>
+<h3><span class="header-section-number">7.4.5</span> Correlation plot</h3>
 <p>Ver la web del paquete: <a href="https://cran.r-project.org/web/packages/corrplot/vignettes/corrplot-intro.html">Correlation plot</a> y su página de <a href="https://github.com/taiyun/corrplot">Github</a></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Cargamos libreria</span>
-<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
-<span class="kw">p_load</span>(corrplot)
-
-<span class="kw">corrplot</span>(<span class="kw">cor</span>(datos[,<span class="kw">c</span>(<span class="dv">2</span><span class="op">:</span><span class="dv">5</span>,<span class="dv">7</span>)]), <span class="dt">mar =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>),<span class="dt">tl.cex =</span> <span class="fl">0.9</span>, 
-         <span class="dt">method =</span> <span class="st">&quot;square&quot;</span>, <span class="dt">type =</span> <span class="st">&quot;lower&quot;</span>, <span class="dt">tl.col =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">diag =</span> T)</code></pre></div>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb105-1" data-line-number="1"><span class="co"># Cargamos libreria</span></a>
+<a class="sourceLine" id="cb105-2" data-line-number="2"><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)</a>
+<a class="sourceLine" id="cb105-3" data-line-number="3"><span class="kw">p_load</span>(corrplot)</a>
+<a class="sourceLine" id="cb105-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb105-5" data-line-number="5"><span class="kw">corrplot</span>(<span class="kw">cor</span>(datos[,<span class="kw">c</span>(<span class="dv">2</span><span class="op">:</span><span class="dv">5</span>,<span class="dv">7</span>)]), <span class="dt">mar =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>),<span class="dt">tl.cex =</span> <span class="fl">0.9</span>, </a>
+<a class="sourceLine" id="cb105-6" data-line-number="6">         <span class="dt">method =</span> <span class="st">&quot;square&quot;</span>, <span class="dt">type =</span> <span class="st">&quot;lower&quot;</span>, <span class="dt">tl.col =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">diag =</span> T)</a></code></pre></div>
 <p><img src="_main_files/figure-html/correlation_plot-1.png" width="672" /></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Correlation with ggplot</span>
-<span class="co"># From http://r-statistics.co/Top50-Ggplot2-Visualizations-MasterList-R-Code.html</span>
-<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
-<span class="kw">p_load</span>(ggplot2, ggcorrplot)
-corr =<span class="st"> </span><span class="kw">round</span>(<span class="kw">cor</span>(datos[,<span class="kw">c</span>(<span class="dv">2</span><span class="op">:</span><span class="dv">5</span>,<span class="dv">7</span>)]), <span class="dv">1</span>)
-
-<span class="co"># Plot</span>
-<span class="kw">ggcorrplot</span>(corr, <span class="dt">hc.order =</span> <span class="ot">TRUE</span>, 
-           <span class="dt">type =</span> <span class="st">&quot;lower&quot;</span>, 
-           <span class="dt">lab =</span> <span class="ot">TRUE</span>, 
-           <span class="dt">lab_size =</span> <span class="dv">3</span>, 
-           <span class="dt">method=</span><span class="st">&quot;circle&quot;</span>, 
-           <span class="dt">colors =</span> <span class="kw">c</span>(<span class="st">&quot;tomato2&quot;</span>, <span class="st">&quot;white&quot;</span>, <span class="st">&quot;springgreen3&quot;</span>), 
-           <span class="dt">title=</span><span class="st">&quot;Correlogram&quot;</span>, 
-           <span class="dt">ggtheme=</span>theme_bw)</code></pre></div>
+<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb106-1" data-line-number="1"><span class="co"># Correlation with ggplot</span></a>
+<a class="sourceLine" id="cb106-2" data-line-number="2"><span class="co"># From http://r-statistics.co/Top50-Ggplot2-Visualizations-MasterList-R-Code.html</span></a>
+<a class="sourceLine" id="cb106-3" data-line-number="3"><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)</a>
+<a class="sourceLine" id="cb106-4" data-line-number="4"><span class="kw">p_load</span>(ggplot2, ggcorrplot)</a>
+<a class="sourceLine" id="cb106-5" data-line-number="5">corr =<span class="st"> </span><span class="kw">round</span>(<span class="kw">cor</span>(datos[,<span class="kw">c</span>(<span class="dv">2</span><span class="op">:</span><span class="dv">5</span>,<span class="dv">7</span>)]), <span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb106-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb106-7" data-line-number="7"><span class="co"># Plot</span></a>
+<a class="sourceLine" id="cb106-8" data-line-number="8"><span class="kw">ggcorrplot</span>(corr, <span class="dt">hc.order =</span> <span class="ot">TRUE</span>, </a>
+<a class="sourceLine" id="cb106-9" data-line-number="9">           <span class="dt">type =</span> <span class="st">&quot;lower&quot;</span>, </a>
+<a class="sourceLine" id="cb106-10" data-line-number="10">           <span class="dt">lab =</span> <span class="ot">TRUE</span>, </a>
+<a class="sourceLine" id="cb106-11" data-line-number="11">           <span class="dt">lab_size =</span> <span class="dv">3</span>, </a>
+<a class="sourceLine" id="cb106-12" data-line-number="12">           <span class="dt">method=</span><span class="st">&quot;circle&quot;</span>, </a>
+<a class="sourceLine" id="cb106-13" data-line-number="13">           <span class="dt">colors =</span> <span class="kw">c</span>(<span class="st">&quot;tomato2&quot;</span>, <span class="st">&quot;white&quot;</span>, <span class="st">&quot;springgreen3&quot;</span>), </a>
+<a class="sourceLine" id="cb106-14" data-line-number="14">           <span class="dt">title=</span><span class="st">&quot;Correlogram&quot;</span>, </a>
+<a class="sourceLine" id="cb106-15" data-line-number="15">           <span class="dt">ggtheme=</span>theme_bw)</a></code></pre></div>
 <p><img src="_main_files/figure-html/correlation_plot-2.png" width="672" /></p>
 </div>
 <div id="beanplot" class="section level3">
-<h3><span class="header-section-number">7.3.6</span> Beanplot</h3>
+<h3><span class="header-section-number">7.4.6</span> Beanplot</h3>
 <p>Ver la web del paquete <a href="https://cran.r-project.org/web/packages/beanplot/index.html">Beanplot</a></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Cargamos libreria</span>
-<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
-<span class="kw">p_load</span>(beanplot)
-    
-<span class="kw">beanplot</span>(FollowUP <span class="op">~</span><span class="st"> </span>Genero, <span class="dt">data =</span> datos,  <span class="dt">side =</span> <span class="st">&quot;both&quot;</span>, <span class="dt">log =</span> <span class="st">&quot;&quot;</span>, <span class="dt">names =</span> <span class="kw">c</span>(<span class="st">&quot;Hombre&quot;</span>,<span class="st">&quot;Mujer&quot;</span>),
-<span class="dt">what =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>), <span class="dt">border =</span> <span class="ot">NA</span>, <span class="dt">col =</span> <span class="kw">list</span>(<span class="st">&quot;black&quot;</span>, <span class="kw">c</span>(<span class="st">&quot;grey&quot;</span>, <span class="st">&quot;white&quot;</span>)))</code></pre></div>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb107-1" data-line-number="1"><span class="co"># Cargamos libreria</span></a>
+<a class="sourceLine" id="cb107-2" data-line-number="2"><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)</a>
+<a class="sourceLine" id="cb107-3" data-line-number="3"><span class="kw">p_load</span>(beanplot)</a>
+<a class="sourceLine" id="cb107-4" data-line-number="4">    </a>
+<a class="sourceLine" id="cb107-5" data-line-number="5"><span class="kw">beanplot</span>(FollowUP <span class="op">~</span><span class="st"> </span>Genero, <span class="dt">data =</span> datos,  <span class="dt">side =</span> <span class="st">&quot;both&quot;</span>, <span class="dt">log =</span> <span class="st">&quot;&quot;</span>, <span class="dt">names =</span> <span class="kw">c</span>(<span class="st">&quot;Hombre&quot;</span>,<span class="st">&quot;Mujer&quot;</span>),</a>
+<a class="sourceLine" id="cb107-6" data-line-number="6"><span class="dt">what =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>), <span class="dt">border =</span> <span class="ot">NA</span>, <span class="dt">col =</span> <span class="kw">list</span>(<span class="st">&quot;black&quot;</span>, <span class="kw">c</span>(<span class="st">&quot;grey&quot;</span>, <span class="st">&quot;white&quot;</span>)))</a></code></pre></div>
 <p><img src="_main_files/figure-html/bean_plot-1.png" width="672" /></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># legend(&quot;bottomleft&quot;, fill = c(&quot;black&quot;, &quot;grey&quot;), legend = c(&quot;H&quot;, &quot;M&quot;), title = &quot;Genero&quot;)</span></code></pre></div>
+<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb108-1" data-line-number="1"><span class="co"># legend(&quot;bottomleft&quot;, fill = c(&quot;black&quot;, &quot;grey&quot;), legend = c(&quot;H&quot;, &quot;M&quot;), title = &quot;Genero&quot;)</span></a></code></pre></div>
 </div>
 <div id="scatterplot" class="section level3">
-<h3><span class="header-section-number">7.3.7</span> Scatterplot</h3>
+<h3><span class="header-section-number">7.4.7</span> Scatterplot</h3>
 <p>Ver la web del creador: <a href="http://www.sthda.com/english/rpkgs/ggpubr/">ggpubr</a> y su página de <a href="https://github.com/kassambara/ggpubr">Github</a></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Cargamos libreria</span>
-<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
-<span class="kw">p_load</span>(ggpubr)
-
-<span class="kw">ggscatter</span>(datos2, <span class="dt">x =</span> <span class="st">&quot;Educacion&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Edad&quot;</span>,
-   <span class="dt">color =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">shape =</span> <span class="dv">21</span>, <span class="dt">size =</span> <span class="dv">4</span>, <span class="co"># Points color, shape and size</span>
-   <span class="dt">add =</span> <span class="st">&quot;reg.line&quot;</span>,  <span class="co"># Add regressin line</span>
-   <span class="dt">add.params =</span> <span class="kw">list</span>(<span class="dt">color =</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;lightgray&quot;</span>), <span class="co"># Customize reg. line</span>
-   <span class="dt">conf.int =</span> <span class="ot">TRUE</span>, <span class="co"># Add confidence interval</span>
-   <span class="dt">cor.coef =</span> <span class="ot">TRUE</span> <span class="co"># Add correlation coefficient</span>
-   )</code></pre></div>
+<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb109-1" data-line-number="1"><span class="co"># Cargamos libreria</span></a>
+<a class="sourceLine" id="cb109-2" data-line-number="2"><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)</a>
+<a class="sourceLine" id="cb109-3" data-line-number="3"><span class="kw">p_load</span>(ggpubr)</a>
+<a class="sourceLine" id="cb109-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb109-5" data-line-number="5"><span class="kw">ggscatter</span>(datos2, <span class="dt">x =</span> <span class="st">&quot;Educacion&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Edad&quot;</span>,</a>
+<a class="sourceLine" id="cb109-6" data-line-number="6">   <span class="dt">color =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">shape =</span> <span class="dv">21</span>, <span class="dt">size =</span> <span class="dv">4</span>, <span class="co"># Points color, shape and size</span></a>
+<a class="sourceLine" id="cb109-7" data-line-number="7">   <span class="dt">add =</span> <span class="st">&quot;reg.line&quot;</span>,  <span class="co"># Add regressin line</span></a>
+<a class="sourceLine" id="cb109-8" data-line-number="8">   <span class="dt">add.params =</span> <span class="kw">list</span>(<span class="dt">color =</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;lightgray&quot;</span>), <span class="co"># Customize reg. line</span></a>
+<a class="sourceLine" id="cb109-9" data-line-number="9">   <span class="dt">conf.int =</span> <span class="ot">TRUE</span>, <span class="co"># Add confidence interval</span></a>
+<a class="sourceLine" id="cb109-10" data-line-number="10">   <span class="dt">cor.coef =</span> <span class="ot">TRUE</span> <span class="co"># Add correlation coefficient</span></a>
+<a class="sourceLine" id="cb109-11" data-line-number="11">   )</a></code></pre></div>
 <p><img src="_main_files/figure-html/scatterplot-1.png" width="672" /></p>
 </div>
 <div id="scatterplot-con-3-variables" class="section level3">
-<h3><span class="header-section-number">7.3.8</span> Scatterplot con 3 variables</h3>
+<h3><span class="header-section-number">7.4.8</span> Scatterplot con 3 variables</h3>
 <p>Ver la web de documentación de <a href="http://docs.ggplot2.org/current/">ggplot2</a> y su página de <a href="https://github.com/hadley/ggplot2">Github</a></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Cargamos libreria</span>
-<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
-<span class="kw">p_load</span>(tidyverse)
-
-<span class="kw">ggplot</span>(datos, <span class="kw">aes</span>(PPV_DECLARED, FollowUP, <span class="dt">color=</span><span class="kw">factor</span>(Genero))) <span class="op">+</span>
-<span class="st">    </span><span class="kw">geom_point</span>(<span class="dt">shape=</span><span class="dv">1</span>, <span class="dt">size =</span> <span class="dv">2</span>) <span class="op">+</span>
-<span class="st">    </span><span class="kw">scale_colour_hue</span>(<span class="dt">l=</span><span class="dv">50</span>) <span class="op">+</span><span class="st"> </span><span class="co"># Palette hue</span>
-<span class="st">    </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span>lm,   <span class="co"># Linear regression lines</span>
-                <span class="dt">se=</span>T,        <span class="co"># Confidence interval</span>
-                <span class="dt">fullrange=</span>F) <span class="co"># Extend regression lines</span></code></pre></div>
+<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb110-1" data-line-number="1"><span class="co"># Cargamos libreria</span></a>
+<a class="sourceLine" id="cb110-2" data-line-number="2"><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)</a>
+<a class="sourceLine" id="cb110-3" data-line-number="3"><span class="kw">p_load</span>(tidyverse)</a>
+<a class="sourceLine" id="cb110-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb110-5" data-line-number="5"><span class="kw">ggplot</span>(datos, <span class="kw">aes</span>(PPV_DECLARED, FollowUP, <span class="dt">color=</span><span class="kw">factor</span>(Genero))) <span class="op">+</span></a>
+<a class="sourceLine" id="cb110-6" data-line-number="6"><span class="st">    </span><span class="kw">geom_point</span>(<span class="dt">shape=</span><span class="dv">1</span>, <span class="dt">size =</span> <span class="dv">2</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb110-7" data-line-number="7"><span class="st">    </span><span class="kw">scale_colour_hue</span>(<span class="dt">l=</span><span class="dv">50</span>) <span class="op">+</span><span class="st"> </span><span class="co"># Palette hue</span></a>
+<a class="sourceLine" id="cb110-8" data-line-number="8"><span class="st">    </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span>lm,   <span class="co"># Linear regression lines</span></a>
+<a class="sourceLine" id="cb110-9" data-line-number="9">                <span class="dt">se=</span>T,        <span class="co"># Confidence interval</span></a>
+<a class="sourceLine" id="cb110-10" data-line-number="10">                <span class="dt">fullrange=</span>F) <span class="co"># Extend regression lines</span></a></code></pre></div>
 <p><img src="_main_files/figure-html/scatterplot_3v-1.png" width="672" /></p>
 </div>
 <div id="density-plots" class="section level3">
-<h3><span class="header-section-number">7.3.9</span> Density plots</h3>
+<h3><span class="header-section-number">7.4.9</span> Density plots</h3>
 <p>Ver la web del creador: <a href="http://www.sthda.com/english/rpkgs/ggpubr/">ggpubr</a> y su página de <a href="https://github.com/kassambara/ggpubr">Github</a></p>
 <ul>
 <li>The variable we use to create two different sub-plots has to be a factor!</li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
-<span class="kw">p_load</span>(tidyverse, ggpubr)
-
-datos =<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;Data/06_Visualize_data/Visualize_data.csv&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb111-1" data-line-number="1"><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)</a>
+<a class="sourceLine" id="cb111-2" data-line-number="2"><span class="kw">p_load</span>(tidyverse, ggpubr)</a>
+<a class="sourceLine" id="cb111-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb111-4" data-line-number="4">datos =<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;Data/06_Visualize_data/Visualize_data.csv&quot;</span>)</a></code></pre></div>
 <pre><code>## Parsed with column specification:
 ## cols(
 ##   ID = col_integer(),
@@ -610,134 +618,134 @@ datos =<span class="st"> </span><span class="kw">read_csv</span>(<span class="st
 ##   condition = col_character(),
 ##   PPV_DECLARED = col_integer()
 ## )</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">datos =<span class="st"> </span>datos <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Genero =</span> <span class="kw">as.factor</span>(<span class="kw">unlist</span>(Genero))) <span class="op">%&gt;%</span><span class="st"> </span><span class="co">#Make Genero a factor</span>
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">PPV_DECLARED =</span> <span class="kw">as.numeric</span>(<span class="kw">unlist</span>(PPV_DECLARED)))
-
-<span class="kw">ggdensity</span>(datos, <span class="dt">x =</span> <span class="st">&quot;PPV_DECLARED&quot;</span>,
-   <span class="dt">add =</span> <span class="st">&quot;mean&quot;</span>, <span class="dt">rug =</span> <span class="ot">TRUE</span>,
-   <span class="dt">color =</span> <span class="st">&quot;Genero&quot;</span>, <span class="dt">palette =</span> <span class="kw">c</span>(<span class="st">&quot;#00AFBB&quot;</span>, <span class="st">&quot;#E7B800&quot;</span>), <span class="dt">fill =</span> <span class="st">&quot;Genero&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb113-1" data-line-number="1">datos =<span class="st"> </span>datos <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb113-2" data-line-number="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Genero =</span> <span class="kw">as.factor</span>(<span class="kw">unlist</span>(Genero))) <span class="op">%&gt;%</span><span class="st"> </span><span class="co">#Make Genero a factor</span></a>
+<a class="sourceLine" id="cb113-3" data-line-number="3"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">PPV_DECLARED =</span> <span class="kw">as.numeric</span>(<span class="kw">unlist</span>(PPV_DECLARED)))</a>
+<a class="sourceLine" id="cb113-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb113-5" data-line-number="5"><span class="kw">ggdensity</span>(datos, <span class="dt">x =</span> <span class="st">&quot;PPV_DECLARED&quot;</span>,</a>
+<a class="sourceLine" id="cb113-6" data-line-number="6">   <span class="dt">add =</span> <span class="st">&quot;mean&quot;</span>, <span class="dt">rug =</span> <span class="ot">TRUE</span>,</a>
+<a class="sourceLine" id="cb113-7" data-line-number="7">   <span class="dt">color =</span> <span class="st">&quot;Genero&quot;</span>, <span class="dt">palette =</span> <span class="kw">c</span>(<span class="st">&quot;#00AFBB&quot;</span>, <span class="st">&quot;#E7B800&quot;</span>), <span class="dt">fill =</span> <span class="st">&quot;Genero&quot;</span>)</a></code></pre></div>
 <p><img src="_main_files/figure-html/dentity_plot-1.png" width="672" /></p>
 </div>
 <div id="density-ridges-plots-ggjoy" class="section level3">
-<h3><span class="header-section-number">7.3.10</span> Density Ridges Plots (ggjoy)</h3>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
-<span class="kw">p_load</span>(tidyverse, ggridges)
-
-datos2 =<span class="st"> </span>datos <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">drop_na</span>() <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">filter</span>(Educacion <span class="op">&lt;</span><span class="st"> </span><span class="dv">8</span>) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Educacion =</span> <span class="kw">as.factor</span>(Educacion)) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">PPV_DECLARED =</span> <span class="kw">as.double</span>(PPV_DECLARED))
-
-<span class="co"># datos2 %&gt;% group_by(Genero) %&gt;% dplyr::summarise(N = n())</span>
-
-<span class="co"># Simple version</span>
-<span class="kw">ggplot</span>(datos2, <span class="kw">aes</span>(<span class="dt">x =</span> FollowUP, <span class="dt">y =</span> Genero)) <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_density_ridges</span>(<span class="dt">scale =</span> <span class="dv">2</span>)</code></pre></div>
+<h3><span class="header-section-number">7.4.10</span> Density Ridges Plots (ggjoy)</h3>
+<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb114-1" data-line-number="1"><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)</a>
+<a class="sourceLine" id="cb114-2" data-line-number="2"><span class="kw">p_load</span>(tidyverse, ggridges)</a>
+<a class="sourceLine" id="cb114-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb114-4" data-line-number="4">datos2 =<span class="st"> </span>datos <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">drop_na</span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb114-5" data-line-number="5"><span class="st">  </span><span class="kw">filter</span>(Educacion <span class="op">&lt;</span><span class="st"> </span><span class="dv">8</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb114-6" data-line-number="6"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Educacion =</span> <span class="kw">as.factor</span>(Educacion)) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb114-7" data-line-number="7"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">PPV_DECLARED =</span> <span class="kw">as.double</span>(PPV_DECLARED))</a>
+<a class="sourceLine" id="cb114-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb114-9" data-line-number="9"><span class="co"># datos2 %&gt;% group_by(Genero) %&gt;% dplyr::summarise(N = n())</span></a>
+<a class="sourceLine" id="cb114-10" data-line-number="10"></a>
+<a class="sourceLine" id="cb114-11" data-line-number="11"><span class="co"># Simple version</span></a>
+<a class="sourceLine" id="cb114-12" data-line-number="12"><span class="kw">ggplot</span>(datos2, <span class="kw">aes</span>(<span class="dt">x =</span> FollowUP, <span class="dt">y =</span> Genero)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb114-13" data-line-number="13"><span class="st">  </span><span class="kw">geom_density_ridges</span>(<span class="dt">scale =</span> <span class="dv">2</span>)</a></code></pre></div>
 <pre><code>## Picking joint bandwidth of 12.4</code></pre>
 <p><img src="_main_files/figure-html/density_ridges-1.png" width="672" /></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Tweak some aesthetics </span>
-<span class="kw">ggplot</span>(datos2, <span class="kw">aes</span>(<span class="dt">x =</span> FollowUP, <span class="dt">y =</span> Genero, <span class="dt">fill =</span> Genero)) <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_density_ridges</span>(<span class="dt">scale =</span> <span class="dv">2</span>, <span class="dt">alpha =</span> .<span class="dv">7</span>, <span class="dt">color =</span> <span class="st">&quot;white&quot;</span>) <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">scale_fill_hue</span>(<span class="dt">l=</span><span class="dv">30</span>)</code></pre></div>
+<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb116-1" data-line-number="1"><span class="co"># Tweak some aesthetics </span></a>
+<a class="sourceLine" id="cb116-2" data-line-number="2"><span class="kw">ggplot</span>(datos2, <span class="kw">aes</span>(<span class="dt">x =</span> FollowUP, <span class="dt">y =</span> Genero, <span class="dt">fill =</span> Genero)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb116-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_density_ridges</span>(<span class="dt">scale =</span> <span class="dv">2</span>, <span class="dt">alpha =</span> <span class="fl">.7</span>, <span class="dt">color =</span> <span class="st">&quot;white&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb116-4" data-line-number="4"><span class="st">  </span><span class="kw">scale_fill_hue</span>(<span class="dt">l=</span><span class="dv">30</span>)</a></code></pre></div>
 <pre><code>## Picking joint bandwidth of 12.4</code></pre>
 <p><img src="_main_files/figure-html/density_ridges-2.png" width="672" /></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Histogram stat</span>
-<span class="kw">ggplot</span>(datos2, <span class="kw">aes</span>(<span class="dt">x =</span> FollowUP, <span class="dt">y =</span> Genero, <span class="dt">fill =</span> Genero)) <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_density_ridges</span>(<span class="dt">scale =</span> <span class="dv">2</span>, <span class="dt">alpha =</span> .<span class="dv">7</span>, <span class="dt">color =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">stat =</span> <span class="st">&quot;binline&quot;</span>, <span class="dt">bins =</span> <span class="dv">20</span>) <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">scale_fill_hue</span>(<span class="dt">l=</span><span class="dv">30</span>)</code></pre></div>
+<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb118-1" data-line-number="1"><span class="co"># Histogram stat</span></a>
+<a class="sourceLine" id="cb118-2" data-line-number="2"><span class="kw">ggplot</span>(datos2, <span class="kw">aes</span>(<span class="dt">x =</span> FollowUP, <span class="dt">y =</span> Genero, <span class="dt">fill =</span> Genero)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb118-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_density_ridges</span>(<span class="dt">scale =</span> <span class="dv">2</span>, <span class="dt">alpha =</span> <span class="fl">.7</span>, <span class="dt">color =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">stat =</span> <span class="st">&quot;binline&quot;</span>, <span class="dt">bins =</span> <span class="dv">20</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb118-4" data-line-number="4"><span class="st">  </span><span class="kw">scale_fill_hue</span>(<span class="dt">l=</span><span class="dv">30</span>)</a></code></pre></div>
 <p><img src="_main_files/figure-html/density_ridges-3.png" width="672" /></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Combined</span>
-<span class="kw">ggplot</span>(datos2, <span class="kw">aes</span>(<span class="dt">x =</span> FollowUP, <span class="dt">y =</span> Genero, <span class="dt">fill =</span> Genero)) <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_density_ridges</span>(<span class="dt">scale =</span> <span class="dv">2</span>, <span class="dt">alpha =</span> .<span class="dv">7</span>, <span class="dt">color =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">stat =</span> <span class="st">&quot;binline&quot;</span>, <span class="dt">bins =</span> <span class="dv">20</span>) <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_density_ridges</span>(<span class="dt">scale =</span> <span class="dv">2</span>, <span class="dt">alpha =</span> .<span class="dv">4</span>, <span class="dt">color =</span> <span class="st">&quot;white&quot;</span>) <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">scale_fill_hue</span>(<span class="dt">l=</span><span class="dv">30</span>)</code></pre></div>
+<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb119-1" data-line-number="1"><span class="co"># Combined</span></a>
+<a class="sourceLine" id="cb119-2" data-line-number="2"><span class="kw">ggplot</span>(datos2, <span class="kw">aes</span>(<span class="dt">x =</span> FollowUP, <span class="dt">y =</span> Genero, <span class="dt">fill =</span> Genero)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb119-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_density_ridges</span>(<span class="dt">scale =</span> <span class="dv">2</span>, <span class="dt">alpha =</span> <span class="fl">.7</span>, <span class="dt">color =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">stat =</span> <span class="st">&quot;binline&quot;</span>, <span class="dt">bins =</span> <span class="dv">20</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb119-4" data-line-number="4"><span class="st">  </span><span class="kw">geom_density_ridges</span>(<span class="dt">scale =</span> <span class="dv">2</span>, <span class="dt">alpha =</span> <span class="fl">.4</span>, <span class="dt">color =</span> <span class="st">&quot;white&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb119-5" data-line-number="5"><span class="st">  </span><span class="kw">scale_fill_hue</span>(<span class="dt">l=</span><span class="dv">30</span>)</a></code></pre></div>
 <pre><code>## Picking joint bandwidth of 12.4</code></pre>
 <p><img src="_main_files/figure-html/density_ridges-4.png" width="672" /></p>
 </div>
 <div id="pp-plots" class="section level3">
-<h3><span class="header-section-number">7.3.11</span> PP plots</h3>
+<h3><span class="header-section-number">7.4.11</span> PP plots</h3>
 <p>Plots of distributional differences… See <a href="http://www.dandersondata.com/post/esvis-part-1/" class="uri">http://www.dandersondata.com/post/esvis-part-1/</a></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;DJAnderson07/esvis&quot;</span>)
-<span class="kw">library</span>(esvis)
-
-<span class="kw">pp_plot</span>(reading <span class="op">~</span><span class="st"> </span>frl, benchmarks)</code></pre></div>
+<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb121-1" data-line-number="1"><span class="kw">p_load</span>(esvis)</a>
+<a class="sourceLine" id="cb121-2" data-line-number="2"><span class="co"># devtools::install_github(&quot;DJAnderson07/esvis&quot;)</span></a>
+<a class="sourceLine" id="cb121-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb121-4" data-line-number="4"><span class="kw">pp_plot</span>(reading <span class="op">~</span><span class="st"> </span>frl, benchmarks)</a></code></pre></div>
 <p><img src="_main_files/figure-html/PP_plot-1.png" width="672" /></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pp_plot</span>(reading <span class="op">~</span><span class="st"> </span>ell, benchmarks, <span class="dt">ref_group =</span> <span class="st">&quot;Non-ELL&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb122-1" data-line-number="1"><span class="kw">pp_plot</span>(reading <span class="op">~</span><span class="st"> </span>ell, benchmarks, <span class="dt">ref_group =</span> <span class="st">&quot;Non-ELL&quot;</span>)</a></code></pre></div>
 <p><img src="_main_files/figure-html/PP_plot_2-1.png" width="672" /></p>
 <p>“<em>Notice in this plot there is actually a reversal of the effect for monitor students. On the lower end of the scale, Monitor students are actually out-performing non-ELL students, but this effect reverses at the top of the scale. A summary measure would not provide this type of information, but it may be incredibly valuable for theory development. For example, for this finding we may theorize that students with very low achievement receive a benefit from essentially any additional attention, even if that attention is not directly related to academics.</em>”(<a href="http://www.dandersondata.com/post/esvis-part-1/" class="uri">http://www.dandersondata.com/post/esvis-part-1/</a>)</p>
 <p>For the sake of comparison, here are the distributions plotted with geom_density_ridges:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(benchmarks, <span class="kw">aes</span>(<span class="dt">x =</span> reading, <span class="dt">y =</span> ell, <span class="dt">fill =</span> ell)) <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_density_ridges</span>(<span class="dt">scale =</span> <span class="dv">2</span>, <span class="dt">alpha =</span> .<span class="dv">7</span>, <span class="dt">color =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">stat =</span> <span class="st">&quot;binline&quot;</span>, <span class="dt">bins =</span> <span class="dv">20</span>) <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_density_ridges</span>(<span class="dt">scale =</span> <span class="dv">2</span>, <span class="dt">alpha =</span> .<span class="dv">4</span>, <span class="dt">color =</span> <span class="st">&quot;white&quot;</span>) <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">scale_fill_hue</span>(<span class="dt">l=</span><span class="dv">30</span>)</code></pre></div>
+<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb123-1" data-line-number="1"><span class="kw">ggplot</span>(benchmarks, <span class="kw">aes</span>(<span class="dt">x =</span> reading, <span class="dt">y =</span> ell, <span class="dt">fill =</span> ell)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb123-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_density_ridges</span>(<span class="dt">scale =</span> <span class="dv">2</span>, <span class="dt">alpha =</span> <span class="fl">.7</span>, <span class="dt">color =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">stat =</span> <span class="st">&quot;binline&quot;</span>, <span class="dt">bins =</span> <span class="dv">20</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb123-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_density_ridges</span>(<span class="dt">scale =</span> <span class="dv">2</span>, <span class="dt">alpha =</span> <span class="fl">.4</span>, <span class="dt">color =</span> <span class="st">&quot;white&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb123-4" data-line-number="4"><span class="st">  </span><span class="kw">scale_fill_hue</span>(<span class="dt">l=</span><span class="dv">30</span>)</a></code></pre></div>
 <p><img src="_main_files/figure-html/PP_plot_comparison-1.png" width="672" /></p>
 </div>
 <div id="shaded-geom-area" class="section level3">
-<h3><span class="header-section-number">7.3.12</span> Shaded geom area</h3>
+<h3><span class="header-section-number">7.4.12</span> Shaded geom area</h3>
 <p>FROM @kara_woo: <a href="https://gist.github.com/karawoo/14f4f46da900b09997d26171d092fb92" class="uri">https://gist.github.com/karawoo/14f4f46da900b09997d26171d092fb92</a></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse, ggplot2)
-
-data_for_plot =<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;Data/06_Visualize_data/data_shaded_geom_area.csv&quot;</span>)
-
-<span class="co"># Deaths by cause</span>
-p_area &lt;-<span class="st"> </span><span class="kw">ggplot</span>(data_for_plot, <span class="kw">aes</span>(<span class="dt">x=</span>year, <span class="dt">y=</span>count, <span class="dt">group=</span>cat, <span class="dt">order=</span>cat)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_area</span>(<span class="kw">aes</span>(<span class="dt">fill=</span>cat), <span class="dt">position=</span><span class="st">&#39;stack&#39;</span>) <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">theme_minimal</span>()
-
-p_area</code></pre></div>
+<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb124-1" data-line-number="1"><span class="kw">library</span>(tidyverse, ggplot2)</a>
+<a class="sourceLine" id="cb124-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb124-3" data-line-number="3">data_for_plot =<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;Data/06_Visualize_data/data_shaded_geom_area.csv&quot;</span>)</a>
+<a class="sourceLine" id="cb124-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb124-5" data-line-number="5"><span class="co"># Deaths by cause</span></a>
+<a class="sourceLine" id="cb124-6" data-line-number="6">p_area &lt;-<span class="st"> </span><span class="kw">ggplot</span>(data_for_plot, <span class="kw">aes</span>(<span class="dt">x=</span>year, <span class="dt">y=</span>count, <span class="dt">group=</span>cat, <span class="dt">order=</span>cat)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb124-7" data-line-number="7"><span class="st">  </span><span class="kw">geom_area</span>(<span class="kw">aes</span>(<span class="dt">fill=</span>cat), <span class="dt">position=</span><span class="st">&#39;stack&#39;</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb124-8" data-line-number="8"><span class="st">  </span><span class="kw">theme_minimal</span>()</a>
+<a class="sourceLine" id="cb124-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb124-10" data-line-number="10">p_area</a></code></pre></div>
 <p><img src="_main_files/figure-html/shaded_area-1.png" width="672" /></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## Calculate total deaths by year
-dat &lt;-<span class="st"> </span>data_for_plot <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">group_by</span>(year) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">total =</span> <span class="kw">sum</span>(count))
-
-<span class="kw">ggplot</span>(dat, <span class="kw">aes</span>(<span class="dt">x =</span> year, <span class="dt">y =</span> count, <span class="dt">group =</span> cat, <span class="dt">order =</span> cat, <span class="dt">fill =</span> cat)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_area</span>(<span class="dt">data =</span> dat, <span class="kw">aes</span>(<span class="dt">y =</span> total), <span class="dt">fill =</span> <span class="st">&quot;grey&quot;</span>, <span class="dt">alpha =</span> .<span class="dv">5</span>, <span class="dt">position =</span> <span class="st">&#39;stack&#39;</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_area</span>(<span class="dt">position =</span> <span class="st">&#39;stack&#39;</span>) <span class="op">+</span><span class="st"> </span><span class="co">#colour = &quot;black&quot;,</span>
-<span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>cat) <span class="op">+</span>
-<span class="st">  </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>) <span class="op">+</span><span class="st">  </span><span class="co"># to remove the legend</span>
-<span class="st">  </span><span class="kw">theme_minimal</span>()              <span class="co"># for clean look overall</span></code></pre></div>
+<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb125-1" data-line-number="1">## Calculate total deaths by year</a>
+<a class="sourceLine" id="cb125-2" data-line-number="2">dat &lt;-<span class="st"> </span>data_for_plot <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb125-3" data-line-number="3"><span class="st">  </span><span class="kw">group_by</span>(year) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb125-4" data-line-number="4"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">total =</span> <span class="kw">sum</span>(count))</a>
+<a class="sourceLine" id="cb125-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb125-6" data-line-number="6"><span class="kw">ggplot</span>(dat, <span class="kw">aes</span>(<span class="dt">x =</span> year, <span class="dt">y =</span> count, <span class="dt">group =</span> cat, <span class="dt">order =</span> cat, <span class="dt">fill =</span> cat)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb125-7" data-line-number="7"><span class="st">  </span><span class="kw">geom_area</span>(<span class="dt">data =</span> dat, <span class="kw">aes</span>(<span class="dt">y =</span> total), <span class="dt">fill =</span> <span class="st">&quot;grey&quot;</span>, <span class="dt">alpha =</span> <span class="fl">.5</span>, <span class="dt">position =</span> <span class="st">&#39;stack&#39;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb125-8" data-line-number="8"><span class="st">  </span><span class="kw">geom_area</span>(<span class="dt">position =</span> <span class="st">&#39;stack&#39;</span>) <span class="op">+</span><span class="st"> </span><span class="co">#colour = &quot;black&quot;,</span></a>
+<a class="sourceLine" id="cb125-9" data-line-number="9"><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>cat) <span class="op">+</span></a>
+<a class="sourceLine" id="cb125-10" data-line-number="10"><span class="st">  </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>) <span class="op">+</span><span class="st">  </span><span class="co"># to remove the legend</span></a>
+<a class="sourceLine" id="cb125-11" data-line-number="11"><span class="st">  </span><span class="kw">theme_minimal</span>()              <span class="co"># for clean look overall</span></a></code></pre></div>
 <p><img src="_main_files/figure-html/shaded_area-2.png" width="672" /></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># </span>
-<span class="co"># </span>
-<span class="co"># </span>
-<span class="co"># ## Colors I chose</span>
-<span class="co"># mycolors &lt;- c(&quot;#00bf7b&quot;, &quot;#59004d&quot;, &quot;#ffcb89&quot;, &quot;#a76e61&quot;, &quot;#ac270d&quot;, &quot;#7890ff&quot;,</span>
-<span class="co">#               &quot;#6ca013&quot;, &quot;#c2e05e&quot;, &quot;#00300d&quot;, &quot;#ff7b90&quot;)</span>
-<span class="co"># </span>
-<span class="co"># </span>
-<span class="co"># ## Plot as small multiples</span>
-<span class="co"># #** </span><span class="al">BUG</span><span class="co">: If we run the code for this plot in bookdown after loading packages plyr, Rmisc, the y axis gets mangled.**</span>
-<span class="co"># p_small_mult &lt;- ggplot(dat, aes(x = year)) +</span>
-<span class="co">#   ## Gray background showing total</span>
-<span class="co">#   geom_area(aes(y = total), fill = &quot;grey80&quot;, alpha = 0.7) +</span>
-<span class="co">#   ## Individual areas for each category</span>
-<span class="co">#   geom_area(aes(y = count, fill = cat)) +</span>
-<span class="co">#   facet_wrap(~ cat, nrow = 2) +</span>
-<span class="co">#   ## Further customization</span>
-<span class="co">#   scale_fill_manual(values = mycolors) +</span>
-<span class="co">#   scale_y_continuous(limits = c(0, max(dat$total) + 5), expand = c(0, 0)) +</span>
-<span class="co">#   theme_minimal() +</span>
-<span class="co">#   theme(</span>
-<span class="co">#     legend.position = &quot;none&quot;,</span>
-<span class="co">#     axis.text = element_text(size = 7)</span>
-<span class="co">#   ) +</span>
-<span class="co">#   labs(</span>
-<span class="co">#     y = &quot;Total deaths&quot;,</span>
-<span class="co">#     x = &quot;Year&quot;,</span>
-<span class="co">#     title = &quot;On-duty police officer deaths&quot;,</span>
-<span class="co">#     subtitle = &quot;Data: https://github.com/fivethirtyeight/data/police-deaths&quot;</span>
-<span class="co">#   )</span>
-
-<span class="co"># p_small_mult</span></code></pre></div>
+<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb126-1" data-line-number="1"><span class="co"># </span></a>
+<a class="sourceLine" id="cb126-2" data-line-number="2"><span class="co"># </span></a>
+<a class="sourceLine" id="cb126-3" data-line-number="3"><span class="co"># </span></a>
+<a class="sourceLine" id="cb126-4" data-line-number="4"><span class="co"># ## Colors I chose</span></a>
+<a class="sourceLine" id="cb126-5" data-line-number="5"><span class="co"># mycolors &lt;- c(&quot;#00bf7b&quot;, &quot;#59004d&quot;, &quot;#ffcb89&quot;, &quot;#a76e61&quot;, &quot;#ac270d&quot;, &quot;#7890ff&quot;,</span></a>
+<a class="sourceLine" id="cb126-6" data-line-number="6"><span class="co">#               &quot;#6ca013&quot;, &quot;#c2e05e&quot;, &quot;#00300d&quot;, &quot;#ff7b90&quot;)</span></a>
+<a class="sourceLine" id="cb126-7" data-line-number="7"><span class="co"># </span></a>
+<a class="sourceLine" id="cb126-8" data-line-number="8"><span class="co"># </span></a>
+<a class="sourceLine" id="cb126-9" data-line-number="9"><span class="co"># ## Plot as small multiples</span></a>
+<a class="sourceLine" id="cb126-10" data-line-number="10"><span class="co"># #** </span><span class="al">BUG</span><span class="co">: If we run the code for this plot in bookdown after loading packages plyr, Rmisc, the y axis gets mangled.**</span></a>
+<a class="sourceLine" id="cb126-11" data-line-number="11"><span class="co"># p_small_mult &lt;- ggplot(dat, aes(x = year)) +</span></a>
+<a class="sourceLine" id="cb126-12" data-line-number="12"><span class="co">#   ## Gray background showing total</span></a>
+<a class="sourceLine" id="cb126-13" data-line-number="13"><span class="co">#   geom_area(aes(y = total), fill = &quot;grey80&quot;, alpha = 0.7) +</span></a>
+<a class="sourceLine" id="cb126-14" data-line-number="14"><span class="co">#   ## Individual areas for each category</span></a>
+<a class="sourceLine" id="cb126-15" data-line-number="15"><span class="co">#   geom_area(aes(y = count, fill = cat)) +</span></a>
+<a class="sourceLine" id="cb126-16" data-line-number="16"><span class="co">#   facet_wrap(~ cat, nrow = 2) +</span></a>
+<a class="sourceLine" id="cb126-17" data-line-number="17"><span class="co">#   ## Further customization</span></a>
+<a class="sourceLine" id="cb126-18" data-line-number="18"><span class="co">#   scale_fill_manual(values = mycolors) +</span></a>
+<a class="sourceLine" id="cb126-19" data-line-number="19"><span class="co">#   scale_y_continuous(limits = c(0, max(dat$total) + 5), expand = c(0, 0)) +</span></a>
+<a class="sourceLine" id="cb126-20" data-line-number="20"><span class="co">#   theme_minimal() +</span></a>
+<a class="sourceLine" id="cb126-21" data-line-number="21"><span class="co">#   theme(</span></a>
+<a class="sourceLine" id="cb126-22" data-line-number="22"><span class="co">#     legend.position = &quot;none&quot;,</span></a>
+<a class="sourceLine" id="cb126-23" data-line-number="23"><span class="co">#     axis.text = element_text(size = 7)</span></a>
+<a class="sourceLine" id="cb126-24" data-line-number="24"><span class="co">#   ) +</span></a>
+<a class="sourceLine" id="cb126-25" data-line-number="25"><span class="co">#   labs(</span></a>
+<a class="sourceLine" id="cb126-26" data-line-number="26"><span class="co">#     y = &quot;Total deaths&quot;,</span></a>
+<a class="sourceLine" id="cb126-27" data-line-number="27"><span class="co">#     x = &quot;Year&quot;,</span></a>
+<a class="sourceLine" id="cb126-28" data-line-number="28"><span class="co">#     title = &quot;On-duty police officer deaths&quot;,</span></a>
+<a class="sourceLine" id="cb126-29" data-line-number="29"><span class="co">#     subtitle = &quot;Data: https://github.com/fivethirtyeight/data/police-deaths&quot;</span></a>
+<a class="sourceLine" id="cb126-30" data-line-number="30"><span class="co">#   )</span></a>
+<a class="sourceLine" id="cb126-31" data-line-number="31"></a>
+<a class="sourceLine" id="cb126-32" data-line-number="32"><span class="co"># p_small_mult</span></a></code></pre></div>
 </div>
 <div id="multiple-scatterplots" class="section level3">
-<h3><span class="header-section-number">7.3.13</span> Multiple Scatterplots</h3>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
-<span class="kw">p_load</span>(tidyverse, ggthemes, Rmisc)
-
-a =<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;Data/06_Visualize_data/data_multiple_scatterplot.csv&quot;</span>)</code></pre></div>
+<h3><span class="header-section-number">7.4.13</span> Multiple Scatterplots</h3>
+<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb127-1" data-line-number="1"><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)</a>
+<a class="sourceLine" id="cb127-2" data-line-number="2"><span class="kw">p_load</span>(tidyverse, ggthemes, Rmisc)</a>
+<a class="sourceLine" id="cb127-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb127-4" data-line-number="4">a =<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;Data/06_Visualize_data/data_multiple_scatterplot.csv&quot;</span>)</a></code></pre></div>
 <pre><code>## Parsed with column specification:
 ## cols(
 ##   ID = col_integer(),
@@ -751,73 +759,98 @@ a =<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&q
 ##   `Social adaptation` = col_integer(),
 ##   Age = col_integer()
 ## )</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Si se cambia alguno de estos nombres, cambiar tb abajo (o mejor, find and replace all!)</span>
-<span class="kw">colnames</span>(a) =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;Executive functions&quot;</span>, <span class="st">&quot;Emotional recognition&quot;</span>, <span class="st">&quot;ToM&quot;</span>, <span class="st">&quot;Inhibitory verbal control&quot;</span>, <span class="st">&quot;Cryst. Intellig. (vocab)&quot;</span>, <span class="st">&quot;Cryst. Intellig. (years of education)&quot;</span>, <span class="st">&quot;Fluid intelligence&quot;</span>, <span class="st">&quot;w&quot;</span>, <span class="st">&quot;gg&quot;</span>)
-
-
-p1 =<span class="st"> </span><span class="kw">ggplot</span>(a, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="st">`</span><span class="dt">Cryst. Intellig. (vocab)</span><span class="st">`</span>, <span class="dt">y =</span> <span class="st">`</span><span class="dt">Executive functions</span><span class="st">`</span>)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">shape=</span><span class="dv">16</span>, <span class="dt">fill=</span><span class="st">&quot;darkgrey&quot;</span>, <span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">size=</span><span class="dv">2</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span>lm, <span class="dt">fill=</span><span class="st">&quot;grey&quot;</span>, <span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">se =</span> F, <span class="dt">size =</span> .<span class="dv">5</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_tufte</span>() <span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">axis.title.x=</span><span class="kw">element_blank</span>())
-
-p2 =<span class="st"> </span><span class="kw">ggplot</span>(a, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="st">`</span><span class="dt">Cryst. Intellig. (vocab)</span><span class="st">`</span>, <span class="dt">y =</span> <span class="st">`</span><span class="dt">Emotional recognition</span><span class="st">`</span>)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">shape=</span><span class="dv">16</span>, <span class="dt">fill=</span><span class="st">&quot;darkgrey&quot;</span>, <span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">size=</span><span class="dv">2</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span>lm, <span class="dt">fill=</span><span class="st">&quot;grey&quot;</span>, <span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">se =</span> F, <span class="dt">size =</span> .<span class="dv">5</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_tufte</span>() <span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">axis.title.x=</span><span class="kw">element_blank</span>())
-
-p3 =<span class="st"> </span><span class="kw">ggplot</span>(a, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="st">`</span><span class="dt">Cryst. Intellig. (vocab)</span><span class="st">`</span>, <span class="dt">y =</span> ToM)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">shape=</span><span class="dv">16</span>, <span class="dt">fill=</span><span class="st">&quot;darkgrey&quot;</span>, <span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">size=</span><span class="dv">2</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span>lm, <span class="dt">fill=</span><span class="st">&quot;grey&quot;</span>, <span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">se =</span> F, <span class="dt">size =</span> .<span class="dv">5</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_tufte</span>()  <span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">axis.title.x=</span><span class="kw">element_blank</span>())
-
-p4 =<span class="st"> </span><span class="kw">ggplot</span>(a, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="st">`</span><span class="dt">Cryst. Intellig. (vocab)</span><span class="st">`</span>, <span class="dt">y =</span> <span class="st">`</span><span class="dt">Inhibitory verbal control</span><span class="st">`</span>)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">shape=</span><span class="dv">16</span>, <span class="dt">fill=</span><span class="st">&quot;darkgrey&quot;</span>, <span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">size=</span><span class="dv">2</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span>lm, <span class="dt">fill=</span><span class="st">&quot;grey&quot;</span>, <span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">se =</span> F, <span class="dt">size =</span> .<span class="dv">5</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_tufte</span>() 
-
-p5 =<span class="st"> </span><span class="kw">ggplot</span>(a, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="st">`</span><span class="dt">Cryst. Intellig. (years of education)</span><span class="st">`</span>, <span class="dt">y =</span> <span class="st">`</span><span class="dt">Executive functions</span><span class="st">`</span>)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">shape=</span><span class="dv">16</span>, <span class="dt">fill=</span><span class="st">&quot;darkgrey&quot;</span>, <span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">size=</span><span class="dv">2</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span>lm, <span class="dt">fill=</span><span class="st">&quot;grey&quot;</span>, <span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">se =</span> F, <span class="dt">size =</span> .<span class="dv">5</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_tufte</span>() <span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">axis.title.x=</span><span class="kw">element_blank</span>(), <span class="dt">axis.title.y=</span><span class="kw">element_blank</span>())
-
-p6 =<span class="st"> </span><span class="kw">ggplot</span>(a, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="st">`</span><span class="dt">Cryst. Intellig. (years of education)</span><span class="st">`</span>, <span class="dt">y =</span> <span class="st">`</span><span class="dt">Emotional recognition</span><span class="st">`</span>)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">shape=</span><span class="dv">16</span>, <span class="dt">fill=</span><span class="st">&quot;darkgrey&quot;</span>, <span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">size=</span><span class="dv">2</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span>lm, <span class="dt">fill=</span><span class="st">&quot;grey&quot;</span>, <span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">se =</span> F, <span class="dt">size =</span> .<span class="dv">5</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_tufte</span>() <span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">axis.title.x=</span><span class="kw">element_blank</span>(), <span class="dt">axis.title.y=</span><span class="kw">element_blank</span>())
-
-p7 =<span class="st"> </span><span class="kw">ggplot</span>(a, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="st">`</span><span class="dt">Cryst. Intellig. (years of education)</span><span class="st">`</span>, <span class="dt">y =</span> ToM)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">shape=</span><span class="dv">16</span>, <span class="dt">fill=</span><span class="st">&quot;darkgrey&quot;</span>, <span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">size=</span><span class="dv">2</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span>lm, <span class="dt">fill=</span><span class="st">&quot;grey&quot;</span>, <span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">se =</span> F, <span class="dt">size =</span> .<span class="dv">5</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_tufte</span>() <span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">axis.title.x=</span><span class="kw">element_blank</span>(), <span class="dt">axis.title.y=</span><span class="kw">element_blank</span>())
-
-p8 =<span class="st"> </span><span class="kw">ggplot</span>(a, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="st">`</span><span class="dt">Cryst. Intellig. (years of education)</span><span class="st">`</span>, <span class="dt">y =</span> <span class="st">`</span><span class="dt">Inhibitory verbal control</span><span class="st">`</span>)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">shape=</span><span class="dv">16</span>, <span class="dt">fill=</span><span class="st">&quot;darkgrey&quot;</span>, <span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">size=</span><span class="dv">2</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span>lm, <span class="dt">fill=</span><span class="st">&quot;grey&quot;</span>, <span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">se =</span> F, <span class="dt">size =</span> .<span class="dv">5</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_tufte</span>() <span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">axis.title.y=</span><span class="kw">element_blank</span>())
-
-p9 =<span class="st"> </span><span class="kw">ggplot</span>(a, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="st">`</span><span class="dt">Fluid intelligence</span><span class="st">`</span>, <span class="dt">y =</span> <span class="st">`</span><span class="dt">Executive functions</span><span class="st">`</span>)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">shape=</span><span class="dv">16</span>, <span class="dt">fill=</span><span class="st">&quot;darkgrey&quot;</span>, <span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">size=</span><span class="dv">2</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span>lm, <span class="dt">fill=</span><span class="st">&quot;grey&quot;</span>, <span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">se =</span> F, <span class="dt">size =</span> .<span class="dv">5</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_tufte</span>() <span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">axis.title.x=</span><span class="kw">element_blank</span>(), <span class="dt">axis.title.y=</span><span class="kw">element_blank</span>())
-
-p10 =<span class="st"> </span><span class="kw">ggplot</span>(a, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="st">`</span><span class="dt">Fluid intelligence</span><span class="st">`</span>, <span class="dt">y =</span> <span class="st">`</span><span class="dt">Emotional recognition</span><span class="st">`</span>)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">shape=</span><span class="dv">16</span>, <span class="dt">fill=</span><span class="st">&quot;darkgrey&quot;</span>, <span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">size=</span><span class="dv">2</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span>lm, <span class="dt">fill=</span><span class="st">&quot;grey&quot;</span>, <span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">se =</span> F, <span class="dt">size =</span> .<span class="dv">5</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_tufte</span>() <span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">axis.title.x=</span><span class="kw">element_blank</span>(), <span class="dt">axis.title.y=</span><span class="kw">element_blank</span>())
-
-p11 =<span class="st"> </span><span class="kw">ggplot</span>(a, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="st">`</span><span class="dt">Fluid intelligence</span><span class="st">`</span>, <span class="dt">y =</span> ToM)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">shape=</span><span class="dv">16</span>, <span class="dt">fill=</span><span class="st">&quot;darkgrey&quot;</span>, <span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">size=</span><span class="dv">2</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span>lm, <span class="dt">fill=</span><span class="st">&quot;grey&quot;</span>, <span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">se =</span> F, <span class="dt">size =</span> .<span class="dv">5</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_tufte</span>() <span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">axis.title.x=</span><span class="kw">element_blank</span>(), <span class="dt">axis.title.y=</span><span class="kw">element_blank</span>())
-
-p12 =<span class="st"> </span><span class="kw">ggplot</span>(a, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="st">`</span><span class="dt">Fluid intelligence</span><span class="st">`</span>, <span class="dt">y =</span> <span class="st">`</span><span class="dt">Inhibitory verbal control</span><span class="st">`</span>)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">shape=</span><span class="dv">16</span>, <span class="dt">fill=</span><span class="st">&quot;darkgrey&quot;</span>, <span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">size=</span><span class="dv">2</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span>lm, <span class="dt">fill=</span><span class="st">&quot;grey&quot;</span>, <span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">se =</span> F, <span class="dt">size =</span> .<span class="dv">5</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_tufte</span>() <span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">axis.title.y=</span><span class="kw">element_blank</span>())
-
-
-<span class="kw">multiplot</span>(p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, <span class="dt">cols=</span><span class="dv">3</span>)</code></pre></div>
+<div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb129-1" data-line-number="1"><span class="co"># Si se cambia alguno de estos nombres, cambiar tb abajo (o mejor, find and replace all!)</span></a>
+<a class="sourceLine" id="cb129-2" data-line-number="2"><span class="kw">colnames</span>(a) =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;Executive functions&quot;</span>, <span class="st">&quot;Emotional recognition&quot;</span>, <span class="st">&quot;ToM&quot;</span>, <span class="st">&quot;Inhibitory verbal control&quot;</span>, <span class="st">&quot;Cryst. Intellig. (vocab)&quot;</span>, <span class="st">&quot;Cryst. Intellig. (years of education)&quot;</span>, <span class="st">&quot;Fluid intelligence&quot;</span>, <span class="st">&quot;w&quot;</span>, <span class="st">&quot;gg&quot;</span>)</a>
+<a class="sourceLine" id="cb129-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb129-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb129-5" data-line-number="5">p1 =<span class="st"> </span><span class="kw">ggplot</span>(a, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="st">`</span><span class="dt">Cryst. Intellig. (vocab)</span><span class="st">`</span>, <span class="dt">y =</span> <span class="st">`</span><span class="dt">Executive functions</span><span class="st">`</span>)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">shape=</span><span class="dv">16</span>, <span class="dt">fill=</span><span class="st">&quot;darkgrey&quot;</span>, <span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">size=</span><span class="dv">2</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb129-6" data-line-number="6"><span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span>lm, <span class="dt">fill=</span><span class="st">&quot;grey&quot;</span>, <span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">se =</span> F, <span class="dt">size =</span> <span class="fl">.5</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_tufte</span>() <span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">axis.title.x=</span><span class="kw">element_blank</span>())</a>
+<a class="sourceLine" id="cb129-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb129-8" data-line-number="8">p2 =<span class="st"> </span><span class="kw">ggplot</span>(a, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="st">`</span><span class="dt">Cryst. Intellig. (vocab)</span><span class="st">`</span>, <span class="dt">y =</span> <span class="st">`</span><span class="dt">Emotional recognition</span><span class="st">`</span>)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">shape=</span><span class="dv">16</span>, <span class="dt">fill=</span><span class="st">&quot;darkgrey&quot;</span>, <span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">size=</span><span class="dv">2</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb129-9" data-line-number="9"><span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span>lm, <span class="dt">fill=</span><span class="st">&quot;grey&quot;</span>, <span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">se =</span> F, <span class="dt">size =</span> <span class="fl">.5</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_tufte</span>() <span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">axis.title.x=</span><span class="kw">element_blank</span>())</a>
+<a class="sourceLine" id="cb129-10" data-line-number="10"></a>
+<a class="sourceLine" id="cb129-11" data-line-number="11">p3 =<span class="st"> </span><span class="kw">ggplot</span>(a, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="st">`</span><span class="dt">Cryst. Intellig. (vocab)</span><span class="st">`</span>, <span class="dt">y =</span> ToM)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">shape=</span><span class="dv">16</span>, <span class="dt">fill=</span><span class="st">&quot;darkgrey&quot;</span>, <span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">size=</span><span class="dv">2</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb129-12" data-line-number="12"><span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span>lm, <span class="dt">fill=</span><span class="st">&quot;grey&quot;</span>, <span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">se =</span> F, <span class="dt">size =</span> <span class="fl">.5</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_tufte</span>()  <span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">axis.title.x=</span><span class="kw">element_blank</span>())</a>
+<a class="sourceLine" id="cb129-13" data-line-number="13"></a>
+<a class="sourceLine" id="cb129-14" data-line-number="14">p4 =<span class="st"> </span><span class="kw">ggplot</span>(a, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="st">`</span><span class="dt">Cryst. Intellig. (vocab)</span><span class="st">`</span>, <span class="dt">y =</span> <span class="st">`</span><span class="dt">Inhibitory verbal control</span><span class="st">`</span>)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">shape=</span><span class="dv">16</span>, <span class="dt">fill=</span><span class="st">&quot;darkgrey&quot;</span>, <span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">size=</span><span class="dv">2</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb129-15" data-line-number="15"><span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span>lm, <span class="dt">fill=</span><span class="st">&quot;grey&quot;</span>, <span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">se =</span> F, <span class="dt">size =</span> <span class="fl">.5</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_tufte</span>() </a>
+<a class="sourceLine" id="cb129-16" data-line-number="16"></a>
+<a class="sourceLine" id="cb129-17" data-line-number="17">p5 =<span class="st"> </span><span class="kw">ggplot</span>(a, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="st">`</span><span class="dt">Cryst. Intellig. (years of education)</span><span class="st">`</span>, <span class="dt">y =</span> <span class="st">`</span><span class="dt">Executive functions</span><span class="st">`</span>)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">shape=</span><span class="dv">16</span>, <span class="dt">fill=</span><span class="st">&quot;darkgrey&quot;</span>, <span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">size=</span><span class="dv">2</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb129-18" data-line-number="18"><span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span>lm, <span class="dt">fill=</span><span class="st">&quot;grey&quot;</span>, <span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">se =</span> F, <span class="dt">size =</span> <span class="fl">.5</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_tufte</span>() <span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">axis.title.x=</span><span class="kw">element_blank</span>(), <span class="dt">axis.title.y=</span><span class="kw">element_blank</span>())</a>
+<a class="sourceLine" id="cb129-19" data-line-number="19"></a>
+<a class="sourceLine" id="cb129-20" data-line-number="20">p6 =<span class="st"> </span><span class="kw">ggplot</span>(a, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="st">`</span><span class="dt">Cryst. Intellig. (years of education)</span><span class="st">`</span>, <span class="dt">y =</span> <span class="st">`</span><span class="dt">Emotional recognition</span><span class="st">`</span>)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">shape=</span><span class="dv">16</span>, <span class="dt">fill=</span><span class="st">&quot;darkgrey&quot;</span>, <span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">size=</span><span class="dv">2</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb129-21" data-line-number="21"><span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span>lm, <span class="dt">fill=</span><span class="st">&quot;grey&quot;</span>, <span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">se =</span> F, <span class="dt">size =</span> <span class="fl">.5</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_tufte</span>() <span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">axis.title.x=</span><span class="kw">element_blank</span>(), <span class="dt">axis.title.y=</span><span class="kw">element_blank</span>())</a>
+<a class="sourceLine" id="cb129-22" data-line-number="22"></a>
+<a class="sourceLine" id="cb129-23" data-line-number="23">p7 =<span class="st"> </span><span class="kw">ggplot</span>(a, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="st">`</span><span class="dt">Cryst. Intellig. (years of education)</span><span class="st">`</span>, <span class="dt">y =</span> ToM)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">shape=</span><span class="dv">16</span>, <span class="dt">fill=</span><span class="st">&quot;darkgrey&quot;</span>, <span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">size=</span><span class="dv">2</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb129-24" data-line-number="24"><span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span>lm, <span class="dt">fill=</span><span class="st">&quot;grey&quot;</span>, <span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">se =</span> F, <span class="dt">size =</span> <span class="fl">.5</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_tufte</span>() <span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">axis.title.x=</span><span class="kw">element_blank</span>(), <span class="dt">axis.title.y=</span><span class="kw">element_blank</span>())</a>
+<a class="sourceLine" id="cb129-25" data-line-number="25"></a>
+<a class="sourceLine" id="cb129-26" data-line-number="26">p8 =<span class="st"> </span><span class="kw">ggplot</span>(a, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="st">`</span><span class="dt">Cryst. Intellig. (years of education)</span><span class="st">`</span>, <span class="dt">y =</span> <span class="st">`</span><span class="dt">Inhibitory verbal control</span><span class="st">`</span>)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">shape=</span><span class="dv">16</span>, <span class="dt">fill=</span><span class="st">&quot;darkgrey&quot;</span>, <span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">size=</span><span class="dv">2</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb129-27" data-line-number="27"><span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span>lm, <span class="dt">fill=</span><span class="st">&quot;grey&quot;</span>, <span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">se =</span> F, <span class="dt">size =</span> <span class="fl">.5</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_tufte</span>() <span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">axis.title.y=</span><span class="kw">element_blank</span>())</a>
+<a class="sourceLine" id="cb129-28" data-line-number="28"></a>
+<a class="sourceLine" id="cb129-29" data-line-number="29">p9 =<span class="st"> </span><span class="kw">ggplot</span>(a, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="st">`</span><span class="dt">Fluid intelligence</span><span class="st">`</span>, <span class="dt">y =</span> <span class="st">`</span><span class="dt">Executive functions</span><span class="st">`</span>)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">shape=</span><span class="dv">16</span>, <span class="dt">fill=</span><span class="st">&quot;darkgrey&quot;</span>, <span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">size=</span><span class="dv">2</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb129-30" data-line-number="30"><span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span>lm, <span class="dt">fill=</span><span class="st">&quot;grey&quot;</span>, <span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">se =</span> F, <span class="dt">size =</span> <span class="fl">.5</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_tufte</span>() <span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">axis.title.x=</span><span class="kw">element_blank</span>(), <span class="dt">axis.title.y=</span><span class="kw">element_blank</span>())</a>
+<a class="sourceLine" id="cb129-31" data-line-number="31"></a>
+<a class="sourceLine" id="cb129-32" data-line-number="32">p10 =<span class="st"> </span><span class="kw">ggplot</span>(a, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="st">`</span><span class="dt">Fluid intelligence</span><span class="st">`</span>, <span class="dt">y =</span> <span class="st">`</span><span class="dt">Emotional recognition</span><span class="st">`</span>)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">shape=</span><span class="dv">16</span>, <span class="dt">fill=</span><span class="st">&quot;darkgrey&quot;</span>, <span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">size=</span><span class="dv">2</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb129-33" data-line-number="33"><span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span>lm, <span class="dt">fill=</span><span class="st">&quot;grey&quot;</span>, <span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">se =</span> F, <span class="dt">size =</span> <span class="fl">.5</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_tufte</span>() <span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">axis.title.x=</span><span class="kw">element_blank</span>(), <span class="dt">axis.title.y=</span><span class="kw">element_blank</span>())</a>
+<a class="sourceLine" id="cb129-34" data-line-number="34"></a>
+<a class="sourceLine" id="cb129-35" data-line-number="35">p11 =<span class="st"> </span><span class="kw">ggplot</span>(a, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="st">`</span><span class="dt">Fluid intelligence</span><span class="st">`</span>, <span class="dt">y =</span> ToM)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">shape=</span><span class="dv">16</span>, <span class="dt">fill=</span><span class="st">&quot;darkgrey&quot;</span>, <span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">size=</span><span class="dv">2</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb129-36" data-line-number="36"><span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span>lm, <span class="dt">fill=</span><span class="st">&quot;grey&quot;</span>, <span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">se =</span> F, <span class="dt">size =</span> <span class="fl">.5</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_tufte</span>() <span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">axis.title.x=</span><span class="kw">element_blank</span>(), <span class="dt">axis.title.y=</span><span class="kw">element_blank</span>())</a>
+<a class="sourceLine" id="cb129-37" data-line-number="37"></a>
+<a class="sourceLine" id="cb129-38" data-line-number="38">p12 =<span class="st"> </span><span class="kw">ggplot</span>(a, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="st">`</span><span class="dt">Fluid intelligence</span><span class="st">`</span>, <span class="dt">y =</span> <span class="st">`</span><span class="dt">Inhibitory verbal control</span><span class="st">`</span>)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">shape=</span><span class="dv">16</span>, <span class="dt">fill=</span><span class="st">&quot;darkgrey&quot;</span>, <span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">size=</span><span class="dv">2</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb129-39" data-line-number="39"><span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span>lm, <span class="dt">fill=</span><span class="st">&quot;grey&quot;</span>, <span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">se =</span> F, <span class="dt">size =</span> <span class="fl">.5</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_tufte</span>() <span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">axis.title.y=</span><span class="kw">element_blank</span>())</a>
+<a class="sourceLine" id="cb129-40" data-line-number="40"></a>
+<a class="sourceLine" id="cb129-41" data-line-number="41"></a>
+<a class="sourceLine" id="cb129-42" data-line-number="42"><span class="kw">multiplot</span>(p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, <span class="dt">cols=</span><span class="dv">3</span>)</a></code></pre></div>
 <p><img src="_main_files/figure-html/scatterplot_multiple-1.png" width="672" /></p>
 </div>
 <div id="background-data" class="section level3">
-<h3><span class="header-section-number">7.3.14</span> Background data</h3>
+<h3><span class="header-section-number">7.4.14</span> Background data</h3>
 <p>FROM: <a href="https://drsimonj.svbtle.com/plotting-background-data-for-groups-with-ggplot2" class="uri">https://drsimonj.svbtle.com/plotting-background-data-for-groups-with-ggplot2</a></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)
-d &lt;-<span class="st"> </span>iris        <span class="co"># Full data set</span>
-d_bg &lt;-<span class="st"> </span>d[, <span class="op">-</span><span class="dv">5</span>]  <span class="co"># Background Data - full without the 5th column (Species)</span>
-
-<span class="kw">ggplot</span>(d, <span class="kw">aes</span>(<span class="dt">x =</span> Sepal.Width, <span class="dt">fill =</span> Species)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">data =</span> d_bg, <span class="dt">fill =</span> <span class="st">&quot;grey&quot;</span>, <span class="dt">alpha =</span> .<span class="dv">5</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">colour =</span> <span class="st">&quot;black&quot;</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>Species) <span class="op">+</span>
-<span class="st">  </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>) <span class="op">+</span><span class="st">  </span><span class="co"># to remove the legend</span>
-<span class="st">  </span><span class="kw">theme_bw</span>()              <span class="co"># for clean look overall</span></code></pre></div>
+<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb130-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a>
+<a class="sourceLine" id="cb130-2" data-line-number="2">d &lt;-<span class="st"> </span>iris        <span class="co"># Full data set</span></a>
+<a class="sourceLine" id="cb130-3" data-line-number="3">d_bg &lt;-<span class="st"> </span>d[, <span class="dv">-5</span>]  <span class="co"># Background Data - full without the 5th column (Species)</span></a>
+<a class="sourceLine" id="cb130-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb130-5" data-line-number="5"><span class="kw">ggplot</span>(d, <span class="kw">aes</span>(<span class="dt">x =</span> Sepal.Width, <span class="dt">fill =</span> Species)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb130-6" data-line-number="6"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">data =</span> d_bg, <span class="dt">fill =</span> <span class="st">&quot;grey&quot;</span>, <span class="dt">alpha =</span> <span class="fl">.5</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb130-7" data-line-number="7"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">colour =</span> <span class="st">&quot;black&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb130-8" data-line-number="8"><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>Species) <span class="op">+</span></a>
+<a class="sourceLine" id="cb130-9" data-line-number="9"><span class="st">  </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>) <span class="op">+</span><span class="st">  </span><span class="co"># to remove the legend</span></a>
+<a class="sourceLine" id="cb130-10" data-line-number="10"><span class="st">  </span><span class="kw">theme_bw</span>()              <span class="co"># for clean look overall</span></a></code></pre></div>
 <pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 <p><img src="_main_files/figure-html/background_data-1.png" width="672" /></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(d, <span class="kw">aes</span>(<span class="dt">x =</span> Sepal.Width, <span class="dt">y =</span> Sepal.Length, <span class="dt">colour =</span> Species)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">data =</span> d_bg, <span class="dt">colour =</span> <span class="st">&quot;grey&quot;</span>, <span class="dt">alpha =</span> .<span class="dv">2</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>Species) <span class="op">+</span>
-<span class="st">  </span><span class="kw">guides</span>(<span class="dt">colour =</span> <span class="ot">FALSE</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">theme_bw</span>()</code></pre></div>
+<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb132-1" data-line-number="1"><span class="kw">ggplot</span>(d, <span class="kw">aes</span>(<span class="dt">x =</span> Sepal.Width, <span class="dt">y =</span> Sepal.Length, <span class="dt">colour =</span> Species)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb132-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">data =</span> d_bg, <span class="dt">colour =</span> <span class="st">&quot;grey&quot;</span>, <span class="dt">alpha =</span> <span class="fl">.2</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb132-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb132-4" data-line-number="4"><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>Species) <span class="op">+</span></a>
+<a class="sourceLine" id="cb132-5" data-line-number="5"><span class="st">  </span><span class="kw">guides</span>(<span class="dt">colour =</span> <span class="ot">FALSE</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb132-6" data-line-number="6"><span class="st">  </span><span class="kw">theme_bw</span>()</a></code></pre></div>
 <p><img src="_main_files/figure-html/background_data-2.png" width="672" /></p>
+</div>
+<div id="flip-plots" class="section level3">
+<h3><span class="header-section-number">7.4.15</span> Flip plots</h3>
+<p>FROM: <a href="https://www.displayr.com/how-to-create-sankey-diagrams-from-tables-using-r/?utm_medium=Feed&amp;utm_source=Syndication" class="uri">https://www.displayr.com/how-to-create-sankey-diagrams-from-tables-using-r/?utm_medium=Feed&amp;utm_source=Syndication</a></p>
+<div class="sourceCode" id="cb133"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb133-1" data-line-number="1">devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;Displayr/flipPlots&quot;</span>)</a>
+<a class="sourceLine" id="cb133-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb133-3" data-line-number="3"><span class="kw">library</span>(flipPlots)</a>
+<a class="sourceLine" id="cb133-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb133-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb133-6" data-line-number="6">my.data =<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">Married =</span> <span class="kw">c</span>(<span class="st">&quot;Yes&quot;</span>,<span class="st">&quot;Yes&quot;</span>, <span class="st">&quot;Yes&quot;</span>, <span class="st">&quot;No&quot;</span>, <span class="st">&quot;No&quot;</span>),</a>
+<a class="sourceLine" id="cb133-7" data-line-number="7">                     <span class="dt">Pet =</span> <span class="kw">c</span>(<span class="st">&quot;Yes&quot;</span>, <span class="st">&quot;Yes&quot;</span>, <span class="st">&quot;No&quot;</span>, <span class="st">&quot;Yes&quot;</span>, <span class="st">&quot;No&quot;</span>),</a>
+<a class="sourceLine" id="cb133-8" data-line-number="8">                     <span class="dt">Happy =</span> <span class="kw">c</span>(<span class="st">&quot;Yes&quot;</span>, <span class="st">&quot;Yes&quot;</span>, <span class="st">&quot;Yes&quot;</span>, <span class="st">&quot;Yes&quot;</span>, <span class="st">&quot;No&quot;</span>),</a>
+<a class="sourceLine" id="cb133-9" data-line-number="9">                     <span class="dt">freq =</span> <span class="dv">5</span><span class="op">:</span><span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb133-10" data-line-number="10"></a>
+<a class="sourceLine" id="cb133-11" data-line-number="11"><span class="kw">SankeyDiagram</span>(my.data[, <span class="dv">-4</span>],</a>
+<a class="sourceLine" id="cb133-12" data-line-number="12">              <span class="dt">link.color =</span> <span class="st">&quot;Source&quot;</span>, </a>
+<a class="sourceLine" id="cb133-13" data-line-number="13">              <span class="dt">weights =</span> my.data<span class="op">$</span>freq) </a></code></pre></div>
+<div id="htmlwidget-8b6f72ded19213fee88b" style="width:672px;height:480px;" class="sankeyNetwork html-widget"></div>
+<script type="application/json" data-for="htmlwidget-8b6f72ded19213fee88b">{"x":{"links":{"source":[0,0,1,1,2,2,3],"target":[2,3,2,3,4,5,5],"value":[1,2,3,9,1,3,11],"group":["0","0","1","1","2","2","3"]},"nodes":{"name":["Married: No","Married: Yes","Pet: No","Pet: Yes","Happy: No","Happy: Yes"],"group":["0","1","2","3","4","5"]},"options":{"NodeID":"name","NodeGroup":"group","LinkGroup":"group","colourScale":"d3.scaleOrdinal(d3.schemeCategory20);","fontSize":12,"fontFamily":"Times New Roman","nodeWidth":30,"nodePadding":10,"units":"","margin":{"top":null,"right":null,"bottom":null,"left":null},"iterations":32,"sinksRight":true}},"evals":[],"jsHooks":[]}</script>
+<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb134-1" data-line-number="1"><span class="kw">SankeyDiagram</span>(my.data[, <span class="dv">-4</span>],</a>
+<a class="sourceLine" id="cb134-2" data-line-number="2">              <span class="dt">link.color =</span> <span class="st">&quot;Source&quot;</span>, </a>
+<a class="sourceLine" id="cb134-3" data-line-number="3">              <span class="dt">label.show.varname =</span> <span class="ot">FALSE</span>,</a>
+<a class="sourceLine" id="cb134-4" data-line-number="4">              <span class="dt">weights =</span> my.data<span class="op">$</span>freq) </a></code></pre></div>
+<div id="htmlwidget-f8ed9bfa1a9ef5872c55" style="width:672px;height:480px;" class="sankeyNetwork html-widget"></div>
+<script type="application/json" data-for="htmlwidget-f8ed9bfa1a9ef5872c55">{"x":{"links":{"source":[0,0,1,1,2,2,3],"target":[2,3,2,3,4,5,5],"value":[1,2,3,9,1,3,11],"group":["0","0","1","1","2","2","3"]},"nodes":{"name":["No","Yes","No","Yes","No","Yes"],"group":["0","1","2","3","4","5"]},"options":{"NodeID":"name","NodeGroup":"group","LinkGroup":"group","colourScale":"d3.scaleOrdinal(d3.schemeCategory20);","fontSize":12,"fontFamily":"Times New Roman","nodeWidth":30,"nodePadding":10,"units":"","margin":{"top":null,"right":null,"bottom":null,"left":null},"iterations":32,"sinksRight":true}},"evals":[],"jsHooks":[]}</script>
 
 </div>
 </div>

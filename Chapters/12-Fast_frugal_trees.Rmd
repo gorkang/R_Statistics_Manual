@@ -23,7 +23,11 @@ heart.fft <- FFTrees(formula = diagnosis ~.,
 # Plot the best training tree
 plot(heart.fft,
      main = "Heart Disease",
-     decision.names = c("Absent", "Present"))
+     decision.labels = c("Absent", "Present"))
+
+# Describe the algorithm
+heart.fft$inwords
+
 ```
 
 
