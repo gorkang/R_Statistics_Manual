@@ -1,9 +1,7 @@
-
 # Book variables
 if (file.exists("_main.Rmd") == TRUE) file.remove("_main.Rmd")
 
 folder_name = paste0("docs/")
-
 
 cat("\n\n• GENERATING BOOK •\n")
 
@@ -16,7 +14,7 @@ bookdown::render_book('index.Rmd',
                       quiet = FALSE, 
                       config_file = "_bookdown.yml")
 
-final_message = paste0("\n", "•• Book succesfully generated in:", folder_name, " •• \n\n")
+final_message = paste0("\n", "•• Book succesfully generated in: ", folder_name, " •• \n\n")
 # tictoc::toc()
 
 

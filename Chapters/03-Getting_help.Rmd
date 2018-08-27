@@ -38,6 +38,7 @@ Universidad de Adelaide:
 ### Plots
 * [Gallery of plots](http://www.r-graph-gallery.com/all-graphs/)
 * [Ggplot2 Cheatsheet - 2016](https://www.rstudio.com/wp-content/uploads/2016/11/ggplot2-cheatsheet-2.1.pdf)
+* [Chartmaker](http://chartmaker.visualisingdata.com/)
 
 ### Other references
 * https://www.r-bloggers.com/
