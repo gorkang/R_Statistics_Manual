@@ -13,6 +13,13 @@ description: "Statistics manual from CSCN."
 ---
 <!-- output: github_document  -->
 
+```{r}
+# Install ubuntu dependencies
+# command_to_execute = "apt-get -y install libgsl0-dev"
+# system(command_to_execute, input = rstudioapi::askForPassword("sudo password"))
+
+```
+
 ```{r load_packages, message=FALSE, warning=FALSE, include=FALSE}
 if (!require('pacman')) install.packages('pacman'); library('pacman')
 p_load(p_depends(MBESS)$Imports, character.only = TRUE)
