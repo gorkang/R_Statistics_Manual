@@ -16,6 +16,7 @@ description: "Statistics manual from CSCN."
 ```{r load_packages, message=FALSE, warning=FALSE, include=FALSE}
 if (!require('pacman')) install.packages('pacman'); library('pacman')
 p_load(p_depends(MBESS)$Imports, character.only = TRUE)
+p_load(p_depends(MBESS)$Depends, character.only = TRUE)
 p_load(tidyverse, Amelia, psych, MBESS, GPArotation)
 ```
 
