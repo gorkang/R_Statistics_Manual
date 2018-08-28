@@ -14,7 +14,7 @@
   
   
   <meta property="og:description" content="Statistics manual from CSCN." />
-  <meta name="github-repo" content="rstudio/bookdown-demo" />
+  <meta name="github-repo" content="gorkang/R_Statistics_Manual" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="R - Statistics Manual" />
@@ -25,7 +25,7 @@
 <meta name="author" content="Center for Social and Cognitive Neuroscience - cscn.uai.cl">
 
 
-<meta name="date" content="2018-08-27">
+<meta name="date" content="2018-08-28">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -50,6 +50,13 @@
 <script src="libs/htmlwidgets-1.2/htmlwidgets.js"></script>
 <link href="libs/str_view-0.1.0/str_view.css" rel="stylesheet" />
 <script src="libs/str_view-binding-1.3.1/str_view.js"></script>
+<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="libs/datatables-binding-0.4/datatables.js"></script>
+<link href="libs/dt-core-1.10.16/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.10.16/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.10.16/js/jquery.dataTables.min.js"></script>
+<link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
 <script src="libs/d3-4.5.0/d3.min.js"></script>
 <script src="libs/sankey-1/sankey.js"></script>
 <script src="libs/sankeyNetwork-binding-0.4/sankeyNetwork.js"></script>
@@ -210,25 +217,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.7" data-path="Manipular-datos.html"><a href="Manipular-datos.html#tutoriales-externos"><i class="fa fa-check"></i><b>6.7</b> Tutoriales externos</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html"><i class="fa fa-check"></i><b>7</b> Visualizar datos</a><ul>
-<li class="chapter" data-level="7.1" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#todo-1"><i class="fa fa-check"></i><b>7.1</b> TODO</a></li>
-<li class="chapter" data-level="7.2" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#other-resources"><i class="fa fa-check"></i><b>7.2</b> Other resources</a></li>
-<li class="chapter" data-level="7.3" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#que-grafica-puedo-usar-wip"><i class="fa fa-check"></i><b>7.3</b> Que gráfica puedo usar (WIP)</a></li>
-<li class="chapter" data-level="7.4" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#tipos-de-graficas"><i class="fa fa-check"></i><b>7.4</b> Tipos de gráficas</a><ul>
-<li class="chapter" data-level="7.4.1" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#histogramas"><i class="fa fa-check"></i><b>7.4.1</b> Histogramas</a></li>
-<li class="chapter" data-level="7.4.2" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#Pirate-Plot"><i class="fa fa-check"></i><b>7.4.2</b> Pirate plot</a></li>
-<li class="chapter" data-level="7.4.3" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#barplots-with-individual-responses"><i class="fa fa-check"></i><b>7.4.3</b> Barplots with individual responses</a></li>
-<li class="chapter" data-level="7.4.4" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#diagrama-de-caja-y-bigotes"><i class="fa fa-check"></i><b>7.4.4</b> Diagrama de caja y bigotes</a></li>
-<li class="chapter" data-level="7.4.5" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#correlation-plot"><i class="fa fa-check"></i><b>7.4.5</b> Correlation plot</a></li>
-<li class="chapter" data-level="7.4.6" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#beanplot"><i class="fa fa-check"></i><b>7.4.6</b> Beanplot</a></li>
-<li class="chapter" data-level="7.4.7" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#scatterplot"><i class="fa fa-check"></i><b>7.4.7</b> Scatterplot</a></li>
-<li class="chapter" data-level="7.4.8" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#scatterplot-con-3-variables"><i class="fa fa-check"></i><b>7.4.8</b> Scatterplot con 3 variables</a></li>
-<li class="chapter" data-level="7.4.9" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#density-plots"><i class="fa fa-check"></i><b>7.4.9</b> Density plots</a></li>
-<li class="chapter" data-level="7.4.10" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#density-ridges-plots-ggjoy"><i class="fa fa-check"></i><b>7.4.10</b> Density Ridges Plots (ggjoy)</a></li>
-<li class="chapter" data-level="7.4.11" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#pp-plots"><i class="fa fa-check"></i><b>7.4.11</b> PP plots</a></li>
-<li class="chapter" data-level="7.4.12" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#shaded-geom-area"><i class="fa fa-check"></i><b>7.4.12</b> Shaded geom area</a></li>
-<li class="chapter" data-level="7.4.13" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#multiple-scatterplots"><i class="fa fa-check"></i><b>7.4.13</b> Multiple Scatterplots</a></li>
-<li class="chapter" data-level="7.4.14" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#background-data"><i class="fa fa-check"></i><b>7.4.14</b> Background data</a></li>
-<li class="chapter" data-level="7.4.15" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#flip-plots"><i class="fa fa-check"></i><b>7.4.15</b> Flip plots</a></li>
+<li class="chapter" data-level="7.1" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#other-resources"><i class="fa fa-check"></i><b>7.1</b> Other resources</a></li>
+<li class="chapter" data-level="7.2" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#que-grafica-puedo-usar-wip"><i class="fa fa-check"></i><b>7.2</b> Que gráfica puedo usar (WIP)</a></li>
+<li class="chapter" data-level="7.3" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#tipos-de-graficas"><i class="fa fa-check"></i><b>7.3</b> Tipos de gráficas</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#histogramas"><i class="fa fa-check"></i><b>7.3.1</b> Histogramas</a></li>
+<li class="chapter" data-level="7.3.2" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#Pirate-Plot"><i class="fa fa-check"></i><b>7.3.2</b> Pirate plot</a></li>
+<li class="chapter" data-level="7.3.3" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#barplots-with-individual-responses"><i class="fa fa-check"></i><b>7.3.3</b> Barplots with individual responses</a></li>
+<li class="chapter" data-level="7.3.4" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#diagrama-de-caja-y-bigotes"><i class="fa fa-check"></i><b>7.3.4</b> Diagrama de caja y bigotes</a></li>
+<li class="chapter" data-level="7.3.5" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#correlation-plot"><i class="fa fa-check"></i><b>7.3.5</b> Correlation plot</a></li>
+<li class="chapter" data-level="7.3.6" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#beanplot"><i class="fa fa-check"></i><b>7.3.6</b> Beanplot</a></li>
+<li class="chapter" data-level="7.3.7" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#scatterplot"><i class="fa fa-check"></i><b>7.3.7</b> Scatterplot</a></li>
+<li class="chapter" data-level="7.3.8" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#scatterplot-con-3-variables"><i class="fa fa-check"></i><b>7.3.8</b> Scatterplot con 3 variables</a></li>
+<li class="chapter" data-level="7.3.9" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#density-plots"><i class="fa fa-check"></i><b>7.3.9</b> Density plots</a></li>
+<li class="chapter" data-level="7.3.10" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#density-ridges-plots-ggjoy"><i class="fa fa-check"></i><b>7.3.10</b> Density Ridges Plots (ggjoy)</a></li>
+<li class="chapter" data-level="7.3.11" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#pp-plots"><i class="fa fa-check"></i><b>7.3.11</b> PP plots</a></li>
+<li class="chapter" data-level="7.3.12" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#shaded-geom-area"><i class="fa fa-check"></i><b>7.3.12</b> Shaded geom area</a></li>
+<li class="chapter" data-level="7.3.13" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#multiple-scatterplots"><i class="fa fa-check"></i><b>7.3.13</b> Multiple Scatterplots</a></li>
+<li class="chapter" data-level="7.3.14" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#background-data"><i class="fa fa-check"></i><b>7.3.14</b> Background data</a></li>
+<li class="chapter" data-level="7.3.15" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#flip-plots"><i class="fa fa-check"></i><b>7.3.15</b> Flip plots</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="Estadistica-descriptiva.html"><a href="Estadistica-descriptiva.html"><i class="fa fa-check"></i><b>8</b> Estadistica descriptiva</a><ul>
@@ -313,18 +319,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="18.1" data-path="todo-curso-basico-r-2016.html"><a href="todo-curso-basico-r-2016.html#en-ejercicios"><i class="fa fa-check"></i><b>18.1</b> EN EJERCICIOS:</a></li>
 <li class="chapter" data-level="18.2" data-path="todo-curso-basico-r-2016.html"><a href="todo-curso-basico-r-2016.html#todo---limpieza-general"><i class="fa fa-check"></i><b>18.2</b> TODO - Limpieza general</a></li>
 </ul></li>
-<li class="chapter" data-level="19" data-path="todo-2.html"><a href="todo-2.html"><i class="fa fa-check"></i><b>19</b> TODO</a><ul>
-<li class="chapter" data-level="19.1" data-path="todo-2.html"><a href="todo-2.html#urgent-stuff"><i class="fa fa-check"></i><b>19.1</b> Urgent stuff</a></li>
-<li class="chapter" data-level="19.2" data-path="todo-2.html"><a href="todo-2.html#important"><i class="fa fa-check"></i><b>19.2</b> Important</a></li>
-<li class="chapter" data-level="19.3" data-path="todo-2.html"><a href="todo-2.html#various"><i class="fa fa-check"></i><b>19.3</b> Various</a></li>
-<li class="chapter" data-level="19.4" data-path="todo-2.html"><a href="todo-2.html#index-proposal"><i class="fa fa-check"></i><b>19.4</b> <strong>INDEX PROPOSAL</strong></a></li>
-<li class="chapter" data-level="19.5" data-path="todo-2.html"><a href="todo-2.html#style-guide"><i class="fa fa-check"></i><b>19.5</b> Style guide</a><ul>
-<li class="chapter" data-level="19.5.1" data-path="todo-2.html"><a href="todo-2.html#sections"><i class="fa fa-check"></i><b>19.5.1</b> Sections</a></li>
-<li class="chapter" data-level="19.5.2" data-path="todo-2.html"><a href="todo-2.html#general"><i class="fa fa-check"></i><b>19.5.2</b> General</a></li>
+<li class="chapter" data-level="19" data-path="todo-1.html"><a href="todo-1.html"><i class="fa fa-check"></i><b>19</b> TODO</a><ul>
+<li class="chapter" data-level="19.1" data-path="todo-1.html"><a href="todo-1.html#urgent-stuff"><i class="fa fa-check"></i><b>19.1</b> Urgent stuff</a></li>
+<li class="chapter" data-level="19.2" data-path="todo-1.html"><a href="todo-1.html#important"><i class="fa fa-check"></i><b>19.2</b> Important</a></li>
+<li class="chapter" data-level="19.3" data-path="todo-1.html"><a href="todo-1.html#various"><i class="fa fa-check"></i><b>19.3</b> Various</a></li>
+<li class="chapter" data-level="19.4" data-path="todo-1.html"><a href="todo-1.html#index-proposal"><i class="fa fa-check"></i><b>19.4</b> <strong>INDEX PROPOSAL</strong></a></li>
+<li class="chapter" data-level="19.5" data-path="todo-1.html"><a href="todo-1.html#style-guide"><i class="fa fa-check"></i><b>19.5</b> Style guide</a><ul>
+<li class="chapter" data-level="19.5.1" data-path="todo-1.html"><a href="todo-1.html#sections"><i class="fa fa-check"></i><b>19.5.1</b> Sections</a></li>
+<li class="chapter" data-level="19.5.2" data-path="todo-1.html"><a href="todo-1.html#general"><i class="fa fa-check"></i><b>19.5.2</b> General</a></li>
 </ul></li>
-<li class="chapter" data-level="19.6" data-path="todo-2.html"><a href="todo-2.html#notas---remember"><i class="fa fa-check"></i><b>19.6</b> NOTAS - REMEMBER</a><ul>
-<li class="chapter" data-level="19.6.1" data-path="todo-2.html"><a href="todo-2.html#refs"><i class="fa fa-check"></i><b>19.6.1</b> REFS</a></li>
-<li class="chapter" data-level="19.6.2" data-path="todo-2.html"><a href="todo-2.html#notas"><i class="fa fa-check"></i><b>19.6.2</b> NOTAS</a></li>
+<li class="chapter" data-level="19.6" data-path="todo-1.html"><a href="todo-1.html#notas---remember"><i class="fa fa-check"></i><b>19.6</b> NOTAS - REMEMBER</a><ul>
+<li class="chapter" data-level="19.6.1" data-path="todo-1.html"><a href="todo-1.html#refs"><i class="fa fa-check"></i><b>19.6.1</b> REFS</a></li>
+<li class="chapter" data-level="19.6.2" data-path="todo-1.html"><a href="todo-1.html#notas"><i class="fa fa-check"></i><b>19.6.2</b> NOTAS</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -354,27 +360,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <hr />
 <p>We use the following <a href="Data/10-Pre_processing/RT_filtering.csv">dataset</a>.</p>
 <hr />
-<div class="sourceCode" id="cb280"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb280-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a>
-<a class="sourceLine" id="cb280-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb280-3" data-line-number="3"><span class="co"># RT Filtering function</span></a>
-<a class="sourceLine" id="cb280-4" data-line-number="4">Filter_FUN &lt;-<span class="st"> </span><span class="cf">function</span>(DB, Column, <span class="dt">Low_PCT =</span> <span class="fl">0.05</span>, <span class="dt">High_PCT =</span> <span class="fl">0.95</span>) {</a>
-<a class="sourceLine" id="cb280-5" data-line-number="5">  </a>
-<a class="sourceLine" id="cb280-6" data-line-number="6">  args =<span class="st"> </span><span class="kw">as.list</span>(<span class="kw">match.call</span>())</a>
-<a class="sourceLine" id="cb280-7" data-line-number="7">  </a>
-<a class="sourceLine" id="cb280-8" data-line-number="8">  <span class="co"># Creamos Column_LOG</span></a>
-<a class="sourceLine" id="cb280-9" data-line-number="9">  DB =<span class="st"> </span>DB <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">Column_LOG =</span> <span class="kw">log</span>(<span class="kw">eval</span>(args<span class="op">$</span>Column, DB)))</a>
-<a class="sourceLine" id="cb280-10" data-line-number="10">  lowcut =<span class="st"> </span><span class="kw">quantile</span>(DB<span class="op">$</span>Column_LOG, Low_PCT, <span class="dt">na.rm =</span> T)</a>
-<a class="sourceLine" id="cb280-11" data-line-number="11">  highcut =<span class="st"> </span><span class="kw">quantile</span>(DB<span class="op">$</span>Column_LOG, High_PCT, <span class="dt">na.rm =</span> T)</a>
-<a class="sourceLine" id="cb280-12" data-line-number="12">  </a>
-<a class="sourceLine" id="cb280-13" data-line-number="13">  <span class="co"># Returns DB_Filtered</span></a>
-<a class="sourceLine" id="cb280-14" data-line-number="14">  DB_Filtered &lt;&lt;-<span class="st"> </span><span class="kw">subset</span>(DB, DB<span class="op">$</span>Column_LOG <span class="op">&gt;</span><span class="st"> </span>lowcut <span class="op">&amp;</span><span class="st"> </span>DB<span class="op">$</span>Column_LOG <span class="op">&lt;</span><span class="st"> </span>highcut) </a>
-<a class="sourceLine" id="cb280-15" data-line-number="15">  </a>
-<a class="sourceLine" id="cb280-16" data-line-number="16">  <span class="co"># return(DB_Filtered)</span></a>
-<a class="sourceLine" id="cb280-17" data-line-number="17">  <span class="kw">cat</span>(<span class="st">&quot;**** Datos filtrados a partir de la columna&quot;</span>, args<span class="op">$</span>Column, <span class="st">&quot;: &quot;</span>, <span class="kw">nrow</span>(DB) <span class="op">-</span><span class="st"> </span><span class="kw">nrow</span>(DB_Filtered), <span class="st">&quot;/&quot;</span>, <span class="kw">nrow</span>(DB), <span class="st">&quot;filas eliminadas ***&quot;</span>)</a>
-<a class="sourceLine" id="cb280-18" data-line-number="18">  </a>
-<a class="sourceLine" id="cb280-19" data-line-number="19">}</a></code></pre></div>
+<div class="sourceCode" id="cb279"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb279-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a>
+<a class="sourceLine" id="cb279-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb279-3" data-line-number="3"><span class="co"># RT Filtering function</span></a>
+<a class="sourceLine" id="cb279-4" data-line-number="4">Filter_FUN &lt;-<span class="st"> </span><span class="cf">function</span>(DB, Column, <span class="dt">Low_PCT =</span> <span class="fl">0.05</span>, <span class="dt">High_PCT =</span> <span class="fl">0.95</span>) {</a>
+<a class="sourceLine" id="cb279-5" data-line-number="5">  </a>
+<a class="sourceLine" id="cb279-6" data-line-number="6">  args =<span class="st"> </span><span class="kw">as.list</span>(<span class="kw">match.call</span>())</a>
+<a class="sourceLine" id="cb279-7" data-line-number="7">  </a>
+<a class="sourceLine" id="cb279-8" data-line-number="8">  <span class="co"># Creamos Column_LOG</span></a>
+<a class="sourceLine" id="cb279-9" data-line-number="9">  DB =<span class="st"> </span>DB <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">Column_LOG =</span> <span class="kw">log</span>(<span class="kw">eval</span>(args<span class="op">$</span>Column, DB)))</a>
+<a class="sourceLine" id="cb279-10" data-line-number="10">  lowcut =<span class="st"> </span><span class="kw">quantile</span>(DB<span class="op">$</span>Column_LOG, Low_PCT, <span class="dt">na.rm =</span> T)</a>
+<a class="sourceLine" id="cb279-11" data-line-number="11">  highcut =<span class="st"> </span><span class="kw">quantile</span>(DB<span class="op">$</span>Column_LOG, High_PCT, <span class="dt">na.rm =</span> T)</a>
+<a class="sourceLine" id="cb279-12" data-line-number="12">  </a>
+<a class="sourceLine" id="cb279-13" data-line-number="13">  <span class="co"># Returns DB_Filtered</span></a>
+<a class="sourceLine" id="cb279-14" data-line-number="14">  DB_Filtered &lt;&lt;-<span class="st"> </span><span class="kw">subset</span>(DB, DB<span class="op">$</span>Column_LOG <span class="op">&gt;</span><span class="st"> </span>lowcut <span class="op">&amp;</span><span class="st"> </span>DB<span class="op">$</span>Column_LOG <span class="op">&lt;</span><span class="st"> </span>highcut) </a>
+<a class="sourceLine" id="cb279-15" data-line-number="15">  </a>
+<a class="sourceLine" id="cb279-16" data-line-number="16">  <span class="co"># return(DB_Filtered)</span></a>
+<a class="sourceLine" id="cb279-17" data-line-number="17">  <span class="kw">cat</span>(<span class="st">&quot;**** Datos filtrados a partir de la columna&quot;</span>, args<span class="op">$</span>Column, <span class="st">&quot;: &quot;</span>, <span class="kw">nrow</span>(DB) <span class="op">-</span><span class="st"> </span><span class="kw">nrow</span>(DB_Filtered), <span class="st">&quot;/&quot;</span>, <span class="kw">nrow</span>(DB), <span class="st">&quot;filas eliminadas ***&quot;</span>)</a>
+<a class="sourceLine" id="cb279-18" data-line-number="18">  </a>
+<a class="sourceLine" id="cb279-19" data-line-number="19">}</a></code></pre></div>
 <p>After creating the function, we read the DB and apply the filtering. A dataframe called DB_Filtered is created with the filtered data.</p>
-<div class="sourceCode" id="cb281"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb281-1" data-line-number="1">dataset =<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;Data/10-Pre_processing/RT_filtering.csv&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb280"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb280-1" data-line-number="1">dataset =<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;Data/10-Pre_processing/RT_filtering.csv&quot;</span>)</a></code></pre></div>
 <pre><code>## Parsed with column specification:
 ## cols(
 ##   ID = col_integer(),
@@ -384,7 +390,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##   Formato = col_character(),
 ##   Accuracy = col_integer()
 ## )</code></pre>
-<div class="sourceCode" id="cb283"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb283-1" data-line-number="1">dataset</a></code></pre></div>
+<div class="sourceCode" id="cb282"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb282-1" data-line-number="1">dataset</a></code></pre></div>
 <pre><code>## # A tibble: 200 x 6
 ##       ID Dem_Gender Dem_Age  Time Formato Accuracy
 ##    &lt;int&gt;      &lt;int&gt;   &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;int&gt;
@@ -399,9 +405,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  9     9          1      30 60.8  PR             1
 ## 10    10          2      28 26.2  PR             0
 ## # ... with 190 more rows</code></pre>
-<div class="sourceCode" id="cb285"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb285-1" data-line-number="1"><span class="kw">Filter_FUN</span>(dataset, Time)</a></code></pre></div>
+<div class="sourceCode" id="cb284"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb284-1" data-line-number="1"><span class="kw">Filter_FUN</span>(dataset, Time)</a></code></pre></div>
 <pre><code>## **** Datos filtrados a partir de la columna Time :  20 / 200 filas eliminadas ***</code></pre>
-<div class="sourceCode" id="cb287"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb287-1" data-line-number="1">DB_Filtered</a></code></pre></div>
+<div class="sourceCode" id="cb286"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb286-1" data-line-number="1">DB_Filtered</a></code></pre></div>
 <pre><code>## # A tibble: 180 x 7
 ##       ID Dem_Gender Dem_Age  Time Formato Accuracy Column_LOG
 ##    &lt;int&gt;      &lt;int&gt;   &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;int&gt;      &lt;dbl&gt;
@@ -425,8 +431,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <hr />
 <p>We use the following <a href="Data/10-Pre_processing/RT_filtering.csv">dataset</a>.</p>
 <hr />
-<div class="sourceCode" id="cb289"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb289-1" data-line-number="1">dataset =<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;Data/10-Pre_processing/RT_filtering.csv&quot;</span>)</a>
-<a class="sourceLine" id="cb289-2" data-line-number="2"><span class="kw">head</span>(dataset)</a></code></pre></div>
+<div class="sourceCode" id="cb288"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb288-1" data-line-number="1">dataset =<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;Data/10-Pre_processing/RT_filtering.csv&quot;</span>)</a>
+<a class="sourceLine" id="cb288-2" data-line-number="2"><span class="kw">head</span>(dataset)</a></code></pre></div>
 <pre><code>##   ID Dem_Gender Dem_Age   Time Formato Accuracy
 ## 1  1          2      37  2.618      PR        0
 ## 2  2          2      32 23.303      PR        0
@@ -437,37 +443,37 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>Code</li>
 </ul>
-<div class="sourceCode" id="cb291"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb291-1" data-line-number="1"><span class="co">#SD criteria</span></a>
-<a class="sourceLine" id="cb291-2" data-line-number="2">SD_filter =<span class="st"> </span><span class="fl">2.5</span></a>
-<a class="sourceLine" id="cb291-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb291-4" data-line-number="4">dataset_filtered =<span class="st"> </span>dataset <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb291-5" data-line-number="5"><span class="st">  </span><span class="kw">filter</span>(Time <span class="op">&lt;</span><span class="st"> </span>(<span class="kw">median</span>(Time) <span class="op">+</span><span class="st"> </span>SD_filter <span class="op">*</span><span class="st"> </span><span class="kw">sd</span>(Time)) <span class="op">&amp;</span><span class="st"> </span>Time <span class="op">&gt;</span><span class="st"> </span>(<span class="kw">median</span>(Time) <span class="op">-</span><span class="st"> </span>SD_filter <span class="op">*</span><span class="st"> </span><span class="kw">sd</span>(Time)))</a>
-<a class="sourceLine" id="cb291-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb291-7" data-line-number="7"><span class="co"># dataset_filtered = dataset[dataset$Time &lt; (median(dataset$Time) + SD_filter * sd(dataset$Time) )  &amp; dataset$Time &gt; (median(dataset$Time) - SD_filter * sd(dataset$Time) ), ]</span></a></code></pre></div>
+<div class="sourceCode" id="cb290"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb290-1" data-line-number="1"><span class="co">#SD criteria</span></a>
+<a class="sourceLine" id="cb290-2" data-line-number="2">SD_filter =<span class="st"> </span><span class="fl">2.5</span></a>
+<a class="sourceLine" id="cb290-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb290-4" data-line-number="4">dataset_filtered =<span class="st"> </span>dataset <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb290-5" data-line-number="5"><span class="st">  </span><span class="kw">filter</span>(Time <span class="op">&lt;</span><span class="st"> </span>(<span class="kw">median</span>(Time) <span class="op">+</span><span class="st"> </span>SD_filter <span class="op">*</span><span class="st"> </span><span class="kw">sd</span>(Time)) <span class="op">&amp;</span><span class="st"> </span>Time <span class="op">&gt;</span><span class="st"> </span>(<span class="kw">median</span>(Time) <span class="op">-</span><span class="st"> </span>SD_filter <span class="op">*</span><span class="st"> </span><span class="kw">sd</span>(Time)))</a>
+<a class="sourceLine" id="cb290-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb290-7" data-line-number="7"><span class="co"># dataset_filtered = dataset[dataset$Time &lt; (median(dataset$Time) + SD_filter * sd(dataset$Time) )  &amp; dataset$Time &gt; (median(dataset$Time) - SD_filter * sd(dataset$Time) ), ]</span></a></code></pre></div>
 <ul>
 <li>Plots</li>
 </ul>
-<div class="sourceCode" id="cb292"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb292-1" data-line-number="1"><span class="kw">summary</span>(dataset<span class="op">$</span>Time)</a></code></pre></div>
+<div class="sourceCode" id="cb291"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb291-1" data-line-number="1"><span class="kw">summary</span>(dataset<span class="op">$</span>Time)</a></code></pre></div>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
 ##   1.242   7.686  15.453  24.252  28.858 165.529</code></pre>
-<div class="sourceCode" id="cb294"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb294-1" data-line-number="1"><span class="kw">summary</span>(dataset_filtered<span class="op">$</span>Time)</a></code></pre></div>
+<div class="sourceCode" id="cb293"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb293-1" data-line-number="1"><span class="kw">summary</span>(dataset_filtered<span class="op">$</span>Time)</a></code></pre></div>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
 ##   1.242   7.585  14.376  19.777  26.109  77.829</code></pre>
-<div class="sourceCode" id="cb296"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb296-1" data-line-number="1"><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</a>
-<a class="sourceLine" id="cb296-2" data-line-number="2">    <span class="co">#</span></a>
-<a class="sourceLine" id="cb296-3" data-line-number="3">    <span class="kw">plot</span>(<span class="kw">density</span>(dataset<span class="op">$</span>Time), <span class="dt">main =</span> <span class="st">&quot;Valid reaction time density&quot;</span>)</a>
-<a class="sourceLine" id="cb296-4" data-line-number="4">    <span class="kw">plot</span>(<span class="kw">density</span>(dataset_filtered<span class="op">$</span>Time), <span class="dt">main =</span> <span class="st">&quot;Valid reaction time density&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb295"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb295-1" data-line-number="1"><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</a>
+<a class="sourceLine" id="cb295-2" data-line-number="2">    <span class="co">#</span></a>
+<a class="sourceLine" id="cb295-3" data-line-number="3">    <span class="kw">plot</span>(<span class="kw">density</span>(dataset<span class="op">$</span>Time), <span class="dt">main =</span> <span class="st">&quot;Valid reaction time density&quot;</span>)</a>
+<a class="sourceLine" id="cb295-4" data-line-number="4">    <span class="kw">plot</span>(<span class="kw">density</span>(dataset_filtered<span class="op">$</span>Time), <span class="dt">main =</span> <span class="st">&quot;Valid reaction time density&quot;</span>)</a></code></pre></div>
 <p><img src="_main_files/figure-html/rt_filtering_MAD_plots-1.png" width="672" /></p>
-<div class="sourceCode" id="cb297"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb297-1" data-line-number="1"><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb296"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb296-1" data-line-number="1"><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))</a></code></pre></div>
 </div>
 <div id="gamma-law-regression-analyses-2" class="section level3">
 <h3><span class="header-section-number">11.1.3</span> Gamma law regression analyses<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a></h3>
 <hr />
 <p>We use the following <a href="Data/10-Pre_processing/RT_filtering.csv">dataset</a>.</p>
 <hr />
-<div class="sourceCode" id="cb298"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb298-1" data-line-number="1"><span class="co">#Import to variable &quot;dataset&quot;</span></a>
-<a class="sourceLine" id="cb298-2" data-line-number="2">dataset =<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;Data/10-Pre_processing/RT_filtering.csv&quot;</span>)</a>
-<a class="sourceLine" id="cb298-3" data-line-number="3"><span class="kw">head</span>(dataset)</a></code></pre></div>
+<div class="sourceCode" id="cb297"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb297-1" data-line-number="1"><span class="co">#Import to variable &quot;dataset&quot;</span></a>
+<a class="sourceLine" id="cb297-2" data-line-number="2">dataset =<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;Data/10-Pre_processing/RT_filtering.csv&quot;</span>)</a>
+<a class="sourceLine" id="cb297-3" data-line-number="3"><span class="kw">head</span>(dataset)</a></code></pre></div>
 <pre><code>##   ID Dem_Gender Dem_Age   Time Formato Accuracy
 ## 1  1          2      37  2.618      PR        0
 ## 2  2          2      32 23.303      PR        0
@@ -478,9 +484,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>Code</li>
 </ul>
-<div class="sourceCode" id="cb300"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb300-1" data-line-number="1"><span class="co">#Gamma</span></a>
-<a class="sourceLine" id="cb300-2" data-line-number="2">glm1 =<span class="st"> </span>(<span class="kw">glm</span>(Time <span class="op">~</span><span class="st"> </span>Formato, <span class="dt">data =</span> dataset, <span class="dt">family =</span> Gamma))</a>
-<a class="sourceLine" id="cb300-3" data-line-number="3"><span class="kw">summary</span>(glm1)</a></code></pre></div>
+<div class="sourceCode" id="cb299"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb299-1" data-line-number="1"><span class="co">#Gamma</span></a>
+<a class="sourceLine" id="cb299-2" data-line-number="2">glm1 =<span class="st"> </span>(<span class="kw">glm</span>(Time <span class="op">~</span><span class="st"> </span>Formato, <span class="dt">data =</span> dataset, <span class="dt">family =</span> Gamma))</a>
+<a class="sourceLine" id="cb299-3" data-line-number="3"><span class="kw">summary</span>(glm1)</a></code></pre></div>
 <pre><code>## 
 ## Call:
 ## glm(formula = Time ~ Formato, family = Gamma, data = dataset)
@@ -503,9 +509,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## AIC: 1680.6
 ## 
 ## Number of Fisher Scoring iterations: 6</code></pre>
-<div class="sourceCode" id="cb302"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb302-1" data-line-number="1"><span class="co">#Gausian</span></a>
-<a class="sourceLine" id="cb302-2" data-line-number="2">glm2 =<span class="st"> </span>(<span class="kw">glm</span>(Time <span class="op">~</span><span class="st"> </span>Formato, <span class="dt">data =</span> dataset))</a>
-<a class="sourceLine" id="cb302-3" data-line-number="3"><span class="kw">summary</span>(glm2)</a></code></pre></div>
+<div class="sourceCode" id="cb301"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb301-1" data-line-number="1"><span class="co">#Gausian</span></a>
+<a class="sourceLine" id="cb301-2" data-line-number="2">glm2 =<span class="st"> </span>(<span class="kw">glm</span>(Time <span class="op">~</span><span class="st"> </span>Formato, <span class="dt">data =</span> dataset))</a>
+<a class="sourceLine" id="cb301-3" data-line-number="3"><span class="kw">summary</span>(glm2)</a></code></pre></div>
 <pre><code>## 
 ## Call:
 ## glm(formula = Time ~ Formato, data = dataset)
@@ -535,9 +541,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <hr />
 <p>We use the following <a href="Data/Pre-processing/RT_Filtering_data_file.csv">dataset</a>.</p>
 <hr />
-<div class="sourceCode" id="cb304"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb304-1" data-line-number="1"><span class="co">#Import to variable &quot;dataset&quot;</span></a>
-<a class="sourceLine" id="cb304-2" data-line-number="2">dataset =<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;Data/10-Pre_processing/RT_filtering.csv&quot;</span>)</a>
-<a class="sourceLine" id="cb304-3" data-line-number="3"><span class="kw">head</span>(dataset)</a></code></pre></div>
+<div class="sourceCode" id="cb303"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb303-1" data-line-number="1"><span class="co">#Import to variable &quot;dataset&quot;</span></a>
+<a class="sourceLine" id="cb303-2" data-line-number="2">dataset =<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;Data/10-Pre_processing/RT_filtering.csv&quot;</span>)</a>
+<a class="sourceLine" id="cb303-3" data-line-number="3"><span class="kw">head</span>(dataset)</a></code></pre></div>
 <pre><code>##   ID Dem_Gender Dem_Age   Time Formato Accuracy
 ## 1  1          2      37  2.618      PR        0
 ## 2  2          2      32 23.303      PR        0
@@ -548,43 +554,43 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>Code</li>
 </ul>
-<div class="sourceCode" id="cb306"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb306-1" data-line-number="1"><span class="co">#SET low and high PERCENTILES</span></a>
-<a class="sourceLine" id="cb306-2" data-line-number="2">    lowcutquant =<span class="st"> </span><span class="fl">0.05</span></a>
-<a class="sourceLine" id="cb306-3" data-line-number="3">    highcutquant =<span class="st"> </span><span class="fl">0.95</span></a>
-<a class="sourceLine" id="cb306-4" data-line-number="4">    </a>
-<a class="sourceLine" id="cb306-5" data-line-number="5">    <span class="co"># Add log-rt</span></a>
-<a class="sourceLine" id="cb306-6" data-line-number="6">    <span class="co"># dataset_filtered = data_long_RAW</span></a>
-<a class="sourceLine" id="cb306-7" data-line-number="7">    dataset<span class="op">$</span>logrt &lt;-<span class="st"> </span><span class="kw">log</span>(dataset<span class="op">$</span>Time)</a>
-<a class="sourceLine" id="cb306-8" data-line-number="8">    </a>
-<a class="sourceLine" id="cb306-9" data-line-number="9">    <span class="co"># Take correct answers</span></a>
-<a class="sourceLine" id="cb306-10" data-line-number="10">        <span class="co"># WE USE CORRECT ANSWERS TO SET TIME LIMITS!!!</span></a>
-<a class="sourceLine" id="cb306-11" data-line-number="11">        <span class="co"># BETTER USE dataset?</span></a>
-<a class="sourceLine" id="cb306-12" data-line-number="12">    corr =<span class="st"> </span><span class="kw">subset</span>(dataset, dataset<span class="op">$</span>Accuracy <span class="op">==</span><span class="st"> </span><span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb306-13" data-line-number="13">    lowcut =<span class="st"> </span><span class="kw">quantile</span>(corr<span class="op">$</span>logrt, lowcutquant)</a>
-<a class="sourceLine" id="cb306-14" data-line-number="14">    highcut =<span class="st"> </span><span class="kw">quantile</span>(corr<span class="op">$</span>logrt, highcutquant)</a>
-<a class="sourceLine" id="cb306-15" data-line-number="15">    dataset_filtered &lt;-<span class="st"> </span><span class="kw">subset</span>(dataset, dataset<span class="op">$</span>logrt <span class="op">&gt;</span><span class="st"> </span>lowcut <span class="op">&amp;</span><span class="st"> </span>dataset<span class="op">$</span>logrt <span class="op">&lt;</span><span class="st"> </span>highcut)</a></code></pre></div>
+<div class="sourceCode" id="cb305"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb305-1" data-line-number="1"><span class="co">#SET low and high PERCENTILES</span></a>
+<a class="sourceLine" id="cb305-2" data-line-number="2">    lowcutquant =<span class="st"> </span><span class="fl">0.05</span></a>
+<a class="sourceLine" id="cb305-3" data-line-number="3">    highcutquant =<span class="st"> </span><span class="fl">0.95</span></a>
+<a class="sourceLine" id="cb305-4" data-line-number="4">    </a>
+<a class="sourceLine" id="cb305-5" data-line-number="5">    <span class="co"># Add log-rt</span></a>
+<a class="sourceLine" id="cb305-6" data-line-number="6">    <span class="co"># dataset_filtered = data_long_RAW</span></a>
+<a class="sourceLine" id="cb305-7" data-line-number="7">    dataset<span class="op">$</span>logrt &lt;-<span class="st"> </span><span class="kw">log</span>(dataset<span class="op">$</span>Time)</a>
+<a class="sourceLine" id="cb305-8" data-line-number="8">    </a>
+<a class="sourceLine" id="cb305-9" data-line-number="9">    <span class="co"># Take correct answers</span></a>
+<a class="sourceLine" id="cb305-10" data-line-number="10">        <span class="co"># WE USE CORRECT ANSWERS TO SET TIME LIMITS!!!</span></a>
+<a class="sourceLine" id="cb305-11" data-line-number="11">        <span class="co"># BETTER USE dataset?</span></a>
+<a class="sourceLine" id="cb305-12" data-line-number="12">    corr =<span class="st"> </span><span class="kw">subset</span>(dataset, dataset<span class="op">$</span>Accuracy <span class="op">==</span><span class="st"> </span><span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb305-13" data-line-number="13">    lowcut =<span class="st"> </span><span class="kw">quantile</span>(corr<span class="op">$</span>logrt, lowcutquant)</a>
+<a class="sourceLine" id="cb305-14" data-line-number="14">    highcut =<span class="st"> </span><span class="kw">quantile</span>(corr<span class="op">$</span>logrt, highcutquant)</a>
+<a class="sourceLine" id="cb305-15" data-line-number="15">    dataset_filtered &lt;-<span class="st"> </span><span class="kw">subset</span>(dataset, dataset<span class="op">$</span>logrt <span class="op">&gt;</span><span class="st"> </span>lowcut <span class="op">&amp;</span><span class="st"> </span>dataset<span class="op">$</span>logrt <span class="op">&lt;</span><span class="st"> </span>highcut)</a></code></pre></div>
 <ul>
 <li>Plots</li>
 </ul>
-<div class="sourceCode" id="cb307"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb307-1" data-line-number="1"><span class="kw">plot</span>(<span class="kw">density</span>(dataset_filtered<span class="op">$</span>logrt), <span class="dt">main =</span> <span class="st">&quot;Log reaction time density&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb306"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb306-1" data-line-number="1"><span class="kw">plot</span>(<span class="kw">density</span>(dataset_filtered<span class="op">$</span>logrt), <span class="dt">main =</span> <span class="st">&quot;Log reaction time density&quot;</span>)</a></code></pre></div>
 <p><img src="_main_files/figure-html/rt_filtering_LOG_plots-1.png" width="672" /></p>
-<div class="sourceCode" id="cb308"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb308-1" data-line-number="1"><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</a>
-<a class="sourceLine" id="cb308-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb308-3" data-line-number="3">    <span class="co">#</span></a>
-<a class="sourceLine" id="cb308-4" data-line-number="4">    <span class="kw">plot</span>(<span class="kw">density</span>(dataset<span class="op">$</span>Time[dataset<span class="op">$</span>Time <span class="op">&lt;</span><span class="st"> </span><span class="dv">10</span>]), <span class="dt">main =</span> <span class="st">&quot;Density of small reaction times&quot;</span>)</a>
-<a class="sourceLine" id="cb308-5" data-line-number="5">    <span class="kw">plot</span>(<span class="kw">density</span>(dataset_filtered<span class="op">$</span>Time[dataset_filtered<span class="op">$</span>Time <span class="op">&lt;</span><span class="st"> </span><span class="dv">10</span>]), <span class="dt">main =</span> <span class="st">&quot;Density of small reaction times&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb307"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb307-1" data-line-number="1"><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</a>
+<a class="sourceLine" id="cb307-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb307-3" data-line-number="3">    <span class="co">#</span></a>
+<a class="sourceLine" id="cb307-4" data-line-number="4">    <span class="kw">plot</span>(<span class="kw">density</span>(dataset<span class="op">$</span>Time[dataset<span class="op">$</span>Time <span class="op">&lt;</span><span class="st"> </span><span class="dv">10</span>]), <span class="dt">main =</span> <span class="st">&quot;Density of small reaction times&quot;</span>)</a>
+<a class="sourceLine" id="cb307-5" data-line-number="5">    <span class="kw">plot</span>(<span class="kw">density</span>(dataset_filtered<span class="op">$</span>Time[dataset_filtered<span class="op">$</span>Time <span class="op">&lt;</span><span class="st"> </span><span class="dv">10</span>]), <span class="dt">main =</span> <span class="st">&quot;Density of small reaction times&quot;</span>)</a></code></pre></div>
 <p><img src="_main_files/figure-html/rt_filtering_LOG_plots-2.png" width="672" /></p>
-<div class="sourceCode" id="cb309"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb309-1" data-line-number="1">    <span class="co">#</span></a>
-<a class="sourceLine" id="cb309-2" data-line-number="2">    <span class="kw">plot</span>(<span class="kw">density</span>(dataset<span class="op">$</span>Time), <span class="dt">main =</span> <span class="st">&quot;Valid reaction time density&quot;</span>)</a>
-<a class="sourceLine" id="cb309-3" data-line-number="3">    <span class="kw">plot</span>(<span class="kw">density</span>(dataset_filtered<span class="op">$</span>Time), <span class="dt">main =</span> <span class="st">&quot;Valid reaction time density&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb308"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb308-1" data-line-number="1">    <span class="co">#</span></a>
+<a class="sourceLine" id="cb308-2" data-line-number="2">    <span class="kw">plot</span>(<span class="kw">density</span>(dataset<span class="op">$</span>Time), <span class="dt">main =</span> <span class="st">&quot;Valid reaction time density&quot;</span>)</a>
+<a class="sourceLine" id="cb308-3" data-line-number="3">    <span class="kw">plot</span>(<span class="kw">density</span>(dataset_filtered<span class="op">$</span>Time), <span class="dt">main =</span> <span class="st">&quot;Valid reaction time density&quot;</span>)</a></code></pre></div>
 <p><img src="_main_files/figure-html/rt_filtering_LOG_plots-3.png" width="672" /></p>
-<div class="sourceCode" id="cb310"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb310-1" data-line-number="1"><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))</a>
-<a class="sourceLine" id="cb310-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb310-3" data-line-number="3">    <span class="co">#</span></a>
-<a class="sourceLine" id="cb310-4" data-line-number="4">    <span class="kw">summary</span>(dataset<span class="op">$</span>Time)</a></code></pre></div>
+<div class="sourceCode" id="cb309"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb309-1" data-line-number="1"><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))</a>
+<a class="sourceLine" id="cb309-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb309-3" data-line-number="3">    <span class="co">#</span></a>
+<a class="sourceLine" id="cb309-4" data-line-number="4">    <span class="kw">summary</span>(dataset<span class="op">$</span>Time)</a></code></pre></div>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
 ##   1.242   7.686  15.453  24.252  28.858 165.529</code></pre>
-<div class="sourceCode" id="cb312"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb312-1" data-line-number="1">    <span class="kw">summary</span>(dataset_filtered<span class="op">$</span>Time)</a></code></pre></div>
+<div class="sourceCode" id="cb311"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb311-1" data-line-number="1">    <span class="kw">summary</span>(dataset_filtered<span class="op">$</span>Time)</a></code></pre></div>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
 ##   3.770   9.318  16.484  21.066  26.824  64.141</code></pre>
 </div>
@@ -623,12 +629,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>Cargamos librerias</li>
 </ul>
-<div class="sourceCode" id="cb314"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb314-1" data-line-number="1"><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)</a>
-<a class="sourceLine" id="cb314-2" data-line-number="2"><span class="kw">p_load</span>(readr, psych, dplyr)</a></code></pre></div>
+<div class="sourceCode" id="cb313"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb313-1" data-line-number="1"><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)</a>
+<a class="sourceLine" id="cb313-2" data-line-number="2"><span class="kw">p_load</span>(readr, psych, dplyr)</a></code></pre></div>
 <hr />
 <p>We use the following <a href="Data/10-Pre_processing/Reliability.csv">dataset</a>.</p>
 <hr />
-<div class="sourceCode" id="cb315"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb315-1" data-line-number="1">temp =<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;Data/10-Pre_processing/Reliability.csv&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb314"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb314-1" data-line-number="1">temp =<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;Data/10-Pre_processing/Reliability.csv&quot;</span>)</a></code></pre></div>
 <pre><code>## Warning: Missing column names filled in: &#39;X1&#39; [1]</code></pre>
 <pre><code>## Parsed with column specification:
 ## cols(
@@ -640,13 +646,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##   OA.OA05. = col_integer(),
 ##   OA.OA06. = col_integer()
 ## )</code></pre>
-<div class="sourceCode" id="cb318"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb318-1" data-line-number="1">temp =<span class="st"> </span>temp[<span class="op">-</span><span class="dv">1</span>] </a>
-<a class="sourceLine" id="cb318-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb318-3" data-line-number="3"><span class="co">#Convierte todo a integer</span></a>
-<a class="sourceLine" id="cb318-4" data-line-number="4"><span class="co"># temp = temp %&gt;% dplyr::mutate_each(funs(as.integer))</span></a>
-<a class="sourceLine" id="cb318-5" data-line-number="5">temp =<span class="st"> </span><span class="kw">as.data.frame</span>(<span class="kw">sapply</span>(temp, as.integer))</a>
-<a class="sourceLine" id="cb318-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb318-7" data-line-number="7"><span class="kw">head</span>(temp)</a></code></pre></div>
+<div class="sourceCode" id="cb317"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb317-1" data-line-number="1">temp =<span class="st"> </span>temp[<span class="op">-</span><span class="dv">1</span>] </a>
+<a class="sourceLine" id="cb317-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb317-3" data-line-number="3"><span class="co">#Convierte todo a integer</span></a>
+<a class="sourceLine" id="cb317-4" data-line-number="4"><span class="co"># temp = temp %&gt;% dplyr::mutate_each(funs(as.integer))</span></a>
+<a class="sourceLine" id="cb317-5" data-line-number="5">temp =<span class="st"> </span><span class="kw">as.data.frame</span>(<span class="kw">sapply</span>(temp, as.integer))</a>
+<a class="sourceLine" id="cb317-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb317-7" data-line-number="7"><span class="kw">head</span>(temp)</a></code></pre></div>
 <pre><code>##   OA.OA01. OA.OA02. OA.OA03. OA.OA04. OA.OA05. OA.OA06.
 ## 1        5        3        5        2        1        5
 ## 2        3        1        5        1        1        3
@@ -654,7 +660,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 4        2        2        1        3        3        5
 ## 5        4        3        4        4        2        4
 ## 6        5        5        5        1        1        5</code></pre>
-<div class="sourceCode" id="cb320"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb320-1" data-line-number="1"><span class="kw">alpha</span>(temp)</a></code></pre></div>
+<div class="sourceCode" id="cb319"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb319-1" data-line-number="1"><span class="kw">alpha</span>(temp)</a></code></pre></div>
 <pre><code>## Warning in alpha(temp): Some items were negatively correlated with the total scale and probably 
 ## should be reversed.  
 ## To do this, run the function again with the &#39;check.keys=TRUE&#39; option</code></pre>
@@ -704,12 +710,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## OA.OA04. 0.19 0.24 0.33 0.11 0.13    0
 ## OA.OA05. 0.50 0.21 0.16 0.07 0.05    0
 ## OA.OA06. 0.00 0.03 0.09 0.16 0.73    0</code></pre>
-<div class="sourceCode" id="cb324"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb324-1" data-line-number="1"><span class="co"># temp2 = temp %&gt;% select(-1, -OA.OA05.)</span></a>
-<a class="sourceLine" id="cb324-2" data-line-number="2"><span class="co"># alpha(temp2)</span></a>
-<a class="sourceLine" id="cb324-3" data-line-number="3"><span class="co"># temp2 = temp %&gt;% select(-1, -OA.OA05., -OA.OA04.)</span></a>
-<a class="sourceLine" id="cb324-4" data-line-number="4"><span class="co"># alpha(temp2)</span></a>
-<a class="sourceLine" id="cb324-5" data-line-number="5">temp2 =<span class="st"> </span>temp <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(<span class="op">-</span><span class="dv">1</span>, <span class="op">-</span>OA.OA05., <span class="op">-</span>OA.OA04., <span class="op">-</span>OA.OA02.)</a>
-<a class="sourceLine" id="cb324-6" data-line-number="6"><span class="kw">alpha</span>(temp2)</a></code></pre></div>
+<div class="sourceCode" id="cb323"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb323-1" data-line-number="1"><span class="co"># temp2 = temp %&gt;% select(-1, -OA.OA05.)</span></a>
+<a class="sourceLine" id="cb323-2" data-line-number="2"><span class="co"># alpha(temp2)</span></a>
+<a class="sourceLine" id="cb323-3" data-line-number="3"><span class="co"># temp2 = temp %&gt;% select(-1, -OA.OA05., -OA.OA04.)</span></a>
+<a class="sourceLine" id="cb323-4" data-line-number="4"><span class="co"># alpha(temp2)</span></a>
+<a class="sourceLine" id="cb323-5" data-line-number="5">temp2 =<span class="st"> </span>temp <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(<span class="op">-</span><span class="dv">1</span>, <span class="op">-</span>OA.OA05., <span class="op">-</span>OA.OA04., <span class="op">-</span>OA.OA02.)</a>
+<a class="sourceLine" id="cb323-6" data-line-number="6"><span class="kw">alpha</span>(temp2)</a></code></pre></div>
 <pre><code>## Warning in matrix(unlist(drop.item), ncol = 10, byrow = TRUE): data length
 ## [16] is not a sub-multiple or multiple of the number of columns [10]</code></pre>
 <pre><code>## 
@@ -742,13 +748,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>Cargamos librerias</li>
 </ul>
-<div class="sourceCode" id="cb327"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb327-1" data-line-number="1"><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)</a>
-<a class="sourceLine" id="cb327-2" data-line-number="2"><span class="kw">p_load</span>(readr, psych, MBESS, dplyr, GPArotation)</a>
-<a class="sourceLine" id="cb327-3" data-line-number="3"><span class="co"># install.packages(&quot;MBESS&quot;, dependencies = TRUE)</span></a></code></pre></div>
+<div class="sourceCode" id="cb326"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb326-1" data-line-number="1"><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)</a>
+<a class="sourceLine" id="cb326-2" data-line-number="2"><span class="kw">p_load</span>(readr, psych, MBESS, dplyr, GPArotation)</a>
+<a class="sourceLine" id="cb326-3" data-line-number="3"><span class="co"># install.packages(&quot;MBESS&quot;, dependencies = TRUE)</span></a></code></pre></div>
 <hr />
 <p>We use the following <a href="Data/10-Pre_processing/Reliability.csv">dataset</a>.</p>
 <hr />
-<div class="sourceCode" id="cb328"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb328-1" data-line-number="1">temp =<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;Data/10-Pre_processing/Reliability.csv&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb327"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb327-1" data-line-number="1">temp =<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;Data/10-Pre_processing/Reliability.csv&quot;</span>)</a></code></pre></div>
 <pre><code>## Warning: Missing column names filled in: &#39;X1&#39; [1]</code></pre>
 <pre><code>## Parsed with column specification:
 ## cols(
@@ -760,13 +766,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##   OA.OA05. = col_integer(),
 ##   OA.OA06. = col_integer()
 ## )</code></pre>
-<div class="sourceCode" id="cb331"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb331-1" data-line-number="1">temp =<span class="st"> </span>temp[<span class="op">-</span><span class="dv">1</span>] </a>
-<a class="sourceLine" id="cb331-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb331-3" data-line-number="3"><span class="co">#Convierte todo a integer</span></a>
-<a class="sourceLine" id="cb331-4" data-line-number="4"><span class="co"># temp = temp %&gt;% dplyr::mutate_each(funs(as.integer))</span></a>
-<a class="sourceLine" id="cb331-5" data-line-number="5">temp =<span class="st"> </span><span class="kw">as.data.frame</span>(<span class="kw">sapply</span>(temp, as.integer))</a>
-<a class="sourceLine" id="cb331-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb331-7" data-line-number="7"><span class="kw">head</span>(temp)</a></code></pre></div>
+<div class="sourceCode" id="cb330"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb330-1" data-line-number="1">temp =<span class="st"> </span>temp[<span class="op">-</span><span class="dv">1</span>] </a>
+<a class="sourceLine" id="cb330-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb330-3" data-line-number="3"><span class="co">#Convierte todo a integer</span></a>
+<a class="sourceLine" id="cb330-4" data-line-number="4"><span class="co"># temp = temp %&gt;% dplyr::mutate_each(funs(as.integer))</span></a>
+<a class="sourceLine" id="cb330-5" data-line-number="5">temp =<span class="st"> </span><span class="kw">as.data.frame</span>(<span class="kw">sapply</span>(temp, as.integer))</a>
+<a class="sourceLine" id="cb330-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb330-7" data-line-number="7"><span class="kw">head</span>(temp)</a></code></pre></div>
 <pre><code>##   OA.OA01. OA.OA02. OA.OA03. OA.OA04. OA.OA05. OA.OA06.
 ## 1        5        3        5        2        1        5
 ## 2        3        1        5        1        1        3
@@ -776,22 +782,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 6        5        5        5        1        1        5</code></pre>
 <div id="method-1---with-bootstrap-1" class="section level4">
 <h4><span class="header-section-number">11.2.2.1</span> Method 1 - with Bootstrap <sup>1</sup></h4>
-<div class="sourceCode" id="cb333"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb333-1" data-line-number="1"><span class="co"># Use at least (?) B = 1000</span></a>
-<a class="sourceLine" id="cb333-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb333-3" data-line-number="3"><span class="co"># Execution time is non-trivial</span></a>
-<a class="sourceLine" id="cb333-4" data-line-number="4"><span class="kw">set.seed</span>(<span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb333-5" data-line-number="5"><span class="kw">ci.reliability</span>(<span class="dt">data =</span> temp, <span class="dt">type =</span> <span class="st">&quot;omega&quot;</span>, <span class="dt">conf.level =</span> <span class="fl">0.95</span>, <span class="dt">interval.type =</span> <span class="st">&quot;bca&quot;</span>, <span class="dt">B =</span> <span class="dv">1000</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb332"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb332-1" data-line-number="1"><span class="co"># Use at least (?) B = 1000</span></a>
+<a class="sourceLine" id="cb332-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb332-3" data-line-number="3"><span class="co"># Execution time is non-trivial</span></a>
+<a class="sourceLine" id="cb332-4" data-line-number="4"><span class="kw">set.seed</span>(<span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb332-5" data-line-number="5"><span class="kw">ci.reliability</span>(<span class="dt">data =</span> temp, <span class="dt">type =</span> <span class="st">&quot;omega&quot;</span>, <span class="dt">conf.level =</span> <span class="fl">0.95</span>, <span class="dt">interval.type =</span> <span class="st">&quot;bca&quot;</span>, <span class="dt">B =</span> <span class="dv">1000</span>)</a></code></pre></div>
 <pre><code>## $est
-## [1] 0.07509883
+## [1] 0.07509823
 ## 
 ## $se
-## [1] 0.05258191
+## [1] 0.05258192
 ## 
 ## $ci.lower
-## [1] 0.001385035
+## [1] 0.001385049
 ## 
 ## $ci.upper
-## [1] 0.1873718
+## [1] 0.1873723
 ## 
 ## $conf.level
 ## [1] 0.95
@@ -804,8 +810,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="method-2-2" class="section level4">
 <h4><span class="header-section-number">11.2.2.2</span> Method 2 <sup>2</sup></h4>
-<div class="sourceCode" id="cb335"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb335-1" data-line-number="1"><span class="co"># See options</span></a>
-<a class="sourceLine" id="cb335-2" data-line-number="2"><span class="kw">omega</span>(temp)</a></code></pre></div>
+<div class="sourceCode" id="cb334"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb334-1" data-line-number="1"><span class="co"># See options</span></a>
+<a class="sourceLine" id="cb334-2" data-line-number="2"><span class="kw">omega</span>(temp)</a></code></pre></div>
 <p><img src="_main_files/figure-html/omega-1.png" width="672" /></p>
 <pre><code>## Omega 
 ## Call: omega(m = temp)
@@ -880,11 +886,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">11.3</span> Impute missing data</h2>
 <p><strong>TODO: see <a href="https://www.r-bloggers.com/imputing-missing-data-with-r-mice-package/" class="uri">https://www.r-bloggers.com/imputing-missing-data-with-r-mice-package/</a></strong></p>
 <p>FROM: <a href="https://www.r-bloggers.com/graphical-presentation-of-missing-data-vim-package/" class="uri">https://www.r-bloggers.com/graphical-presentation-of-missing-data-vim-package/</a></p>
-<div class="sourceCode" id="cb337"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb337-1" data-line-number="1"><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)</a>
-<a class="sourceLine" id="cb337-2" data-line-number="2"><span class="kw">p_load</span>(VIM, mice, dplyr, tibble)</a>
-<a class="sourceLine" id="cb337-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb337-4" data-line-number="4">dat &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="kw">url</span>(<span class="st">&quot;https://goo.gl/4DYzru&quot;</span>), <span class="dt">header =</span> <span class="ot">TRUE</span>, <span class="dt">sep =</span> <span class="st">&quot;,&quot;</span>)</a>
-<a class="sourceLine" id="cb337-5" data-line-number="5"><span class="kw">head</span>(dat)</a></code></pre></div>
+<div class="sourceCode" id="cb336"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb336-1" data-line-number="1"><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)</a>
+<a class="sourceLine" id="cb336-2" data-line-number="2"><span class="kw">p_load</span>(VIM, mice, dplyr, tibble)</a>
+<a class="sourceLine" id="cb336-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb336-4" data-line-number="4">dat &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="kw">url</span>(<span class="st">&quot;https://goo.gl/4DYzru&quot;</span>), <span class="dt">header =</span> <span class="ot">TRUE</span>, <span class="dt">sep =</span> <span class="st">&quot;,&quot;</span>)</a>
+<a class="sourceLine" id="cb336-5" data-line-number="5"><span class="kw">head</span>(dat)</a></code></pre></div>
 <pre><code>##    Age Gender Cholesterol SystolicBP  BMI Smoking Education
 ## 1 67.9 Female       236.4      129.8 26.4     Yes      High
 ## 2 54.8 Female       256.3      133.4 28.4      No    Medium
@@ -892,17 +898,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 4 67.9   Male       205.0      136.0 19.9      No       Low
 ## 5 60.9   Male       207.7      145.4 26.7      No    Medium
 ## 6 44.9 Female       222.5      130.6 30.6      No       Low</code></pre>
-<div class="sourceCode" id="cb339"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb339-1" data-line-number="1"><span class="kw">set.seed</span>(<span class="dv">10</span>)</a>
-<a class="sourceLine" id="cb339-2" data-line-number="2">missing =<span class="st"> </span><span class="kw">rbinom</span>(<span class="dv">250</span>, <span class="dv">1</span>, <span class="fl">0.3</span>)</a>
-<a class="sourceLine" id="cb339-3" data-line-number="3">dat<span class="op">$</span>Cholesterol =<span class="st"> </span><span class="kw">with</span>(dat, <span class="kw">ifelse</span>(BMI <span class="op">&gt;=</span><span class="st"> </span><span class="dv">30</span> <span class="op">&amp;</span><span class="st"> </span>missing <span class="op">==</span><span class="st"> </span><span class="dv">1</span>, <span class="ot">NA</span>, Cholesterol))</a>
-<a class="sourceLine" id="cb339-4" data-line-number="4"><span class="kw">sum</span>(<span class="kw">is.na</span>(dat<span class="op">$</span>Cholesterol))</a></code></pre></div>
+<div class="sourceCode" id="cb338"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb338-1" data-line-number="1"><span class="kw">set.seed</span>(<span class="dv">10</span>)</a>
+<a class="sourceLine" id="cb338-2" data-line-number="2">missing =<span class="st"> </span><span class="kw">rbinom</span>(<span class="dv">250</span>, <span class="dv">1</span>, <span class="fl">0.3</span>)</a>
+<a class="sourceLine" id="cb338-3" data-line-number="3">dat<span class="op">$</span>Cholesterol =<span class="st"> </span><span class="kw">with</span>(dat, <span class="kw">ifelse</span>(BMI <span class="op">&gt;=</span><span class="st"> </span><span class="dv">30</span> <span class="op">&amp;</span><span class="st"> </span>missing <span class="op">==</span><span class="st"> </span><span class="dv">1</span>, <span class="ot">NA</span>, Cholesterol))</a>
+<a class="sourceLine" id="cb338-4" data-line-number="4"><span class="kw">sum</span>(<span class="kw">is.na</span>(dat<span class="op">$</span>Cholesterol))</a></code></pre></div>
 <pre><code>## [1] 16</code></pre>
-<div class="sourceCode" id="cb341"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb341-1" data-line-number="1">init =<span class="st"> </span><span class="kw">mice</span>(dat, <span class="dt">maxit =</span> <span class="dv">0</span>) </a>
-<a class="sourceLine" id="cb341-2" data-line-number="2">meth =<span class="st"> </span>init<span class="op">$</span>method</a>
-<a class="sourceLine" id="cb341-3" data-line-number="3">predM =<span class="st"> </span>init<span class="op">$</span>predictorMatrix</a>
-<a class="sourceLine" id="cb341-4" data-line-number="4">meth[<span class="kw">c</span>(<span class="st">&quot;Cholesterol&quot;</span>)] =<span class="st"> &quot;pmm&quot;</span> </a>
-<a class="sourceLine" id="cb341-5" data-line-number="5"><span class="kw">set.seed</span>(<span class="dv">101</span>)</a>
-<a class="sourceLine" id="cb341-6" data-line-number="6">imputed =<span class="st"> </span><span class="kw">mice</span>(dat, <span class="dt">method =</span> meth, <span class="dt">predictorMatrix =</span> predM, <span class="dt">m =</span> <span class="dv">1</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb340"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb340-1" data-line-number="1">init =<span class="st"> </span><span class="kw">mice</span>(dat, <span class="dt">maxit =</span> <span class="dv">0</span>) </a>
+<a class="sourceLine" id="cb340-2" data-line-number="2">meth =<span class="st"> </span>init<span class="op">$</span>method</a>
+<a class="sourceLine" id="cb340-3" data-line-number="3">predM =<span class="st"> </span>init<span class="op">$</span>predictorMatrix</a>
+<a class="sourceLine" id="cb340-4" data-line-number="4">meth[<span class="kw">c</span>(<span class="st">&quot;Cholesterol&quot;</span>)] =<span class="st"> &quot;pmm&quot;</span> </a>
+<a class="sourceLine" id="cb340-5" data-line-number="5"><span class="kw">set.seed</span>(<span class="dv">101</span>)</a>
+<a class="sourceLine" id="cb340-6" data-line-number="6">imputed =<span class="st"> </span><span class="kw">mice</span>(dat, <span class="dt">method =</span> meth, <span class="dt">predictorMatrix =</span> predM, <span class="dt">m =</span> <span class="dv">1</span>)</a></code></pre></div>
 <pre><code>## 
 ##  iter imp variable
 ##   1   1  Cholesterol
@@ -910,23 +916,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##   3   1  Cholesterol
 ##   4   1  Cholesterol
 ##   5   1  Cholesterol</code></pre>
-<div class="sourceCode" id="cb343"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb343-1" data-line-number="1">imp =<span class="st"> </span><span class="kw">complete</span>(imputed)</a>
-<a class="sourceLine" id="cb343-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb343-3" data-line-number="3">dt1 =<span class="st"> </span>dat <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb343-4" data-line-number="4"><span class="st">  </span><span class="kw">select</span>(Cholesterol, BMI) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb343-5" data-line-number="5"><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">rename</span>(<span class="dt">Cholesterol_imp =</span> Cholesterol) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb343-6" data-line-number="6"><span class="st">  </span><span class="kw">mutate</span>(</a>
-<a class="sourceLine" id="cb343-7" data-line-number="7">    <span class="dt">Cholesterol_imp =</span> <span class="kw">as.logical</span>(<span class="kw">ifelse</span>(<span class="kw">is.na</span>(Cholesterol_imp), <span class="st">&quot;TRUE&quot;</span>, <span class="st">&quot;FALSE&quot;</span>))</a>
-<a class="sourceLine" id="cb343-8" data-line-number="8">  ) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb343-9" data-line-number="9"><span class="st">  </span><span class="kw">rownames_to_column</span>()</a>
-<a class="sourceLine" id="cb343-10" data-line-number="10"></a>
-<a class="sourceLine" id="cb343-11" data-line-number="11">dt2 =<span class="st"> </span>imp <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb343-12" data-line-number="12"><span class="st">  </span><span class="kw">select</span>(Cholesterol, BMI) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb343-13" data-line-number="13"><span class="st">  </span><span class="kw">rownames_to_column</span>()</a>
-<a class="sourceLine" id="cb343-14" data-line-number="14"></a>
-<a class="sourceLine" id="cb343-15" data-line-number="15">dt =<span class="st"> </span><span class="kw">left_join</span>(dt1, dt2)</a></code></pre></div>
+<div class="sourceCode" id="cb342"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb342-1" data-line-number="1">imp =<span class="st"> </span><span class="kw">complete</span>(imputed)</a>
+<a class="sourceLine" id="cb342-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb342-3" data-line-number="3">dt1 =<span class="st"> </span>dat <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb342-4" data-line-number="4"><span class="st">  </span><span class="kw">select</span>(Cholesterol, BMI) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb342-5" data-line-number="5"><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">rename</span>(<span class="dt">Cholesterol_imp =</span> Cholesterol) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb342-6" data-line-number="6"><span class="st">  </span><span class="kw">mutate</span>(</a>
+<a class="sourceLine" id="cb342-7" data-line-number="7">    <span class="dt">Cholesterol_imp =</span> <span class="kw">as.logical</span>(<span class="kw">ifelse</span>(<span class="kw">is.na</span>(Cholesterol_imp), <span class="st">&quot;TRUE&quot;</span>, <span class="st">&quot;FALSE&quot;</span>))</a>
+<a class="sourceLine" id="cb342-8" data-line-number="8">  ) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb342-9" data-line-number="9"><span class="st">  </span><span class="kw">rownames_to_column</span>()</a>
+<a class="sourceLine" id="cb342-10" data-line-number="10"></a>
+<a class="sourceLine" id="cb342-11" data-line-number="11">dt2 =<span class="st"> </span>imp <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb342-12" data-line-number="12"><span class="st">  </span><span class="kw">select</span>(Cholesterol, BMI) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb342-13" data-line-number="13"><span class="st">  </span><span class="kw">rownames_to_column</span>()</a>
+<a class="sourceLine" id="cb342-14" data-line-number="14"></a>
+<a class="sourceLine" id="cb342-15" data-line-number="15">dt =<span class="st"> </span><span class="kw">left_join</span>(dt1, dt2)</a></code></pre></div>
 <pre><code>## Joining, by = c(&quot;rowname&quot;, &quot;BMI&quot;)</code></pre>
-<div class="sourceCode" id="cb345"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb345-1" data-line-number="1"><span class="kw">head</span>(dt)</a></code></pre></div>
+<div class="sourceCode" id="cb344"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb344-1" data-line-number="1"><span class="kw">head</span>(dt)</a></code></pre></div>
 <pre><code>##   rowname Cholesterol_imp  BMI Cholesterol
 ## 1       1           FALSE 26.4       236.4
 ## 2       2           FALSE 28.4       256.3
@@ -934,8 +940,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 4       4           FALSE 19.9       205.0
 ## 5       5           FALSE 26.7       207.7
 ## 6       6           FALSE 30.6       222.5</code></pre>
-<div class="sourceCode" id="cb347"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb347-1" data-line-number="1">vars &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;BMI&quot;</span>,<span class="st">&quot;Cholesterol&quot;</span>,<span class="st">&quot;Cholesterol_imp&quot;</span>)</a>
-<a class="sourceLine" id="cb347-2" data-line-number="2"><span class="kw">marginplot</span>(dt[,vars], <span class="dt">delimiter =</span> <span class="st">&quot;_imp&quot;</span>, <span class="dt">alpha =</span> <span class="fl">0.6</span>, <span class="dt">pch =</span> <span class="kw">c</span>(<span class="dv">19</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb346"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb346-1" data-line-number="1">vars &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;BMI&quot;</span>,<span class="st">&quot;Cholesterol&quot;</span>,<span class="st">&quot;Cholesterol_imp&quot;</span>)</a>
+<a class="sourceLine" id="cb346-2" data-line-number="2"><span class="kw">marginplot</span>(dt[,vars], <span class="dt">delimiter =</span> <span class="st">&quot;_imp&quot;</span>, <span class="dt">alpha =</span> <span class="fl">0.6</span>, <span class="dt">pch =</span> <span class="kw">c</span>(<span class="dv">19</span>))</a></code></pre></div>
 <p><img src="_main_files/figure-html/impute_missing_data-1.png" width="672" /></p>
 
 </div>

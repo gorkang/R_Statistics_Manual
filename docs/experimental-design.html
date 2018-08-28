@@ -14,7 +14,7 @@
   
   
   <meta property="og:description" content="Statistics manual from CSCN." />
-  <meta name="github-repo" content="rstudio/bookdown-demo" />
+  <meta name="github-repo" content="gorkang/R_Statistics_Manual" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="R - Statistics Manual" />
@@ -25,7 +25,7 @@
 <meta name="author" content="Center for Social and Cognitive Neuroscience - cscn.uai.cl">
 
 
-<meta name="date" content="2018-08-27">
+<meta name="date" content="2018-08-28">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -50,6 +50,13 @@
 <script src="libs/htmlwidgets-1.2/htmlwidgets.js"></script>
 <link href="libs/str_view-0.1.0/str_view.css" rel="stylesheet" />
 <script src="libs/str_view-binding-1.3.1/str_view.js"></script>
+<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="libs/datatables-binding-0.4/datatables.js"></script>
+<link href="libs/dt-core-1.10.16/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.10.16/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.10.16/js/jquery.dataTables.min.js"></script>
+<link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
 <script src="libs/d3-4.5.0/d3.min.js"></script>
 <script src="libs/sankey-1/sankey.js"></script>
 <script src="libs/sankeyNetwork-binding-0.4/sankeyNetwork.js"></script>
@@ -210,25 +217,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.7" data-path="Manipular-datos.html"><a href="Manipular-datos.html#tutoriales-externos"><i class="fa fa-check"></i><b>6.7</b> Tutoriales externos</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html"><i class="fa fa-check"></i><b>7</b> Visualizar datos</a><ul>
-<li class="chapter" data-level="7.1" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#todo-1"><i class="fa fa-check"></i><b>7.1</b> TODO</a></li>
-<li class="chapter" data-level="7.2" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#other-resources"><i class="fa fa-check"></i><b>7.2</b> Other resources</a></li>
-<li class="chapter" data-level="7.3" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#que-grafica-puedo-usar-wip"><i class="fa fa-check"></i><b>7.3</b> Que gráfica puedo usar (WIP)</a></li>
-<li class="chapter" data-level="7.4" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#tipos-de-graficas"><i class="fa fa-check"></i><b>7.4</b> Tipos de gráficas</a><ul>
-<li class="chapter" data-level="7.4.1" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#histogramas"><i class="fa fa-check"></i><b>7.4.1</b> Histogramas</a></li>
-<li class="chapter" data-level="7.4.2" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#Pirate-Plot"><i class="fa fa-check"></i><b>7.4.2</b> Pirate plot</a></li>
-<li class="chapter" data-level="7.4.3" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#barplots-with-individual-responses"><i class="fa fa-check"></i><b>7.4.3</b> Barplots with individual responses</a></li>
-<li class="chapter" data-level="7.4.4" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#diagrama-de-caja-y-bigotes"><i class="fa fa-check"></i><b>7.4.4</b> Diagrama de caja y bigotes</a></li>
-<li class="chapter" data-level="7.4.5" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#correlation-plot"><i class="fa fa-check"></i><b>7.4.5</b> Correlation plot</a></li>
-<li class="chapter" data-level="7.4.6" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#beanplot"><i class="fa fa-check"></i><b>7.4.6</b> Beanplot</a></li>
-<li class="chapter" data-level="7.4.7" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#scatterplot"><i class="fa fa-check"></i><b>7.4.7</b> Scatterplot</a></li>
-<li class="chapter" data-level="7.4.8" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#scatterplot-con-3-variables"><i class="fa fa-check"></i><b>7.4.8</b> Scatterplot con 3 variables</a></li>
-<li class="chapter" data-level="7.4.9" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#density-plots"><i class="fa fa-check"></i><b>7.4.9</b> Density plots</a></li>
-<li class="chapter" data-level="7.4.10" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#density-ridges-plots-ggjoy"><i class="fa fa-check"></i><b>7.4.10</b> Density Ridges Plots (ggjoy)</a></li>
-<li class="chapter" data-level="7.4.11" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#pp-plots"><i class="fa fa-check"></i><b>7.4.11</b> PP plots</a></li>
-<li class="chapter" data-level="7.4.12" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#shaded-geom-area"><i class="fa fa-check"></i><b>7.4.12</b> Shaded geom area</a></li>
-<li class="chapter" data-level="7.4.13" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#multiple-scatterplots"><i class="fa fa-check"></i><b>7.4.13</b> Multiple Scatterplots</a></li>
-<li class="chapter" data-level="7.4.14" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#background-data"><i class="fa fa-check"></i><b>7.4.14</b> Background data</a></li>
-<li class="chapter" data-level="7.4.15" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#flip-plots"><i class="fa fa-check"></i><b>7.4.15</b> Flip plots</a></li>
+<li class="chapter" data-level="7.1" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#other-resources"><i class="fa fa-check"></i><b>7.1</b> Other resources</a></li>
+<li class="chapter" data-level="7.2" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#que-grafica-puedo-usar-wip"><i class="fa fa-check"></i><b>7.2</b> Que gráfica puedo usar (WIP)</a></li>
+<li class="chapter" data-level="7.3" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#tipos-de-graficas"><i class="fa fa-check"></i><b>7.3</b> Tipos de gráficas</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#histogramas"><i class="fa fa-check"></i><b>7.3.1</b> Histogramas</a></li>
+<li class="chapter" data-level="7.3.2" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#Pirate-Plot"><i class="fa fa-check"></i><b>7.3.2</b> Pirate plot</a></li>
+<li class="chapter" data-level="7.3.3" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#barplots-with-individual-responses"><i class="fa fa-check"></i><b>7.3.3</b> Barplots with individual responses</a></li>
+<li class="chapter" data-level="7.3.4" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#diagrama-de-caja-y-bigotes"><i class="fa fa-check"></i><b>7.3.4</b> Diagrama de caja y bigotes</a></li>
+<li class="chapter" data-level="7.3.5" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#correlation-plot"><i class="fa fa-check"></i><b>7.3.5</b> Correlation plot</a></li>
+<li class="chapter" data-level="7.3.6" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#beanplot"><i class="fa fa-check"></i><b>7.3.6</b> Beanplot</a></li>
+<li class="chapter" data-level="7.3.7" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#scatterplot"><i class="fa fa-check"></i><b>7.3.7</b> Scatterplot</a></li>
+<li class="chapter" data-level="7.3.8" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#scatterplot-con-3-variables"><i class="fa fa-check"></i><b>7.3.8</b> Scatterplot con 3 variables</a></li>
+<li class="chapter" data-level="7.3.9" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#density-plots"><i class="fa fa-check"></i><b>7.3.9</b> Density plots</a></li>
+<li class="chapter" data-level="7.3.10" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#density-ridges-plots-ggjoy"><i class="fa fa-check"></i><b>7.3.10</b> Density Ridges Plots (ggjoy)</a></li>
+<li class="chapter" data-level="7.3.11" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#pp-plots"><i class="fa fa-check"></i><b>7.3.11</b> PP plots</a></li>
+<li class="chapter" data-level="7.3.12" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#shaded-geom-area"><i class="fa fa-check"></i><b>7.3.12</b> Shaded geom area</a></li>
+<li class="chapter" data-level="7.3.13" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#multiple-scatterplots"><i class="fa fa-check"></i><b>7.3.13</b> Multiple Scatterplots</a></li>
+<li class="chapter" data-level="7.3.14" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#background-data"><i class="fa fa-check"></i><b>7.3.14</b> Background data</a></li>
+<li class="chapter" data-level="7.3.15" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#flip-plots"><i class="fa fa-check"></i><b>7.3.15</b> Flip plots</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="Estadistica-descriptiva.html"><a href="Estadistica-descriptiva.html"><i class="fa fa-check"></i><b>8</b> Estadistica descriptiva</a><ul>
@@ -313,18 +319,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="18.1" data-path="todo-curso-basico-r-2016.html"><a href="todo-curso-basico-r-2016.html#en-ejercicios"><i class="fa fa-check"></i><b>18.1</b> EN EJERCICIOS:</a></li>
 <li class="chapter" data-level="18.2" data-path="todo-curso-basico-r-2016.html"><a href="todo-curso-basico-r-2016.html#todo---limpieza-general"><i class="fa fa-check"></i><b>18.2</b> TODO - Limpieza general</a></li>
 </ul></li>
-<li class="chapter" data-level="19" data-path="todo-2.html"><a href="todo-2.html"><i class="fa fa-check"></i><b>19</b> TODO</a><ul>
-<li class="chapter" data-level="19.1" data-path="todo-2.html"><a href="todo-2.html#urgent-stuff"><i class="fa fa-check"></i><b>19.1</b> Urgent stuff</a></li>
-<li class="chapter" data-level="19.2" data-path="todo-2.html"><a href="todo-2.html#important"><i class="fa fa-check"></i><b>19.2</b> Important</a></li>
-<li class="chapter" data-level="19.3" data-path="todo-2.html"><a href="todo-2.html#various"><i class="fa fa-check"></i><b>19.3</b> Various</a></li>
-<li class="chapter" data-level="19.4" data-path="todo-2.html"><a href="todo-2.html#index-proposal"><i class="fa fa-check"></i><b>19.4</b> <strong>INDEX PROPOSAL</strong></a></li>
-<li class="chapter" data-level="19.5" data-path="todo-2.html"><a href="todo-2.html#style-guide"><i class="fa fa-check"></i><b>19.5</b> Style guide</a><ul>
-<li class="chapter" data-level="19.5.1" data-path="todo-2.html"><a href="todo-2.html#sections"><i class="fa fa-check"></i><b>19.5.1</b> Sections</a></li>
-<li class="chapter" data-level="19.5.2" data-path="todo-2.html"><a href="todo-2.html#general"><i class="fa fa-check"></i><b>19.5.2</b> General</a></li>
+<li class="chapter" data-level="19" data-path="todo-1.html"><a href="todo-1.html"><i class="fa fa-check"></i><b>19</b> TODO</a><ul>
+<li class="chapter" data-level="19.1" data-path="todo-1.html"><a href="todo-1.html#urgent-stuff"><i class="fa fa-check"></i><b>19.1</b> Urgent stuff</a></li>
+<li class="chapter" data-level="19.2" data-path="todo-1.html"><a href="todo-1.html#important"><i class="fa fa-check"></i><b>19.2</b> Important</a></li>
+<li class="chapter" data-level="19.3" data-path="todo-1.html"><a href="todo-1.html#various"><i class="fa fa-check"></i><b>19.3</b> Various</a></li>
+<li class="chapter" data-level="19.4" data-path="todo-1.html"><a href="todo-1.html#index-proposal"><i class="fa fa-check"></i><b>19.4</b> <strong>INDEX PROPOSAL</strong></a></li>
+<li class="chapter" data-level="19.5" data-path="todo-1.html"><a href="todo-1.html#style-guide"><i class="fa fa-check"></i><b>19.5</b> Style guide</a><ul>
+<li class="chapter" data-level="19.5.1" data-path="todo-1.html"><a href="todo-1.html#sections"><i class="fa fa-check"></i><b>19.5.1</b> Sections</a></li>
+<li class="chapter" data-level="19.5.2" data-path="todo-1.html"><a href="todo-1.html#general"><i class="fa fa-check"></i><b>19.5.2</b> General</a></li>
 </ul></li>
-<li class="chapter" data-level="19.6" data-path="todo-2.html"><a href="todo-2.html#notas---remember"><i class="fa fa-check"></i><b>19.6</b> NOTAS - REMEMBER</a><ul>
-<li class="chapter" data-level="19.6.1" data-path="todo-2.html"><a href="todo-2.html#refs"><i class="fa fa-check"></i><b>19.6.1</b> REFS</a></li>
-<li class="chapter" data-level="19.6.2" data-path="todo-2.html"><a href="todo-2.html#notas"><i class="fa fa-check"></i><b>19.6.2</b> NOTAS</a></li>
+<li class="chapter" data-level="19.6" data-path="todo-1.html"><a href="todo-1.html#notas---remember"><i class="fa fa-check"></i><b>19.6</b> NOTAS - REMEMBER</a><ul>
+<li class="chapter" data-level="19.6.1" data-path="todo-1.html"><a href="todo-1.html#refs"><i class="fa fa-check"></i><b>19.6.1</b> REFS</a></li>
+<li class="chapter" data-level="19.6.2" data-path="todo-1.html"><a href="todo-1.html#notas"><i class="fa fa-check"></i><b>19.6.2</b> NOTAS</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -349,75 +355,75 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="tamano-de-muestra-y-efecto-detectado" class="section level2">
 <h2><span class="header-section-number">12.1</span> Tamaño de muestra y efecto detectado</h2>
 <p>En esta simulación se muestra como con tamaños de muestra pequeños, se sobreestima el tamaño de efecto real. Como se puede ver en el codigo, solo se muestran los estudios simulados donde la correlacion es significativa. Ver el <a href="https://jimgrange.wordpress.com/2017/03/06/low-power-effect-sizes/">blog de Jim Grange</a> para una explicación más detallada.</p>
-<div class="sourceCode" id="cb348"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb348-1" data-line-number="1"><span class="co"># https://jimgrange.wordpress.com/2017/03/06/low-power-effect-sizes/</span></a>
-<a class="sourceLine" id="cb348-2" data-line-number="2"><span class="co">#------------------------------------------------------------------------------</span></a>
-<a class="sourceLine" id="cb348-3" data-line-number="3"><span class="kw">rm</span>(<span class="dt">list =</span> <span class="kw">ls</span>())</a>
-<a class="sourceLine" id="cb348-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb348-5" data-line-number="5"><span class="kw">set.seed</span>(<span class="dv">50</span>)</a>
-<a class="sourceLine" id="cb348-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb348-7" data-line-number="7"><span class="co"># function for generating random draws from multivariate distribution</span></a>
-<a class="sourceLine" id="cb348-8" data-line-number="8"><span class="co"># n = number of draws; p = number of variables</span></a>
-<a class="sourceLine" id="cb348-9" data-line-number="9"><span class="co"># u = mean of each variable; s = SD of each variable</span></a>
-<a class="sourceLine" id="cb348-10" data-line-number="10"><span class="co"># corMat = correlation matrix</span></a>
-<a class="sourceLine" id="cb348-11" data-line-number="11">mvrnorm &lt;-<span class="st"> </span><span class="cf">function</span>(n, p, u, s, corMat) {</a>
-<a class="sourceLine" id="cb348-12" data-line-number="12">  Z &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">rnorm</span>(n <span class="op">*</span><span class="st"> </span>p), p, n)</a>
-<a class="sourceLine" id="cb348-13" data-line-number="13">  <span class="kw">t</span>(u <span class="op">+</span><span class="st"> </span>s <span class="op">*</span><span class="st"> </span><span class="kw">t</span>(<span class="kw">chol</span>(corMat)) <span class="op">%*%</span><span class="st"> </span>Z)</a>
-<a class="sourceLine" id="cb348-14" data-line-number="14">}</a>
-<a class="sourceLine" id="cb348-15" data-line-number="15"></a>
-<a class="sourceLine" id="cb348-16" data-line-number="16"><span class="co">#------------------------------------------------------------------------------</span></a>
-<a class="sourceLine" id="cb348-17" data-line-number="17"></a>
-<a class="sourceLine" id="cb348-18" data-line-number="18"><span class="co">#------------------------------------------------------------------------------</span></a>
-<a class="sourceLine" id="cb348-19" data-line-number="19">### simulation setup</a>
-<a class="sourceLine" id="cb348-20" data-line-number="20"></a>
-<a class="sourceLine" id="cb348-21" data-line-number="21"><span class="co"># declare simulation parameters</span></a>
-<a class="sourceLine" id="cb348-22" data-line-number="22">means &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">100</span>, <span class="dv">600</span>)</a>
-<a class="sourceLine" id="cb348-23" data-line-number="23">sds &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">20</span>, <span class="dv">80</span>)</a>
-<a class="sourceLine" id="cb348-24" data-line-number="24">n_sims =<span class="st"> </span><span class="dv">1000</span></a>
-<a class="sourceLine" id="cb348-25" data-line-number="25"></a>
-<a class="sourceLine" id="cb348-26" data-line-number="26"><span class="co"># declare correlation coefficient &amp; generate cor. matrix</span></a>
-<a class="sourceLine" id="cb348-27" data-line-number="27">cor &lt;-<span class="st"> </span><span class="fl">0.3</span></a>
-<a class="sourceLine" id="cb348-28" data-line-number="28">cor_mat &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">1</span>, cor, </a>
-<a class="sourceLine" id="cb348-29" data-line-number="29">                    cor, <span class="dv">1</span>), <span class="dt">nrow =</span> <span class="dv">2</span>, <span class="dt">ncol =</span> <span class="dv">2</span>, <span class="dt">byrow =</span> <span class="ot">TRUE</span>)</a>
-<a class="sourceLine" id="cb348-30" data-line-number="30"></a>
-<a class="sourceLine" id="cb348-31" data-line-number="31"><span class="co"># sample sizes to simulate</span></a>
-<a class="sourceLine" id="cb348-32" data-line-number="32">sample_sizes &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">50</span>, <span class="dv">85</span>, <span class="dv">170</span>, <span class="dv">500</span>, <span class="dv">1000</span>)</a>
-<a class="sourceLine" id="cb348-33" data-line-number="33"></a>
-<a class="sourceLine" id="cb348-34" data-line-number="34"><span class="co"># number of simulations</span></a>
-<a class="sourceLine" id="cb348-35" data-line-number="35"></a>
-<a class="sourceLine" id="cb348-36" data-line-number="36"><span class="co"># create variable to store data in</span></a>
-<a class="sourceLine" id="cb348-37" data-line-number="37">final_data &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dt">nrow =</span> n_sims, <span class="dt">ncol =</span> <span class="kw">length</span>(sample_sizes))</a>
-<a class="sourceLine" id="cb348-38" data-line-number="38"><span class="kw">colnames</span>(final_data) &lt;-<span class="st"> </span>sample_sizes</a>
-<a class="sourceLine" id="cb348-39" data-line-number="39"><span class="co">#------------------------------------------------------------------------------</span></a>
-<a class="sourceLine" id="cb348-40" data-line-number="40"></a>
-<a class="sourceLine" id="cb348-41" data-line-number="41"><span class="co">#------------------------------------------------------------------------------</span></a>
-<a class="sourceLine" id="cb348-42" data-line-number="42">### simulation execution</a>
-<a class="sourceLine" id="cb348-43" data-line-number="43"></a>
-<a class="sourceLine" id="cb348-44" data-line-number="44"><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(sample_sizes)){</a>
-<a class="sourceLine" id="cb348-45" data-line-number="45">  <span class="cf">for</span>(j <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>n_sims){</a>
-<a class="sourceLine" id="cb348-46" data-line-number="46">    </a>
-<a class="sourceLine" id="cb348-47" data-line-number="47">    <span class="co"># get the experiment data</span></a>
-<a class="sourceLine" id="cb348-48" data-line-number="48">    sim_data &lt;-<span class="st"> </span><span class="kw">mvrnorm</span>(sample_sizes[i], <span class="dt">p =</span> <span class="dv">2</span>, <span class="dt">u =</span> means, <span class="dt">s =</span> sds, </a>
-<a class="sourceLine" id="cb348-49" data-line-number="49">                        <span class="dt">corMat =</span> cor_mat)</a>
-<a class="sourceLine" id="cb348-50" data-line-number="50">    </a>
-<a class="sourceLine" id="cb348-51" data-line-number="51">    <span class="co"># perform the correlation</span></a>
-<a class="sourceLine" id="cb348-52" data-line-number="52">    sim_cor &lt;-<span class="st"> </span><span class="kw">cor.test</span>(sim_data[, <span class="dv">1</span>], sim_data[, <span class="dv">2</span>], <span class="dt">method =</span> <span class="st">&quot;pearson&quot;</span>)</a>
-<a class="sourceLine" id="cb348-53" data-line-number="53">    </a>
-<a class="sourceLine" id="cb348-54" data-line-number="54">    <span class="co"># if the correlation is significant, store the effect size</span></a>
-<a class="sourceLine" id="cb348-55" data-line-number="55">    <span class="cf">if</span>(sim_cor<span class="op">$</span>p.value <span class="op">&lt;</span><span class="st"> </span><span class="fl">0.05</span>){</a>
-<a class="sourceLine" id="cb348-56" data-line-number="56">      final_data[j, i] &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(<span class="kw">round</span>(<span class="kw">abs</span>(sim_cor<span class="op">$</span>estimate), <span class="dv">3</span>))</a>
-<a class="sourceLine" id="cb348-57" data-line-number="57">    }</a>
-<a class="sourceLine" id="cb348-58" data-line-number="58">  }</a>
-<a class="sourceLine" id="cb348-59" data-line-number="59">}</a>
-<a class="sourceLine" id="cb348-60" data-line-number="60"><span class="co">#------------------------------------------------------------------------------</span></a>
-<a class="sourceLine" id="cb348-61" data-line-number="61"></a>
-<a class="sourceLine" id="cb348-62" data-line-number="62"><span class="co">#------------------------------------------------------------------------------</span></a>
-<a class="sourceLine" id="cb348-63" data-line-number="63">## draw the plot</a>
-<a class="sourceLine" id="cb348-64" data-line-number="64"><span class="kw">boxplot</span>(final_data, <span class="dt">na.action=</span>na.omit, <span class="dt">xlab =</span> <span class="st">&quot;Simulated Sample Size&quot;</span>, </a>
-<a class="sourceLine" id="cb348-65" data-line-number="65">        <span class="dt">ylab =</span> <span class="st">&quot;Measured Effect Size&quot;</span>)</a>
-<a class="sourceLine" id="cb348-66" data-line-number="66"><span class="kw">abline</span>(<span class="dt">h =</span> cor, <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">lty =</span> <span class="dv">2</span>, <span class="dt">lwd =</span> <span class="dv">3</span>)</a>
-<a class="sourceLine" id="cb348-67" data-line-number="67"></a>
-<a class="sourceLine" id="cb348-68" data-line-number="68"><span class="kw">legend</span>(<span class="st">&quot;topright&quot;</span>, <span class="st">&quot;True Effect Size&quot;</span>, <span class="dt">cex =</span> <span class="fl">1.5</span>,  <span class="dt">lty =</span> <span class="dv">2</span>, <span class="dt">bty=</span><span class="st">&quot;n&quot;</span>, </a>
-<a class="sourceLine" id="cb348-69" data-line-number="69">       <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">lwd =</span> <span class="dv">3</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb347"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb347-1" data-line-number="1"><span class="co"># https://jimgrange.wordpress.com/2017/03/06/low-power-effect-sizes/</span></a>
+<a class="sourceLine" id="cb347-2" data-line-number="2"><span class="co">#------------------------------------------------------------------------------</span></a>
+<a class="sourceLine" id="cb347-3" data-line-number="3"><span class="kw">rm</span>(<span class="dt">list =</span> <span class="kw">ls</span>())</a>
+<a class="sourceLine" id="cb347-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb347-5" data-line-number="5"><span class="kw">set.seed</span>(<span class="dv">50</span>)</a>
+<a class="sourceLine" id="cb347-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb347-7" data-line-number="7"><span class="co"># function for generating random draws from multivariate distribution</span></a>
+<a class="sourceLine" id="cb347-8" data-line-number="8"><span class="co"># n = number of draws; p = number of variables</span></a>
+<a class="sourceLine" id="cb347-9" data-line-number="9"><span class="co"># u = mean of each variable; s = SD of each variable</span></a>
+<a class="sourceLine" id="cb347-10" data-line-number="10"><span class="co"># corMat = correlation matrix</span></a>
+<a class="sourceLine" id="cb347-11" data-line-number="11">mvrnorm &lt;-<span class="st"> </span><span class="cf">function</span>(n, p, u, s, corMat) {</a>
+<a class="sourceLine" id="cb347-12" data-line-number="12">  Z &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">rnorm</span>(n <span class="op">*</span><span class="st"> </span>p), p, n)</a>
+<a class="sourceLine" id="cb347-13" data-line-number="13">  <span class="kw">t</span>(u <span class="op">+</span><span class="st"> </span>s <span class="op">*</span><span class="st"> </span><span class="kw">t</span>(<span class="kw">chol</span>(corMat)) <span class="op">%*%</span><span class="st"> </span>Z)</a>
+<a class="sourceLine" id="cb347-14" data-line-number="14">}</a>
+<a class="sourceLine" id="cb347-15" data-line-number="15"></a>
+<a class="sourceLine" id="cb347-16" data-line-number="16"><span class="co">#------------------------------------------------------------------------------</span></a>
+<a class="sourceLine" id="cb347-17" data-line-number="17"></a>
+<a class="sourceLine" id="cb347-18" data-line-number="18"><span class="co">#------------------------------------------------------------------------------</span></a>
+<a class="sourceLine" id="cb347-19" data-line-number="19">### simulation setup</a>
+<a class="sourceLine" id="cb347-20" data-line-number="20"></a>
+<a class="sourceLine" id="cb347-21" data-line-number="21"><span class="co"># declare simulation parameters</span></a>
+<a class="sourceLine" id="cb347-22" data-line-number="22">means &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">100</span>, <span class="dv">600</span>)</a>
+<a class="sourceLine" id="cb347-23" data-line-number="23">sds &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">20</span>, <span class="dv">80</span>)</a>
+<a class="sourceLine" id="cb347-24" data-line-number="24">n_sims =<span class="st"> </span><span class="dv">1000</span></a>
+<a class="sourceLine" id="cb347-25" data-line-number="25"></a>
+<a class="sourceLine" id="cb347-26" data-line-number="26"><span class="co"># declare correlation coefficient &amp; generate cor. matrix</span></a>
+<a class="sourceLine" id="cb347-27" data-line-number="27">cor &lt;-<span class="st"> </span><span class="fl">0.3</span></a>
+<a class="sourceLine" id="cb347-28" data-line-number="28">cor_mat &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">1</span>, cor, </a>
+<a class="sourceLine" id="cb347-29" data-line-number="29">                    cor, <span class="dv">1</span>), <span class="dt">nrow =</span> <span class="dv">2</span>, <span class="dt">ncol =</span> <span class="dv">2</span>, <span class="dt">byrow =</span> <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb347-30" data-line-number="30"></a>
+<a class="sourceLine" id="cb347-31" data-line-number="31"><span class="co"># sample sizes to simulate</span></a>
+<a class="sourceLine" id="cb347-32" data-line-number="32">sample_sizes &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">50</span>, <span class="dv">85</span>, <span class="dv">170</span>, <span class="dv">500</span>, <span class="dv">1000</span>)</a>
+<a class="sourceLine" id="cb347-33" data-line-number="33"></a>
+<a class="sourceLine" id="cb347-34" data-line-number="34"><span class="co"># number of simulations</span></a>
+<a class="sourceLine" id="cb347-35" data-line-number="35"></a>
+<a class="sourceLine" id="cb347-36" data-line-number="36"><span class="co"># create variable to store data in</span></a>
+<a class="sourceLine" id="cb347-37" data-line-number="37">final_data &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dt">nrow =</span> n_sims, <span class="dt">ncol =</span> <span class="kw">length</span>(sample_sizes))</a>
+<a class="sourceLine" id="cb347-38" data-line-number="38"><span class="kw">colnames</span>(final_data) &lt;-<span class="st"> </span>sample_sizes</a>
+<a class="sourceLine" id="cb347-39" data-line-number="39"><span class="co">#------------------------------------------------------------------------------</span></a>
+<a class="sourceLine" id="cb347-40" data-line-number="40"></a>
+<a class="sourceLine" id="cb347-41" data-line-number="41"><span class="co">#------------------------------------------------------------------------------</span></a>
+<a class="sourceLine" id="cb347-42" data-line-number="42">### simulation execution</a>
+<a class="sourceLine" id="cb347-43" data-line-number="43"></a>
+<a class="sourceLine" id="cb347-44" data-line-number="44"><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(sample_sizes)){</a>
+<a class="sourceLine" id="cb347-45" data-line-number="45">  <span class="cf">for</span>(j <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>n_sims){</a>
+<a class="sourceLine" id="cb347-46" data-line-number="46">    </a>
+<a class="sourceLine" id="cb347-47" data-line-number="47">    <span class="co"># get the experiment data</span></a>
+<a class="sourceLine" id="cb347-48" data-line-number="48">    sim_data &lt;-<span class="st"> </span><span class="kw">mvrnorm</span>(sample_sizes[i], <span class="dt">p =</span> <span class="dv">2</span>, <span class="dt">u =</span> means, <span class="dt">s =</span> sds, </a>
+<a class="sourceLine" id="cb347-49" data-line-number="49">                        <span class="dt">corMat =</span> cor_mat)</a>
+<a class="sourceLine" id="cb347-50" data-line-number="50">    </a>
+<a class="sourceLine" id="cb347-51" data-line-number="51">    <span class="co"># perform the correlation</span></a>
+<a class="sourceLine" id="cb347-52" data-line-number="52">    sim_cor &lt;-<span class="st"> </span><span class="kw">cor.test</span>(sim_data[, <span class="dv">1</span>], sim_data[, <span class="dv">2</span>], <span class="dt">method =</span> <span class="st">&quot;pearson&quot;</span>)</a>
+<a class="sourceLine" id="cb347-53" data-line-number="53">    </a>
+<a class="sourceLine" id="cb347-54" data-line-number="54">    <span class="co"># if the correlation is significant, store the effect size</span></a>
+<a class="sourceLine" id="cb347-55" data-line-number="55">    <span class="cf">if</span>(sim_cor<span class="op">$</span>p.value <span class="op">&lt;</span><span class="st"> </span><span class="fl">0.05</span>){</a>
+<a class="sourceLine" id="cb347-56" data-line-number="56">      final_data[j, i] &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(<span class="kw">round</span>(<span class="kw">abs</span>(sim_cor<span class="op">$</span>estimate), <span class="dv">3</span>))</a>
+<a class="sourceLine" id="cb347-57" data-line-number="57">    }</a>
+<a class="sourceLine" id="cb347-58" data-line-number="58">  }</a>
+<a class="sourceLine" id="cb347-59" data-line-number="59">}</a>
+<a class="sourceLine" id="cb347-60" data-line-number="60"><span class="co">#------------------------------------------------------------------------------</span></a>
+<a class="sourceLine" id="cb347-61" data-line-number="61"></a>
+<a class="sourceLine" id="cb347-62" data-line-number="62"><span class="co">#------------------------------------------------------------------------------</span></a>
+<a class="sourceLine" id="cb347-63" data-line-number="63">## draw the plot</a>
+<a class="sourceLine" id="cb347-64" data-line-number="64"><span class="kw">boxplot</span>(final_data, <span class="dt">na.action=</span>na.omit, <span class="dt">xlab =</span> <span class="st">&quot;Simulated Sample Size&quot;</span>, </a>
+<a class="sourceLine" id="cb347-65" data-line-number="65">        <span class="dt">ylab =</span> <span class="st">&quot;Measured Effect Size&quot;</span>)</a>
+<a class="sourceLine" id="cb347-66" data-line-number="66"><span class="kw">abline</span>(<span class="dt">h =</span> cor, <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">lty =</span> <span class="dv">2</span>, <span class="dt">lwd =</span> <span class="dv">3</span>)</a>
+<a class="sourceLine" id="cb347-67" data-line-number="67"></a>
+<a class="sourceLine" id="cb347-68" data-line-number="68"><span class="kw">legend</span>(<span class="st">&quot;topright&quot;</span>, <span class="st">&quot;True Effect Size&quot;</span>, <span class="dt">cex =</span> <span class="fl">1.5</span>,  <span class="dt">lty =</span> <span class="dv">2</span>, <span class="dt">bty=</span><span class="st">&quot;n&quot;</span>, </a>
+<a class="sourceLine" id="cb347-69" data-line-number="69">       <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">lwd =</span> <span class="dv">3</span>)</a></code></pre></div>
 <p><img src="_main_files/figure-html/sample_size_calculation-1.png" width="672" /></p>
 </div>
 <div id="power-analysis" class="section level2">
@@ -498,11 +504,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tbody>
 </table>
 <p><strong>Libraries</strong></p>
-<div class="sourceCode" id="cb349"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb349-1" data-line-number="1"><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)</a>
-<a class="sourceLine" id="cb349-2" data-line-number="2"><span class="kw">p_load</span>(pwr)</a></code></pre></div>
+<div class="sourceCode" id="cb348"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb348-1" data-line-number="1"><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)</a>
+<a class="sourceLine" id="cb348-2" data-line-number="2"><span class="kw">p_load</span>(pwr)</a></code></pre></div>
 <p><strong>Code</strong></p>
-<div class="sourceCode" id="cb350"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb350-1" data-line-number="1"><span class="co">#T-test</span></a>
-<a class="sourceLine" id="cb350-2" data-line-number="2"><span class="kw">pwr.t.test</span>(<span class="dt">n =</span> , <span class="dt">d =</span> <span class="fl">0.8</span>, <span class="dt">sig.level =</span> <span class="fl">0.05</span>, <span class="dt">power =</span> <span class="fl">0.95</span>, <span class="dt">type =</span> <span class="kw">c</span>(<span class="st">&quot;two.sample&quot;</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb349"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb349-1" data-line-number="1"><span class="co">#T-test</span></a>
+<a class="sourceLine" id="cb349-2" data-line-number="2"><span class="kw">pwr.t.test</span>(<span class="dt">n =</span> , <span class="dt">d =</span> <span class="fl">0.8</span>, <span class="dt">sig.level =</span> <span class="fl">0.05</span>, <span class="dt">power =</span> <span class="fl">0.95</span>, <span class="dt">type =</span> <span class="kw">c</span>(<span class="st">&quot;two.sample&quot;</span>))</a></code></pre></div>
 <pre><code>## 
 ##      Two-sample t test power calculation 
 ## 
@@ -513,8 +519,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##     alternative = two.sided
 ## 
 ## NOTE: n is number in *each* group</code></pre>
-<div class="sourceCode" id="cb352"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb352-1" data-line-number="1"><span class="co">#T-test </span></a>
-<a class="sourceLine" id="cb352-2" data-line-number="2"><span class="kw">pwr.t2n.test</span>(<span class="dt">n1 =</span> <span class="dv">150</span>, <span class="dt">n2 =</span> <span class="dv">75</span>, <span class="dt">d =</span> , <span class="dt">sig.level =</span> <span class="fl">0.05</span>, <span class="dt">power =</span> <span class="fl">0.8</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb351"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb351-1" data-line-number="1"><span class="co">#T-test </span></a>
+<a class="sourceLine" id="cb351-2" data-line-number="2"><span class="kw">pwr.t2n.test</span>(<span class="dt">n1 =</span> <span class="dv">150</span>, <span class="dt">n2 =</span> <span class="dv">75</span>, <span class="dt">d =</span> , <span class="dt">sig.level =</span> <span class="fl">0.05</span>, <span class="dt">power =</span> <span class="fl">0.8</span>)</a></code></pre></div>
 <pre><code>## 
 ##      t test power calculation 
 ## 
@@ -524,8 +530,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##       sig.level = 0.05
 ##           power = 0.8
 ##     alternative = two.sided</code></pre>
-<div class="sourceCode" id="cb354"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb354-1" data-line-number="1"><span class="co">#Anova </span></a>
-<a class="sourceLine" id="cb354-2" data-line-number="2"><span class="kw">pwr.anova.test</span>(<span class="dt">k =</span> <span class="dv">3</span>, <span class="dt">n =</span> , <span class="dt">f =</span> <span class="fl">.25</span>, <span class="dt">sig.level =</span> <span class="fl">0.05</span>, <span class="dt">power =</span> <span class="fl">.8</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb353"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb353-1" data-line-number="1"><span class="co">#Anova </span></a>
+<a class="sourceLine" id="cb353-2" data-line-number="2"><span class="kw">pwr.anova.test</span>(<span class="dt">k =</span> <span class="dv">3</span>, <span class="dt">n =</span> , <span class="dt">f =</span> <span class="fl">.25</span>, <span class="dt">sig.level =</span> <span class="fl">0.05</span>, <span class="dt">power =</span> <span class="fl">.8</span>)</a></code></pre></div>
 <pre><code>## 
 ##      Balanced one-way analysis of variance power calculation 
 ## 
@@ -536,8 +542,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##           power = 0.8
 ## 
 ## NOTE: n is number in each group</code></pre>
-<div class="sourceCode" id="cb356"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb356-1" data-line-number="1"><span class="co">#Effect size that we can detect</span></a>
-<a class="sourceLine" id="cb356-2" data-line-number="2"><span class="kw">pwr.anova.test</span>(<span class="dt">k =</span> <span class="dv">6</span>, <span class="dt">n =</span> <span class="dv">42</span>, <span class="dt">sig.level =</span> <span class="fl">0.05</span>, <span class="dt">power =</span> <span class="fl">.95</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb355"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb355-1" data-line-number="1"><span class="co">#Effect size that we can detect</span></a>
+<a class="sourceLine" id="cb355-2" data-line-number="2"><span class="kw">pwr.anova.test</span>(<span class="dt">k =</span> <span class="dv">6</span>, <span class="dt">n =</span> <span class="dv">42</span>, <span class="dt">sig.level =</span> <span class="fl">0.05</span>, <span class="dt">power =</span> <span class="fl">.95</span>)</a></code></pre></div>
 <pre><code>## 
 ##      Balanced one-way analysis of variance power calculation 
 ## 
@@ -548,8 +554,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##           power = 0.95
 ## 
 ## NOTE: n is number in each group</code></pre>
-<div class="sourceCode" id="cb358"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb358-1" data-line-number="1"><span class="co">#Sample size needed to detect an effect of f=0.5</span></a>
-<a class="sourceLine" id="cb358-2" data-line-number="2"><span class="kw">pwr.anova.test</span>(<span class="dt">k =</span> <span class="dv">2</span>, <span class="dt">f =</span> <span class="fl">0.5</span>, <span class="dt">sig.level =</span> <span class="fl">0.05</span>, <span class="dt">power =</span> <span class="fl">.95</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb357"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb357-1" data-line-number="1"><span class="co">#Sample size needed to detect an effect of f=0.5</span></a>
+<a class="sourceLine" id="cb357-2" data-line-number="2"><span class="kw">pwr.anova.test</span>(<span class="dt">k =</span> <span class="dv">2</span>, <span class="dt">f =</span> <span class="fl">0.5</span>, <span class="dt">sig.level =</span> <span class="fl">0.05</span>, <span class="dt">power =</span> <span class="fl">.95</span>)</a></code></pre></div>
 <pre><code>## 
 ##      Balanced one-way analysis of variance power calculation 
 ## 
@@ -560,9 +566,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##           power = 0.95
 ## 
 ## NOTE: n is number in each group</code></pre>
-<div class="sourceCode" id="cb360"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb360-1" data-line-number="1"><span class="co"># General linear model</span></a>
-<a class="sourceLine" id="cb360-2" data-line-number="2">  <span class="co"># See example in https://cran.r-project.org/web/packages/pwr/vignettes/pwr-vignette.html</span></a>
-<a class="sourceLine" id="cb360-3" data-line-number="3">  <span class="kw">pwr.f2.test</span>(<span class="dt">u =</span> <span class="dv">2</span>, <span class="dt">f2 =</span> <span class="fl">0.3</span><span class="op">/</span>(<span class="dv">1</span> <span class="op">-</span><span class="st"> </span><span class="fl">0.3</span>), <span class="dt">sig.level =</span> <span class="fl">0.001</span>, <span class="dt">power =</span> <span class="fl">0.8</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb359"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb359-1" data-line-number="1"><span class="co"># General linear model</span></a>
+<a class="sourceLine" id="cb359-2" data-line-number="2">  <span class="co"># See example in https://cran.r-project.org/web/packages/pwr/vignettes/pwr-vignette.html</span></a>
+<a class="sourceLine" id="cb359-3" data-line-number="3">  <span class="kw">pwr.f2.test</span>(<span class="dt">u =</span> <span class="dv">2</span>, <span class="dt">f2 =</span> <span class="fl">0.3</span><span class="op">/</span>(<span class="dv">1</span> <span class="op">-</span><span class="st"> </span><span class="fl">0.3</span>), <span class="dt">sig.level =</span> <span class="fl">0.001</span>, <span class="dt">power =</span> <span class="fl">0.8</span>)</a></code></pre></div>
 <pre><code>## 
 ##      Multiple regression power calculation 
 ## 
@@ -571,18 +577,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##              f2 = 0.4285714
 ##       sig.level = 0.001
 ##           power = 0.8</code></pre>
-<div class="sourceCode" id="cb362"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb362-1" data-line-number="1">  <span class="co">#  n=v+u+1. Therefore he needs 50 + 2 + 1 = 53 student records.</span></a></code></pre></div>
+<div class="sourceCode" id="cb361"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb361-1" data-line-number="1">  <span class="co">#  n=v+u+1. Therefore he needs 50 + 2 + 1 = 53 student records.</span></a></code></pre></div>
 <div id="longitudinal-designs" class="section level3">
 <h3><span class="header-section-number">12.2.1</span> Longitudinal designs</h3>
 <p>Calculate sample size for longitudinal designs</p>
 <p><strong>Libraries</strong></p>
-<div class="sourceCode" id="cb363"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb363-1" data-line-number="1"><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)</a>
-<a class="sourceLine" id="cb363-2" data-line-number="2"><span class="kw">p_load</span>(powerMediation)</a></code></pre></div>
+<div class="sourceCode" id="cb362"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb362-1" data-line-number="1"><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)</a>
+<a class="sourceLine" id="cb362-2" data-line-number="2"><span class="kw">p_load</span>(powerMediation)</a></code></pre></div>
 <p><strong>Code</strong></p>
-<div class="sourceCode" id="cb364"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb364-1" data-line-number="1"><span class="kw">ssLong</span>(<span class="dt">es =</span> <span class="fl">0.5</span>, <span class="co">#  effect size of the difference of mean change.</span></a>
-<a class="sourceLine" id="cb364-2" data-line-number="2">       <span class="dt">rho =</span> <span class="fl">0.5</span>, <span class="co"># correlation coefficient between baseline and follow-up values within a treatment group.</span></a>
-<a class="sourceLine" id="cb364-3" data-line-number="3">       <span class="dt">alpha =</span> <span class="fl">0.05</span>, </a>
-<a class="sourceLine" id="cb364-4" data-line-number="4">       <span class="dt">power =</span> <span class="fl">0.95</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb363"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb363-1" data-line-number="1"><span class="kw">ssLong</span>(<span class="dt">es =</span> <span class="fl">0.5</span>, <span class="co">#  effect size of the difference of mean change.</span></a>
+<a class="sourceLine" id="cb363-2" data-line-number="2">       <span class="dt">rho =</span> <span class="fl">0.5</span>, <span class="co"># correlation coefficient between baseline and follow-up values within a treatment group.</span></a>
+<a class="sourceLine" id="cb363-3" data-line-number="3">       <span class="dt">alpha =</span> <span class="fl">0.05</span>, </a>
+<a class="sourceLine" id="cb363-4" data-line-number="4">       <span class="dt">power =</span> <span class="fl">0.95</span>)</a></code></pre></div>
 <pre><code>## [1] 104</code></pre>
 
 </div>
@@ -590,46 +596,46 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="anonimizar-participantes---encriptar-ids" class="section level2">
 <h2><span class="header-section-number">12.3</span> Anonimizar participantes - Encriptar IDs</h2>
 <p><strong>Libraries</strong></p>
-<div class="sourceCode" id="cb366"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb366-1" data-line-number="1"><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)</a>
-<a class="sourceLine" id="cb366-2" data-line-number="2"><span class="kw">p_load</span>(hashids, tidyverse)</a></code></pre></div>
+<div class="sourceCode" id="cb365"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb365-1" data-line-number="1"><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)</a>
+<a class="sourceLine" id="cb365-2" data-line-number="2"><span class="kw">p_load</span>(hashids, tidyverse)</a></code></pre></div>
 <div id="encriptando-y-desencriptando-un-elemento" class="section level3">
 <h3><span class="header-section-number">12.3.1</span> Encriptando y desencriptando un elemento</h3>
-<div class="sourceCode" id="cb367"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb367-1" data-line-number="1">h =<span class="st"> </span><span class="kw">hashid_settings</span>(<span class="dt">salt =</span> <span class="st">&#39;this is my salt&#39;</span>)</a>
-<a class="sourceLine" id="cb367-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb367-3" data-line-number="3"><span class="co"># Numbers to encode</span></a>
-<a class="sourceLine" id="cb367-4" data-line-number="4">Plain_ID =<span class="st"> </span><span class="kw">c</span>(<span class="dv">12345678</span>); Plain_ID</a></code></pre></div>
+<div class="sourceCode" id="cb366"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb366-1" data-line-number="1">h =<span class="st"> </span><span class="kw">hashid_settings</span>(<span class="dt">salt =</span> <span class="st">&#39;this is my salt&#39;</span>)</a>
+<a class="sourceLine" id="cb366-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb366-3" data-line-number="3"><span class="co"># Numbers to encode</span></a>
+<a class="sourceLine" id="cb366-4" data-line-number="4">Plain_ID =<span class="st"> </span><span class="kw">c</span>(<span class="dv">12345678</span>); Plain_ID</a></code></pre></div>
 <pre><code>## [1] 12345678</code></pre>
-<div class="sourceCode" id="cb369"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb369-1" data-line-number="1">a =<span class="st"> </span><span class="kw">encode</span>(Plain_ID, h); a <span class="co">#&quot;BZ9RNV&quot;</span></a></code></pre></div>
+<div class="sourceCode" id="cb368"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb368-1" data-line-number="1">a =<span class="st"> </span><span class="kw">encode</span>(Plain_ID, h); a <span class="co">#&quot;BZ9RNV&quot;</span></a></code></pre></div>
 <pre><code>## [1] &quot;BZ9RNV&quot;</code></pre>
-<div class="sourceCode" id="cb371"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb371-1" data-line-number="1"><span class="kw">decode</span>(<span class="st">&quot;BZ9RNV&quot;</span>, h) <span class="co">#12345678</span></a></code></pre></div>
+<div class="sourceCode" id="cb370"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb370-1" data-line-number="1"><span class="kw">decode</span>(<span class="st">&quot;BZ9RNV&quot;</span>, h) <span class="co">#12345678</span></a></code></pre></div>
 <pre><code>## [1] 12345678</code></pre>
 </div>
 <div id="encriptando-y-desencriptando-la-columna-rut-de-una-db-completa." class="section level3">
 <h3><span class="header-section-number">12.3.2</span> Encriptando y desencriptando la columna RUT de una DB completa.</h3>
 <p>Generamos aleatoriamente numeros de identificacion “similares” a RUTs, los encriptamos, y despues desencriptamos.</p>
-<div class="sourceCode" id="cb373"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb373-1" data-line-number="1"><span class="co"># Cargamos librerias y leemos DB</span></a>
-<a class="sourceLine" id="cb373-2" data-line-number="2"><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)</a>
-<a class="sourceLine" id="cb373-3" data-line-number="3"><span class="kw">p_load</span>(hashids, tidyverse)</a>
-<a class="sourceLine" id="cb373-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb373-5" data-line-number="5"><span class="co"># Pseudo RUTs generadas aleatoriamente</span></a>
-<a class="sourceLine" id="cb373-6" data-line-number="6">data =<span class="st"> </span><span class="kw">round</span>(<span class="kw">runif</span>(<span class="dv">100</span>)<span class="op">*</span><span class="dv">10000000</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as_tibble</span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb373-7" data-line-number="7"><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">rename</span>(<span class="dt">RUT =</span> value)</a></code></pre></div>
+<div class="sourceCode" id="cb372"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb372-1" data-line-number="1"><span class="co"># Cargamos librerias y leemos DB</span></a>
+<a class="sourceLine" id="cb372-2" data-line-number="2"><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)</a>
+<a class="sourceLine" id="cb372-3" data-line-number="3"><span class="kw">p_load</span>(hashids, tidyverse)</a>
+<a class="sourceLine" id="cb372-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb372-5" data-line-number="5"><span class="co"># Pseudo RUTs generadas aleatoriamente</span></a>
+<a class="sourceLine" id="cb372-6" data-line-number="6">data =<span class="st"> </span><span class="kw">round</span>(<span class="kw">runif</span>(<span class="dv">100</span>)<span class="op">*</span><span class="dv">10000000</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as_tibble</span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb372-7" data-line-number="7"><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">rename</span>(<span class="dt">RUT =</span> value)</a></code></pre></div>
 <p><strong>BUG: When building book with Bookdown, it ignores the rowwise() argument!?</strong></p>
-<div class="sourceCode" id="cb374"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb374-1" data-line-number="1">h =<span class="st"> </span><span class="kw">hashid_settings</span>(<span class="dt">salt =</span> <span class="st">&#39;this is my salt&#39;</span>)</a>
-<a class="sourceLine" id="cb374-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb374-3" data-line-number="3"><span class="co"># Encriptamos</span></a>
-<a class="sourceLine" id="cb374-4" data-line-number="4">data =<span class="st"> </span>data <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb374-5" data-line-number="5"><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">rowwise</span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb374-6" data-line-number="6"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">RUT_Encripted =</span> <span class="kw">encode</span>(RUT, h))</a>
-<a class="sourceLine" id="cb374-7" data-line-number="7"></a>
-<a class="sourceLine" id="cb374-8" data-line-number="8"><span class="co"># Desencriptamos</span></a>
-<a class="sourceLine" id="cb374-9" data-line-number="9">data =<span class="st"> </span>data <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb374-10" data-line-number="10"><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">rowwise</span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb374-11" data-line-number="11"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">RUT_Decripted =</span> <span class="kw">decode</span>(RUT_Encripted, h))</a></code></pre></div>
+<div class="sourceCode" id="cb373"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb373-1" data-line-number="1">h =<span class="st"> </span><span class="kw">hashid_settings</span>(<span class="dt">salt =</span> <span class="st">&#39;this is my salt&#39;</span>)</a>
+<a class="sourceLine" id="cb373-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb373-3" data-line-number="3"><span class="co"># Encriptamos</span></a>
+<a class="sourceLine" id="cb373-4" data-line-number="4">data =<span class="st"> </span>data <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb373-5" data-line-number="5"><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">rowwise</span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb373-6" data-line-number="6"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">RUT_Encripted =</span> <span class="kw">encode</span>(RUT, h))</a>
+<a class="sourceLine" id="cb373-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb373-8" data-line-number="8"><span class="co"># Desencriptamos</span></a>
+<a class="sourceLine" id="cb373-9" data-line-number="9">data =<span class="st"> </span>data <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb373-10" data-line-number="10"><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">rowwise</span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb373-11" data-line-number="11"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">RUT_Decripted =</span> <span class="kw">decode</span>(RUT_Encripted, h))</a></code></pre></div>
 <pre><code>## Warning in if (hash_str == &quot;&quot;) stop(&quot;decode: invalid hashid&quot;): the
 ## condition has length &gt; 1 and only the first element will be used</code></pre>
-<div class="sourceCode" id="cb376"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb376-1" data-line-number="1"><span class="co"># Mostramos los resultados</span></a>
-<a class="sourceLine" id="cb376-2" data-line-number="2">data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(RUT_Encripted, RUT_Decripted, RUT)</a></code></pre></div>
+<div class="sourceCode" id="cb375"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb375-1" data-line-number="1"><span class="co"># Mostramos los resultados</span></a>
+<a class="sourceLine" id="cb375-2" data-line-number="2">data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(RUT_Encripted, RUT_Decripted, RUT)</a></code></pre></div>
 <pre><code>## Source: local data frame [100 x 3]
 ## Groups: &lt;by row&gt;
 ## 
@@ -655,14 +661,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <hr />
 <p>Usaremos la siguiente <a href="Data/11-Experimental_design/Match_participants.csv">Base de datos</a></p>
 <hr />
-<div class="sourceCode" id="cb378"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb378-1" data-line-number="1"><span class="co"># Cargamos librerias y leemos DBif (!require(&#39;pacman&#39;)) install.packages(&#39;pacman&#39;); library(&#39;pacman&#39;)</span></a>
-<a class="sourceLine" id="cb378-2" data-line-number="2"><span class="kw">p_load</span>(optmatch, tidyverse)</a>
-<a class="sourceLine" id="cb378-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb378-4" data-line-number="4"><span class="co"># Archivo de data crudos</span></a>
-<a class="sourceLine" id="cb378-5" data-line-number="5"><span class="co"># RUTs y Edades generadas aleatoriamente</span></a>
-<a class="sourceLine" id="cb378-6" data-line-number="6">data =<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;Data/11-Experimental_design/Match_participants.csv&quot;</span>)</a>
-<a class="sourceLine" id="cb378-7" data-line-number="7"></a>
-<a class="sourceLine" id="cb378-8" data-line-number="8"><span class="kw">head</span>(data)</a></code></pre></div>
+<div class="sourceCode" id="cb377"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb377-1" data-line-number="1"><span class="co"># Cargamos librerias y leemos DBif (!require(&#39;pacman&#39;)) install.packages(&#39;pacman&#39;); library(&#39;pacman&#39;)</span></a>
+<a class="sourceLine" id="cb377-2" data-line-number="2"><span class="kw">p_load</span>(optmatch, tidyverse)</a>
+<a class="sourceLine" id="cb377-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb377-4" data-line-number="4"><span class="co"># Archivo de data crudos</span></a>
+<a class="sourceLine" id="cb377-5" data-line-number="5"><span class="co"># RUTs y Edades generadas aleatoriamente</span></a>
+<a class="sourceLine" id="cb377-6" data-line-number="6">data =<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;Data/11-Experimental_design/Match_participants.csv&quot;</span>)</a>
+<a class="sourceLine" id="cb377-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb377-8" data-line-number="8"><span class="kw">head</span>(data)</a></code></pre></div>
 <pre><code>## # A tibble: 6 x 7
 ##      ID    RUT Sexo    Edad Ocupacion           Educacion Porcentaje_ahor…
 ##   &lt;int&gt;  &lt;int&gt; &lt;chr&gt;  &lt;int&gt; &lt;chr&gt;               &lt;chr&gt;                &lt;dbl&gt;
@@ -673,74 +679,74 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 5     5 533281 Mujer     63 Controller Postgra… Maestría                 4
 ## 6     6  60824 Hombre    29 Ingeniro Comercial  Maestría                 8</code></pre>
 <p>Preparamos la base de datos</p>
-<div class="sourceCode" id="cb380"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb380-1" data-line-number="1"><span class="co"># Umbrales para ahorradores y no ahorradores</span></a>
-<a class="sourceLine" id="cb380-2" data-line-number="2">Criterio_ahorradores =<span class="st"> </span><span class="dv">20</span></a>
-<a class="sourceLine" id="cb380-3" data-line-number="3">Criterio_no_ahorradores =<span class="st"> </span><span class="dv">2</span></a>
-<a class="sourceLine" id="cb380-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb380-5" data-line-number="5"><span class="co"># Mostramos histograma</span></a>
-<a class="sourceLine" id="cb380-6" data-line-number="6"><span class="kw">hist</span>(data<span class="op">$</span>Porcentaje_ahorro, <span class="dt">breaks =</span> <span class="dv">100</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb379"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb379-1" data-line-number="1"><span class="co"># Umbrales para ahorradores y no ahorradores</span></a>
+<a class="sourceLine" id="cb379-2" data-line-number="2">Criterio_ahorradores =<span class="st"> </span><span class="dv">20</span></a>
+<a class="sourceLine" id="cb379-3" data-line-number="3">Criterio_no_ahorradores =<span class="st"> </span><span class="dv">2</span></a>
+<a class="sourceLine" id="cb379-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb379-5" data-line-number="5"><span class="co"># Mostramos histograma</span></a>
+<a class="sourceLine" id="cb379-6" data-line-number="6"><span class="kw">hist</span>(data<span class="op">$</span>Porcentaje_ahorro, <span class="dt">breaks =</span> <span class="dv">100</span>)</a></code></pre></div>
 <p><img src="_main_files/figure-html/match_participants_data_preparation-1.png" width="672" /></p>
-<div class="sourceCode" id="cb381"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb381-1" data-line-number="1"><span class="co"># Creamos grupos de Ahorradores (0) y No ahorradores (1)</span></a>
-<a class="sourceLine" id="cb381-2" data-line-number="2">data<span class="op">$</span>Ahorro =<span class="st"> </span><span class="kw">ifelse</span>(data<span class="op">$</span>Porcentaje_ahorro <span class="op">&lt;=</span><span class="st"> </span>Criterio_no_ahorradores, <span class="dv">1</span>,</a>
-<a class="sourceLine" id="cb381-3" data-line-number="3">                      <span class="kw">ifelse</span>(data<span class="op">$</span>Porcentaje_ahorro <span class="op">&gt;=</span><span class="st"> </span>Criterio_ahorradores, <span class="dv">0</span>, <span class="ot">NA</span></a>
-<a class="sourceLine" id="cb381-4" data-line-number="4">                      ))</a>
-<a class="sourceLine" id="cb381-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb381-6" data-line-number="6"><span class="co"># Cuantos tenemos en cada grupo?</span></a>
-<a class="sourceLine" id="cb381-7" data-line-number="7"><span class="kw">table</span>(data<span class="op">$</span>Ahorro)</a></code></pre></div>
+<div class="sourceCode" id="cb380"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb380-1" data-line-number="1"><span class="co"># Creamos grupos de Ahorradores (0) y No ahorradores (1)</span></a>
+<a class="sourceLine" id="cb380-2" data-line-number="2">data<span class="op">$</span>Ahorro =<span class="st"> </span><span class="kw">ifelse</span>(data<span class="op">$</span>Porcentaje_ahorro <span class="op">&lt;=</span><span class="st"> </span>Criterio_no_ahorradores, <span class="dv">1</span>,</a>
+<a class="sourceLine" id="cb380-3" data-line-number="3">                      <span class="kw">ifelse</span>(data<span class="op">$</span>Porcentaje_ahorro <span class="op">&gt;=</span><span class="st"> </span>Criterio_ahorradores, <span class="dv">0</span>, <span class="ot">NA</span></a>
+<a class="sourceLine" id="cb380-4" data-line-number="4">                      ))</a>
+<a class="sourceLine" id="cb380-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb380-6" data-line-number="6"><span class="co"># Cuantos tenemos en cada grupo?</span></a>
+<a class="sourceLine" id="cb380-7" data-line-number="7"><span class="kw">table</span>(data<span class="op">$</span>Ahorro)</a></code></pre></div>
 <pre><code>## 
 ##   0   1 
 ## 113  66</code></pre>
-<div class="sourceCode" id="cb383"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb383-1" data-line-number="1"><span class="co">#Limpiamos NAs en Ahorro y RUTs duplicados</span></a>
-<a class="sourceLine" id="cb383-2" data-line-number="2">data =<span class="st"> </span>data[<span class="kw">complete.cases</span>(data),]</a>
-<a class="sourceLine" id="cb383-3" data-line-number="3">data =<span class="st"> </span>data[<span class="op">!</span><span class="kw">duplicated</span>(data<span class="op">$</span>ID),]</a>
-<a class="sourceLine" id="cb383-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb383-5" data-line-number="5"><span class="co">#Eliminamos a los Estudiantes</span></a>
-<a class="sourceLine" id="cb383-6" data-line-number="6">data =<span class="st"> </span>data[<span class="op">!</span><span class="kw">grepl</span>(<span class="st">&quot;studiante&quot;</span>, data<span class="op">$</span>Ocupacion),]</a>
-<a class="sourceLine" id="cb383-7" data-line-number="7"></a>
-<a class="sourceLine" id="cb383-8" data-line-number="8"><span class="co">#Recreamos columna ID para los registros que quedan</span></a>
-<a class="sourceLine" id="cb383-9" data-line-number="9">data<span class="op">$</span>ID =<span class="st"> </span><span class="kw">seq</span>(<span class="dv">1</span><span class="op">:</span><span class="kw">nrow</span>(data))</a></code></pre></div>
+<div class="sourceCode" id="cb382"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb382-1" data-line-number="1"><span class="co">#Limpiamos NAs en Ahorro y RUTs duplicados</span></a>
+<a class="sourceLine" id="cb382-2" data-line-number="2">data =<span class="st"> </span>data[<span class="kw">complete.cases</span>(data),]</a>
+<a class="sourceLine" id="cb382-3" data-line-number="3">data =<span class="st"> </span>data[<span class="op">!</span><span class="kw">duplicated</span>(data<span class="op">$</span>ID),]</a>
+<a class="sourceLine" id="cb382-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb382-5" data-line-number="5"><span class="co">#Eliminamos a los Estudiantes</span></a>
+<a class="sourceLine" id="cb382-6" data-line-number="6">data =<span class="st"> </span>data[<span class="op">!</span><span class="kw">grepl</span>(<span class="st">&quot;studiante&quot;</span>, data<span class="op">$</span>Ocupacion),]</a>
+<a class="sourceLine" id="cb382-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb382-8" data-line-number="8"><span class="co">#Recreamos columna ID para los registros que quedan</span></a>
+<a class="sourceLine" id="cb382-9" data-line-number="9">data<span class="op">$</span>ID =<span class="st"> </span><span class="kw">seq</span>(<span class="dv">1</span><span class="op">:</span><span class="kw">nrow</span>(data))</a></code></pre></div>
 <p>Realizamos el matching</p>
 <p><strong>TODO: Como evaluamos si el matching es bueno?</strong></p>
-<div class="sourceCode" id="cb384"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb384-1" data-line-number="1"><span class="co">#Creamos base de parejas</span></a>
-<a class="sourceLine" id="cb384-2" data-line-number="2">parejas =<span class="st"> </span><span class="kw">as.data.frame</span>((optmatch<span class="op">::</span><span class="kw">pairmatch</span>(Ahorro <span class="op">~</span><span class="st"> </span>Edad <span class="op">+</span><span class="st"> </span>Sexo <span class="op">+</span><span class="st"> </span>Educacion, <span class="dt">data =</span> data)))</a>
-<a class="sourceLine" id="cb384-3" data-line-number="3">    <span class="co"># caliper establece limites para los matchings</span></a>
-<a class="sourceLine" id="cb384-4" data-line-number="4">    <span class="co"># print(pairmatch(Ahorro ~ Edad + Sexo + Educacion, caliper = 4.9, data = data), grouped = TRUE)</span></a>
-<a class="sourceLine" id="cb384-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb384-6" data-line-number="6"><span class="co">#Como evaluamos si es buena la seleccion?</span></a>
-<a class="sourceLine" id="cb384-7" data-line-number="7"><span class="co"># summary(lm(Ahorro ~ Edad + Sexo + Educacion, data = data))</span></a>
-<a class="sourceLine" id="cb384-8" data-line-number="8"></a>
-<a class="sourceLine" id="cb384-9" data-line-number="9"><span class="co">#Añadimos columna ID y renombramos columnas</span></a>
-<a class="sourceLine" id="cb384-10" data-line-number="10">parejas<span class="op">$</span>ID =<span class="st"> </span><span class="kw">seq</span>(<span class="dv">1</span><span class="op">:</span><span class="kw">nrow</span>(data))</a>
-<a class="sourceLine" id="cb384-11" data-line-number="11"><span class="kw">colnames</span>(parejas) =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Group&quot;</span>, <span class="st">&quot;ID&quot;</span>)</a>
-<a class="sourceLine" id="cb384-12" data-line-number="12"></a>
-<a class="sourceLine" id="cb384-13" data-line-number="13"><span class="co">#Combinamos ambas bases y limpiamos</span></a>
-<a class="sourceLine" id="cb384-14" data-line-number="14">datos_combinados =<span class="st"> </span><span class="kw">merge</span>(data, parejas, <span class="dt">by =</span> <span class="st">&quot;ID&quot;</span>)</a>
-<a class="sourceLine" id="cb384-15" data-line-number="15">datos_combinados =<span class="st"> </span>datos_combinados[<span class="kw">complete.cases</span>(datos_combinados),]</a>
-<a class="sourceLine" id="cb384-16" data-line-number="16"></a>
-<a class="sourceLine" id="cb384-17" data-line-number="17"><span class="co">#Ordenamos por Num de grupo y Ahorro</span></a>
-<a class="sourceLine" id="cb384-18" data-line-number="18">datos_finales =<span class="st"> </span>datos_combinados <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">arrange</span>(Group, Ahorro)</a></code></pre></div>
-<div class="sourceCode" id="cb385"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb385-1" data-line-number="1"><span class="co">#Cuantos en cada grupo?</span></a>
-<a class="sourceLine" id="cb385-2" data-line-number="2"><span class="kw">table</span>(datos_finales<span class="op">$</span>Ahorro)</a></code></pre></div>
+<div class="sourceCode" id="cb383"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb383-1" data-line-number="1"><span class="co">#Creamos base de parejas</span></a>
+<a class="sourceLine" id="cb383-2" data-line-number="2">parejas =<span class="st"> </span><span class="kw">as.data.frame</span>((optmatch<span class="op">::</span><span class="kw">pairmatch</span>(Ahorro <span class="op">~</span><span class="st"> </span>Edad <span class="op">+</span><span class="st"> </span>Sexo <span class="op">+</span><span class="st"> </span>Educacion, <span class="dt">data =</span> data)))</a>
+<a class="sourceLine" id="cb383-3" data-line-number="3">    <span class="co"># caliper establece limites para los matchings</span></a>
+<a class="sourceLine" id="cb383-4" data-line-number="4">    <span class="co"># print(pairmatch(Ahorro ~ Edad + Sexo + Educacion, caliper = 4.9, data = data), grouped = TRUE)</span></a>
+<a class="sourceLine" id="cb383-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb383-6" data-line-number="6"><span class="co">#Como evaluamos si es buena la seleccion?</span></a>
+<a class="sourceLine" id="cb383-7" data-line-number="7"><span class="co"># summary(lm(Ahorro ~ Edad + Sexo + Educacion, data = data))</span></a>
+<a class="sourceLine" id="cb383-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb383-9" data-line-number="9"><span class="co">#Añadimos columna ID y renombramos columnas</span></a>
+<a class="sourceLine" id="cb383-10" data-line-number="10">parejas<span class="op">$</span>ID =<span class="st"> </span><span class="kw">seq</span>(<span class="dv">1</span><span class="op">:</span><span class="kw">nrow</span>(data))</a>
+<a class="sourceLine" id="cb383-11" data-line-number="11"><span class="kw">colnames</span>(parejas) =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Group&quot;</span>, <span class="st">&quot;ID&quot;</span>)</a>
+<a class="sourceLine" id="cb383-12" data-line-number="12"></a>
+<a class="sourceLine" id="cb383-13" data-line-number="13"><span class="co">#Combinamos ambas bases y limpiamos</span></a>
+<a class="sourceLine" id="cb383-14" data-line-number="14">datos_combinados =<span class="st"> </span><span class="kw">merge</span>(data, parejas, <span class="dt">by =</span> <span class="st">&quot;ID&quot;</span>)</a>
+<a class="sourceLine" id="cb383-15" data-line-number="15">datos_combinados =<span class="st"> </span>datos_combinados[<span class="kw">complete.cases</span>(datos_combinados),]</a>
+<a class="sourceLine" id="cb383-16" data-line-number="16"></a>
+<a class="sourceLine" id="cb383-17" data-line-number="17"><span class="co">#Ordenamos por Num de grupo y Ahorro</span></a>
+<a class="sourceLine" id="cb383-18" data-line-number="18">datos_finales =<span class="st"> </span>datos_combinados <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">arrange</span>(Group, Ahorro)</a></code></pre></div>
+<div class="sourceCode" id="cb384"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb384-1" data-line-number="1"><span class="co">#Cuantos en cada grupo?</span></a>
+<a class="sourceLine" id="cb384-2" data-line-number="2"><span class="kw">table</span>(datos_finales<span class="op">$</span>Ahorro)</a></code></pre></div>
 <pre><code>## 
 ##  0  1 
 ## 58 58</code></pre>
-<div class="sourceCode" id="cb387"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb387-1" data-line-number="1"><span class="co"># datos_finales %&gt;% dplyr::select(Edad, Sexo, Educacion, Porcentaje_ahorro)</span></a></code></pre></div>
+<div class="sourceCode" id="cb386"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb386-1" data-line-number="1"><span class="co"># datos_finales %&gt;% dplyr::select(Edad, Sexo, Educacion, Porcentaje_ahorro)</span></a></code></pre></div>
 
 </div>
 <div id="determine-distribution" class="section level2">
 <h2><span class="header-section-number">12.5</span> Determine distribution</h2>
 <p>FROM: <a href="https://stats.stackexchange.com/questions/132652/how-to-determine-which-distribution-fits-my-data-best" class="uri">https://stats.stackexchange.com/questions/132652/how-to-determine-which-distribution-fits-my-data-best</a></p>
 <p>Which ditribution best fits our data.</p>
-<div class="sourceCode" id="cb388"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb388-1" data-line-number="1"><span class="cf">if</span>(<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)</a>
-<a class="sourceLine" id="cb388-2" data-line-number="2"><span class="kw">p_load</span>(fitdistrplus, logspline)</a></code></pre></div>
-<div class="sourceCode" id="cb389"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb389-1" data-line-number="1">x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">37.50</span>,<span class="fl">46.79</span>,<span class="fl">48.30</span>,<span class="fl">46.04</span>,<span class="fl">43.40</span>,<span class="fl">39.25</span>,<span class="fl">38.49</span>,<span class="fl">49.51</span>,<span class="fl">40.38</span>,<span class="fl">36.98</span>,<span class="fl">40.00</span>,</a>
-<a class="sourceLine" id="cb389-2" data-line-number="2">       <span class="fl">38.49</span>,<span class="fl">37.74</span>,<span class="fl">47.92</span>,<span class="fl">44.53</span>,<span class="fl">44.91</span>,<span class="fl">44.91</span>,<span class="fl">40.00</span>,<span class="fl">41.51</span>,<span class="fl">47.92</span>,<span class="fl">36.98</span>,<span class="fl">43.40</span>,</a>
-<a class="sourceLine" id="cb389-3" data-line-number="3">       <span class="fl">42.26</span>,<span class="fl">41.89</span>,<span class="fl">38.87</span>,<span class="fl">43.02</span>,<span class="fl">39.25</span>,<span class="fl">40.38</span>,<span class="fl">42.64</span>,<span class="fl">36.98</span>,<span class="fl">44.15</span>,<span class="fl">44.91</span>,<span class="fl">43.40</span>,</a>
-<a class="sourceLine" id="cb389-4" data-line-number="4">       <span class="fl">49.81</span>,<span class="fl">38.87</span>,<span class="fl">40.00</span>,<span class="fl">52.45</span>,<span class="fl">53.13</span>,<span class="fl">47.92</span>,<span class="fl">52.45</span>,<span class="fl">44.91</span>,<span class="fl">29.54</span>,<span class="fl">27.13</span>,<span class="fl">35.60</span>,</a>
-<a class="sourceLine" id="cb389-5" data-line-number="5">       <span class="fl">45.34</span>,<span class="fl">43.37</span>,<span class="fl">54.15</span>,<span class="fl">42.77</span>,<span class="fl">42.88</span>,<span class="fl">44.26</span>,<span class="fl">27.14</span>,<span class="fl">39.31</span>,<span class="fl">24.80</span>,<span class="fl">16.62</span>,<span class="fl">30.30</span>,</a>
-<a class="sourceLine" id="cb389-6" data-line-number="6">       <span class="fl">36.39</span>,<span class="fl">28.60</span>,<span class="fl">28.53</span>,<span class="fl">35.84</span>,<span class="fl">31.10</span>,<span class="fl">34.55</span>,<span class="fl">52.65</span>,<span class="fl">48.81</span>,<span class="fl">43.42</span>,<span class="fl">52.49</span>,<span class="fl">38.00</span>,</a>
-<a class="sourceLine" id="cb389-7" data-line-number="7">       <span class="fl">38.65</span>,<span class="fl">34.54</span>,<span class="fl">37.70</span>,<span class="fl">38.11</span>,<span class="fl">43.05</span>,<span class="fl">29.95</span>,<span class="fl">32.48</span>,<span class="fl">24.63</span>,<span class="fl">35.33</span>,<span class="fl">41.34</span>)</a>
-<a class="sourceLine" id="cb389-8" data-line-number="8"><span class="kw">descdist</span>(x, <span class="dt">discrete =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb387"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb387-1" data-line-number="1"><span class="cf">if</span>(<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)</a>
+<a class="sourceLine" id="cb387-2" data-line-number="2"><span class="kw">p_load</span>(fitdistrplus, logspline)</a></code></pre></div>
+<div class="sourceCode" id="cb388"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb388-1" data-line-number="1">x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">37.50</span>,<span class="fl">46.79</span>,<span class="fl">48.30</span>,<span class="fl">46.04</span>,<span class="fl">43.40</span>,<span class="fl">39.25</span>,<span class="fl">38.49</span>,<span class="fl">49.51</span>,<span class="fl">40.38</span>,<span class="fl">36.98</span>,<span class="fl">40.00</span>,</a>
+<a class="sourceLine" id="cb388-2" data-line-number="2">       <span class="fl">38.49</span>,<span class="fl">37.74</span>,<span class="fl">47.92</span>,<span class="fl">44.53</span>,<span class="fl">44.91</span>,<span class="fl">44.91</span>,<span class="fl">40.00</span>,<span class="fl">41.51</span>,<span class="fl">47.92</span>,<span class="fl">36.98</span>,<span class="fl">43.40</span>,</a>
+<a class="sourceLine" id="cb388-3" data-line-number="3">       <span class="fl">42.26</span>,<span class="fl">41.89</span>,<span class="fl">38.87</span>,<span class="fl">43.02</span>,<span class="fl">39.25</span>,<span class="fl">40.38</span>,<span class="fl">42.64</span>,<span class="fl">36.98</span>,<span class="fl">44.15</span>,<span class="fl">44.91</span>,<span class="fl">43.40</span>,</a>
+<a class="sourceLine" id="cb388-4" data-line-number="4">       <span class="fl">49.81</span>,<span class="fl">38.87</span>,<span class="fl">40.00</span>,<span class="fl">52.45</span>,<span class="fl">53.13</span>,<span class="fl">47.92</span>,<span class="fl">52.45</span>,<span class="fl">44.91</span>,<span class="fl">29.54</span>,<span class="fl">27.13</span>,<span class="fl">35.60</span>,</a>
+<a class="sourceLine" id="cb388-5" data-line-number="5">       <span class="fl">45.34</span>,<span class="fl">43.37</span>,<span class="fl">54.15</span>,<span class="fl">42.77</span>,<span class="fl">42.88</span>,<span class="fl">44.26</span>,<span class="fl">27.14</span>,<span class="fl">39.31</span>,<span class="fl">24.80</span>,<span class="fl">16.62</span>,<span class="fl">30.30</span>,</a>
+<a class="sourceLine" id="cb388-6" data-line-number="6">       <span class="fl">36.39</span>,<span class="fl">28.60</span>,<span class="fl">28.53</span>,<span class="fl">35.84</span>,<span class="fl">31.10</span>,<span class="fl">34.55</span>,<span class="fl">52.65</span>,<span class="fl">48.81</span>,<span class="fl">43.42</span>,<span class="fl">52.49</span>,<span class="fl">38.00</span>,</a>
+<a class="sourceLine" id="cb388-7" data-line-number="7">       <span class="fl">38.65</span>,<span class="fl">34.54</span>,<span class="fl">37.70</span>,<span class="fl">38.11</span>,<span class="fl">43.05</span>,<span class="fl">29.95</span>,<span class="fl">32.48</span>,<span class="fl">24.63</span>,<span class="fl">35.33</span>,<span class="fl">41.34</span>)</a>
+<a class="sourceLine" id="cb388-8" data-line-number="8"><span class="kw">descdist</span>(x, <span class="dt">discrete =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-65-1.png" width="672" /></p>
 <pre><code>## summary statistics
 ## ------
