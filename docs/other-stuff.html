@@ -14,7 +14,7 @@
   
   
   <meta property="og:description" content="Statistics manual from CSCN." />
-  <meta name="github-repo" content="rstudio/bookdown-demo" />
+  <meta name="github-repo" content="gorkang/R_Statistics_Manual" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="R - Statistics Manual" />
@@ -25,7 +25,7 @@
 <meta name="author" content="Center for Social and Cognitive Neuroscience - cscn.uai.cl">
 
 
-<meta name="date" content="2018-08-27">
+<meta name="date" content="2018-08-28">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -50,6 +50,13 @@
 <script src="libs/htmlwidgets-1.2/htmlwidgets.js"></script>
 <link href="libs/str_view-0.1.0/str_view.css" rel="stylesheet" />
 <script src="libs/str_view-binding-1.3.1/str_view.js"></script>
+<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="libs/datatables-binding-0.4/datatables.js"></script>
+<link href="libs/dt-core-1.10.16/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.10.16/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.10.16/js/jquery.dataTables.min.js"></script>
+<link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
 <script src="libs/d3-4.5.0/d3.min.js"></script>
 <script src="libs/sankey-1/sankey.js"></script>
 <script src="libs/sankeyNetwork-binding-0.4/sankeyNetwork.js"></script>
@@ -210,25 +217,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.7" data-path="Manipular-datos.html"><a href="Manipular-datos.html#tutoriales-externos"><i class="fa fa-check"></i><b>6.7</b> Tutoriales externos</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html"><i class="fa fa-check"></i><b>7</b> Visualizar datos</a><ul>
-<li class="chapter" data-level="7.1" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#todo-1"><i class="fa fa-check"></i><b>7.1</b> TODO</a></li>
-<li class="chapter" data-level="7.2" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#other-resources"><i class="fa fa-check"></i><b>7.2</b> Other resources</a></li>
-<li class="chapter" data-level="7.3" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#que-grafica-puedo-usar-wip"><i class="fa fa-check"></i><b>7.3</b> Que gráfica puedo usar (WIP)</a></li>
-<li class="chapter" data-level="7.4" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#tipos-de-graficas"><i class="fa fa-check"></i><b>7.4</b> Tipos de gráficas</a><ul>
-<li class="chapter" data-level="7.4.1" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#histogramas"><i class="fa fa-check"></i><b>7.4.1</b> Histogramas</a></li>
-<li class="chapter" data-level="7.4.2" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#Pirate-Plot"><i class="fa fa-check"></i><b>7.4.2</b> Pirate plot</a></li>
-<li class="chapter" data-level="7.4.3" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#barplots-with-individual-responses"><i class="fa fa-check"></i><b>7.4.3</b> Barplots with individual responses</a></li>
-<li class="chapter" data-level="7.4.4" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#diagrama-de-caja-y-bigotes"><i class="fa fa-check"></i><b>7.4.4</b> Diagrama de caja y bigotes</a></li>
-<li class="chapter" data-level="7.4.5" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#correlation-plot"><i class="fa fa-check"></i><b>7.4.5</b> Correlation plot</a></li>
-<li class="chapter" data-level="7.4.6" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#beanplot"><i class="fa fa-check"></i><b>7.4.6</b> Beanplot</a></li>
-<li class="chapter" data-level="7.4.7" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#scatterplot"><i class="fa fa-check"></i><b>7.4.7</b> Scatterplot</a></li>
-<li class="chapter" data-level="7.4.8" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#scatterplot-con-3-variables"><i class="fa fa-check"></i><b>7.4.8</b> Scatterplot con 3 variables</a></li>
-<li class="chapter" data-level="7.4.9" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#density-plots"><i class="fa fa-check"></i><b>7.4.9</b> Density plots</a></li>
-<li class="chapter" data-level="7.4.10" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#density-ridges-plots-ggjoy"><i class="fa fa-check"></i><b>7.4.10</b> Density Ridges Plots (ggjoy)</a></li>
-<li class="chapter" data-level="7.4.11" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#pp-plots"><i class="fa fa-check"></i><b>7.4.11</b> PP plots</a></li>
-<li class="chapter" data-level="7.4.12" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#shaded-geom-area"><i class="fa fa-check"></i><b>7.4.12</b> Shaded geom area</a></li>
-<li class="chapter" data-level="7.4.13" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#multiple-scatterplots"><i class="fa fa-check"></i><b>7.4.13</b> Multiple Scatterplots</a></li>
-<li class="chapter" data-level="7.4.14" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#background-data"><i class="fa fa-check"></i><b>7.4.14</b> Background data</a></li>
-<li class="chapter" data-level="7.4.15" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#flip-plots"><i class="fa fa-check"></i><b>7.4.15</b> Flip plots</a></li>
+<li class="chapter" data-level="7.1" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#other-resources"><i class="fa fa-check"></i><b>7.1</b> Other resources</a></li>
+<li class="chapter" data-level="7.2" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#que-grafica-puedo-usar-wip"><i class="fa fa-check"></i><b>7.2</b> Que gráfica puedo usar (WIP)</a></li>
+<li class="chapter" data-level="7.3" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#tipos-de-graficas"><i class="fa fa-check"></i><b>7.3</b> Tipos de gráficas</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#histogramas"><i class="fa fa-check"></i><b>7.3.1</b> Histogramas</a></li>
+<li class="chapter" data-level="7.3.2" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#Pirate-Plot"><i class="fa fa-check"></i><b>7.3.2</b> Pirate plot</a></li>
+<li class="chapter" data-level="7.3.3" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#barplots-with-individual-responses"><i class="fa fa-check"></i><b>7.3.3</b> Barplots with individual responses</a></li>
+<li class="chapter" data-level="7.3.4" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#diagrama-de-caja-y-bigotes"><i class="fa fa-check"></i><b>7.3.4</b> Diagrama de caja y bigotes</a></li>
+<li class="chapter" data-level="7.3.5" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#correlation-plot"><i class="fa fa-check"></i><b>7.3.5</b> Correlation plot</a></li>
+<li class="chapter" data-level="7.3.6" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#beanplot"><i class="fa fa-check"></i><b>7.3.6</b> Beanplot</a></li>
+<li class="chapter" data-level="7.3.7" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#scatterplot"><i class="fa fa-check"></i><b>7.3.7</b> Scatterplot</a></li>
+<li class="chapter" data-level="7.3.8" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#scatterplot-con-3-variables"><i class="fa fa-check"></i><b>7.3.8</b> Scatterplot con 3 variables</a></li>
+<li class="chapter" data-level="7.3.9" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#density-plots"><i class="fa fa-check"></i><b>7.3.9</b> Density plots</a></li>
+<li class="chapter" data-level="7.3.10" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#density-ridges-plots-ggjoy"><i class="fa fa-check"></i><b>7.3.10</b> Density Ridges Plots (ggjoy)</a></li>
+<li class="chapter" data-level="7.3.11" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#pp-plots"><i class="fa fa-check"></i><b>7.3.11</b> PP plots</a></li>
+<li class="chapter" data-level="7.3.12" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#shaded-geom-area"><i class="fa fa-check"></i><b>7.3.12</b> Shaded geom area</a></li>
+<li class="chapter" data-level="7.3.13" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#multiple-scatterplots"><i class="fa fa-check"></i><b>7.3.13</b> Multiple Scatterplots</a></li>
+<li class="chapter" data-level="7.3.14" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#background-data"><i class="fa fa-check"></i><b>7.3.14</b> Background data</a></li>
+<li class="chapter" data-level="7.3.15" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#flip-plots"><i class="fa fa-check"></i><b>7.3.15</b> Flip plots</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="Estadistica-descriptiva.html"><a href="Estadistica-descriptiva.html"><i class="fa fa-check"></i><b>8</b> Estadistica descriptiva</a><ul>
@@ -313,18 +319,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="18.1" data-path="todo-curso-basico-r-2016.html"><a href="todo-curso-basico-r-2016.html#en-ejercicios"><i class="fa fa-check"></i><b>18.1</b> EN EJERCICIOS:</a></li>
 <li class="chapter" data-level="18.2" data-path="todo-curso-basico-r-2016.html"><a href="todo-curso-basico-r-2016.html#todo---limpieza-general"><i class="fa fa-check"></i><b>18.2</b> TODO - Limpieza general</a></li>
 </ul></li>
-<li class="chapter" data-level="19" data-path="todo-2.html"><a href="todo-2.html"><i class="fa fa-check"></i><b>19</b> TODO</a><ul>
-<li class="chapter" data-level="19.1" data-path="todo-2.html"><a href="todo-2.html#urgent-stuff"><i class="fa fa-check"></i><b>19.1</b> Urgent stuff</a></li>
-<li class="chapter" data-level="19.2" data-path="todo-2.html"><a href="todo-2.html#important"><i class="fa fa-check"></i><b>19.2</b> Important</a></li>
-<li class="chapter" data-level="19.3" data-path="todo-2.html"><a href="todo-2.html#various"><i class="fa fa-check"></i><b>19.3</b> Various</a></li>
-<li class="chapter" data-level="19.4" data-path="todo-2.html"><a href="todo-2.html#index-proposal"><i class="fa fa-check"></i><b>19.4</b> <strong>INDEX PROPOSAL</strong></a></li>
-<li class="chapter" data-level="19.5" data-path="todo-2.html"><a href="todo-2.html#style-guide"><i class="fa fa-check"></i><b>19.5</b> Style guide</a><ul>
-<li class="chapter" data-level="19.5.1" data-path="todo-2.html"><a href="todo-2.html#sections"><i class="fa fa-check"></i><b>19.5.1</b> Sections</a></li>
-<li class="chapter" data-level="19.5.2" data-path="todo-2.html"><a href="todo-2.html#general"><i class="fa fa-check"></i><b>19.5.2</b> General</a></li>
+<li class="chapter" data-level="19" data-path="todo-1.html"><a href="todo-1.html"><i class="fa fa-check"></i><b>19</b> TODO</a><ul>
+<li class="chapter" data-level="19.1" data-path="todo-1.html"><a href="todo-1.html#urgent-stuff"><i class="fa fa-check"></i><b>19.1</b> Urgent stuff</a></li>
+<li class="chapter" data-level="19.2" data-path="todo-1.html"><a href="todo-1.html#important"><i class="fa fa-check"></i><b>19.2</b> Important</a></li>
+<li class="chapter" data-level="19.3" data-path="todo-1.html"><a href="todo-1.html#various"><i class="fa fa-check"></i><b>19.3</b> Various</a></li>
+<li class="chapter" data-level="19.4" data-path="todo-1.html"><a href="todo-1.html#index-proposal"><i class="fa fa-check"></i><b>19.4</b> <strong>INDEX PROPOSAL</strong></a></li>
+<li class="chapter" data-level="19.5" data-path="todo-1.html"><a href="todo-1.html#style-guide"><i class="fa fa-check"></i><b>19.5</b> Style guide</a><ul>
+<li class="chapter" data-level="19.5.1" data-path="todo-1.html"><a href="todo-1.html#sections"><i class="fa fa-check"></i><b>19.5.1</b> Sections</a></li>
+<li class="chapter" data-level="19.5.2" data-path="todo-1.html"><a href="todo-1.html#general"><i class="fa fa-check"></i><b>19.5.2</b> General</a></li>
 </ul></li>
-<li class="chapter" data-level="19.6" data-path="todo-2.html"><a href="todo-2.html#notas---remember"><i class="fa fa-check"></i><b>19.6</b> NOTAS - REMEMBER</a><ul>
-<li class="chapter" data-level="19.6.1" data-path="todo-2.html"><a href="todo-2.html#refs"><i class="fa fa-check"></i><b>19.6.1</b> REFS</a></li>
-<li class="chapter" data-level="19.6.2" data-path="todo-2.html"><a href="todo-2.html#notas"><i class="fa fa-check"></i><b>19.6.2</b> NOTAS</a></li>
+<li class="chapter" data-level="19.6" data-path="todo-1.html"><a href="todo-1.html#notas---remember"><i class="fa fa-check"></i><b>19.6</b> NOTAS - REMEMBER</a><ul>
+<li class="chapter" data-level="19.6.1" data-path="todo-1.html"><a href="todo-1.html#refs"><i class="fa fa-check"></i><b>19.6.1</b> REFS</a></li>
+<li class="chapter" data-level="19.6.2" data-path="todo-1.html"><a href="todo-1.html#notas"><i class="fa fa-check"></i><b>19.6.2</b> NOTAS</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -350,39 +356,39 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="maps---generate-and-locate-cities-in-a-world-map" class="section level2">
 <h2><span class="header-section-number">14.1</span> Maps - Generate and locate cities in a world map</h2>
 <hr />
-<div class="sourceCode" id="cb398"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb398-1" data-line-number="1"><span class="co"># Cargamos librerias y leemos DBif</span></a>
-<a class="sourceLine" id="cb398-2" data-line-number="2"><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)</a>
-<a class="sourceLine" id="cb398-3" data-line-number="3"><span class="kw">p_load</span>(ggplot2, ggmap, tidyverse, ggrepel, stringr)</a></code></pre></div>
-<div class="sourceCode" id="cb399"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb399-1" data-line-number="1"><span class="co"># Creamos un vector con ciudades y paises</span></a>
-<a class="sourceLine" id="cb399-2" data-line-number="2">cities_vector =<span class="st"> </span><span class="kw">c</span>(</a>
-<a class="sourceLine" id="cb399-3" data-line-number="3"><span class="st">&quot;Cambridge, UK&quot;</span>,</a>
-<a class="sourceLine" id="cb399-4" data-line-number="4"><span class="st">&quot;Edinburgh, UK&quot;</span>,</a>
-<a class="sourceLine" id="cb399-5" data-line-number="5"><span class="st">&quot;Heidelberg, Alemania&quot;</span>,</a>
-<a class="sourceLine" id="cb399-6" data-line-number="6"><span class="st">&quot;Barcelona, Spain&quot;</span>, </a>
-<a class="sourceLine" id="cb399-7" data-line-number="7"><span class="st">&quot;Tenerife, Spain&quot;</span>,</a>
-<a class="sourceLine" id="cb399-8" data-line-number="8"><span class="st">&quot;Granada, España&quot;</span>,</a>
-<a class="sourceLine" id="cb399-9" data-line-number="9"><span class="st">&quot;Bolonia, Italy&quot;</span>,</a>
-<a class="sourceLine" id="cb399-10" data-line-number="10"><span class="st">&quot;Sydney, Australia&quot;</span>,</a>
-<a class="sourceLine" id="cb399-11" data-line-number="11"><span class="st">&quot;Toronto, Canada&quot;</span>, </a>
-<a class="sourceLine" id="cb399-12" data-line-number="12"><span class="st">&quot;San Francisco, California&quot;</span>,</a>
-<a class="sourceLine" id="cb399-13" data-line-number="13"><span class="st">&quot;Buenos Aires, Argentina&quot;</span>,</a>
-<a class="sourceLine" id="cb399-14" data-line-number="14"><span class="st">&quot;Santiago, Chile&quot;</span>,</a>
-<a class="sourceLine" id="cb399-15" data-line-number="15"><span class="st">&quot;San Jose, Costa Rica&quot;</span>,</a>
-<a class="sourceLine" id="cb399-16" data-line-number="16"><span class="st">&quot;Medellin, Colombia&quot;</span></a>
-<a class="sourceLine" id="cb399-17" data-line-number="17">)</a>
-<a class="sourceLine" id="cb399-18" data-line-number="18"></a>
-<a class="sourceLine" id="cb399-19" data-line-number="19"><span class="co"># Separamos el vector de ciudades para tener ciudades y paises por separado</span></a>
-<a class="sourceLine" id="cb399-20" data-line-number="20">cities =<span class="st"> </span>cities_vector <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as_tibble</span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb399-21" data-line-number="21"><span class="st">  </span><span class="kw">cbind</span>(<span class="kw">str_split_fixed</span>(cities_vector, <span class="st">&quot;, &quot;</span>, <span class="dv">2</span>)) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb399-22" data-line-number="22"><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">rename</span>(<span class="dt">City_Country =</span> value, <span class="dt">City =</span> <span class="st">`</span><span class="dt">1</span><span class="st">`</span>, <span class="dt">Country =</span> <span class="st">`</span><span class="dt">2</span><span class="st">`</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb399-23" data-line-number="23"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">City_Country =</span> <span class="kw">paste0</span>(City, <span class="st">&quot;, &quot;</span>, Country))</a></code></pre></div>
-<div class="sourceCode" id="cb400"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb400-1" data-line-number="1"><span class="co"># Extraemos coordenadas a partir de las ciudades</span></a>
-<a class="sourceLine" id="cb400-2" data-line-number="2">Coordinates =<span class="st"> </span><span class="kw">geocode</span>(cities<span class="op">$</span>City_Country)</a></code></pre></div>
-<div class="sourceCode" id="cb401"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb401-1" data-line-number="1"><span class="co"># Combinamos ciudades con coordenadas</span></a>
-<a class="sourceLine" id="cb401-2" data-line-number="2">Coordinates_cities =<span class="st">  </span>cities <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">cbind</span>(Coordinates)</a>
-<a class="sourceLine" id="cb401-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb401-4" data-line-number="4"><span class="co"># Usamos el mapa </span></a>
-<a class="sourceLine" id="cb401-5" data-line-number="5">which_map &lt;-<span class="st"> </span><span class="kw">map_data</span>(<span class="st">&quot;world&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb397"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb397-1" data-line-number="1"><span class="co"># Cargamos librerias y leemos DBif</span></a>
+<a class="sourceLine" id="cb397-2" data-line-number="2"><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)</a>
+<a class="sourceLine" id="cb397-3" data-line-number="3"><span class="kw">p_load</span>(ggplot2, ggmap, tidyverse, ggrepel, stringr)</a></code></pre></div>
+<div class="sourceCode" id="cb398"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb398-1" data-line-number="1"><span class="co"># Creamos un vector con ciudades y paises</span></a>
+<a class="sourceLine" id="cb398-2" data-line-number="2">cities_vector =<span class="st"> </span><span class="kw">c</span>(</a>
+<a class="sourceLine" id="cb398-3" data-line-number="3"><span class="st">&quot;Cambridge, UK&quot;</span>,</a>
+<a class="sourceLine" id="cb398-4" data-line-number="4"><span class="st">&quot;Edinburgh, UK&quot;</span>,</a>
+<a class="sourceLine" id="cb398-5" data-line-number="5"><span class="st">&quot;Heidelberg, Alemania&quot;</span>,</a>
+<a class="sourceLine" id="cb398-6" data-line-number="6"><span class="st">&quot;Barcelona, Spain&quot;</span>, </a>
+<a class="sourceLine" id="cb398-7" data-line-number="7"><span class="st">&quot;Tenerife, Spain&quot;</span>,</a>
+<a class="sourceLine" id="cb398-8" data-line-number="8"><span class="st">&quot;Granada, España&quot;</span>,</a>
+<a class="sourceLine" id="cb398-9" data-line-number="9"><span class="st">&quot;Bolonia, Italy&quot;</span>,</a>
+<a class="sourceLine" id="cb398-10" data-line-number="10"><span class="st">&quot;Sydney, Australia&quot;</span>,</a>
+<a class="sourceLine" id="cb398-11" data-line-number="11"><span class="st">&quot;Toronto, Canada&quot;</span>, </a>
+<a class="sourceLine" id="cb398-12" data-line-number="12"><span class="st">&quot;San Francisco, California&quot;</span>,</a>
+<a class="sourceLine" id="cb398-13" data-line-number="13"><span class="st">&quot;Buenos Aires, Argentina&quot;</span>,</a>
+<a class="sourceLine" id="cb398-14" data-line-number="14"><span class="st">&quot;Santiago, Chile&quot;</span>,</a>
+<a class="sourceLine" id="cb398-15" data-line-number="15"><span class="st">&quot;San Jose, Costa Rica&quot;</span>,</a>
+<a class="sourceLine" id="cb398-16" data-line-number="16"><span class="st">&quot;Medellin, Colombia&quot;</span></a>
+<a class="sourceLine" id="cb398-17" data-line-number="17">)</a>
+<a class="sourceLine" id="cb398-18" data-line-number="18"></a>
+<a class="sourceLine" id="cb398-19" data-line-number="19"><span class="co"># Separamos el vector de ciudades para tener ciudades y paises por separado</span></a>
+<a class="sourceLine" id="cb398-20" data-line-number="20">cities =<span class="st"> </span>cities_vector <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as_tibble</span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb398-21" data-line-number="21"><span class="st">  </span><span class="kw">cbind</span>(<span class="kw">str_split_fixed</span>(cities_vector, <span class="st">&quot;, &quot;</span>, <span class="dv">2</span>)) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb398-22" data-line-number="22"><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">rename</span>(<span class="dt">City_Country =</span> value, <span class="dt">City =</span> <span class="st">`</span><span class="dt">1</span><span class="st">`</span>, <span class="dt">Country =</span> <span class="st">`</span><span class="dt">2</span><span class="st">`</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb398-23" data-line-number="23"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">City_Country =</span> <span class="kw">paste0</span>(City, <span class="st">&quot;, &quot;</span>, Country))</a></code></pre></div>
+<div class="sourceCode" id="cb399"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb399-1" data-line-number="1"><span class="co"># Extraemos coordenadas a partir de las ciudades</span></a>
+<a class="sourceLine" id="cb399-2" data-line-number="2">Coordinates =<span class="st"> </span><span class="kw">geocode</span>(cities<span class="op">$</span>City_Country)</a></code></pre></div>
+<div class="sourceCode" id="cb400"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb400-1" data-line-number="1"><span class="co"># Combinamos ciudades con coordenadas</span></a>
+<a class="sourceLine" id="cb400-2" data-line-number="2">Coordinates_cities =<span class="st">  </span>cities <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">cbind</span>(Coordinates)</a>
+<a class="sourceLine" id="cb400-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb400-4" data-line-number="4"><span class="co"># Usamos el mapa </span></a>
+<a class="sourceLine" id="cb400-5" data-line-number="5">which_map &lt;-<span class="st"> </span><span class="kw">map_data</span>(<span class="st">&quot;world&quot;</span>)</a></code></pre></div>
 <pre><code>## 
 ## Attaching package: &#39;maps&#39;</code></pre>
 <pre><code>## The following object is masked from &#39;package:plyr&#39;:
@@ -391,23 +397,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## The following object is masked from &#39;package:purrr&#39;:
 ## 
 ##     map</code></pre>
-<div class="sourceCode" id="cb405"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb405-1" data-line-number="1"><span class="kw">ggplot</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_polygon</span>(<span class="dt">data =</span> which_map, <span class="kw">aes</span>(<span class="dt">x =</span> long, <span class="dt">y =</span> lat, <span class="dt">group =</span> group, <span class="dt">alpha =</span> <span class="fl">0.8</span>)) <span class="op">+</span><span class="st"> </span><span class="co">#, fill = &quot;none&quot; </span></a>
-<a class="sourceLine" id="cb405-2" data-line-number="2"><span class="st">  </span><span class="kw">coord_fixed</span>(<span class="fl">1.3</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb405-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">data =</span> Coordinates_cities, <span class="kw">aes</span>(<span class="dt">x =</span> lon, <span class="dt">y =</span> lat, <span class="dt">color =</span> <span class="st">&quot;none&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;none&quot;</span>, <span class="dt">alpha =</span> <span class="fl">0.8</span>), <span class="dt">size =</span> <span class="dv">4</span>, <span class="dt">shape =</span> <span class="dv">21</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb405-4" data-line-number="4"><span class="st">  </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>, <span class="dt">alpha =</span> <span class="ot">FALSE</span>, <span class="dt">size =</span> <span class="ot">FALSE</span>, <span class="dt">color =</span> F) <span class="op">+</span></a>
-<a class="sourceLine" id="cb405-5" data-line-number="5"><span class="st">  </span><span class="kw">scale_fill_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="st">&quot;orange3&quot;</span>)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb405-6" data-line-number="6"><span class="st">  </span><span class="kw">scale_colour_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="st">&quot;white&quot;</span>))  <span class="op">+</span></a>
-<a class="sourceLine" id="cb405-7" data-line-number="7"><span class="st">  </span></a>
-<a class="sourceLine" id="cb405-8" data-line-number="8"><span class="st">  </span><span class="co"># We plot Universities, or not</span></a>
-<a class="sourceLine" id="cb405-9" data-line-number="9"><span class="st">  </span><span class="kw">geom_text_repel</span>(<span class="dt">data =</span> Coordinates_cities, <span class="kw">aes</span>(<span class="dt">x =</span> lon, <span class="dt">y =</span> lat, <span class="dt">label =</span> City), <span class="dt">segment.alpha =</span> <span class="fl">.5</span>, <span class="dt">segment.color =</span> <span class="st">&#39;#cccccc&#39;</span>, <span class="dt">colour =</span> <span class="st">&quot;orange4&quot;</span>, <span class="dt">size =</span> <span class="dv">4</span> ) <span class="op">+</span><span class="st"> </span><span class="co">#hjust = 0.5, vjust = -0.5,</span></a>
-<a class="sourceLine" id="cb405-10" data-line-number="10"><span class="st">  </span></a>
-<a class="sourceLine" id="cb405-11" data-line-number="11"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">panel.grid.major =</span> <span class="kw">element_blank</span>(), <span class="dt">panel.grid.minor =</span> <span class="kw">element_blank</span>()) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb405-12" data-line-number="12"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.line =</span> <span class="kw">element_blank</span>(), <span class="dt">axis.text.x =</span> <span class="kw">element_blank</span>(),</a>
-<a class="sourceLine" id="cb405-13" data-line-number="13">        <span class="dt">axis.text.y =</span> <span class="kw">element_blank</span>(), <span class="dt">axis.ticks =</span> <span class="kw">element_blank</span>(),</a>
-<a class="sourceLine" id="cb405-14" data-line-number="14">        <span class="dt">axis.title.x =</span> <span class="kw">element_blank</span>(),</a>
-<a class="sourceLine" id="cb405-15" data-line-number="15">        <span class="dt">axis.title.y =</span> <span class="kw">element_blank</span>(), <span class="dt">legend.position =</span> <span class="st">&quot;none&quot;</span>,</a>
-<a class="sourceLine" id="cb405-16" data-line-number="16">        <span class="co"># panel.background=element_blank(),panel.border=element_blank(),panel.grid.major=element_blank(),</span></a>
-<a class="sourceLine" id="cb405-17" data-line-number="17">        <span class="dt">panel.grid.minor =</span> <span class="kw">element_blank</span>(), <span class="dt">plot.background =</span> <span class="kw">element_blank</span>())</a></code></pre></div>
+<div class="sourceCode" id="cb404"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb404-1" data-line-number="1"><span class="kw">ggplot</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_polygon</span>(<span class="dt">data =</span> which_map, <span class="kw">aes</span>(<span class="dt">x =</span> long, <span class="dt">y =</span> lat, <span class="dt">group =</span> group, <span class="dt">alpha =</span> <span class="fl">0.8</span>)) <span class="op">+</span><span class="st"> </span><span class="co">#, fill = &quot;none&quot; </span></a>
+<a class="sourceLine" id="cb404-2" data-line-number="2"><span class="st">  </span><span class="kw">coord_fixed</span>(<span class="fl">1.3</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb404-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">data =</span> Coordinates_cities, <span class="kw">aes</span>(<span class="dt">x =</span> lon, <span class="dt">y =</span> lat, <span class="dt">color =</span> <span class="st">&quot;none&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;none&quot;</span>, <span class="dt">alpha =</span> <span class="fl">0.8</span>), <span class="dt">size =</span> <span class="dv">4</span>, <span class="dt">shape =</span> <span class="dv">21</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb404-4" data-line-number="4"><span class="st">  </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>, <span class="dt">alpha =</span> <span class="ot">FALSE</span>, <span class="dt">size =</span> <span class="ot">FALSE</span>, <span class="dt">color =</span> F) <span class="op">+</span></a>
+<a class="sourceLine" id="cb404-5" data-line-number="5"><span class="st">  </span><span class="kw">scale_fill_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="st">&quot;orange3&quot;</span>)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb404-6" data-line-number="6"><span class="st">  </span><span class="kw">scale_colour_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="st">&quot;white&quot;</span>))  <span class="op">+</span></a>
+<a class="sourceLine" id="cb404-7" data-line-number="7"><span class="st">  </span></a>
+<a class="sourceLine" id="cb404-8" data-line-number="8"><span class="st">  </span><span class="co"># We plot Universities, or not</span></a>
+<a class="sourceLine" id="cb404-9" data-line-number="9"><span class="st">  </span><span class="kw">geom_text_repel</span>(<span class="dt">data =</span> Coordinates_cities, <span class="kw">aes</span>(<span class="dt">x =</span> lon, <span class="dt">y =</span> lat, <span class="dt">label =</span> City), <span class="dt">segment.alpha =</span> <span class="fl">.5</span>, <span class="dt">segment.color =</span> <span class="st">&#39;#cccccc&#39;</span>, <span class="dt">colour =</span> <span class="st">&quot;orange4&quot;</span>, <span class="dt">size =</span> <span class="dv">4</span> ) <span class="op">+</span><span class="st"> </span><span class="co">#hjust = 0.5, vjust = -0.5,</span></a>
+<a class="sourceLine" id="cb404-10" data-line-number="10"><span class="st">  </span></a>
+<a class="sourceLine" id="cb404-11" data-line-number="11"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">panel.grid.major =</span> <span class="kw">element_blank</span>(), <span class="dt">panel.grid.minor =</span> <span class="kw">element_blank</span>()) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb404-12" data-line-number="12"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.line =</span> <span class="kw">element_blank</span>(), <span class="dt">axis.text.x =</span> <span class="kw">element_blank</span>(),</a>
+<a class="sourceLine" id="cb404-13" data-line-number="13">        <span class="dt">axis.text.y =</span> <span class="kw">element_blank</span>(), <span class="dt">axis.ticks =</span> <span class="kw">element_blank</span>(),</a>
+<a class="sourceLine" id="cb404-14" data-line-number="14">        <span class="dt">axis.title.x =</span> <span class="kw">element_blank</span>(),</a>
+<a class="sourceLine" id="cb404-15" data-line-number="15">        <span class="dt">axis.title.y =</span> <span class="kw">element_blank</span>(), <span class="dt">legend.position =</span> <span class="st">&quot;none&quot;</span>,</a>
+<a class="sourceLine" id="cb404-16" data-line-number="16">        <span class="co"># panel.background=element_blank(),panel.border=element_blank(),panel.grid.major=element_blank(),</span></a>
+<a class="sourceLine" id="cb404-17" data-line-number="17">        <span class="dt">panel.grid.minor =</span> <span class="kw">element_blank</span>(), <span class="dt">plot.background =</span> <span class="kw">element_blank</span>())</a></code></pre></div>
 <pre><code>## Warning: Removed 5 rows containing missing values (geom_point).</code></pre>
 <pre><code>## Warning: Removed 5 rows containing missing values (geom_text_repel).</code></pre>
 <p><img src="_main_files/figure-html/generate_maps_plot-1.png" width="672" /></p>
@@ -416,28 +422,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="extract-tables-from-the-internet" class="section level2">
 <h2><span class="header-section-number">14.2</span> Extract tables from the internet</h2>
 <hr />
-<div class="sourceCode" id="cb408"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb408-1" data-line-number="1"><span class="co"># Cargamos librerias y leemos DBif (!require(&#39;pacman&#39;)) install.packages(&#39;pacman&#39;); library(&#39;pacman&#39;)</span></a>
-<a class="sourceLine" id="cb408-2" data-line-number="2"><span class="kw">library</span>(pacman)</a>
-<a class="sourceLine" id="cb408-3" data-line-number="3"><span class="kw">p_load</span>(rvest, tidyverse, ggrepel)</a></code></pre></div>
+<div class="sourceCode" id="cb407"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb407-1" data-line-number="1"><span class="co"># Cargamos librerias y leemos DBif (!require(&#39;pacman&#39;)) install.packages(&#39;pacman&#39;); library(&#39;pacman&#39;)</span></a>
+<a class="sourceLine" id="cb407-2" data-line-number="2"><span class="kw">library</span>(pacman)</a>
+<a class="sourceLine" id="cb407-3" data-line-number="3"><span class="kw">p_load</span>(rvest, tidyverse, ggrepel)</a></code></pre></div>
 <p>To extract a table we use the package <code>rvest</code>. We need the <strong>XPath</strong> of the table. To get it, we need to use the Devtools of Chrome or Firefox, locate the table, and right click, Copy, Copy XPath, as shown in the Figure below.</p>
 <p><img src="Images/Other/16_Extract_tables_web.png" /></p>
 <hr />
 <p>Below there is an example using the Shanghai Ranking. First, we extract the table:</p>
-<div class="sourceCode" id="cb409"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb409-1" data-line-number="1"><span class="co">#http://www.shanghairanking.com/ARWU-Methodology-2016.html</span></a>
-<a class="sourceLine" id="cb409-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb409-3" data-line-number="3">url &lt;-<span class="st"> &quot;http://www.shanghairanking.com/ARWU2016.html&quot;</span></a>
-<a class="sourceLine" id="cb409-4" data-line-number="4">population &lt;-<span class="st"> </span>url <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb409-5" data-line-number="5"><span class="st">  </span><span class="kw">read_html</span>() <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb409-6" data-line-number="6"><span class="st">  </span><span class="kw">html_nodes</span>(<span class="dt">xpath=</span><span class="st">&#39;//*[@id=&quot;UniversityRanking&quot;]&#39;</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb409-7" data-line-number="7"><span class="st">  </span><span class="kw">html_table</span>(<span class="dt">fill =</span> <span class="ot">TRUE</span>)</a>
-<a class="sourceLine" id="cb409-8" data-line-number="8">  population &lt;-<span class="st"> </span>population[[<span class="dv">1</span>]]</a>
-<a class="sourceLine" id="cb409-9" data-line-number="9"></a>
-<a class="sourceLine" id="cb409-10" data-line-number="10">  <span class="co"># Rename columns </span></a>
-<a class="sourceLine" id="cb409-11" data-line-number="11">  <span class="kw">colnames</span>(population) =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;World_Rank&quot;</span>, <span class="st">&quot;Institution&quot;</span>, <span class="st">&quot;Country/Region&quot;</span>, <span class="st">&quot;National_Rank&quot;</span>, <span class="st">&quot;Total_Score&quot;</span>, <span class="st">&quot;Alumni&quot;</span>, <span class="st">&quot;Awards&quot;</span>, <span class="st">&quot;Higly_Cited_Researchers&quot;</span>, <span class="st">&quot;Nature_Science&quot;</span>, <span class="st">&quot;Publications&quot;</span>, <span class="st">&quot;PCP&quot;</span>)</a>
-<a class="sourceLine" id="cb409-12" data-line-number="12"></a>
-<a class="sourceLine" id="cb409-13" data-line-number="13"><span class="kw">write_csv</span>(population, <span class="st">&quot;Data/15_Extract_tables_web/15_Extract_tables_web_Shanghai_2016.csv&quot;</span>)</a>
-<a class="sourceLine" id="cb409-14" data-line-number="14"></a>
-<a class="sourceLine" id="cb409-15" data-line-number="15">population <span class="op">%&gt;%</span><span class="st"> </span>dplyr<span class="op">::</span><span class="kw">select</span>(<span class="op">-</span><span class="st">`</span><span class="dt">Country/Region</span><span class="st">`</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as_tibble</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb408"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb408-1" data-line-number="1"><span class="co">#http://www.shanghairanking.com/ARWU-Methodology-2016.html</span></a>
+<a class="sourceLine" id="cb408-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb408-3" data-line-number="3">url &lt;-<span class="st"> &quot;http://www.shanghairanking.com/ARWU2016.html&quot;</span></a>
+<a class="sourceLine" id="cb408-4" data-line-number="4">population &lt;-<span class="st"> </span>url <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb408-5" data-line-number="5"><span class="st">  </span><span class="kw">read_html</span>() <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb408-6" data-line-number="6"><span class="st">  </span><span class="kw">html_nodes</span>(<span class="dt">xpath=</span><span class="st">&#39;//*[@id=&quot;UniversityRanking&quot;]&#39;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb408-7" data-line-number="7"><span class="st">  </span><span class="kw">html_table</span>(<span class="dt">fill =</span> <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb408-8" data-line-number="8">  population &lt;-<span class="st"> </span>population[[<span class="dv">1</span>]]</a>
+<a class="sourceLine" id="cb408-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb408-10" data-line-number="10">  <span class="co"># Rename columns </span></a>
+<a class="sourceLine" id="cb408-11" data-line-number="11">  <span class="kw">colnames</span>(population) =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;World_Rank&quot;</span>, <span class="st">&quot;Institution&quot;</span>, <span class="st">&quot;Country/Region&quot;</span>, <span class="st">&quot;National_Rank&quot;</span>, <span class="st">&quot;Total_Score&quot;</span>, <span class="st">&quot;Alumni&quot;</span>, <span class="st">&quot;Awards&quot;</span>, <span class="st">&quot;Higly_Cited_Researchers&quot;</span>, <span class="st">&quot;Nature_Science&quot;</span>, <span class="st">&quot;Publications&quot;</span>, <span class="st">&quot;PCP&quot;</span>)</a>
+<a class="sourceLine" id="cb408-12" data-line-number="12"></a>
+<a class="sourceLine" id="cb408-13" data-line-number="13"><span class="kw">write_csv</span>(population, <span class="st">&quot;Data/15_Extract_tables_web/15_Extract_tables_web_Shanghai_2016.csv&quot;</span>)</a>
+<a class="sourceLine" id="cb408-14" data-line-number="14"></a>
+<a class="sourceLine" id="cb408-15" data-line-number="15">population <span class="op">%&gt;%</span><span class="st"> </span>dplyr<span class="op">::</span><span class="kw">select</span>(<span class="op">-</span><span class="st">`</span><span class="dt">Country/Region</span><span class="st">`</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as_tibble</span>()</a></code></pre></div>
 <pre><code>## # A tibble: 500 x 10
 ##    World_Rank Institution National_Rank Total_Score Alumni Awards
 ##    &lt;chr&gt;      &lt;chr&gt;       &lt;chr&gt;               &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
@@ -455,85 +461,85 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## #   Higly_Cited_Researchers &lt;dbl&gt;, Nature_Science &lt;dbl&gt;,
 ## #   Publications &lt;dbl&gt;, PCP &lt;dbl&gt;</code></pre>
 <p>We prepare the DB and create the plot…</p>
-<div class="sourceCode" id="cb411"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb411-1" data-line-number="1"><span class="co"># Scatter -----------------------------------------------------------------</span></a>
-<a class="sourceLine" id="cb411-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb411-3" data-line-number="3"><span class="co"># Read the DB</span></a>
-<a class="sourceLine" id="cb411-4" data-line-number="4">population =<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;Data/15_Extract_tables_web/15_Extract_tables_web_Shanghai_2016.csv&quot;</span>)</a>
-<a class="sourceLine" id="cb411-5" data-line-number="5">  </a>
-<a class="sourceLine" id="cb411-6" data-line-number="6"><span class="co"># We will show the names of this set of universities</span></a>
-<a class="sourceLine" id="cb411-7" data-line-number="7">Universidades_destacadas =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;University of Cambridge&quot;</span>, </a>
-<a class="sourceLine" id="cb411-8" data-line-number="8">                               <span class="st">&quot;University of Oxford&quot;</span>, </a>
-<a class="sourceLine" id="cb411-9" data-line-number="9">                               <span class="st">&quot;University of Toronto&quot;</span>, </a>
-<a class="sourceLine" id="cb411-10" data-line-number="10">                               <span class="st">&quot;University of Chicago&quot;</span>, </a>
-<a class="sourceLine" id="cb411-11" data-line-number="11">                               <span class="st">&quot;The University of Edinburgh&quot;</span>,</a>
-<a class="sourceLine" id="cb411-12" data-line-number="12">                               <span class="st">&quot;California Institute of Technology&quot;</span>)</a>
-<a class="sourceLine" id="cb411-13" data-line-number="13"></a>
-<a class="sourceLine" id="cb411-14" data-line-number="14"><span class="co"># Prepare DB for plot  </span></a>
-<a class="sourceLine" id="cb411-15" data-line-number="15">population_scatter =<span class="st"> </span>population <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as_tibble</span>() <span class="op">%&gt;%</span><span class="st"> </span>dplyr<span class="op">::</span><span class="kw">select</span>(<span class="op">-</span><span class="st">`</span><span class="dt">Country/Region</span><span class="st">`</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">drop_na</span>() <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb411-16" data-line-number="16"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">World_Rank =</span> <span class="kw">as.numeric</span>(World_Rank), <span class="dt">National_Rank =</span> <span class="kw">as.numeric</span>(National_Rank)) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb411-17" data-line-number="17"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Institution_highlighted =</span> <span class="kw">ifelse</span>(Institution <span class="op">%in%</span><span class="st"> </span>Universidades_destacadas, Institution, <span class="ot">NA</span>),</a>
-<a class="sourceLine" id="cb411-18" data-line-number="18">         <span class="dt">Institution =</span> <span class="kw">ifelse</span>(Institution <span class="op">%in%</span><span class="st"> </span>Universidades_destacadas, <span class="ot">NA</span>, Institution))</a>
-<a class="sourceLine" id="cb411-19" data-line-number="19"></a>
-<a class="sourceLine" id="cb411-20" data-line-number="20"></a>
-<a class="sourceLine" id="cb411-21" data-line-number="21"><span class="co"># Plot</span></a>
-<a class="sourceLine" id="cb411-22" data-line-number="22"><span class="kw">ggplot</span>(population_scatter, <span class="kw">aes</span>(Nature_Science, World_Rank)) <span class="op">+</span><span class="st"> </span><span class="co">#, color=factor(P_s)</span></a>
-<a class="sourceLine" id="cb411-23" data-line-number="23"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="dv">4</span>, <span class="dt">color =</span> <span class="st">&#39;orange&#39;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb411-24" data-line-number="24"><span class="st">  </span><span class="kw">scale_colour_hue</span>(<span class="dt">l=</span><span class="dv">50</span>) <span class="op">+</span><span class="st"> </span><span class="co"># Palette hue</span></a>
-<a class="sourceLine" id="cb411-25" data-line-number="25"><span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span>lm,   <span class="co"># Linear regression lines</span></a>
-<a class="sourceLine" id="cb411-26" data-line-number="26">              <span class="dt">se=</span>T,<span class="co"># level = .5,        # Confidence interval</span></a>
-<a class="sourceLine" id="cb411-27" data-line-number="27">              <span class="dt">fullrange=</span>F, </a>
-<a class="sourceLine" id="cb411-28" data-line-number="28">              <span class="dt">color =</span> <span class="st">&quot;purple&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb411-29" data-line-number="29"><span class="st">  </span><span class="co"># geom_text_repel(aes(label=Institution)) + </span></a>
-<a class="sourceLine" id="cb411-30" data-line-number="30"><span class="st">  </span><span class="kw">geom_text_repel</span>(<span class="kw">aes</span>(<span class="dt">label=</span>Institution_highlighted, <span class="dt">fontface=</span><span class="st">&quot;bold&quot;</span>), <span class="dt">size =</span> <span class="dv">3</span>) <span class="op">+</span><span class="st">   </span></a>
-<a class="sourceLine" id="cb411-31" data-line-number="31"><span class="st">  </span><span class="kw">theme_classic</span>(<span class="dt">base_size =</span> <span class="dv">16</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb411-32" data-line-number="32"><span class="st">  </span><span class="kw">scale_y_reverse</span>( <span class="dt">breaks=</span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">25</span>, <span class="dv">50</span>, <span class="dv">75</span>, <span class="dv">100</span>), <span class="dt">lim =</span> <span class="kw">c</span>(<span class="dv">100</span>,<span class="dv">1</span>)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb411-33" data-line-number="33"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x=</span><span class="st">&quot;Publications&quot;</span>, <span class="dt">y=</span><span class="st">&quot;Shanghai Ranking 2016&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb410"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb410-1" data-line-number="1"><span class="co"># Scatter -----------------------------------------------------------------</span></a>
+<a class="sourceLine" id="cb410-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb410-3" data-line-number="3"><span class="co"># Read the DB</span></a>
+<a class="sourceLine" id="cb410-4" data-line-number="4">population =<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;Data/15_Extract_tables_web/15_Extract_tables_web_Shanghai_2016.csv&quot;</span>)</a>
+<a class="sourceLine" id="cb410-5" data-line-number="5">  </a>
+<a class="sourceLine" id="cb410-6" data-line-number="6"><span class="co"># We will show the names of this set of universities</span></a>
+<a class="sourceLine" id="cb410-7" data-line-number="7">Universidades_destacadas =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;University of Cambridge&quot;</span>, </a>
+<a class="sourceLine" id="cb410-8" data-line-number="8">                               <span class="st">&quot;University of Oxford&quot;</span>, </a>
+<a class="sourceLine" id="cb410-9" data-line-number="9">                               <span class="st">&quot;University of Toronto&quot;</span>, </a>
+<a class="sourceLine" id="cb410-10" data-line-number="10">                               <span class="st">&quot;University of Chicago&quot;</span>, </a>
+<a class="sourceLine" id="cb410-11" data-line-number="11">                               <span class="st">&quot;The University of Edinburgh&quot;</span>,</a>
+<a class="sourceLine" id="cb410-12" data-line-number="12">                               <span class="st">&quot;California Institute of Technology&quot;</span>)</a>
+<a class="sourceLine" id="cb410-13" data-line-number="13"></a>
+<a class="sourceLine" id="cb410-14" data-line-number="14"><span class="co"># Prepare DB for plot  </span></a>
+<a class="sourceLine" id="cb410-15" data-line-number="15">population_scatter =<span class="st"> </span>population <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as_tibble</span>() <span class="op">%&gt;%</span><span class="st"> </span>dplyr<span class="op">::</span><span class="kw">select</span>(<span class="op">-</span><span class="st">`</span><span class="dt">Country/Region</span><span class="st">`</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">drop_na</span>() <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb410-16" data-line-number="16"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">World_Rank =</span> <span class="kw">as.numeric</span>(World_Rank), <span class="dt">National_Rank =</span> <span class="kw">as.numeric</span>(National_Rank)) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb410-17" data-line-number="17"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Institution_highlighted =</span> <span class="kw">ifelse</span>(Institution <span class="op">%in%</span><span class="st"> </span>Universidades_destacadas, Institution, <span class="ot">NA</span>),</a>
+<a class="sourceLine" id="cb410-18" data-line-number="18">         <span class="dt">Institution =</span> <span class="kw">ifelse</span>(Institution <span class="op">%in%</span><span class="st"> </span>Universidades_destacadas, <span class="ot">NA</span>, Institution))</a>
+<a class="sourceLine" id="cb410-19" data-line-number="19"></a>
+<a class="sourceLine" id="cb410-20" data-line-number="20"></a>
+<a class="sourceLine" id="cb410-21" data-line-number="21"><span class="co"># Plot</span></a>
+<a class="sourceLine" id="cb410-22" data-line-number="22"><span class="kw">ggplot</span>(population_scatter, <span class="kw">aes</span>(Nature_Science, World_Rank)) <span class="op">+</span><span class="st"> </span><span class="co">#, color=factor(P_s)</span></a>
+<a class="sourceLine" id="cb410-23" data-line-number="23"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="dv">4</span>, <span class="dt">color =</span> <span class="st">&#39;orange&#39;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb410-24" data-line-number="24"><span class="st">  </span><span class="kw">scale_colour_hue</span>(<span class="dt">l=</span><span class="dv">50</span>) <span class="op">+</span><span class="st"> </span><span class="co"># Palette hue</span></a>
+<a class="sourceLine" id="cb410-25" data-line-number="25"><span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span>lm,   <span class="co"># Linear regression lines</span></a>
+<a class="sourceLine" id="cb410-26" data-line-number="26">              <span class="dt">se=</span>T,<span class="co"># level = .5,        # Confidence interval</span></a>
+<a class="sourceLine" id="cb410-27" data-line-number="27">              <span class="dt">fullrange=</span>F, </a>
+<a class="sourceLine" id="cb410-28" data-line-number="28">              <span class="dt">color =</span> <span class="st">&quot;purple&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb410-29" data-line-number="29"><span class="st">  </span><span class="co"># geom_text_repel(aes(label=Institution)) + </span></a>
+<a class="sourceLine" id="cb410-30" data-line-number="30"><span class="st">  </span><span class="kw">geom_text_repel</span>(<span class="kw">aes</span>(<span class="dt">label=</span>Institution_highlighted, <span class="dt">fontface=</span><span class="st">&quot;bold&quot;</span>), <span class="dt">size =</span> <span class="dv">3</span>) <span class="op">+</span><span class="st">   </span></a>
+<a class="sourceLine" id="cb410-31" data-line-number="31"><span class="st">  </span><span class="kw">theme_classic</span>(<span class="dt">base_size =</span> <span class="dv">16</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb410-32" data-line-number="32"><span class="st">  </span><span class="kw">scale_y_reverse</span>( <span class="dt">breaks=</span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">25</span>, <span class="dv">50</span>, <span class="dv">75</span>, <span class="dv">100</span>), <span class="dt">lim =</span> <span class="kw">c</span>(<span class="dv">100</span>,<span class="dv">1</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb410-33" data-line-number="33"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x=</span><span class="st">&quot;Publications&quot;</span>, <span class="dt">y=</span><span class="st">&quot;Shanghai Ranking 2016&quot;</span>)</a></code></pre></div>
 <p><img src="_main_files/figure-html/extract_tables_shanghai_plot1-1.png" width="672" /></p>
-<div class="sourceCode" id="cb412"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb412-1" data-line-number="1">  <span class="co"># Save the plot</span></a>
-<a class="sourceLine" id="cb412-2" data-line-number="2">    <span class="co"># file = &quot;Images/Other/Shanghai_ Ranking.png&quot;</span></a>
-<a class="sourceLine" id="cb412-3" data-line-number="3">    <span class="co"># ggsave(file, device = &quot;png&quot;, dpi = 300)</span></a></code></pre></div>
+<div class="sourceCode" id="cb411"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb411-1" data-line-number="1">  <span class="co"># Save the plot</span></a>
+<a class="sourceLine" id="cb411-2" data-line-number="2">    <span class="co"># file = &quot;Images/Other/Shanghai_ Ranking.png&quot;</span></a>
+<a class="sourceLine" id="cb411-3" data-line-number="3">    <span class="co"># ggsave(file, device = &quot;png&quot;, dpi = 300)</span></a></code></pre></div>
 <p>When plotting, we can change the function behind the regression line.</p>
-<div class="sourceCode" id="cb413"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb413-1" data-line-number="1">  <span class="kw">ggplot</span>(population_scatter, <span class="kw">aes</span>(Nature_Science, World_Rank)) <span class="op">+</span><span class="st"> </span><span class="co">#, color=factor(P_s)</span></a>
-<a class="sourceLine" id="cb413-2" data-line-number="2"><span class="st">    </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="dv">4</span>, <span class="dt">color =</span> <span class="st">&#39;orange&#39;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb413-3" data-line-number="3"><span class="st">    </span><span class="kw">scale_colour_hue</span>(<span class="dt">l=</span><span class="dv">50</span>) <span class="op">+</span><span class="st"> </span><span class="co"># Palette hue</span></a>
-<a class="sourceLine" id="cb413-4" data-line-number="4"><span class="st">    </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span><span class="st">&quot;lm&quot;</span>, <span class="kw">aes</span>(<span class="dt">color=</span><span class="st">&quot;Log Model&quot;</span>), <span class="dt">formula=</span> (y <span class="op">~</span><span class="st"> </span><span class="kw">log</span>(x)), <span class="dt">se=</span>T, <span class="dt">linetype =</span> <span class="dv">1</span>,  <span class="dt">level =</span> <span class="fl">.999</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb413-5" data-line-number="5"><span class="st">    </span><span class="co"># geom_smooth(method=&quot;lm&quot;, aes(color=&quot;Log Model&quot;), formula= (y ~  poly(x, 2, raw=TRUE)), se=T, linetype = 1) +</span></a>
-<a class="sourceLine" id="cb413-6" data-line-number="6"><span class="st">    </span><span class="co"># geom_smooth(method=&quot;lm&quot;, aes(color=&quot;Log Model&quot;), formula= (y ~  splines::bs(x, 3)), se=T, linetype = 1,  level = .999) +</span></a>
-<a class="sourceLine" id="cb413-7" data-line-number="7"><span class="st">    </span><span class="co"># method = &quot;lm&quot;, formula = y ~ </span></a>
-<a class="sourceLine" id="cb413-8" data-line-number="8"><span class="st">    </span><span class="kw">guides</span>(<span class="dt">color =</span> <span class="kw">guide_legend</span>(<span class="st">&quot;Model Type&quot;</span>)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb413-9" data-line-number="9"><span class="st">    </span><span class="co"># geom_text_repel(aes(label=Institution)) + </span></a>
-<a class="sourceLine" id="cb413-10" data-line-number="10"><span class="st">    </span><span class="kw">geom_text_repel</span>(<span class="kw">aes</span>(<span class="dt">label=</span>Institution_highlighted, <span class="dt">fontface=</span><span class="st">&quot;bold&quot;</span>), <span class="dt">size =</span> <span class="dv">3</span>) <span class="op">+</span><span class="st">   </span></a>
-<a class="sourceLine" id="cb413-11" data-line-number="11"><span class="st">    </span><span class="kw">theme_classic</span>(<span class="dt">base_size =</span> <span class="dv">16</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb413-12" data-line-number="12"><span class="st">    </span><span class="kw">scale_y_reverse</span>(<span class="dt">breaks=</span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">25</span>, <span class="dv">50</span>, <span class="dv">75</span>, <span class="dv">100</span>)) <span class="op">+</span><span class="st"> </span><span class="co">#, lim = c(100, 1)</span></a>
-<a class="sourceLine" id="cb413-13" data-line-number="13"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">x=</span><span class="st">&quot;Publications&quot;</span>, <span class="dt">y=</span><span class="st">&quot;Shanghai Ranking 2016&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb412"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb412-1" data-line-number="1">  <span class="kw">ggplot</span>(population_scatter, <span class="kw">aes</span>(Nature_Science, World_Rank)) <span class="op">+</span><span class="st"> </span><span class="co">#, color=factor(P_s)</span></a>
+<a class="sourceLine" id="cb412-2" data-line-number="2"><span class="st">    </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="dv">4</span>, <span class="dt">color =</span> <span class="st">&#39;orange&#39;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb412-3" data-line-number="3"><span class="st">    </span><span class="kw">scale_colour_hue</span>(<span class="dt">l=</span><span class="dv">50</span>) <span class="op">+</span><span class="st"> </span><span class="co"># Palette hue</span></a>
+<a class="sourceLine" id="cb412-4" data-line-number="4"><span class="st">    </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span><span class="st">&quot;lm&quot;</span>, <span class="kw">aes</span>(<span class="dt">color=</span><span class="st">&quot;Log Model&quot;</span>), <span class="dt">formula=</span> (y <span class="op">~</span><span class="st"> </span><span class="kw">log</span>(x)), <span class="dt">se=</span>T, <span class="dt">linetype =</span> <span class="dv">1</span>,  <span class="dt">level =</span> <span class="fl">.999</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb412-5" data-line-number="5"><span class="st">    </span><span class="co"># geom_smooth(method=&quot;lm&quot;, aes(color=&quot;Log Model&quot;), formula= (y ~  poly(x, 2, raw=TRUE)), se=T, linetype = 1) +</span></a>
+<a class="sourceLine" id="cb412-6" data-line-number="6"><span class="st">    </span><span class="co"># geom_smooth(method=&quot;lm&quot;, aes(color=&quot;Log Model&quot;), formula= (y ~  splines::bs(x, 3)), se=T, linetype = 1,  level = .999) +</span></a>
+<a class="sourceLine" id="cb412-7" data-line-number="7"><span class="st">    </span><span class="co"># method = &quot;lm&quot;, formula = y ~ </span></a>
+<a class="sourceLine" id="cb412-8" data-line-number="8"><span class="st">    </span><span class="kw">guides</span>(<span class="dt">color =</span> <span class="kw">guide_legend</span>(<span class="st">&quot;Model Type&quot;</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb412-9" data-line-number="9"><span class="st">    </span><span class="co"># geom_text_repel(aes(label=Institution)) + </span></a>
+<a class="sourceLine" id="cb412-10" data-line-number="10"><span class="st">    </span><span class="kw">geom_text_repel</span>(<span class="kw">aes</span>(<span class="dt">label=</span>Institution_highlighted, <span class="dt">fontface=</span><span class="st">&quot;bold&quot;</span>), <span class="dt">size =</span> <span class="dv">3</span>) <span class="op">+</span><span class="st">   </span></a>
+<a class="sourceLine" id="cb412-11" data-line-number="11"><span class="st">    </span><span class="kw">theme_classic</span>(<span class="dt">base_size =</span> <span class="dv">16</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb412-12" data-line-number="12"><span class="st">    </span><span class="kw">scale_y_reverse</span>(<span class="dt">breaks=</span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">25</span>, <span class="dv">50</span>, <span class="dv">75</span>, <span class="dv">100</span>)) <span class="op">+</span><span class="st"> </span><span class="co">#, lim = c(100, 1)</span></a>
+<a class="sourceLine" id="cb412-13" data-line-number="13"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">x=</span><span class="st">&quot;Publications&quot;</span>, <span class="dt">y=</span><span class="st">&quot;Shanghai Ranking 2016&quot;</span>)</a></code></pre></div>
 <p><img src="_main_files/figure-html/extract_tables_shanghai_plot2-1.png" width="672" /></p>
 
 </div>
 <div id="extract-tables-from-the-internet-1" class="section level2">
 <h2><span class="header-section-number">14.3</span> Extract tables from the internet</h2>
 <hr />
-<div class="sourceCode" id="cb414"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb414-1" data-line-number="1"><span class="co"># Cargamos librerias y leemos DBif (!require(&#39;pacman&#39;)) install.packages(&#39;pacman&#39;); library(&#39;pacman&#39;)</span></a>
-<a class="sourceLine" id="cb414-2" data-line-number="2"><span class="kw">library</span>(pacman)</a>
-<a class="sourceLine" id="cb414-3" data-line-number="3"><span class="kw">p_load</span>(rvest, tidyverse, ggrepel)</a></code></pre></div>
+<div class="sourceCode" id="cb413"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb413-1" data-line-number="1"><span class="co"># Cargamos librerias y leemos DBif (!require(&#39;pacman&#39;)) install.packages(&#39;pacman&#39;); library(&#39;pacman&#39;)</span></a>
+<a class="sourceLine" id="cb413-2" data-line-number="2"><span class="kw">library</span>(pacman)</a>
+<a class="sourceLine" id="cb413-3" data-line-number="3"><span class="kw">p_load</span>(rvest, tidyverse, ggrepel)</a></code></pre></div>
 <p>To extract a table we use the package <code>rvest</code>. We need the <strong>XPath</strong> of the table. To get it, we need to use the Devtools of Chrome or Firefox, locate the table, and right click, Copy, Copy XPath, as shown in the Figure below.</p>
 <p><img src="Images/Other/16_Extract_tables_web.png" /></p>
 <hr />
 <p>Below there is an example using the Shanghai Ranking. First, we extract the table:</p>
-<div class="sourceCode" id="cb415"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb415-1" data-line-number="1"><span class="co">#http://www.shanghairanking.com/ARWU-Methodology-2016.html</span></a>
-<a class="sourceLine" id="cb415-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb415-3" data-line-number="3">url &lt;-<span class="st"> &quot;http://www.shanghairanking.com/ARWU2016.html&quot;</span></a>
-<a class="sourceLine" id="cb415-4" data-line-number="4">population &lt;-<span class="st"> </span>url <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb415-5" data-line-number="5"><span class="st">  </span><span class="kw">read_html</span>() <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb415-6" data-line-number="6"><span class="st">  </span><span class="kw">html_nodes</span>(<span class="dt">xpath=</span><span class="st">&#39;//*[@id=&quot;UniversityRanking&quot;]&#39;</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb415-7" data-line-number="7"><span class="st">  </span><span class="kw">html_table</span>(<span class="dt">fill =</span> <span class="ot">TRUE</span>)</a>
-<a class="sourceLine" id="cb415-8" data-line-number="8">  population &lt;-<span class="st"> </span>population[[<span class="dv">1</span>]]</a>
-<a class="sourceLine" id="cb415-9" data-line-number="9"></a>
-<a class="sourceLine" id="cb415-10" data-line-number="10">  <span class="co"># Rename columns </span></a>
-<a class="sourceLine" id="cb415-11" data-line-number="11">  <span class="kw">colnames</span>(population) =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;World_Rank&quot;</span>, <span class="st">&quot;Institution&quot;</span>, <span class="st">&quot;Country/Region&quot;</span>, <span class="st">&quot;National_Rank&quot;</span>, <span class="st">&quot;Total_Score&quot;</span>, <span class="st">&quot;Alumni&quot;</span>, <span class="st">&quot;Awards&quot;</span>, <span class="st">&quot;Higly_Cited_Researchers&quot;</span>, <span class="st">&quot;Nature_Science&quot;</span>, <span class="st">&quot;Publications&quot;</span>, <span class="st">&quot;PCP&quot;</span>)</a>
-<a class="sourceLine" id="cb415-12" data-line-number="12"></a>
-<a class="sourceLine" id="cb415-13" data-line-number="13"><span class="co"># write_csv(population, &quot;Data/15_Extract_tables_web/15_Extract_tables_web_Shanghai_2016.csv&quot;)</span></a>
-<a class="sourceLine" id="cb415-14" data-line-number="14"></a>
-<a class="sourceLine" id="cb415-15" data-line-number="15">population <span class="op">%&gt;%</span><span class="st"> </span>dplyr<span class="op">::</span><span class="kw">select</span>(<span class="op">-</span><span class="st">`</span><span class="dt">Country/Region</span><span class="st">`</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as_tibble</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb414"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb414-1" data-line-number="1"><span class="co">#http://www.shanghairanking.com/ARWU-Methodology-2016.html</span></a>
+<a class="sourceLine" id="cb414-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb414-3" data-line-number="3">url &lt;-<span class="st"> &quot;http://www.shanghairanking.com/ARWU2016.html&quot;</span></a>
+<a class="sourceLine" id="cb414-4" data-line-number="4">population &lt;-<span class="st"> </span>url <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb414-5" data-line-number="5"><span class="st">  </span><span class="kw">read_html</span>() <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb414-6" data-line-number="6"><span class="st">  </span><span class="kw">html_nodes</span>(<span class="dt">xpath=</span><span class="st">&#39;//*[@id=&quot;UniversityRanking&quot;]&#39;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb414-7" data-line-number="7"><span class="st">  </span><span class="kw">html_table</span>(<span class="dt">fill =</span> <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb414-8" data-line-number="8">  population &lt;-<span class="st"> </span>population[[<span class="dv">1</span>]]</a>
+<a class="sourceLine" id="cb414-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb414-10" data-line-number="10">  <span class="co"># Rename columns </span></a>
+<a class="sourceLine" id="cb414-11" data-line-number="11">  <span class="kw">colnames</span>(population) =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;World_Rank&quot;</span>, <span class="st">&quot;Institution&quot;</span>, <span class="st">&quot;Country/Region&quot;</span>, <span class="st">&quot;National_Rank&quot;</span>, <span class="st">&quot;Total_Score&quot;</span>, <span class="st">&quot;Alumni&quot;</span>, <span class="st">&quot;Awards&quot;</span>, <span class="st">&quot;Higly_Cited_Researchers&quot;</span>, <span class="st">&quot;Nature_Science&quot;</span>, <span class="st">&quot;Publications&quot;</span>, <span class="st">&quot;PCP&quot;</span>)</a>
+<a class="sourceLine" id="cb414-12" data-line-number="12"></a>
+<a class="sourceLine" id="cb414-13" data-line-number="13"><span class="co"># write_csv(population, &quot;Data/15_Extract_tables_web/15_Extract_tables_web_Shanghai_2016.csv&quot;)</span></a>
+<a class="sourceLine" id="cb414-14" data-line-number="14"></a>
+<a class="sourceLine" id="cb414-15" data-line-number="15">population <span class="op">%&gt;%</span><span class="st"> </span>dplyr<span class="op">::</span><span class="kw">select</span>(<span class="op">-</span><span class="st">`</span><span class="dt">Country/Region</span><span class="st">`</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as_tibble</span>()</a></code></pre></div>
 <pre><code>## # A tibble: 500 x 10
 ##    World_Rank Institution National_Rank Total_Score Alumni Awards
 ##    &lt;chr&gt;      &lt;chr&gt;       &lt;chr&gt;               &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
@@ -551,57 +557,57 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## #   Higly_Cited_Researchers &lt;dbl&gt;, Nature_Science &lt;dbl&gt;,
 ## #   Publications &lt;dbl&gt;, PCP &lt;dbl&gt;</code></pre>
 <p>We prepare the DB and create the plot…</p>
-<div class="sourceCode" id="cb417"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb417-1" data-line-number="1"><span class="co"># Scatter -----------------------------------------------------------------</span></a>
-<a class="sourceLine" id="cb417-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb417-3" data-line-number="3"><span class="co"># Read the DB</span></a>
-<a class="sourceLine" id="cb417-4" data-line-number="4"><span class="co"># population = read_csv(&quot;Data/15_Extract_tables_web/15_Extract_tables_web_Shanghai_2016.csv&quot;)</span></a>
-<a class="sourceLine" id="cb417-5" data-line-number="5">  </a>
-<a class="sourceLine" id="cb417-6" data-line-number="6"><span class="co"># We will show the names of this set of universities</span></a>
-<a class="sourceLine" id="cb417-7" data-line-number="7">Universidades_destacadas =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;University of Cambridge&quot;</span>, </a>
-<a class="sourceLine" id="cb417-8" data-line-number="8">                               <span class="st">&quot;University of Oxford&quot;</span>, </a>
-<a class="sourceLine" id="cb417-9" data-line-number="9">                               <span class="st">&quot;University of Toronto&quot;</span>, </a>
-<a class="sourceLine" id="cb417-10" data-line-number="10">                               <span class="st">&quot;University of Chicago&quot;</span>, </a>
-<a class="sourceLine" id="cb417-11" data-line-number="11">                               <span class="st">&quot;The University of Edinburgh&quot;</span>,</a>
-<a class="sourceLine" id="cb417-12" data-line-number="12">                               <span class="st">&quot;California Institute of Technology&quot;</span>)</a>
-<a class="sourceLine" id="cb417-13" data-line-number="13"></a>
-<a class="sourceLine" id="cb417-14" data-line-number="14"><span class="co"># Prepare DB for plot  </span></a>
-<a class="sourceLine" id="cb417-15" data-line-number="15">population_scatter =<span class="st"> </span>population <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as_tibble</span>() <span class="op">%&gt;%</span><span class="st"> </span>dplyr<span class="op">::</span><span class="kw">select</span>(<span class="op">-</span><span class="st">`</span><span class="dt">Country/Region</span><span class="st">`</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">drop_na</span>() <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb417-16" data-line-number="16"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">World_Rank =</span> <span class="kw">as.numeric</span>(World_Rank), <span class="dt">National_Rank =</span> <span class="kw">as.numeric</span>(National_Rank)) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb417-17" data-line-number="17"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Institution_highlighted =</span> <span class="kw">ifelse</span>(Institution <span class="op">%in%</span><span class="st"> </span>Universidades_destacadas, Institution, <span class="ot">NA</span>),</a>
-<a class="sourceLine" id="cb417-18" data-line-number="18">         <span class="dt">Institution =</span> <span class="kw">ifelse</span>(Institution <span class="op">%in%</span><span class="st"> </span>Universidades_destacadas, <span class="ot">NA</span>, Institution))</a>
-<a class="sourceLine" id="cb417-19" data-line-number="19"></a>
-<a class="sourceLine" id="cb417-20" data-line-number="20"></a>
-<a class="sourceLine" id="cb417-21" data-line-number="21"><span class="co"># Plot</span></a>
-<a class="sourceLine" id="cb417-22" data-line-number="22"><span class="kw">ggplot</span>(population_scatter, <span class="kw">aes</span>(Nature_Science, World_Rank)) <span class="op">+</span><span class="st"> </span><span class="co">#, color=factor(P_s)</span></a>
-<a class="sourceLine" id="cb417-23" data-line-number="23"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="dv">4</span>, <span class="dt">color =</span> <span class="st">&#39;orange&#39;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb417-24" data-line-number="24"><span class="st">  </span><span class="kw">scale_colour_hue</span>(<span class="dt">l=</span><span class="dv">50</span>) <span class="op">+</span><span class="st"> </span><span class="co"># Palette hue</span></a>
-<a class="sourceLine" id="cb417-25" data-line-number="25"><span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span>lm,   <span class="co"># Linear regression lines</span></a>
-<a class="sourceLine" id="cb417-26" data-line-number="26">              <span class="dt">se=</span>T,<span class="co"># level = .5,        # Confidence interval</span></a>
-<a class="sourceLine" id="cb417-27" data-line-number="27">              <span class="dt">fullrange=</span>F, </a>
-<a class="sourceLine" id="cb417-28" data-line-number="28">              <span class="dt">color =</span> <span class="st">&quot;purple&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb417-29" data-line-number="29"><span class="st">  </span><span class="co"># geom_text_repel(aes(label=Institution)) + </span></a>
-<a class="sourceLine" id="cb417-30" data-line-number="30"><span class="st">  </span><span class="kw">geom_text_repel</span>(<span class="kw">aes</span>(<span class="dt">label=</span>Institution_highlighted, <span class="dt">fontface=</span><span class="st">&quot;bold&quot;</span>), <span class="dt">size =</span> <span class="dv">3</span>) <span class="op">+</span><span class="st">   </span></a>
-<a class="sourceLine" id="cb417-31" data-line-number="31"><span class="st">  </span><span class="kw">theme_classic</span>(<span class="dt">base_size =</span> <span class="dv">16</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb417-32" data-line-number="32"><span class="st">  </span><span class="kw">scale_y_reverse</span>( <span class="dt">breaks=</span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">25</span>, <span class="dv">50</span>, <span class="dv">75</span>, <span class="dv">100</span>), <span class="dt">lim =</span> <span class="kw">c</span>(<span class="dv">100</span>,<span class="dv">1</span>)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb417-33" data-line-number="33"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x=</span><span class="st">&quot;Publications&quot;</span>, <span class="dt">y=</span><span class="st">&quot;Shanghai Ranking 2016&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb416"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb416-1" data-line-number="1"><span class="co"># Scatter -----------------------------------------------------------------</span></a>
+<a class="sourceLine" id="cb416-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb416-3" data-line-number="3"><span class="co"># Read the DB</span></a>
+<a class="sourceLine" id="cb416-4" data-line-number="4"><span class="co"># population = read_csv(&quot;Data/15_Extract_tables_web/15_Extract_tables_web_Shanghai_2016.csv&quot;)</span></a>
+<a class="sourceLine" id="cb416-5" data-line-number="5">  </a>
+<a class="sourceLine" id="cb416-6" data-line-number="6"><span class="co"># We will show the names of this set of universities</span></a>
+<a class="sourceLine" id="cb416-7" data-line-number="7">Universidades_destacadas =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;University of Cambridge&quot;</span>, </a>
+<a class="sourceLine" id="cb416-8" data-line-number="8">                               <span class="st">&quot;University of Oxford&quot;</span>, </a>
+<a class="sourceLine" id="cb416-9" data-line-number="9">                               <span class="st">&quot;University of Toronto&quot;</span>, </a>
+<a class="sourceLine" id="cb416-10" data-line-number="10">                               <span class="st">&quot;University of Chicago&quot;</span>, </a>
+<a class="sourceLine" id="cb416-11" data-line-number="11">                               <span class="st">&quot;The University of Edinburgh&quot;</span>,</a>
+<a class="sourceLine" id="cb416-12" data-line-number="12">                               <span class="st">&quot;California Institute of Technology&quot;</span>)</a>
+<a class="sourceLine" id="cb416-13" data-line-number="13"></a>
+<a class="sourceLine" id="cb416-14" data-line-number="14"><span class="co"># Prepare DB for plot  </span></a>
+<a class="sourceLine" id="cb416-15" data-line-number="15">population_scatter =<span class="st"> </span>population <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as_tibble</span>() <span class="op">%&gt;%</span><span class="st"> </span>dplyr<span class="op">::</span><span class="kw">select</span>(<span class="op">-</span><span class="st">`</span><span class="dt">Country/Region</span><span class="st">`</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">drop_na</span>() <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb416-16" data-line-number="16"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">World_Rank =</span> <span class="kw">as.numeric</span>(World_Rank), <span class="dt">National_Rank =</span> <span class="kw">as.numeric</span>(National_Rank)) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb416-17" data-line-number="17"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Institution_highlighted =</span> <span class="kw">ifelse</span>(Institution <span class="op">%in%</span><span class="st"> </span>Universidades_destacadas, Institution, <span class="ot">NA</span>),</a>
+<a class="sourceLine" id="cb416-18" data-line-number="18">         <span class="dt">Institution =</span> <span class="kw">ifelse</span>(Institution <span class="op">%in%</span><span class="st"> </span>Universidades_destacadas, <span class="ot">NA</span>, Institution))</a>
+<a class="sourceLine" id="cb416-19" data-line-number="19"></a>
+<a class="sourceLine" id="cb416-20" data-line-number="20"></a>
+<a class="sourceLine" id="cb416-21" data-line-number="21"><span class="co"># Plot</span></a>
+<a class="sourceLine" id="cb416-22" data-line-number="22"><span class="kw">ggplot</span>(population_scatter, <span class="kw">aes</span>(Nature_Science, World_Rank)) <span class="op">+</span><span class="st"> </span><span class="co">#, color=factor(P_s)</span></a>
+<a class="sourceLine" id="cb416-23" data-line-number="23"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="dv">4</span>, <span class="dt">color =</span> <span class="st">&#39;orange&#39;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb416-24" data-line-number="24"><span class="st">  </span><span class="kw">scale_colour_hue</span>(<span class="dt">l=</span><span class="dv">50</span>) <span class="op">+</span><span class="st"> </span><span class="co"># Palette hue</span></a>
+<a class="sourceLine" id="cb416-25" data-line-number="25"><span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span>lm,   <span class="co"># Linear regression lines</span></a>
+<a class="sourceLine" id="cb416-26" data-line-number="26">              <span class="dt">se=</span>T,<span class="co"># level = .5,        # Confidence interval</span></a>
+<a class="sourceLine" id="cb416-27" data-line-number="27">              <span class="dt">fullrange=</span>F, </a>
+<a class="sourceLine" id="cb416-28" data-line-number="28">              <span class="dt">color =</span> <span class="st">&quot;purple&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb416-29" data-line-number="29"><span class="st">  </span><span class="co"># geom_text_repel(aes(label=Institution)) + </span></a>
+<a class="sourceLine" id="cb416-30" data-line-number="30"><span class="st">  </span><span class="kw">geom_text_repel</span>(<span class="kw">aes</span>(<span class="dt">label=</span>Institution_highlighted, <span class="dt">fontface=</span><span class="st">&quot;bold&quot;</span>), <span class="dt">size =</span> <span class="dv">3</span>) <span class="op">+</span><span class="st">   </span></a>
+<a class="sourceLine" id="cb416-31" data-line-number="31"><span class="st">  </span><span class="kw">theme_classic</span>(<span class="dt">base_size =</span> <span class="dv">16</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb416-32" data-line-number="32"><span class="st">  </span><span class="kw">scale_y_reverse</span>( <span class="dt">breaks=</span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">25</span>, <span class="dv">50</span>, <span class="dv">75</span>, <span class="dv">100</span>), <span class="dt">lim =</span> <span class="kw">c</span>(<span class="dv">100</span>,<span class="dv">1</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb416-33" data-line-number="33"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x=</span><span class="st">&quot;Publications&quot;</span>, <span class="dt">y=</span><span class="st">&quot;Shanghai Ranking 2016&quot;</span>)</a></code></pre></div>
 <p><img src="_main_files/figure-html/extract_tables_plot1-1.png" width="672" /></p>
-<div class="sourceCode" id="cb418"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb418-1" data-line-number="1">  <span class="co"># Save the plot</span></a>
-<a class="sourceLine" id="cb418-2" data-line-number="2">  <span class="co"># file = &quot;Images/Other/Shanghai_ Ranking.png&quot;</span></a>
-<a class="sourceLine" id="cb418-3" data-line-number="3">  <span class="co"># ggsave(file, device = &quot;png&quot;, dpi = 300)</span></a></code></pre></div>
+<div class="sourceCode" id="cb417"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb417-1" data-line-number="1">  <span class="co"># Save the plot</span></a>
+<a class="sourceLine" id="cb417-2" data-line-number="2">  <span class="co"># file = &quot;Images/Other/Shanghai_ Ranking.png&quot;</span></a>
+<a class="sourceLine" id="cb417-3" data-line-number="3">  <span class="co"># ggsave(file, device = &quot;png&quot;, dpi = 300)</span></a></code></pre></div>
 <p>When plotting, we can change the function behind the regression line.</p>
-<div class="sourceCode" id="cb419"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb419-1" data-line-number="1">  <span class="kw">ggplot</span>(population_scatter, <span class="kw">aes</span>(Nature_Science, World_Rank)) <span class="op">+</span><span class="st"> </span><span class="co">#, color=factor(P_s)</span></a>
-<a class="sourceLine" id="cb419-2" data-line-number="2"><span class="st">    </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="dv">4</span>, <span class="dt">color =</span> <span class="st">&#39;orange&#39;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb419-3" data-line-number="3"><span class="st">    </span><span class="kw">scale_colour_hue</span>(<span class="dt">l=</span><span class="dv">50</span>) <span class="op">+</span><span class="st"> </span><span class="co"># Palette hue</span></a>
-<a class="sourceLine" id="cb419-4" data-line-number="4"><span class="st">    </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span><span class="st">&quot;lm&quot;</span>, <span class="kw">aes</span>(<span class="dt">color=</span><span class="st">&quot;Log Model&quot;</span>), <span class="dt">formula=</span> (y <span class="op">~</span><span class="st"> </span><span class="kw">log</span>(x)), <span class="dt">se=</span>T, <span class="dt">linetype =</span> <span class="dv">1</span>,  <span class="dt">level =</span> <span class="fl">.999</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb419-5" data-line-number="5"><span class="st">    </span><span class="co"># geom_smooth(method=&quot;lm&quot;, aes(color=&quot;Log Model&quot;), formula= (y ~  poly(x, 2, raw=TRUE)), se=T, linetype = 1) +</span></a>
-<a class="sourceLine" id="cb419-6" data-line-number="6"><span class="st">    </span><span class="co"># geom_smooth(method=&quot;lm&quot;, aes(color=&quot;Log Model&quot;), formula= (y ~  splines::bs(x, 3)), se=T, linetype = 1,  level = .999) +</span></a>
-<a class="sourceLine" id="cb419-7" data-line-number="7"><span class="st">    </span><span class="co"># method = &quot;lm&quot;, formula = y ~ </span></a>
-<a class="sourceLine" id="cb419-8" data-line-number="8"><span class="st">    </span><span class="kw">guides</span>(<span class="dt">color =</span> <span class="kw">guide_legend</span>(<span class="st">&quot;Model Type&quot;</span>)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb419-9" data-line-number="9"><span class="st">    </span><span class="co"># geom_text_repel(aes(label=Institution)) + </span></a>
-<a class="sourceLine" id="cb419-10" data-line-number="10"><span class="st">    </span><span class="kw">geom_text_repel</span>(<span class="kw">aes</span>(<span class="dt">label=</span>Institution_highlighted, <span class="dt">fontface=</span><span class="st">&quot;bold&quot;</span>), <span class="dt">size =</span> <span class="dv">3</span>) <span class="op">+</span><span class="st">   </span></a>
-<a class="sourceLine" id="cb419-11" data-line-number="11"><span class="st">    </span><span class="kw">theme_classic</span>(<span class="dt">base_size =</span> <span class="dv">16</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb419-12" data-line-number="12"><span class="st">    </span><span class="kw">scale_y_reverse</span>(<span class="dt">breaks=</span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">25</span>, <span class="dv">50</span>, <span class="dv">75</span>, <span class="dv">100</span>)) <span class="op">+</span><span class="st"> </span><span class="co">#, lim = c(100, 1)</span></a>
-<a class="sourceLine" id="cb419-13" data-line-number="13"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">x=</span><span class="st">&quot;Publications&quot;</span>, <span class="dt">y=</span><span class="st">&quot;Shanghai Ranking 2016&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb418"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb418-1" data-line-number="1">  <span class="kw">ggplot</span>(population_scatter, <span class="kw">aes</span>(Nature_Science, World_Rank)) <span class="op">+</span><span class="st"> </span><span class="co">#, color=factor(P_s)</span></a>
+<a class="sourceLine" id="cb418-2" data-line-number="2"><span class="st">    </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="dv">4</span>, <span class="dt">color =</span> <span class="st">&#39;orange&#39;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb418-3" data-line-number="3"><span class="st">    </span><span class="kw">scale_colour_hue</span>(<span class="dt">l=</span><span class="dv">50</span>) <span class="op">+</span><span class="st"> </span><span class="co"># Palette hue</span></a>
+<a class="sourceLine" id="cb418-4" data-line-number="4"><span class="st">    </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span><span class="st">&quot;lm&quot;</span>, <span class="kw">aes</span>(<span class="dt">color=</span><span class="st">&quot;Log Model&quot;</span>), <span class="dt">formula=</span> (y <span class="op">~</span><span class="st"> </span><span class="kw">log</span>(x)), <span class="dt">se=</span>T, <span class="dt">linetype =</span> <span class="dv">1</span>,  <span class="dt">level =</span> <span class="fl">.999</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb418-5" data-line-number="5"><span class="st">    </span><span class="co"># geom_smooth(method=&quot;lm&quot;, aes(color=&quot;Log Model&quot;), formula= (y ~  poly(x, 2, raw=TRUE)), se=T, linetype = 1) +</span></a>
+<a class="sourceLine" id="cb418-6" data-line-number="6"><span class="st">    </span><span class="co"># geom_smooth(method=&quot;lm&quot;, aes(color=&quot;Log Model&quot;), formula= (y ~  splines::bs(x, 3)), se=T, linetype = 1,  level = .999) +</span></a>
+<a class="sourceLine" id="cb418-7" data-line-number="7"><span class="st">    </span><span class="co"># method = &quot;lm&quot;, formula = y ~ </span></a>
+<a class="sourceLine" id="cb418-8" data-line-number="8"><span class="st">    </span><span class="kw">guides</span>(<span class="dt">color =</span> <span class="kw">guide_legend</span>(<span class="st">&quot;Model Type&quot;</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb418-9" data-line-number="9"><span class="st">    </span><span class="co"># geom_text_repel(aes(label=Institution)) + </span></a>
+<a class="sourceLine" id="cb418-10" data-line-number="10"><span class="st">    </span><span class="kw">geom_text_repel</span>(<span class="kw">aes</span>(<span class="dt">label=</span>Institution_highlighted, <span class="dt">fontface=</span><span class="st">&quot;bold&quot;</span>), <span class="dt">size =</span> <span class="dv">3</span>) <span class="op">+</span><span class="st">   </span></a>
+<a class="sourceLine" id="cb418-11" data-line-number="11"><span class="st">    </span><span class="kw">theme_classic</span>(<span class="dt">base_size =</span> <span class="dv">16</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb418-12" data-line-number="12"><span class="st">    </span><span class="kw">scale_y_reverse</span>(<span class="dt">breaks=</span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">25</span>, <span class="dv">50</span>, <span class="dv">75</span>, <span class="dv">100</span>)) <span class="op">+</span><span class="st"> </span><span class="co">#, lim = c(100, 1)</span></a>
+<a class="sourceLine" id="cb418-13" data-line-number="13"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">x=</span><span class="st">&quot;Publications&quot;</span>, <span class="dt">y=</span><span class="st">&quot;Shanghai Ranking 2016&quot;</span>)</a></code></pre></div>
 <pre><code>## Warning: Removed 94 rows containing missing values (geom_text_repel).</code></pre>
 <p><img src="_main_files/figure-html/extract_tables_plot2-1.png" width="672" /></p>
 

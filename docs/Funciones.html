@@ -14,7 +14,7 @@
   
   
   <meta property="og:description" content="Statistics manual from CSCN." />
-  <meta name="github-repo" content="rstudio/bookdown-demo" />
+  <meta name="github-repo" content="gorkang/R_Statistics_Manual" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="R - Statistics Manual" />
@@ -25,7 +25,7 @@
 <meta name="author" content="Center for Social and Cognitive Neuroscience - cscn.uai.cl">
 
 
-<meta name="date" content="2018-08-27">
+<meta name="date" content="2018-08-28">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -50,6 +50,13 @@
 <script src="libs/htmlwidgets-1.2/htmlwidgets.js"></script>
 <link href="libs/str_view-0.1.0/str_view.css" rel="stylesheet" />
 <script src="libs/str_view-binding-1.3.1/str_view.js"></script>
+<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="libs/datatables-binding-0.4/datatables.js"></script>
+<link href="libs/dt-core-1.10.16/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.10.16/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.10.16/js/jquery.dataTables.min.js"></script>
+<link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
 <script src="libs/d3-4.5.0/d3.min.js"></script>
 <script src="libs/sankey-1/sankey.js"></script>
 <script src="libs/sankeyNetwork-binding-0.4/sankeyNetwork.js"></script>
@@ -210,25 +217,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.7" data-path="Manipular-datos.html"><a href="Manipular-datos.html#tutoriales-externos"><i class="fa fa-check"></i><b>6.7</b> Tutoriales externos</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html"><i class="fa fa-check"></i><b>7</b> Visualizar datos</a><ul>
-<li class="chapter" data-level="7.1" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#todo-1"><i class="fa fa-check"></i><b>7.1</b> TODO</a></li>
-<li class="chapter" data-level="7.2" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#other-resources"><i class="fa fa-check"></i><b>7.2</b> Other resources</a></li>
-<li class="chapter" data-level="7.3" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#que-grafica-puedo-usar-wip"><i class="fa fa-check"></i><b>7.3</b> Que gráfica puedo usar (WIP)</a></li>
-<li class="chapter" data-level="7.4" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#tipos-de-graficas"><i class="fa fa-check"></i><b>7.4</b> Tipos de gráficas</a><ul>
-<li class="chapter" data-level="7.4.1" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#histogramas"><i class="fa fa-check"></i><b>7.4.1</b> Histogramas</a></li>
-<li class="chapter" data-level="7.4.2" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#Pirate-Plot"><i class="fa fa-check"></i><b>7.4.2</b> Pirate plot</a></li>
-<li class="chapter" data-level="7.4.3" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#barplots-with-individual-responses"><i class="fa fa-check"></i><b>7.4.3</b> Barplots with individual responses</a></li>
-<li class="chapter" data-level="7.4.4" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#diagrama-de-caja-y-bigotes"><i class="fa fa-check"></i><b>7.4.4</b> Diagrama de caja y bigotes</a></li>
-<li class="chapter" data-level="7.4.5" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#correlation-plot"><i class="fa fa-check"></i><b>7.4.5</b> Correlation plot</a></li>
-<li class="chapter" data-level="7.4.6" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#beanplot"><i class="fa fa-check"></i><b>7.4.6</b> Beanplot</a></li>
-<li class="chapter" data-level="7.4.7" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#scatterplot"><i class="fa fa-check"></i><b>7.4.7</b> Scatterplot</a></li>
-<li class="chapter" data-level="7.4.8" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#scatterplot-con-3-variables"><i class="fa fa-check"></i><b>7.4.8</b> Scatterplot con 3 variables</a></li>
-<li class="chapter" data-level="7.4.9" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#density-plots"><i class="fa fa-check"></i><b>7.4.9</b> Density plots</a></li>
-<li class="chapter" data-level="7.4.10" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#density-ridges-plots-ggjoy"><i class="fa fa-check"></i><b>7.4.10</b> Density Ridges Plots (ggjoy)</a></li>
-<li class="chapter" data-level="7.4.11" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#pp-plots"><i class="fa fa-check"></i><b>7.4.11</b> PP plots</a></li>
-<li class="chapter" data-level="7.4.12" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#shaded-geom-area"><i class="fa fa-check"></i><b>7.4.12</b> Shaded geom area</a></li>
-<li class="chapter" data-level="7.4.13" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#multiple-scatterplots"><i class="fa fa-check"></i><b>7.4.13</b> Multiple Scatterplots</a></li>
-<li class="chapter" data-level="7.4.14" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#background-data"><i class="fa fa-check"></i><b>7.4.14</b> Background data</a></li>
-<li class="chapter" data-level="7.4.15" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#flip-plots"><i class="fa fa-check"></i><b>7.4.15</b> Flip plots</a></li>
+<li class="chapter" data-level="7.1" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#other-resources"><i class="fa fa-check"></i><b>7.1</b> Other resources</a></li>
+<li class="chapter" data-level="7.2" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#que-grafica-puedo-usar-wip"><i class="fa fa-check"></i><b>7.2</b> Que gráfica puedo usar (WIP)</a></li>
+<li class="chapter" data-level="7.3" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#tipos-de-graficas"><i class="fa fa-check"></i><b>7.3</b> Tipos de gráficas</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#histogramas"><i class="fa fa-check"></i><b>7.3.1</b> Histogramas</a></li>
+<li class="chapter" data-level="7.3.2" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#Pirate-Plot"><i class="fa fa-check"></i><b>7.3.2</b> Pirate plot</a></li>
+<li class="chapter" data-level="7.3.3" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#barplots-with-individual-responses"><i class="fa fa-check"></i><b>7.3.3</b> Barplots with individual responses</a></li>
+<li class="chapter" data-level="7.3.4" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#diagrama-de-caja-y-bigotes"><i class="fa fa-check"></i><b>7.3.4</b> Diagrama de caja y bigotes</a></li>
+<li class="chapter" data-level="7.3.5" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#correlation-plot"><i class="fa fa-check"></i><b>7.3.5</b> Correlation plot</a></li>
+<li class="chapter" data-level="7.3.6" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#beanplot"><i class="fa fa-check"></i><b>7.3.6</b> Beanplot</a></li>
+<li class="chapter" data-level="7.3.7" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#scatterplot"><i class="fa fa-check"></i><b>7.3.7</b> Scatterplot</a></li>
+<li class="chapter" data-level="7.3.8" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#scatterplot-con-3-variables"><i class="fa fa-check"></i><b>7.3.8</b> Scatterplot con 3 variables</a></li>
+<li class="chapter" data-level="7.3.9" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#density-plots"><i class="fa fa-check"></i><b>7.3.9</b> Density plots</a></li>
+<li class="chapter" data-level="7.3.10" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#density-ridges-plots-ggjoy"><i class="fa fa-check"></i><b>7.3.10</b> Density Ridges Plots (ggjoy)</a></li>
+<li class="chapter" data-level="7.3.11" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#pp-plots"><i class="fa fa-check"></i><b>7.3.11</b> PP plots</a></li>
+<li class="chapter" data-level="7.3.12" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#shaded-geom-area"><i class="fa fa-check"></i><b>7.3.12</b> Shaded geom area</a></li>
+<li class="chapter" data-level="7.3.13" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#multiple-scatterplots"><i class="fa fa-check"></i><b>7.3.13</b> Multiple Scatterplots</a></li>
+<li class="chapter" data-level="7.3.14" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#background-data"><i class="fa fa-check"></i><b>7.3.14</b> Background data</a></li>
+<li class="chapter" data-level="7.3.15" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#flip-plots"><i class="fa fa-check"></i><b>7.3.15</b> Flip plots</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="Estadistica-descriptiva.html"><a href="Estadistica-descriptiva.html"><i class="fa fa-check"></i><b>8</b> Estadistica descriptiva</a><ul>
@@ -313,18 +319,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="18.1" data-path="todo-curso-basico-r-2016.html"><a href="todo-curso-basico-r-2016.html#en-ejercicios"><i class="fa fa-check"></i><b>18.1</b> EN EJERCICIOS:</a></li>
 <li class="chapter" data-level="18.2" data-path="todo-curso-basico-r-2016.html"><a href="todo-curso-basico-r-2016.html#todo---limpieza-general"><i class="fa fa-check"></i><b>18.2</b> TODO - Limpieza general</a></li>
 </ul></li>
-<li class="chapter" data-level="19" data-path="todo-2.html"><a href="todo-2.html"><i class="fa fa-check"></i><b>19</b> TODO</a><ul>
-<li class="chapter" data-level="19.1" data-path="todo-2.html"><a href="todo-2.html#urgent-stuff"><i class="fa fa-check"></i><b>19.1</b> Urgent stuff</a></li>
-<li class="chapter" data-level="19.2" data-path="todo-2.html"><a href="todo-2.html#important"><i class="fa fa-check"></i><b>19.2</b> Important</a></li>
-<li class="chapter" data-level="19.3" data-path="todo-2.html"><a href="todo-2.html#various"><i class="fa fa-check"></i><b>19.3</b> Various</a></li>
-<li class="chapter" data-level="19.4" data-path="todo-2.html"><a href="todo-2.html#index-proposal"><i class="fa fa-check"></i><b>19.4</b> <strong>INDEX PROPOSAL</strong></a></li>
-<li class="chapter" data-level="19.5" data-path="todo-2.html"><a href="todo-2.html#style-guide"><i class="fa fa-check"></i><b>19.5</b> Style guide</a><ul>
-<li class="chapter" data-level="19.5.1" data-path="todo-2.html"><a href="todo-2.html#sections"><i class="fa fa-check"></i><b>19.5.1</b> Sections</a></li>
-<li class="chapter" data-level="19.5.2" data-path="todo-2.html"><a href="todo-2.html#general"><i class="fa fa-check"></i><b>19.5.2</b> General</a></li>
+<li class="chapter" data-level="19" data-path="todo-1.html"><a href="todo-1.html"><i class="fa fa-check"></i><b>19</b> TODO</a><ul>
+<li class="chapter" data-level="19.1" data-path="todo-1.html"><a href="todo-1.html#urgent-stuff"><i class="fa fa-check"></i><b>19.1</b> Urgent stuff</a></li>
+<li class="chapter" data-level="19.2" data-path="todo-1.html"><a href="todo-1.html#important"><i class="fa fa-check"></i><b>19.2</b> Important</a></li>
+<li class="chapter" data-level="19.3" data-path="todo-1.html"><a href="todo-1.html#various"><i class="fa fa-check"></i><b>19.3</b> Various</a></li>
+<li class="chapter" data-level="19.4" data-path="todo-1.html"><a href="todo-1.html#index-proposal"><i class="fa fa-check"></i><b>19.4</b> <strong>INDEX PROPOSAL</strong></a></li>
+<li class="chapter" data-level="19.5" data-path="todo-1.html"><a href="todo-1.html#style-guide"><i class="fa fa-check"></i><b>19.5</b> Style guide</a><ul>
+<li class="chapter" data-level="19.5.1" data-path="todo-1.html"><a href="todo-1.html#sections"><i class="fa fa-check"></i><b>19.5.1</b> Sections</a></li>
+<li class="chapter" data-level="19.5.2" data-path="todo-1.html"><a href="todo-1.html#general"><i class="fa fa-check"></i><b>19.5.2</b> General</a></li>
 </ul></li>
-<li class="chapter" data-level="19.6" data-path="todo-2.html"><a href="todo-2.html#notas---remember"><i class="fa fa-check"></i><b>19.6</b> NOTAS - REMEMBER</a><ul>
-<li class="chapter" data-level="19.6.1" data-path="todo-2.html"><a href="todo-2.html#refs"><i class="fa fa-check"></i><b>19.6.1</b> REFS</a></li>
-<li class="chapter" data-level="19.6.2" data-path="todo-2.html"><a href="todo-2.html#notas"><i class="fa fa-check"></i><b>19.6.2</b> NOTAS</a></li>
+<li class="chapter" data-level="19.6" data-path="todo-1.html"><a href="todo-1.html#notas---remember"><i class="fa fa-check"></i><b>19.6</b> NOTAS - REMEMBER</a><ul>
+<li class="chapter" data-level="19.6.1" data-path="todo-1.html"><a href="todo-1.html#refs"><i class="fa fa-check"></i><b>19.6.1</b> REFS</a></li>
+<li class="chapter" data-level="19.6.2" data-path="todo-1.html"><a href="todo-1.html#notas"><i class="fa fa-check"></i><b>19.6.2</b> NOTAS</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -352,12 +358,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>Cargamos librerias y leemos datos</li>
 </ul>
-<div class="sourceCode" id="cb267"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb267-1" data-line-number="1"><span class="co"># Cargamos librerias</span></a>
-<a class="sourceLine" id="cb267-2" data-line-number="2"><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)</a>
-<a class="sourceLine" id="cb267-3" data-line-number="3"><span class="kw">p_load</span>(tidyverse)</a>
-<a class="sourceLine" id="cb267-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb267-5" data-line-number="5"><span class="co"># Leemos datos y echamos un vistazo</span></a>
-<a class="sourceLine" id="cb267-6" data-line-number="6">datos =<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;Data/09-Functions/Functions.csv&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb266"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb266-1" data-line-number="1"><span class="co"># Cargamos librerias</span></a>
+<a class="sourceLine" id="cb266-2" data-line-number="2"><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)</a>
+<a class="sourceLine" id="cb266-3" data-line-number="3"><span class="kw">p_load</span>(tidyverse)</a>
+<a class="sourceLine" id="cb266-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb266-5" data-line-number="5"><span class="co"># Leemos datos y echamos un vistazo</span></a>
+<a class="sourceLine" id="cb266-6" data-line-number="6">datos =<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;Data/09-Functions/Functions.csv&quot;</span>)</a></code></pre></div>
 <pre><code>## Parsed with column specification:
 ## cols(
 ##   ID = col_integer(),
@@ -374,19 +380,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="pirate-plot-original" class="section level3">
 <h3><span class="header-section-number">10.1.1</span> Pirate plot original</h3>
 <p>Vimos que la función para graficar usando Pirate plot es la siguiente:</p>
-<div class="sourceCode" id="cb269"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb269-1" data-line-number="1"><span class="co"># Cargamos librería</span></a>
-<a class="sourceLine" id="cb269-2" data-line-number="2"><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)</a>
-<a class="sourceLine" id="cb269-3" data-line-number="3"><span class="kw">p_load</span>(yarrr)    </a>
-<a class="sourceLine" id="cb269-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb269-5" data-line-number="5"><span class="kw">pirateplot</span>(<span class="dt">formula =</span> PPV_DECLARED <span class="op">~</span><span class="st"> </span>condition,</a>
-<a class="sourceLine" id="cb269-6" data-line-number="6">           <span class="dt">data =</span> datos,</a>
-<a class="sourceLine" id="cb269-7" data-line-number="7">           <span class="dt">main =</span> <span class="st">&quot;PPV by condition&quot;</span>,</a>
-<a class="sourceLine" id="cb269-8" data-line-number="8">           <span class="dt">avg.line.fun =</span> median,</a>
-<a class="sourceLine" id="cb269-9" data-line-number="9">           <span class="co">#theme.o = 2,</span></a>
-<a class="sourceLine" id="cb269-10" data-line-number="10">           <span class="dt">jitter.val =</span> <span class="fl">.2</span>,</a>
-<a class="sourceLine" id="cb269-11" data-line-number="11">           <span class="dt">inf =</span> <span class="st">&quot;ci&quot;</span>, <span class="co">#Show confidence interval (95%)</span></a>
-<a class="sourceLine" id="cb269-12" data-line-number="12">           <span class="dt">inf.f.o =</span> <span class="fl">0.2</span>, <span class="co">#Opacity of ci</span></a>
-<a class="sourceLine" id="cb269-13" data-line-number="13">           <span class="dt">pal =</span> <span class="st">&quot;appletv&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb268"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb268-1" data-line-number="1"><span class="co"># Cargamos librería</span></a>
+<a class="sourceLine" id="cb268-2" data-line-number="2"><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)</a>
+<a class="sourceLine" id="cb268-3" data-line-number="3"><span class="kw">p_load</span>(yarrr)    </a>
+<a class="sourceLine" id="cb268-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb268-5" data-line-number="5"><span class="kw">pirateplot</span>(<span class="dt">formula =</span> PPV_DECLARED <span class="op">~</span><span class="st"> </span>condition,</a>
+<a class="sourceLine" id="cb268-6" data-line-number="6">           <span class="dt">data =</span> datos,</a>
+<a class="sourceLine" id="cb268-7" data-line-number="7">           <span class="dt">main =</span> <span class="st">&quot;PPV by condition&quot;</span>,</a>
+<a class="sourceLine" id="cb268-8" data-line-number="8">           <span class="dt">avg.line.fun =</span> median,</a>
+<a class="sourceLine" id="cb268-9" data-line-number="9">           <span class="co">#theme.o = 2,</span></a>
+<a class="sourceLine" id="cb268-10" data-line-number="10">           <span class="dt">jitter.val =</span> <span class="fl">.2</span>,</a>
+<a class="sourceLine" id="cb268-11" data-line-number="11">           <span class="dt">inf =</span> <span class="st">&quot;ci&quot;</span>, <span class="co">#Show confidence interval (95%)</span></a>
+<a class="sourceLine" id="cb268-12" data-line-number="12">           <span class="dt">inf.f.o =</span> <span class="fl">0.2</span>, <span class="co">#Opacity of ci</span></a>
+<a class="sourceLine" id="cb268-13" data-line-number="13">           <span class="dt">pal =</span> <span class="st">&quot;appletv&quot;</span>)</a></code></pre></div>
 <pre><code>## inf is depricated. Use inf.method instead</code></pre>
 <p><img src="_main_files/figure-html/unnamed-chunk-53-1.png" width="672" />
 Ver la web del creador: <a href="http://nathanieldphillips.com/">Pirate plot</a></p>
@@ -401,32 +407,32 @@ Creamos una función llamada <code>Plot.me()</code> que tiene los siguientes par
 <li>Titulo (por defecto se usa Formula, pero se puede usar un valor arbitrario: “Gráfica linda”)</li>
 <li>Funcion (por defecto se usa <em>mean</em>, pero también se puede pedir <em>median</em>, etc.)</li>
 </ul>
-<div class="sourceCode" id="cb271"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb271-1" data-line-number="1"><span class="co"># Función Plot.me()</span></a>
-<a class="sourceLine" id="cb271-2" data-line-number="2">Plot.me &lt;-<span class="st"> </span><span class="cf">function</span>(Formula, Datos, <span class="dt">Titulo =</span> Formula, <span class="dt">Funcion =</span> mean) {</a>
-<a class="sourceLine" id="cb271-3" data-line-number="3">  </a>
-<a class="sourceLine" id="cb271-4" data-line-number="4">    <span class="kw">pirateplot</span>(<span class="dt">formula =</span> Formula,</a>
-<a class="sourceLine" id="cb271-5" data-line-number="5">               <span class="dt">data =</span> Datos,</a>
-<a class="sourceLine" id="cb271-6" data-line-number="6">               <span class="dt">main =</span> Titulo,</a>
-<a class="sourceLine" id="cb271-7" data-line-number="7">               <span class="dt">avg.line.fun =</span> Funcion,</a>
-<a class="sourceLine" id="cb271-8" data-line-number="8">               <span class="co">#theme.o = 2,</span></a>
-<a class="sourceLine" id="cb271-9" data-line-number="9">               <span class="dt">jitter.val =</span> <span class="fl">.2</span>,</a>
-<a class="sourceLine" id="cb271-10" data-line-number="10">               <span class="dt">inf =</span> <span class="st">&quot;ci&quot;</span>, <span class="co">#Show confidence interval (95%)</span></a>
-<a class="sourceLine" id="cb271-11" data-line-number="11">               <span class="dt">inf.f.o =</span> <span class="fl">0.2</span>, <span class="co">#Opacity of ci</span></a>
-<a class="sourceLine" id="cb271-12" data-line-number="12">               <span class="dt">pal =</span> <span class="st">&quot;appletv&quot;</span>)</a>
-<a class="sourceLine" id="cb271-13" data-line-number="13">}</a></code></pre></div>
+<div class="sourceCode" id="cb270"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb270-1" data-line-number="1"><span class="co"># Función Plot.me()</span></a>
+<a class="sourceLine" id="cb270-2" data-line-number="2">Plot.me &lt;-<span class="st"> </span><span class="cf">function</span>(Formula, Datos, <span class="dt">Titulo =</span> Formula, <span class="dt">Funcion =</span> mean) {</a>
+<a class="sourceLine" id="cb270-3" data-line-number="3">  </a>
+<a class="sourceLine" id="cb270-4" data-line-number="4">    <span class="kw">pirateplot</span>(<span class="dt">formula =</span> Formula,</a>
+<a class="sourceLine" id="cb270-5" data-line-number="5">               <span class="dt">data =</span> Datos,</a>
+<a class="sourceLine" id="cb270-6" data-line-number="6">               <span class="dt">main =</span> Titulo,</a>
+<a class="sourceLine" id="cb270-7" data-line-number="7">               <span class="dt">avg.line.fun =</span> Funcion,</a>
+<a class="sourceLine" id="cb270-8" data-line-number="8">               <span class="co">#theme.o = 2,</span></a>
+<a class="sourceLine" id="cb270-9" data-line-number="9">               <span class="dt">jitter.val =</span> <span class="fl">.2</span>,</a>
+<a class="sourceLine" id="cb270-10" data-line-number="10">               <span class="dt">inf =</span> <span class="st">&quot;ci&quot;</span>, <span class="co">#Show confidence interval (95%)</span></a>
+<a class="sourceLine" id="cb270-11" data-line-number="11">               <span class="dt">inf.f.o =</span> <span class="fl">0.2</span>, <span class="co">#Opacity of ci</span></a>
+<a class="sourceLine" id="cb270-12" data-line-number="12">               <span class="dt">pal =</span> <span class="st">&quot;appletv&quot;</span>)</a>
+<a class="sourceLine" id="cb270-13" data-line-number="13">}</a></code></pre></div>
 <p><BR></p>
 <p>Usamos nuestra nueva función simplificada para crear algunas gráficas:</p>
-<div class="sourceCode" id="cb272"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb272-1" data-line-number="1"><span class="kw">Plot.me</span>(PPV_DECLARED <span class="op">~</span><span class="st"> </span>condition, datos)</a></code></pre></div>
+<div class="sourceCode" id="cb271"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb271-1" data-line-number="1"><span class="kw">Plot.me</span>(PPV_DECLARED <span class="op">~</span><span class="st"> </span>condition, datos)</a></code></pre></div>
 <pre><code>## inf is depricated. Use inf.method instead</code></pre>
 <p><img src="_main_files/figure-html/unnamed-chunk-55-1.png" width="672" /></p>
-<div class="sourceCode" id="cb274"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb274-1" data-line-number="1"><span class="kw">Plot.me</span>(PPV_DECLARED <span class="op">~</span><span class="st"> </span>Genero, datos)</a></code></pre></div>
+<div class="sourceCode" id="cb273"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb273-1" data-line-number="1"><span class="kw">Plot.me</span>(PPV_DECLARED <span class="op">~</span><span class="st"> </span>Genero, datos)</a></code></pre></div>
 <pre><code>## inf is depricated. Use inf.method instead</code></pre>
 <p><img src="_main_files/figure-html/unnamed-chunk-55-2.png" width="672" /></p>
-<div class="sourceCode" id="cb276"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb276-1" data-line-number="1"><span class="kw">Plot.me</span>(PPV_DECLARED <span class="op">~</span><span class="st"> </span>Genero <span class="op">+</span><span class="st"> </span>condition, datos)</a></code></pre></div>
+<div class="sourceCode" id="cb275"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb275-1" data-line-number="1"><span class="kw">Plot.me</span>(PPV_DECLARED <span class="op">~</span><span class="st"> </span>Genero <span class="op">+</span><span class="st"> </span>condition, datos)</a></code></pre></div>
 <pre><code>## inf is depricated. Use inf.method instead</code></pre>
 <p><img src="_main_files/figure-html/unnamed-chunk-55-3.png" width="672" /></p>
 <p>Podemos personalizar algunas cosas:</p>
-<div class="sourceCode" id="cb278"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb278-1" data-line-number="1"><span class="kw">Plot.me</span>(PPV_DECLARED <span class="op">~</span><span class="st"> </span>condition, datos, <span class="st">&quot;Titulo lindo&quot;</span>, median)</a></code></pre></div>
+<div class="sourceCode" id="cb277"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb277-1" data-line-number="1"><span class="kw">Plot.me</span>(PPV_DECLARED <span class="op">~</span><span class="st"> </span>condition, datos, <span class="st">&quot;Titulo lindo&quot;</span>, median)</a></code></pre></div>
 <pre><code>## inf is depricated. Use inf.method instead</code></pre>
 <p><img src="_main_files/figure-html/unnamed-chunk-56-1.png" width="672" /></p>
 

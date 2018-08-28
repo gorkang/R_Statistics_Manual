@@ -1,16 +1,36 @@
 # Visualizar datos{#Visualizar_datos}
 
-## TODO
-
-* Some interesting simple ideas here http://pythonplot.com/
-* **TABLA RESUMEN CON IMAGENES DE GRAFICAS**
-
 WHY Data visualization matters: https://www.autodeskresearch.com/publications/samestats
 
 ## Other resources
 
-http://chartmaker.visualisingdata.com/  
-https://www.r-graph-gallery.com/  
+* http://chartmaker.visualisingdata.com/   
+* https://www.r-graph-gallery.com/  
+* http://pythonplot.com/  (see ggplot tab in plots)
+
+
+
+R es un lenguaje especialmente potente para la visualización de datos. Librerias como ggplot2 permiten una cantidad abrumadora de opciones. Aqui presentamos ejemplos de algunas de las posibilidades de R.  
+
+
+## Que gráfica puedo usar (WIP)
+
+![](Images/coggleviz.png)  
+
+* Image FROM [Modern Dive](https://ismayc.github.io/moderndiver-book/4-viz.html#resources)  
+
+---  
+
+
+DV/IV           | IV continua                   | IV vategórica       | IV dicotómica
+-------------   | -------------                 | -------------       | ------------- 
+DV continua     | ^SCATTER^ ^PIRATE^ ^CORREL^   | ^PIRATE^ ^CAJA^     | ^BEAN^ ^DENSITY^ ^PIRATE^ 
+DV categórica   | ...                           | ^PIRATE^            | ... 
+DV dicotómica   | ...                           | ...                 | ...  
+
+
+
+
 
 ***  
 
@@ -19,32 +39,17 @@ Vamos a usar la siguiente [base de datos](Data/06_Visualize_data/Visualize_data.
 ***
 
 
-R es un lenguaje especialmente potente para la visualización de datos. Librerias como ggplot2 permiten una cantidad abrumadora de opciones. Aqui presentamos ejemplos de algunas de las posibilidades de R. 
-
-## Que gráfica puedo usar (WIP)
-
-
-![](Images/coggleviz.png)
-* Image FROM [Modern Dive](https://ismayc.github.io/moderndiver-book/4-viz.html#resources)
-
-DV/IV           | IV continua                   | IV vategórica       | IV dicotómica
--------------   | -------------                 | -------------       | ------------- 
-DV continua     | ^SCATTER^ ^PIRATE^ ^CORREL^   | ^PIRATE^ ^CAJA^     | ^BEAN^ ^DENSITY^ ^PIRATE^ 
-DV categórica   | ...                           | ^PIRATE^            | ... 
-DV dicotómica   | ...                           | ...                 | ...
-
-
 * Cargamos librerias y leemos datos
 ```{r read_data, message=FALSE, warning=FALSE}
 # Cargamos librerias
 if (!require('pacman')) install.packages('pacman'); library('pacman')
-p_load(tidyverse, yarrr)  
+p_load(tidyverse, yarrr, DT)  
     
-# Leemos datos y echamos un vistazo
-datos = read_csv("Data/06_Visualize_data/Visualize_data.csv"); datos  
+# Leemos datos y echamos un vistazo usando el paquete DT::datatable()
+datos = read_csv("Data/06_Visualize_data/Visualize_data.csv"); DT::datatable(datos)  
   
 # A algunas de las funciones no les gustan las tibbles! 
-datos2 = read.csv("Data/06_Visualize_data/Visualize_data.csv") 
+datos_no_tibble = read.csv("Data/06_Visualize_data/Visualize_data.csv") 
 
 ```
 
@@ -230,7 +235,7 @@ Ver la web del creador: [ggpubr](http://www.sthda.com/english/rpkgs/ggpubr/) y s
 if (!require('pacman')) install.packages('pacman'); library('pacman')
 p_load(ggpubr)
 
-ggscatter(datos2, x = "Educacion", y = "Edad",
+ggscatter(datos_no_tibble, x = "Educacion", y = "Edad",
    color = "black", shape = 21, size = 4, # Points color, shape and size
    add = "reg.line",  # Add regressin line
    add.params = list(color = "blue", fill = "lightgray"), # Customize reg. line
@@ -285,29 +290,29 @@ ggdensity(datos, x = "PPV_DECLARED",
 if (!require('pacman')) install.packages('pacman'); library('pacman')
 p_load(tidyverse, ggridges)
 
-datos2 = datos %>% drop_na() %>% 
+datos_density_ridges = datos %>% drop_na() %>% 
   filter(Educacion < 8) %>% 
   mutate(Educacion = as.factor(Educacion)) %>% 
   mutate(PPV_DECLARED = as.double(PPV_DECLARED))
 
-# datos2 %>% group_by(Genero) %>% dplyr::summarise(N = n())
+# datos_density_ridges %>% group_by(Genero) %>% dplyr::summarise(N = n())
 
 # Simple version
-ggplot(datos2, aes(x = FollowUP, y = Genero)) + 
+ggplot(datos_density_ridges, aes(x = FollowUP, y = Genero)) + 
   geom_density_ridges(scale = 2)
 
 # Tweak some aesthetics 
-ggplot(datos2, aes(x = FollowUP, y = Genero, fill = Genero)) + 
+ggplot(datos_density_ridges, aes(x = FollowUP, y = Genero, fill = Genero)) + 
   geom_density_ridges(scale = 2, alpha = .7, color = "white") + 
   scale_fill_hue(l=30)
 
 # Histogram stat
-ggplot(datos2, aes(x = FollowUP, y = Genero, fill = Genero)) + 
+ggplot(datos_density_ridges, aes(x = FollowUP, y = Genero, fill = Genero)) + 
   geom_density_ridges(scale = 2, alpha = .7, color = "white", stat = "binline", bins = 20) + 
   scale_fill_hue(l=30)
 
 # Combined
-ggplot(datos2, aes(x = FollowUP, y = Genero, fill = Genero)) + 
+ggplot(datos_density_ridges, aes(x = FollowUP, y = Genero, fill = Genero)) + 
   geom_density_ridges(scale = 2, alpha = .7, color = "white", stat = "binline", bins = 20) + 
   geom_density_ridges(scale = 2, alpha = .4, color = "white") + 
   scale_fill_hue(l=30)

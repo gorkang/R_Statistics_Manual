@@ -3,7 +3,7 @@ title: "R - Statistics Manual"
 author: "Center for Social and Cognitive Neuroscience - cscn.uai.cl"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
-output: github_document
+output: bookdown::gitbook
 documentclass: book
 bibliography: [book.bib, packages.bib]
 biblio-style: apalike
@@ -11,7 +11,7 @@ link-citations: yes
 github-repo: gorkang/R_Statistics_Manual
 description: "Statistics manual from CSCN."
 ---
-<!-- output: bookdown::gitbook  -->
+<!-- output: github_document  -->
 
 ```{r load_packages, message=FALSE, warning=FALSE, include=FALSE}
 if (!require('pacman')) install.packages('pacman'); library('pacman')
