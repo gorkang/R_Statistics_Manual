@@ -39,6 +39,7 @@ if (!require('pacman')) install.packages('pacman'); library('pacman')
 p_load(tidyverse)
 
 # Establecemos directorio de trabajo
-setwd("R workshop")
+  # Trabajar con proyectos
+  # setwd("R workshop")
 
 ```
