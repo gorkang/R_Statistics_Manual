@@ -46,21 +46,21 @@ R tiene sencillas fórmulas para representar este tipo de relaciones.
 
 Si nosotros pensamos que el consumo `Alcohol` predice el `Atractivo` de la persona con la que filteamos, podemos formularlo como un modelo de la forma:
 
-```{r}
+```{r data-analysis-1}
 #fórmula básica
 formula = "Atractivo ~ Alcohol"
 ```
 
 Si además pensamos que el `Sexo` tambien puede ser un predictor, modificamos el modelo inicial:
 
-```{r}
+```{r data-analysis-2}
 #añadir variables predictoras
 formula = "Atractivo ~ Alcohol + Sexo"
 ```
 
 En el caso de que 2 variables, `Alcohol` y `Sexo` sean predictores, es posible pensar que estas pueden interaccionas. Podemos agregar la interación de varias formas:
 
-```{r}
+```{r data-analysis-3}
 #versión extendida
 formula = "Atractivo ~ Alcohol + Sexo + Alcohol*Sexo"
 
@@ -72,7 +72,7 @@ En resumen, todo lo que esta a la derecha del simbolo `~` es considerado un pred
 
 Existen casos (por ejemplo, correlación o chi-cuadrado) en donde no hay una predicción propiamente tal. En estos casos se elimina del modelo la variable de resultado:
 
-```{r}
+```{r data-analysis-4}
 #fórmula para modelo sin predictor o asociativo
 formula = "~ Atractivo + Alcohol"
 ```
@@ -81,7 +81,7 @@ formula = "~ Atractivo + Alcohol"
 
 Para muchos de los análisis que vienen a continuación hemos creado una base de datos, la cual puedes descargar [Aquí](Data/08-Data_analysis/ANOVA_1.csv).
 
-```{r}
+```{r data-analysis-5}
 #Packages
 if (!require('pacman')) install.packages('pacman'); library('pacman')
 p_load(tidyverse, yarrr, car)
@@ -104,7 +104,7 @@ Evaluación de diferencias por `Sexo` en una prueba de Teoría de la mente `Tom`
 
 ###Test
 
-```{r}
+```{r data-analysis-t-test}
 #En primer lugar comprobamos el supuesto de homogeneidad de varianzas
 
 #levene test {car} para homogeneidad de las varianzas
@@ -137,7 +137,7 @@ En una tarea de disparo a objetivos, queremos evaluar si existen diferencias en 
 
 ###Test
 
-```{r}
+```{r data-analysis-t-test2}
 #Ingresamos nuestro modelo en la función t.test()
 t.test(df$AccuracyIz, df$AccuracyDer, paired = T)
 
@@ -149,7 +149,7 @@ t.test(df$AccuracyIz, df$AccuracyDer, paired = T)
 Se desea evaluar si existe alguna relación entre Teoria de la Mente (`Tom`) y el grado de Empatía de los sujetos (`Empatia`).
 
 ###Test
-```{r}
+```{r data-analysis-correlation}
 #Correlación de Pearson
 cor.test(~ Tom + Empatia, data = df)
 
@@ -160,9 +160,9 @@ ggplot(df, aes(Tom, Empatia)) +
 ```
 
 
-```{r}
+```{r data-analysis-correlation2}
 #Selecione un subconjunto de variables para la correlación multiple
-cordata = df %>% select(-Id,-Moral,-Sexo,-AccuracyIz,-AccuracyDer,-Edad)
+cordata = df %>% dplyr::select(-Id,-Moral,-Sexo,-AccuracyIz,-AccuracyDer,-Edad)
 
 #carga libreria Hmisc
 p_load(Hmisc)
@@ -181,7 +181,7 @@ Para esto primero añadiremos una nueva variable `Accuracy` la cual será el pro
 
 Además filtraremos a los sujetos con puntajes bajos (menos de 50 puntos).
 
-```{r}
+```{r data-analysis-regression}
 #Creamos nueva variable "Accuracy" con la función mutate() {dplyr}
 df = df %>% mutate(Accuracy = (AccuracyIz + AccuracyDer)/2)
 
@@ -192,7 +192,7 @@ df = df %>% filter(FunEjec > 50)
 
 ###Test
 
-```{r}
+```{r data-analysis-regression2}
 
 #Insertamos nuestra fórmula al Modelo de Regresión Simple
 fit = lm(Accuracy ~ FunEjec, df)
@@ -216,12 +216,12 @@ ggplot(df, aes(FunEjec, Accuracy)) +
 Esta vez trabajaremos con otra base de datos, la cual puedes descargar [Aquí](Data/08-Data_analysis/ANOVA_2.csv).
 Se recomienda en esta oportunidad limpiar nuestro espacio de trabajo. Para esto podemos presionar `Ctrl + Shift + F10` o utilizar la función:
 
-```{r}
+```{r data-analysis-aov}
 rm(list=ls())
 ```
 
 ###Preparación de datos y packages
-```{r}
+```{r data-analysis-aov2}
 #Packages
 if (!require('pacman')) install.packages('pacman'); library('pacman')
 p_load(tidyverse, stats, car, apaTables)
@@ -242,7 +242,7 @@ Se desea evaluar que métodos pueden contribuir (o no) al aprendizaje de estadí
 
 ###Test
 
-```{r}
+```{r data-analysis-aov3}
 #Introducimos la formula al Modelo con la función de ANOVA aov()
 fit = aov(Nota ~ Metodo, df)
 
@@ -273,7 +273,7 @@ pirateplot(Nota ~ Metodo,
 
 
 ###Tablas
-```{r}
+```{r data-analysis-aov-tables}
 apa.1way.table(iv = Metodo, dv = Nota, data = df, filename = "Resultados/Figure1_APA.doc", table.number = 1)
 
 apa.aov.table(fit, filename = "Resultados/Figure2_APA.doc",table.number = 2)
@@ -287,13 +287,13 @@ apa.aov.table(fit, filename = "Resultados/Figure2_APA.doc",table.number = 2)
 Esta vez nuevamente trabajaremos con otra base de datos, la cual puedes descargar [Aquí](Data/08-Data_analysis/ANOVA_3.csv).
 Se recomienda nuevamente limpiar nuestro espacio de trabajo. Para esto podemos presionar `Ctrl + Shift + F10` o utilizar la función:
 
-```{r}
+```{r data-analysis-aov-2-fact}
 rm(list = ls())
 ```
 
 ###Preparación de datos y packages
 
-```{r}
+```{r data-analysis-aov-2-fact2}
 #Packages
 if (!require('pacman')) install.packages('pacman'); library('pacman')
 p_load(tidyverse, yarrr, car, stats)
@@ -318,7 +318,7 @@ Para esto tenemos las variables `Alcohol` (Si ha bebido o no), el `Sexo` del beb
 
 ###Test
 
-```{r}
+```{r data-analysis-aov-2-fact3}
 #Ajustamos el modelo con la funcion de ANOVA aov()
 fit = aov(Atractivo ~ Sexo * Alcohol, df)
 
@@ -353,7 +353,7 @@ pirateplot(Atractivo ~ Sexo + Alcohol,
 ```
 
 ###Tablas
-```{r}
+```{r data-analysis-aov-2-fact-tables}
 apa.2way.table(iv1 = Sexo, iv2 = Alcohol, dv = Atractivo, data = df, filename = "Resultados/Figure3_APA.doc", table.number = 3)
 
 apa.aov.table(fit, filename = "Resultados/Figure4_APA.doc",table.number = 4)

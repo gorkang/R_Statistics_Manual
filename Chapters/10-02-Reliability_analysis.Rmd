@@ -66,8 +66,9 @@ alpha(temp2)
 * Cargamos librerias
 ```{r omega_libraries, message=FALSE}
 if (!require('pacman')) install.packages('pacman'); library('pacman')
-p_load(readr, psych, MBESS, dplyr, GPArotation)
+p_load(p_depends(MBESS)$Depends, character.only = TRUE)
 # install.packages("MBESS", dependencies = TRUE)
+p_load(readr, psych, MBESS, dplyr, GPArotation)
 ```
 
 ***

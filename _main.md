@@ -278,7 +278,8 @@ if (!require('pacman')) install.packages('pacman'); library('pacman')
 p_load(tidyverse)
 
 # Establecemos directorio de trabajo
-setwd("R workshop")
+  # En lugar de esto, trabajar con proyectos.
+  # setwd("R workshop")
 ```
 
 <!--chapter:end:Chapters/02-My_first_script.Rmd-->
