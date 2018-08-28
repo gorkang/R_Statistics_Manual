@@ -6,7 +6,7 @@
 ***
 
 Cargamos librerias y leemos los datos
-```{r, message=FALSE, warning=FALSE}
+```{r descriptives-load, message=FALSE, warning=FALSE}
 if (!require('pacman')) install.packages('pacman'); library('pacman')
 p_load(tidyverse, findviews)
 
@@ -15,7 +15,7 @@ datos = read_csv("Data/07_Descriptive_statistics/Descriptive_statistics.csv"); d
 ```
 
 ## Summary de datos
-```{r}
+```{r descriptives-summary}
 # datos %>% group_by(Condition)  %>% summarise(VD = mean(VD), sd = sd(VD))
     
 datos %>% 
@@ -38,7 +38,7 @@ datos %>%
 
 
 ### Agrupamos por sujeto
-```{r}
+```{r descriptives-group}
 datos %>%
   group_by(ID) %>%
   summarise(mean = mean(VD))
@@ -48,7 +48,7 @@ datos %>%
 ## Descriptive tables latex
 
 Using stargazer we can create tables showing summary statistics or a lm output. Here we use `type = "html"` to be able to show the table in this book. `type = "latex"` (default) shows the latex code.
-```{r, results='asis'}
+```{r descriptives-tables, results='asis'}
 p_load(stargazer)
 stargazer(datos %>% as.data.frame(), type="html") 
 ```
@@ -57,7 +57,7 @@ stargazer(datos %>% as.data.frame(), type="html")
 ## Visualize missing values
 
 With Amelia
-```{r}
+```{r descriptives-missing-amelia}
 if (!require('pacman')) install.packages('pacman'); library('pacman')
 p_load(Amelia)
 
@@ -68,7 +68,7 @@ missmap(datos)
 ```
 
 With ggplot and reshape2
-```{r}
+```{r descriptives-missing-ggplot}
 # With ggplot
 # A function that plots missingness
 if (!require('pacman')) install.packages('pacman'); library('pacman')
