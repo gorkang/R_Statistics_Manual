@@ -1,6 +1,5 @@
 # Visualizar riesgo{#Visualizar_riesgo}
 
-
 ## Riskr
 
 FROM: https://cran.r-project.org/web/packages/riskyr/vignettes/E_riskyr_primer.html
