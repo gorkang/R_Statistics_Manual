@@ -8,7 +8,7 @@
 Cargamos librerias y leemos los datos
 ```{r descriptives-load, message=FALSE, warning=FALSE}
 if (!require('pacman')) install.packages('pacman'); library('pacman')
-p_load(tidyverse, findviews)
+p_load(readr, dplyr, findviews)
 
 datos = read_csv("Data/07_Descriptive_statistics/Descriptive_statistics.csv"); datos
 

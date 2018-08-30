@@ -26,11 +26,11 @@ RStudio es un entorno integrado de desarrollo (IDE) para la programación R la c
 ## Instalar Packages
 
 También será necesario instalar algunos paquetes. Estos son una colección de funciones, datos y documentación que amplian las capacidacidades basicas de R. Empezando 2017, el numero de paquetes en R-cran ha superado los 10,000.
-Gran parte de las funciones y paquetes que utilizaremos en este tutorial se encuentran contenidas en el meta-paquete "tideverse" (este es un paquete de paquetes). 
+Gran parte de las funciones y paquetes que utilizaremos en este tutorial se encuentran contenidas en el meta-paquete "tidyverse" (este es un paquete de paquetes). 
 Para instalarlo solo debes ejecutar la siguiente linea en la **consola** de RStudio ((1) en la imagen de arriba):  
 
 * **Copia y pega la linea de abajo en la consola de R Studio. Ejecutala con la tecla ENTER**:
-`install.packages("tidyverse")`
+#`install.packages("tidyverse")`
 
 Si desea instalar otro paquete diferente de "tideverse" solo debe remplazar su nombre entre comillas dentro de la funcion `install.packages()`.
 Tambien es importante saber que una vez instalado un paquete, no es necesario volver hacerlo, a menos que reinstales R.
@@ -54,17 +54,18 @@ if (!require('pacman')) install.packages('pacman'); library('pacman')
 ```
 
 ## **(C)** Librerias para el workshop
-Usaremos las siguientes librerias: tidyverse, psych, lavaan, semTools, semPlot, yarrr, ggpubr, corrplot, beanplot...   
-El paquete pacman contiene una función llamada p_load(), que permite hacer lo de arriba automaticamente. También tiene una función llamada `p_install_gh` que nos permite instalar directamente la versión en desarrollo del paquete desde [Github](https://github.com/).
+Usaremos las siguientes librerias: tidyverse, psych, yarrr, ggpubr, corrplot, beanplot...   
+El paquete pacman contiene una función llamada p_load(), que permite hacer lo de arriba automaticamente. También tiene una función llamada `p_install_gh` que nos permite instalar directamente la versión en desarrollo del paquete desde [Github](https://github.com/). 
 
 **Copia y pega el codigo de abajo y ejecutalo [tecla ENTER] en la consola de R Studio.** La función p_load() se encargará de todo por nosotros. El proceso de instalación requiere internet y durará unos minutos.
 
 ```{r install_workshop_packages, message=FALSE, warning=FALSE}
 if (!require('pacman')) install.packages('pacman'); library('pacman')
-p_load(tidyverse, tidyverse, lavaan, yarrr, semTools, corrplot, reshape2, stringr, psych, ggpubr, corrplot, beanplot)
+#p_load(tidyverse, yarrr, corrplot, reshape2, stringr, psych, ggpubr, corrplot, beanplot) #semTools, lavaan
 
 # Instalamos la version del desarrollador desde Github: https://github.com/SachaEpskamp/semPlot
-p_install_gh("SachaEpskamp/semPlot")
+  # p_install_gh("SachaEpskamp/semPlot")
+  # devtools::install_github("SachaEpskamp/semPlot")
 
 ```
 

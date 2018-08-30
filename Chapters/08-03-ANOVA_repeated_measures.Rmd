@@ -5,7 +5,7 @@ Perform a repeated measures ANOVA and get posthocs
 **Libraries**
 ```{r libraries, message=FALSE}
 if (!require('pacman')) install.packages('pacman'); library('pacman')
-p_load(tidyverse, yarrr, readxl, stringr, afex) 
+p_load(readr, dplyr, ggplot2, yarrr, readxl, stringr, afex) 
 ```
 
 

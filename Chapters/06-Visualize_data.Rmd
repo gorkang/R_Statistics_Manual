@@ -43,7 +43,7 @@ Vamos a usar la siguiente [base de datos](Data/06_Visualize_data/Visualize_data.
 ```{r read_data, message=FALSE, warning=FALSE}
 # Cargamos librerias
 if (!require('pacman')) install.packages('pacman'); library('pacman')
-p_load(tidyverse, yarrr, DT)  
+p_load(readr, dplyr, yarrr, DT, ggplot2)  
     
 # Leemos datos y echamos un vistazo usando el paquete DT::datatable()
 datos = read_csv("Data/06_Visualize_data/Visualize_data.csv"); DT::datatable(datos)  
@@ -251,7 +251,7 @@ Ver la web de documentación de [ggplot2](http://docs.ggplot2.org/current/) y su
 ```{r scatterplot_3v}
 # Cargamos libreria
 if (!require('pacman')) install.packages('pacman'); library('pacman')
-p_load(tidyverse)
+p_load(dplyr, ggplot2)
 
 ggplot(datos, aes(PPV_DECLARED, FollowUP, color=factor(Genero))) +
     geom_point(shape=1, size = 2) +
@@ -270,7 +270,7 @@ Ver la web del creador: [ggpubr](http://www.sthda.com/english/rpkgs/ggpubr/) y s
 
 ```{r dentity_plot}
 if (!require('pacman')) install.packages('pacman'); library('pacman')
-p_load(tidyverse, ggpubr)
+p_load(dplyr, ggplot2, ggpubr, readr)
 
 datos = read_csv("Data/06_Visualize_data/Visualize_data.csv")
 
@@ -288,7 +288,7 @@ ggdensity(datos, x = "PPV_DECLARED",
 
 ```{r density_ridges}
 if (!require('pacman')) install.packages('pacman'); library('pacman')
-p_load(tidyverse, ggridges)
+p_load(dplyr, ggplot2, ggridges)
 
 datos_density_ridges = datos %>% drop_na() %>% 
   filter(Educacion < 8) %>% 
@@ -360,7 +360,7 @@ FROM \@kara_woo: https://gist.github.com/karawoo/14f4f46da900b09997d26171d092fb9
 
 
 ```{r shaded_area, message=FALSE, warning=FALSE}
-library(tidyverse, ggplot2)
+p_load(readr, dplyr, ggplot2)
 
 data_for_plot = read_csv("Data/06_Visualize_data/data_shaded_geom_area.csv")
 
@@ -423,7 +423,7 @@ ggplot(dat, aes(x = year, y = count, group = cat, order = cat, fill = cat)) +
 
 ```{r scatterplot_multiple, warning=FALSE}
 if (!require('pacman')) install.packages('pacman'); library('pacman')
-p_load(tidyverse, ggthemes, Rmisc)
+p_load(readr, dplyr, ggplot2, ggthemes, Rmisc)
 
 a = read_csv("Data/06_Visualize_data/data_multiple_scatterplot.csv")
 
@@ -477,7 +477,8 @@ multiplot(p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, cols=3)
 FROM: https://drsimonj.svbtle.com/plotting-background-data-for-groups-with-ggplot2
 
 ```{r background_data, warning=FALSE}
-library(tidyverse)
+p_load(readr, dplyr, ggplot2)
+
 d <- iris        # Full data set
 d_bg <- d[, -5]  # Background Data - full without the 5th column (Species)
 

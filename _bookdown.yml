@@ -8,6 +8,7 @@ rmd_files: [
   "Chapters/04-Data_types_import_export.Rmd",
   "Chapters/05-Manipulate_data.Rmd",
   "Chapters/06-Visualize_data.Rmd",
+  "Chapters/06-01-Visualize_risk.Rmd",
   "Chapters/07-Descriptive_statistics.Rmd",
   "Chapters/08-01-Introduction_data_analysis.Rmd",
   "Chapters/08-02-Association_test.Rmd",

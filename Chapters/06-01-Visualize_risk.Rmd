@@ -1,0 +1,67 @@
+# Visualizar riesgo{#Visualizar_riesgo}
+
+## Riskr
+
+FROM: https://cran.r-project.org/web/packages/riskyr/vignettes/E_riskyr_primer.html
+
+
+```{r riskyr-1, message=FALSE, warning=FALSE}
+if (!require('pacman')) install.packages('pacman'); library('pacman')
+p_load(riskyr)
+
+# Create a customized scenario: 
+my.scenario <- riskyr(scen.lbl = "Identifying reoffenders", 
+                      popu.lbl = "prison inmates", 
+                      cond.lbl = "reoffending",
+                      cond.true.lbl = "offends again", cond.false.lbl = "does not offend again",
+                      dec.lbl = "test result",
+                      dec.pos.lbl = "predict to\nreoffend", dec.neg.lbl = "predict to\nnot reoffend",
+                      hi.lbl = "reoffender found", mi.lbl = "reoffender missed",
+                      fa.lbl = "false accusation", cr.lbl = "correct release",
+                      prev = .45,  # prevalence of being a reoffender. 
+                      sens = .98,  # p( will reoffend | offends again )
+                      spec = .46,  # p( will not reoffend | does not offend again )
+                      fart =  NA,  # p( will reoffend | does not offend gain )
+                      N = 753,     # population size
+                      scen.src = "(a ficticious example)")
+
+
+my.scenario <- scenarios$n6
+
+summary(my.scenario)
+
+
+plot(my.scenario, plot.type = "icons")
+
+plot(my.scenario, plot.type = "tree", by = "dc")  # plot tree diagram (splitting N by decision)
+
+plot(my.scenario, plot.type = "curve")  # plot default curve [what = c("prev", "PPV", "NPV")]:
+
+
+
+```
+
+
+```{r riskyr-2, message=FALSE, warning=FALSE}
+if (!require('pacman')) install.packages('pacman'); library('pacman')
+p_load(riskyr)
+
+# Use a predefined scenario
+my.scenario <- scenarios$n6
+
+summary(my.scenario)
+
+
+plot(my.scenario, plot.type = "icons")
+
+plot(my.scenario, plot.type = "tree", by = "dc")  # plot tree diagram (splitting N by decision)
+
+plot(my.scenario, plot.type = "curve")  # plot default curve [what = c("prev", "PPV", "NPV")]:
+
+plot(my.scenario, plot.type = "fnet", area = "sq")  # network diagram (with numeric probability labels):
+
+plot(my.scenario, plot.type = "curve", what = "all")  # plot "all" available curves:
+
+
+```
+
