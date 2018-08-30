@@ -31,7 +31,7 @@ raw_data = read_csv("Data/05-Manipulate_data/Manipulate_data_1.csv"); raw_data
 ```
 
 ### Guardar DB a archivo
-```{r manipulate-data-read}
+```{r manipulate-data-write}
 write_csv(raw_data, "Data/05-Manipulate_data/Manipulate_saved_data.csv")
 
 ```
