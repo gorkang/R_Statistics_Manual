@@ -19,7 +19,7 @@
 Cargamos librerias
 ```{r, message=FALSE, warning=FALSE}
 if (!require('pacman')) install.packages('pacman'); library('pacman')
-p_load(tidyverse, stringr)
+p_load(readr, dplyr, tidyr, stringr)
 ```
 
 ## Leer y guardar datos

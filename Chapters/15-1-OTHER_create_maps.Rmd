@@ -9,7 +9,7 @@ Interesting stuff not necessarily related to stats :)
 ```{r generate_maps_libraries, message=FALSE, warning=FALSE}
 # Cargamos librerias y leemos DBif
 if (!require('pacman')) install.packages('pacman'); library('pacman')
-p_load(ggplot2, ggmap, tidyverse, ggrepel, stringr)
+p_load(ggplot2, ggmap, readr, dplyr, ggrepel, stringr)
 
 ```
 

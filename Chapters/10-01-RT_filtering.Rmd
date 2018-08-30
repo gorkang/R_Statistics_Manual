@@ -13,7 +13,8 @@ We use the following [dataset](Data/10-Pre_processing/RT_filtering.csv).
 ***
 
 ```{r}
-library(tidyverse)
+if (!require('pacman')) install.packages('pacman'); library('pacman')
+p_load(purrr, readr, dplyr)
 
 # RT Filtering function
 Filter_FUN <- function(DB, Column, Low_PCT = 0.05, High_PCT = 0.95) {

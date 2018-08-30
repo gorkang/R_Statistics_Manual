@@ -36,7 +36,7 @@ Mucha gente recomienda NO usar la funcion setwd(), y en su lugar, crear proyecto
 ```{r first_script, message=FALSE, warning=FALSE}
 # Cargamos librerias
 if (!require('pacman')) install.packages('pacman'); library('pacman')
-p_load(tidyverse)
+p_load(readr)
 
 # Establecemos directorio de trabajo
   # Trabajar con proyectos

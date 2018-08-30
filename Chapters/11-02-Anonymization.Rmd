@@ -3,7 +3,7 @@
 **Libraries**
 ```{r anonimization_libraries, message=FALSE, warning=FALSE}
 if (!require('pacman')) install.packages('pacman'); library('pacman')
-p_load(hashids, tidyverse)
+p_load(hashids, dplyr)
 ```
 
 ### Encriptando y desencriptando un elemento
@@ -24,7 +24,7 @@ Generamos aleatoriamente numeros de identificacion "similares" a RUTs, los encri
 ```{r anonimization_encrypt_column, message=FALSE, warning=FALSE}
 # Cargamos librerias y leemos DB
 if (!require('pacman')) install.packages('pacman'); library('pacman')
-p_load(hashids, tidyverse)
+p_load(hashids, dplyr)
 
 # Pseudo RUTs generadas aleatoriamente
 data = round(runif(100)*10000000) %>% as_tibble() %>% 
