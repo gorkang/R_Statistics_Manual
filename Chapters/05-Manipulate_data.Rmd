@@ -17,21 +17,21 @@
 ***
 
 Cargamos librerias
-```{r, message=FALSE, warning=FALSE}
+```{r manipulate-data-libraries, message=FALSE, warning=FALSE}
 if (!require('pacman')) install.packages('pacman'); library('pacman')
-p_load(tidyverse, stringr)
+p_load(readr, dplyr, tidyr, stringr)
 ```
 
 ## Leer y guardar datos
 
 ### Leer datos
-```{r, message=FALSE, warning=FALSE}
+```{r manipulate-data-read, message=FALSE, warning=FALSE}
 raw_data = read_csv("Data/05-Manipulate_data/Manipulate_data_1.csv"); raw_data
 
 ```
 
 ### Guardar DB a archivo
-```{r}
+```{r manipulate-data-read}
 write_csv(raw_data, "Data/05-Manipulate_data/Manipulate_saved_data.csv")
 
 ```
@@ -41,7 +41,7 @@ write_csv(raw_data, "Data/05-Manipulate_data/Manipulate_saved_data.csv")
 
 Cuando usamos ` = ` o ` <- ` asignamos lo que ocurre a la derecha a la variable de la izquierda. En caso contrario, simplemente vemos el output, pero sin asignarlo.
 
-```{r}
+```{r manipulate-data-1}
 # Creamos la variable temp para no sobreescribir raw_data
 temp = raw_data
     
@@ -82,7 +82,7 @@ dplyr es un conjunto de funciones que nos permiten manipular los datos de manera
 
 
 ### Filtrar datos
-```{r}
+```{r manipulate-data-filter}
 # Nos quedamos solo con Sexo == 1
 raw_data %>% filter(Sexo == 1) 
 
@@ -102,7 +102,7 @@ raw_data %>% filter(str_detect(`Columna basura`, "zz"))
 
 
 ### Ordenar DB
-```{r}
+```{r manipulate-data-order}
 #raw_data %>% arrange(desc(Edad))
 raw_data %>% arrange(Edad, Sexo) 
 ```
@@ -111,7 +111,7 @@ raw_data %>% arrange(Edad, Sexo)
 
 ### Seleccionar variables
 
-```{r}
+```{r manipulate-data-select}
 # Seleccionamos varias columnas
 raw_data %>% select(ID, Sexo, Edad, VI1)
 
@@ -126,7 +126,7 @@ Para seleccionar varias columnas rapidamente usaremos la subfunción de select()
 
 
 Nosotros usaremos la versión para todos los públicos, en la que simplemente indicaremos un fragmento de texto que buscar en los títulos de las columnas de nuestro data frame.
-```{r}
+```{r manipulate-data-2}
 # Seleccionamos las columnas que nos interesan usando matches()
 datos = raw_data %>% select(ID, Sexo, Edad, matches("VI"))
    
@@ -139,7 +139,7 @@ datos
 
 ### Renombrar variables
 
-```{r}
+```{r manipulate-data-rename}
 # Renombramos columna X. En este caso, como el nombre de columna contiene espacios, tenemos que usar ``
 raw_data %>% rename(Columna_basura = `Columna basura`)
 
@@ -148,21 +148,21 @@ raw_data %>% rename(Columna_basura = `Columna basura`)
 **Renombrado avanzado**
 
 Rename using the position of the column
-```{r}
+```{r manipulate-data-rename2}
 raw_data %>% rename(second_column = !!names(.[2]), first_column = !!names(.[1]))
 
 ```
 
 ### Separate contents of a single variable
 
-```{r}
+```{r manipulate-data-separate}
 raw_data %>% separate(Composited_var, c("First", "Second"), sep = "_")
 ```
 
 
 ### Wide to Long format
 Cuando tenemos una condición por columna (como en la tabla de arriba) pero queremos los valores de las condiciones en una columna y los valores de la VD en otra:
-```{r}
+```{r manipulate-data-widelong}
 data_long_RAW = datos %>% 
   gather(Condition, VD, 4:6, factor_key = TRUE, convert = F) %>% 
   gather(Condition_t, VD_t, 4:6, factor_key = TRUE, convert = F)
@@ -172,7 +172,7 @@ data_long_RAW %>% select(-Condition_t) %>% arrange(ID)
 
 ### Long to wide
 Cuando tenemos unos datos en formato long y queremos formato wide.
-```{r}
+```{r manipulate-data-longwide}
 data_long_RAW %>%
   spread(Condition, VD) %>%
   spread(Condition_t, VD_t) 
@@ -180,7 +180,7 @@ data_long_RAW %>%
 ```
 
 ### Omitir NAs
-```{r}
+```{r manipulate-data-nas}
 #Filter OUT NAs in Follow_UP
 # data_long_RAW %>% na.omit(VD) #ESTE NO FUNCIONARA!!!!????
 data_long_RAW = data_long_RAW %>% drop_na(VD) 
@@ -189,7 +189,7 @@ data_long_RAW = data_long_RAW %>% drop_na(VD)
 
 ### Eliminar variables
 
-```{r}
+```{r manipulate-data-eliminate}
 # Eliminamos columna X
 data_long_RAW = data_long_RAW %>% select(-Condition_t)
 ```
@@ -198,7 +198,7 @@ data_long_RAW = data_long_RAW %>% select(-Condition_t)
 
 #### A partir de criterios logicos
 
-```{r}
+```{r manipulate-data-create}
 data_long_RAW %>% mutate(Viejuno = Edad > 30)
 
 ```
@@ -206,7 +206,7 @@ data_long_RAW %>% mutate(Viejuno = Edad > 30)
 
 #### Transformando otras variables
 
-```{r}
+```{r manipulate-data-mutate1}
 data_long_RAW %>% mutate(RT_log = log(VD_t))
 
 ```
@@ -216,7 +216,7 @@ data_long_RAW %>% mutate(RT_log = log(VD_t))
 #### Cambiamos el tipo de datos
 
 **TODO: masivamente, todos los integer a algo**
-```{r}
+```{r manipulate-data-recode}
 # Cambiamos a Character
 data_long_RAW %>% mutate(Edad = as.character(Edad))
 
@@ -226,7 +226,7 @@ data_long_RAW %>% mutate(Edad = as.integer(Edad))
 ```
 
 #### Recodificamos los valores
-```{r}
+```{r manipulate-data-recode2}
 data_long_RAW %>% mutate(Edad2 = 
                            ifelse( Edad > 30, "Viejuno", 
                            ifelse( Edad < 30, "Pipiolo", NA)))
@@ -249,7 +249,7 @@ Una funcionalidad muy potente (y sencilla!) es la de combinar bases de datos que
 
 ***
 
-```{r}
+```{r manipulate-data-combine}
 # Leemos las bases de datos
 datos1 = read_csv("Data/05-Manipulate_data/Manipulate_data_2.csv"); datos1
 datos2 = read_csv("Data/05-Manipulate_data/Manipulate_data_3.csv"); datos2
@@ -262,7 +262,7 @@ datos_combinados = left_join(datos1, datos2, by = "ID"); datos_combinados
 ## Verbos avanzados
 
 ### Cambiar multiples columnas de un tipo a otro
-```{r}
+```{r manipulate-data-advanced}
 # raw_data %>% mutate_if(is.character, as.double) # BUG: cuando alguna de las columnas tiene un espacio, falla
 
 # Cambiar las columnas numericas a character
@@ -279,7 +279,7 @@ raw_data %>% mutate_at(vars(matches("VI")), as.numeric)
 ## Regular expressions
 
 The following function can be used to check how a specific regexp is working.
-```{r}
+```{r manipulate-data-regex}
 
 library(stringr)
 see <- function(rx) str_view_all("abc ABC 123\t.!?\\(){}\n", rx)

@@ -9,7 +9,7 @@ Vamos a usar la siguiente [base de datos](Data/09-Functions/Functions.csv).
 ```{r}
 # Cargamos librerias
 if (!require('pacman')) install.packages('pacman'); library('pacman')
-p_load(tidyverse)
+p_load(readr, dplyr)
 
 # Leemos datos y echamos un vistazo
 datos = read_csv("Data/09-Functions/Functions.csv")

@@ -46,7 +46,7 @@ Tras descargar el archivo de arriba, lo **moveremos a nuestro directorio de trab
 ```{r import_data_csv, message=FALSE, warning=FALSE}
 # Cargamos librerias
 if (!require('pacman')) install.packages('pacman'); library('pacman')
-p_load(tidyverse)
+p_load(readr)
 
 # Establecemos directorio de trabajo
 # setwd("R workshop")
@@ -120,7 +120,9 @@ Vamos a usar los siguientes [archivos](Data/04-Data_types_import_export/CSVs/CSV
 From: https://gist.github.com/ColinFay/d74d331825868b181860212cd1577b69 by `@_ColinFay`
 
 ```{r import_all_files_from_folder_purrr, message=FALSE, warning=FALSE}
-library(tidyverse)
+if (!require('pacman')) install.packages('pacman'); library('pacman')
+p_load(purrr, readr, dplyr)
+
 files <- list.files("Data/04-Data_types_import_export/CSVs", pattern = "^0", full.names = TRUE)
 full <- map_df(files, read_csv)
 dplyr::glimpse(full)
@@ -136,7 +138,7 @@ full2
 
 ```{r import_all_files_from_folder, message=FALSE, warning=FALSE}
 if (!require('pacman')) install.packages('pacman'); library('pacman')
-p_load(tidyverse)
+p_load(purrr, readr, dplyr)
 
 # We list all files in the desired folder
 Path_Folder = "Data/04-Data_types_import_export/CSVs/"
@@ -183,7 +185,7 @@ A partir de la version 1.0 de RStudio podemos importar archivos de datos usando 
 ```{r export_data}
 # Carga libreria
 if (!require('pacman')) install.packages('pacman'); library('pacman')
-p_load(tidyverse)
+p_load(readr)
     
 # Volcamos datos a archivo
 write_csv(datos, "Data/04-Data_types_import_export/Export_saved_file.csv")

@@ -84,7 +84,7 @@ Para muchos de los análisis que vienen a continuación hemos creado una base de
 ```{r data-analysis-5}
 #Packages
 if (!require('pacman')) install.packages('pacman'); library('pacman')
-p_load(tidyverse, yarrr, car)
+p_load(readr, dplyr, yarrr, car)
 
 
 #Importar dataframe
@@ -224,7 +224,7 @@ rm(list=ls())
 ```{r data-analysis-aov2}
 #Packages
 if (!require('pacman')) install.packages('pacman'); library('pacman')
-p_load(tidyverse, stats, car, apaTables)
+p_load(readr, dplyr, stats, car, apaTables)
 
 #Importar dataframe
 df = read_csv("Data/08-Data_analysis/ANOVA_2.csv")
@@ -296,7 +296,7 @@ rm(list = ls())
 ```{r data-analysis-aov-2-fact2}
 #Packages
 if (!require('pacman')) install.packages('pacman'); library('pacman')
-p_load(tidyverse, yarrr, car, stats)
+p_load(readr, dplyr, yarrr, car, stats)
 
 
 #Importar dataframe
