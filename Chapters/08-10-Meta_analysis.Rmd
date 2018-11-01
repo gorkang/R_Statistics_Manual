@@ -23,14 +23,14 @@ Experiment2
 
 
 **Libraries**
-```{r, message=FALSE}
+```{r 08-10-Meta_analysis-1, message=FALSE}
 if (!require('pacman')) install.packages('pacman'); library('pacman')
 p_load(metafor)
 ```
 
 ### Natural Frequencies Effect
 
-```{r}
+```{r 08-10-Meta_analysis-2}
 
 # input of the data from the two experiments, each is featuring two comparison (note: ai to di are corresponding to the 2x2 table, n1i and n2i are row sums)
 
@@ -71,7 +71,7 @@ forest(rma.overallOR,
 
 ### Pictures Effect
 
-```{r}
+```{r 08-10-Meta_analysis-3}
 
 # input of the data from the two experiments, each is featuring two comparison (note: ai to di are corresponding to the 2x2 table, n1i and n2i are row sums)
 # Here we use the parameter mod to assess moderation (???)

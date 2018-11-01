@@ -28,7 +28,6 @@ rmd_files: [
   "Chapters/15-2-OTHER_extract_tables_web.Rmd",
   "Chapters/16-Extract_tables_web.Rmd",
   "Chapters/50-Exercises_solutions.Rmd",
-  "Chapters/50-Exercises.Rmd",
   "Chapters/90-bibliography.Rmd",
   "Chapters/98-TODO_basic_workshop.Rmd",
   "Chapters/99-TODO_general.Rmd",

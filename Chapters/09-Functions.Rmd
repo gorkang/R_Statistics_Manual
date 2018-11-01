@@ -6,7 +6,7 @@ Vamos a usar la siguiente [base de datos](Data/09-Functions/Functions.csv).
 ***
 
 * Cargamos librerias y leemos datos
-```{r}
+```{r 09-Functions-1}
 # Cargamos librerias
 if (!require('pacman')) install.packages('pacman'); library('pacman')
 p_load(readr, dplyr)
@@ -24,7 +24,7 @@ Las funciones le añaden potencia y versatilidad a cualquier lenguaje de program
 
 Vimos que la función para graficar usando Pirate plot es la siguiente:
 
-```{r}
+```{r 09-Functions-2}
 # Cargamos librería
 if (!require('pacman')) install.packages('pacman'); library('pacman')
 p_load(yarrr)    
@@ -52,7 +52,7 @@ Creamos una función llamada `Plot.me()` que tiene los siguientes parámetros:
 * Funcion (por defecto se usa *mean*, pero también se puede pedir *median*, etc.)
 
 
-```{r}
+```{r 09-Functions-3}
 # Función Plot.me()
 Plot.me <- function(Formula, Datos, Titulo = Formula, Funcion = mean) {
   
@@ -73,7 +73,7 @@ Plot.me <- function(Formula, Datos, Titulo = Formula, Funcion = mean) {
 
 Usamos nuestra nueva función simplificada para crear algunas gráficas:
 
-```{r}
+```{r 09-Functions-4}
 Plot.me(PPV_DECLARED ~ condition, datos)
 Plot.me(PPV_DECLARED ~ Genero, datos)
 Plot.me(PPV_DECLARED ~ Genero + condition, datos)
@@ -83,6 +83,6 @@ Plot.me(PPV_DECLARED ~ Genero + condition, datos)
 
 Podemos personalizar algunas cosas:
 
-```{r}
+```{r 09-Functions-5}
 Plot.me(PPV_DECLARED ~ condition, datos, "Titulo lindo", median)
 ```

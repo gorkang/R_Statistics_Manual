@@ -7,6 +7,7 @@ WHY Data visualization matters: https://www.autodeskresearch.com/publications/sa
 * http://chartmaker.visualisingdata.com/   
 * https://www.r-graph-gallery.com/  
 * http://pythonplot.com/  (see ggplot tab in plots)
+* https://xeno.graphics/
 
 
 
@@ -64,7 +65,7 @@ En muchos de los gráficos, análisis estadísticos, etc, usaremos la sintaxis: 
 ### Histogramas
 
 La función hist() nos permite crear de manera muy sencilla histogramas para ver 
-```{r histograms, fig.height=10}
+```{r histograms, fig.height=6, fig.width=10}
 # Histograma sencillo
 hist(datos$Edad)
 

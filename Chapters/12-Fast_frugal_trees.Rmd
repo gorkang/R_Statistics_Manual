@@ -14,11 +14,16 @@ p_load(FFTrees)
 
 *Example from the [FFTrees guide](https://cran.r-project.org/web/packages/FFTrees/vignettes/guide.html)*  
 
-```{r FFT_plot, fig.height=10, fig.width=8}
+```{r FFT_prepararion, include=FALSE}
 
 # Create an FFT from the heartdisease dataset
 heart.fft <- FFTrees(formula = diagnosis ~.,
                      data = heartdisease)
+
+```
+
+
+```{r FFT_plot, fig.height=10, fig.width=8}
 
 # Plot the best training tree
 plot(heart.fft,
