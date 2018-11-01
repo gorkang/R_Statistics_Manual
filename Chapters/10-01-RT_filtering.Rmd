@@ -12,7 +12,7 @@ We use the following [dataset](Data/10-Pre_processing/RT_filtering.csv).
 
 ***
 
-```{r}
+```{r 10-01-RT_filtering-1}
 if (!require('pacman')) install.packages('pacman'); library('pacman')
 p_load(purrr, readr, dplyr)
 
@@ -37,7 +37,7 @@ Filter_FUN <- function(DB, Column, Low_PCT = 0.05, High_PCT = 0.95) {
 
 After creating the function, we read the DB and apply the filtering. A dataframe called DB_Filtered is created with the filtered data. 
 
-```{r}
+```{r 10-01-RT_filtering-2}
 
 dataset = read_csv("Data/10-Pre_processing/RT_filtering.csv")
 dataset
@@ -55,7 +55,7 @@ We use the following [dataset](Data/10-Pre_processing/RT_filtering.csv).
 
 ***
 
-```{r}
+```{r 10-01-RT_filtering-3}
 
 dataset = read.csv("Data/10-Pre_processing/RT_filtering.csv")
 head(dataset)
@@ -63,7 +63,7 @@ head(dataset)
 ```
 
 * Code
-```{r}
+```{r 10-01-RT_filtering-4}
 #SD criteria
 SD_filter = 2.5
 
@@ -95,14 +95,14 @@ We use the following [dataset](Data/10-Pre_processing/RT_filtering.csv).
 
 ***
 
-```{r}
+```{r 10-01-RT_filtering-5}
 #Import to variable "dataset"
 dataset = read.csv("Data/10-Pre_processing/RT_filtering.csv")
 head(dataset)
 ```
 
 * Code
-```{r}
+```{r 10-01-RT_filtering-6}
 #Gamma
 glm1 = (glm(Time ~ Formato, data = dataset, family = Gamma))
 summary(glm1)
@@ -123,14 +123,14 @@ Log filtering may not be the best option available [^2]
 We use the following [dataset](Data/Pre-processing/RT_Filtering_data_file.csv).
 
 ***
-```{r}
+```{r 10-01-RT_filtering-7}
 #Import to variable "dataset"
 dataset = read.csv("Data/10-Pre_processing/RT_filtering.csv")
 head(dataset)
 ```
 
 * Code
-```{r}
+```{r 10-01-RT_filtering-8}
 
 #SET low and high PERCENTILES
     lowcutquant = 0.05

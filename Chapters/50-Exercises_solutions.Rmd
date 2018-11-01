@@ -1,4 +1,4 @@
-# Exercises solutions
+# Ejercicios y soluciones
 
 ***
 
@@ -7,7 +7,7 @@
 ***
 
 
-## Exercices 1
+## Ejercicios 1{#Ejercicios1}
 
 Tu misión, si deseas aceptarla, es completar una serie de tareas usando las funciones aprendidas.
 Para esto deberás utilizar la siguiente [base de datos](Data/50-Exercices/Exercices_1.csv).

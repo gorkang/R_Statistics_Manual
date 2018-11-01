@@ -3,7 +3,7 @@
 A.K.A. X square test of independence
 
 **WIP - Alternatives**
-```{r}
+```{r 08-02-Association_test-1}
 # Con datos de estudio Merlin
 # prop.test(table(DB_all$Ahorro_Dico, DB_all$Futuro_d))
 # chisq.test(table(DB_all$Ahorro_Dico, DB_all$Futuro_d))

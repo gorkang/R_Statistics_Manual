@@ -5,7 +5,7 @@
 FROM: https://cran.r-project.org/web/packages/riskyr/vignettes/E_riskyr_primer.html
 
 
-```{r riskyr-1, message=FALSE, warning=FALSE}
+```{r riskyr-1, message=FALSE, warning=FALSE, fig.height=10, fig.width=8}
 if (!require('pacman')) install.packages('pacman'); library('pacman')
 p_load(riskyr)
 
@@ -42,7 +42,7 @@ plot(my.scenario, plot.type = "curve")  # plot default curve [what = c("prev", "
 ```
 
 
-```{r riskyr-2, message=FALSE, warning=FALSE}
+```{r riskyr-2, message=FALSE, warning=FALSE, fig.height=10, fig.width=8}
 if (!require('pacman')) install.packages('pacman'); library('pacman')
 p_load(riskyr)
 
