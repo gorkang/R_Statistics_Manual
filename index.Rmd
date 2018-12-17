@@ -26,6 +26,7 @@ if (!require('pacman')) install.packages('pacman'); library('pacman')
 p_load(p_depends(MBESS)$Depends, character.only = TRUE)
 # p_load(tidyverse, Amelia, psych, MBESS, GPArotation)
 p_load(htmlwidgets, MBESS) 
+p_load(lsei, npsurv, fitdistrplus, logspline, ggmap) 
 ```
 
 

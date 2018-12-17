@@ -30,6 +30,8 @@ Del creador del tidyverse:
 ### Learning statistics with R
 Universidad de Adelaide:
 
+* [Statistical Thinking for the 21st Century](http://statsthinking21.org) de Russell A. Poldrack
+
 * [Learning statistics with R](https://health.adelaide.edu.au/psychology/ccs/teaching/lsr/)
 
 ### Pirate guide to R

@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>R - Statistics Manual</title>
+  <title>10 Estadistica inferencial | R - Statistics Manual</title>
   <meta name="description" content="Statistics manual from CSCN.">
   <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="R - Statistics Manual" />
+  <meta property="og:title" content="10 Estadistica inferencial | R - Statistics Manual />
   <meta property="og:type" content="book" />
   
   
@@ -17,7 +17,7 @@
   <meta name="github-repo" content="gorkang/R_Statistics_Manual" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="R - Statistics Manual" />
+  <meta name="twitter:title" content="10 Estadistica inferencial | R - Statistics Manual />
   
   <meta name="twitter:description" content="Statistics manual from CSCN." />
   
@@ -25,7 +25,7 @@
 <meta name="author" content="Center for Social and Cognitive Neuroscience - cscn.uai.cl">
 
 
-<meta name="date" content="2018-11-01">
+<meta name="date" content="2018-12-17">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -51,13 +51,10 @@
 <script src="libs/htmlwidgets-1.3/htmlwidgets.js"></script>
 <link href="libs/str_view-0.1.0/str_view.css" rel="stylesheet" />
 <script src="libs/str_view-binding-1.3.1/str_view.js"></script>
-<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
-<script src="libs/datatables-binding-0.4/datatables.js"></script>
-<link href="libs/dt-core-1.10.16/css/jquery.dataTables.min.css" rel="stylesheet" />
-<link href="libs/dt-core-1.10.16/css/jquery.dataTables.extra.css" rel="stylesheet" />
-<script src="libs/dt-core-1.10.16/js/jquery.dataTables.min.js"></script>
-<link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
-<script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
+<script src="libs/datatables-binding-0.2.10/datatables.js"></script>
+<link href="libs/dt-core-1.10.12/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.10.12/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.10.12/js/jquery.dataTables.min.js"></script>
 <script src="libs/d3-4.5.0/d3.min.js"></script>
 <script src="libs/sankey-1/sankey.js"></script>
 <script src="libs/sankeyNetwork-binding-0.4/sankeyNetwork.js"></script>
@@ -81,7 +78,7 @@ a.sourceLine { text-indent: -1em; padding-left: 1em; }
 pre.numberSource a.sourceLine
   { position: relative; left: -4em; }
 pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
+  { content: attr(title);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
     border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
@@ -405,22 +402,22 @@ formula =<span class="st"> &quot;~ Atractivo + Alcohol&quot;</span></code></pre>
 df =<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;Data/08-Data_analysis/ANOVA_1.csv&quot;</span>)</code></pre>
 <pre><code>## Parsed with column specification:
 ## cols(
-##   Id = col_integer(),
-##   AccuracyIz = col_integer(),
-##   Moral = col_integer(),
-##   Tom = col_integer(),
-##   Empatia = col_integer(),
-##   Sexo = col_integer(),
-##   Edad = col_integer(),
-##   AccuracyDer = col_integer(),
-##   AdapSoc = col_integer(),
-##   FunEjec = col_integer()
+##   Id = col_double(),
+##   AccuracyIz = col_double(),
+##   Moral = col_double(),
+##   Tom = col_double(),
+##   Empatia = col_double(),
+##   Sexo = col_double(),
+##   Edad = col_double(),
+##   AccuracyDer = col_double(),
+##   AdapSoc = col_double(),
+##   FunEjec = col_double()
 ## )</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Muestra las primeras 10 observaciones</span>
 df</code></pre>
 <pre><code>## # A tibble: 237 x 10
 ##       Id AccuracyIz Moral   Tom Empatia  Sexo  Edad AccuracyDer AdapSoc
-##    &lt;int&gt;      &lt;int&gt; &lt;int&gt; &lt;int&gt;   &lt;int&gt; &lt;int&gt; &lt;int&gt;       &lt;int&gt;   &lt;int&gt;
+##    &lt;dbl&gt;      &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;       &lt;dbl&gt;   &lt;dbl&gt;
 ##  1     1         34     1    29      63     0    62          13      40
 ##  2     2         13    NA    23      55     0    53           8      43
 ##  3     3         20     1    26      27     0    18          14      38
@@ -431,7 +428,7 @@ df</code></pre>
 ##  8     8         27     1    15      42     1    70           8      41
 ##  9     9         37     1    23      36     0    43          23      38
 ## 10    10         27     0    20      51     1    52           9      24
-## # ... with 227 more rows, and 1 more variable: FunEjec &lt;int&gt;</code></pre>
+## # ... with 227 more rows, and 1 more variable: FunEjec &lt;dbl&gt;</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Recodificar variable sexo de numérico a factor con etiquetas</span>
 df =<span class="st"> </span>df <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">Sexo =</span> <span class="kw">ifelse</span>(Sexo <span class="op">==</span><span class="st"> </span><span class="dv">0</span>, <span class="st">&quot;mujer&quot;</span>, <span class="st">&quot;hombre&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">Sexo =</span> <span class="kw">as.factor</span>(Sexo))</code></pre>
 <p>##Prueba t para muestras independientes</p>
@@ -603,14 +600,14 @@ Se recomienda en esta oportunidad limpiar nuestro espacio de trabajo. Para esto 
 df =<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;Data/08-Data_analysis/ANOVA_2.csv&quot;</span>)</code></pre>
 <pre><code>## Parsed with column specification:
 ## cols(
-##   Metodo = col_integer(),
-##   Nota = col_integer()
+##   Metodo = col_double(),
+##   Nota = col_double()
 ## )</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Muestra las primeras 10 observaciones</span>
 df</code></pre>
 <pre><code>## # A tibble: 30 x 2
 ##    Metodo  Nota
-##     &lt;int&gt; &lt;int&gt;
+##     &lt;dbl&gt; &lt;dbl&gt;
 ##  1      1    50
 ##  2      1    45
 ##  3      1    48
@@ -718,15 +715,15 @@ Se recomienda nuevamente limpiar nuestro espacio de trabajo. Para esto podemos p
 df =<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;Data/08-Data_analysis/ANOVA_3.csv&quot;</span>)</code></pre>
 <pre><code>## Parsed with column specification:
 ## cols(
-##   Sexo = col_integer(),
-##   Alcohol = col_integer(),
-##   Atractivo = col_integer()
+##   Sexo = col_double(),
+##   Alcohol = col_double(),
+##   Atractivo = col_double()
 ## )</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Muestra las primeras 10 observaciones</span>
 df</code></pre>
 <pre><code>## # A tibble: 32 x 3
 ##     Sexo Alcohol Atractivo
-##    &lt;int&gt;   &lt;int&gt;     &lt;int&gt;
+##    &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;
 ##  1     1       0        65
 ##  2     1       0        70
 ##  3     1       0        60
@@ -1118,48 +1115,48 @@ emmeans<span class="op">::</span><span class="kw">lsmip</span>(a, VI1 <span clas
 <p>Post-hocs</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">lsmeans</span>(a, <span class="kw">c</span>(<span class="st">&quot;VI1&quot;</span>, <span class="st">&quot;VI2&quot;</span>, <span class="st">&quot;VI3&quot;</span>), <span class="dt">contr =</span> <span class="st">&quot;pairwise&quot;</span>)</code></pre>
 <pre><code>## $lsmeans
-##  VI1 VI2 VI3        lsmean           SE    df      lower.CL      upper.CL
-##  END ac  h    1.714029e-04 0.0009120423 137.1 -0.0016320858  0.0019748915
-##  EXO ac  h   -1.788841e-04 0.0009120423 137.1 -0.0019823727  0.0016246046
-##  END bc  h   -3.764511e-03 0.0009120423 137.1 -0.0055680000 -0.0019610227
-##  EXO bc  h    1.958877e-03 0.0009120423 137.1  0.0001553885  0.0037623657
-##  END ac  m    2.628704e-03 0.0009120423 137.1  0.0008252155  0.0044321928
-##  EXO ac  m   -1.698224e-03 0.0009120423 137.1 -0.0035017124  0.0001052648
-##  END bc  m   -5.434844e-05 0.0009120423 137.1 -0.0018578371  0.0017491402
-##  EXO bc  m    7.477451e-04 0.0009120423 137.1 -0.0010557436  0.0025512337
+##  VI1 VI2 VI3       lsmean           SE    df     lower.CL     upper.CL
+##  END ac  h    0.000171403 0.0009120423 137.1 -0.001632086  0.001974891
+##  EXO ac  h   -0.000178884 0.0009120423 137.1 -0.001982373  0.001624605
+##  END bc  h   -0.003764511 0.0009120423 137.1 -0.005568000 -0.001961023
+##  EXO bc  h    0.001958877 0.0009120423 137.1  0.000155388  0.003762366
+##  END ac  m    0.002628704 0.0009120423 137.1  0.000825216  0.004432193
+##  EXO ac  m   -0.001698224 0.0009120423 137.1 -0.003501712  0.000105265
+##  END bc  m   -0.000054348 0.0009120423 137.1 -0.001857837  0.001749140
+##  EXO bc  m    0.000747745 0.0009120423 137.1 -0.001055744  0.002551234
 ## 
 ## Confidence level used: 0.95 
 ## 
 ## $contrasts
-##  contrast                 estimate          SE     df t.ratio p.value
-##  END,ac,h - EXO,ac,h  0.0003502869 0.001309353  73.37   0.268  1.0000
-##  END,ac,h - END,bc,h  0.0039359142 0.001357235  66.25   2.900  0.0890
-##  END,ac,h - EXO,bc,h -0.0017874742 0.001345954  68.77  -1.328  0.8850
-##  END,ac,h - END,ac,m -0.0024573013 0.001190476  69.20  -2.064  0.4479
-##  END,ac,h - EXO,ac,m  0.0018696267 0.001238179  70.69   1.510  0.7996
-##  END,ac,h - END,bc,m  0.0002257513 0.001713480 108.74   0.132  1.0000
-##  END,ac,h - EXO,bc,m -0.0005763422 0.001302966  69.79  -0.442  0.9998
-##  EXO,ac,h - END,bc,h  0.0035856273 0.001345954  68.77   2.664  0.1517
-##  EXO,ac,h - EXO,bc,h -0.0021377612 0.001357235  66.25  -1.575  0.7631
-##  EXO,ac,h - END,ac,m -0.0028075882 0.001238179  70.69  -2.268  0.3259
-##  EXO,ac,h - EXO,ac,m  0.0015193397 0.001190476  69.20   1.276  0.9045
-##  EXO,ac,h - END,bc,m -0.0001245356 0.001302966  69.79  -0.096  1.0000
-##  EXO,ac,h - EXO,bc,m -0.0009266291 0.001713480 108.74  -0.541  0.9994
-##  END,bc,h - EXO,bc,h -0.0057233885 0.001309353  73.37  -4.371  0.0010
-##  END,bc,h - END,ac,m -0.0063932155 0.001713480 108.74  -3.731  0.0071
-##  END,bc,h - EXO,ac,m -0.0020662876 0.001302966  69.79  -1.586  0.7570
-##  END,bc,h - END,bc,m -0.0037101629 0.001190476  69.20  -3.117  0.0512
-##  END,bc,h - EXO,bc,m -0.0045122564 0.001238179  70.69  -3.644  0.0113
-##  EXO,bc,h - END,ac,m -0.0006698271 0.001302966  69.79  -0.514  0.9996
-##  EXO,bc,h - EXO,ac,m  0.0036571009 0.001713480 108.74   2.134  0.4000
-##  EXO,bc,h - END,bc,m  0.0020132255 0.001238179  70.69   1.626  0.7332
-##  EXO,bc,h - EXO,bc,m  0.0012111320 0.001190476  69.20   1.017  0.9703
-##  END,ac,m - EXO,ac,m  0.0043269280 0.001309353  73.37   3.305  0.0302
-##  END,ac,m - END,bc,m  0.0026830526 0.001357235  66.25   1.977  0.5049
-##  END,ac,m - EXO,bc,m  0.0018809591 0.001345954  68.77   1.397  0.8553
-##  EXO,ac,m - END,bc,m -0.0016438754 0.001345954  68.77  -1.221  0.9228
-##  EXO,ac,m - EXO,bc,m -0.0024459689 0.001357235  66.25  -1.802  0.6209
-##  END,bc,m - EXO,bc,m -0.0008020935 0.001309353  73.37  -0.613  0.9986
+##  contrast                estimate          SE     df t.ratio p.value
+##  END,ac,h - EXO,ac,h  0.000350287 0.001309352  73.37   0.268  1.0000
+##  END,ac,h - END,bc,h  0.003935914 0.001357235  66.25   2.900  0.0890
+##  END,ac,h - EXO,bc,h -0.001787474 0.001345954  68.77  -1.328  0.8850
+##  END,ac,h - END,ac,m -0.002457301 0.001190476  69.20  -2.064  0.4479
+##  END,ac,h - EXO,ac,m  0.001869627 0.001238179  70.69   1.510  0.7996
+##  END,ac,h - END,bc,m  0.000225751 0.001713480 108.74   0.132  1.0000
+##  END,ac,h - EXO,bc,m -0.000576342 0.001302966  69.79  -0.442  0.9998
+##  EXO,ac,h - END,bc,h  0.003585627 0.001345954  68.77   2.664  0.1517
+##  EXO,ac,h - EXO,bc,h -0.002137761 0.001357235  66.25  -1.575  0.7631
+##  EXO,ac,h - END,ac,m -0.002807588 0.001238179  70.69  -2.268  0.3259
+##  EXO,ac,h - EXO,ac,m  0.001519340 0.001190476  69.20   1.276  0.9045
+##  EXO,ac,h - END,bc,m -0.000124536 0.001302966  69.79  -0.096  1.0000
+##  EXO,ac,h - EXO,bc,m -0.000926629 0.001713480 108.74  -0.541  0.9994
+##  END,bc,h - EXO,bc,h -0.005723388 0.001309352  73.37  -4.371  0.0010
+##  END,bc,h - END,ac,m -0.006393216 0.001713480 108.74  -3.731  0.0071
+##  END,bc,h - EXO,ac,m -0.002066288 0.001302966  69.79  -1.586  0.7570
+##  END,bc,h - END,bc,m -0.003710163 0.001190476  69.20  -3.117  0.0512
+##  END,bc,h - EXO,bc,m -0.004512256 0.001238179  70.69  -3.644  0.0113
+##  EXO,bc,h - END,ac,m -0.000669827 0.001302966  69.79  -0.514  0.9996
+##  EXO,bc,h - EXO,ac,m  0.003657101 0.001713480 108.74   2.134  0.4000
+##  EXO,bc,h - END,bc,m  0.002013226 0.001238179  70.69   1.626  0.7332
+##  EXO,bc,h - EXO,bc,m  0.001211132 0.001190476  69.20   1.017  0.9703
+##  END,ac,m - EXO,ac,m  0.004326928 0.001309352  73.37   3.305  0.0302
+##  END,ac,m - END,bc,m  0.002683053 0.001357235  66.25   1.977  0.5049
+##  END,ac,m - EXO,bc,m  0.001880959 0.001345954  68.77   1.397  0.8553
+##  EXO,ac,m - END,bc,m -0.001643875 0.001345954  68.77  -1.221  0.9228
+##  EXO,ac,m - EXO,bc,m -0.002445969 0.001357235  66.25  -1.802  0.6209
+##  END,bc,m - EXO,bc,m -0.000802094 0.001309352  73.37  -0.613  0.9986
 ## 
 ## P value adjustment: tukey method for comparing a family of 8 estimates</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">lsmeans</span>(a, <span class="st">&quot;VI1&quot;</span>, <span class="dt">contr =</span> <span class="st">&quot;pairwise&quot;</span>)</code></pre>
@@ -1395,7 +1392,7 @@ gitbook.start({
 "google": false,
 "linkedin": false,
 "weibo": false,
-"instapper": false,
+"instapaper": false,
 "vk": false,
 "all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
 },
@@ -1405,6 +1402,10 @@ gitbook.start({
 "size": 2
 },
 "edit": {
+"link": null,
+"text": null
+},
+"history": {
 "link": null,
 "text": null
 },
