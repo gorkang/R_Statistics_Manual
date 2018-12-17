@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>R - Statistics Manual</title>
+  <title>7 Visualizar datos | R - Statistics Manual</title>
   <meta name="description" content="Statistics manual from CSCN.">
   <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="R - Statistics Manual" />
+  <meta property="og:title" content="7 Visualizar datos | R - Statistics Manual />
   <meta property="og:type" content="book" />
   
   
@@ -17,7 +17,7 @@
   <meta name="github-repo" content="gorkang/R_Statistics_Manual" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="R - Statistics Manual" />
+  <meta name="twitter:title" content="7 Visualizar datos | R - Statistics Manual />
   
   <meta name="twitter:description" content="Statistics manual from CSCN." />
   
@@ -25,7 +25,7 @@
 <meta name="author" content="Center for Social and Cognitive Neuroscience - cscn.uai.cl">
 
 
-<meta name="date" content="2018-11-01">
+<meta name="date" content="2018-12-17">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -51,13 +51,10 @@
 <script src="libs/htmlwidgets-1.3/htmlwidgets.js"></script>
 <link href="libs/str_view-0.1.0/str_view.css" rel="stylesheet" />
 <script src="libs/str_view-binding-1.3.1/str_view.js"></script>
-<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
-<script src="libs/datatables-binding-0.4/datatables.js"></script>
-<link href="libs/dt-core-1.10.16/css/jquery.dataTables.min.css" rel="stylesheet" />
-<link href="libs/dt-core-1.10.16/css/jquery.dataTables.extra.css" rel="stylesheet" />
-<script src="libs/dt-core-1.10.16/js/jquery.dataTables.min.js"></script>
-<link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
-<script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
+<script src="libs/datatables-binding-0.2.10/datatables.js"></script>
+<link href="libs/dt-core-1.10.12/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.10.12/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.10.12/js/jquery.dataTables.min.js"></script>
 <script src="libs/d3-4.5.0/d3.min.js"></script>
 <script src="libs/sankey-1/sankey.js"></script>
 <script src="libs/sankeyNetwork-binding-0.4/sankeyNetwork.js"></script>
@@ -81,7 +78,7 @@ a.sourceLine { text-indent: -1em; padding-left: 1em; }
 pre.numberSource a.sourceLine
   { position: relative; left: -4em; }
 pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
+  { content: attr(title);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
     border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
@@ -412,8 +409,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     
 <span class="co"># Leemos datos y echamos un vistazo usando el paquete DT::datatable()</span>
 datos =<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;Data/06_Visualize_data/Visualize_data.csv&quot;</span>); DT<span class="op">::</span><span class="kw">datatable</span>(datos)  </code></pre>
-<div id="htmlwidget-37fe9f97cbc81c59b844" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-37fe9f97cbc81c59b844">{"x":{"filter":"none","data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49","50","51","52","53","54","55","56","57","58","59","60","61","62","63","64","65","66","67","68","69","70","71","72","73","74","75","76","77","78","79","80","81","82","83","84","85","86","87","88","89","90","91","92","93","94","95","96","97","98","99","100","101","102","103"],[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103],[1,2,2,2,1,2,2,2,2,1,1,1,1,1,2,2,2,2,1,2,2,2,2,2,2,2,2,1,2,1,1,1,1,1,2,1,1,2,2,1,2,2,1,1,2,1,1,1,2,2,2,2,2,2,1,2,2,2,2,2,1,2,2,1,1,2,2,1,2,2,2,1,2,2,2,2,2,2,2,2,1,2,1,2,2,2,1,2,2,1,1,2,1,2,2,1,2,1,1,1,1,2,1],[47,21,29,27,29,28,27,55,28,46,31,25,30,19,37,30,34,42,25,68,23,22,29,37,21,28,35,34,31,31,44,33,24,42,34,30,38,21,64,26,27,30,29,26,35,28,40,25,42,32,32,32,22,30,42,23,37,33,30,29,19,36,43,72,29,60,35,35,27,24,19,31,19,24,35,26,30,32,46,28,60,29,28,27,41,35,25,40,21,43,55,19,24,25,35,49,31,36,28,35,26,55,28],[8,6,6,7,5,6,4,6,6,5,6,3,6,3,2,3,7,6,3,7,5,6,6,5,4,6,7,8,5,4,8,8,4,5,3,6,6,5,6,9,6,6,6,6,6,6,6,6,6,7,6,4,6,6,6,6,6,7,6,6,4,6,6,10,6,7,3,6,4,6,5,5,4,6,6,7,6,7,6,3,6,6,6,6,1,5,6,3,2,4,6,9,4,6,6,3,6,1,6,6,7,6,2],[80,90,10,75,35,14,2,89,6,0,50,98,17,100,60,95,3,26,50,30,80,100,0,24,21,10,79,74,100,100,100,99,49,61,81,32,90,96,100,57,100,95,100,77,99,69,80,60,34,50,77,100,90,45,75,57,72,3,60,59,68,1,74,51,82,100,95,0,70,95,80,72,9,57,0,79,29,55,39,80,1,100,66,96,81,28,84,30,67,69,80,80,63,99,95,10,70,90,80,94,70,15,90],["PPV_Cond1","PPV_Cond1","PPV_Cond1","PPV_Cond1","PPV_Cond1","PPV_Cond1","PPV_Cond1","PPV_Cond1","PPV_Cond1","PPV_Cond1","PPV_Cond1","PPV_Cond1","PPV_Cond1","PPV_Cond1","PPV_Cond1","PPV_Cond1","PPV_Cond1","PPV_Cond1","PPV_Cond1","PPV_Cond1","PPV_Cond1","PPV_Cond1","PPV_Cond1","PPV_Cond1","PPV_Cond1","PPV_Cond1","PPV_Cond1","PPV_Cond1","PPV_Cond2","PPV_Cond2","PPV_Cond2","PPV_Cond2","PPV_Cond2","PPV_Cond2","PPV_Cond2","PPV_Cond2","PPV_Cond2","PPV_Cond2","PPV_Cond2","PPV_Cond2","PPV_Cond2","PPV_Cond2","PPV_Cond2","PPV_Cond2","PPV_Cond2","PPV_Cond2","PPV_Cond2","PPV_Cond2","PPV_Cond2","PPV_Cond3","PPV_Cond3","PPV_Cond3","PPV_Cond3","PPV_Cond3","PPV_Cond3","PPV_Cond3","PPV_Cond3","PPV_Cond3","PPV_Cond3","PPV_Cond3","PPV_Cond3","PPV_Cond3","PPV_Cond3","PPV_Cond3","PPV_Cond3","PPV_Cond3","PPV_Cond3","PPV_Cond3","PPV_Cond3","PPV_Cond3","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4"],[99,99,99,1,24,99,99,99,99,1,94,99,88,0,1,99,99,99,70,99,1,99,99,7,10,99,99,99,46,45,46,40,61,46,46,73,46,50,46,45,46,87,46,49,30,46,50,70,44,80,99,99,99,99,80,51,99,20,30,1,20,5,30,99,99,99,99,80,98,99,80,59,64,16,79,92,92,80,90,60,93,92,28,92,92,77,74,90,10,92,92,92,65,20,92,92,92,92,90,92,92,92,80]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>ID<\/th>\n      <th>Genero<\/th>\n      <th>Edad<\/th>\n      <th>Educacion<\/th>\n      <th>FollowUP<\/th>\n      <th>condition<\/th>\n      <th>PPV_DECLARED<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[1,2,3,4,5,7]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-d096c2915242ada61276" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-d096c2915242ada61276">{"x":{"filter":"none","data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49","50","51","52","53","54","55","56","57","58","59","60","61","62","63","64","65","66","67","68","69","70","71","72","73","74","75","76","77","78","79","80","81","82","83","84","85","86","87","88","89","90","91","92","93","94","95","96","97","98","99","100","101","102","103"],[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103],[1,2,2,2,1,2,2,2,2,1,1,1,1,1,2,2,2,2,1,2,2,2,2,2,2,2,2,1,2,1,1,1,1,1,2,1,1,2,2,1,2,2,1,1,2,1,1,1,2,2,2,2,2,2,1,2,2,2,2,2,1,2,2,1,1,2,2,1,2,2,2,1,2,2,2,2,2,2,2,2,1,2,1,2,2,2,1,2,2,1,1,2,1,2,2,1,2,1,1,1,1,2,1],[47,21,29,27,29,28,27,55,28,46,31,25,30,19,37,30,34,42,25,68,23,22,29,37,21,28,35,34,31,31,44,33,24,42,34,30,38,21,64,26,27,30,29,26,35,28,40,25,42,32,32,32,22,30,42,23,37,33,30,29,19,36,43,72,29,60,35,35,27,24,19,31,19,24,35,26,30,32,46,28,60,29,28,27,41,35,25,40,21,43,55,19,24,25,35,49,31,36,28,35,26,55,28],[8,6,6,7,5,6,4,6,6,5,6,3,6,3,2,3,7,6,3,7,5,6,6,5,4,6,7,8,5,4,8,8,4,5,3,6,6,5,6,9,6,6,6,6,6,6,6,6,6,7,6,4,6,6,6,6,6,7,6,6,4,6,6,10,6,7,3,6,4,6,5,5,4,6,6,7,6,7,6,3,6,6,6,6,1,5,6,3,2,4,6,9,4,6,6,3,6,1,6,6,7,6,2],[80,90,10,75,35,14,2,89,6,0,50,98,17,100,60,95,3,26,50,30,80,100,0,24,21,10,79,74,100,100,100,99,49,61,81,32,90,96,100,57,100,95,100,77,99,69,80,60,34,50,77,100,90,45,75,57,72,3,60,59,68,1,74,51,82,100,95,0,70,95,80,72,9,57,0,79,29,55,39,80,1,100,66,96,81,28,84,30,67,69,80,80,63,99,95,10,70,90,80,94,70,15,90],["PPV_Cond1","PPV_Cond1","PPV_Cond1","PPV_Cond1","PPV_Cond1","PPV_Cond1","PPV_Cond1","PPV_Cond1","PPV_Cond1","PPV_Cond1","PPV_Cond1","PPV_Cond1","PPV_Cond1","PPV_Cond1","PPV_Cond1","PPV_Cond1","PPV_Cond1","PPV_Cond1","PPV_Cond1","PPV_Cond1","PPV_Cond1","PPV_Cond1","PPV_Cond1","PPV_Cond1","PPV_Cond1","PPV_Cond1","PPV_Cond1","PPV_Cond1","PPV_Cond2","PPV_Cond2","PPV_Cond2","PPV_Cond2","PPV_Cond2","PPV_Cond2","PPV_Cond2","PPV_Cond2","PPV_Cond2","PPV_Cond2","PPV_Cond2","PPV_Cond2","PPV_Cond2","PPV_Cond2","PPV_Cond2","PPV_Cond2","PPV_Cond2","PPV_Cond2","PPV_Cond2","PPV_Cond2","PPV_Cond2","PPV_Cond3","PPV_Cond3","PPV_Cond3","PPV_Cond3","PPV_Cond3","PPV_Cond3","PPV_Cond3","PPV_Cond3","PPV_Cond3","PPV_Cond3","PPV_Cond3","PPV_Cond3","PPV_Cond3","PPV_Cond3","PPV_Cond3","PPV_Cond3","PPV_Cond3","PPV_Cond3","PPV_Cond3","PPV_Cond3","PPV_Cond3","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4"],[99,99,99,1,24,99,99,99,99,1,94,99,88,0,1,99,99,99,70,99,1,99,99,7,10,99,99,99,46,45,46,40,61,46,46,73,46,50,46,45,46,87,46,49,30,46,50,70,44,80,99,99,99,99,80,51,99,20,30,1,20,5,30,99,99,99,99,80,98,99,80,59,64,16,79,92,92,80,90,60,93,92,28,92,92,77,74,90,10,92,92,92,65,20,92,92,92,92,90,92,92,92,80]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>ID<\/th>\n      <th>Genero<\/th>\n      <th>Edad<\/th>\n      <th>Educacion<\/th>\n      <th>FollowUP<\/th>\n      <th>condition<\/th>\n      <th>PPV_DECLARED<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[1,2,3,4,5,7]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># A algunas de las funciones no les gustan las tibbles! </span>
 datos_no_tibble =<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;Data/06_Visualize_data/Visualize_data.csv&quot;</span>) </code></pre>
 <ul>
@@ -604,13 +601,13 @@ corr =<span class="st"> </span><span class="kw">round</span>(<span class="kw">co
 datos =<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;Data/06_Visualize_data/Visualize_data.csv&quot;</span>)</code></pre>
 <pre><code>## Parsed with column specification:
 ## cols(
-##   ID = col_integer(),
-##   Genero = col_integer(),
-##   Edad = col_integer(),
-##   Educacion = col_integer(),
-##   FollowUP = col_integer(),
+##   ID = col_double(),
+##   Genero = col_double(),
+##   Edad = col_double(),
+##   Educacion = col_double(),
+##   FollowUP = col_double(),
 ##   condition = col_character(),
-##   PPV_DECLARED = col_integer()
+##   PPV_DECLARED = col_double()
 ## )</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r">datos =<span class="st"> </span>datos <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Genero =</span> <span class="kw">as.factor</span>(<span class="kw">unlist</span>(Genero))) <span class="op">%&gt;%</span><span class="st"> </span><span class="co">#Make Genero a factor</span>
@@ -742,16 +739,16 @@ dat &lt;-<span class="st"> </span>data_for_plot <span class="op">%&gt;%</span>
 a =<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;Data/06_Visualize_data/data_multiple_scatterplot.csv&quot;</span>)</code></pre>
 <pre><code>## Parsed with column specification:
 ## cols(
-##   ID = col_integer(),
+##   ID = col_double(),
 ##   `Executive functions` = col_double(),
-##   `Emotional recognition` = col_integer(),
-##   ToM = col_integer(),
-##   `Inhibitory verbal control` = col_integer(),
-##   `Cryst.Intellig.1 (vocab.)` = col_integer(),
-##   `Cryst. Intellig.2 (years of studies)` = col_integer(),
-##   `Fluid intelligence` = col_integer(),
-##   `Social adaptation` = col_integer(),
-##   Age = col_integer()
+##   `Emotional recognition` = col_double(),
+##   ToM = col_double(),
+##   `Inhibitory verbal control` = col_double(),
+##   `Cryst.Intellig.1 (vocab.)` = col_double(),
+##   `Cryst. Intellig.2 (years of studies)` = col_double(),
+##   `Fluid intelligence` = col_double(),
+##   `Social adaptation` = col_double(),
+##   Age = col_double()
 ## )</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Si se cambia alguno de estos nombres, cambiar tb abajo (o mejor, find and replace all!)</span>
 <span class="kw">colnames</span>(a) =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;Executive functions&quot;</span>, <span class="st">&quot;Emotional recognition&quot;</span>, <span class="st">&quot;ToM&quot;</span>, <span class="st">&quot;Inhibitory verbal control&quot;</span>, <span class="st">&quot;Cryst. Intellig. (vocab)&quot;</span>, <span class="st">&quot;Cryst. Intellig. (years of education)&quot;</span>, <span class="st">&quot;Fluid intelligence&quot;</span>, <span class="st">&quot;w&quot;</span>, <span class="st">&quot;gg&quot;</span>)
@@ -838,14 +835,14 @@ my.data =<span class="st"> </span><span class="kw">data.frame</span>(<span class
 <span class="kw">SankeyDiagram</span>(my.data[, <span class="dv">-4</span>],
               <span class="dt">link.color =</span> <span class="st">&quot;Source&quot;</span>, 
               <span class="dt">weights =</span> my.data<span class="op">$</span>freq) </code></pre>
-<div id="htmlwidget-7dff2d077306267fde4c" style="width:672px;height:480px;" class="sankeyNetwork html-widget"></div>
-<script type="application/json" data-for="htmlwidget-7dff2d077306267fde4c">{"x":{"links":{"source":[0,0,1,1,2,2,3],"target":[2,3,2,3,4,5,5],"value":[1,2,3,9,1,3,11],"group":["0","0","1","1","2","2","3"]},"nodes":{"name":["Married: No","Married: Yes","Pet: No","Pet: Yes","Happy: No","Happy: Yes"],"group":["0","1","2","3","4","5"]},"options":{"NodeID":"name","NodeGroup":"group","LinkGroup":"group","colourScale":"d3.scaleOrdinal(d3.schemeCategory20);","fontSize":12,"fontFamily":"Times New Roman","nodeWidth":30,"nodePadding":10,"units":"","margin":{"top":null,"right":null,"bottom":null,"left":null},"iterations":32,"sinksRight":true}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-d6ad87083b82c3606472" style="width:672px;height:480px;" class="sankeyNetwork html-widget"></div>
+<script type="application/json" data-for="htmlwidget-d6ad87083b82c3606472">{"x":{"links":{"source":[0,0,1,1,2,2,3],"target":[2,3,2,3,4,5,5],"value":[1,2,3,9,1,3,11],"group":["0","0","1","1","2","2","3"]},"nodes":{"name":["Married: No","Married: Yes","Pet: No","Pet: Yes","Happy: No","Happy: Yes"],"group":["0","1","2","3","4","5"]},"options":{"NodeID":"name","NodeGroup":"group","LinkGroup":"group","colourScale":"d3.scaleOrdinal(d3.schemeCategory20);","fontSize":12,"fontFamily":"Times New Roman","nodeWidth":30,"nodePadding":10,"units":"","margin":{"top":null,"right":null,"bottom":null,"left":null},"iterations":32,"sinksRight":true}},"evals":[],"jsHooks":[]}</script>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">SankeyDiagram</span>(my.data[, <span class="dv">-4</span>],
               <span class="dt">link.color =</span> <span class="st">&quot;Source&quot;</span>, 
               <span class="dt">label.show.varname =</span> <span class="ot">FALSE</span>,
               <span class="dt">weights =</span> my.data<span class="op">$</span>freq) </code></pre>
-<div id="htmlwidget-3158ce10003bca1d27a7" style="width:672px;height:480px;" class="sankeyNetwork html-widget"></div>
-<script type="application/json" data-for="htmlwidget-3158ce10003bca1d27a7">{"x":{"links":{"source":[0,0,1,1,2,2,3],"target":[2,3,2,3,4,5,5],"value":[1,2,3,9,1,3,11],"group":["0","0","1","1","2","2","3"]},"nodes":{"name":["No","Yes","No","Yes","No","Yes"],"group":["0","1","2","3","4","5"]},"options":{"NodeID":"name","NodeGroup":"group","LinkGroup":"group","colourScale":"d3.scaleOrdinal(d3.schemeCategory20);","fontSize":12,"fontFamily":"Times New Roman","nodeWidth":30,"nodePadding":10,"units":"","margin":{"top":null,"right":null,"bottom":null,"left":null},"iterations":32,"sinksRight":true}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-49c601c46bade3ea51fa" style="width:672px;height:480px;" class="sankeyNetwork html-widget"></div>
+<script type="application/json" data-for="htmlwidget-49c601c46bade3ea51fa">{"x":{"links":{"source":[0,0,1,1,2,2,3],"target":[2,3,2,3,4,5,5],"value":[1,2,3,9,1,3,11],"group":["0","0","1","1","2","2","3"]},"nodes":{"name":["No","Yes","No","Yes","No","Yes"],"group":["0","1","2","3","4","5"]},"options":{"NodeID":"name","NodeGroup":"group","LinkGroup":"group","colourScale":"d3.scaleOrdinal(d3.schemeCategory20);","fontSize":12,"fontFamily":"Times New Roman","nodeWidth":30,"nodePadding":10,"units":"","margin":{"top":null,"right":null,"bottom":null,"left":null},"iterations":32,"sinksRight":true}},"evals":[],"jsHooks":[]}</script>
 
 </div>
 </div>
@@ -876,7 +873,7 @@ gitbook.start({
 "google": false,
 "linkedin": false,
 "weibo": false,
-"instapper": false,
+"instapaper": false,
 "vk": false,
 "all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
 },
@@ -886,6 +883,10 @@ gitbook.start({
 "size": 2
 },
 "edit": {
+"link": null,
+"text": null
+},
+"history": {
 "link": null,
 "text": null
 },

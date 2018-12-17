@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>R - Statistics Manual</title>
+  <title>6 Manipular datos | R - Statistics Manual</title>
   <meta name="description" content="Statistics manual from CSCN.">
   <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="R - Statistics Manual" />
+  <meta property="og:title" content="6 Manipular datos | R - Statistics Manual />
   <meta property="og:type" content="book" />
   
   
@@ -17,7 +17,7 @@
   <meta name="github-repo" content="gorkang/R_Statistics_Manual" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="R - Statistics Manual" />
+  <meta name="twitter:title" content="6 Manipular datos | R - Statistics Manual />
   
   <meta name="twitter:description" content="Statistics manual from CSCN." />
   
@@ -25,7 +25,7 @@
 <meta name="author" content="Center for Social and Cognitive Neuroscience - cscn.uai.cl">
 
 
-<meta name="date" content="2018-11-01">
+<meta name="date" content="2018-12-17">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -51,13 +51,10 @@
 <script src="libs/htmlwidgets-1.3/htmlwidgets.js"></script>
 <link href="libs/str_view-0.1.0/str_view.css" rel="stylesheet" />
 <script src="libs/str_view-binding-1.3.1/str_view.js"></script>
-<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
-<script src="libs/datatables-binding-0.4/datatables.js"></script>
-<link href="libs/dt-core-1.10.16/css/jquery.dataTables.min.css" rel="stylesheet" />
-<link href="libs/dt-core-1.10.16/css/jquery.dataTables.extra.css" rel="stylesheet" />
-<script src="libs/dt-core-1.10.16/js/jquery.dataTables.min.js"></script>
-<link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
-<script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
+<script src="libs/datatables-binding-0.2.10/datatables.js"></script>
+<link href="libs/dt-core-1.10.12/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.10.12/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.10.12/js/jquery.dataTables.min.js"></script>
 <script src="libs/d3-4.5.0/d3.min.js"></script>
 <script src="libs/sankey-1/sankey.js"></script>
 <script src="libs/sankeyNetwork-binding-0.4/sankeyNetwork.js"></script>
@@ -81,7 +78,7 @@ a.sourceLine { text-indent: -1em; padding-left: 1em; }
 pre.numberSource a.sourceLine
   { position: relative; left: -4em; }
 pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
+  { content: attr(title);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
     border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
@@ -372,7 +369,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre class="sourceCode r"><code class="sourceCode r">raw_data =<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;Data/05-Manipulate_data/Manipulate_data_1.csv&quot;</span>); raw_data</code></pre>
 <pre><code>## # A tibble: 30 x 11
 ##       ID `Columna basura`  Sexo  Edad   VI1   VI2   VI3 VI1_t VI2_t VI3_t
-##    &lt;int&gt; &lt;chr&gt;            &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;
+##    &lt;dbl&gt; &lt;chr&gt;            &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
 ##  1     1 xx                   0    26    98    29    19  2398  7432   404
 ##  2     2 yy                   0    33    15    35     4  4893  9918   394
 ##  3     3 xx                   1    37     7     6     3  4099  6518   304
@@ -416,7 +413,7 @@ temp <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">sel
 temp</code></pre>
 <pre><code>## # A tibble: 30 x 11
 ##       ID `Columna basura`  Sexo  Edad   VI1   VI2   VI3 VI1_t VI2_t VI3_t
-##    &lt;int&gt; &lt;chr&gt;            &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;
+##    &lt;dbl&gt; &lt;chr&gt;            &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
 ##  1     1 xx                   0    26    98    29    19  2398  7432   404
 ##  2     2 yy                   0    33    15    35     4  4893  9918   394
 ##  3     3 xx                   1    37     7     6     3  4099  6518   304
@@ -489,7 +486,7 @@ dplyr es un conjunto de funciones que nos permiten manipular los datos de manera
 <tr class="odd">
 <td>Separate contents of variable</td>
 <td>separate()</td>
-<td><code>datos %&gt;% separate(Composited_var, c(&quot;First&quot;, &quot;Second&quot;), sep = &quot;_&quot;)</code></td>
+<td><code>datos %&gt;% separate(Composited_var, c("First", "Second"), sep = "_")</code></td>
 </tr>
 <tr class="even">
 <td>Extraer valores únicos</td>
@@ -519,17 +516,17 @@ dplyr es un conjunto de funciones que nos permiten manipular los datos de manera
 <tr class="odd">
 <td>Combinar bases de datos</td>
 <td>left_join()</td>
-<td><code>left_join(datos1, datos2, by = &quot;ID&quot;)</code></td>
+<td><code>left_join(datos1, datos2, by = "ID")</code></td>
 </tr>
 <tr class="even">
 <td>Recodificar valores</td>
 <td>ifelse()</td>
-<td><code>datos %&gt;% mutate(Edad = ifelse ( Edad &gt; 30, &quot;Viejuno&quot;, &quot;Pipiolo&quot;))</code></td>
+<td><code>datos %&gt;% mutate(Edad = ifelse ( Edad &gt; 30, "Viejuno", "Pipiolo"))</code></td>
 </tr>
 <tr class="odd">
 <td>Recodificar valores</td>
 <td>case_when()</td>
-<td><code>datos %&gt;% mutate(Edad = case_when(.$Edad &gt; 30 ~ &quot;Viejuno&quot;, &quot;Pipiolo))&quot;</code></td>
+<td><code>datos %&gt;% mutate(Edad = case_when(.$Edad &gt; 30 ~ "Viejuno", "Pipiolo))"</code></td>
 </tr>
 </tbody>
 </table>
@@ -539,7 +536,7 @@ dplyr es un conjunto de funciones que nos permiten manipular los datos de manera
 raw_data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Sexo <span class="op">==</span><span class="st"> </span><span class="dv">1</span>) </code></pre>
 <pre><code>## # A tibble: 18 x 11
 ##       ID `Columna basura`  Sexo  Edad   VI1   VI2   VI3 VI1_t VI2_t VI3_t
-##    &lt;int&gt; &lt;chr&gt;            &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;
+##    &lt;dbl&gt; &lt;chr&gt;            &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
 ##  1     3 xx                   1    37     7     6     3  4099  6518   304
 ##  2     4 yy                   1    19    59    32    14  1792  9476   149
 ##  3     6 xx                   1    34    43    17     7  1350   433   168
@@ -563,7 +560,7 @@ raw_data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw"
 raw_data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Sexo <span class="op">==</span><span class="st"> </span><span class="dv">1</span>, Edad  <span class="op">&gt;</span><span class="st"> </span><span class="dv">25</span>, VI1_t <span class="op">&lt;</span><span class="st"> </span><span class="kw">mean</span>(VI1_t)) </code></pre>
 <pre><code>## # A tibble: 4 x 11
 ##      ID `Columna basura`  Sexo  Edad   VI1   VI2   VI3 VI1_t VI2_t VI3_t
-##   &lt;int&gt; &lt;chr&gt;            &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;
+##   &lt;dbl&gt; &lt;chr&gt;            &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
 ## 1     6 xx                   1    34    43    17     7  1350   433   168
 ## 2    20 zz                   1    28    68    12     5   863   847   335
 ## 3    25 yy                   1    28    53    34    14  1974   582   493
@@ -576,7 +573,7 @@ raw_data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw"
   ) </code></pre>
 <pre><code>## # A tibble: 30 x 11
 ##       ID `Columna basura`  Sexo  Edad   VI1   VI2   VI3 VI1_t VI2_t VI3_t
-##    &lt;int&gt; &lt;chr&gt;            &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;
+##    &lt;dbl&gt; &lt;chr&gt;            &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
 ##  1     1 xx                   0    26    98    29    19  2398  7432   404
 ##  2     2 yy                   0    33    15    35     4  4893  9918   394
 ##  3     3 xx                   1    37     7     6     3  4099  6518   304
@@ -592,7 +589,7 @@ raw_data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw"
 raw_data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(<span class="kw">str_detect</span>(<span class="st">`</span><span class="dt">Columna basura</span><span class="st">`</span>, <span class="st">&quot;zz&quot;</span>))</code></pre>
 <pre><code>## # A tibble: 9 x 11
 ##      ID `Columna basura`  Sexo  Edad   VI1   VI2   VI3 VI1_t VI2_t VI3_t
-##   &lt;int&gt; &lt;chr&gt;            &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;
+##   &lt;dbl&gt; &lt;chr&gt;            &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
 ## 1     5 zz                   0    29    65    12    17  3280  3438    18
 ## 2     8 zz                   0    35    93    12    17  1014  8018    50
 ## 3    11 zz                   0    23    51    45    12  2629  6950   464
@@ -610,7 +607,7 @@ raw_data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw"
 raw_data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">arrange</span>(Edad, Sexo) </code></pre>
 <pre><code>## # A tibble: 30 x 11
 ##       ID `Columna basura`  Sexo  Edad   VI1   VI2   VI3 VI1_t VI2_t VI3_t
-##    &lt;int&gt; &lt;chr&gt;            &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;
+##    &lt;dbl&gt; &lt;chr&gt;            &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
 ##  1     4 yy                   1    19    59    32    14  1792  9476   149
 ##  2    10 yy                   1    19    41    42    18  2232  6105   227
 ##  3    13 yy                   0    20    24    41     0  4680   192   195
@@ -629,7 +626,7 @@ raw_data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw"
 raw_data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(ID, Sexo, Edad, VI1)</code></pre>
 <pre><code>## # A tibble: 30 x 4
 ##       ID  Sexo  Edad   VI1
-##    &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;
+##    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
 ##  1     1     0    26    98
 ##  2     2     0    33    15
 ##  3     3     1    37     7
@@ -645,7 +642,7 @@ raw_data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw"
 raw_data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(<span class="dv">1</span>,<span class="dv">3</span><span class="op">:</span><span class="dv">4</span>)</code></pre>
 <pre><code>## # A tibble: 30 x 3
 ##       ID  Sexo  Edad
-##    &lt;int&gt; &lt;int&gt; &lt;int&gt;
+##    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
 ##  1     1     0    26
 ##  2     2     0    33
 ##  3     3     1    37
@@ -671,7 +668,7 @@ datos =<span class="st"> </span>raw_data <span class="op">%&gt;%</span><span cla
 datos</code></pre>
 <pre><code>## # A tibble: 30 x 9
 ##       ID  Sexo  Edad   VI1   VI2   VI3 VI1_t VI2_t VI3_t
-##    &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;
+##    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
 ##  1     1     0    26    98    29    19  2398  7432   404
 ##  2     2     0    33    15    35     4  4893  9918   394
 ##  3     3     1    37     7     6     3  4099  6518   304
@@ -690,7 +687,7 @@ datos</code></pre>
 raw_data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">rename</span>(<span class="dt">Columna_basura =</span> <span class="st">`</span><span class="dt">Columna basura</span><span class="st">`</span>)</code></pre>
 <pre><code>## # A tibble: 30 x 11
 ##       ID Columna_basura  Sexo  Edad   VI1   VI2   VI3 VI1_t VI2_t VI3_t
-##    &lt;int&gt; &lt;chr&gt;          &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;
+##    &lt;dbl&gt; &lt;chr&gt;          &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
 ##  1     1 xx                 0    26    98    29    19  2398  7432   404
 ##  2     2 yy                 0    33    15    35     4  4893  9918   394
 ##  3     3 xx                 1    37     7     6     3  4099  6518   304
@@ -707,7 +704,7 @@ raw_data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw"
 <pre class="sourceCode r"><code class="sourceCode r">raw_data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">rename</span>(<span class="dt">second_column =</span> <span class="op">!!</span><span class="kw">names</span>(.[<span class="dv">2</span>]), <span class="dt">first_column =</span> <span class="op">!!</span><span class="kw">names</span>(.[<span class="dv">1</span>]))</code></pre>
 <pre><code>## # A tibble: 30 x 11
 ##    first_column second_column  Sexo  Edad   VI1   VI2   VI3 VI1_t VI2_t
-##           &lt;int&gt; &lt;chr&gt;         &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;
+##           &lt;dbl&gt; &lt;chr&gt;         &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
 ##  1            1 xx                0    26    98    29    19  2398  7432
 ##  2            2 yy                0    33    15    35     4  4893  9918
 ##  3            3 xx                1    37     7     6     3  4099  6518
@@ -718,7 +715,7 @@ raw_data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw"
 ##  8            8 zz                0    35    93    12    17  1014  8018
 ##  9            9 xx                0    23    81    42     8   516   548
 ## 10           10 yy                1    19    41    42    18  2232  6105
-## # ... with 20 more rows, and 2 more variables: VI3_t &lt;int&gt;,
+## # ... with 20 more rows, and 2 more variables: VI3_t &lt;dbl&gt;,
 ## #   Composited_var &lt;chr&gt;</code></pre>
 </div>
 <div id="separate-contents-of-a-single-variable" class="section level3">
@@ -726,7 +723,7 @@ raw_data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw"
 <pre class="sourceCode r"><code class="sourceCode r">raw_data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">separate</span>(Composited_var, <span class="kw">c</span>(<span class="st">&quot;First&quot;</span>, <span class="st">&quot;Second&quot;</span>), <span class="dt">sep =</span> <span class="st">&quot;_&quot;</span>)</code></pre>
 <pre><code>## # A tibble: 30 x 12
 ##       ID `Columna basura`  Sexo  Edad   VI1   VI2   VI3 VI1_t VI2_t VI3_t
-##    &lt;int&gt; &lt;chr&gt;            &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;
+##    &lt;dbl&gt; &lt;chr&gt;            &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
 ##  1     1 xx                   0    26    98    29    19  2398  7432   404
 ##  2     2 yy                   0    33    15    35     4  4893  9918   394
 ##  3     3 xx                   1    37     7     6     3  4099  6518   304
@@ -749,7 +746,7 @@ raw_data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw"
 data_long_RAW <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(<span class="op">-</span>Condition_t) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">arrange</span>(ID)</code></pre>
 <pre><code>## # A tibble: 270 x 6
 ##       ID  Sexo  Edad Condition    VD  VD_t
-##    &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;fct&gt;     &lt;int&gt; &lt;int&gt;
+##    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;fct&gt;     &lt;dbl&gt; &lt;dbl&gt;
 ##  1     1     0    26 VI1          98  2398
 ##  2     1     0    26 VI2          29  2398
 ##  3     1     0    26 VI3          19  2398
@@ -770,7 +767,7 @@ data_long_RAW <span class="op">%&gt;%</span><span class="st"> </span><span class
 <span class="st">  </span><span class="kw">spread</span>(Condition_t, VD_t) </code></pre>
 <pre><code>## # A tibble: 30 x 9
 ##       ID  Sexo  Edad   VI1   VI2   VI3 VI1_t VI2_t VI3_t
-##    &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;
+##    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
 ##  1     1     0    26    98    29    19  2398  7432   404
 ##  2     2     0    33    15    35     4  4893  9918   394
 ##  3     3     1    37     7     6     3  4099  6518   304
@@ -801,7 +798,7 @@ data_long_RAW =<span class="st"> </span>data_long_RAW <span class="op">%&gt;%</s
 <pre class="sourceCode r"><code class="sourceCode r">data_long_RAW <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">Viejuno =</span> Edad <span class="op">&gt;</span><span class="st"> </span><span class="dv">30</span>)</code></pre>
 <pre><code>## # A tibble: 270 x 7
 ##       ID  Sexo  Edad Condition    VD  VD_t Viejuno
-##    &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;fct&gt;     &lt;int&gt; &lt;int&gt; &lt;lgl&gt;  
+##    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;fct&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;lgl&gt;  
 ##  1     1     0    26 VI1          98  2398 FALSE  
 ##  2     2     0    33 VI1          15  4893 TRUE   
 ##  3     3     1    37 VI1           7  4099 TRUE   
@@ -819,7 +816,7 @@ data_long_RAW =<span class="st"> </span>data_long_RAW <span class="op">%&gt;%</s
 <pre class="sourceCode r"><code class="sourceCode r">data_long_RAW <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">RT_log =</span> <span class="kw">log</span>(VD_t))</code></pre>
 <pre><code>## # A tibble: 270 x 7
 ##       ID  Sexo  Edad Condition    VD  VD_t RT_log
-##    &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;fct&gt;     &lt;int&gt; &lt;int&gt;  &lt;dbl&gt;
+##    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;fct&gt;     &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;
 ##  1     1     0    26 VI1          98  2398   7.78
 ##  2     2     0    33 VI1          15  4893   8.50
 ##  3     3     1    37 VI1           7  4099   8.32
@@ -842,7 +839,7 @@ data_long_RAW =<span class="st"> </span>data_long_RAW <span class="op">%&gt;%</s
 data_long_RAW <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">Edad =</span> <span class="kw">as.character</span>(Edad))</code></pre>
 <pre><code>## # A tibble: 270 x 6
 ##       ID  Sexo Edad  Condition    VD  VD_t
-##    &lt;int&gt; &lt;int&gt; &lt;chr&gt; &lt;fct&gt;     &lt;int&gt; &lt;int&gt;
+##    &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt; &lt;fct&gt;     &lt;dbl&gt; &lt;dbl&gt;
 ##  1     1     0 26    VI1          98  2398
 ##  2     2     0 33    VI1          15  4893
 ##  3     3     1 37    VI1           7  4099
@@ -858,7 +855,7 @@ data_long_RAW <span class="op">%&gt;%</span><span class="st"> </span><span class
 data_long_RAW <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">Edad =</span> <span class="kw">as.integer</span>(Edad))</code></pre>
 <pre><code>## # A tibble: 270 x 6
 ##       ID  Sexo  Edad Condition    VD  VD_t
-##    &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;fct&gt;     &lt;int&gt; &lt;int&gt;
+##    &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;fct&gt;     &lt;dbl&gt; &lt;dbl&gt;
 ##  1     1     0    26 VI1          98  2398
 ##  2     2     0    33 VI1          15  4893
 ##  3     3     1    37 VI1           7  4099
@@ -878,7 +875,7 @@ data_long_RAW <span class="op">%&gt;%</span><span class="st"> </span><span class
                            <span class="kw">ifelse</span>( Edad <span class="op">&lt;</span><span class="st"> </span><span class="dv">30</span>, <span class="st">&quot;Pipiolo&quot;</span>, <span class="ot">NA</span>)))</code></pre>
 <pre><code>## # A tibble: 270 x 7
 ##       ID  Sexo  Edad Condition    VD  VD_t Edad2  
-##    &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;fct&gt;     &lt;int&gt; &lt;int&gt; &lt;chr&gt;  
+##    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;fct&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;  
 ##  1     1     0    26 VI1          98  2398 Pipiolo
 ##  2     2     0    33 VI1          15  4893 Viejuno
 ##  3     3     1    37 VI1           7  4099 Viejuno
@@ -896,7 +893,7 @@ data_long_RAW <span class="op">%&gt;%</span><span class="st"> </span><span class
                              .<span class="op">$</span>Edad <span class="op">&lt;</span><span class="st"> </span><span class="dv">30</span> <span class="op">~</span><span class="st"> &quot;Pipiolo&quot;</span>))</code></pre>
 <pre><code>## # A tibble: 270 x 7
 ##       ID  Sexo  Edad Condition    VD  VD_t Edad2  
-##    &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;fct&gt;     &lt;int&gt; &lt;int&gt; &lt;chr&gt;  
+##    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;fct&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;  
 ##  1     1     0    26 VI1          98  2398 Pipiolo
 ##  2     2     0    33 VI1          15  4893 Viejuno
 ##  3     3     1    37 VI1           7  4099 Viejuno
@@ -927,13 +924,13 @@ data_long_RAW <span class="op">%&gt;%</span><span class="st"> </span><span class
 datos1 =<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;Data/05-Manipulate_data/Manipulate_data_2.csv&quot;</span>); datos1</code></pre>
 <pre><code>## Parsed with column specification:
 ## cols(
-##   ID = col_integer(),
-##   Sexo = col_integer(),
-##   Edad = col_integer()
+##   ID = col_double(),
+##   Sexo = col_double(),
+##   Edad = col_double()
 ## )</code></pre>
 <pre><code>## # A tibble: 30 x 3
 ##       ID  Sexo  Edad
-##    &lt;int&gt; &lt;int&gt; &lt;int&gt;
+##    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
 ##  1     1     0    26
 ##  2     2     0    33
 ##  3     3     1    37
@@ -948,17 +945,17 @@ datos1 =<span class="st"> </span><span class="kw">read_csv</span>(<span class="s
 <pre class="sourceCode r"><code class="sourceCode r">datos2 =<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;Data/05-Manipulate_data/Manipulate_data_3.csv&quot;</span>); datos2</code></pre>
 <pre><code>## Parsed with column specification:
 ## cols(
-##   ID = col_integer(),
-##   VI1 = col_integer(),
-##   VI2 = col_integer(),
-##   VI3 = col_integer(),
-##   VI1_t = col_integer(),
-##   VI2_t = col_integer(),
-##   VI3_t = col_integer()
+##   ID = col_double(),
+##   VI1 = col_double(),
+##   VI2 = col_double(),
+##   VI3 = col_double(),
+##   VI1_t = col_double(),
+##   VI2_t = col_double(),
+##   VI3_t = col_double()
 ## )</code></pre>
 <pre><code>## # A tibble: 30 x 7
 ##       ID   VI1   VI2   VI3 VI1_t VI2_t VI3_t
-##    &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;
+##    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
 ##  1     1    98    29    19  2398  7432   404
 ##  2     2    15    35     4  4893  9918   394
 ##  3     3     7     6     3  4099  6518   304
@@ -974,7 +971,7 @@ datos1 =<span class="st"> </span><span class="kw">read_csv</span>(<span class="s
 datos_combinados =<span class="st"> </span><span class="kw">left_join</span>(datos1, datos2, <span class="dt">by =</span> <span class="st">&quot;ID&quot;</span>); datos_combinados</code></pre>
 <pre><code>## # A tibble: 30 x 9
 ##       ID  Sexo  Edad   VI1   VI2   VI3 VI1_t VI2_t VI3_t
-##    &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;
+##    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
 ##  1     1     0    26    98    29    19  2398  7432   404
 ##  2     2     0    33    15    35     4  4893  9918   394
 ##  3     3     1    37     7     6     3  4099  6518   304
@@ -997,7 +994,7 @@ datos_combinados =<span class="st"> </span><span class="kw">left_join</span>(dat
 raw_data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate_if</span>(is.numeric, <span class="kw">as.character</span>())</code></pre>
 <pre><code>## # A tibble: 30 x 11
 ##       ID `Columna basura`  Sexo  Edad   VI1   VI2   VI3 VI1_t VI2_t VI3_t
-##    &lt;int&gt; &lt;chr&gt;            &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;
+##    &lt;dbl&gt; &lt;chr&gt;            &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
 ##  1     1 xx                   0    26    98    29    19  2398  7432   404
 ##  2     2 yy                   0    33    15    35     4  4893  9918   394
 ##  3     3 xx                   1    37     7     6     3  4099  6518   304
@@ -1013,7 +1010,7 @@ raw_data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw"
 raw_data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate_at</span>(<span class="kw">vars</span>(VI1<span class="op">:</span>VI3), as.numeric)</code></pre>
 <pre><code>## # A tibble: 30 x 11
 ##       ID `Columna basura`  Sexo  Edad   VI1   VI2   VI3 VI1_t VI2_t VI3_t
-##    &lt;int&gt; &lt;chr&gt;            &lt;int&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;
+##    &lt;dbl&gt; &lt;chr&gt;            &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
 ##  1     1 xx                   0    26    98    29    19  2398  7432   404
 ##  2     2 yy                   0    33    15    35     4  4893  9918   394
 ##  3     3 xx                   1    37     7     6     3  4099  6518   304
@@ -1029,7 +1026,7 @@ raw_data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw"
 raw_data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate_at</span>(<span class="kw">vars</span>(<span class="kw">matches</span>(<span class="st">&quot;VI&quot;</span>)), as.numeric)</code></pre>
 <pre><code>## # A tibble: 30 x 11
 ##       ID `Columna basura`  Sexo  Edad   VI1   VI2   VI3 VI1_t VI2_t VI3_t
-##    &lt;int&gt; &lt;chr&gt;            &lt;int&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+##    &lt;dbl&gt; &lt;chr&gt;            &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
 ##  1     1 xx                   0    26    98    29    19  2398  7432   404
 ##  2     2 yy                   0    33    15    35     4  4893  9918   394
 ##  3     3 xx                   1    37     7     6     3  4099  6518   304
@@ -1050,8 +1047,8 @@ raw_data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw"
 see &lt;-<span class="st"> </span><span class="cf">function</span>(rx) <span class="kw">str_view_all</span>(<span class="st">&quot;abc ABC 123</span><span class="ch">\t</span><span class="st">.!?</span><span class="ch">\\</span><span class="st">(){}</span><span class="ch">\n</span><span class="st">&quot;</span>, rx)
 
 <span class="kw">see</span>(<span class="st">&quot;[aA]&quot;</span>)</code></pre>
-<div id="htmlwidget-37bf240b6334c4b764b9" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-37bf240b6334c4b764b9">{"x":{"html":"<ul>\n  <li><span class='match'>a<\/span>bc <span class='match'>A<\/span>BC 123\t.!?\\(){}\n<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-94d4389210dfa8dfdfd0" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-94d4389210dfa8dfdfd0">{"x":{"html":"<ul>\n  <li><span class='match'>a<\/span>bc <span class='match'>A<\/span>BC 123\t.!?\\(){}\n<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 </div>
 <div id="tutoriales-externos" class="section level2">
 <h2><span class="header-section-number">6.7</span> Tutoriales externos</h2>
@@ -1089,7 +1086,7 @@ gitbook.start({
 "google": false,
 "linkedin": false,
 "weibo": false,
-"instapper": false,
+"instapaper": false,
 "vk": false,
 "all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
 },
@@ -1099,6 +1096,10 @@ gitbook.start({
 "size": 2
 },
 "edit": {
+"link": null,
+"text": null
+},
+"history": {
 "link": null,
 "text": null
 },

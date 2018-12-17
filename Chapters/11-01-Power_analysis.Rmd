@@ -155,8 +155,10 @@ Calculate sample size for longitudinal designs
 
 **Libraries**
 ```{r power_analysis_longitudinal_libs, message=FALSE, warning=FALSE}
+
 if (!require('pacman')) install.packages('pacman'); library('pacman')
 p_load(powerMediation)
+
 ```
 
 

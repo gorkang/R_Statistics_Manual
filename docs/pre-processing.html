@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>R - Statistics Manual</title>
+  <title>12 Pre-processing | R - Statistics Manual</title>
   <meta name="description" content="Statistics manual from CSCN.">
   <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="R - Statistics Manual" />
+  <meta property="og:title" content="12 Pre-processing | R - Statistics Manual />
   <meta property="og:type" content="book" />
   
   
@@ -17,7 +17,7 @@
   <meta name="github-repo" content="gorkang/R_Statistics_Manual" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="R - Statistics Manual" />
+  <meta name="twitter:title" content="12 Pre-processing | R - Statistics Manual />
   
   <meta name="twitter:description" content="Statistics manual from CSCN." />
   
@@ -25,7 +25,7 @@
 <meta name="author" content="Center for Social and Cognitive Neuroscience - cscn.uai.cl">
 
 
-<meta name="date" content="2018-11-01">
+<meta name="date" content="2018-12-17">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -51,13 +51,10 @@
 <script src="libs/htmlwidgets-1.3/htmlwidgets.js"></script>
 <link href="libs/str_view-0.1.0/str_view.css" rel="stylesheet" />
 <script src="libs/str_view-binding-1.3.1/str_view.js"></script>
-<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
-<script src="libs/datatables-binding-0.4/datatables.js"></script>
-<link href="libs/dt-core-1.10.16/css/jquery.dataTables.min.css" rel="stylesheet" />
-<link href="libs/dt-core-1.10.16/css/jquery.dataTables.extra.css" rel="stylesheet" />
-<script src="libs/dt-core-1.10.16/js/jquery.dataTables.min.js"></script>
-<link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
-<script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
+<script src="libs/datatables-binding-0.2.10/datatables.js"></script>
+<link href="libs/dt-core-1.10.12/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.10.12/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.10.12/js/jquery.dataTables.min.js"></script>
 <script src="libs/d3-4.5.0/d3.min.js"></script>
 <script src="libs/sankey-1/sankey.js"></script>
 <script src="libs/sankeyNetwork-binding-0.4/sankeyNetwork.js"></script>
@@ -81,7 +78,7 @@ a.sourceLine { text-indent: -1em; padding-left: 1em; }
 pre.numberSource a.sourceLine
   { position: relative; left: -4em; }
 pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
+  { content: attr(title);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
     border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
@@ -382,17 +379,17 @@ Filter_FUN &lt;-<span class="st"> </span><span class="cf">function</span>(DB, Co
 <pre class="sourceCode r"><code class="sourceCode r">dataset =<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;Data/10-Pre_processing/RT_filtering.csv&quot;</span>)</code></pre>
 <pre><code>## Parsed with column specification:
 ## cols(
-##   ID = col_integer(),
-##   Dem_Gender = col_integer(),
-##   Dem_Age = col_integer(),
+##   ID = col_double(),
+##   Dem_Gender = col_double(),
+##   Dem_Age = col_double(),
 ##   Time = col_double(),
 ##   Formato = col_character(),
-##   Accuracy = col_integer()
+##   Accuracy = col_double()
 ## )</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r">dataset</code></pre>
 <pre><code>## # A tibble: 200 x 6
 ##       ID Dem_Gender Dem_Age  Time Formato Accuracy
-##    &lt;int&gt;      &lt;int&gt;   &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;int&gt;
+##    &lt;dbl&gt;      &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;dbl&gt;
 ##  1     1          2      37  2.62 PR             0
 ##  2     2          2      32 23.3  PR             0
 ##  3     3          1     100  6.9  FN             0
@@ -409,7 +406,7 @@ Filter_FUN &lt;-<span class="st"> </span><span class="cf">function</span>(DB, Co
 <pre class="sourceCode r"><code class="sourceCode r">DB_Filtered</code></pre>
 <pre><code>## # A tibble: 180 x 7
 ##       ID Dem_Gender Dem_Age  Time Formato Accuracy Column_LOG
-##    &lt;int&gt;      &lt;int&gt;   &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;int&gt;      &lt;dbl&gt;
+##    &lt;dbl&gt;      &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;dbl&gt;      &lt;dbl&gt;
 ##  1     1          2      37  2.62 PR             0      0.962
 ##  2     2          2      32 23.3  PR             0      3.15 
 ##  3     3          1     100  6.9  FN             0      1.93 
@@ -619,7 +616,7 @@ dataset =<span class="st"> </span><span class="kw">read.csv</span>(<span class="
 <ol style="list-style-type: decimal">
 <li><strong>Delete</strong> items with correlations (r.drop) &lt; 0.25 one by one:
 <ul>
-<li>Eliminate the item with the smaller correlation <code>min(a$item.stats[[&quot;r.drop&quot;]])</code></li>
+<li>Eliminate the item with the smaller correlation <code>min(a$item.stats[["r.drop"]])</code></li>
 <li>Run reliability</li>
 <li>Eliminate the next item with the smaller correlation (&lt;0.25!) - <strong>Leave at least 3 items!</strong></li>
 </ul></li>
@@ -637,13 +634,13 @@ dataset =<span class="st"> </span><span class="kw">read.csv</span>(<span class="
 <pre><code>## Warning: Missing column names filled in: &#39;X1&#39; [1]</code></pre>
 <pre><code>## Parsed with column specification:
 ## cols(
-##   X1 = col_integer(),
-##   OA.OA01. = col_integer(),
-##   OA.OA02. = col_integer(),
-##   OA.OA03. = col_integer(),
-##   OA.OA04. = col_integer(),
-##   OA.OA05. = col_integer(),
-##   OA.OA06. = col_integer()
+##   X1 = col_double(),
+##   OA.OA01. = col_double(),
+##   OA.OA02. = col_double(),
+##   OA.OA03. = col_double(),
+##   OA.OA04. = col_double(),
+##   OA.OA05. = col_double(),
+##   OA.OA06. = col_double()
 ## )</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r">temp =<span class="st"> </span>temp[<span class="op">-</span><span class="dv">1</span>] 
 
@@ -707,7 +704,7 @@ temp =<span class="st"> </span><span class="kw">as.data.frame</span>(<span class
 <span class="co"># alpha(temp2)</span>
 <span class="co"># temp2 = temp %&gt;% select(-1, -OA.OA05., -OA.OA04.)</span>
 <span class="co"># alpha(temp2)</span>
-temp2 =<span class="st"> </span>temp <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(<span class="op">-</span><span class="dv">1</span>, <span class="op">-</span>OA.OA05., <span class="op">-</span>OA.OA04., <span class="op">-</span>OA.OA02.)
+temp2 =<span class="st"> </span>temp <span class="op">%&gt;%</span><span class="st"> </span>dplyr<span class="op">::</span><span class="kw">select</span>(<span class="op">-</span><span class="dv">1</span>, <span class="op">-</span>OA.OA05., <span class="op">-</span>OA.OA04., <span class="op">-</span>OA.OA02.)
 <span class="kw">alpha</span>(temp2)</code></pre>
 <pre><code>## Warning in matrix(unlist(drop.item), ncol = 10, byrow = TRUE): data length
 ## [16] is not a sub-multiple or multiple of the number of columns [10]</code></pre>
@@ -752,13 +749,13 @@ temp2 =<span class="st"> </span>temp <span class="op">%&gt;%</span><span class="
 <pre><code>## Warning: Missing column names filled in: &#39;X1&#39; [1]</code></pre>
 <pre><code>## Parsed with column specification:
 ## cols(
-##   X1 = col_integer(),
-##   OA.OA01. = col_integer(),
-##   OA.OA02. = col_integer(),
-##   OA.OA03. = col_integer(),
-##   OA.OA04. = col_integer(),
-##   OA.OA05. = col_integer(),
-##   OA.OA06. = col_integer()
+##   X1 = col_double(),
+##   OA.OA01. = col_double(),
+##   OA.OA02. = col_double(),
+##   OA.OA03. = col_double(),
+##   OA.OA04. = col_double(),
+##   OA.OA05. = col_double(),
+##   OA.OA06. = col_double()
 ## )</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r">temp =<span class="st"> </span>temp[<span class="op">-</span><span class="dv">1</span>] 
 
@@ -780,27 +777,7 @@ temp =<span class="st"> </span><span class="kw">as.data.frame</span>(<span class
 
 <span class="co"># Execution time is non-trivial</span>
 <span class="kw">set.seed</span>(<span class="dv">1</span>)
-<span class="kw">ci.reliability</span>(<span class="dt">data =</span> temp, <span class="dt">type =</span> <span class="st">&quot;omega&quot;</span>, <span class="dt">conf.level =</span> <span class="fl">0.95</span>, <span class="dt">interval.type =</span> <span class="st">&quot;bca&quot;</span>, <span class="dt">B =</span> <span class="dv">1000</span>)</code></pre>
-<pre><code>## $est
-## [1] 0.07509823
-## 
-## $se
-## [1] 0.05258192
-## 
-## $ci.lower
-## [1] 0.001385049
-## 
-## $ci.upper
-## [1] 0.1873723
-## 
-## $conf.level
-## [1] 0.95
-## 
-## $type
-## [1] &quot;omega&quot;
-## 
-## $interval.type
-## [1] &quot;bca bootstrap&quot;</code></pre>
+<span class="co"># ci.reliability(data = temp, type = &quot;omega&quot;, conf.level = 0.95, interval.type = &quot;bca&quot;, B = 1000) </span></code></pre>
 </div>
 <div id="method-2-2" class="section level4">
 <h4><span class="header-section-number">12.2.2.2</span> Method 2 <sup>2</sup></h4>
@@ -974,7 +951,7 @@ gitbook.start({
 "google": false,
 "linkedin": false,
 "weibo": false,
-"instapper": false,
+"instapaper": false,
 "vk": false,
 "all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
 },
@@ -984,6 +961,10 @@ gitbook.start({
 "size": 2
 },
 "edit": {
+"link": null,
+"text": null
+},
+"history": {
 "link": null,
 "text": null
 },
