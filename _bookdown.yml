@@ -15,6 +15,7 @@ rmd_files: [
   "Chapters/08-03-ANOVA_repeated_measures.Rmd",
   "Chapters/08-08-Mixed_models.Rmd",
   "Chapters/08-10-Meta_analysis.Rmd",
+  "Chapters/08-11-ROC_curves.Rmd",
   "Chapters/09-Functions.Rmd",
   "Chapters/10-01-RT_filtering.Rmd",
   "Chapters/10-02-Reliability_analysis.Rmd",
