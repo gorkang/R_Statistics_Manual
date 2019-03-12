@@ -10,20 +10,20 @@ if (!require('pacman')) install.packages('pacman'); library('pacman')
 p_load(riskyr)
 
 # Create a customized scenario: 
-my.scenario <- riskyr(scen.lbl = "Identifying reoffenders", 
-                      popu.lbl = "prison inmates", 
-                      cond.lbl = "reoffending",
-                      cond.true.lbl = "offends again", cond.false.lbl = "does not offend again",
-                      dec.lbl = "test result",
-                      dec.pos.lbl = "predict to\nreoffend", dec.neg.lbl = "predict to\nnot reoffend",
-                      hi.lbl = "reoffender found", mi.lbl = "reoffender missed",
-                      fa.lbl = "false accusation", cr.lbl = "correct release",
+my.scenario <- riskyr(scen_lbl = "Identifying reoffenders", 
+                      popu_lbl = "prison inmates", 
+                      cond_lbl = "reoffending",
+                      cond_true_lbl = "offends again", cond_false_lbl = "does not offend again",
+                      dec_lbl = "test result",
+                      dec_pos_lbl = "predict to\nreoffend", dec_neg_lbl = "predict to\nnot reoffend",
+                      hi_lbl = "reoffender found", mi_lbl = "reoffender missed",
+                      fa_lbl = "false accusation", cr_lbl = "correct release",
                       prev = .45,  # prevalence of being a reoffender. 
                       sens = .98,  # p( will reoffend | offends again )
                       spec = .46,  # p( will not reoffend | does not offend again )
                       fart =  NA,  # p( will reoffend | does not offend gain )
                       N = 753,     # population size
-                      scen.src = "(a ficticious example)")
+                      scen_src = "(a ficticious example)")
 
 
 my.scenario <- scenarios$n6

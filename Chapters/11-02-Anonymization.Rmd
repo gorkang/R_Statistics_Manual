@@ -1,5 +1,10 @@
 ## Anonimizar participantes - Encriptar IDs
 
+Other interesting resources:  
+
+- https://cran.r-project.org/web/packages/safer/index.html
+
+
 **Libraries**
 ```{r anonimization_libraries, message=FALSE, warning=FALSE}
 if (!require('pacman')) install.packages('pacman'); library('pacman')
