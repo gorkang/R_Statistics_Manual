@@ -2,10 +2,17 @@
 
 Code from https://github.com/dariyasydykova/tidyroc README
 
-```{r 08-11-ROC-simple}
+tidyroc won't be developed further. It seems https://github.com/tidymodels/yardstick does everything tidyroc does and more?
 
+Intro about what ROC curves measure: https://twitter.com/cecilejanssens/status/1104134423673479169?s=03
+
+Why ROC curves are misleading: http://www.fharrell.com/post/mlconfusion/ (Not useful for prediction. PPV/NPV better).
+
+
+```{r 08-11-ROC-simple, message=FALSE, warning=FALSE}
+
+if (!require('tidyroc')) remotes::install_github("dariyasydykova/tidyroc"); library('tidyroc')
 # remotes::install_github("dariyasydykova/tidyroc")
-
 
   library(tidyverse)
   library(broom)
@@ -23,7 +30,7 @@ Code from https://github.com/dariyasydykova/tidyroc README
 
 ```
   
-```{r 08-11-ROC-two-models}
+```{r 08-11-ROC-two-models, message=FALSE, warning=FALSE}
 
 
   # load tidyverse packages
