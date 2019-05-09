@@ -288,6 +288,19 @@ see("[aA]")
 
 ```
 
+## Trabajando con fechas
+
+Los formatos de fecha standard para R son: "YYYY-MM-DD" y "YYYY/MM/DD". Si la fecha esta en otro formato, tenemos que convertirla o indicarle cual es el formato adecuado. Uno de los metodos mas fiables es usar `anytime::anydate()`.  
+
+```{r fechas}
+if (!require('anytime')) install.packages('anytime'); library('anytime')
+
+  date_1 = "20190424"
+  anytime::anydate(date_1)
+
+```
+
+
 
 ## Tutoriales externos
 
