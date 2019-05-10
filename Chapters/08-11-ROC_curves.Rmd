@@ -14,7 +14,8 @@ Why ROC curves are misleading: http://www.fharrell.com/post/mlconfusion/ (Not us
 if (!require('tidyroc')) remotes::install_github("dariyasydykova/tidyroc"); library('tidyroc')
 # remotes::install_github("dariyasydykova/tidyroc")
 
-  library(tidyverse)
+  library(dplyr)
+  library(ggplot2)
   library(broom)
   library(tidyroc)
 
@@ -34,7 +35,8 @@ if (!require('tidyroc')) remotes::install_github("dariyasydykova/tidyroc"); libr
 
 
   # load tidyverse packages
-  library(tidyverse)
+  library(dplyr)
+  library(ggplot2)
   library(broom)
 
   # load cowplot to change plot theme
