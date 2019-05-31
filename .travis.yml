@@ -7,6 +7,7 @@ before_install:
   - sudo apt-get update
   - sudo apt-get install -y libgsl0-dev
   - Rscript -e 'install.packages(c("remotes"));if (!all(c("remotes") %in% installed.packages())) { q(status = 1, save = "no")}'
+  - Rscript -e 'install.packages(c("htmlwidgets"));if (!all(c("htmlwidgets") %in% installed.packages())) { q(status = 1, save = "no")}'
 
   
 before_script:
