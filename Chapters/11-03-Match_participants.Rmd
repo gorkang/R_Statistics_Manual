@@ -6,7 +6,9 @@ Usaremos la siguiente [Base de datos](Data/11-Experimental_design/Match_particip
 ***
 ```{r match_participants_libraries, message=FALSE, warning=FALSE}
 # Cargamos librerias y leemos DBif (!require('pacman')) install.packages('pacman'); library('pacman')
-p_load(optmatch, readr, dplyr)
+if (!require('optmatch')) install.packages('optmatch'); library('optmatch')
+if (!require('readr')) install.packages('readr'); library('readr')
+if (!require('dplyr')) install.packages('dplyr'); library('dplyr')
 
 # Archivo de data crudos
 # RUTs y Edades generadas aleatoriamente

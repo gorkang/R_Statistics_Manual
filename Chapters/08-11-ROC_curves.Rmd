@@ -9,12 +9,13 @@ Intro about what ROC curves measure: https://twitter.com/cecilejanssens/status/1
 Why ROC curves are misleading: http://www.fharrell.com/post/mlconfusion/ (Not useful for prediction. PPV/NPV better).
 
 
-```{r 08-11-ROC-simple, message=FALSE, warning=FALSE}
+```{r ROC-simple-08-11, message=FALSE, warning=FALSE, eval=FALSE}
 
 if (!require('tidyroc')) remotes::install_github("dariyasydykova/tidyroc"); library('tidyroc')
 # remotes::install_github("dariyasydykova/tidyroc")
 
-  library(tidyverse)
+  library(dplyr)
+  library(ggplot2)
   library(broom)
   library(tidyroc)
 
@@ -30,11 +31,12 @@ if (!require('tidyroc')) remotes::install_github("dariyasydykova/tidyroc"); libr
 
 ```
   
-```{r 08-11-ROC-two-models, message=FALSE, warning=FALSE}
+```{r 08-11-ROC-two-models, message=FALSE, warning=FALSE, eval=FALSE}
 
 
   # load tidyverse packages
-  library(tidyverse)
+  library(dplyr)
+  library(ggplot2)
   library(broom)
 
   # load cowplot to change plot theme

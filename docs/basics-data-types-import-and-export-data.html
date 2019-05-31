@@ -1,15 +1,14 @@
 <!DOCTYPE html>
-<html >
-
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>5 Basics - Data types, import and export data | R - Statistics Manual</title>
-  <meta name="description" content="Statistics manual from CSCN.">
-  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+  <meta name="description" content="Statistics manual from CSCN." />
+  <meta name="generator" content="bookdown 0.11 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="5 Basics - Data types, import and export data | R - Statistics Manual />
+  <meta property="og:title" content="5 Basics - Data types, import and export data | R - Statistics Manual" />
   <meta property="og:type" content="book" />
   
   
@@ -17,19 +16,19 @@
   <meta name="github-repo" content="gorkang/R_Statistics_Manual" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="5 Basics - Data types, import and export data | R - Statistics Manual />
+  <meta name="twitter:title" content="5 Basics - Data types, import and export data | R - Statistics Manual" />
   
   <meta name="twitter:description" content="Statistics manual from CSCN." />
   
 
-<meta name="author" content="Center for Social and Cognitive Neuroscience - cscn.uai.cl">
+<meta name="author" content="Center for Social and Cognitive Neuroscience - cscn.uai.cl" />
 
 
-<meta name="date" content="2018-12-17">
+<meta name="date" content="2019-05-31" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
 <link rel="prev" href="Conseguir-ayuda.html">
@@ -50,7 +49,7 @@
 
 <script src="libs/htmlwidgets-1.3/htmlwidgets.js"></script>
 <link href="libs/str_view-0.1.0/str_view.css" rel="stylesheet" />
-<script src="libs/str_view-binding-1.3.1/str_view.js"></script>
+<script src="libs/str_view-binding-1.4.0/str_view.js"></script>
 <script src="libs/datatables-binding-0.2.10/datatables.js"></script>
 <link href="libs/dt-core-1.10.12/css/jquery.dataTables.min.css" rel="stylesheet" />
 <link href="libs/dt-core-1.10.12/css/jquery.dataTables.extra.css" rel="stylesheet" />
@@ -78,7 +77,7 @@ a.sourceLine { text-indent: -1em; padding-left: 1em; }
 pre.numberSource a.sourceLine
   { position: relative; left: -4em; }
 pre.numberSource a.sourceLine::before
-  { content: attr(title);
+  { content: attr(data-line-number);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
     border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
@@ -210,7 +209,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.5.1" data-path="Manipular-datos.html"><a href="Manipular-datos.html#cambiar-multiples-columnas-de-un-tipo-a-otro"><i class="fa fa-check"></i><b>6.5.1</b> Cambiar multiples columnas de un tipo a otro</a></li>
 </ul></li>
 <li class="chapter" data-level="6.6" data-path="Manipular-datos.html"><a href="Manipular-datos.html#regular-expressions"><i class="fa fa-check"></i><b>6.6</b> Regular expressions</a></li>
-<li class="chapter" data-level="6.7" data-path="Manipular-datos.html"><a href="Manipular-datos.html#tutoriales-externos"><i class="fa fa-check"></i><b>6.7</b> Tutoriales externos</a></li>
+<li class="chapter" data-level="6.7" data-path="Manipular-datos.html"><a href="Manipular-datos.html#trabajando-con-fechas"><i class="fa fa-check"></i><b>6.7</b> Trabajando con fechas</a></li>
+<li class="chapter" data-level="6.8" data-path="Manipular-datos.html"><a href="Manipular-datos.html#tutoriales-externos"><i class="fa fa-check"></i><b>6.8</b> Tutoriales externos</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html"><i class="fa fa-check"></i><b>7</b> Visualizar datos</a><ul>
 <li class="chapter" data-level="7.1" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#other-resources"><i class="fa fa-check"></i><b>7.1</b> Other resources</a></li>
@@ -260,6 +260,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="10.5.2" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#pictures-effect"><i class="fa fa-check"></i><b>10.5.2</b> Pictures Effect</a></li>
 <li class="chapter" data-level="10.5.3" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#notes-on-meta-analysis"><i class="fa fa-check"></i><b>10.5.3</b> Notes on Meta-analysis</a></li>
 </ul></li>
+<li class="chapter" data-level="10.6" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#roc-curves"><i class="fa fa-check"></i><b>10.6</b> ROC Curves</a></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="Funciones.html"><a href="Funciones.html"><i class="fa fa-check"></i><b>11</b> Funciones</a><ul>
 <li class="chapter" data-level="11.1" data-path="Funciones.html"><a href="Funciones.html#creando-mi-primera-funcion"><i class="fa fa-check"></i><b>11.1</b> Creando mi primera función</a><ul>
@@ -360,8 +361,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="listas" class="section level3">
 <h3><span class="header-section-number">5.1.3</span> Listas</h3>
 <p>Las listas son una manera de almacenar datos muy potente pero cuya exploración puede resultar algo complicada. A continuación de puede ver una manera de visualizar interactivamente el contenido de una lista compleja.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
-<span class="co"># p_load(repurrrsive)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;repurrrsive&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;repurrrsive&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;repurrrsive&#39;</span>)
 <span class="co"># listviewer::jsonedit(got_chars)</span></code></pre>
 <p>El paquete repurrrsive de Jenny Bryan, contiene algunas listas para usar como ejemplos. Ver su <a href="https://github.com/jennybc/repurrrsive">Github</a> para más detalles, o mejor, su <a href="https://jennybc.github.io/purrr-tutorial/">página web</a>. Ésta contiene varios tutoriales muy interesantes.</p>
 </div>
@@ -377,11 +377,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li><code>read_csv()</code> - comma separated values</li>
 <li><code>read_csv2()</code> - semicolon separated values</li>
-<li><code>read_delim( ,  delim = "|")</code> - values separated by an arbitrary delimiter</li>
+<li><code>read_delim( ,  delim = &quot;|&quot;)</code> - values separated by an arbitrary delimiter</li>
 </ul>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Cargamos librerias</span>
-<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
-<span class="kw">p_load</span>(readr)
+<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;readr&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;readr&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;readr&#39;</span>)
 
 <span class="co"># Establecemos directorio de trabajo</span>
 <span class="co"># setwd(&quot;R workshop&quot;)</span>
@@ -404,7 +403,7 @@ datos</code></pre>
 ##  8    20 20881      2    55         6       89 PPV_Cond1           99
 ##  9    21 39751      2    28         6        6 PPV_Cond1           99
 ## 10    22 99384      1    46         5        0 PPV_Cond1            1
-## # ... with 93 more rows</code></pre>
+## # … with 93 more rows</code></pre>
 <p>En el panel ‘Environment’ veremos que aparece <strong>datos</strong>: <BR><BR>
 <img src="Images/datos.png" /></p>
 <p>Haciendo click en <strong>datos</strong> abrimos una pestaña donde podemos ver el contenido de ese data frame. También podemos visualizarlo usando el codigo <code>View(datos)</code></p>
@@ -415,8 +414,7 @@ datos</code></pre>
 <p>Vamos a usar la siguiente <a href="Data/04-Data_types_import_export/Import_XLS.xls">base de datos</a>.</p>
 <hr />
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Cargamos librerias</span>
-<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
-<span class="kw">p_load</span>(readxl)
+<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;readxl&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;readxl&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;readxl&#39;</span>)
 
 <span class="co"># Establecemos directorio de trabajo</span>
 <span class="co"># setwd(&quot;R workshop&quot;)</span>
@@ -439,7 +437,7 @@ datos</code></pre>
 ##  8     8       27     18         1         0            15      42     1
 ##  9     9       37     28         1         0            23      36     0
 ## 10    10       27     24         0         0            20      51     1
-## # ... with 227 more rows, and 5 more variables: age &lt;dbl&gt;, wais_mp &lt;dbl&gt;,
+## # … with 227 more rows, and 5 more variables: age &lt;dbl&gt;, wais_mp &lt;dbl&gt;,
 ## #   eyes &lt;dbl&gt;, sass_score &lt;dbl&gt;, ifs_score &lt;dbl&gt;</code></pre>
 </div>
 <div id="from-sav-file-spss" class="section level3">
@@ -448,8 +446,7 @@ datos</code></pre>
 <p>Vamos a usar la siguiente <a href="Data/04-Data_types_import_export/Import_SAV.sav">base de datos</a>.</p>
 <hr />
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Cargamos librerias</span>
-<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
-<span class="kw">p_load</span>(haven)
+<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;haven&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;haven&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;haven&#39;</span>)
 
 <span class="co"># Establecemos directorio de trabajo</span>
 <span class="co"># setwd(&quot;R workshop&quot;)</span>
@@ -473,7 +470,7 @@ datos</code></pre>
 ##  8     8       27     18         1         0            15      42     1
 ##  9     9       37     28         1         0            23      36     0
 ## 10    10       27     24         0         0            20      51     1
-## # ... with 227 more rows, and 5 more variables: age &lt;dbl&gt;, wais_mp &lt;dbl&gt;,
+## # … with 227 more rows, and 5 more variables: age &lt;dbl&gt;, wais_mp &lt;dbl&gt;,
 ## #   eyes &lt;dbl&gt;, sass_score &lt;dbl&gt;, ifs_score &lt;dbl&gt;</code></pre>
 </div>
 <div id="import-all-files-from-a-folder" class="section level3">
@@ -484,23 +481,24 @@ datos</code></pre>
 <div id="using-purrr" class="section level4">
 <h4><span class="header-section-number">5.2.4.1</span> Using purrr</h4>
 <p>From: <a href="https://gist.github.com/ColinFay/d74d331825868b181860212cd1577b69" class="uri">https://gist.github.com/ColinFay/d74d331825868b181860212cd1577b69</a> by <code>@_ColinFay</code></p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
-<span class="kw">p_load</span>(purrr, readr, dplyr)
+<pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;purrr&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;purrr&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;purrr&#39;</span>)
+<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;readr&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;readr&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;readr&#39;</span>)
+<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;dplyr&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;dplyr&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;dplyr&#39;</span>)
 
 files &lt;-<span class="st"> </span><span class="kw">list.files</span>(<span class="st">&quot;Data/04-Data_types_import_export/CSVs&quot;</span>, <span class="dt">pattern =</span> <span class="st">&quot;^0&quot;</span>, <span class="dt">full.names =</span> <span class="ot">TRUE</span>)
 full &lt;-<span class="st"> </span><span class="kw">map_df</span>(files, read_csv)
 dplyr<span class="op">::</span><span class="kw">glimpse</span>(full)</code></pre>
 <pre><code>## Observations: 1,200
 ## Variables: 9
-## $ Sex       &lt;chr&gt; &quot;male&quot;, &quot;male&quot;, &quot;male&quot;, &quot;male&quot;, &quot;male&quot;, &quot;male&quot;, &quot;mal...
-## $ Priming   &lt;chr&gt; &quot;Collective&quot;, &quot;Collective&quot;, &quot;Collective&quot;, &quot;Collectiv...
-## $ trialN    &lt;dbl&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 1...
-## $ Block     &lt;chr&gt; &quot;we&quot;, &quot;we&quot;, &quot;we&quot;, &quot;we&quot;, &quot;we&quot;, &quot;we&quot;, &quot;we&quot;, &quot;we&quot;, &quot;we&quot;...
-## $ Adjective &lt;chr&gt; &quot;ofensivo&quot;, &quot;resentido&quot;, &quot;ego�sta&quot;, &quot;indiscreto&quot;, &quot;s...
-## $ Valence   &lt;chr&gt; &quot;negative&quot;, &quot;negative&quot;, &quot;negative&quot;, &quot;negative&quot;, &quot;neg...
-## $ Answer    &lt;chr&gt; &quot;yes&quot;, &quot;no&quot;, &quot;yes&quot;, &quot;yes&quot;, &quot;yes&quot;, &quot;yes&quot;, &quot;yes&quot;, &quot;yes...
-## $ Arrow     &lt;chr&gt; &quot;left&quot;, &quot;right&quot;, &quot;left&quot;, &quot;left&quot;, &quot;left&quot;, &quot;left&quot;, &quot;le...
-## $ rT        &lt;dbl&gt; 623, 1235, 335, 355, 618, 328, 348, 1620, 346, 778, ...</code></pre>
+## $ Sex       &lt;chr&gt; &quot;male&quot;, &quot;male&quot;, &quot;male&quot;, &quot;male&quot;, &quot;male&quot;, &quot;male&quot;, &quot;male&quot;…
+## $ Priming   &lt;chr&gt; &quot;Collective&quot;, &quot;Collective&quot;, &quot;Collective&quot;, &quot;Collective&quot;…
+## $ trialN    &lt;dbl&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16,…
+## $ Block     &lt;chr&gt; &quot;we&quot;, &quot;we&quot;, &quot;we&quot;, &quot;we&quot;, &quot;we&quot;, &quot;we&quot;, &quot;we&quot;, &quot;we&quot;, &quot;we&quot;, …
+## $ Adjective &lt;chr&gt; &quot;ofensivo&quot;, &quot;resentido&quot;, &quot;ego�sta&quot;, &quot;indiscreto&quot;, &quot;sum…
+## $ Valence   &lt;chr&gt; &quot;negative&quot;, &quot;negative&quot;, &quot;negative&quot;, &quot;negative&quot;, &quot;negat…
+## $ Answer    &lt;chr&gt; &quot;yes&quot;, &quot;no&quot;, &quot;yes&quot;, &quot;yes&quot;, &quot;yes&quot;, &quot;yes&quot;, &quot;yes&quot;, &quot;yes&quot;,…
+## $ Arrow     &lt;chr&gt; &quot;left&quot;, &quot;right&quot;, &quot;left&quot;, &quot;left&quot;, &quot;left&quot;, &quot;left&quot;, &quot;left…
+## $ rT        &lt;dbl&gt; 623, 1235, 335, 355, 618, 328, 348, 1620, 346, 778, 31…</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Including filenames in a column </span>
 files &lt;-<span class="st"> </span><span class="kw">list.files</span>(<span class="st">&quot;Data/04-Data_types_import_export/CSVs&quot;</span>, <span class="dt">pattern =</span> <span class="st">&quot;^0&quot;</span>, <span class="dt">full.names =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">set_names</span>(<span class="kw">basename</span>(.))
@@ -519,12 +517,14 @@ full2</code></pre>
 ##  8 01.csv male  Collecti…      8 we    altruista positi… yes    left   1620
 ##  9 01.csv male  Collecti…      9 we    ansioso   negati… yes    left    346
 ## 10 01.csv male  Collecti…     10 we    presumido negati… yes    left    778
-## # ... with 1,190 more rows</code></pre>
+## # … with 1,190 more rows</code></pre>
 </div>
 <div id="traditional-way" class="section level4">
 <h4><span class="header-section-number">5.2.4.2</span> Traditional way</h4>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
-<span class="kw">p_load</span>(purrr, readr, dplyr)
+<pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;purrr&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;purrr&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;purrr&#39;</span>)
+<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;readr&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;readr&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;readr&#39;</span>)
+<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;dplyr&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;dplyr&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;dplyr&#39;</span>)
+
 
 <span class="co"># We list all files in the desired folder</span>
 Path_Folder =<span class="st"> &quot;Data/04-Data_types_import_export/CSVs/&quot;</span>
@@ -554,7 +554,7 @@ df</code></pre>
 ##  8 1     male  Collecti…      8 we    altruista  positi… yes    left   1620
 ##  9 1     male  Collecti…      9 we    ansioso    negati… yes    left    346
 ## 10 1     male  Collecti…     10 we    presumido  negati… yes    left    778
-## # ... with 1,590 more rows</code></pre>
+## # … with 1,590 more rows</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Method 2</span>
 df =<span class="st"> </span><span class="kw">do.call</span>(rbind, <span class="kw">lapply</span>(file.list, <span class="cf">function</span>(x) <span class="kw">read_csv</span>(x)))
       <span class="co">#%&gt;% select(Rut, Nota, Prueba))) # We can add this if we have a set of common columns</span>
@@ -573,7 +573,7 @@ df</code></pre>
 ##  8 male  Collective      8 we    altruista  positive yes    left   1620
 ##  9 male  Collective      9 we    ansioso    negative yes    left    346
 ## 10 male  Collective     10 we    presumido  negative yes    left    778
-## # ... with 1,590 more rows</code></pre>
+## # … with 1,590 more rows</code></pre>
 </div>
 </div>
 <div id="import-files-using-rstudio" class="section level3">
@@ -591,9 +591,8 @@ df</code></pre>
 <div id="export-data-to-csv-file" class="section level3">
 <h3><span class="header-section-number">5.3.1</span> Export data to CSV file</h3>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Carga libreria</span>
-<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
-<span class="kw">p_load</span>(readr)
-    
+<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;readr&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;readr&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;readr&#39;</span>)
+
 <span class="co"># Volcamos datos a archivo</span>
 <span class="kw">write_csv</span>(datos, <span class="st">&quot;Data/04-Data_types_import_export/Export_saved_file.csv&quot;</span>)</code></pre>
 

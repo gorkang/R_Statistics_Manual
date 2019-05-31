@@ -8,8 +8,8 @@ Vamos a usar la siguiente [base de datos](Data/09-Functions/Functions.csv).
 * Cargamos librerias y leemos datos
 ```{r 09-Functions-1}
 # Cargamos librerias
-if (!require('pacman')) install.packages('pacman'); library('pacman')
-p_load(readr, dplyr)
+if (!require('dplyr')) install.packages('dplyr'); library('dplyr')
+if (!require('readr')) install.packages('readr'); library('readr')
 
 # Leemos datos y echamos un vistazo
 datos = read_csv("Data/09-Functions/Functions.csv")
@@ -26,8 +26,7 @@ Vimos que la función para graficar usando Pirate plot es la siguiente:
 
 ```{r 09-Functions-2}
 # Cargamos librería
-if (!require('pacman')) install.packages('pacman'); library('pacman')
-p_load(yarrr)    
+if (!require('yarrr')) install.packages('yarrr'); library('yarrr')
 
 pirateplot(formula = PPV_DECLARED ~ condition,
            data = datos,

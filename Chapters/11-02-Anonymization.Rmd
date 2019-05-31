@@ -7,8 +7,8 @@ Other interesting resources:
 
 **Libraries**
 ```{r anonimization_libraries, message=FALSE, warning=FALSE}
-if (!require('pacman')) install.packages('pacman'); library('pacman')
-p_load(hashids, dplyr)
+if (!require('hashids')) install.packages('hashids'); library('hashids')
+if (!require('dplyr')) install.packages('dplyr'); library('dplyr')
 ```
 
 ### Encriptando y desencriptando un elemento
@@ -28,8 +28,8 @@ decode("BZ9RNV", h) #12345678
 Generamos aleatoriamente numeros de identificacion "similares" a RUTs, los encriptamos, y despues desencriptamos.
 ```{r anonimization_encrypt_column, message=FALSE, warning=FALSE}
 # Cargamos librerias y leemos DB
-if (!require('pacman')) install.packages('pacman'); library('pacman')
-p_load(hashids, dplyr)
+if (!require('hashids')) install.packages('hashids'); library('hashids')
+if (!require('dplyr')) install.packages('dplyr'); library('dplyr')
 
 # Pseudo RUTs generadas aleatoriamente
 data = round(runif(100)*10000000) %>% as_tibble() %>% 

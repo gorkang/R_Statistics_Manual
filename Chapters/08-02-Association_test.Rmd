@@ -16,8 +16,8 @@ A.K.A. X square test of independence
 
 **Libraries**
 ```{r association_test_libraries, message=FALSE}
-if (!require('pacman')) install.packages('pacman'); library('pacman')
-p_load(BayesFactor, lsr)
+if (!require('BayesFactor')) install.packages('BayesFactor'); library('BayesFactor')
+if (!require('lsr')) install.packages('lsr'); library('lsr')
 ```
 
 

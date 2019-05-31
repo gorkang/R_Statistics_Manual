@@ -1,10 +1,13 @@
 language: r
+dist: xenial
 cache: packages
 pandoc_version: 1.19.2.1
 
 before_install:
   - sudo apt-get update
   - sudo apt-get install -y libgsl0-dev
+  - Rscript -e 'install.packages(c("remotes"));if (!all(c("remotes") %in% installed.packages())) { q(status = 1, save = "no")}'
+
   
 before_script:
 - chmod +x ./_build.sh

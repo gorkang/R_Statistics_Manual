@@ -13,8 +13,9 @@ We use the following [dataset](Data/10-Pre_processing/RT_filtering.csv).
 ***
 
 ```{r 10-01-RT_filtering-1}
-if (!require('pacman')) install.packages('pacman'); library('pacman')
-p_load(purrr, readr, dplyr)
+if (!require('readr')) install.packages('readr'); library('readr')
+if (!require('dplyr')) install.packages('dplyr'); library('dplyr')
+if (!require('purrr')) install.packages('purrr'); library('purrr')
 
 # RT Filtering function
 Filter_FUN <- function(DB, Column, Low_PCT = 0.05, High_PCT = 0.95) {

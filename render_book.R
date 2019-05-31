@@ -19,4 +19,4 @@ bookdown::render_book('index.Rmd',
 
 
 
-cat(final_message)
+# cat(final_message)

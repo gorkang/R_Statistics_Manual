@@ -117,8 +117,7 @@ Conventional effect sizes for all tests in the pwr package (SOURCE: https://cran
 
 **Libraries**
 ```{r power_analysis_libraries, message=FALSE, warning=FALSE}
-if (!require('pacman')) install.packages('pacman'); library('pacman')
-p_load(pwr)
+if (!require('pwr')) install.packages('pwr'); library('pwr')
 ```
 
 
@@ -156,8 +155,7 @@ Calculate sample size for longitudinal designs
 **Libraries**
 ```{r power_analysis_longitudinal_libs, message=FALSE, warning=FALSE}
 
-if (!require('pacman')) install.packages('pacman'); library('pacman')
-p_load(powerMediation)
+if (!require('powerMediation')) install.packages('powerMediation'); library('powerMediation')
 
 ```
 

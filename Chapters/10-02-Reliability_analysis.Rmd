@@ -28,8 +28,9 @@ En R hay, al menos, dos funciones:
 
 * Cargamos librerias  
 ```{r alpha_libraries, message=FALSE}
-if (!require('pacman')) install.packages('pacman'); library('pacman')
-p_load(readr, psych, dplyr)
+if (!require('psych')) install.packages('psych'); library('psych')
+if (!require('readr')) install.packages('readr'); library('readr')
+if (!require('dplyr')) install.packages('dplyr'); library('dplyr')
 ```
 
 ***
@@ -65,10 +66,17 @@ alpha(temp2)
 
 * Cargamos librerias
 ```{r omega_libraries, message=FALSE}
-if (!require('pacman')) install.packages('pacman'); library('pacman')
-p_load(p_depends(MBESS)$Depends, character.only = TRUE)
+# if (!require('pacman')) install.packages('pacman'); library('pacman')
+# # p_load(p_depends(MBESS)$Depends, character.only = TRUE)
 # install.packages("MBESS", dependencies = TRUE)
-p_load(readr, psych, MBESS, dplyr, GPArotation)
+
+if (!require('psych')) install.packages('psych'); library('psych')
+if (!require('readr')) install.packages('readr'); library('readr')
+if (!require('dplyr')) install.packages('dplyr'); library('dplyr')
+
+if (!require('MBESS')) install.packages('MBESS', dependencies = TRUE); library('MBESS')
+if (!require('GPArotation')) install.packages('GPArotation'); library('GPArotation')
+
 ```
 
 ***
@@ -76,7 +84,7 @@ We use the following [dataset](Data/10-Pre_processing/Reliability.csv).
 
 ***  
 ```{r omega_data_preparation}
-temp = read_csv("Data/10-Pre_processing/Reliability.csv")
+temp = read_csv(here::here("Data/10-Pre_processing/Reliability.csv"))
 temp = temp[-1] 
 
 #Convierte todo a integer
@@ -96,7 +104,6 @@ head(temp)
 set.seed(1)
 # ci.reliability(data = temp, type = "omega", conf.level = 0.95, interval.type = "bca", B = 1000) 
 
-
 ```
 
 #### Method 2 ^2^
@@ -105,7 +112,6 @@ set.seed(1)
 
 # See options
 omega(temp)
-
 
 ```
 

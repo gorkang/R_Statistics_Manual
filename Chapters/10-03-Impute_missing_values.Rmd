@@ -5,8 +5,10 @@
 FROM: https://www.r-bloggers.com/graphical-presentation-of-missing-data-vim-package/
 
 ```{r impute_missing_data}
-if (!require('pacman')) install.packages('pacman'); library('pacman')
-p_load(VIM, mice, dplyr, tibble)
+if (!require('VIM')) install.packages('VIM'); library('VIM')
+if (!require('mice')) install.packages('mice'); library('mice')
+if (!require('dplyr')) install.packages('dplyr'); library('dplyr')
+if (!require('tibble')) install.packages('tibble'); library('tibble')
 
 dat <- read.csv(url("https://goo.gl/4DYzru"), header = TRUE, sep = ",")
 head(dat)

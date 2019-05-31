@@ -1,15 +1,14 @@
 <!DOCTYPE html>
-<html >
-
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>13 Experimental design | R - Statistics Manual</title>
-  <meta name="description" content="Statistics manual from CSCN.">
-  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+  <meta name="description" content="Statistics manual from CSCN." />
+  <meta name="generator" content="bookdown 0.11 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="13 Experimental design | R - Statistics Manual />
+  <meta property="og:title" content="13 Experimental design | R - Statistics Manual" />
   <meta property="og:type" content="book" />
   
   
@@ -17,19 +16,19 @@
   <meta name="github-repo" content="gorkang/R_Statistics_Manual" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="13 Experimental design | R - Statistics Manual />
+  <meta name="twitter:title" content="13 Experimental design | R - Statistics Manual" />
   
   <meta name="twitter:description" content="Statistics manual from CSCN." />
   
 
-<meta name="author" content="Center for Social and Cognitive Neuroscience - cscn.uai.cl">
+<meta name="author" content="Center for Social and Cognitive Neuroscience - cscn.uai.cl" />
 
 
-<meta name="date" content="2018-12-17">
+<meta name="date" content="2019-05-31" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
 <link rel="prev" href="pre-processing.html">
@@ -50,7 +49,7 @@
 
 <script src="libs/htmlwidgets-1.3/htmlwidgets.js"></script>
 <link href="libs/str_view-0.1.0/str_view.css" rel="stylesheet" />
-<script src="libs/str_view-binding-1.3.1/str_view.js"></script>
+<script src="libs/str_view-binding-1.4.0/str_view.js"></script>
 <script src="libs/datatables-binding-0.2.10/datatables.js"></script>
 <link href="libs/dt-core-1.10.12/css/jquery.dataTables.min.css" rel="stylesheet" />
 <link href="libs/dt-core-1.10.12/css/jquery.dataTables.extra.css" rel="stylesheet" />
@@ -78,7 +77,7 @@ a.sourceLine { text-indent: -1em; padding-left: 1em; }
 pre.numberSource a.sourceLine
   { position: relative; left: -4em; }
 pre.numberSource a.sourceLine::before
-  { content: attr(title);
+  { content: attr(data-line-number);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
     border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
@@ -210,7 +209,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.5.1" data-path="Manipular-datos.html"><a href="Manipular-datos.html#cambiar-multiples-columnas-de-un-tipo-a-otro"><i class="fa fa-check"></i><b>6.5.1</b> Cambiar multiples columnas de un tipo a otro</a></li>
 </ul></li>
 <li class="chapter" data-level="6.6" data-path="Manipular-datos.html"><a href="Manipular-datos.html#regular-expressions"><i class="fa fa-check"></i><b>6.6</b> Regular expressions</a></li>
-<li class="chapter" data-level="6.7" data-path="Manipular-datos.html"><a href="Manipular-datos.html#tutoriales-externos"><i class="fa fa-check"></i><b>6.7</b> Tutoriales externos</a></li>
+<li class="chapter" data-level="6.7" data-path="Manipular-datos.html"><a href="Manipular-datos.html#trabajando-con-fechas"><i class="fa fa-check"></i><b>6.7</b> Trabajando con fechas</a></li>
+<li class="chapter" data-level="6.8" data-path="Manipular-datos.html"><a href="Manipular-datos.html#tutoriales-externos"><i class="fa fa-check"></i><b>6.8</b> Tutoriales externos</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html"><i class="fa fa-check"></i><b>7</b> Visualizar datos</a><ul>
 <li class="chapter" data-level="7.1" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#other-resources"><i class="fa fa-check"></i><b>7.1</b> Other resources</a></li>
@@ -260,6 +260,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="10.5.2" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#pictures-effect"><i class="fa fa-check"></i><b>10.5.2</b> Pictures Effect</a></li>
 <li class="chapter" data-level="10.5.3" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#notes-on-meta-analysis"><i class="fa fa-check"></i><b>10.5.3</b> Notes on Meta-analysis</a></li>
 </ul></li>
+<li class="chapter" data-level="10.6" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#roc-curves"><i class="fa fa-check"></i><b>10.6</b> ROC Curves</a></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="Funciones.html"><a href="Funciones.html"><i class="fa fa-check"></i><b>11</b> Funciones</a><ul>
 <li class="chapter" data-level="11.1" data-path="Funciones.html"><a href="Funciones.html#creando-mi-primera-funcion"><i class="fa fa-check"></i><b>11.1</b> Creando mi primera función</a><ul>
@@ -499,8 +500,7 @@ final_data &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span cl
 </tbody>
 </table>
 <p><strong>Libraries</strong></p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
-<span class="kw">p_load</span>(pwr)</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pwr&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pwr&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pwr&#39;</span>)</code></pre>
 <p><strong>Code</strong></p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co">#T-test</span>
 <span class="kw">pwr.t.test</span>(<span class="dt">n =</span> , <span class="dt">d =</span> <span class="fl">0.8</span>, <span class="dt">sig.level =</span> <span class="fl">0.05</span>, <span class="dt">power =</span> <span class="fl">0.95</span>, <span class="dt">type =</span> <span class="kw">c</span>(<span class="st">&quot;two.sample&quot;</span>))</code></pre>
@@ -577,8 +577,7 @@ final_data &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span cl
 <h3><span class="header-section-number">13.2.1</span> Longitudinal designs</h3>
 <p>Calculate sample size for longitudinal designs</p>
 <p><strong>Libraries</strong></p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
-<span class="kw">p_load</span>(powerMediation)</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;powerMediation&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;powerMediation&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;powerMediation&#39;</span>)</code></pre>
 <p><strong>Code</strong></p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ssLong</span>(<span class="dt">es =</span> <span class="fl">0.5</span>, <span class="co">#  effect size of the difference of mean change.</span>
        <span class="dt">rho =</span> <span class="fl">0.5</span>, <span class="co"># correlation coefficient between baseline and follow-up values within a treatment group.</span>
@@ -590,9 +589,13 @@ final_data &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span cl
 </div>
 <div id="anonimizar-participantes---encriptar-ids" class="section level2">
 <h2><span class="header-section-number">13.3</span> Anonimizar participantes - Encriptar IDs</h2>
+<p>Other interesting resources:</p>
+<ul>
+<li><a href="https://cran.r-project.org/web/packages/safer/index.html" class="uri">https://cran.r-project.org/web/packages/safer/index.html</a></li>
+</ul>
 <p><strong>Libraries</strong></p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
-<span class="kw">p_load</span>(hashids, dplyr)</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;hashids&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;hashids&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;hashids&#39;</span>)
+<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;dplyr&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;dplyr&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;dplyr&#39;</span>)</code></pre>
 <div id="encriptando-y-desencriptando-un-elemento" class="section level3">
 <h3><span class="header-section-number">13.3.1</span> Encriptando y desencriptando un elemento</h3>
 <pre class="sourceCode r"><code class="sourceCode r">h =<span class="st"> </span><span class="kw">hashid_settings</span>(<span class="dt">salt =</span> <span class="st">&#39;this is my salt&#39;</span>)
@@ -609,8 +612,8 @@ Plain_ID =<span class="st"> </span><span class="kw">c</span>(<span class="dv">12
 <h3><span class="header-section-number">13.3.2</span> Encriptando y desencriptando la columna RUT de una DB completa.</h3>
 <p>Generamos aleatoriamente numeros de identificacion “similares” a RUTs, los encriptamos, y despues desencriptamos.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Cargamos librerias y leemos DB</span>
-<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
-<span class="kw">p_load</span>(hashids, dplyr)
+<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;hashids&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;hashids&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;hashids&#39;</span>)
+<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;dplyr&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;dplyr&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;dplyr&#39;</span>)
 
 <span class="co"># Pseudo RUTs generadas aleatoriamente</span>
 data =<span class="st"> </span><span class="kw">round</span>(<span class="kw">runif</span>(<span class="dv">100</span>)<span class="op">*</span><span class="dv">10000000</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as_tibble</span>() <span class="op">%&gt;%</span><span class="st"> </span>
@@ -647,7 +650,7 @@ data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">sel
 ##  8 kB3YkhnpJ2WCB7aDLh5knmJcN7oetq9xPmIv59o8C53r8tPR7k…       1422724 1.42e6
 ##  9 kB3YkhnpJ2WCB7aDLh5knmJcN7oetq9xPmIv59o8C53r8tPR7k…       5975451 5.98e6
 ## 10 kB3YkhnpJ2WCB7aDLh5knmJcN7oetq9xPmIv59o8C53r8tPR7k…       9688978 9.69e6
-## # ... with 90 more rows</code></pre>
+## # … with 90 more rows</code></pre>
 
 </div>
 </div>
@@ -657,7 +660,9 @@ data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">sel
 <p>Usaremos la siguiente <a href="Data/11-Experimental_design/Match_participants.csv">Base de datos</a></p>
 <hr />
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Cargamos librerias y leemos DBif (!require(&#39;pacman&#39;)) install.packages(&#39;pacman&#39;); library(&#39;pacman&#39;)</span>
-<span class="kw">p_load</span>(optmatch, readr, dplyr)
+<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;optmatch&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;optmatch&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;optmatch&#39;</span>)
+<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;readr&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;readr&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;readr&#39;</span>)
+<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;dplyr&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;dplyr&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;dplyr&#39;</span>)
 
 <span class="co"># Archivo de data crudos</span>
 <span class="co"># RUTs y Edades generadas aleatoriamente</span>
@@ -732,8 +737,8 @@ datos_finales =<span class="st"> </span>datos_combinados <span class="op">%&gt;%
 <h2><span class="header-section-number">13.5</span> Determine distribution</h2>
 <p>FROM: <a href="https://stats.stackexchange.com/questions/132652/how-to-determine-which-distribution-fits-my-data-best" class="uri">https://stats.stackexchange.com/questions/132652/how-to-determine-which-distribution-fits-my-data-best</a></p>
 <p>Which ditribution best fits our data.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span>(<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
-<span class="kw">p_load</span>(fitdistrplus, logspline)</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span>(<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;fitdistrplus&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;fitdistrplus&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;fitdistrplus&#39;</span>)
+<span class="cf">if</span>(<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;logspline&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;logspline&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;logspline&#39;</span>)</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">37.50</span>,<span class="fl">46.79</span>,<span class="fl">48.30</span>,<span class="fl">46.04</span>,<span class="fl">43.40</span>,<span class="fl">39.25</span>,<span class="fl">38.49</span>,<span class="fl">49.51</span>,<span class="fl">40.38</span>,<span class="fl">36.98</span>,<span class="fl">40.00</span>,
        <span class="fl">38.49</span>,<span class="fl">37.74</span>,<span class="fl">47.92</span>,<span class="fl">44.53</span>,<span class="fl">44.91</span>,<span class="fl">44.91</span>,<span class="fl">40.00</span>,<span class="fl">41.51</span>,<span class="fl">47.92</span>,<span class="fl">36.98</span>,<span class="fl">43.40</span>,
        <span class="fl">42.26</span>,<span class="fl">41.89</span>,<span class="fl">38.87</span>,<span class="fl">43.02</span>,<span class="fl">39.25</span>,<span class="fl">40.38</span>,<span class="fl">42.64</span>,<span class="fl">36.98</span>,<span class="fl">44.15</span>,<span class="fl">44.91</span>,<span class="fl">43.40</span>,

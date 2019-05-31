@@ -1,15 +1,14 @@
 <!DOCTYPE html>
-<html >
-
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>7 Visualizar datos | R - Statistics Manual</title>
-  <meta name="description" content="Statistics manual from CSCN.">
-  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+  <meta name="description" content="Statistics manual from CSCN." />
+  <meta name="generator" content="bookdown 0.11 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="7 Visualizar datos | R - Statistics Manual />
+  <meta property="og:title" content="7 Visualizar datos | R - Statistics Manual" />
   <meta property="og:type" content="book" />
   
   
@@ -17,19 +16,19 @@
   <meta name="github-repo" content="gorkang/R_Statistics_Manual" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="7 Visualizar datos | R - Statistics Manual />
+  <meta name="twitter:title" content="7 Visualizar datos | R - Statistics Manual" />
   
   <meta name="twitter:description" content="Statistics manual from CSCN." />
   
 
-<meta name="author" content="Center for Social and Cognitive Neuroscience - cscn.uai.cl">
+<meta name="author" content="Center for Social and Cognitive Neuroscience - cscn.uai.cl" />
 
 
-<meta name="date" content="2018-12-17">
+<meta name="date" content="2019-05-31" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
 <link rel="prev" href="Manipular-datos.html">
@@ -50,7 +49,7 @@
 
 <script src="libs/htmlwidgets-1.3/htmlwidgets.js"></script>
 <link href="libs/str_view-0.1.0/str_view.css" rel="stylesheet" />
-<script src="libs/str_view-binding-1.3.1/str_view.js"></script>
+<script src="libs/str_view-binding-1.4.0/str_view.js"></script>
 <script src="libs/datatables-binding-0.2.10/datatables.js"></script>
 <link href="libs/dt-core-1.10.12/css/jquery.dataTables.min.css" rel="stylesheet" />
 <link href="libs/dt-core-1.10.12/css/jquery.dataTables.extra.css" rel="stylesheet" />
@@ -78,7 +77,7 @@ a.sourceLine { text-indent: -1em; padding-left: 1em; }
 pre.numberSource a.sourceLine
   { position: relative; left: -4em; }
 pre.numberSource a.sourceLine::before
-  { content: attr(title);
+  { content: attr(data-line-number);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
     border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
@@ -210,7 +209,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.5.1" data-path="Manipular-datos.html"><a href="Manipular-datos.html#cambiar-multiples-columnas-de-un-tipo-a-otro"><i class="fa fa-check"></i><b>6.5.1</b> Cambiar multiples columnas de un tipo a otro</a></li>
 </ul></li>
 <li class="chapter" data-level="6.6" data-path="Manipular-datos.html"><a href="Manipular-datos.html#regular-expressions"><i class="fa fa-check"></i><b>6.6</b> Regular expressions</a></li>
-<li class="chapter" data-level="6.7" data-path="Manipular-datos.html"><a href="Manipular-datos.html#tutoriales-externos"><i class="fa fa-check"></i><b>6.7</b> Tutoriales externos</a></li>
+<li class="chapter" data-level="6.7" data-path="Manipular-datos.html"><a href="Manipular-datos.html#trabajando-con-fechas"><i class="fa fa-check"></i><b>6.7</b> Trabajando con fechas</a></li>
+<li class="chapter" data-level="6.8" data-path="Manipular-datos.html"><a href="Manipular-datos.html#tutoriales-externos"><i class="fa fa-check"></i><b>6.8</b> Tutoriales externos</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html"><i class="fa fa-check"></i><b>7</b> Visualizar datos</a><ul>
 <li class="chapter" data-level="7.1" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#other-resources"><i class="fa fa-check"></i><b>7.1</b> Other resources</a></li>
@@ -260,6 +260,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="10.5.2" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#pictures-effect"><i class="fa fa-check"></i><b>10.5.2</b> Pictures Effect</a></li>
 <li class="chapter" data-level="10.5.3" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#notes-on-meta-analysis"><i class="fa fa-check"></i><b>10.5.3</b> Notes on Meta-analysis</a></li>
 </ul></li>
+<li class="chapter" data-level="10.6" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#roc-curves"><i class="fa fa-check"></i><b>10.6</b> ROC Curves</a></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="Funciones.html"><a href="Funciones.html"><i class="fa fa-check"></i><b>11</b> Funciones</a><ul>
 <li class="chapter" data-level="11.1" data-path="Funciones.html"><a href="Funciones.html#creando-mi-primera-funcion"><i class="fa fa-check"></i><b>11.1</b> Creando mi primera función</a><ul>
@@ -404,13 +405,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Cargamos librerias y leemos datos</li>
 </ul>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Cargamos librerias</span>
-<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
-<span class="kw">p_load</span>(readr, dplyr, yarrr, DT, ggplot2)  
-    
+<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;readr&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;readr&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;readr&#39;</span>)
+<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;dplyr&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;dplyr&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;dplyr&#39;</span>)
+<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;yarrr&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;yarrr&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;yarrr&#39;</span>)
+<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;DT&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;DT&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;DT&#39;</span>)
+<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;ggplot2&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;ggplot2&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;ggplot2&#39;</span>)
+
 <span class="co"># Leemos datos y echamos un vistazo usando el paquete DT::datatable()</span>
 datos =<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;Data/06_Visualize_data/Visualize_data.csv&quot;</span>); DT<span class="op">::</span><span class="kw">datatable</span>(datos)  </code></pre>
-<div id="htmlwidget-d096c2915242ada61276" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-d096c2915242ada61276">{"x":{"filter":"none","data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49","50","51","52","53","54","55","56","57","58","59","60","61","62","63","64","65","66","67","68","69","70","71","72","73","74","75","76","77","78","79","80","81","82","83","84","85","86","87","88","89","90","91","92","93","94","95","96","97","98","99","100","101","102","103"],[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103],[1,2,2,2,1,2,2,2,2,1,1,1,1,1,2,2,2,2,1,2,2,2,2,2,2,2,2,1,2,1,1,1,1,1,2,1,1,2,2,1,2,2,1,1,2,1,1,1,2,2,2,2,2,2,1,2,2,2,2,2,1,2,2,1,1,2,2,1,2,2,2,1,2,2,2,2,2,2,2,2,1,2,1,2,2,2,1,2,2,1,1,2,1,2,2,1,2,1,1,1,1,2,1],[47,21,29,27,29,28,27,55,28,46,31,25,30,19,37,30,34,42,25,68,23,22,29,37,21,28,35,34,31,31,44,33,24,42,34,30,38,21,64,26,27,30,29,26,35,28,40,25,42,32,32,32,22,30,42,23,37,33,30,29,19,36,43,72,29,60,35,35,27,24,19,31,19,24,35,26,30,32,46,28,60,29,28,27,41,35,25,40,21,43,55,19,24,25,35,49,31,36,28,35,26,55,28],[8,6,6,7,5,6,4,6,6,5,6,3,6,3,2,3,7,6,3,7,5,6,6,5,4,6,7,8,5,4,8,8,4,5,3,6,6,5,6,9,6,6,6,6,6,6,6,6,6,7,6,4,6,6,6,6,6,7,6,6,4,6,6,10,6,7,3,6,4,6,5,5,4,6,6,7,6,7,6,3,6,6,6,6,1,5,6,3,2,4,6,9,4,6,6,3,6,1,6,6,7,6,2],[80,90,10,75,35,14,2,89,6,0,50,98,17,100,60,95,3,26,50,30,80,100,0,24,21,10,79,74,100,100,100,99,49,61,81,32,90,96,100,57,100,95,100,77,99,69,80,60,34,50,77,100,90,45,75,57,72,3,60,59,68,1,74,51,82,100,95,0,70,95,80,72,9,57,0,79,29,55,39,80,1,100,66,96,81,28,84,30,67,69,80,80,63,99,95,10,70,90,80,94,70,15,90],["PPV_Cond1","PPV_Cond1","PPV_Cond1","PPV_Cond1","PPV_Cond1","PPV_Cond1","PPV_Cond1","PPV_Cond1","PPV_Cond1","PPV_Cond1","PPV_Cond1","PPV_Cond1","PPV_Cond1","PPV_Cond1","PPV_Cond1","PPV_Cond1","PPV_Cond1","PPV_Cond1","PPV_Cond1","PPV_Cond1","PPV_Cond1","PPV_Cond1","PPV_Cond1","PPV_Cond1","PPV_Cond1","PPV_Cond1","PPV_Cond1","PPV_Cond1","PPV_Cond2","PPV_Cond2","PPV_Cond2","PPV_Cond2","PPV_Cond2","PPV_Cond2","PPV_Cond2","PPV_Cond2","PPV_Cond2","PPV_Cond2","PPV_Cond2","PPV_Cond2","PPV_Cond2","PPV_Cond2","PPV_Cond2","PPV_Cond2","PPV_Cond2","PPV_Cond2","PPV_Cond2","PPV_Cond2","PPV_Cond2","PPV_Cond3","PPV_Cond3","PPV_Cond3","PPV_Cond3","PPV_Cond3","PPV_Cond3","PPV_Cond3","PPV_Cond3","PPV_Cond3","PPV_Cond3","PPV_Cond3","PPV_Cond3","PPV_Cond3","PPV_Cond3","PPV_Cond3","PPV_Cond3","PPV_Cond3","PPV_Cond3","PPV_Cond3","PPV_Cond3","PPV_Cond3","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4"],[99,99,99,1,24,99,99,99,99,1,94,99,88,0,1,99,99,99,70,99,1,99,99,7,10,99,99,99,46,45,46,40,61,46,46,73,46,50,46,45,46,87,46,49,30,46,50,70,44,80,99,99,99,99,80,51,99,20,30,1,20,5,30,99,99,99,99,80,98,99,80,59,64,16,79,92,92,80,90,60,93,92,28,92,92,77,74,90,10,92,92,92,65,20,92,92,92,92,90,92,92,92,80]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>ID<\/th>\n      <th>Genero<\/th>\n      <th>Edad<\/th>\n      <th>Educacion<\/th>\n      <th>FollowUP<\/th>\n      <th>condition<\/th>\n      <th>PPV_DECLARED<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[1,2,3,4,5,7]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-818b531cec644e047dc2" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-818b531cec644e047dc2">{"x":{"filter":"none","data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49","50","51","52","53","54","55","56","57","58","59","60","61","62","63","64","65","66","67","68","69","70","71","72","73","74","75","76","77","78","79","80","81","82","83","84","85","86","87","88","89","90","91","92","93","94","95","96","97","98","99","100","101","102","103"],[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103],[1,2,2,2,1,2,2,2,2,1,1,1,1,1,2,2,2,2,1,2,2,2,2,2,2,2,2,1,2,1,1,1,1,1,2,1,1,2,2,1,2,2,1,1,2,1,1,1,2,2,2,2,2,2,1,2,2,2,2,2,1,2,2,1,1,2,2,1,2,2,2,1,2,2,2,2,2,2,2,2,1,2,1,2,2,2,1,2,2,1,1,2,1,2,2,1,2,1,1,1,1,2,1],[47,21,29,27,29,28,27,55,28,46,31,25,30,19,37,30,34,42,25,68,23,22,29,37,21,28,35,34,31,31,44,33,24,42,34,30,38,21,64,26,27,30,29,26,35,28,40,25,42,32,32,32,22,30,42,23,37,33,30,29,19,36,43,72,29,60,35,35,27,24,19,31,19,24,35,26,30,32,46,28,60,29,28,27,41,35,25,40,21,43,55,19,24,25,35,49,31,36,28,35,26,55,28],[8,6,6,7,5,6,4,6,6,5,6,3,6,3,2,3,7,6,3,7,5,6,6,5,4,6,7,8,5,4,8,8,4,5,3,6,6,5,6,9,6,6,6,6,6,6,6,6,6,7,6,4,6,6,6,6,6,7,6,6,4,6,6,10,6,7,3,6,4,6,5,5,4,6,6,7,6,7,6,3,6,6,6,6,1,5,6,3,2,4,6,9,4,6,6,3,6,1,6,6,7,6,2],[80,90,10,75,35,14,2,89,6,0,50,98,17,100,60,95,3,26,50,30,80,100,0,24,21,10,79,74,100,100,100,99,49,61,81,32,90,96,100,57,100,95,100,77,99,69,80,60,34,50,77,100,90,45,75,57,72,3,60,59,68,1,74,51,82,100,95,0,70,95,80,72,9,57,0,79,29,55,39,80,1,100,66,96,81,28,84,30,67,69,80,80,63,99,95,10,70,90,80,94,70,15,90],["PPV_Cond1","PPV_Cond1","PPV_Cond1","PPV_Cond1","PPV_Cond1","PPV_Cond1","PPV_Cond1","PPV_Cond1","PPV_Cond1","PPV_Cond1","PPV_Cond1","PPV_Cond1","PPV_Cond1","PPV_Cond1","PPV_Cond1","PPV_Cond1","PPV_Cond1","PPV_Cond1","PPV_Cond1","PPV_Cond1","PPV_Cond1","PPV_Cond1","PPV_Cond1","PPV_Cond1","PPV_Cond1","PPV_Cond1","PPV_Cond1","PPV_Cond1","PPV_Cond2","PPV_Cond2","PPV_Cond2","PPV_Cond2","PPV_Cond2","PPV_Cond2","PPV_Cond2","PPV_Cond2","PPV_Cond2","PPV_Cond2","PPV_Cond2","PPV_Cond2","PPV_Cond2","PPV_Cond2","PPV_Cond2","PPV_Cond2","PPV_Cond2","PPV_Cond2","PPV_Cond2","PPV_Cond2","PPV_Cond2","PPV_Cond3","PPV_Cond3","PPV_Cond3","PPV_Cond3","PPV_Cond3","PPV_Cond3","PPV_Cond3","PPV_Cond3","PPV_Cond3","PPV_Cond3","PPV_Cond3","PPV_Cond3","PPV_Cond3","PPV_Cond3","PPV_Cond3","PPV_Cond3","PPV_Cond3","PPV_Cond3","PPV_Cond3","PPV_Cond3","PPV_Cond3","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4","PPV_Cond4"],[99,99,99,1,24,99,99,99,99,1,94,99,88,0,1,99,99,99,70,99,1,99,99,7,10,99,99,99,46,45,46,40,61,46,46,73,46,50,46,45,46,87,46,49,30,46,50,70,44,80,99,99,99,99,80,51,99,20,30,1,20,5,30,99,99,99,99,80,98,99,80,59,64,16,79,92,92,80,90,60,93,92,28,92,92,77,74,90,10,92,92,92,65,20,92,92,92,92,90,92,92,92,80]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>ID<\/th>\n      <th>Genero<\/th>\n      <th>Edad<\/th>\n      <th>Educacion<\/th>\n      <th>FollowUP<\/th>\n      <th>condition<\/th>\n      <th>PPV_DECLARED<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[1,2,3,4,5,7]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false},"selection":{"mode":"multiple","selected":null,"target":"row"}},"evals":[],"jsHooks":[]}</script>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># A algunas de las funciones no les gustan las tibbles! </span>
 datos_no_tibble =<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;Data/06_Visualize_data/Visualize_data.csv&quot;</span>) </code></pre>
 <ul>
@@ -436,7 +440,7 @@ datos_no_tibble =<span class="st"> </span><span class="kw">read.csv</span>(<span
 <pre><code>## `stat_bindot()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 <p><img src="_main_files/figure-html/histograms-2.png" width="960" /></p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Y axis shows the proper number</span>
-max_bins =<span class="st"> </span>datos <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(Edad) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarise</span>(<span class="dt">N =</span> <span class="kw">n</span>()) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">arrange</span>(<span class="kw">desc</span>(N))<span class="co">#distinct(N) %&gt;% filter(N == max(N)) </span>
+max_bins =<span class="st"> </span>datos <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(Edad) <span class="op">%&gt;%</span><span class="st"> </span>dplyr<span class="op">::</span><span class="kw">summarise</span>(<span class="dt">N =</span> <span class="kw">n</span>()) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">arrange</span>(<span class="kw">desc</span>(N))<span class="co">#distinct(N) %&gt;% filter(N == max(N)) </span>
 <span class="kw">ggplot</span>(datos, <span class="kw">aes</span>(Edad)) <span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_dotplot</span>(<span class="dt">binwidth =</span> <span class="dv">1</span>, <span class="dt">fill =</span> <span class="st">&quot;forestgreen&quot;</span>) <span class="op">+</span>
 <span class="st">  </span><span class="kw">coord_fixed</span>(<span class="dt">ratio=</span><span class="dv">1</span>) <span class="op">+</span>
@@ -445,13 +449,15 @@ max_bins =<span class="st"> </span>datos <span class="op">%&gt;%</span><span cla
 <p><img src="_main_files/figure-html/histograms-3.png" width="960" /></p>
 <p>Si queremos ver los histogramas de todas las variables numéricas de nuestro dataset:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Metodo 1</span>
-<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
-<span class="kw">p_load</span>(psych) <span class="co">#plyr</span>
+<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;psych&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;psych&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;psych&#39;</span>)
+<span class="co">#plyr</span>
 <span class="co"># multi.hist(datos) #error, not numeric</span>
 <span class="kw">multi.hist</span>(datos[,<span class="kw">sapply</span>(datos, is.numeric)])</code></pre>
 <p><img src="_main_files/figure-html/multiple_histograms-1.png" width="672" /></p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Metodo 2</span>
-<span class="kw">p_load</span>(reshape2, ggplot2)
+<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;ggplot2&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;ggplot2&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;ggplot2&#39;</span>)
+<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;reshape2&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;reshape2&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;reshape2&#39;</span>)
+
 d &lt;-<span class="st"> </span><span class="kw">melt</span>(datos)</code></pre>
 <pre><code>## Using condition as id variables</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(d,<span class="kw">aes</span>(<span class="dt">x =</span> value)) <span class="op">+</span><span class="st"> </span>
@@ -463,9 +469,8 @@ d &lt;-<span class="st"> </span><span class="kw">melt</span>(datos)</code></pre>
 <h3><span class="header-section-number">7.3.2</span> Pirate plot</h3>
 <p>Ver la web del creador: <a href="http://nathanieldphillips.com/">Pirate plot</a> y su página de <a href="https://github.com/ndphillips/yarrr">Github</a></p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Cargamos librerias</span>
-<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
-<span class="kw">p_load</span>(yarrr)
-    
+<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;yarrr&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;yarrr&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;yarrr&#39;</span>)
+
 <span class="co"># Mostramos gráfico con opciones por defecto</span>
 <span class="kw">pirateplot</span>(<span class="dt">formula =</span> PPV_DECLARED <span class="op">~</span><span class="st"> </span>condition, datos)</code></pre>
 <p><img src="_main_files/figure-html/pirate-1.png" width="672" /></p>
@@ -523,16 +528,16 @@ barplot2</code></pre>
 <h3><span class="header-section-number">7.3.5</span> Correlation plot</h3>
 <p>Ver la web del paquete: <a href="https://cran.r-project.org/web/packages/corrplot/vignettes/corrplot-intro.html">Correlation plot</a> y su página de <a href="https://github.com/taiyun/corrplot">Github</a></p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Cargamos libreria</span>
-<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
-<span class="kw">p_load</span>(corrplot)
+<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;corrplot&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;corrplot&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;corrplot&#39;</span>)
 
 <span class="kw">corrplot</span>(<span class="kw">cor</span>(datos[,<span class="kw">c</span>(<span class="dv">2</span><span class="op">:</span><span class="dv">5</span>,<span class="dv">7</span>)]), <span class="dt">mar =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>),<span class="dt">tl.cex =</span> <span class="fl">0.9</span>, 
          <span class="dt">method =</span> <span class="st">&quot;square&quot;</span>, <span class="dt">type =</span> <span class="st">&quot;lower&quot;</span>, <span class="dt">tl.col =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">diag =</span> T)</code></pre>
 <p><img src="_main_files/figure-html/correlation_plot-1.png" width="672" /></p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Correlation with ggplot</span>
 <span class="co"># From http://r-statistics.co/Top50-Ggplot2-Visualizations-MasterList-R-Code.html</span>
-<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
-<span class="kw">p_load</span>(ggplot2, ggcorrplot)
+<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;ggplot2&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;ggplot2&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;ggplot2&#39;</span>)
+<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;ggcorrplot&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;ggcorrplot&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;ggcorrplot&#39;</span>)
+
 corr =<span class="st"> </span><span class="kw">round</span>(<span class="kw">cor</span>(datos[,<span class="kw">c</span>(<span class="dv">2</span><span class="op">:</span><span class="dv">5</span>,<span class="dv">7</span>)]), <span class="dv">1</span>)
 
 <span class="co"># Plot</span>
@@ -550,9 +555,8 @@ corr =<span class="st"> </span><span class="kw">round</span>(<span class="kw">co
 <h3><span class="header-section-number">7.3.6</span> Beanplot</h3>
 <p>Ver la web del paquete <a href="https://cran.r-project.org/web/packages/beanplot/index.html">Beanplot</a></p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Cargamos libreria</span>
-<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
-<span class="kw">p_load</span>(beanplot)
-    
+<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;beanplot&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;beanplot&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;beanplot&#39;</span>)
+
 <span class="kw">beanplot</span>(FollowUP <span class="op">~</span><span class="st"> </span>Genero, <span class="dt">data =</span> datos,  <span class="dt">side =</span> <span class="st">&quot;both&quot;</span>, <span class="dt">log =</span> <span class="st">&quot;&quot;</span>, <span class="dt">names =</span> <span class="kw">c</span>(<span class="st">&quot;Hombre&quot;</span>,<span class="st">&quot;Mujer&quot;</span>),
 <span class="dt">what =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>), <span class="dt">border =</span> <span class="ot">NA</span>, <span class="dt">col =</span> <span class="kw">list</span>(<span class="st">&quot;black&quot;</span>, <span class="kw">c</span>(<span class="st">&quot;grey&quot;</span>, <span class="st">&quot;white&quot;</span>)))</code></pre>
 <p><img src="_main_files/figure-html/bean_plot-1.png" width="672" /></p>
@@ -562,8 +566,7 @@ corr =<span class="st"> </span><span class="kw">round</span>(<span class="kw">co
 <h3><span class="header-section-number">7.3.7</span> Scatterplot</h3>
 <p>Ver la web del creador: <a href="http://www.sthda.com/english/rpkgs/ggpubr/">ggpubr</a> y su página de <a href="https://github.com/kassambara/ggpubr">Github</a></p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Cargamos libreria</span>
-<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
-<span class="kw">p_load</span>(ggpubr)
+<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;ggpubr&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;ggpubr&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;ggpubr&#39;</span>)
 
 <span class="kw">ggscatter</span>(datos_no_tibble, <span class="dt">x =</span> <span class="st">&quot;Educacion&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Edad&quot;</span>,
    <span class="dt">color =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">shape =</span> <span class="dv">21</span>, <span class="dt">size =</span> <span class="dv">4</span>, <span class="co"># Points color, shape and size</span>
@@ -578,8 +581,8 @@ corr =<span class="st"> </span><span class="kw">round</span>(<span class="kw">co
 <h3><span class="header-section-number">7.3.8</span> Scatterplot con 3 variables</h3>
 <p>Ver la web de documentación de <a href="http://docs.ggplot2.org/current/">ggplot2</a> y su página de <a href="https://github.com/hadley/ggplot2">Github</a></p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Cargamos libreria</span>
-<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
-<span class="kw">p_load</span>(dplyr, ggplot2)
+<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;dplyr&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;dplyr&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;dplyr&#39;</span>)
+<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;ggplot2&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;ggplot2&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;ggplot2&#39;</span>)
 
 <span class="kw">ggplot</span>(datos, <span class="kw">aes</span>(PPV_DECLARED, FollowUP, <span class="dt">color=</span><span class="kw">factor</span>(Genero))) <span class="op">+</span>
 <span class="st">    </span><span class="kw">geom_point</span>(<span class="dt">shape=</span><span class="dv">1</span>, <span class="dt">size =</span> <span class="dv">2</span>) <span class="op">+</span>
@@ -595,8 +598,11 @@ corr =<span class="st"> </span><span class="kw">round</span>(<span class="kw">co
 <ul>
 <li>The variable we use to create two different sub-plots has to be a factor!</li>
 </ul>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
-<span class="kw">p_load</span>(dplyr, ggplot2, ggpubr, readr)
+<pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;readr&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;readr&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;readr&#39;</span>)
+<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;dplyr&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;dplyr&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;dplyr&#39;</span>)
+<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;ggpubr&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;ggpubr&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;ggpubr&#39;</span>)
+<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;ggplot2&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;ggplot2&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;ggplot2&#39;</span>)
+
 
 datos =<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;Data/06_Visualize_data/Visualize_data.csv&quot;</span>)</code></pre>
 <pre><code>## Parsed with column specification:
@@ -620,8 +626,9 @@ datos =<span class="st"> </span><span class="kw">read_csv</span>(<span class="st
 </div>
 <div id="density-ridges-plots-ggjoy" class="section level3">
 <h3><span class="header-section-number">7.3.10</span> Density Ridges Plots (ggjoy)</h3>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
-<span class="kw">p_load</span>(dplyr, ggplot2, ggridges)
+<pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;dplyr&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;dplyr&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;dplyr&#39;</span>)
+<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;ggridges&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;ggridges&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;ggridges&#39;</span>)
+<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;ggplot2&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;ggplot2&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;ggplot2&#39;</span>)
 
 datos_density_ridges =<span class="st"> </span>datos <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">drop_na</span>() <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">filter</span>(Educacion <span class="op">&lt;</span><span class="st"> </span><span class="dv">8</span>) <span class="op">%&gt;%</span><span class="st"> </span>
@@ -657,8 +664,7 @@ datos_density_ridges =<span class="st"> </span>datos <span class="op">%&gt;%</sp
 <div id="pp-plots" class="section level3">
 <h3><span class="header-section-number">7.3.11</span> PP plots</h3>
 <p>Plots of distributional differences… See <a href="http://www.dandersondata.com/post/esvis-part-1/" class="uri">http://www.dandersondata.com/post/esvis-part-1/</a></p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">p_load</span>(esvis)
-<span class="co"># devtools::install_github(&quot;DJAnderson07/esvis&quot;)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;esvis&#39;</span>)) devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;DJAnderson07/esvis&quot;</span>); <span class="kw">library</span>(<span class="st">&#39;esvis&#39;</span>)
 
 <span class="kw">pp_plot</span>(reading <span class="op">~</span><span class="st"> </span>frl, benchmarks)</code></pre>
 <p><img src="_main_files/figure-html/PP_plot-1.png" width="672" /></p>
@@ -675,7 +681,9 @@ datos_density_ridges =<span class="st"> </span>datos <span class="op">%&gt;%</sp
 <div id="shaded-geom-area" class="section level3">
 <h3><span class="header-section-number">7.3.12</span> Shaded geom area</h3>
 <p>FROM @kara_woo: <a href="https://gist.github.com/karawoo/14f4f46da900b09997d26171d092fb92" class="uri">https://gist.github.com/karawoo/14f4f46da900b09997d26171d092fb92</a></p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">p_load</span>(readr, dplyr, ggplot2)
+<pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;readr&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;readr&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;readr&#39;</span>)
+<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;dplyr&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;dplyr&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;dplyr&#39;</span>)
+<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;ggplot2&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;ggplot2&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;ggplot2&#39;</span>)
 
 data_for_plot =<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;Data/06_Visualize_data/data_shaded_geom_area.csv&quot;</span>)
 
@@ -733,8 +741,11 @@ dat &lt;-<span class="st"> </span>data_for_plot <span class="op">%&gt;%</span>
 </div>
 <div id="multiple-scatterplots" class="section level3">
 <h3><span class="header-section-number">7.3.13</span> Multiple Scatterplots</h3>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
-<span class="kw">p_load</span>(readr, dplyr, ggplot2, ggthemes, Rmisc)
+<pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;readr&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;readr&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;readr&#39;</span>)
+<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;dplyr&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;dplyr&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;dplyr&#39;</span>)
+<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;ggplot2&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;ggplot2&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;ggplot2&#39;</span>)
+<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;ggthemes&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;ggthemes&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;ggthemes&#39;</span>)
+<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;Rmisc&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;Rmisc&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;Rmisc&#39;</span>)
 
 a =<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;Data/06_Visualize_data/data_multiple_scatterplot.csv&quot;</span>)</code></pre>
 <pre><code>## Parsed with column specification:
@@ -797,7 +808,9 @@ p12 =<span class="st"> </span><span class="kw">ggplot</span>(a, <span class="kw"
 <div id="background-data" class="section level3">
 <h3><span class="header-section-number">7.3.14</span> Background data</h3>
 <p>FROM: <a href="https://drsimonj.svbtle.com/plotting-background-data-for-groups-with-ggplot2" class="uri">https://drsimonj.svbtle.com/plotting-background-data-for-groups-with-ggplot2</a></p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">p_load</span>(readr, dplyr, ggplot2)
+<pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;readr&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;readr&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;readr&#39;</span>)
+<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;dplyr&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;dplyr&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;dplyr&#39;</span>)
+<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;ggplot2&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;ggplot2&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;ggplot2&#39;</span>)
 
 d &lt;-<span class="st"> </span>iris        <span class="co"># Full data set</span>
 d_bg &lt;-<span class="st"> </span>d[, <span class="dv">-5</span>]  <span class="co"># Background Data - full without the 5th column (Species)</span>
@@ -822,9 +835,7 @@ d_bg &lt;-<span class="st"> </span>d[, <span class="dv">-5</span>]  <span class=
 <div id="flip-plots" class="section level3">
 <h3><span class="header-section-number">7.3.15</span> Flip plots</h3>
 <p>FROM: <a href="https://www.displayr.com/how-to-create-sankey-diagrams-from-tables-using-r/?utm_medium=Feed&amp;utm_source=Syndication" class="uri">https://www.displayr.com/how-to-create-sankey-diagrams-from-tables-using-r/?utm_medium=Feed&amp;utm_source=Syndication</a></p>
-<pre class="sourceCode r"><code class="sourceCode r">devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;Displayr/flipPlots&quot;</span>)
-
-<span class="kw">library</span>(flipPlots)
+<pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;flipPlots&#39;</span>)) remotes<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;Displayr/flipPlots&quot;</span>); <span class="kw">library</span>(<span class="st">&#39;flipPlots&#39;</span>)
 
 
 my.data =<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">Married =</span> <span class="kw">c</span>(<span class="st">&quot;Yes&quot;</span>,<span class="st">&quot;Yes&quot;</span>, <span class="st">&quot;Yes&quot;</span>, <span class="st">&quot;No&quot;</span>, <span class="st">&quot;No&quot;</span>),
@@ -835,14 +846,14 @@ my.data =<span class="st"> </span><span class="kw">data.frame</span>(<span class
 <span class="kw">SankeyDiagram</span>(my.data[, <span class="dv">-4</span>],
               <span class="dt">link.color =</span> <span class="st">&quot;Source&quot;</span>, 
               <span class="dt">weights =</span> my.data<span class="op">$</span>freq) </code></pre>
-<div id="htmlwidget-d6ad87083b82c3606472" style="width:672px;height:480px;" class="sankeyNetwork html-widget"></div>
-<script type="application/json" data-for="htmlwidget-d6ad87083b82c3606472">{"x":{"links":{"source":[0,0,1,1,2,2,3],"target":[2,3,2,3,4,5,5],"value":[1,2,3,9,1,3,11],"group":["0","0","1","1","2","2","3"]},"nodes":{"name":["Married: No","Married: Yes","Pet: No","Pet: Yes","Happy: No","Happy: Yes"],"group":["0","1","2","3","4","5"]},"options":{"NodeID":"name","NodeGroup":"group","LinkGroup":"group","colourScale":"d3.scaleOrdinal(d3.schemeCategory20);","fontSize":12,"fontFamily":"Times New Roman","nodeWidth":30,"nodePadding":10,"units":"","margin":{"top":null,"right":null,"bottom":null,"left":null},"iterations":32,"sinksRight":true}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-1b0a6dc3f0cb84397496" style="width:672px;height:480px;" class="sankeyNetwork html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1b0a6dc3f0cb84397496">{"x":{"links":{"source":[0,0,1,1,2,2,3],"target":[2,3,2,3,4,5,5],"value":[1,2,3,9,1,3,11],"group":["0","0","1","1","2","2","3"]},"nodes":{"name":["Married: No","Married: Yes","Pet: No","Pet: Yes","Happy: No","Happy: Yes"],"group":["0","1","2","3","4","5"]},"options":{"NodeID":"name","NodeGroup":"group","LinkGroup":"group","colourScale":"d3.scaleOrdinal(d3.schemeCategory20);","fontSize":12,"fontFamily":"Times New Roman","nodeWidth":30,"nodePadding":10,"units":"","margin":{"top":null,"right":null,"bottom":null,"left":null},"iterations":32,"sinksRight":true}},"evals":[],"jsHooks":[]}</script>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">SankeyDiagram</span>(my.data[, <span class="dv">-4</span>],
               <span class="dt">link.color =</span> <span class="st">&quot;Source&quot;</span>, 
               <span class="dt">label.show.varname =</span> <span class="ot">FALSE</span>,
               <span class="dt">weights =</span> my.data<span class="op">$</span>freq) </code></pre>
-<div id="htmlwidget-49c601c46bade3ea51fa" style="width:672px;height:480px;" class="sankeyNetwork html-widget"></div>
-<script type="application/json" data-for="htmlwidget-49c601c46bade3ea51fa">{"x":{"links":{"source":[0,0,1,1,2,2,3],"target":[2,3,2,3,4,5,5],"value":[1,2,3,9,1,3,11],"group":["0","0","1","1","2","2","3"]},"nodes":{"name":["No","Yes","No","Yes","No","Yes"],"group":["0","1","2","3","4","5"]},"options":{"NodeID":"name","NodeGroup":"group","LinkGroup":"group","colourScale":"d3.scaleOrdinal(d3.schemeCategory20);","fontSize":12,"fontFamily":"Times New Roman","nodeWidth":30,"nodePadding":10,"units":"","margin":{"top":null,"right":null,"bottom":null,"left":null},"iterations":32,"sinksRight":true}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-9c5ed12236a31aec3a25" style="width:672px;height:480px;" class="sankeyNetwork html-widget"></div>
+<script type="application/json" data-for="htmlwidget-9c5ed12236a31aec3a25">{"x":{"links":{"source":[0,0,1,1,2,2,3],"target":[2,3,2,3,4,5,5],"value":[1,2,3,9,1,3,11],"group":["0","0","1","1","2","2","3"]},"nodes":{"name":["No","Yes","No","Yes","No","Yes"],"group":["0","1","2","3","4","5"]},"options":{"NodeID":"name","NodeGroup":"group","LinkGroup":"group","colourScale":"d3.scaleOrdinal(d3.schemeCategory20);","fontSize":12,"fontFamily":"Times New Roman","nodeWidth":30,"nodePadding":10,"units":"","margin":{"top":null,"right":null,"bottom":null,"left":null},"iterations":32,"sinksRight":true}},"evals":[],"jsHooks":[]}</script>
 
 </div>
 </div>
