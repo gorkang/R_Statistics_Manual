@@ -1,15 +1,14 @@
 <!DOCTYPE html>
-<html >
-
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>12 Pre-processing | R - Statistics Manual</title>
-  <meta name="description" content="Statistics manual from CSCN.">
-  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+  <meta name="description" content="Statistics manual from CSCN." />
+  <meta name="generator" content="bookdown 0.11 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="12 Pre-processing | R - Statistics Manual />
+  <meta property="og:title" content="12 Pre-processing | R - Statistics Manual" />
   <meta property="og:type" content="book" />
   
   
@@ -17,19 +16,19 @@
   <meta name="github-repo" content="gorkang/R_Statistics_Manual" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="12 Pre-processing | R - Statistics Manual />
+  <meta name="twitter:title" content="12 Pre-processing | R - Statistics Manual" />
   
   <meta name="twitter:description" content="Statistics manual from CSCN." />
   
 
-<meta name="author" content="Center for Social and Cognitive Neuroscience - cscn.uai.cl">
+<meta name="author" content="Center for Social and Cognitive Neuroscience - cscn.uai.cl" />
 
 
-<meta name="date" content="2018-12-17">
+<meta name="date" content="2019-05-31" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
 <link rel="prev" href="Funciones.html">
@@ -50,7 +49,7 @@
 
 <script src="libs/htmlwidgets-1.3/htmlwidgets.js"></script>
 <link href="libs/str_view-0.1.0/str_view.css" rel="stylesheet" />
-<script src="libs/str_view-binding-1.3.1/str_view.js"></script>
+<script src="libs/str_view-binding-1.4.0/str_view.js"></script>
 <script src="libs/datatables-binding-0.2.10/datatables.js"></script>
 <link href="libs/dt-core-1.10.12/css/jquery.dataTables.min.css" rel="stylesheet" />
 <link href="libs/dt-core-1.10.12/css/jquery.dataTables.extra.css" rel="stylesheet" />
@@ -78,7 +77,7 @@ a.sourceLine { text-indent: -1em; padding-left: 1em; }
 pre.numberSource a.sourceLine
   { position: relative; left: -4em; }
 pre.numberSource a.sourceLine::before
-  { content: attr(title);
+  { content: attr(data-line-number);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
     border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
@@ -210,7 +209,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.5.1" data-path="Manipular-datos.html"><a href="Manipular-datos.html#cambiar-multiples-columnas-de-un-tipo-a-otro"><i class="fa fa-check"></i><b>6.5.1</b> Cambiar multiples columnas de un tipo a otro</a></li>
 </ul></li>
 <li class="chapter" data-level="6.6" data-path="Manipular-datos.html"><a href="Manipular-datos.html#regular-expressions"><i class="fa fa-check"></i><b>6.6</b> Regular expressions</a></li>
-<li class="chapter" data-level="6.7" data-path="Manipular-datos.html"><a href="Manipular-datos.html#tutoriales-externos"><i class="fa fa-check"></i><b>6.7</b> Tutoriales externos</a></li>
+<li class="chapter" data-level="6.7" data-path="Manipular-datos.html"><a href="Manipular-datos.html#trabajando-con-fechas"><i class="fa fa-check"></i><b>6.7</b> Trabajando con fechas</a></li>
+<li class="chapter" data-level="6.8" data-path="Manipular-datos.html"><a href="Manipular-datos.html#tutoriales-externos"><i class="fa fa-check"></i><b>6.8</b> Tutoriales externos</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html"><i class="fa fa-check"></i><b>7</b> Visualizar datos</a><ul>
 <li class="chapter" data-level="7.1" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#other-resources"><i class="fa fa-check"></i><b>7.1</b> Other resources</a></li>
@@ -260,6 +260,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="10.5.2" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#pictures-effect"><i class="fa fa-check"></i><b>10.5.2</b> Pictures Effect</a></li>
 <li class="chapter" data-level="10.5.3" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#notes-on-meta-analysis"><i class="fa fa-check"></i><b>10.5.3</b> Notes on Meta-analysis</a></li>
 </ul></li>
+<li class="chapter" data-level="10.6" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#roc-curves"><i class="fa fa-check"></i><b>10.6</b> ROC Curves</a></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="Funciones.html"><a href="Funciones.html"><i class="fa fa-check"></i><b>11</b> Funciones</a><ul>
 <li class="chapter" data-level="11.1" data-path="Funciones.html"><a href="Funciones.html#creando-mi-primera-funcion"><i class="fa fa-check"></i><b>11.1</b> Creando mi primera función</a><ul>
@@ -355,8 +356,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <hr />
 <p>We use the following <a href="Data/10-Pre_processing/RT_filtering.csv">dataset</a>.</p>
 <hr />
-<pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
-<span class="kw">p_load</span>(purrr, readr, dplyr)
+<pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;readr&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;readr&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;readr&#39;</span>)
+<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;dplyr&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;dplyr&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;dplyr&#39;</span>)
+<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;purrr&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;purrr&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;purrr&#39;</span>)
 
 <span class="co"># RT Filtering function</span>
 Filter_FUN &lt;-<span class="st"> </span><span class="cf">function</span>(DB, Column, <span class="dt">Low_PCT =</span> <span class="fl">0.05</span>, <span class="dt">High_PCT =</span> <span class="fl">0.95</span>) {
@@ -400,7 +402,7 @@ Filter_FUN &lt;-<span class="st"> </span><span class="cf">function</span>(DB, Co
 ##  8     8          1      29 16.4  PR             0
 ##  9     9          1      30 60.8  PR             1
 ## 10    10          2      28 26.2  PR             0
-## # ... with 190 more rows</code></pre>
+## # … with 190 more rows</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">Filter_FUN</span>(dataset, Time)</code></pre>
 <pre><code>## **** Datos filtrados a partir de la columna Time :  20 / 200 filas eliminadas ***</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r">DB_Filtered</code></pre>
@@ -417,7 +419,7 @@ Filter_FUN &lt;-<span class="st"> </span><span class="cf">function</span>(DB, Co
 ##  8     8          1      29 16.4  PR             0      2.80 
 ##  9     9          1      30 60.8  PR             1      4.11 
 ## 10    10          2      28 26.2  PR             0      3.26 
-## # ... with 170 more rows</code></pre>
+## # … with 170 more rows</code></pre>
 </div>
 <div id="n-sd-from-the-median-mad-1" class="section level3">
 <h3><span class="header-section-number">12.1.2</span> n SD from the median (MAD)<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a></h3>
@@ -616,7 +618,7 @@ dataset =<span class="st"> </span><span class="kw">read.csv</span>(<span class="
 <ol style="list-style-type: decimal">
 <li><strong>Delete</strong> items with correlations (r.drop) &lt; 0.25 one by one:
 <ul>
-<li>Eliminate the item with the smaller correlation <code>min(a$item.stats[["r.drop"]])</code></li>
+<li>Eliminate the item with the smaller correlation <code>min(a$item.stats[[&quot;r.drop&quot;]])</code></li>
 <li>Run reliability</li>
 <li>Eliminate the next item with the smaller correlation (&lt;0.25!) - <strong>Leave at least 3 items!</strong></li>
 </ul></li>
@@ -625,8 +627,9 @@ dataset =<span class="st"> </span><span class="kw">read.csv</span>(<span class="
 <ul>
 <li>Cargamos librerias</li>
 </ul>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
-<span class="kw">p_load</span>(readr, psych, dplyr)</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;psych&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;psych&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;psych&#39;</span>)
+<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;readr&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;readr&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;readr&#39;</span>)
+<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;dplyr&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;dplyr&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;dplyr&#39;</span>)</code></pre>
 <hr />
 <p>We use the following <a href="Data/10-Pre_processing/Reliability.csv">dataset</a>.</p>
 <hr />
@@ -657,6 +660,12 @@ temp =<span class="st"> </span><span class="kw">as.data.frame</span>(<span class
 ## 5        4        3        4        4        2        4
 ## 6        5        5        5        1        1        5</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">alpha</span>(temp)</code></pre>
+<pre><code>## Warning in alpha(temp): Some items were negatively correlated with the total scale and probably 
+## should be reversed.  
+## To do this, run the function again with the &#39;check.keys=TRUE&#39; option</code></pre>
+<pre><code>## Some items ( OA.OA02. OA.OA04. OA.OA05. ) were negatively correlated with the total scale and 
+## probably should be reversed.  
+## To do this, run the function again with the &#39;check.keys=TRUE&#39; option</code></pre>
 <pre><code>## 
 ## Reliability analysis   
 ## Call: alpha(x = temp)
@@ -738,14 +747,20 @@ temp2 =<span class="st"> </span>temp <span class="op">%&gt;%</span><span class="
 <ul>
 <li>Cargamos librerias</li>
 </ul>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
-<span class="kw">p_load</span>(<span class="kw">p_depends</span>(MBESS)<span class="op">$</span>Depends, <span class="dt">character.only =</span> <span class="ot">TRUE</span>)
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># if (!require(&#39;pacman&#39;)) install.packages(&#39;pacman&#39;); library(&#39;pacman&#39;)</span>
+<span class="co"># # p_load(p_depends(MBESS)$Depends, character.only = TRUE)</span>
 <span class="co"># install.packages(&quot;MBESS&quot;, dependencies = TRUE)</span>
-<span class="kw">p_load</span>(readr, psych, MBESS, dplyr, GPArotation)</code></pre>
+
+<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;psych&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;psych&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;psych&#39;</span>)
+<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;readr&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;readr&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;readr&#39;</span>)
+<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;dplyr&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;dplyr&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;dplyr&#39;</span>)
+
+<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;MBESS&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;MBESS&#39;</span>, <span class="dt">dependencies =</span> <span class="ot">TRUE</span>); <span class="kw">library</span>(<span class="st">&#39;MBESS&#39;</span>)
+<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;GPArotation&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;GPArotation&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;GPArotation&#39;</span>)</code></pre>
 <hr />
 <p>We use the following <a href="Data/10-Pre_processing/Reliability.csv">dataset</a>.</p>
 <hr />
-<pre class="sourceCode r"><code class="sourceCode r">temp =<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;Data/10-Pre_processing/Reliability.csv&quot;</span>)</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">temp =<span class="st"> </span><span class="kw">read_csv</span>(here<span class="op">::</span><span class="kw">here</span>(<span class="st">&quot;Data/10-Pre_processing/Reliability.csv&quot;</span>))</code></pre>
 <pre><code>## Warning: Missing column names filled in: &#39;X1&#39; [1]</code></pre>
 <pre><code>## Parsed with column specification:
 ## cols(
@@ -857,8 +872,10 @@ temp =<span class="st"> </span><span class="kw">as.data.frame</span>(<span class
 <h2><span class="header-section-number">12.3</span> Impute missing data</h2>
 <p><strong>TODO: see <a href="https://www.r-bloggers.com/imputing-missing-data-with-r-mice-package/" class="uri">https://www.r-bloggers.com/imputing-missing-data-with-r-mice-package/</a></strong></p>
 <p>FROM: <a href="https://www.r-bloggers.com/graphical-presentation-of-missing-data-vim-package/" class="uri">https://www.r-bloggers.com/graphical-presentation-of-missing-data-vim-package/</a></p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
-<span class="kw">p_load</span>(VIM, mice, dplyr, tibble)
+<pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;VIM&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;VIM&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;VIM&#39;</span>)
+<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;mice&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;mice&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;mice&#39;</span>)
+<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;dplyr&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;dplyr&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;dplyr&#39;</span>)
+<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;tibble&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;tibble&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;tibble&#39;</span>)
 
 dat &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="kw">url</span>(<span class="st">&quot;https://goo.gl/4DYzru&quot;</span>), <span class="dt">header =</span> <span class="ot">TRUE</span>, <span class="dt">sep =</span> <span class="st">&quot;,&quot;</span>)
 <span class="kw">head</span>(dat)</code></pre>

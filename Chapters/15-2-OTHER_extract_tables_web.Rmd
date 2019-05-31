@@ -3,8 +3,12 @@
 ***
 ```{r extract_tables_internet, message=FALSE, warning=FALSE}
 # Cargamos librerias y leemos DBif (!require('pacman')) install.packages('pacman'); library('pacman')
-library(pacman)
-p_load(rvest, dplyr, tidyr, readr, ggrepel)
+if (!require('rvest')) install.packages('rvest'); library('rvest')
+if (!require('readr')) install.packages('readr'); library('readr')
+if (!require('dplyr')) install.packages('dplyr'); library('dplyr')
+if (!require('tidyr')) install.packages('tidyr'); library('tidyr')
+if (!require('ggrepel')) install.packages('ggrepel'); library('ggrepel')
+
 
 ```
 

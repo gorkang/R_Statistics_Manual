@@ -15,9 +15,8 @@ Cuando trabajamos únicamente con datos numéricos, las matrices son el método 
 ### Listas
 
 Las listas son una manera de almacenar datos muy potente pero cuya exploración puede resultar algo complicada. A continuación de puede ver una manera de visualizar interactivamente el contenido de una lista compleja.
-```{r repurrrsive}
-if (!require('pacman')) install.packages('pacman'); library('pacman')
-# p_load(repurrrsive)
+```{r repurrrsive, eval=FALSE}
+if (!require('repurrrsive')) install.packages('repurrrsive'); library('repurrrsive')
 # listviewer::jsonedit(got_chars)
 ```
 
@@ -45,8 +44,7 @@ Tras descargar el archivo de arriba, lo **moveremos a nuestro directorio de trab
 
 ```{r import_data_csv, message=FALSE, warning=FALSE}
 # Cargamos librerias
-if (!require('pacman')) install.packages('pacman'); library('pacman')
-p_load(readr)
+if (!require('readr')) install.packages('readr'); library('readr')
 
 # Establecemos directorio de trabajo
 # setwd("R workshop")
@@ -73,8 +71,7 @@ Vamos a usar la siguiente [base de datos](Data/04-Data_types_import_export/Impor
 
 ```{r import_data_xls, message=FALSE, warning=FALSE}
 # Cargamos librerias
-if (!require('pacman')) install.packages('pacman'); library('pacman')
-p_load(readxl)
+if (!require('readxl')) install.packages('readxl'); library('readxl')
 
 # Establecemos directorio de trabajo
 # setwd("R workshop")
@@ -95,8 +92,7 @@ Vamos a usar la siguiente [base de datos](Data/04-Data_types_import_export/Impor
 
 ```{r import_data_sav, message=FALSE, warning=FALSE}
 # Cargamos librerias
-if (!require('pacman')) install.packages('pacman'); library('pacman')
-p_load(haven)
+if (!require('haven')) install.packages('haven'); library('haven')
 
 # Establecemos directorio de trabajo
 # setwd("R workshop")
@@ -120,8 +116,9 @@ Vamos a usar los siguientes [archivos](Data/04-Data_types_import_export/CSVs/CSV
 From: https://gist.github.com/ColinFay/d74d331825868b181860212cd1577b69 by `@_ColinFay`
 
 ```{r import_all_files_from_folder_purrr, message=FALSE, warning=FALSE}
-if (!require('pacman')) install.packages('pacman'); library('pacman')
-p_load(purrr, readr, dplyr)
+if (!require('purrr')) install.packages('purrr'); library('purrr')
+if (!require('readr')) install.packages('readr'); library('readr')
+if (!require('dplyr')) install.packages('dplyr'); library('dplyr')
 
 files <- list.files("Data/04-Data_types_import_export/CSVs", pattern = "^0", full.names = TRUE)
 full <- map_df(files, read_csv)
@@ -137,8 +134,10 @@ full2
 #### Traditional way
 
 ```{r import_all_files_from_folder, message=FALSE, warning=FALSE}
-if (!require('pacman')) install.packages('pacman'); library('pacman')
-p_load(purrr, readr, dplyr)
+if (!require('purrr')) install.packages('purrr'); library('purrr')
+if (!require('readr')) install.packages('readr'); library('readr')
+if (!require('dplyr')) install.packages('dplyr'); library('dplyr')
+
 
 # We list all files in the desired folder
 Path_Folder = "Data/04-Data_types_import_export/CSVs/"
@@ -184,9 +183,8 @@ A partir de la version 1.0 de RStudio podemos importar archivos de datos usando 
 
 ```{r export_data}
 # Carga libreria
-if (!require('pacman')) install.packages('pacman'); library('pacman')
-p_load(readr)
-    
+if (!require('readr')) install.packages('readr'); library('readr')
+
 # Volcamos datos a archivo
 write_csv(datos, "Data/04-Data_types_import_export/Export_saved_file.csv")
 

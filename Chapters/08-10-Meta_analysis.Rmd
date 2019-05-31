@@ -24,8 +24,7 @@ Experiment2
 
 **Libraries**
 ```{r 08-10-Meta_analysis-1, message=FALSE}
-if (!require('pacman')) install.packages('pacman'); library('pacman')
-p_load(metafor)
+if (!require('metafor')) install.packages('metafor'); library('metafor')
 ```
 
 ### Natural Frequencies Effect

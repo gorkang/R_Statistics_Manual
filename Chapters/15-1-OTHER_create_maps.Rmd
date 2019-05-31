@@ -8,8 +8,13 @@ Interesting stuff not necessarily related to stats :)
 ***
 ```{r generate_maps_libraries, message=FALSE, warning=FALSE}
 # Cargamos librerias y leemos DBif
-if (!require('pacman')) install.packages('pacman'); library('pacman')
-p_load(ggplot2, ggmap, readr, dplyr, ggrepel, stringr)
+if (!require('readr')) install.packages('readr'); library('readr')
+if (!require('dplyr')) install.packages('dplyr'); library('dplyr')
+if (!require('ggplot2')) install.packages('ggplot2'); library('ggplot2')
+if (!require('ggmap')) install.packages('ggmap'); library('ggmap')
+if (!require('ggrepel')) install.packages('ggrepel'); library('ggrepel')
+if (!require('stringr')) install.packages('stringr'); library('stringr')
+
 
 ```
 

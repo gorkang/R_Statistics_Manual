@@ -7,8 +7,7 @@ For more details and the source code, visit the Github page of the [FFTrees pack
 
 **Libraries**
 ```{r FFT_libraries, message=FALSE}
-if (!require('pacman')) install.packages('pacman'); library('pacman')
-p_load(FFTrees)
+if (!require('FFTrees')) install.packages('FFTrees'); library('FFTrees')
 ```
 
 

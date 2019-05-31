@@ -43,9 +43,12 @@ Vamos a usar la siguiente [base de datos](Data/06_Visualize_data/Visualize_data.
 * Cargamos librerias y leemos datos
 ```{r read_data, message=FALSE, warning=FALSE}
 # Cargamos librerias
-if (!require('pacman')) install.packages('pacman'); library('pacman')
-p_load(readr, dplyr, yarrr, DT, ggplot2)  
-    
+if (!require('readr')) install.packages('readr'); library('readr')
+if (!require('dplyr')) install.packages('dplyr'); library('dplyr')
+if (!require('yarrr')) install.packages('yarrr'); library('yarrr')
+if (!require('DT')) install.packages('DT'); library('DT')
+if (!require('ggplot2')) install.packages('ggplot2'); library('ggplot2')
+
 # Leemos datos y echamos un vistazo usando el paquete DT::datatable()
 datos = read_csv("Data/06_Visualize_data/Visualize_data.csv"); DT::datatable(datos)  
   
@@ -79,7 +82,7 @@ qplot(datos$Edad,
 
 
 # Y axis shows the proper number
-max_bins = datos %>% group_by(Edad) %>% summarise(N = n()) %>% arrange(desc(N))#distinct(N) %>% filter(N == max(N)) 
+max_bins = datos %>% group_by(Edad) %>% dplyr::summarise(N = n()) %>% arrange(desc(N))#distinct(N) %>% filter(N == max(N)) 
 ggplot(datos, aes(Edad)) +
   geom_dotplot(binwidth = 1, fill = "forestgreen") +
   coord_fixed(ratio=1) +
@@ -92,13 +95,15 @@ ggplot(datos, aes(Edad)) +
 Si queremos ver los histogramas de todas las variables numéricas de nuestro dataset:
 ```{r multiple_histograms}
 # Metodo 1
-if (!require('pacman')) install.packages('pacman'); library('pacman')
-p_load(psych) #plyr
+if (!require('psych')) install.packages('psych'); library('psych')
+#plyr
 # multi.hist(datos) #error, not numeric
 multi.hist(datos[,sapply(datos, is.numeric)])
 
 # Metodo 2
-p_load(reshape2, ggplot2)
+if (!require('ggplot2')) install.packages('ggplot2'); library('ggplot2')
+if (!require('reshape2')) install.packages('reshape2'); library('reshape2')
+
 d <- melt(datos)
 ggplot(d,aes(x = value)) + 
     facet_wrap(~variable,scales = "free_x") + 
@@ -112,9 +117,8 @@ ggplot(d,aes(x = value)) +
 Ver la web del creador: [Pirate plot](http://nathanieldphillips.com/) y su página de [Github](https://github.com/ndphillips/yarrr)
 ```{r pirate}
 # Cargamos librerias
-if (!require('pacman')) install.packages('pacman'); library('pacman')
-p_load(yarrr)
-    
+if (!require('yarrr')) install.packages('yarrr'); library('yarrr')
+
 # Mostramos gráfico con opciones por defecto
 pirateplot(formula = PPV_DECLARED ~ condition, datos)
 
@@ -182,8 +186,7 @@ Ver la web del paquete: [Correlation plot](https://cran.r-project.org/web/packag
 
 ```{r correlation_plot}
 # Cargamos libreria
-if (!require('pacman')) install.packages('pacman'); library('pacman')
-p_load(corrplot)
+if (!require('corrplot')) install.packages('corrplot'); library('corrplot')
 
 corrplot(cor(datos[,c(2:5,7)]), mar = c(1,0, 0, 0),tl.cex = 0.9, 
          method = "square", type = "lower", tl.col = "black", diag = T)
@@ -192,8 +195,9 @@ corrplot(cor(datos[,c(2:5,7)]), mar = c(1,0, 0, 0),tl.cex = 0.9,
 
 # Correlation with ggplot
 # From http://r-statistics.co/Top50-Ggplot2-Visualizations-MasterList-R-Code.html
-if (!require('pacman')) install.packages('pacman'); library('pacman')
-p_load(ggplot2, ggcorrplot)
+if (!require('ggplot2')) install.packages('ggplot2'); library('ggplot2')
+if (!require('ggcorrplot')) install.packages('ggcorrplot'); library('ggcorrplot')
+
 corr = round(cor(datos[,c(2:5,7)]), 1)
 
 # Plot
@@ -217,9 +221,8 @@ Ver la web del paquete [Beanplot](https://cran.r-project.org/web/packages/beanpl
 
 ```{r bean_plot}
 # Cargamos libreria
-if (!require('pacman')) install.packages('pacman'); library('pacman')
-p_load(beanplot)
-    
+if (!require('beanplot')) install.packages('beanplot'); library('beanplot')
+
 beanplot(FollowUP ~ Genero, data = datos,  side = "both", log = "", names = c("Hombre","Mujer"),
 what = c(1,1,1,0), border = NA, col = list("black", c("grey", "white")))
 # legend("bottomleft", fill = c("black", "grey"), legend = c("H", "M"), title = "Genero")
@@ -233,8 +236,7 @@ what = c(1,1,1,0), border = NA, col = list("black", c("grey", "white")))
 Ver la web del creador: [ggpubr](http://www.sthda.com/english/rpkgs/ggpubr/) y su página de [Github](https://github.com/kassambara/ggpubr)
 ```{r scatterplot}
 # Cargamos libreria
-if (!require('pacman')) install.packages('pacman'); library('pacman')
-p_load(ggpubr)
+if (!require('ggpubr')) install.packages('ggpubr'); library('ggpubr')
 
 ggscatter(datos_no_tibble, x = "Educacion", y = "Edad",
    color = "black", shape = 21, size = 4, # Points color, shape and size
@@ -251,8 +253,8 @@ Ver la web de documentación de [ggplot2](http://docs.ggplot2.org/current/) y su
 
 ```{r scatterplot_3v}
 # Cargamos libreria
-if (!require('pacman')) install.packages('pacman'); library('pacman')
-p_load(dplyr, ggplot2)
+if (!require('dplyr')) install.packages('dplyr'); library('dplyr')
+if (!require('ggplot2')) install.packages('ggplot2'); library('ggplot2')
 
 ggplot(datos, aes(PPV_DECLARED, FollowUP, color=factor(Genero))) +
     geom_point(shape=1, size = 2) +
@@ -270,8 +272,11 @@ Ver la web del creador: [ggpubr](http://www.sthda.com/english/rpkgs/ggpubr/) y s
 * The variable we use to create two different sub-plots has to be a factor!  
 
 ```{r dentity_plot}
-if (!require('pacman')) install.packages('pacman'); library('pacman')
-p_load(dplyr, ggplot2, ggpubr, readr)
+if (!require('readr')) install.packages('readr'); library('readr')
+if (!require('dplyr')) install.packages('dplyr'); library('dplyr')
+if (!require('ggpubr')) install.packages('ggpubr'); library('ggpubr')
+if (!require('ggplot2')) install.packages('ggplot2'); library('ggplot2')
+
 
 datos = read_csv("Data/06_Visualize_data/Visualize_data.csv")
 
@@ -288,8 +293,9 @@ ggdensity(datos, x = "PPV_DECLARED",
 ### Density Ridges Plots (ggjoy)
 
 ```{r density_ridges}
-if (!require('pacman')) install.packages('pacman'); library('pacman')
-p_load(dplyr, ggplot2, ggridges)
+if (!require('dplyr')) install.packages('dplyr'); library('dplyr')
+if (!require('ggridges')) install.packages('ggridges'); library('ggridges')
+if (!require('ggplot2')) install.packages('ggplot2'); library('ggplot2')
 
 datos_density_ridges = datos %>% drop_na() %>% 
   filter(Educacion < 8) %>% 
@@ -325,8 +331,7 @@ ggplot(datos_density_ridges, aes(x = FollowUP, y = Genero, fill = Genero)) +
 Plots of distributional differences... See http://www.dandersondata.com/post/esvis-part-1/
 
 ```{r PP_plot, message=FALSE, warning=FALSE}
-p_load(esvis)
-# devtools::install_github("DJAnderson07/esvis")
+if (!require('esvis')) devtools::install_github("DJAnderson07/esvis"); library('esvis')
 
 pp_plot(reading ~ frl, benchmarks)
 
@@ -345,7 +350,6 @@ pp_plot(reading ~ ell, benchmarks, ref_group = "Non-ELL")
 
 For the sake of comparison, here are the distributions plotted with geom_density_ridges:
 ```{r PP_plot_comparison, message=FALSE, warning=FALSE}
-
 ggplot(benchmarks, aes(x = reading, y = ell, fill = ell)) + 
   geom_density_ridges(scale = 2, alpha = .7, color = "white", stat = "binline", bins = 20) + 
   geom_density_ridges(scale = 2, alpha = .4, color = "white") + 
@@ -361,7 +365,9 @@ FROM \@kara_woo: https://gist.github.com/karawoo/14f4f46da900b09997d26171d092fb9
 
 
 ```{r shaded_area, message=FALSE, warning=FALSE}
-p_load(readr, dplyr, ggplot2)
+if (!require('readr')) install.packages('readr'); library('readr')
+if (!require('dplyr')) install.packages('dplyr'); library('dplyr')
+if (!require('ggplot2')) install.packages('ggplot2'); library('ggplot2')
 
 data_for_plot = read_csv("Data/06_Visualize_data/data_shaded_geom_area.csv")
 
@@ -423,8 +429,11 @@ ggplot(dat, aes(x = year, y = count, group = cat, order = cat, fill = cat)) +
 ### Multiple Scatterplots
 
 ```{r scatterplot_multiple, warning=FALSE}
-if (!require('pacman')) install.packages('pacman'); library('pacman')
-p_load(readr, dplyr, ggplot2, ggthemes, Rmisc)
+if (!require('readr')) install.packages('readr'); library('readr')
+if (!require('dplyr')) install.packages('dplyr'); library('dplyr')
+if (!require('ggplot2')) install.packages('ggplot2'); library('ggplot2')
+if (!require('ggthemes')) install.packages('ggthemes'); library('ggthemes')
+if (!require('Rmisc')) install.packages('Rmisc'); library('Rmisc')
 
 a = read_csv("Data/06_Visualize_data/data_multiple_scatterplot.csv")
 
@@ -478,7 +487,9 @@ multiplot(p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, cols=3)
 FROM: https://drsimonj.svbtle.com/plotting-background-data-for-groups-with-ggplot2
 
 ```{r background_data, warning=FALSE}
-p_load(readr, dplyr, ggplot2)
+if (!require('readr')) install.packages('readr'); library('readr')
+if (!require('dplyr')) install.packages('dplyr'); library('dplyr')
+if (!require('ggplot2')) install.packages('ggplot2'); library('ggplot2')
 
 d <- iris        # Full data set
 d_bg <- d[, -5]  # Background Data - full without the 5th column (Species)
@@ -508,9 +519,7 @@ ggplot(d, aes(x = Sepal.Width, y = Sepal.Length, colour = Species)) +
 FROM: https://www.displayr.com/how-to-create-sankey-diagrams-from-tables-using-r/?utm_medium=Feed&utm_source=Syndication  
 
 ```{r Flip-plots, message=FALSE, warning=FALSE}
-remotes::install_github("Displayr/flipPlots")
-
-library(flipPlots)
+if (!require('flipPlots')) remotes::install_github("Displayr/flipPlots"); library('flipPlots')
 
 
 my.data = data.frame(Married = c("Yes","Yes", "Yes", "No", "No"),

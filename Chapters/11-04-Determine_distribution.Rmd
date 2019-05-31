@@ -5,8 +5,8 @@ FROM: https://stats.stackexchange.com/questions/132652/how-to-determine-which-di
 Which ditribution best fits our data.
 
 ```{r determine_distribution, message=FALSE, warning=FALSE}
-if(!require('pacman')) install.packages('pacman'); library('pacman')
-p_load(fitdistrplus, logspline)
+if(!require('fitdistrplus')) install.packages('fitdistrplus'); library('fitdistrplus')
+if(!require('logspline')) install.packages('logspline'); library('logspline')
 
 ```
 

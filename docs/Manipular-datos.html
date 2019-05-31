@@ -1,15 +1,14 @@
 <!DOCTYPE html>
-<html >
-
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>6 Manipular datos | R - Statistics Manual</title>
-  <meta name="description" content="Statistics manual from CSCN.">
-  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+  <meta name="description" content="Statistics manual from CSCN." />
+  <meta name="generator" content="bookdown 0.11 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="6 Manipular datos | R - Statistics Manual />
+  <meta property="og:title" content="6 Manipular datos | R - Statistics Manual" />
   <meta property="og:type" content="book" />
   
   
@@ -17,19 +16,19 @@
   <meta name="github-repo" content="gorkang/R_Statistics_Manual" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="6 Manipular datos | R - Statistics Manual />
+  <meta name="twitter:title" content="6 Manipular datos | R - Statistics Manual" />
   
   <meta name="twitter:description" content="Statistics manual from CSCN." />
   
 
-<meta name="author" content="Center for Social and Cognitive Neuroscience - cscn.uai.cl">
+<meta name="author" content="Center for Social and Cognitive Neuroscience - cscn.uai.cl" />
 
 
-<meta name="date" content="2018-12-17">
+<meta name="date" content="2019-05-31" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
 <link rel="prev" href="basics-data-types-import-and-export-data.html">
@@ -50,7 +49,7 @@
 
 <script src="libs/htmlwidgets-1.3/htmlwidgets.js"></script>
 <link href="libs/str_view-0.1.0/str_view.css" rel="stylesheet" />
-<script src="libs/str_view-binding-1.3.1/str_view.js"></script>
+<script src="libs/str_view-binding-1.4.0/str_view.js"></script>
 <script src="libs/datatables-binding-0.2.10/datatables.js"></script>
 <link href="libs/dt-core-1.10.12/css/jquery.dataTables.min.css" rel="stylesheet" />
 <link href="libs/dt-core-1.10.12/css/jquery.dataTables.extra.css" rel="stylesheet" />
@@ -78,7 +77,7 @@ a.sourceLine { text-indent: -1em; padding-left: 1em; }
 pre.numberSource a.sourceLine
   { position: relative; left: -4em; }
 pre.numberSource a.sourceLine::before
-  { content: attr(title);
+  { content: attr(data-line-number);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
     border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
@@ -210,7 +209,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.5.1" data-path="Manipular-datos.html"><a href="Manipular-datos.html#cambiar-multiples-columnas-de-un-tipo-a-otro"><i class="fa fa-check"></i><b>6.5.1</b> Cambiar multiples columnas de un tipo a otro</a></li>
 </ul></li>
 <li class="chapter" data-level="6.6" data-path="Manipular-datos.html"><a href="Manipular-datos.html#regular-expressions"><i class="fa fa-check"></i><b>6.6</b> Regular expressions</a></li>
-<li class="chapter" data-level="6.7" data-path="Manipular-datos.html"><a href="Manipular-datos.html#tutoriales-externos"><i class="fa fa-check"></i><b>6.7</b> Tutoriales externos</a></li>
+<li class="chapter" data-level="6.7" data-path="Manipular-datos.html"><a href="Manipular-datos.html#trabajando-con-fechas"><i class="fa fa-check"></i><b>6.7</b> Trabajando con fechas</a></li>
+<li class="chapter" data-level="6.8" data-path="Manipular-datos.html"><a href="Manipular-datos.html#tutoriales-externos"><i class="fa fa-check"></i><b>6.8</b> Tutoriales externos</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html"><i class="fa fa-check"></i><b>7</b> Visualizar datos</a><ul>
 <li class="chapter" data-level="7.1" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#other-resources"><i class="fa fa-check"></i><b>7.1</b> Other resources</a></li>
@@ -260,6 +260,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="10.5.2" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#pictures-effect"><i class="fa fa-check"></i><b>10.5.2</b> Pictures Effect</a></li>
 <li class="chapter" data-level="10.5.3" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#notes-on-meta-analysis"><i class="fa fa-check"></i><b>10.5.3</b> Notes on Meta-analysis</a></li>
 </ul></li>
+<li class="chapter" data-level="10.6" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#roc-curves"><i class="fa fa-check"></i><b>10.6</b> ROC Curves</a></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="Funciones.html"><a href="Funciones.html"><i class="fa fa-check"></i><b>11</b> Funciones</a><ul>
 <li class="chapter" data-level="11.1" data-path="Funciones.html"><a href="Funciones.html#creando-mi-primera-funcion"><i class="fa fa-check"></i><b>11.1</b> Creando mi primera función</a><ul>
@@ -360,8 +361,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <hr />
 <p>Cargamos librerias</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pacman&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pacman&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pacman&#39;</span>)
-<span class="kw">p_load</span>(readr, dplyr, tidyr, stringr)</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;readr&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;readr&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;readr&#39;</span>)
+<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;dplyr&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;dplyr&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;dplyr&#39;</span>)
+<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;tidyr&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;tidyr&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;tidyr&#39;</span>)
+<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;stringr&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;stringr&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;stringr&#39;</span>)</code></pre>
 <div id="leer-y-guardar-datos" class="section level2">
 <h2><span class="header-section-number">6.1</span> Leer y guardar datos</h2>
 <div id="leer-datos" class="section level3">
@@ -380,7 +383,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  8     8 zz                   0    35    93    12    17  1014  8018    50
 ##  9     9 xx                   0    23    81    42     8   516   548   491
 ## 10    10 yy                   1    19    41    42    18  2232  6105   227
-## # ... with 20 more rows, and 1 more variable: Composited_var &lt;chr&gt;</code></pre>
+## # … with 20 more rows, and 1 more variable: Composited_var &lt;chr&gt;</code></pre>
 </div>
 <div id="guardar-db-a-archivo" class="section level3">
 <h3><span class="header-section-number">6.1.2</span> Guardar DB a archivo</h3>
@@ -408,7 +411,7 @@ temp <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">sel
 ##  8 zz              
 ##  9 xx              
 ## 10 yy              
-## # ... with 20 more rows</code></pre>
+## # … with 20 more rows</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># temp no ha cambiado</span>
 temp</code></pre>
 <pre><code>## # A tibble: 30 x 11
@@ -424,7 +427,7 @@ temp</code></pre>
 ##  8     8 zz                   0    35    93    12    17  1014  8018    50
 ##  9     9 xx                   0    23    81    42     8   516   548   491
 ## 10    10 yy                   1    19    41    42    18  2232  6105   227
-## # ... with 20 more rows, and 1 more variable: Composited_var &lt;chr&gt;</code></pre>
+## # … with 20 more rows, and 1 more variable: Composited_var &lt;chr&gt;</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Lo mismo de antes pero ahora con &quot;temp =&quot; lo que hace que guardemos el resultado en &quot;temp&quot; </span>
 temp =<span class="st"> </span>temp <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(<span class="st">`</span><span class="dt">Columna basura</span><span class="st">`</span>)
   
@@ -443,7 +446,7 @@ temp</code></pre>
 ##  8 zz              
 ##  9 xx              
 ## 10 yy              
-## # ... with 20 more rows</code></pre>
+## # … with 20 more rows</code></pre>
 </div>
 <div id="verbos-de-dplyr" class="section level2">
 <h2><span class="header-section-number">6.3</span> Verbos de dplyr</h2>
@@ -486,7 +489,7 @@ dplyr es un conjunto de funciones que nos permiten manipular los datos de manera
 <tr class="odd">
 <td>Separate contents of variable</td>
 <td>separate()</td>
-<td><code>datos %&gt;% separate(Composited_var, c("First", "Second"), sep = "_")</code></td>
+<td><code>datos %&gt;% separate(Composited_var, c(&quot;First&quot;, &quot;Second&quot;), sep = &quot;_&quot;)</code></td>
 </tr>
 <tr class="even">
 <td>Extraer valores únicos</td>
@@ -516,17 +519,17 @@ dplyr es un conjunto de funciones que nos permiten manipular los datos de manera
 <tr class="odd">
 <td>Combinar bases de datos</td>
 <td>left_join()</td>
-<td><code>left_join(datos1, datos2, by = "ID")</code></td>
+<td><code>left_join(datos1, datos2, by = &quot;ID&quot;)</code></td>
 </tr>
 <tr class="even">
 <td>Recodificar valores</td>
 <td>ifelse()</td>
-<td><code>datos %&gt;% mutate(Edad = ifelse ( Edad &gt; 30, "Viejuno", "Pipiolo"))</code></td>
+<td><code>datos %&gt;% mutate(Edad = ifelse ( Edad &gt; 30, &quot;Viejuno&quot;, &quot;Pipiolo&quot;))</code></td>
 </tr>
 <tr class="odd">
 <td>Recodificar valores</td>
 <td>case_when()</td>
-<td><code>datos %&gt;% mutate(Edad = case_when(.$Edad &gt; 30 ~ "Viejuno", "Pipiolo))"</code></td>
+<td><code>datos %&gt;% mutate(Edad = case_when(.$Edad &gt; 30 ~ &quot;Viejuno&quot;, &quot;Pipiolo))&quot;</code></td>
 </tr>
 </tbody>
 </table>
@@ -555,7 +558,7 @@ raw_data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw"
 ## 16    25 yy                   1    28    53    34    14  1974   582   493
 ## 17    27 xx                   1    22    68    44     2   537  6455    88
 ## 18    30 xx                   1    35    87    18     5  1682  8256   405
-## # ... with 1 more variable: Composited_var &lt;chr&gt;</code></pre>
+## # … with 1 more variable: Composited_var &lt;chr&gt;</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Filtramos por sexo, edad, y Tiempo</span>
 raw_data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Sexo <span class="op">==</span><span class="st"> </span><span class="dv">1</span>, Edad  <span class="op">&gt;</span><span class="st"> </span><span class="dv">25</span>, VI1_t <span class="op">&lt;</span><span class="st"> </span><span class="kw">mean</span>(VI1_t)) </code></pre>
 <pre><code>## # A tibble: 4 x 11
@@ -565,7 +568,7 @@ raw_data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw"
 ## 2    20 zz                   1    28    68    12     5   863   847   335
 ## 3    25 yy                   1    28    53    34    14  1974   582   493
 ## 4    30 xx                   1    35    87    18     5  1682  8256   405
-## # ... with 1 more variable: Composited_var &lt;chr&gt;</code></pre>
+## # … with 1 more variable: Composited_var &lt;chr&gt;</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Filtramos aquellas respuestas que se han dado 2.5 desviaciones tipicas por encima o debajo de la media</span>
 raw_data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(
   VI1 <span class="op">&lt;</span><span class="st"> </span><span class="kw">mean</span>(VI1) <span class="op">+</span><span class="st"> </span><span class="fl">2.5</span> <span class="op">*</span><span class="st"> </span><span class="kw">sd</span>(VI1),
@@ -584,7 +587,7 @@ raw_data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw"
 ##  8     8 zz                   0    35    93    12    17  1014  8018    50
 ##  9     9 xx                   0    23    81    42     8   516   548   491
 ## 10    10 yy                   1    19    41    42    18  2232  6105   227
-## # ... with 20 more rows, and 1 more variable: Composited_var &lt;chr&gt;</code></pre>
+## # … with 20 more rows, and 1 more variable: Composited_var &lt;chr&gt;</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Filtrar filas donde aparece determinado texto</span>
 raw_data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(<span class="kw">str_detect</span>(<span class="st">`</span><span class="dt">Columna basura</span><span class="st">`</span>, <span class="st">&quot;zz&quot;</span>))</code></pre>
 <pre><code>## # A tibble: 9 x 11
@@ -599,7 +602,7 @@ raw_data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw"
 ## 7    23 zz                   1    28    25    12     8  3558   617    98
 ## 8    26 zz                   0    21    83    26     6  3305  6470   318
 ## 9    29 zz                   0    37    88    12    11  4546  5188   380
-## # ... with 1 more variable: Composited_var &lt;chr&gt;</code></pre>
+## # … with 1 more variable: Composited_var &lt;chr&gt;</code></pre>
 </div>
 <div id="ordenar-db" class="section level3">
 <h3><span class="header-section-number">6.3.2</span> Ordenar DB</h3>
@@ -618,7 +621,7 @@ raw_data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw"
 ##  8    26 zz                   0    21    83    26     6  3305  6470   318
 ##  9    16 yy                   1    21    99     3    16   679  7278   401
 ## 10    27 xx                   1    22    68    44     2   537  6455    88
-## # ... with 20 more rows, and 1 more variable: Composited_var &lt;chr&gt;</code></pre>
+## # … with 20 more rows, and 1 more variable: Composited_var &lt;chr&gt;</code></pre>
 </div>
 <div id="seleccionar-variables" class="section level3">
 <h3><span class="header-section-number">6.3.3</span> Seleccionar variables</h3>
@@ -637,7 +640,7 @@ raw_data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw"
 ##  8     8     0    35    93
 ##  9     9     0    23    81
 ## 10    10     1    19    41
-## # ... with 20 more rows</code></pre>
+## # … with 20 more rows</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Podemos usar el número de columna    </span>
 raw_data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(<span class="dv">1</span>,<span class="dv">3</span><span class="op">:</span><span class="dv">4</span>)</code></pre>
 <pre><code>## # A tibble: 30 x 3
@@ -653,7 +656,7 @@ raw_data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw"
 ##  8     8     0    35
 ##  9     9     0    23
 ## 10    10     1    19
-## # ... with 20 more rows</code></pre>
+## # … with 20 more rows</code></pre>
 <p><BR>
 Para seleccionar varias columnas rapidamente usaremos la subfunción de select(), <code>matches()</code>. En esta podemos usar algo llamado <a href="http://www.zytrax.com/tech/web/regex.htm">Regular Expressions</a>, cuyo poder y dificultad es infinito. Ver por ejemplo, una expresión regular para validar numeros romanos: <code>^M{0,4}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})$</code></p>
 <div class="figure">
@@ -679,12 +682,12 @@ datos</code></pre>
 ##  8     8     0    35    93    12    17  1014  8018    50
 ##  9     9     0    23    81    42     8   516   548   491
 ## 10    10     1    19    41    42    18  2232  6105   227
-## # ... with 20 more rows</code></pre>
+## # … with 20 more rows</code></pre>
 </div>
 <div id="renombrar-variables" class="section level3">
 <h3><span class="header-section-number">6.3.4</span> Renombrar variables</h3>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Renombramos columna X. En este caso, como el nombre de columna contiene espacios, tenemos que usar ``</span>
-raw_data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">rename</span>(<span class="dt">Columna_basura =</span> <span class="st">`</span><span class="dt">Columna basura</span><span class="st">`</span>)</code></pre>
+raw_data <span class="op">%&gt;%</span><span class="st"> </span>dplyr<span class="op">::</span><span class="kw">rename</span>(<span class="dt">Columna_basura =</span> <span class="st">`</span><span class="dt">Columna basura</span><span class="st">`</span>)</code></pre>
 <pre><code>## # A tibble: 30 x 11
 ##       ID Columna_basura  Sexo  Edad   VI1   VI2   VI3 VI1_t VI2_t VI3_t
 ##    &lt;dbl&gt; &lt;chr&gt;          &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
@@ -698,10 +701,10 @@ raw_data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw"
 ##  8     8 zz                 0    35    93    12    17  1014  8018    50
 ##  9     9 xx                 0    23    81    42     8   516   548   491
 ## 10    10 yy                 1    19    41    42    18  2232  6105   227
-## # ... with 20 more rows, and 1 more variable: Composited_var &lt;chr&gt;</code></pre>
+## # … with 20 more rows, and 1 more variable: Composited_var &lt;chr&gt;</code></pre>
 <p><strong>Renombrado avanzado</strong></p>
 <p>Rename using the position of the column</p>
-<pre class="sourceCode r"><code class="sourceCode r">raw_data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">rename</span>(<span class="dt">second_column =</span> <span class="op">!!</span><span class="kw">names</span>(.[<span class="dv">2</span>]), <span class="dt">first_column =</span> <span class="op">!!</span><span class="kw">names</span>(.[<span class="dv">1</span>]))</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">raw_data <span class="op">%&gt;%</span><span class="st"> </span>dplyr<span class="op">::</span><span class="kw">rename</span>(<span class="dt">second_column =</span> <span class="op">!!</span><span class="kw">names</span>(.[<span class="dv">2</span>]), <span class="dt">first_column =</span> <span class="op">!!</span><span class="kw">names</span>(.[<span class="dv">1</span>]))</code></pre>
 <pre><code>## # A tibble: 30 x 11
 ##    first_column second_column  Sexo  Edad   VI1   VI2   VI3 VI1_t VI2_t
 ##           &lt;dbl&gt; &lt;chr&gt;         &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
@@ -715,7 +718,7 @@ raw_data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw"
 ##  8            8 zz                0    35    93    12    17  1014  8018
 ##  9            9 xx                0    23    81    42     8   516   548
 ## 10           10 yy                1    19    41    42    18  2232  6105
-## # ... with 20 more rows, and 2 more variables: VI3_t &lt;dbl&gt;,
+## # … with 20 more rows, and 2 more variables: VI3_t &lt;dbl&gt;,
 ## #   Composited_var &lt;chr&gt;</code></pre>
 </div>
 <div id="separate-contents-of-a-single-variable" class="section level3">
@@ -734,7 +737,7 @@ raw_data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw"
 ##  8     8 zz                   0    35    93    12    17  1014  8018    50
 ##  9     9 xx                   0    23    81    42     8   516   548   491
 ## 10    10 yy                   1    19    41    42    18  2232  6105   227
-## # ... with 20 more rows, and 2 more variables: First &lt;chr&gt;, Second &lt;chr&gt;</code></pre>
+## # … with 20 more rows, and 2 more variables: First &lt;chr&gt;, Second &lt;chr&gt;</code></pre>
 </div>
 <div id="wide-to-long-format" class="section level3">
 <h3><span class="header-section-number">6.3.6</span> Wide to Long format</h3>
@@ -757,7 +760,7 @@ data_long_RAW <span class="op">%&gt;%</span><span class="st"> </span><span class
 ##  8     1     0    26 VI2          29   404
 ##  9     1     0    26 VI3          19   404
 ## 10     2     0    33 VI1          15  4893
-## # ... with 260 more rows</code></pre>
+## # … with 260 more rows</code></pre>
 </div>
 <div id="long-to-wide" class="section level3">
 <h3><span class="header-section-number">6.3.7</span> Long to wide</h3>
@@ -778,7 +781,7 @@ data_long_RAW <span class="op">%&gt;%</span><span class="st"> </span><span class
 ##  8     8     0    35    93    12    17  1014  8018    50
 ##  9     9     0    23    81    42     8   516   548   491
 ## 10    10     1    19    41    42    18  2232  6105   227
-## # ... with 20 more rows</code></pre>
+## # … with 20 more rows</code></pre>
 </div>
 <div id="omitir-nas" class="section level3">
 <h3><span class="header-section-number">6.3.8</span> Omitir NAs</h3>
@@ -809,7 +812,7 @@ data_long_RAW =<span class="st"> </span>data_long_RAW <span class="op">%&gt;%</s
 ##  8     8     0    35 VI1          93  1014 TRUE   
 ##  9     9     0    23 VI1          81   516 FALSE  
 ## 10    10     1    19 VI1          41  2232 FALSE  
-## # ... with 260 more rows</code></pre>
+## # … with 260 more rows</code></pre>
 </div>
 <div id="transformando-otras-variables" class="section level4">
 <h4><span class="header-section-number">6.3.10.2</span> Transformando otras variables</h4>
@@ -827,7 +830,7 @@ data_long_RAW =<span class="st"> </span>data_long_RAW <span class="op">%&gt;%</s
 ##  8     8     0    35 VI1          93  1014   6.92
 ##  9     9     0    23 VI1          81   516   6.25
 ## 10    10     1    19 VI1          41  2232   7.71
-## # ... with 260 more rows</code></pre>
+## # … with 260 more rows</code></pre>
 </div>
 </div>
 <div id="recodificamos-datos" class="section level3">
@@ -850,7 +853,7 @@ data_long_RAW <span class="op">%&gt;%</span><span class="st"> </span><span class
 ##  8     8     0 35    VI1          93  1014
 ##  9     9     0 23    VI1          81   516
 ## 10    10     1 19    VI1          41  2232
-## # ... with 260 more rows</code></pre>
+## # … with 260 more rows</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Cambiamos a Integer</span>
 data_long_RAW <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">Edad =</span> <span class="kw">as.integer</span>(Edad))</code></pre>
 <pre><code>## # A tibble: 270 x 6
@@ -866,7 +869,7 @@ data_long_RAW <span class="op">%&gt;%</span><span class="st"> </span><span class
 ##  8     8     0    35 VI1          93  1014
 ##  9     9     0    23 VI1          81   516
 ## 10    10     1    19 VI1          41  2232
-## # ... with 260 more rows</code></pre>
+## # … with 260 more rows</code></pre>
 </div>
 <div id="recodificamos-los-valores" class="section level4">
 <h4><span class="header-section-number">6.3.11.2</span> Recodificamos los valores</h4>
@@ -886,7 +889,7 @@ data_long_RAW <span class="op">%&gt;%</span><span class="st"> </span><span class
 ##  8     8     0    35 VI1          93  1014 Viejuno
 ##  9     9     0    23 VI1          81   516 Pipiolo
 ## 10    10     1    19 VI1          41  2232 Pipiolo
-## # ... with 260 more rows</code></pre>
+## # … with 260 more rows</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r">data_long_RAW <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">Edad2 =</span> 
                            <span class="kw">case_when</span>(
                              .<span class="op">$</span>Edad <span class="op">&gt;</span><span class="st"> </span><span class="dv">30</span> <span class="op">~</span><span class="st"> &quot;Viejuno&quot;</span>,
@@ -904,7 +907,7 @@ data_long_RAW <span class="op">%&gt;%</span><span class="st"> </span><span class
 ##  8     8     0    35 VI1          93  1014 Viejuno
 ##  9     9     0    23 VI1          81   516 Pipiolo
 ## 10    10     1    19 VI1          41  2232 Pipiolo
-## # ... with 260 more rows</code></pre>
+## # … with 260 more rows</code></pre>
 </div>
 </div>
 </div>
@@ -941,7 +944,7 @@ datos1 =<span class="st"> </span><span class="kw">read_csv</span>(<span class="s
 ##  8     8     0    35
 ##  9     9     0    23
 ## 10    10     1    19
-## # ... with 20 more rows</code></pre>
+## # … with 20 more rows</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r">datos2 =<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;Data/05-Manipulate_data/Manipulate_data_3.csv&quot;</span>); datos2</code></pre>
 <pre><code>## Parsed with column specification:
 ## cols(
@@ -966,7 +969,7 @@ datos1 =<span class="st"> </span><span class="kw">read_csv</span>(<span class="s
 ##  8     8    93    12    17  1014  8018    50
 ##  9     9    81    42     8   516   548   491
 ## 10    10    41    42    18  2232  6105   227
-## # ... with 20 more rows</code></pre>
+## # … with 20 more rows</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Combinamos las bases de datos</span>
 datos_combinados =<span class="st"> </span><span class="kw">left_join</span>(datos1, datos2, <span class="dt">by =</span> <span class="st">&quot;ID&quot;</span>); datos_combinados</code></pre>
 <pre><code>## # A tibble: 30 x 9
@@ -982,7 +985,7 @@ datos_combinados =<span class="st"> </span><span class="kw">left_join</span>(dat
 ##  8     8     0    35    93    12    17  1014  8018    50
 ##  9     9     0    23    81    42     8   516   548   491
 ## 10    10     1    19    41    42    18  2232  6105   227
-## # ... with 20 more rows</code></pre>
+## # … with 20 more rows</code></pre>
 </div>
 <div id="verbos-avanzados" class="section level2">
 <h2><span class="header-section-number">6.5</span> Verbos avanzados</h2>
@@ -1005,7 +1008,7 @@ raw_data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw"
 ##  8     8 zz                   0    35    93    12    17  1014  8018    50
 ##  9     9 xx                   0    23    81    42     8   516   548   491
 ## 10    10 yy                   1    19    41    42    18  2232  6105   227
-## # ... with 20 more rows, and 1 more variable: Composited_var &lt;chr&gt;</code></pre>
+## # … with 20 more rows, and 1 more variable: Composited_var &lt;chr&gt;</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Cambiamos las variables de VI1 a VI3</span>
 raw_data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate_at</span>(<span class="kw">vars</span>(VI1<span class="op">:</span>VI3), as.numeric)</code></pre>
 <pre><code>## # A tibble: 30 x 11
@@ -1021,7 +1024,7 @@ raw_data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw"
 ##  8     8 zz                   0    35    93    12    17  1014  8018    50
 ##  9     9 xx                   0    23    81    42     8   516   548   491
 ## 10    10 yy                   1    19    41    42    18  2232  6105   227
-## # ... with 20 more rows, and 1 more variable: Composited_var &lt;chr&gt;</code></pre>
+## # … with 20 more rows, and 1 more variable: Composited_var &lt;chr&gt;</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Cambiamos todas las variables que contienen &quot;VI&quot; en el nombre</span>
 raw_data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate_at</span>(<span class="kw">vars</span>(<span class="kw">matches</span>(<span class="st">&quot;VI&quot;</span>)), as.numeric)</code></pre>
 <pre><code>## # A tibble: 30 x 11
@@ -1037,7 +1040,7 @@ raw_data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw"
 ##  8     8 zz                   0    35    93    12    17  1014  8018    50
 ##  9     9 xx                   0    23    81    42     8   516   548   491
 ## 10    10 yy                   1    19    41    42    18  2232  6105   227
-## # ... with 20 more rows, and 1 more variable: Composited_var &lt;chr&gt;</code></pre>
+## # … with 20 more rows, and 1 more variable: Composited_var &lt;chr&gt;</code></pre>
 </div>
 </div>
 <div id="regular-expressions" class="section level2">
@@ -1047,11 +1050,20 @@ raw_data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw"
 see &lt;-<span class="st"> </span><span class="cf">function</span>(rx) <span class="kw">str_view_all</span>(<span class="st">&quot;abc ABC 123</span><span class="ch">\t</span><span class="st">.!?</span><span class="ch">\\</span><span class="st">(){}</span><span class="ch">\n</span><span class="st">&quot;</span>, rx)
 
 <span class="kw">see</span>(<span class="st">&quot;[aA]&quot;</span>)</code></pre>
-<div id="htmlwidget-94d4389210dfa8dfdfd0" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-94d4389210dfa8dfdfd0">{"x":{"html":"<ul>\n  <li><span class='match'>a<\/span>bc <span class='match'>A<\/span>BC 123\t.!?\\(){}\n<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-818b531cec644e047dc2" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-818b531cec644e047dc2">{"x":{"html":"<ul>\n  <li><span class='match'>a<\/span>bc <span class='match'>A<\/span>BC 123\t.!?\\(){}\n<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="trabajando-con-fechas" class="section level2">
+<h2><span class="header-section-number">6.7</span> Trabajando con fechas</h2>
+<p>Los formatos de fecha standard para R son: “YYYY-MM-DD” y “YYYY/MM/DD”. Si la fecha esta en otro formato, tenemos que convertirla o indicarle cual es el formato adecuado. Uno de los metodos mas fiables es usar <code>anytime::anydate()</code>.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;anytime&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;anytime&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;anytime&#39;</span>)</code></pre>
+<pre><code>## Loading required package: anytime</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">  date_<span class="dv">1</span> =<span class="st"> &quot;20190424&quot;</span>
+  anytime<span class="op">::</span><span class="kw">anydate</span>(date_<span class="dv">1</span>)</code></pre>
+<pre><code>## [1] &quot;2019-04-24&quot;</code></pre>
 </div>
 <div id="tutoriales-externos" class="section level2">
-<h2><span class="header-section-number">6.7</span> Tutoriales externos</h2>
+<h2><span class="header-section-number">6.8</span> Tutoriales externos</h2>
 <ul>
 <li><a href="http://stanford.edu/~ejdemyr/r-tutorials/modifying-data/">Tutorial para modificar datos - Simon Ejdemyr</a></li>
 <li><a href="https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf">dplyr cheatsheet</a></li>

@@ -4,8 +4,14 @@ Perform a repeated measures ANOVA and get posthocs
 
 **Libraries**
 ```{r libraries, message=FALSE}
-if (!require('pacman')) install.packages('pacman'); library('pacman')
-p_load(readr, dplyr, ggplot2, yarrr, readxl, stringr, afex, emmeans) 
+if (!require('yarrr')) install.packages('yarrr'); library('yarrr')
+if (!require('readr')) install.packages('readr'); library('readr')
+if (!require('dplyr')) install.packages('dplyr'); library('dplyr')
+if (!require('ggplot2')) install.packages('ggplot2'); library('ggplot2')
+if (!require('readxl')) install.packages('readxl'); library('readxl')
+if (!require('stringr')) install.packages('stringr'); library('stringr')
+if (!require('afex')) install.packages('afex'); library('afex')
+if (!require('emmeans')) install.packages('emmeans'); library('emmeans')
 ```
 
 

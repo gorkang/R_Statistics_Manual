@@ -33,10 +33,9 @@ Al finalizar, tendremos un archivo llamado 'Script1.R' en la carpeta 'R Workshop
 
 Mucha gente recomienda NO usar la funcion setwd(), y en su lugar, crear proyectos de RStudio.
 
-```{r first_script, message=FALSE, warning=FALSE}
+```{r first_script, message=FALSE, warning=FALSE, eval = FALSE}
 # Cargamos librerias
-if (!require('pacman')) install.packages('pacman'); library('pacman')
-p_load(readr)
+if (!require('readr')) install.packages('readr'); library('readr')
 
 # Establecemos directorio de trabajo
   # Trabajar con proyectos

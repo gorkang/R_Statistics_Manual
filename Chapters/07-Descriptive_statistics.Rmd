@@ -7,8 +7,9 @@
 
 Cargamos librerias y leemos los datos
 ```{r descriptives-load, message=FALSE, warning=FALSE}
-if (!require('pacman')) install.packages('pacman'); library('pacman')
-p_load(readr, dplyr, findviews)
+if (!require('findviews')) install.packages('findviews'); library('findviews')
+if (!require('dplyr')) install.packages('dplyr'); library('dplyr')
+if (!require('readr')) install.packages('readr'); library('readr')
 
 datos = read_csv("Data/07_Descriptive_statistics/Descriptive_statistics.csv"); datos
 
@@ -49,7 +50,8 @@ datos %>%
 
 Using stargazer we can create tables showing summary statistics or a lm output. Here we use `type = "html"` to be able to show the table in this book. `type = "latex"` (default) shows the latex code.
 ```{r descriptives-tables, results='asis'}
-p_load(stargazer)
+if (!require('stargazer')) install.packages('stargazer'); library('stargazer')
+
 stargazer(datos %>% as.data.frame(), type="html") 
 ```
 
@@ -58,8 +60,7 @@ stargazer(datos %>% as.data.frame(), type="html")
 
 With Amelia
 ```{r descriptives-missing-amelia}
-if (!require('pacman')) install.packages('pacman'); library('pacman')
-p_load(Amelia)
+if (!require('Amelia')) install.packages('Amelia'); library('Amelia')
 
 datos = datos %>% mutate(Sexo = ifelse(Edad == 37, NA, Sexo))
 
@@ -71,8 +72,8 @@ With ggplot and reshape2
 ```{r descriptives-missing-ggplot}
 # With ggplot
 # A function that plots missingness
-if (!require('pacman')) install.packages('pacman'); library('pacman')
-p_load(reshape2, ggplot2)
+if (!require('reshape2')) install.packages('reshape2'); library('reshape2')
+if (!require('ggplot2')) install.packages('ggplot2'); library('ggplot2')
 
 ggplot_missing <- function(x){
   

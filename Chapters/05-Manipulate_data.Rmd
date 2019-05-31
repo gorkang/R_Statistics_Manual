@@ -18,8 +18,10 @@
 
 Cargamos librerias
 ```{r manipulate-data-libraries, message=FALSE, warning=FALSE}
-if (!require('pacman')) install.packages('pacman'); library('pacman')
-p_load(readr, dplyr, tidyr, stringr)
+if (!require('readr')) install.packages('readr'); library('readr')
+if (!require('dplyr')) install.packages('dplyr'); library('dplyr')
+if (!require('tidyr')) install.packages('tidyr'); library('tidyr')
+if (!require('stringr')) install.packages('stringr'); library('stringr')
 ```
 
 ## Leer y guardar datos
@@ -141,7 +143,7 @@ datos
 
 ```{r manipulate-data-rename}
 # Renombramos columna X. En este caso, como el nombre de columna contiene espacios, tenemos que usar ``
-raw_data %>% rename(Columna_basura = `Columna basura`)
+raw_data %>% dplyr::rename(Columna_basura = `Columna basura`)
 
 ```
 
@@ -149,7 +151,7 @@ raw_data %>% rename(Columna_basura = `Columna basura`)
 
 Rename using the position of the column
 ```{r manipulate-data-rename2}
-raw_data %>% rename(second_column = !!names(.[2]), first_column = !!names(.[1]))
+raw_data %>% dplyr::rename(second_column = !!names(.[2]), first_column = !!names(.[1]))
 
 ```
 

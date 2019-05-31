@@ -83,8 +83,10 @@ Para muchos de los análisis que vienen a continuación hemos creado una base de
 
 ```{r data-analysis-5}
 #Packages
-if (!require('pacman')) install.packages('pacman'); library('pacman')
-p_load(readr, dplyr, yarrr, car)
+if (!require('readr')) install.packages('readr'); library('readr')
+if (!require('dplyr')) install.packages('dplyr'); library('dplyr')
+if (!require('yarrr')) install.packages('yarrr'); library('yarrr')
+if (!require('car')) install.packages('car'); library('car')
 
 
 #Importar dataframe
@@ -165,7 +167,7 @@ ggplot(df, aes(Tom, Empatia)) +
 cordata = df %>% dplyr::select(-Id,-Moral,-Sexo,-AccuracyIz,-AccuracyDer,-Edad)
 
 #carga libreria Hmisc
-p_load(Hmisc)
+if (!require('Hmisc')) install.packages('Hmisc'); library('Hmisc')
 
 #correlación multiple
 rcorr(as.matrix(cordata), type = "pearson")
@@ -223,8 +225,12 @@ rm(list=ls())
 ###Preparación de datos y packages
 ```{r data-analysis-aov2}
 #Packages
-if (!require('pacman')) install.packages('pacman'); library('pacman')
-p_load(readr, dplyr, stats, car, apaTables)
+if (!require('readr')) install.packages('readr'); library('readr')
+if (!require('dplyr')) install.packages('dplyr'); library('dplyr')
+if (!require('stats')) install.packages('stats'); library('stats')
+if (!require('car')) install.packages('car'); library('car')
+if (!require('apaTables')) install.packages('apaTables'); library('apaTables')
+
 
 #Importar dataframe
 df = read_csv("Data/08-Data_analysis/ANOVA_2.csv")
@@ -295,8 +301,11 @@ rm(list = ls())
 
 ```{r data-analysis-aov-2-fact2}
 #Packages
-if (!require('pacman')) install.packages('pacman'); library('pacman')
-p_load(readr, dplyr, yarrr, car, stats)
+if (!require('readr')) install.packages('readr'); library('readr')
+if (!require('dplyr')) install.packages('dplyr'); library('dplyr')
+if (!require('stats')) install.packages('stats'); library('stats')
+if (!require('car')) install.packages('car'); library('car')
+
 
 
 #Importar dataframe
