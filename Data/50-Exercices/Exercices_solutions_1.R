@@ -3,7 +3,6 @@
 # Cree una carpeta nueva y defina su directorio de trabajo con la función ` setwd() `
     # El directorio será diferente para cada computador
     # TRABAJAR con Proyectos
-# setwd("~/Google Drive/R - Statistics Manual/R-Curso_Basico-2016/Ejercicios")
 
 
 #Instale y cargue el Package "tideverse".

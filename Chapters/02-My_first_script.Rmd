@@ -22,7 +22,7 @@ Cuando queramos trabajar con archivos, tenemos que decirle a R donde se encuentr
 
 1. Click en More en el panel de abajo a la derecha: ![](Images/More.png)
 2. Click en "Set As Working Directory"
-3. En la Consola (abajo) aparecerá, en naranja, algo como `setwd("~/R workshop")`
+3. En la Consola (abajo) aparecerá, en naranja, algo como *setwd("~/R workshop")*
 4. Copia y pega esa linea de codigo a tu script. 
 5. Borra el '> ' inicial.
 

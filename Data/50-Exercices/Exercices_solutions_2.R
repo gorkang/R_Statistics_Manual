@@ -2,8 +2,6 @@
 rm(list=ls())
 # Cree una carpeta nueva y defina su directorio de trabajo con la función ` setwd() `
     # El directorio será diferente para cada computador
-# setwd("~/Google Drive/R - Statistics Manual/R-Curso_Basico-2016/Ejercicios")
-  # En lugar de esto, trabajar con proyectos
 
 
 #Instale y cargue el Package "tideverse".
