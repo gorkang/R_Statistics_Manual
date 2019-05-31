@@ -29,6 +29,7 @@ knitr::opts_chunk$set(
 ```
 
 ```{r load_packages, message=FALSE, warning=FALSE, include=FALSE, cache=FALSE}
+if (!require('htmlwidgets')) install.packages('htmlwidgets'); library('htmlwidgets')
 # if (!require('pacman')) install.packages('pacman'); library('pacman')
 # p_load(p_depends(MBESS)$Depends, character.only = TRUE)
 # p_load(htmlwidgets, MBESS) 
