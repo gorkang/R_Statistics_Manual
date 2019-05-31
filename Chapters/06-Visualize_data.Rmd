@@ -518,7 +518,8 @@ ggplot(d, aes(x = Sepal.Width, y = Sepal.Length, colour = Species)) +
 
 FROM: https://www.displayr.com/how-to-create-sankey-diagrams-from-tables-using-r/?utm_medium=Feed&utm_source=Syndication  
 
-```{r Flip-plots, message=FALSE, warning=FALSE, cache=FALSE}
+```{r Flip-plots, message=FALSE, warning=FALSE} 
+#cache=FALSE
 if (!require('flipPlots')) remotes::install_github("Displayr/flipPlots"); library('flipPlots')
 
 
