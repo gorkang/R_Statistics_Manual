@@ -1,24 +1,30 @@
 ## Impute missing data
 
+
+### Impute with mice
+
 **TODO: see https://www.r-bloggers.com/imputing-missing-data-with-r-mice-package/**
 
 FROM: https://www.r-bloggers.com/graphical-presentation-of-missing-data-vim-package/
 
-```{r impute_missing_data}
+```{r impute_missing_data_mice}
 if (!require('VIM')) install.packages('VIM'); library('VIM')
 if (!require('mice')) install.packages('mice'); library('mice')
 if (!require('dplyr')) install.packages('dplyr'); library('dplyr')
 if (!require('tibble')) install.packages('tibble'); library('tibble')
 
+
+# Read data
 dat <- read.csv(url("https://goo.gl/4DYzru"), header = TRUE, sep = ",")
 head(dat)
 
+# Create some missings
 set.seed(10)
 missing = rbinom(250, 1, 0.3)
 dat$Cholesterol = with(dat, ifelse(BMI >= 30 & missing == 1, NA, Cholesterol))
 sum(is.na(dat$Cholesterol))
 
-
+# Impute
 init = mice(dat, maxit = 0) 
 meth = init$method
 predM = init$predictorMatrix
@@ -27,6 +33,7 @@ set.seed(101)
 imputed = mice(dat, method = meth, predictorMatrix = predM, m = 1)
 imp = complete(imputed)
 
+# Prepare data for visualization
 dt1 = dat %>% 
   select(Cholesterol, BMI) %>% 
   dplyr::rename(Cholesterol_imp = Cholesterol) %>% 
@@ -43,10 +50,59 @@ dt = left_join(dt1, dt2)
 head(dt)
 
 
-
+# Visualize how imputation went
 vars <- c("BMI","Cholesterol","Cholesterol_imp")
 marginplot(dt[,vars], delimiter = "_imp", alpha = 0.6, pch = c(19))
 
 
+```
+
+
+### Impute with recipes
+
+```{r impute_missing_recipes}
+
+if (!require('recipes')) install.packages('recipes'); library('recipes')
+
+# Read data
+dat <- read.csv(url("https://goo.gl/4DYzru"), header = TRUE, sep = ",")
+head(dat)
+
+# Create some missings
+set.seed(10)
+missing = rbinom(250, 1, 0.3)
+dat$Cholesterol = with(dat, ifelse(BMI >= 30 & missing == 1, NA, Cholesterol))
+sum(is.na(dat$Cholesterol))
+
+
+# Impute
+impute_recipe = recipe(Cholesterol ~ ., dat) %>% 
+  # step_meanimpute(Cholesterol) %>% 
+  step_knnimpute(Cholesterol)
+  # step_knnimpute(all_predictors())
+
+imputed = prep(impute_recipe) %>% juice()
+
+
+# Prepare data for visualization
+dt1 = dat %>% 
+  select(Cholesterol, BMI) %>% 
+  dplyr::rename(Cholesterol_imp = Cholesterol) %>% 
+  mutate(
+    Cholesterol_imp = as.logical(ifelse(is.na(Cholesterol_imp), "TRUE", "FALSE"))
+  ) %>% 
+  rownames_to_column()
+
+dt2 = imputed %>% 
+  select(Cholesterol, BMI) %>% 
+  rownames_to_column()
+
+dt = left_join(dt1, dt2)
+head(dt)
+
+# Visualize how imputation went
+
+vars <- c("BMI","Cholesterol","Cholesterol_imp")
+marginplot(dt[,vars], delimiter = "_imp", alpha = 0.6, pch = c(19))
 ```
 
