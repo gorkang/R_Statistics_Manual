@@ -1,3 +1,8 @@
+---
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
 # Visualizar datos{#Visualizar_datos}
 
 WHY Data visualization matters: https://www.autodeskresearch.com/publications/samestats
@@ -482,6 +487,24 @@ multiplot(p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, cols=3)
 
 ```
 
+Using ggforce:  
+
+```{r ggforce}
+if (!require('ggplot2')) install.packages('ggplot2'); library('ggplot2')
+if (!require('ggforce')) install.packages('ggforce'); library('ggforce')
+
+ggplot(a, aes(x = .panel_x, y = .panel_y)) + 
+  geom_point(shape=16, fill="darkgrey", color="black", size=2, position = 'auto') +
+  geom_smooth(method=lm, fill="grey", color="black", se = F, size = .5) + 
+  theme_tufte() + 
+  theme(axis.title.x=element_blank(), axis.title.y=element_blank()) +
+  facet_matrix(vars(`Executive functions`, `Emotional recognition`, ToM, `Inhibitory verbal control`), vars(`Cryst. Intellig. (vocab)`, `Cryst. Intellig. (years of education)`, `Fluid intelligence`))
+
+
+```
+
+
+
 ### Background data
 
 FROM: https://drsimonj.svbtle.com/plotting-background-data-for-groups-with-ggplot2
@@ -539,6 +562,112 @@ SankeyDiagram(my.data[, -4],
               weights = my.data$freq) 
 
 
+
+```
+
+
+
+### Waffle plots
+
+From: ['beeboileau'](https://github.com/beeb22/tidytuesday/blob/master/Energy%20usage.R)  
+
+```{r waffle-plot, message=FALSE, warning=FALSE} 
+
+# remotes::install_github("hrbrmstr/waffle")
+if (!require('tidytuesdayR')) install.packages('tidytuesdayR'); library('tidytuesdayR')
+if (!require('plyr')) install.packages('plyr'); library('plyr') # Need to load this before dplyr. The count() function used comes from plyr
+if (!require('dplyr')) install.packages('dplyr'); library('dplyr')
+if (!require('forcats')) install.packages('forcats'); library('forcats')
+if (!require('ggplot2')) install.packages('ggplot2'); library('ggplot2')
+if (!require('waffle')) install.packages('waffle'); library('waffle')
+if (!require('patchwork')) install.packages('patchwork'); library('patchwork')
+if (!require('scales')) install.packages('scales'); library('scales')
+if (!require('ggthemes')) install.packages('ggthemes'); library('ggthemes')
+if (!require('viridis')) install.packages('viridis'); library('viridis')
+if (!require('ggtext')) install.packages('ggtext'); library('ggtext')
+
+
+#load data
+tuesdata <- tidytuesdayR::tt_load(2020, week = 32)
+energy_types <- tuesdata$energy_types
+
+#clean up energy types
+energy_types_clean <-
+  energy_types %>%
+  mutate(
+    country_name = case_when(
+      country == "CZ" ~ "Czech Republic",
+      country == "CY" ~ "Cyprus",
+      country == "MT" ~ "Malta",
+      country == "UK" ~ "UK",
+      country == "MK" ~ "Macedonia",
+      country == "TR" ~ "Turkey",
+      country == "BA" ~ "Bosnia and Herzegovina",
+      country == "GE" ~ "Georgia",
+      TRUE ~ country_name)
+  ) %>%
+  mutate(
+    country_name = as.factor(country_name),
+    type = as.factor(type)
+  )
+
+
+
+#-----waffle plot-----
+
+#draw waffle plot
+energy_composition <- 
+  energy_types_clean %>%
+  filter(level == "Level 1") %>%
+  mutate(
+    energy_type = fct_collapse(type, 
+                               renewable = c("Wind", "Hydro", "Solar", "Geothermal"),
+                               nuclear = "Nuclear",
+                               conventional_thermal = "Conventional thermal",
+                               other = "Other")) %>%
+  count(country_name, energy_type, wt = `2018`) %>%
+  group_by(country_name) %>%
+  summarise(
+    total = sum(n),
+    energy_type,
+    country_name,
+    n
+  ) %>%
+  ungroup() %>%
+  mutate(
+    n = n/1000
+  ) %>%
+  arrange(
+    desc(total),
+    desc(country_name)
+  ) %>%
+  slice(1:40) %>%
+  ggplot(aes(fill = energy_type,
+             values = n))+
+  geom_waffle(n_rows = 10, size = 0.33, color = "white", flip = TRUE, show.legend = FALSE)+
+  labs(
+    title = "the 10 European countries using most energy in 2018",
+    subtitle = "each box represents one kilo-watt hour; <br>
+    colours demarcate <b style = 'color:#31688EFF'>conventional thermal</b>,
+    <b style = 'color:#35B779FF'>renewable</b>, and
+    <b style = 'color:#FDE725FF'>nuclear</b> energy.",
+    caption = "data: Eurostat\nviz: @beeboileau"
+  )+
+  coord_equal()+
+  scale_fill_manual(values = c("#31688EFF", "#35B779FF", "#FDE725FF"))+
+  theme_enhance_waffle()+
+  facet_wrap(~fct_reorder(country_name, desc(total)), nrow = 1, strip.position = "bottom")+
+  theme_minimal(base_family = "NYTFranklin Light")+
+  theme(
+    plot.title = element_text(size = rel(2), margin = margin(20,0,0,0)),
+    plot.subtitle = element_markdown(size = rel(1), margin = margin(20,0,20,0)),
+    plot.margin = margin(10,10,10,10),
+    panel.grid = element_blank(),
+    axis.text.x = element_blank(),
+    legend.position = c(0.8, 0.8),
+    legend.title = element_blank()
+  )
+energy_composition
 
 ```
 
