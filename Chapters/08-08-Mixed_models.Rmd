@@ -1,3 +1,28 @@
 ## Mixed Models
 
-http://mfviz.com/hierarchical-models/
+VER NOTAS EN: "R_Statistics_Manual/NOT_FOR_GITHUB/Specific tests/lme4/GLMER Notes.md"
+
+Ejemplo analisis en: /home/emrys/gorkang@gmail.com/RESEARCH/PROYECTOS/A1-1_WRITING/Lorena - David - Gorka/Analisis de datos - Lorena -  PAPER 2/dev/analisis-finales_DEV.R
+
+
+
+### Reading list
+
+https://ademos.people.uic.edu/Chapter17.html
+
+Contrast coding: 
+
+* https://stats.idre.ucla.edu/r/library/r-library-contrast-coding-systems-for-categorical-variables/
+* **<u>Dummy coding vs contrast coding</u>: http://www.lrdc.pitt.edu/maplelab/slides/Simple_Main_Effects_Fraundorf.pdf**
+* https://pagepiccinini.com/2016/03/18/contrast-coding-with-three-level-variables/
+
+**General**: 
+
+* https://bbolker.github.io/mixedmodels-misc/glmmFAQ.html
+* https://github.com/lme4/lme4/issues
+
+Other
+
+* http://mfviz.com/hierarchical-models/
+
+
