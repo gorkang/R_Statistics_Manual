@@ -13,11 +13,15 @@ description: "Statistics manual from CSCN."
 ---
 
 ```{r global_options, include=FALSE}
+
 knitr::opts_chunk$set(
   # warning = FALSE,
   # message = FALSE,
   cache = TRUE
 )
+
+options(bookdown.render.file_scope = FALSE)
+
 ```
 <!-- output: github_document  -->
 

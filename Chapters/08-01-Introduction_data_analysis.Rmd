@@ -31,6 +31,8 @@ https://psyarxiv.com/wnezg
 
 * http://www.quantide.com/raccoon-ch-2-4-3-way-anova/
 
+* Don't do balance tests: http://janhove.github.io/reporting/2014/09/26/balance-tests  
+
 *******************************************************
 
 Luego de tener algo parecido a una base de datos ordenada, y haber examinado y vizualizado nuestros datos, es posible que quieras analizarlos.
