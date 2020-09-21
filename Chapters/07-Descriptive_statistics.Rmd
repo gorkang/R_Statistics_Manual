@@ -1,3 +1,8 @@
+---
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
 # Estadistica descriptiva{#Estadistica_descriptiva}
 
 ***
@@ -11,9 +16,61 @@ if (!require('findviews')) install.packages('findviews'); library('findviews')
 if (!require('dplyr')) install.packages('dplyr'); library('dplyr')
 if (!require('readr')) install.packages('readr'); library('readr')
 
-datos = read_csv("Data/07_Descriptive_statistics/Descriptive_statistics.csv"); datos
+if (!require('gt')) install.packages('gt'); library('gt')
+if (!require('gtsummary')) install.packages('gtsummary'); library('gtsummary')
+
+
+datos = read_csv(here::here("Data/07_Descriptive_statistics/Descriptive_statistics.csv")); datos
 
 ```
+
+## Gtsummaries
+
+- Para mas informacion y ejemplos de codigo: https://themockup.blog/posts/2020-09-04-10-table-rules-in-r/
+
+Create a simple descriptive table:
+
+```{r gt1}
+
+gtsummary::tbl_summary(datos,
+                       by = Sexo,
+                       missing = "ifany") %>% 
+  gtsummary::add_n()
+
+```
+
+
+More complex:
+
+Create a table for each Sex, combine the two and save to a file.
+
+```{r gt2}
+
+table1 = gtsummary::tbl_summary(datos %>% dplyr::filter(Sexo == 0) %>% dplyr::select(-Sexo),
+                       by = Condition,
+                       missing = "ifany",
+                       type = list(Edad ~ 'categorical'),
+                       statistic = list(Edad ~ "{n} ({p}%)")) %>% 
+  gtsummary::add_n()
+
+
+table2 = gtsummary::tbl_summary(datos %>% dplyr::filter(Sexo == 1) %>% dplyr::select(-Sexo),
+                       by = Condition,
+                       missing = "ifany",
+                       type = list(Edad ~ 'categorical'),
+                       statistic = list(Edad ~ "{n} ({p}%)")) %>% 
+  gtsummary::add_n()
+
+
+table_combined_Sexo = gtsummary::tbl_merge(list(table1, table2), tab_spanner = list("Females", "Males"))
+table_combined_Sexo
+
+# Save table
+gtsave(as_gt(table_combined_Sexo), file = here::here("Resultados/table-combined-bysex.png"))
+
+
+```
+
 
 ## Summary de datos
 ```{r descriptives-summary}
@@ -93,6 +150,25 @@ ggplot_missing <- function(x){
 }
 
 ggplot_missing(datos)
+
+```
+
+
+```{r visualize-missing-naniar}
+
+if (!require('naniar')) install.packages('naniar'); library('naniar')
+
+# Add some missing in Edad
+set.seed(10)
+missing = rbinom(261, 1, 0.3)
+datos$Edad = with(datos, ifelse(Edad >= 30 & missing == 1, NA, Edad))
+
+# Visualize upset plot
+  # Missing in Edad, Missing in Sexo, Missing in Sexo AND Edad
+datos %>% 
+  gg_miss_upset()
+
+
 
 ```
 
