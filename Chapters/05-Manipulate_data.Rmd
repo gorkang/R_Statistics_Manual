@@ -303,6 +303,29 @@ if (!require('anytime')) install.packages('anytime'); library('anytime')
 ```
 
 
+## Pegando portapapeles a vector con datapasta
+
+```{r datapasta, eval=FALSE, include=TRUE}
+
+# 1. INPUT: copy the line below to the clipboard
+"zip" "elephant" "potato"
+
+# 2. Run the line below
+datapasta::vector_paste() 
+
+# 3. OUTPUT: the line below will appear in the cursor
+c("zip", "elephant", "potato")
+
+# 4. Order vector
+Vector = c("zip", "elephant", "potato")
+XXX = Vector[order(Vector)]
+datapasta::vector_paste(XXX) 
+c("elephant", "potato", "zip")
+
+
+```
+
+
 
 ## Tutoriales externos
 
