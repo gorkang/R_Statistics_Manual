@@ -1,11 +1,13 @@
+## NEED TO RUN TWICE TO WORK: 
+  # First time error about not all files in the same folder?
+
+
 # Book variables
 if (file.exists("_main.Rmd") == TRUE) file.remove("_main.Rmd")
 
 # folder_name = paste0("docs/")
 
 cat("\n\n• GENERATING BOOK •\n")
-
-# tictoc::tic()
 
 # A output_dir no se le pueden meter variables creadas en este environment
 bookdown::render_book('index.Rmd', 
@@ -14,9 +16,3 @@ bookdown::render_book('index.Rmd',
                       quiet = FALSE, 
                       config_file = "_bookdown.yml")
 
-# final_message = paste0("\n", "•• Book succesfully generated in: ", folder_name, " •• \n\n")
-# tictoc::toc()
-
-
-
-# cat(final_message)

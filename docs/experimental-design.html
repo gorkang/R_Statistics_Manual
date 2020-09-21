@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html lang="" xml:lang="">
 <head>
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>13 Experimental design | R - Statistics Manual</title>
   <meta name="description" content="Statistics manual from CSCN." />
-  <meta name="generator" content="bookdown 0.11 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
   <meta property="og:title" content="13 Experimental design | R - Statistics Manual" />
   <meta property="og:type" content="book" />
@@ -24,15 +24,16 @@
 <meta name="author" content="Center for Social and Cognitive Neuroscience - cscn.uai.cl" />
 
 
-<meta name="date" content="2019-05-31" />
+<meta name="date" content="2020-09-21" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="pre-processing.html">
-<link rel="next" href="classification.html">
+<link rel="prev" href="pre-processing.html"/>
+<link rel="next" href="classification.html"/>
+<script src="libs/header-attrs-2.3/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -40,6 +41,7 @@
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
 
 
 
@@ -47,7 +49,10 @@
 
 
 
-<script src="libs/htmlwidgets-1.3/htmlwidgets.js"></script>
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
 <link href="libs/str_view-0.1.0/str_view.css" rel="stylesheet" />
 <script src="libs/str_view-binding-1.4.0/str_view.js"></script>
 <script src="libs/datatables-binding-0.2.10/datatables.js"></script>
@@ -60,26 +65,26 @@
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -88,9 +93,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  }
+  {   }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -135,15 +140,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#for-users"><i class="fa fa-check"></i><b>1.1</b> For USERS</a></li>
 <li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#for-developers-and-statisticians"><i class="fa fa-check"></i><b>1.2</b> For Developers and Statisticians</a></li>
 <li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#contributors"><i class="fa fa-check"></i><b>1.3</b> Contributors</a></li>
-<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#todo"><i class="fa fa-check"></i><b>1.4</b> TODO</a><ul>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#todo"><i class="fa fa-check"></i><b>1.4</b> TODO</a>
+<ul>
 <li class="chapter" data-level="1.4.1" data-path="index.html"><a href="index.html#inferential-analysis"><i class="fa fa-check"></i><b>1.4.1</b> Inferential analysis</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="Empezando.html"><a href="Empezando.html"><i class="fa fa-check"></i><b>2</b> Empezando en A-B-C</a><ul>
+<li class="chapter" data-level="2" data-path="Empezando.html"><a href="Empezando.html"><i class="fa fa-check"></i><b>2</b> Empezando en A-B-C</a>
+<ul>
 <li class="chapter" data-level="2.1" data-path="Empezando.html"><a href="Empezando.html#a-instalar-r."><i class="fa fa-check"></i><b>2.1</b> <strong>(A)</strong> Instalar R.</a></li>
 <li class="chapter" data-level="2.2" data-path="Empezando.html"><a href="Empezando.html#b-instalar-rstudio."><i class="fa fa-check"></i><b>2.2</b> <strong>(B)</strong> Instalar RStudio.</a></li>
 <li class="chapter" data-level="2.3" data-path="Empezando.html"><a href="Empezando.html#instalar-packages"><i class="fa fa-check"></i><b>2.3</b> Instalar Packages</a></li>
@@ -151,15 +159,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.5" data-path="Empezando.html"><a href="Empezando.html#todo-en-uno"><i class="fa fa-check"></i><b>2.5</b> Todo en uno</a></li>
 <li class="chapter" data-level="2.6" data-path="Empezando.html"><a href="Empezando.html#c-librerias-para-el-workshop"><i class="fa fa-check"></i><b>2.6</b> <strong>(C)</strong> Librerias para el workshop</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="Mi-primer-script.html"><a href="Mi-primer-script.html"><i class="fa fa-check"></i><b>3</b> Mi primer script</a><ul>
+<li class="chapter" data-level="3" data-path="Mi-primer-script.html"><a href="Mi-primer-script.html"><i class="fa fa-check"></i><b>3</b> Mi primer script</a>
+<ul>
 <li class="chapter" data-level="3.1" data-path="Mi-primer-script.html"><a href="Mi-primer-script.html#paso-a-paso"><i class="fa fa-check"></i><b>3.1</b> Paso a paso</a></li>
 <li class="chapter" data-level="3.2" data-path="Mi-primer-script.html"><a href="Mi-primer-script.html#establecer-nuestro-directorio-de-trabajo"><i class="fa fa-check"></i><b>3.2</b> Establecer nuestro directorio de trabajo</a></li>
 <li class="chapter" data-level="3.3" data-path="Mi-primer-script.html"><a href="Mi-primer-script.html#nuestro-primer-script"><i class="fa fa-check"></i><b>3.3</b> Nuestro primer script</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="Conseguir-ayuda.html"><a href="Conseguir-ayuda.html"><i class="fa fa-check"></i><b>4</b> Conseguir ayuda y aprender más</a><ul>
-<li class="chapter" data-level="4.1" data-path="Conseguir-ayuda.html"><a href="Conseguir-ayuda.html#cuando-sabemos-que-funcion-usar-pero-dudamos-de-la-sintaxis"><i class="fa fa-check"></i><b>4.1</b> Cuando sabemos que función usar, pero dudamos de la sintaxis:</a></li>
-<li class="chapter" data-level="4.2" data-path="Conseguir-ayuda.html"><a href="Conseguir-ayuda.html#cuando-sabemos-lo-que-queremos-hacer-pero-no-la-funcion-que-debemos-usar"><i class="fa fa-check"></i><b>4.2</b> Cuando sabemos lo que queremos hacer pero no la función que debemos usar:</a></li>
-<li class="chapter" data-level="4.3" data-path="Conseguir-ayuda.html"><a href="Conseguir-ayuda.html#libros-y-web-recomendados"><i class="fa fa-check"></i><b>4.3</b> Libros y Web recomendados</a><ul>
+<li class="chapter" data-level="4" data-path="Conseguir-ayuda.html"><a href="Conseguir-ayuda.html"><i class="fa fa-check"></i><b>4</b> Conseguir ayuda y aprender más</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="Conseguir-ayuda.html"><a href="Conseguir-ayuda.html#cuando-sabemos-que-función-usar-pero-dudamos-de-la-sintaxis"><i class="fa fa-check"></i><b>4.1</b> Cuando sabemos que función usar, pero dudamos de la sintaxis:</a></li>
+<li class="chapter" data-level="4.2" data-path="Conseguir-ayuda.html"><a href="Conseguir-ayuda.html#cuando-sabemos-lo-que-queremos-hacer-pero-no-la-función-que-debemos-usar"><i class="fa fa-check"></i><b>4.2</b> Cuando sabemos lo que queremos hacer pero no la función que debemos usar:</a></li>
+<li class="chapter" data-level="4.3" data-path="Conseguir-ayuda.html"><a href="Conseguir-ayuda.html#libros-y-web-recomendados"><i class="fa fa-check"></i><b>4.3</b> Libros y Web recomendados</a>
+<ul>
 <li class="chapter" data-level="4.3.1" data-path="Conseguir-ayuda.html"><a href="Conseguir-ayuda.html#hadley-wickhams-books"><i class="fa fa-check"></i><b>4.3.1</b> Hadley Wickham’s books</a></li>
 <li class="chapter" data-level="4.3.2" data-path="Conseguir-ayuda.html"><a href="Conseguir-ayuda.html#learning-statistics-with-r"><i class="fa fa-check"></i><b>4.3.2</b> Learning statistics with R</a></li>
 <li class="chapter" data-level="4.3.3" data-path="Conseguir-ayuda.html"><a href="Conseguir-ayuda.html#pirate-guide-to-r"><i class="fa fa-check"></i><b>4.3.3</b> Pirate guide to R</a></li>
@@ -168,30 +179,37 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.3.6" data-path="Conseguir-ayuda.html"><a href="Conseguir-ayuda.html#twitter"><i class="fa fa-check"></i><b>4.3.6</b> Twitter</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="basics-data-types-import-and-export-data.html"><a href="basics-data-types-import-and-export-data.html"><i class="fa fa-check"></i><b>5</b> Basics - Data types, import and export data</a><ul>
-<li class="chapter" data-level="5.1" data-path="basics-data-types-import-and-export-data.html"><a href="basics-data-types-import-and-export-data.html#data-types"><i class="fa fa-check"></i><b>5.1</b> Data types</a><ul>
+<li class="chapter" data-level="5" data-path="basics-data-types-import-and-export-data.html"><a href="basics-data-types-import-and-export-data.html"><i class="fa fa-check"></i><b>5</b> Basics - Data types, import and export data</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="basics-data-types-import-and-export-data.html"><a href="basics-data-types-import-and-export-data.html#data-types"><i class="fa fa-check"></i><b>5.1</b> Data types</a>
+<ul>
 <li class="chapter" data-level="5.1.1" data-path="basics-data-types-import-and-export-data.html"><a href="basics-data-types-import-and-export-data.html#data-frames"><i class="fa fa-check"></i><b>5.1.1</b> Data Frames</a></li>
 <li class="chapter" data-level="5.1.2" data-path="basics-data-types-import-and-export-data.html"><a href="basics-data-types-import-and-export-data.html#matrices"><i class="fa fa-check"></i><b>5.1.2</b> Matrices</a></li>
 <li class="chapter" data-level="5.1.3" data-path="basics-data-types-import-and-export-data.html"><a href="basics-data-types-import-and-export-data.html#listas"><i class="fa fa-check"></i><b>5.1.3</b> Listas</a></li>
 </ul></li>
-<li class="chapter" data-level="5.2" data-path="basics-data-types-import-and-export-data.html"><a href="basics-data-types-import-and-export-data.html#import-data"><i class="fa fa-check"></i><b>5.2</b> Import data</a><ul>
+<li class="chapter" data-level="5.2" data-path="basics-data-types-import-and-export-data.html"><a href="basics-data-types-import-and-export-data.html#import-data"><i class="fa fa-check"></i><b>5.2</b> Import data</a>
+<ul>
 <li class="chapter" data-level="5.2.1" data-path="basics-data-types-import-and-export-data.html"><a href="basics-data-types-import-and-export-data.html#from-csv-file"><i class="fa fa-check"></i><b>5.2.1</b> From CSV file</a></li>
 <li class="chapter" data-level="5.2.2" data-path="basics-data-types-import-and-export-data.html"><a href="basics-data-types-import-and-export-data.html#from-xls-file-excel"><i class="fa fa-check"></i><b>5.2.2</b> From XLS’ file (Excel)</a></li>
 <li class="chapter" data-level="5.2.3" data-path="basics-data-types-import-and-export-data.html"><a href="basics-data-types-import-and-export-data.html#from-sav-file-spss"><i class="fa fa-check"></i><b>5.2.3</b> From SAV file (SPSS)</a></li>
 <li class="chapter" data-level="5.2.4" data-path="basics-data-types-import-and-export-data.html"><a href="basics-data-types-import-and-export-data.html#import-all-files-from-a-folder"><i class="fa fa-check"></i><b>5.2.4</b> Import all files from a folder</a></li>
 <li class="chapter" data-level="5.2.5" data-path="basics-data-types-import-and-export-data.html"><a href="basics-data-types-import-and-export-data.html#import-files-using-rstudio"><i class="fa fa-check"></i><b>5.2.5</b> Import files using RStudio</a></li>
 </ul></li>
-<li class="chapter" data-level="5.3" data-path="basics-data-types-import-and-export-data.html"><a href="basics-data-types-import-and-export-data.html#export-data"><i class="fa fa-check"></i><b>5.3</b> Export data</a><ul>
+<li class="chapter" data-level="5.3" data-path="basics-data-types-import-and-export-data.html"><a href="basics-data-types-import-and-export-data.html#export-data"><i class="fa fa-check"></i><b>5.3</b> Export data</a>
+<ul>
 <li class="chapter" data-level="5.3.1" data-path="basics-data-types-import-and-export-data.html"><a href="basics-data-types-import-and-export-data.html#export-data-to-csv-file"><i class="fa fa-check"></i><b>5.3.1</b> Export data to CSV file</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="Manipular-datos.html"><a href="Manipular-datos.html"><i class="fa fa-check"></i><b>6</b> Manipular datos</a><ul>
-<li class="chapter" data-level="6.1" data-path="Manipular-datos.html"><a href="Manipular-datos.html#leer-y-guardar-datos"><i class="fa fa-check"></i><b>6.1</b> Leer y guardar datos</a><ul>
+<li class="chapter" data-level="6" data-path="Manipular-datos.html"><a href="Manipular-datos.html"><i class="fa fa-check"></i><b>6</b> Manipular datos</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="Manipular-datos.html"><a href="Manipular-datos.html#leer-y-guardar-datos"><i class="fa fa-check"></i><b>6.1</b> Leer y guardar datos</a>
+<ul>
 <li class="chapter" data-level="6.1.1" data-path="Manipular-datos.html"><a href="Manipular-datos.html#leer-datos"><i class="fa fa-check"></i><b>6.1.1</b> Leer datos</a></li>
 <li class="chapter" data-level="6.1.2" data-path="Manipular-datos.html"><a href="Manipular-datos.html#guardar-db-a-archivo"><i class="fa fa-check"></i><b>6.1.2</b> Guardar DB a archivo</a></li>
 </ul></li>
 <li class="chapter" data-level="6.2" data-path="Manipular-datos.html"><a href="Manipular-datos.html#ver-output-vs-asignar-output"><i class="fa fa-check"></i><b>6.2</b> Ver output vs asignar output</a></li>
-<li class="chapter" data-level="6.3" data-path="Manipular-datos.html"><a href="Manipular-datos.html#verbos-de-dplyr"><i class="fa fa-check"></i><b>6.3</b> Verbos de dplyr</a><ul>
+<li class="chapter" data-level="6.3" data-path="Manipular-datos.html"><a href="Manipular-datos.html#verbos-de-dplyr"><i class="fa fa-check"></i><b>6.3</b> Verbos de dplyr</a>
+<ul>
 <li class="chapter" data-level="6.3.1" data-path="Manipular-datos.html"><a href="Manipular-datos.html#filtrar-datos"><i class="fa fa-check"></i><b>6.3.1</b> Filtrar datos</a></li>
 <li class="chapter" data-level="6.3.2" data-path="Manipular-datos.html"><a href="Manipular-datos.html#ordenar-db"><i class="fa fa-check"></i><b>6.3.2</b> Ordenar DB</a></li>
 <li class="chapter" data-level="6.3.3" data-path="Manipular-datos.html"><a href="Manipular-datos.html#seleccionar-variables"><i class="fa fa-check"></i><b>6.3.3</b> Seleccionar variables</a></li>
@@ -205,17 +223,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.3.11" data-path="Manipular-datos.html"><a href="Manipular-datos.html#recodificamos-datos"><i class="fa fa-check"></i><b>6.3.11</b> Recodificamos datos</a></li>
 </ul></li>
 <li class="chapter" data-level="6.4" data-path="Manipular-datos.html"><a href="Manipular-datos.html#combinar-bases-de-datos"><i class="fa fa-check"></i><b>6.4</b> Combinar bases de datos</a></li>
-<li class="chapter" data-level="6.5" data-path="Manipular-datos.html"><a href="Manipular-datos.html#verbos-avanzados"><i class="fa fa-check"></i><b>6.5</b> Verbos avanzados</a><ul>
+<li class="chapter" data-level="6.5" data-path="Manipular-datos.html"><a href="Manipular-datos.html#verbos-avanzados"><i class="fa fa-check"></i><b>6.5</b> Verbos avanzados</a>
+<ul>
 <li class="chapter" data-level="6.5.1" data-path="Manipular-datos.html"><a href="Manipular-datos.html#cambiar-multiples-columnas-de-un-tipo-a-otro"><i class="fa fa-check"></i><b>6.5.1</b> Cambiar multiples columnas de un tipo a otro</a></li>
 </ul></li>
 <li class="chapter" data-level="6.6" data-path="Manipular-datos.html"><a href="Manipular-datos.html#regular-expressions"><i class="fa fa-check"></i><b>6.6</b> Regular expressions</a></li>
 <li class="chapter" data-level="6.7" data-path="Manipular-datos.html"><a href="Manipular-datos.html#trabajando-con-fechas"><i class="fa fa-check"></i><b>6.7</b> Trabajando con fechas</a></li>
-<li class="chapter" data-level="6.8" data-path="Manipular-datos.html"><a href="Manipular-datos.html#tutoriales-externos"><i class="fa fa-check"></i><b>6.8</b> Tutoriales externos</a></li>
+<li class="chapter" data-level="6.8" data-path="Manipular-datos.html"><a href="Manipular-datos.html#pegando-portapapeles-a-vector-con-datapasta"><i class="fa fa-check"></i><b>6.8</b> Pegando portapapeles a vector con datapasta</a></li>
+<li class="chapter" data-level="6.9" data-path="Manipular-datos.html"><a href="Manipular-datos.html#tutoriales-externos"><i class="fa fa-check"></i><b>6.9</b> Tutoriales externos</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html"><i class="fa fa-check"></i><b>7</b> Visualizar datos</a><ul>
+<li class="chapter" data-level="7" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html"><i class="fa fa-check"></i><b>7</b> Visualizar datos</a>
+<ul>
 <li class="chapter" data-level="7.1" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#other-resources"><i class="fa fa-check"></i><b>7.1</b> Other resources</a></li>
-<li class="chapter" data-level="7.2" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#que-grafica-puedo-usar-wip"><i class="fa fa-check"></i><b>7.2</b> Que gráfica puedo usar (WIP)</a></li>
-<li class="chapter" data-level="7.3" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#tipos-de-graficas"><i class="fa fa-check"></i><b>7.3</b> Tipos de gráficas</a><ul>
+<li class="chapter" data-level="7.2" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#que-gráfica-puedo-usar-wip"><i class="fa fa-check"></i><b>7.2</b> Que gráfica puedo usar (WIP)</a></li>
+<li class="chapter" data-level="7.3" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#tipos-de-gráficas"><i class="fa fa-check"></i><b>7.3</b> Tipos de gráficas</a>
+<ul>
 <li class="chapter" data-level="7.3.1" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#histogramas"><i class="fa fa-check"></i><b>7.3.1</b> Histogramas</a></li>
 <li class="chapter" data-level="7.3.2" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#Pirate-Plot"><i class="fa fa-check"></i><b>7.3.2</b> Pirate plot</a></li>
 <li class="chapter" data-level="7.3.3" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#barplots-with-individual-responses"><i class="fa fa-check"></i><b>7.3.3</b> Barplots with individual responses</a></li>
@@ -231,100 +253,131 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.3.13" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#multiple-scatterplots"><i class="fa fa-check"></i><b>7.3.13</b> Multiple Scatterplots</a></li>
 <li class="chapter" data-level="7.3.14" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#background-data"><i class="fa fa-check"></i><b>7.3.14</b> Background data</a></li>
 <li class="chapter" data-level="7.3.15" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#flip-plots"><i class="fa fa-check"></i><b>7.3.15</b> Flip plots</a></li>
+<li class="chapter" data-level="7.3.16" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#waffle-plots"><i class="fa fa-check"></i><b>7.3.16</b> Waffle plots</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="Visualizar-riesgo.html"><a href="Visualizar-riesgo.html"><i class="fa fa-check"></i><b>8</b> Visualizar riesgo</a><ul>
+<li class="chapter" data-level="8" data-path="Visualizar-riesgo.html"><a href="Visualizar-riesgo.html"><i class="fa fa-check"></i><b>8</b> Visualizar riesgo</a>
+<ul>
 <li class="chapter" data-level="8.1" data-path="Visualizar-riesgo.html"><a href="Visualizar-riesgo.html#riskr"><i class="fa fa-check"></i><b>8.1</b> Riskr</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="Estadistica-descriptiva.html"><a href="Estadistica-descriptiva.html"><i class="fa fa-check"></i><b>9</b> Estadistica descriptiva</a><ul>
-<li class="chapter" data-level="9.1" data-path="Estadistica-descriptiva.html"><a href="Estadistica-descriptiva.html#summary-de-datos"><i class="fa fa-check"></i><b>9.1</b> Summary de datos</a><ul>
-<li class="chapter" data-level="9.1.1" data-path="Estadistica-descriptiva.html"><a href="Estadistica-descriptiva.html#agrupamos-por-sujeto"><i class="fa fa-check"></i><b>9.1.1</b> Agrupamos por sujeto</a></li>
+<li class="chapter" data-level="9" data-path="Estadistica-descriptiva.html"><a href="Estadistica-descriptiva.html"><i class="fa fa-check"></i><b>9</b> Estadistica descriptiva</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="Estadistica-descriptiva.html"><a href="Estadistica-descriptiva.html#gtsummaries"><i class="fa fa-check"></i><b>9.1</b> Gtsummaries</a></li>
+<li class="chapter" data-level="9.2" data-path="Estadistica-descriptiva.html"><a href="Estadistica-descriptiva.html#summary-de-datos"><i class="fa fa-check"></i><b>9.2</b> Summary de datos</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="Estadistica-descriptiva.html"><a href="Estadistica-descriptiva.html#agrupamos-por-sujeto"><i class="fa fa-check"></i><b>9.2.1</b> Agrupamos por sujeto</a></li>
 </ul></li>
-<li class="chapter" data-level="9.2" data-path="Estadistica-descriptiva.html"><a href="Estadistica-descriptiva.html#descriptive-tables-latex"><i class="fa fa-check"></i><b>9.2</b> Descriptive tables latex</a></li>
-<li class="chapter" data-level="9.3" data-path="Estadistica-descriptiva.html"><a href="Estadistica-descriptiva.html#visualize-missing-values"><i class="fa fa-check"></i><b>9.3</b> Visualize missing values</a></li>
-<li class="chapter" data-level="9.4" data-path="Estadistica-descriptiva.html"><a href="Estadistica-descriptiva.html#tutorial-externo"><i class="fa fa-check"></i><b>9.4</b> Tutorial externo</a></li>
-<li class="chapter" data-level="9.5" data-path="Estadistica-descriptiva.html"><a href="Estadistica-descriptiva.html#findviews"><i class="fa fa-check"></i><b>9.5</b> Findviews</a></li>
+<li class="chapter" data-level="9.3" data-path="Estadistica-descriptiva.html"><a href="Estadistica-descriptiva.html#descriptive-tables-latex"><i class="fa fa-check"></i><b>9.3</b> Descriptive tables latex</a></li>
+<li class="chapter" data-level="9.4" data-path="Estadistica-descriptiva.html"><a href="Estadistica-descriptiva.html#visualize-missing-values"><i class="fa fa-check"></i><b>9.4</b> Visualize missing values</a></li>
+<li class="chapter" data-level="9.5" data-path="Estadistica-descriptiva.html"><a href="Estadistica-descriptiva.html#tutorial-externo"><i class="fa fa-check"></i><b>9.5</b> Tutorial externo</a></li>
+<li class="chapter" data-level="9.6" data-path="Estadistica-descriptiva.html"><a href="Estadistica-descriptiva.html#findviews"><i class="fa fa-check"></i><b>9.6</b> Findviews</a></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html"><i class="fa fa-check"></i><b>10</b> Estadistica inferencial</a><ul>
+<li class="chapter" data-level="10" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html"><i class="fa fa-check"></i><b>10</b> Estadistica inferencial</a>
+<ul>
 <li class="chapter" data-level="10.1" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#referencias-y-fuentes"><i class="fa fa-check"></i><b>10.1</b> Referencias y Fuentes</a></li>
-<li class="chapter" data-level="10.2" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#association-test"><i class="fa fa-check"></i><b>10.2</b> Association test</a><ul>
+<li class="chapter" data-level="10.2" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#association-test"><i class="fa fa-check"></i><b>10.2</b> Association test</a>
+<ul>
 <li class="chapter" data-level="10.2.1" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#frequentist-1"><i class="fa fa-check"></i><b>10.2.1</b> Frequentist</a></li>
 <li class="chapter" data-level="10.2.2" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#bayesian-2"><i class="fa fa-check"></i><b>10.2.2</b> Bayesian</a></li>
 <li class="chapter" data-level="10.2.3" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#results-report---wip"><i class="fa fa-check"></i><b>10.2.3</b> Results report - WIP</a></li>
 <li class="chapter" data-level="10.2.4" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#references"><i class="fa fa-check"></i><b>10.2.4</b> References</a></li>
 </ul></li>
 <li class="chapter" data-level="10.3" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#anova-repeated-measures"><i class="fa fa-check"></i><b>10.3</b> ANOVA repeated measures</a></li>
-<li class="chapter" data-level="10.4" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#mixed-models"><i class="fa fa-check"></i><b>10.4</b> Mixed Models</a></li>
-<li class="chapter" data-level="10.5" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#meta-analysis"><i class="fa fa-check"></i><b>10.5</b> Meta analysis</a><ul>
+<li class="chapter" data-level="10.4" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#mixed-models"><i class="fa fa-check"></i><b>10.4</b> Mixed Models</a>
+<ul>
+<li class="chapter" data-level="10.4.1" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#reading-list"><i class="fa fa-check"></i><b>10.4.1</b> Reading list</a></li>
+</ul></li>
+<li class="chapter" data-level="10.5" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#meta-analysis"><i class="fa fa-check"></i><b>10.5</b> Meta analysis</a>
+<ul>
 <li class="chapter" data-level="10.5.1" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#natural-frequencies-effect"><i class="fa fa-check"></i><b>10.5.1</b> Natural Frequencies Effect</a></li>
 <li class="chapter" data-level="10.5.2" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#pictures-effect"><i class="fa fa-check"></i><b>10.5.2</b> Pictures Effect</a></li>
 <li class="chapter" data-level="10.5.3" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#notes-on-meta-analysis"><i class="fa fa-check"></i><b>10.5.3</b> Notes on Meta-analysis</a></li>
 </ul></li>
 <li class="chapter" data-level="10.6" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#roc-curves"><i class="fa fa-check"></i><b>10.6</b> ROC Curves</a></li>
 </ul></li>
-<li class="chapter" data-level="11" data-path="Funciones.html"><a href="Funciones.html"><i class="fa fa-check"></i><b>11</b> Funciones</a><ul>
-<li class="chapter" data-level="11.1" data-path="Funciones.html"><a href="Funciones.html#creando-mi-primera-funcion"><i class="fa fa-check"></i><b>11.1</b> Creando mi primera función</a><ul>
+<li class="chapter" data-level="11" data-path="Funciones.html"><a href="Funciones.html"><i class="fa fa-check"></i><b>11</b> Funciones</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="Funciones.html"><a href="Funciones.html#creando-mi-primera-función"><i class="fa fa-check"></i><b>11.1</b> Creando mi primera función</a>
+<ul>
 <li class="chapter" data-level="11.1.1" data-path="Funciones.html"><a href="Funciones.html#pirate-plot-original"><i class="fa fa-check"></i><b>11.1.1</b> Pirate plot original</a></li>
-<li class="chapter" data-level="11.1.2" data-path="Funciones.html"><a href="Funciones.html#nuestra-funcion"><i class="fa fa-check"></i><b>11.1.2</b> Nuestra función</a></li>
+<li class="chapter" data-level="11.1.2" data-path="Funciones.html"><a href="Funciones.html#nuestra-función"><i class="fa fa-check"></i><b>11.1.2</b> Nuestra función</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="12" data-path="pre-processing.html"><a href="pre-processing.html"><i class="fa fa-check"></i><b>12</b> Pre-processing</a><ul>
-<li class="chapter" data-level="12.1" data-path="pre-processing.html"><a href="pre-processing.html#rt-filtering"><i class="fa fa-check"></i><b>12.1</b> RT filtering</a><ul>
+<li class="chapter" data-level="12" data-path="pre-processing.html"><a href="pre-processing.html"><i class="fa fa-check"></i><b>12</b> Pre-processing</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="pre-processing.html"><a href="pre-processing.html#rt-filtering"><i class="fa fa-check"></i><b>12.1</b> RT filtering</a>
+<ul>
 <li class="chapter" data-level="12.1.1" data-path="pre-processing.html"><a href="pre-processing.html#function-to-filter-by-rt"><i class="fa fa-check"></i><b>12.1.1</b> Function to filter by RT</a></li>
 <li class="chapter" data-level="12.1.2" data-path="pre-processing.html"><a href="pre-processing.html#n-sd-from-the-median-mad-1"><i class="fa fa-check"></i><b>12.1.2</b> n SD from the median (MAD)</a></li>
 <li class="chapter" data-level="12.1.3" data-path="pre-processing.html"><a href="pre-processing.html#gamma-law-regression-analyses-2"><i class="fa fa-check"></i><b>12.1.3</b> Gamma law regression analyses</a></li>
 <li class="chapter" data-level="12.1.4" data-path="pre-processing.html"><a href="pre-processing.html#logarithms"><i class="fa fa-check"></i><b>12.1.4</b> Logarithms</a></li>
 <li class="chapter" data-level="12.1.5" data-path="pre-processing.html"><a href="pre-processing.html#references-1"><i class="fa fa-check"></i><b>12.1.5</b> References</a></li>
 </ul></li>
-<li class="chapter" data-level="12.2" data-path="pre-processing.html"><a href="pre-processing.html#reliability"><i class="fa fa-check"></i><b>12.2</b> Reliability</a><ul>
+<li class="chapter" data-level="12.2" data-path="pre-processing.html"><a href="pre-processing.html#reliability"><i class="fa fa-check"></i><b>12.2</b> Reliability</a>
+<ul>
 <li class="chapter" data-level="12.2.1" data-path="pre-processing.html"><a href="pre-processing.html#cronbachs-alpha"><i class="fa fa-check"></i><b>12.2.1</b> Cronbach’s Alpha</a></li>
 <li class="chapter" data-level="12.2.2" data-path="pre-processing.html"><a href="pre-processing.html#omega"><i class="fa fa-check"></i><b>12.2.2</b> Omega</a></li>
 <li class="chapter" data-level="12.2.3" data-path="pre-processing.html"><a href="pre-processing.html#references-2"><i class="fa fa-check"></i><b>12.2.3</b> References</a></li>
 </ul></li>
-<li class="chapter" data-level="12.3" data-path="pre-processing.html"><a href="pre-processing.html#impute-missing-data"><i class="fa fa-check"></i><b>12.3</b> Impute missing data</a></li>
+<li class="chapter" data-level="12.3" data-path="pre-processing.html"><a href="pre-processing.html#impute-missing-data"><i class="fa fa-check"></i><b>12.3</b> Impute missing data</a>
+<ul>
+<li class="chapter" data-level="12.3.1" data-path="pre-processing.html"><a href="pre-processing.html#impute-with-mice"><i class="fa fa-check"></i><b>12.3.1</b> Impute with mice</a></li>
+<li class="chapter" data-level="12.3.2" data-path="pre-processing.html"><a href="pre-processing.html#impute-with-recipes"><i class="fa fa-check"></i><b>12.3.2</b> Impute with recipes</a></li>
 </ul></li>
-<li class="chapter" data-level="13" data-path="experimental-design.html"><a href="experimental-design.html"><i class="fa fa-check"></i><b>13</b> Experimental design</a><ul>
-<li class="chapter" data-level="13.1" data-path="experimental-design.html"><a href="experimental-design.html#tamano-de-muestra-y-efecto-detectado"><i class="fa fa-check"></i><b>13.1</b> Tamaño de muestra y efecto detectado</a></li>
-<li class="chapter" data-level="13.2" data-path="experimental-design.html"><a href="experimental-design.html#power-analysis"><i class="fa fa-check"></i><b>13.2</b> Power analysis</a><ul>
+</ul></li>
+<li class="chapter" data-level="13" data-path="experimental-design.html"><a href="experimental-design.html"><i class="fa fa-check"></i><b>13</b> Experimental design</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="experimental-design.html"><a href="experimental-design.html#tamaño-de-muestra-y-efecto-detectado"><i class="fa fa-check"></i><b>13.1</b> Tamaño de muestra y efecto detectado</a></li>
+<li class="chapter" data-level="13.2" data-path="experimental-design.html"><a href="experimental-design.html#power-analysis"><i class="fa fa-check"></i><b>13.2</b> Power analysis</a>
+<ul>
 <li class="chapter" data-level="13.2.1" data-path="experimental-design.html"><a href="experimental-design.html#longitudinal-designs"><i class="fa fa-check"></i><b>13.2.1</b> Longitudinal designs</a></li>
 </ul></li>
-<li class="chapter" data-level="13.3" data-path="experimental-design.html"><a href="experimental-design.html#anonimizar-participantes---encriptar-ids"><i class="fa fa-check"></i><b>13.3</b> Anonimizar participantes - Encriptar IDs</a><ul>
+<li class="chapter" data-level="13.3" data-path="experimental-design.html"><a href="experimental-design.html#anonimizar-participantes---encriptar-ids"><i class="fa fa-check"></i><b>13.3</b> Anonimizar participantes - Encriptar IDs</a>
+<ul>
 <li class="chapter" data-level="13.3.1" data-path="experimental-design.html"><a href="experimental-design.html#encriptando-y-desencriptando-un-elemento"><i class="fa fa-check"></i><b>13.3.1</b> Encriptando y desencriptando un elemento</a></li>
 <li class="chapter" data-level="13.3.2" data-path="experimental-design.html"><a href="experimental-design.html#encriptando-y-desencriptando-la-columna-rut-de-una-db-completa."><i class="fa fa-check"></i><b>13.3.2</b> Encriptando y desencriptando la columna RUT de una DB completa.</a></li>
 </ul></li>
 <li class="chapter" data-level="13.4" data-path="experimental-design.html"><a href="experimental-design.html#match-participants"><i class="fa fa-check"></i><b>13.4</b> Match participants</a></li>
 <li class="chapter" data-level="13.5" data-path="experimental-design.html"><a href="experimental-design.html#determine-distribution"><i class="fa fa-check"></i><b>13.5</b> Determine distribution</a></li>
 </ul></li>
-<li class="chapter" data-level="14" data-path="classification.html"><a href="classification.html"><i class="fa fa-check"></i><b>14</b> Classification</a><ul>
+<li class="chapter" data-level="14" data-path="classification.html"><a href="classification.html"><i class="fa fa-check"></i><b>14</b> Classification</a>
+<ul>
 <li class="chapter" data-level="14.1" data-path="classification.html"><a href="classification.html#fast-and-frugal-trees"><i class="fa fa-check"></i><b>14.1</b> Fast and frugal trees</a></li>
 </ul></li>
-<li class="chapter" data-level="15" data-path="other-stuff.html"><a href="other-stuff.html"><i class="fa fa-check"></i><b>15</b> Other stuff</a><ul>
+<li class="chapter" data-level="15" data-path="other-stuff.html"><a href="other-stuff.html"><i class="fa fa-check"></i><b>15</b> Other stuff</a>
+<ul>
 <li class="chapter" data-level="15.1" data-path="other-stuff.html"><a href="other-stuff.html#maps---generate-and-locate-cities-in-a-world-map"><i class="fa fa-check"></i><b>15.1</b> Maps - Generate and locate cities in a world map</a></li>
 <li class="chapter" data-level="15.2" data-path="other-stuff.html"><a href="other-stuff.html#extract-tables-from-the-internet"><i class="fa fa-check"></i><b>15.2</b> Extract tables from the internet</a></li>
 <li class="chapter" data-level="15.3" data-path="other-stuff.html"><a href="other-stuff.html#extract-tables-from-the-internet-1"><i class="fa fa-check"></i><b>15.3</b> Extract tables from the internet</a></li>
 </ul></li>
-<li class="chapter" data-level="16" data-path="ejercicios-y-soluciones.html"><a href="ejercicios-y-soluciones.html"><i class="fa fa-check"></i><b>16</b> Ejercicios y soluciones</a><ul>
+<li class="chapter" data-level="16" data-path="ejercicios-y-soluciones.html"><a href="ejercicios-y-soluciones.html"><i class="fa fa-check"></i><b>16</b> Ejercicios y soluciones</a>
+<ul>
 <li class="chapter" data-level="16.1" data-path="ejercicios-y-soluciones.html"><a href="ejercicios-y-soluciones.html#Ejercicios1"><i class="fa fa-check"></i><b>16.1</b> Ejercicios 1</a></li>
 <li class="chapter" data-level="16.2" data-path="ejercicios-y-soluciones.html"><a href="ejercicios-y-soluciones.html#Ejercicios2"><i class="fa fa-check"></i><b>16.2</b> Ejercicios 2</a></li>
 </ul></li>
-<li class="chapter" data-level="17" data-path="bibliography-and-interesting-resources.html"><a href="bibliography-and-interesting-resources.html"><i class="fa fa-check"></i><b>17</b> Bibliography and interesting resources</a><ul>
+<li class="chapter" data-level="17" data-path="bibliography-and-interesting-resources.html"><a href="bibliography-and-interesting-resources.html"><i class="fa fa-check"></i><b>17</b> Bibliography and interesting resources</a>
+<ul>
 <li class="chapter" data-level="17.1" data-path="bibliography-and-interesting-resources.html"><a href="bibliography-and-interesting-resources.html#bibliography"><i class="fa fa-check"></i><b>17.1</b> Bibliography</a></li>
 <li class="chapter" data-level="17.2" data-path="bibliography-and-interesting-resources.html"><a href="bibliography-and-interesting-resources.html#interesting-resources---potentially"><i class="fa fa-check"></i><b>17.2</b> Interesting resources - potentially</a></li>
 </ul></li>
-<li class="chapter" data-level="18" data-path="todo-curso-basico-r-2016.html"><a href="todo-curso-basico-r-2016.html"><i class="fa fa-check"></i><b>18</b> TODO - Curso Basico R - 2016</a><ul>
+<li class="chapter" data-level="18" data-path="todo-curso-basico-r-2016.html"><a href="todo-curso-basico-r-2016.html"><i class="fa fa-check"></i><b>18</b> TODO - Curso Basico R - 2016</a>
+<ul>
 <li class="chapter" data-level="18.1" data-path="todo-curso-basico-r-2016.html"><a href="todo-curso-basico-r-2016.html#en-ejercicios"><i class="fa fa-check"></i><b>18.1</b> EN EJERCICIOS:</a></li>
 <li class="chapter" data-level="18.2" data-path="todo-curso-basico-r-2016.html"><a href="todo-curso-basico-r-2016.html#todo---limpieza-general"><i class="fa fa-check"></i><b>18.2</b> TODO - Limpieza general</a></li>
 </ul></li>
-<li class="chapter" data-level="19" data-path="todo-1.html"><a href="todo-1.html"><i class="fa fa-check"></i><b>19</b> TODO</a><ul>
+<li class="chapter" data-level="19" data-path="todo-1.html"><a href="todo-1.html"><i class="fa fa-check"></i><b>19</b> TODO</a>
+<ul>
 <li class="chapter" data-level="19.1" data-path="todo-1.html"><a href="todo-1.html#urgent-stuff"><i class="fa fa-check"></i><b>19.1</b> Urgent stuff</a></li>
 <li class="chapter" data-level="19.2" data-path="todo-1.html"><a href="todo-1.html#important"><i class="fa fa-check"></i><b>19.2</b> Important</a></li>
 <li class="chapter" data-level="19.3" data-path="todo-1.html"><a href="todo-1.html#various"><i class="fa fa-check"></i><b>19.3</b> Various</a></li>
 <li class="chapter" data-level="19.4" data-path="todo-1.html"><a href="todo-1.html#index-proposal"><i class="fa fa-check"></i><b>19.4</b> <strong>INDEX PROPOSAL</strong></a></li>
-<li class="chapter" data-level="19.5" data-path="todo-1.html"><a href="todo-1.html#style-guide"><i class="fa fa-check"></i><b>19.5</b> Style guide</a><ul>
+<li class="chapter" data-level="19.5" data-path="todo-1.html"><a href="todo-1.html#style-guide"><i class="fa fa-check"></i><b>19.5</b> Style guide</a>
+<ul>
 <li class="chapter" data-level="19.5.1" data-path="todo-1.html"><a href="todo-1.html#sections"><i class="fa fa-check"></i><b>19.5.1</b> Sections</a></li>
 <li class="chapter" data-level="19.5.2" data-path="todo-1.html"><a href="todo-1.html#general"><i class="fa fa-check"></i><b>19.5.2</b> General</a></li>
 </ul></li>
-<li class="chapter" data-level="19.6" data-path="todo-1.html"><a href="todo-1.html#notas---remember"><i class="fa fa-check"></i><b>19.6</b> NOTAS - REMEMBER</a><ul>
+<li class="chapter" data-level="19.6" data-path="todo-1.html"><a href="todo-1.html#notas---remember"><i class="fa fa-check"></i><b>19.6</b> NOTAS - REMEMBER</a>
+<ul>
 <li class="chapter" data-level="19.6.1" data-path="todo-1.html"><a href="todo-1.html#refs"><i class="fa fa-check"></i><b>19.6.1</b> REFS</a></li>
 <li class="chapter" data-level="19.6.2" data-path="todo-1.html"><a href="todo-1.html#notas"><i class="fa fa-check"></i><b>19.6.2</b> NOTAS</a></li>
 </ul></li>
@@ -346,83 +399,83 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="experimental-design" class="section level1">
+<div id="experimental-design" class="section level1" number="13">
 <h1><span class="header-section-number">13</span> Experimental design</h1>
-<div id="tamano-de-muestra-y-efecto-detectado" class="section level2">
+<div id="tamaño-de-muestra-y-efecto-detectado" class="section level2" number="13.1">
 <h2><span class="header-section-number">13.1</span> Tamaño de muestra y efecto detectado</h2>
 <p>En esta simulación se muestra como con tamaños de muestra pequeños, se sobreestima el tamaño de efecto real. Como se puede ver en el codigo, solo se muestran los estudios simulados donde la correlacion es significativa. Ver el <a href="https://jimgrange.wordpress.com/2017/03/06/low-power-effect-sizes/">blog de Jim Grange</a> para una explicación más detallada.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># https://jimgrange.wordpress.com/2017/03/06/low-power-effect-sizes/</span>
-<span class="co">#------------------------------------------------------------------------------</span>
-<span class="kw">rm</span>(<span class="dt">list =</span> <span class="kw">ls</span>())
-
-<span class="kw">set.seed</span>(<span class="dv">50</span>)
-
-<span class="co"># function for generating random draws from multivariate distribution</span>
-<span class="co"># n = number of draws; p = number of variables</span>
-<span class="co"># u = mean of each variable; s = SD of each variable</span>
-<span class="co"># corMat = correlation matrix</span>
-mvrnorm &lt;-<span class="st"> </span><span class="cf">function</span>(n, p, u, s, corMat) {
-  Z &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">rnorm</span>(n <span class="op">*</span><span class="st"> </span>p), p, n)
-  <span class="kw">t</span>(u <span class="op">+</span><span class="st"> </span>s <span class="op">*</span><span class="st"> </span><span class="kw">t</span>(<span class="kw">chol</span>(corMat)) <span class="op">%*%</span><span class="st"> </span>Z)
-}
-
-<span class="co">#------------------------------------------------------------------------------</span>
-
-<span class="co">#------------------------------------------------------------------------------</span>
-<span class="co">### simulation setup</span>
-
-<span class="co"># declare simulation parameters</span>
-means &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">100</span>, <span class="dv">600</span>)
-sds &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">20</span>, <span class="dv">80</span>)
-n_sims =<span class="st"> </span><span class="dv">1000</span>
-
-<span class="co"># declare correlation coefficient &amp; generate cor. matrix</span>
-cor &lt;-<span class="st"> </span><span class="fl">0.3</span>
-cor_mat &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">1</span>, cor, 
-                    cor, <span class="dv">1</span>), <span class="dt">nrow =</span> <span class="dv">2</span>, <span class="dt">ncol =</span> <span class="dv">2</span>, <span class="dt">byrow =</span> <span class="ot">TRUE</span>)
-
-<span class="co"># sample sizes to simulate</span>
-sample_sizes &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">50</span>, <span class="dv">85</span>, <span class="dv">170</span>, <span class="dv">500</span>, <span class="dv">1000</span>)
-
-<span class="co"># number of simulations</span>
-
-<span class="co"># create variable to store data in</span>
-final_data &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dt">nrow =</span> n_sims, <span class="dt">ncol =</span> <span class="kw">length</span>(sample_sizes))
-<span class="kw">colnames</span>(final_data) &lt;-<span class="st"> </span>sample_sizes
-<span class="co">#------------------------------------------------------------------------------</span>
-
-<span class="co">#------------------------------------------------------------------------------</span>
-<span class="co">### simulation execution</span>
-
-<span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(sample_sizes)){
-  <span class="cf">for</span>(j <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>n_sims){
-    
-    <span class="co"># get the experiment data</span>
-    sim_data &lt;-<span class="st"> </span><span class="kw">mvrnorm</span>(sample_sizes[i], <span class="dt">p =</span> <span class="dv">2</span>, <span class="dt">u =</span> means, <span class="dt">s =</span> sds, 
-                        <span class="dt">corMat =</span> cor_mat)
-    
-    <span class="co"># perform the correlation</span>
-    sim_cor &lt;-<span class="st"> </span><span class="kw">cor.test</span>(sim_data[, <span class="dv">1</span>], sim_data[, <span class="dv">2</span>], <span class="dt">method =</span> <span class="st">&quot;pearson&quot;</span>)
-    
-    <span class="co"># if the correlation is significant, store the effect size</span>
-    <span class="cf">if</span>(sim_cor<span class="op">$</span>p.value <span class="op">&lt;</span><span class="st"> </span><span class="fl">0.05</span>){
-      final_data[j, i] &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(<span class="kw">round</span>(<span class="kw">abs</span>(sim_cor<span class="op">$</span>estimate), <span class="dv">3</span>))
-    }
-  }
-}
-<span class="co">#------------------------------------------------------------------------------</span>
-
-<span class="co">#------------------------------------------------------------------------------</span>
-<span class="co">## draw the plot</span>
-<span class="kw">boxplot</span>(final_data, <span class="dt">na.action=</span>na.omit, <span class="dt">xlab =</span> <span class="st">&quot;Simulated Sample Size&quot;</span>, 
-        <span class="dt">ylab =</span> <span class="st">&quot;Measured Effect Size&quot;</span>)
-<span class="kw">abline</span>(<span class="dt">h =</span> cor, <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">lty =</span> <span class="dv">2</span>, <span class="dt">lwd =</span> <span class="dv">3</span>)
-
-<span class="kw">legend</span>(<span class="st">&quot;topright&quot;</span>, <span class="st">&quot;True Effect Size&quot;</span>, <span class="dt">cex =</span> <span class="fl">1.5</span>,  <span class="dt">lty =</span> <span class="dv">2</span>, <span class="dt">bty=</span><span class="st">&quot;n&quot;</span>, 
-       <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">lwd =</span> <span class="dv">3</span>)</code></pre>
+<div class="sourceCode" id="cb395"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb395-1"><a href="experimental-design.html#cb395-1"></a><span class="co"># https://jimgrange.wordpress.com/2017/03/06/low-power-effect-sizes/</span></span>
+<span id="cb395-2"><a href="experimental-design.html#cb395-2"></a><span class="co">#------------------------------------------------------------------------------</span></span>
+<span id="cb395-3"><a href="experimental-design.html#cb395-3"></a><span class="kw">rm</span>(<span class="dt">list =</span> <span class="kw">ls</span>())</span>
+<span id="cb395-4"><a href="experimental-design.html#cb395-4"></a></span>
+<span id="cb395-5"><a href="experimental-design.html#cb395-5"></a><span class="kw">set.seed</span>(<span class="dv">50</span>)</span>
+<span id="cb395-6"><a href="experimental-design.html#cb395-6"></a></span>
+<span id="cb395-7"><a href="experimental-design.html#cb395-7"></a><span class="co"># function for generating random draws from multivariate distribution</span></span>
+<span id="cb395-8"><a href="experimental-design.html#cb395-8"></a><span class="co"># n = number of draws; p = number of variables</span></span>
+<span id="cb395-9"><a href="experimental-design.html#cb395-9"></a><span class="co"># u = mean of each variable; s = SD of each variable</span></span>
+<span id="cb395-10"><a href="experimental-design.html#cb395-10"></a><span class="co"># corMat = correlation matrix</span></span>
+<span id="cb395-11"><a href="experimental-design.html#cb395-11"></a>mvrnorm &lt;-<span class="st"> </span><span class="cf">function</span>(n, p, u, s, corMat) {</span>
+<span id="cb395-12"><a href="experimental-design.html#cb395-12"></a>  Z &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">rnorm</span>(n <span class="op">*</span><span class="st"> </span>p), p, n)</span>
+<span id="cb395-13"><a href="experimental-design.html#cb395-13"></a>  <span class="kw">t</span>(u <span class="op">+</span><span class="st"> </span>s <span class="op">*</span><span class="st"> </span><span class="kw">t</span>(<span class="kw">chol</span>(corMat)) <span class="op">%*%</span><span class="st"> </span>Z)</span>
+<span id="cb395-14"><a href="experimental-design.html#cb395-14"></a>}</span>
+<span id="cb395-15"><a href="experimental-design.html#cb395-15"></a></span>
+<span id="cb395-16"><a href="experimental-design.html#cb395-16"></a><span class="co">#------------------------------------------------------------------------------</span></span>
+<span id="cb395-17"><a href="experimental-design.html#cb395-17"></a></span>
+<span id="cb395-18"><a href="experimental-design.html#cb395-18"></a><span class="co">#------------------------------------------------------------------------------</span></span>
+<span id="cb395-19"><a href="experimental-design.html#cb395-19"></a><span class="co">### simulation setup</span></span>
+<span id="cb395-20"><a href="experimental-design.html#cb395-20"></a></span>
+<span id="cb395-21"><a href="experimental-design.html#cb395-21"></a><span class="co"># declare simulation parameters</span></span>
+<span id="cb395-22"><a href="experimental-design.html#cb395-22"></a>means &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">100</span>, <span class="dv">600</span>)</span>
+<span id="cb395-23"><a href="experimental-design.html#cb395-23"></a>sds &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">20</span>, <span class="dv">80</span>)</span>
+<span id="cb395-24"><a href="experimental-design.html#cb395-24"></a>n_sims =<span class="st"> </span><span class="dv">1000</span></span>
+<span id="cb395-25"><a href="experimental-design.html#cb395-25"></a></span>
+<span id="cb395-26"><a href="experimental-design.html#cb395-26"></a><span class="co"># declare correlation coefficient &amp; generate cor. matrix</span></span>
+<span id="cb395-27"><a href="experimental-design.html#cb395-27"></a>cor &lt;-<span class="st"> </span><span class="fl">0.3</span></span>
+<span id="cb395-28"><a href="experimental-design.html#cb395-28"></a>cor_mat &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">1</span>, cor, </span>
+<span id="cb395-29"><a href="experimental-design.html#cb395-29"></a>                    cor, <span class="dv">1</span>), <span class="dt">nrow =</span> <span class="dv">2</span>, <span class="dt">ncol =</span> <span class="dv">2</span>, <span class="dt">byrow =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb395-30"><a href="experimental-design.html#cb395-30"></a></span>
+<span id="cb395-31"><a href="experimental-design.html#cb395-31"></a><span class="co"># sample sizes to simulate</span></span>
+<span id="cb395-32"><a href="experimental-design.html#cb395-32"></a>sample_sizes &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">50</span>, <span class="dv">85</span>, <span class="dv">170</span>, <span class="dv">500</span>, <span class="dv">1000</span>)</span>
+<span id="cb395-33"><a href="experimental-design.html#cb395-33"></a></span>
+<span id="cb395-34"><a href="experimental-design.html#cb395-34"></a><span class="co"># number of simulations</span></span>
+<span id="cb395-35"><a href="experimental-design.html#cb395-35"></a></span>
+<span id="cb395-36"><a href="experimental-design.html#cb395-36"></a><span class="co"># create variable to store data in</span></span>
+<span id="cb395-37"><a href="experimental-design.html#cb395-37"></a>final_data &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dt">nrow =</span> n_sims, <span class="dt">ncol =</span> <span class="kw">length</span>(sample_sizes))</span>
+<span id="cb395-38"><a href="experimental-design.html#cb395-38"></a><span class="kw">colnames</span>(final_data) &lt;-<span class="st"> </span>sample_sizes</span>
+<span id="cb395-39"><a href="experimental-design.html#cb395-39"></a><span class="co">#------------------------------------------------------------------------------</span></span>
+<span id="cb395-40"><a href="experimental-design.html#cb395-40"></a></span>
+<span id="cb395-41"><a href="experimental-design.html#cb395-41"></a><span class="co">#------------------------------------------------------------------------------</span></span>
+<span id="cb395-42"><a href="experimental-design.html#cb395-42"></a><span class="co">### simulation execution</span></span>
+<span id="cb395-43"><a href="experimental-design.html#cb395-43"></a></span>
+<span id="cb395-44"><a href="experimental-design.html#cb395-44"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(sample_sizes)){</span>
+<span id="cb395-45"><a href="experimental-design.html#cb395-45"></a>  <span class="cf">for</span>(j <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>n_sims){</span>
+<span id="cb395-46"><a href="experimental-design.html#cb395-46"></a>    </span>
+<span id="cb395-47"><a href="experimental-design.html#cb395-47"></a>    <span class="co"># get the experiment data</span></span>
+<span id="cb395-48"><a href="experimental-design.html#cb395-48"></a>    sim_data &lt;-<span class="st"> </span><span class="kw">mvrnorm</span>(sample_sizes[i], <span class="dt">p =</span> <span class="dv">2</span>, <span class="dt">u =</span> means, <span class="dt">s =</span> sds, </span>
+<span id="cb395-49"><a href="experimental-design.html#cb395-49"></a>                        <span class="dt">corMat =</span> cor_mat)</span>
+<span id="cb395-50"><a href="experimental-design.html#cb395-50"></a>    </span>
+<span id="cb395-51"><a href="experimental-design.html#cb395-51"></a>    <span class="co"># perform the correlation</span></span>
+<span id="cb395-52"><a href="experimental-design.html#cb395-52"></a>    sim_cor &lt;-<span class="st"> </span><span class="kw">cor.test</span>(sim_data[, <span class="dv">1</span>], sim_data[, <span class="dv">2</span>], <span class="dt">method =</span> <span class="st">&quot;pearson&quot;</span>)</span>
+<span id="cb395-53"><a href="experimental-design.html#cb395-53"></a>    </span>
+<span id="cb395-54"><a href="experimental-design.html#cb395-54"></a>    <span class="co"># if the correlation is significant, store the effect size</span></span>
+<span id="cb395-55"><a href="experimental-design.html#cb395-55"></a>    <span class="cf">if</span>(sim_cor<span class="op">$</span>p.value <span class="op">&lt;</span><span class="st"> </span><span class="fl">0.05</span>){</span>
+<span id="cb395-56"><a href="experimental-design.html#cb395-56"></a>      final_data[j, i] &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(<span class="kw">round</span>(<span class="kw">abs</span>(sim_cor<span class="op">$</span>estimate), <span class="dv">3</span>))</span>
+<span id="cb395-57"><a href="experimental-design.html#cb395-57"></a>    }</span>
+<span id="cb395-58"><a href="experimental-design.html#cb395-58"></a>  }</span>
+<span id="cb395-59"><a href="experimental-design.html#cb395-59"></a>}</span>
+<span id="cb395-60"><a href="experimental-design.html#cb395-60"></a><span class="co">#------------------------------------------------------------------------------</span></span>
+<span id="cb395-61"><a href="experimental-design.html#cb395-61"></a></span>
+<span id="cb395-62"><a href="experimental-design.html#cb395-62"></a><span class="co">#------------------------------------------------------------------------------</span></span>
+<span id="cb395-63"><a href="experimental-design.html#cb395-63"></a><span class="co">## draw the plot</span></span>
+<span id="cb395-64"><a href="experimental-design.html#cb395-64"></a><span class="kw">boxplot</span>(final_data, <span class="dt">na.action=</span>na.omit, <span class="dt">xlab =</span> <span class="st">&quot;Simulated Sample Size&quot;</span>, </span>
+<span id="cb395-65"><a href="experimental-design.html#cb395-65"></a>        <span class="dt">ylab =</span> <span class="st">&quot;Measured Effect Size&quot;</span>)</span>
+<span id="cb395-66"><a href="experimental-design.html#cb395-66"></a><span class="kw">abline</span>(<span class="dt">h =</span> cor, <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">lty =</span> <span class="dv">2</span>, <span class="dt">lwd =</span> <span class="dv">3</span>)</span>
+<span id="cb395-67"><a href="experimental-design.html#cb395-67"></a></span>
+<span id="cb395-68"><a href="experimental-design.html#cb395-68"></a><span class="kw">legend</span>(<span class="st">&quot;topright&quot;</span>, <span class="st">&quot;True Effect Size&quot;</span>, <span class="dt">cex =</span> <span class="fl">1.5</span>,  <span class="dt">lty =</span> <span class="dv">2</span>, <span class="dt">bty=</span><span class="st">&quot;n&quot;</span>, </span>
+<span id="cb395-69"><a href="experimental-design.html#cb395-69"></a>       <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">lwd =</span> <span class="dv">3</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/sample_size_calculation-1.png" width="672" /></p>
 </div>
-<div id="power-analysis" class="section level2">
+<div id="power-analysis" class="section level2" number="13.2">
 <h2><span class="header-section-number">13.2</span> Power analysis</h2>
 <p>Usamos el paquete <code>pwr</code>: <a href="https://cran.r-project.org/web/packages/pwr/vignettes/pwr-vignette.html" class="uri">https://cran.r-project.org/web/packages/pwr/vignettes/pwr-vignette.html</a>. En este tenemos un conjunto de funciones que nos permiten hacer power analysis para distintos tipos de diseños:</p>
 <ul>
@@ -500,10 +553,10 @@ final_data &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span cl
 </tbody>
 </table>
 <p><strong>Libraries</strong></p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pwr&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pwr&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pwr&#39;</span>)</code></pre>
+<div class="sourceCode" id="cb396"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb396-1"><a href="experimental-design.html#cb396-1"></a><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;pwr&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;pwr&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;pwr&#39;</span>)</span></code></pre></div>
 <p><strong>Code</strong></p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co">#T-test</span>
-<span class="kw">pwr.t.test</span>(<span class="dt">n =</span> , <span class="dt">d =</span> <span class="fl">0.8</span>, <span class="dt">sig.level =</span> <span class="fl">0.05</span>, <span class="dt">power =</span> <span class="fl">0.95</span>, <span class="dt">type =</span> <span class="kw">c</span>(<span class="st">&quot;two.sample&quot;</span>))</code></pre>
+<div class="sourceCode" id="cb397"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb397-1"><a href="experimental-design.html#cb397-1"></a><span class="co">#T-test</span></span>
+<span id="cb397-2"><a href="experimental-design.html#cb397-2"></a><span class="kw">pwr.t.test</span>(<span class="dt">n =</span> , <span class="dt">d =</span> <span class="fl">0.8</span>, <span class="dt">sig.level =</span> <span class="fl">0.05</span>, <span class="dt">power =</span> <span class="fl">0.95</span>, <span class="dt">type =</span> <span class="kw">c</span>(<span class="st">&quot;two.sample&quot;</span>))</span></code></pre></div>
 <pre><code>## 
 ##      Two-sample t test power calculation 
 ## 
@@ -514,8 +567,8 @@ final_data &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span cl
 ##     alternative = two.sided
 ## 
 ## NOTE: n is number in *each* group</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co">#T-test </span>
-<span class="kw">pwr.t2n.test</span>(<span class="dt">n1 =</span> <span class="dv">150</span>, <span class="dt">n2 =</span> <span class="dv">75</span>, <span class="dt">d =</span> , <span class="dt">sig.level =</span> <span class="fl">0.05</span>, <span class="dt">power =</span> <span class="fl">0.8</span>)</code></pre>
+<div class="sourceCode" id="cb399"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb399-1"><a href="experimental-design.html#cb399-1"></a><span class="co">#T-test </span></span>
+<span id="cb399-2"><a href="experimental-design.html#cb399-2"></a><span class="kw">pwr.t2n.test</span>(<span class="dt">n1 =</span> <span class="dv">150</span>, <span class="dt">n2 =</span> <span class="dv">75</span>, <span class="dt">d =</span> , <span class="dt">sig.level =</span> <span class="fl">0.05</span>, <span class="dt">power =</span> <span class="fl">0.8</span>)</span></code></pre></div>
 <pre><code>## 
 ##      t test power calculation 
 ## 
@@ -525,8 +578,8 @@ final_data &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span cl
 ##       sig.level = 0.05
 ##           power = 0.8
 ##     alternative = two.sided</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Anova </span>
-<span class="kw">pwr.anova.test</span>(<span class="dt">k =</span> <span class="dv">3</span>, <span class="dt">n =</span> , <span class="dt">f =</span> <span class="fl">.25</span>, <span class="dt">sig.level =</span> <span class="fl">0.05</span>, <span class="dt">power =</span> <span class="fl">.8</span>)</code></pre>
+<div class="sourceCode" id="cb401"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb401-1"><a href="experimental-design.html#cb401-1"></a><span class="co">#Anova </span></span>
+<span id="cb401-2"><a href="experimental-design.html#cb401-2"></a><span class="kw">pwr.anova.test</span>(<span class="dt">k =</span> <span class="dv">3</span>, <span class="dt">n =</span> , <span class="dt">f =</span> <span class="fl">.25</span>, <span class="dt">sig.level =</span> <span class="fl">0.05</span>, <span class="dt">power =</span> <span class="fl">.8</span>)</span></code></pre></div>
 <pre><code>## 
 ##      Balanced one-way analysis of variance power calculation 
 ## 
@@ -537,8 +590,8 @@ final_data &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span cl
 ##           power = 0.8
 ## 
 ## NOTE: n is number in each group</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Effect size that we can detect</span>
-<span class="kw">pwr.anova.test</span>(<span class="dt">k =</span> <span class="dv">6</span>, <span class="dt">n =</span> <span class="dv">42</span>, <span class="dt">sig.level =</span> <span class="fl">0.05</span>, <span class="dt">power =</span> <span class="fl">.95</span>)</code></pre>
+<div class="sourceCode" id="cb403"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb403-1"><a href="experimental-design.html#cb403-1"></a><span class="co">#Effect size that we can detect</span></span>
+<span id="cb403-2"><a href="experimental-design.html#cb403-2"></a><span class="kw">pwr.anova.test</span>(<span class="dt">k =</span> <span class="dv">6</span>, <span class="dt">n =</span> <span class="dv">42</span>, <span class="dt">sig.level =</span> <span class="fl">0.05</span>, <span class="dt">power =</span> <span class="fl">.95</span>)</span></code></pre></div>
 <pre><code>## 
 ##      Balanced one-way analysis of variance power calculation 
 ## 
@@ -549,8 +602,8 @@ final_data &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span cl
 ##           power = 0.95
 ## 
 ## NOTE: n is number in each group</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Sample size needed to detect an effect of f=0.5</span>
-<span class="kw">pwr.anova.test</span>(<span class="dt">k =</span> <span class="dv">2</span>, <span class="dt">f =</span> <span class="fl">0.5</span>, <span class="dt">sig.level =</span> <span class="fl">0.05</span>, <span class="dt">power =</span> <span class="fl">.95</span>)</code></pre>
+<div class="sourceCode" id="cb405"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb405-1"><a href="experimental-design.html#cb405-1"></a><span class="co">#Sample size needed to detect an effect of f=0.5</span></span>
+<span id="cb405-2"><a href="experimental-design.html#cb405-2"></a><span class="kw">pwr.anova.test</span>(<span class="dt">k =</span> <span class="dv">2</span>, <span class="dt">f =</span> <span class="fl">0.5</span>, <span class="dt">sig.level =</span> <span class="fl">0.05</span>, <span class="dt">power =</span> <span class="fl">.95</span>)</span></code></pre></div>
 <pre><code>## 
 ##      Balanced one-way analysis of variance power calculation 
 ## 
@@ -561,9 +614,9 @@ final_data &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span cl
 ##           power = 0.95
 ## 
 ## NOTE: n is number in each group</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># General linear model</span>
-  <span class="co"># See example in https://cran.r-project.org/web/packages/pwr/vignettes/pwr-vignette.html</span>
-  <span class="kw">pwr.f2.test</span>(<span class="dt">u =</span> <span class="dv">2</span>, <span class="dt">f2 =</span> <span class="fl">0.3</span><span class="op">/</span>(<span class="dv">1</span> <span class="op">-</span><span class="st"> </span><span class="fl">0.3</span>), <span class="dt">sig.level =</span> <span class="fl">0.001</span>, <span class="dt">power =</span> <span class="fl">0.8</span>)</code></pre>
+<div class="sourceCode" id="cb407"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb407-1"><a href="experimental-design.html#cb407-1"></a><span class="co"># General linear model</span></span>
+<span id="cb407-2"><a href="experimental-design.html#cb407-2"></a>  <span class="co"># See example in https://cran.r-project.org/web/packages/pwr/vignettes/pwr-vignette.html</span></span>
+<span id="cb407-3"><a href="experimental-design.html#cb407-3"></a>  <span class="kw">pwr.f2.test</span>(<span class="dt">u =</span> <span class="dv">2</span>, <span class="dt">f2 =</span> <span class="fl">0.3</span><span class="op">/</span>(<span class="dv">1</span> <span class="op">-</span><span class="st"> </span><span class="fl">0.3</span>), <span class="dt">sig.level =</span> <span class="fl">0.001</span>, <span class="dt">power =</span> <span class="fl">0.8</span>)</span></code></pre></div>
 <pre><code>## 
 ##      Multiple regression power calculation 
 ## 
@@ -572,68 +625,68 @@ final_data &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span cl
 ##              f2 = 0.4285714
 ##       sig.level = 0.001
 ##           power = 0.8</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r">  <span class="co">#  n=v+u+1. Therefore he needs 50 + 2 + 1 = 53 student records.</span></code></pre>
-<div id="longitudinal-designs" class="section level3">
+<div class="sourceCode" id="cb409"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb409-1"><a href="experimental-design.html#cb409-1"></a>  <span class="co">#  n=v+u+1. Therefore he needs 50 + 2 + 1 = 53 student records.</span></span></code></pre></div>
+<div id="longitudinal-designs" class="section level3" number="13.2.1">
 <h3><span class="header-section-number">13.2.1</span> Longitudinal designs</h3>
 <p>Calculate sample size for longitudinal designs</p>
 <p><strong>Libraries</strong></p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;powerMediation&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;powerMediation&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;powerMediation&#39;</span>)</code></pre>
+<div class="sourceCode" id="cb410"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb410-1"><a href="experimental-design.html#cb410-1"></a><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;powerMediation&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;powerMediation&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;powerMediation&#39;</span>)</span></code></pre></div>
 <p><strong>Code</strong></p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ssLong</span>(<span class="dt">es =</span> <span class="fl">0.5</span>, <span class="co">#  effect size of the difference of mean change.</span>
-       <span class="dt">rho =</span> <span class="fl">0.5</span>, <span class="co"># correlation coefficient between baseline and follow-up values within a treatment group.</span>
-       <span class="dt">alpha =</span> <span class="fl">0.05</span>, 
-       <span class="dt">power =</span> <span class="fl">0.95</span>)</code></pre>
+<div class="sourceCode" id="cb411"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb411-1"><a href="experimental-design.html#cb411-1"></a><span class="kw">ssLong</span>(<span class="dt">es =</span> <span class="fl">0.5</span>, <span class="co">#  effect size of the difference of mean change.</span></span>
+<span id="cb411-2"><a href="experimental-design.html#cb411-2"></a>       <span class="dt">rho =</span> <span class="fl">0.5</span>, <span class="co"># correlation coefficient between baseline and follow-up values within a treatment group.</span></span>
+<span id="cb411-3"><a href="experimental-design.html#cb411-3"></a>       <span class="dt">alpha =</span> <span class="fl">0.05</span>, </span>
+<span id="cb411-4"><a href="experimental-design.html#cb411-4"></a>       <span class="dt">power =</span> <span class="fl">0.95</span>)</span></code></pre></div>
 <pre><code>## [1] 104</code></pre>
 
 </div>
 </div>
-<div id="anonimizar-participantes---encriptar-ids" class="section level2">
+<div id="anonimizar-participantes---encriptar-ids" class="section level2" number="13.3">
 <h2><span class="header-section-number">13.3</span> Anonimizar participantes - Encriptar IDs</h2>
 <p>Other interesting resources:</p>
 <ul>
 <li><a href="https://cran.r-project.org/web/packages/safer/index.html" class="uri">https://cran.r-project.org/web/packages/safer/index.html</a></li>
 </ul>
 <p><strong>Libraries</strong></p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;hashids&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;hashids&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;hashids&#39;</span>)
-<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;dplyr&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;dplyr&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;dplyr&#39;</span>)</code></pre>
-<div id="encriptando-y-desencriptando-un-elemento" class="section level3">
+<div class="sourceCode" id="cb413"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb413-1"><a href="experimental-design.html#cb413-1"></a><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;hashids&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;hashids&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;hashids&#39;</span>)</span>
+<span id="cb413-2"><a href="experimental-design.html#cb413-2"></a><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;dplyr&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;dplyr&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;dplyr&#39;</span>)</span></code></pre></div>
+<div id="encriptando-y-desencriptando-un-elemento" class="section level3" number="13.3.1">
 <h3><span class="header-section-number">13.3.1</span> Encriptando y desencriptando un elemento</h3>
-<pre class="sourceCode r"><code class="sourceCode r">h =<span class="st"> </span><span class="kw">hashid_settings</span>(<span class="dt">salt =</span> <span class="st">&#39;this is my salt&#39;</span>)
-
-<span class="co"># Numbers to encode</span>
-Plain_ID =<span class="st"> </span><span class="kw">c</span>(<span class="dv">12345678</span>); Plain_ID</code></pre>
+<div class="sourceCode" id="cb414"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb414-1"><a href="experimental-design.html#cb414-1"></a>h =<span class="st"> </span><span class="kw">hashid_settings</span>(<span class="dt">salt =</span> <span class="st">&#39;this is my salt&#39;</span>)</span>
+<span id="cb414-2"><a href="experimental-design.html#cb414-2"></a></span>
+<span id="cb414-3"><a href="experimental-design.html#cb414-3"></a><span class="co"># Numbers to encode</span></span>
+<span id="cb414-4"><a href="experimental-design.html#cb414-4"></a>Plain_ID =<span class="st"> </span><span class="kw">c</span>(<span class="dv">12345678</span>); Plain_ID</span></code></pre></div>
 <pre><code>## [1] 12345678</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r">a =<span class="st"> </span><span class="kw">encode</span>(Plain_ID, h); a <span class="co">#&quot;BZ9RNV&quot;</span></code></pre>
+<div class="sourceCode" id="cb416"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb416-1"><a href="experimental-design.html#cb416-1"></a>a =<span class="st"> </span><span class="kw">encode</span>(Plain_ID, h); a <span class="co">#&quot;BZ9RNV&quot;</span></span></code></pre></div>
 <pre><code>## [1] &quot;BZ9RNV&quot;</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">decode</span>(<span class="st">&quot;BZ9RNV&quot;</span>, h) <span class="co">#12345678</span></code></pre>
+<div class="sourceCode" id="cb418"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb418-1"><a href="experimental-design.html#cb418-1"></a><span class="kw">decode</span>(<span class="st">&quot;BZ9RNV&quot;</span>, h) <span class="co">#12345678</span></span></code></pre></div>
 <pre><code>## [1] 12345678</code></pre>
 </div>
-<div id="encriptando-y-desencriptando-la-columna-rut-de-una-db-completa." class="section level3">
+<div id="encriptando-y-desencriptando-la-columna-rut-de-una-db-completa." class="section level3" number="13.3.2">
 <h3><span class="header-section-number">13.3.2</span> Encriptando y desencriptando la columna RUT de una DB completa.</h3>
 <p>Generamos aleatoriamente numeros de identificacion “similares” a RUTs, los encriptamos, y despues desencriptamos.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Cargamos librerias y leemos DB</span>
-<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;hashids&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;hashids&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;hashids&#39;</span>)
-<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;dplyr&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;dplyr&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;dplyr&#39;</span>)
-
-<span class="co"># Pseudo RUTs generadas aleatoriamente</span>
-data =<span class="st"> </span><span class="kw">round</span>(<span class="kw">runif</span>(<span class="dv">100</span>)<span class="op">*</span><span class="dv">10000000</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as_tibble</span>() <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span>dplyr<span class="op">::</span><span class="kw">rename</span>(<span class="dt">RUT =</span> value)</code></pre>
+<div class="sourceCode" id="cb420"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb420-1"><a href="experimental-design.html#cb420-1"></a><span class="co"># Cargamos librerias y leemos DB</span></span>
+<span id="cb420-2"><a href="experimental-design.html#cb420-2"></a><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;hashids&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;hashids&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;hashids&#39;</span>)</span>
+<span id="cb420-3"><a href="experimental-design.html#cb420-3"></a><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;dplyr&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;dplyr&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;dplyr&#39;</span>)</span>
+<span id="cb420-4"><a href="experimental-design.html#cb420-4"></a></span>
+<span id="cb420-5"><a href="experimental-design.html#cb420-5"></a><span class="co"># Pseudo RUTs generadas aleatoriamente</span></span>
+<span id="cb420-6"><a href="experimental-design.html#cb420-6"></a>data =<span class="st"> </span><span class="kw">round</span>(<span class="kw">runif</span>(<span class="dv">100</span>)<span class="op">*</span><span class="dv">10000000</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as_tibble</span>() <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb420-7"><a href="experimental-design.html#cb420-7"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">rename</span>(<span class="dt">RUT =</span> value)</span></code></pre></div>
 <p><strong>BUG: When building book with Bookdown, it ignores the rowwise() argument!?</strong></p>
-<pre class="sourceCode r"><code class="sourceCode r">h =<span class="st"> </span><span class="kw">hashid_settings</span>(<span class="dt">salt =</span> <span class="st">&#39;this is my salt&#39;</span>)
-
-<span class="co"># Encriptamos</span>
-data =<span class="st"> </span>data <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span>dplyr<span class="op">::</span><span class="kw">rowwise</span>() <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">RUT_Encripted =</span> <span class="kw">encode</span>(RUT, h))
-
-<span class="co"># Desencriptamos</span>
-data =<span class="st"> </span>data <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span>dplyr<span class="op">::</span><span class="kw">rowwise</span>() <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">RUT_Decripted =</span> <span class="kw">decode</span>(RUT_Encripted, h))</code></pre>
+<div class="sourceCode" id="cb421"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb421-1"><a href="experimental-design.html#cb421-1"></a>h =<span class="st"> </span><span class="kw">hashid_settings</span>(<span class="dt">salt =</span> <span class="st">&#39;this is my salt&#39;</span>)</span>
+<span id="cb421-2"><a href="experimental-design.html#cb421-2"></a></span>
+<span id="cb421-3"><a href="experimental-design.html#cb421-3"></a><span class="co"># Encriptamos</span></span>
+<span id="cb421-4"><a href="experimental-design.html#cb421-4"></a>data =<span class="st"> </span>data <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb421-5"><a href="experimental-design.html#cb421-5"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">rowwise</span>() <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb421-6"><a href="experimental-design.html#cb421-6"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">RUT_Encripted =</span> <span class="kw">encode</span>(RUT, h))</span>
+<span id="cb421-7"><a href="experimental-design.html#cb421-7"></a></span>
+<span id="cb421-8"><a href="experimental-design.html#cb421-8"></a><span class="co"># Desencriptamos</span></span>
+<span id="cb421-9"><a href="experimental-design.html#cb421-9"></a>data =<span class="st"> </span>data <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb421-10"><a href="experimental-design.html#cb421-10"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">rowwise</span>() <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb421-11"><a href="experimental-design.html#cb421-11"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">RUT_Decripted =</span> <span class="kw">decode</span>(RUT_Encripted, h))</span></code></pre></div>
 <pre><code>## Warning in if (hash_str == &quot;&quot;) stop(&quot;decode: invalid hashid&quot;): the
 ## condition has length &gt; 1 and only the first element will be used</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Mostramos los resultados</span>
-data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(RUT_Encripted, RUT_Decripted, RUT)</code></pre>
+<div class="sourceCode" id="cb423"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb423-1"><a href="experimental-design.html#cb423-1"></a><span class="co"># Mostramos los resultados</span></span>
+<span id="cb423-2"><a href="experimental-design.html#cb423-2"></a>data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(RUT_Encripted, RUT_Decripted, RUT)</span></code></pre></div>
 <pre><code>## Source: local data frame [100 x 3]
 ## Groups: &lt;by row&gt;
 ## 
@@ -654,21 +707,21 @@ data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">sel
 
 </div>
 </div>
-<div id="match-participants" class="section level2">
+<div id="match-participants" class="section level2" number="13.4">
 <h2><span class="header-section-number">13.4</span> Match participants</h2>
 <hr />
 <p>Usaremos la siguiente <a href="Data/11-Experimental_design/Match_participants.csv">Base de datos</a></p>
 <hr />
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Cargamos librerias y leemos DBif (!require(&#39;pacman&#39;)) install.packages(&#39;pacman&#39;); library(&#39;pacman&#39;)</span>
-<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;optmatch&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;optmatch&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;optmatch&#39;</span>)
-<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;readr&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;readr&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;readr&#39;</span>)
-<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;dplyr&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;dplyr&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;dplyr&#39;</span>)
-
-<span class="co"># Archivo de data crudos</span>
-<span class="co"># RUTs y Edades generadas aleatoriamente</span>
-data =<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;Data/11-Experimental_design/Match_participants.csv&quot;</span>)
-
-<span class="kw">head</span>(data)</code></pre>
+<div class="sourceCode" id="cb425"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb425-1"><a href="experimental-design.html#cb425-1"></a><span class="co"># Cargamos librerias y leemos DBif (!require(&#39;pacman&#39;)) install.packages(&#39;pacman&#39;); library(&#39;pacman&#39;)</span></span>
+<span id="cb425-2"><a href="experimental-design.html#cb425-2"></a><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;optmatch&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;optmatch&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;optmatch&#39;</span>)</span>
+<span id="cb425-3"><a href="experimental-design.html#cb425-3"></a><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;readr&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;readr&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;readr&#39;</span>)</span>
+<span id="cb425-4"><a href="experimental-design.html#cb425-4"></a><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;dplyr&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;dplyr&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;dplyr&#39;</span>)</span>
+<span id="cb425-5"><a href="experimental-design.html#cb425-5"></a></span>
+<span id="cb425-6"><a href="experimental-design.html#cb425-6"></a><span class="co"># Archivo de data crudos</span></span>
+<span id="cb425-7"><a href="experimental-design.html#cb425-7"></a><span class="co"># RUTs y Edades generadas aleatoriamente</span></span>
+<span id="cb425-8"><a href="experimental-design.html#cb425-8"></a>data =<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;Data/11-Experimental_design/Match_participants.csv&quot;</span>)</span>
+<span id="cb425-9"><a href="experimental-design.html#cb425-9"></a></span>
+<span id="cb425-10"><a href="experimental-design.html#cb425-10"></a><span class="kw">head</span>(data)</span></code></pre></div>
 <pre><code>## # A tibble: 6 x 7
 ##      ID    RUT Sexo    Edad Ocupacion            Educacion Porcentaje_ahor…
 ##   &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt;                &lt;chr&gt;                &lt;dbl&gt;
@@ -679,74 +732,74 @@ data =<span class="st"> </span><span class="kw">read_csv</span>(<span class="st"
 ## 5     5 533281 Mujer     63 Controller Postgrad… Maestría                 4
 ## 6     6  60824 Hombre    29 Ingeniro Comercial   Maestría                 8</code></pre>
 <p>Preparamos la base de datos</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Umbrales para ahorradores y no ahorradores</span>
-Criterio_ahorradores =<span class="st"> </span><span class="dv">20</span>
-Criterio_no_ahorradores =<span class="st"> </span><span class="dv">2</span>
-
-<span class="co"># Mostramos histograma</span>
-<span class="kw">hist</span>(data<span class="op">$</span>Porcentaje_ahorro, <span class="dt">breaks =</span> <span class="dv">100</span>)</code></pre>
+<div class="sourceCode" id="cb427"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb427-1"><a href="experimental-design.html#cb427-1"></a><span class="co"># Umbrales para ahorradores y no ahorradores</span></span>
+<span id="cb427-2"><a href="experimental-design.html#cb427-2"></a>Criterio_ahorradores =<span class="st"> </span><span class="dv">20</span></span>
+<span id="cb427-3"><a href="experimental-design.html#cb427-3"></a>Criterio_no_ahorradores =<span class="st"> </span><span class="dv">2</span></span>
+<span id="cb427-4"><a href="experimental-design.html#cb427-4"></a></span>
+<span id="cb427-5"><a href="experimental-design.html#cb427-5"></a><span class="co"># Mostramos histograma</span></span>
+<span id="cb427-6"><a href="experimental-design.html#cb427-6"></a><span class="kw">hist</span>(data<span class="op">$</span>Porcentaje_ahorro, <span class="dt">breaks =</span> <span class="dv">100</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/match_participants_data_preparation-1.png" width="672" /></p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Creamos grupos de Ahorradores (0) y No ahorradores (1)</span>
-data<span class="op">$</span>Ahorro =<span class="st"> </span><span class="kw">ifelse</span>(data<span class="op">$</span>Porcentaje_ahorro <span class="op">&lt;=</span><span class="st"> </span>Criterio_no_ahorradores, <span class="dv">1</span>,
-                      <span class="kw">ifelse</span>(data<span class="op">$</span>Porcentaje_ahorro <span class="op">&gt;=</span><span class="st"> </span>Criterio_ahorradores, <span class="dv">0</span>, <span class="ot">NA</span>
-                      ))
-
-<span class="co"># Cuantos tenemos en cada grupo?</span>
-<span class="kw">table</span>(data<span class="op">$</span>Ahorro)</code></pre>
+<div class="sourceCode" id="cb428"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb428-1"><a href="experimental-design.html#cb428-1"></a><span class="co"># Creamos grupos de Ahorradores (0) y No ahorradores (1)</span></span>
+<span id="cb428-2"><a href="experimental-design.html#cb428-2"></a>data<span class="op">$</span>Ahorro =<span class="st"> </span><span class="kw">ifelse</span>(data<span class="op">$</span>Porcentaje_ahorro <span class="op">&lt;=</span><span class="st"> </span>Criterio_no_ahorradores, <span class="dv">1</span>,</span>
+<span id="cb428-3"><a href="experimental-design.html#cb428-3"></a>                      <span class="kw">ifelse</span>(data<span class="op">$</span>Porcentaje_ahorro <span class="op">&gt;=</span><span class="st"> </span>Criterio_ahorradores, <span class="dv">0</span>, <span class="ot">NA</span></span>
+<span id="cb428-4"><a href="experimental-design.html#cb428-4"></a>                      ))</span>
+<span id="cb428-5"><a href="experimental-design.html#cb428-5"></a></span>
+<span id="cb428-6"><a href="experimental-design.html#cb428-6"></a><span class="co"># Cuantos tenemos en cada grupo?</span></span>
+<span id="cb428-7"><a href="experimental-design.html#cb428-7"></a><span class="kw">table</span>(data<span class="op">$</span>Ahorro)</span></code></pre></div>
 <pre><code>## 
 ##   0   1 
 ## 113  66</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Limpiamos NAs en Ahorro y RUTs duplicados</span>
-data =<span class="st"> </span>data[<span class="kw">complete.cases</span>(data),]
-data =<span class="st"> </span>data[<span class="op">!</span><span class="kw">duplicated</span>(data<span class="op">$</span>ID),]
-
-<span class="co">#Eliminamos a los Estudiantes</span>
-data =<span class="st"> </span>data[<span class="op">!</span><span class="kw">grepl</span>(<span class="st">&quot;studiante&quot;</span>, data<span class="op">$</span>Ocupacion),]
-
-<span class="co">#Recreamos columna ID para los registros que quedan</span>
-data<span class="op">$</span>ID =<span class="st"> </span><span class="kw">seq</span>(<span class="dv">1</span><span class="op">:</span><span class="kw">nrow</span>(data))</code></pre>
+<div class="sourceCode" id="cb430"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb430-1"><a href="experimental-design.html#cb430-1"></a><span class="co">#Limpiamos NAs en Ahorro y RUTs duplicados</span></span>
+<span id="cb430-2"><a href="experimental-design.html#cb430-2"></a>data =<span class="st"> </span>data[<span class="kw">complete.cases</span>(data),]</span>
+<span id="cb430-3"><a href="experimental-design.html#cb430-3"></a>data =<span class="st"> </span>data[<span class="op">!</span><span class="kw">duplicated</span>(data<span class="op">$</span>ID),]</span>
+<span id="cb430-4"><a href="experimental-design.html#cb430-4"></a></span>
+<span id="cb430-5"><a href="experimental-design.html#cb430-5"></a><span class="co">#Eliminamos a los Estudiantes</span></span>
+<span id="cb430-6"><a href="experimental-design.html#cb430-6"></a>data =<span class="st"> </span>data[<span class="op">!</span><span class="kw">grepl</span>(<span class="st">&quot;studiante&quot;</span>, data<span class="op">$</span>Ocupacion),]</span>
+<span id="cb430-7"><a href="experimental-design.html#cb430-7"></a></span>
+<span id="cb430-8"><a href="experimental-design.html#cb430-8"></a><span class="co">#Recreamos columna ID para los registros que quedan</span></span>
+<span id="cb430-9"><a href="experimental-design.html#cb430-9"></a>data<span class="op">$</span>ID =<span class="st"> </span><span class="kw">seq</span>(<span class="dv">1</span><span class="op">:</span><span class="kw">nrow</span>(data))</span></code></pre></div>
 <p>Realizamos el matching</p>
 <p><strong>TODO: Como evaluamos si el matching es bueno?</strong></p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Creamos base de parejas</span>
-parejas =<span class="st"> </span><span class="kw">as.data.frame</span>((optmatch<span class="op">::</span><span class="kw">pairmatch</span>(Ahorro <span class="op">~</span><span class="st"> </span>Edad <span class="op">+</span><span class="st"> </span>Sexo <span class="op">+</span><span class="st"> </span>Educacion, <span class="dt">data =</span> data)))
-    <span class="co"># caliper establece limites para los matchings</span>
-    <span class="co"># print(pairmatch(Ahorro ~ Edad + Sexo + Educacion, caliper = 4.9, data = data), grouped = TRUE)</span>
-
-<span class="co">#Como evaluamos si es buena la seleccion?</span>
-<span class="co"># summary(lm(Ahorro ~ Edad + Sexo + Educacion, data = data))</span>
-
-<span class="co">#Añadimos columna ID y renombramos columnas</span>
-parejas<span class="op">$</span>ID =<span class="st"> </span><span class="kw">seq</span>(<span class="dv">1</span><span class="op">:</span><span class="kw">nrow</span>(data))
-<span class="kw">colnames</span>(parejas) =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Group&quot;</span>, <span class="st">&quot;ID&quot;</span>)
-
-<span class="co">#Combinamos ambas bases y limpiamos</span>
-datos_combinados =<span class="st"> </span><span class="kw">merge</span>(data, parejas, <span class="dt">by =</span> <span class="st">&quot;ID&quot;</span>)
-datos_combinados =<span class="st"> </span>datos_combinados[<span class="kw">complete.cases</span>(datos_combinados),]
-
-<span class="co">#Ordenamos por Num de grupo y Ahorro</span>
-datos_finales =<span class="st"> </span>datos_combinados <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">arrange</span>(Group, Ahorro)</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Cuantos en cada grupo?</span>
-<span class="kw">table</span>(datos_finales<span class="op">$</span>Ahorro)</code></pre>
+<div class="sourceCode" id="cb431"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb431-1"><a href="experimental-design.html#cb431-1"></a><span class="co">#Creamos base de parejas</span></span>
+<span id="cb431-2"><a href="experimental-design.html#cb431-2"></a>parejas =<span class="st"> </span><span class="kw">as.data.frame</span>((optmatch<span class="op">::</span><span class="kw">pairmatch</span>(Ahorro <span class="op">~</span><span class="st"> </span>Edad <span class="op">+</span><span class="st"> </span>Sexo <span class="op">+</span><span class="st"> </span>Educacion, <span class="dt">data =</span> data)))</span>
+<span id="cb431-3"><a href="experimental-design.html#cb431-3"></a>    <span class="co"># caliper establece limites para los matchings</span></span>
+<span id="cb431-4"><a href="experimental-design.html#cb431-4"></a>    <span class="co"># print(pairmatch(Ahorro ~ Edad + Sexo + Educacion, caliper = 4.9, data = data), grouped = TRUE)</span></span>
+<span id="cb431-5"><a href="experimental-design.html#cb431-5"></a></span>
+<span id="cb431-6"><a href="experimental-design.html#cb431-6"></a><span class="co">#Como evaluamos si es buena la seleccion?</span></span>
+<span id="cb431-7"><a href="experimental-design.html#cb431-7"></a><span class="co"># summary(lm(Ahorro ~ Edad + Sexo + Educacion, data = data))</span></span>
+<span id="cb431-8"><a href="experimental-design.html#cb431-8"></a></span>
+<span id="cb431-9"><a href="experimental-design.html#cb431-9"></a><span class="co">#Añadimos columna ID y renombramos columnas</span></span>
+<span id="cb431-10"><a href="experimental-design.html#cb431-10"></a>parejas<span class="op">$</span>ID =<span class="st"> </span><span class="kw">seq</span>(<span class="dv">1</span><span class="op">:</span><span class="kw">nrow</span>(data))</span>
+<span id="cb431-11"><a href="experimental-design.html#cb431-11"></a><span class="kw">colnames</span>(parejas) =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Group&quot;</span>, <span class="st">&quot;ID&quot;</span>)</span>
+<span id="cb431-12"><a href="experimental-design.html#cb431-12"></a></span>
+<span id="cb431-13"><a href="experimental-design.html#cb431-13"></a><span class="co">#Combinamos ambas bases y limpiamos</span></span>
+<span id="cb431-14"><a href="experimental-design.html#cb431-14"></a>datos_combinados =<span class="st"> </span><span class="kw">merge</span>(data, parejas, <span class="dt">by =</span> <span class="st">&quot;ID&quot;</span>)</span>
+<span id="cb431-15"><a href="experimental-design.html#cb431-15"></a>datos_combinados =<span class="st"> </span>datos_combinados[<span class="kw">complete.cases</span>(datos_combinados),]</span>
+<span id="cb431-16"><a href="experimental-design.html#cb431-16"></a></span>
+<span id="cb431-17"><a href="experimental-design.html#cb431-17"></a><span class="co">#Ordenamos por Num de grupo y Ahorro</span></span>
+<span id="cb431-18"><a href="experimental-design.html#cb431-18"></a>datos_finales =<span class="st"> </span>datos_combinados <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">arrange</span>(Group, Ahorro)</span></code></pre></div>
+<div class="sourceCode" id="cb432"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb432-1"><a href="experimental-design.html#cb432-1"></a><span class="co">#Cuantos en cada grupo?</span></span>
+<span id="cb432-2"><a href="experimental-design.html#cb432-2"></a><span class="kw">table</span>(datos_finales<span class="op">$</span>Ahorro)</span></code></pre></div>
 <pre><code>## 
 ##  0  1 
 ## 58 58</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># datos_finales %&gt;% dplyr::select(Edad, Sexo, Educacion, Porcentaje_ahorro)</span></code></pre>
+<div class="sourceCode" id="cb434"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb434-1"><a href="experimental-design.html#cb434-1"></a><span class="co"># datos_finales %&gt;% dplyr::select(Edad, Sexo, Educacion, Porcentaje_ahorro)</span></span></code></pre></div>
 
 </div>
-<div id="determine-distribution" class="section level2">
+<div id="determine-distribution" class="section level2" number="13.5">
 <h2><span class="header-section-number">13.5</span> Determine distribution</h2>
 <p>FROM: <a href="https://stats.stackexchange.com/questions/132652/how-to-determine-which-distribution-fits-my-data-best" class="uri">https://stats.stackexchange.com/questions/132652/how-to-determine-which-distribution-fits-my-data-best</a></p>
 <p>Which ditribution best fits our data.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span>(<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;fitdistrplus&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;fitdistrplus&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;fitdistrplus&#39;</span>)
-<span class="cf">if</span>(<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;logspline&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;logspline&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;logspline&#39;</span>)</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">37.50</span>,<span class="fl">46.79</span>,<span class="fl">48.30</span>,<span class="fl">46.04</span>,<span class="fl">43.40</span>,<span class="fl">39.25</span>,<span class="fl">38.49</span>,<span class="fl">49.51</span>,<span class="fl">40.38</span>,<span class="fl">36.98</span>,<span class="fl">40.00</span>,
-       <span class="fl">38.49</span>,<span class="fl">37.74</span>,<span class="fl">47.92</span>,<span class="fl">44.53</span>,<span class="fl">44.91</span>,<span class="fl">44.91</span>,<span class="fl">40.00</span>,<span class="fl">41.51</span>,<span class="fl">47.92</span>,<span class="fl">36.98</span>,<span class="fl">43.40</span>,
-       <span class="fl">42.26</span>,<span class="fl">41.89</span>,<span class="fl">38.87</span>,<span class="fl">43.02</span>,<span class="fl">39.25</span>,<span class="fl">40.38</span>,<span class="fl">42.64</span>,<span class="fl">36.98</span>,<span class="fl">44.15</span>,<span class="fl">44.91</span>,<span class="fl">43.40</span>,
-       <span class="fl">49.81</span>,<span class="fl">38.87</span>,<span class="fl">40.00</span>,<span class="fl">52.45</span>,<span class="fl">53.13</span>,<span class="fl">47.92</span>,<span class="fl">52.45</span>,<span class="fl">44.91</span>,<span class="fl">29.54</span>,<span class="fl">27.13</span>,<span class="fl">35.60</span>,
-       <span class="fl">45.34</span>,<span class="fl">43.37</span>,<span class="fl">54.15</span>,<span class="fl">42.77</span>,<span class="fl">42.88</span>,<span class="fl">44.26</span>,<span class="fl">27.14</span>,<span class="fl">39.31</span>,<span class="fl">24.80</span>,<span class="fl">16.62</span>,<span class="fl">30.30</span>,
-       <span class="fl">36.39</span>,<span class="fl">28.60</span>,<span class="fl">28.53</span>,<span class="fl">35.84</span>,<span class="fl">31.10</span>,<span class="fl">34.55</span>,<span class="fl">52.65</span>,<span class="fl">48.81</span>,<span class="fl">43.42</span>,<span class="fl">52.49</span>,<span class="fl">38.00</span>,
-       <span class="fl">38.65</span>,<span class="fl">34.54</span>,<span class="fl">37.70</span>,<span class="fl">38.11</span>,<span class="fl">43.05</span>,<span class="fl">29.95</span>,<span class="fl">32.48</span>,<span class="fl">24.63</span>,<span class="fl">35.33</span>,<span class="fl">41.34</span>)
-<span class="kw">descdist</span>(x, <span class="dt">discrete =</span> <span class="ot">FALSE</span>)</code></pre>
+<div class="sourceCode" id="cb435"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb435-1"><a href="experimental-design.html#cb435-1"></a><span class="cf">if</span>(<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;fitdistrplus&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;fitdistrplus&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;fitdistrplus&#39;</span>)</span>
+<span id="cb435-2"><a href="experimental-design.html#cb435-2"></a><span class="cf">if</span>(<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;logspline&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;logspline&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;logspline&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb436"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb436-1"><a href="experimental-design.html#cb436-1"></a>x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">37.50</span>,<span class="fl">46.79</span>,<span class="fl">48.30</span>,<span class="fl">46.04</span>,<span class="fl">43.40</span>,<span class="fl">39.25</span>,<span class="fl">38.49</span>,<span class="fl">49.51</span>,<span class="fl">40.38</span>,<span class="fl">36.98</span>,<span class="fl">40.00</span>,</span>
+<span id="cb436-2"><a href="experimental-design.html#cb436-2"></a>       <span class="fl">38.49</span>,<span class="fl">37.74</span>,<span class="fl">47.92</span>,<span class="fl">44.53</span>,<span class="fl">44.91</span>,<span class="fl">44.91</span>,<span class="fl">40.00</span>,<span class="fl">41.51</span>,<span class="fl">47.92</span>,<span class="fl">36.98</span>,<span class="fl">43.40</span>,</span>
+<span id="cb436-3"><a href="experimental-design.html#cb436-3"></a>       <span class="fl">42.26</span>,<span class="fl">41.89</span>,<span class="fl">38.87</span>,<span class="fl">43.02</span>,<span class="fl">39.25</span>,<span class="fl">40.38</span>,<span class="fl">42.64</span>,<span class="fl">36.98</span>,<span class="fl">44.15</span>,<span class="fl">44.91</span>,<span class="fl">43.40</span>,</span>
+<span id="cb436-4"><a href="experimental-design.html#cb436-4"></a>       <span class="fl">49.81</span>,<span class="fl">38.87</span>,<span class="fl">40.00</span>,<span class="fl">52.45</span>,<span class="fl">53.13</span>,<span class="fl">47.92</span>,<span class="fl">52.45</span>,<span class="fl">44.91</span>,<span class="fl">29.54</span>,<span class="fl">27.13</span>,<span class="fl">35.60</span>,</span>
+<span id="cb436-5"><a href="experimental-design.html#cb436-5"></a>       <span class="fl">45.34</span>,<span class="fl">43.37</span>,<span class="fl">54.15</span>,<span class="fl">42.77</span>,<span class="fl">42.88</span>,<span class="fl">44.26</span>,<span class="fl">27.14</span>,<span class="fl">39.31</span>,<span class="fl">24.80</span>,<span class="fl">16.62</span>,<span class="fl">30.30</span>,</span>
+<span id="cb436-6"><a href="experimental-design.html#cb436-6"></a>       <span class="fl">36.39</span>,<span class="fl">28.60</span>,<span class="fl">28.53</span>,<span class="fl">35.84</span>,<span class="fl">31.10</span>,<span class="fl">34.55</span>,<span class="fl">52.65</span>,<span class="fl">48.81</span>,<span class="fl">43.42</span>,<span class="fl">52.49</span>,<span class="fl">38.00</span>,</span>
+<span id="cb436-7"><a href="experimental-design.html#cb436-7"></a>       <span class="fl">38.65</span>,<span class="fl">34.54</span>,<span class="fl">37.70</span>,<span class="fl">38.11</span>,<span class="fl">43.05</span>,<span class="fl">29.95</span>,<span class="fl">32.48</span>,<span class="fl">24.63</span>,<span class="fl">35.33</span>,<span class="fl">41.34</span>)</span>
+<span id="cb436-8"><a href="experimental-design.html#cb436-8"></a><span class="kw">descdist</span>(x, <span class="dt">discrete =</span> <span class="ot">FALSE</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/11-04-Determine_distribution-1-1.png" width="672" /></p>
 <pre><code>## summary statistics
 ## ------
@@ -770,11 +823,13 @@ datos_finales =<span class="st"> </span>datos_combinados <span class="op">%&gt;%
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -782,12 +837,11 @@ gitbook.start({
 "github": false,
 "facebook": true,
 "twitter": true,
-"google": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
@@ -799,6 +853,10 @@ gitbook.start({
 "text": null
 },
 "history": {
+"link": null,
+"text": null
+},
+"view": {
 "link": null,
 "text": null
 },

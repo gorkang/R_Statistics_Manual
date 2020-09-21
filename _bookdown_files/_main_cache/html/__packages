@@ -71,3 +71,15 @@ tidyroc
 broom
 xml2
 rvest
+gt
+gtsummary
+naniar
+recipes
+tidytuesdayR
+forcats
+waffle
+patchwork
+scales
+viridisLite
+viridis
+ggtext

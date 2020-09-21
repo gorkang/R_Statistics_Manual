@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html lang="" xml:lang="">
 <head>
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>12 Pre-processing | R - Statistics Manual</title>
   <meta name="description" content="Statistics manual from CSCN." />
-  <meta name="generator" content="bookdown 0.11 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
   <meta property="og:title" content="12 Pre-processing | R - Statistics Manual" />
   <meta property="og:type" content="book" />
@@ -24,15 +24,16 @@
 <meta name="author" content="Center for Social and Cognitive Neuroscience - cscn.uai.cl" />
 
 
-<meta name="date" content="2019-05-31" />
+<meta name="date" content="2020-09-21" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="Funciones.html">
-<link rel="next" href="experimental-design.html">
+<link rel="prev" href="Funciones.html"/>
+<link rel="next" href="experimental-design.html"/>
+<script src="libs/header-attrs-2.3/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -40,6 +41,7 @@
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
 
 
 
@@ -47,7 +49,10 @@
 
 
 
-<script src="libs/htmlwidgets-1.3/htmlwidgets.js"></script>
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
 <link href="libs/str_view-0.1.0/str_view.css" rel="stylesheet" />
 <script src="libs/str_view-binding-1.4.0/str_view.js"></script>
 <script src="libs/datatables-binding-0.2.10/datatables.js"></script>
@@ -60,26 +65,26 @@
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -88,9 +93,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  }
+  {   }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -135,15 +140,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#for-users"><i class="fa fa-check"></i><b>1.1</b> For USERS</a></li>
 <li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#for-developers-and-statisticians"><i class="fa fa-check"></i><b>1.2</b> For Developers and Statisticians</a></li>
 <li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#contributors"><i class="fa fa-check"></i><b>1.3</b> Contributors</a></li>
-<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#todo"><i class="fa fa-check"></i><b>1.4</b> TODO</a><ul>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#todo"><i class="fa fa-check"></i><b>1.4</b> TODO</a>
+<ul>
 <li class="chapter" data-level="1.4.1" data-path="index.html"><a href="index.html#inferential-analysis"><i class="fa fa-check"></i><b>1.4.1</b> Inferential analysis</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="Empezando.html"><a href="Empezando.html"><i class="fa fa-check"></i><b>2</b> Empezando en A-B-C</a><ul>
+<li class="chapter" data-level="2" data-path="Empezando.html"><a href="Empezando.html"><i class="fa fa-check"></i><b>2</b> Empezando en A-B-C</a>
+<ul>
 <li class="chapter" data-level="2.1" data-path="Empezando.html"><a href="Empezando.html#a-instalar-r."><i class="fa fa-check"></i><b>2.1</b> <strong>(A)</strong> Instalar R.</a></li>
 <li class="chapter" data-level="2.2" data-path="Empezando.html"><a href="Empezando.html#b-instalar-rstudio."><i class="fa fa-check"></i><b>2.2</b> <strong>(B)</strong> Instalar RStudio.</a></li>
 <li class="chapter" data-level="2.3" data-path="Empezando.html"><a href="Empezando.html#instalar-packages"><i class="fa fa-check"></i><b>2.3</b> Instalar Packages</a></li>
@@ -151,15 +159,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.5" data-path="Empezando.html"><a href="Empezando.html#todo-en-uno"><i class="fa fa-check"></i><b>2.5</b> Todo en uno</a></li>
 <li class="chapter" data-level="2.6" data-path="Empezando.html"><a href="Empezando.html#c-librerias-para-el-workshop"><i class="fa fa-check"></i><b>2.6</b> <strong>(C)</strong> Librerias para el workshop</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="Mi-primer-script.html"><a href="Mi-primer-script.html"><i class="fa fa-check"></i><b>3</b> Mi primer script</a><ul>
+<li class="chapter" data-level="3" data-path="Mi-primer-script.html"><a href="Mi-primer-script.html"><i class="fa fa-check"></i><b>3</b> Mi primer script</a>
+<ul>
 <li class="chapter" data-level="3.1" data-path="Mi-primer-script.html"><a href="Mi-primer-script.html#paso-a-paso"><i class="fa fa-check"></i><b>3.1</b> Paso a paso</a></li>
 <li class="chapter" data-level="3.2" data-path="Mi-primer-script.html"><a href="Mi-primer-script.html#establecer-nuestro-directorio-de-trabajo"><i class="fa fa-check"></i><b>3.2</b> Establecer nuestro directorio de trabajo</a></li>
 <li class="chapter" data-level="3.3" data-path="Mi-primer-script.html"><a href="Mi-primer-script.html#nuestro-primer-script"><i class="fa fa-check"></i><b>3.3</b> Nuestro primer script</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="Conseguir-ayuda.html"><a href="Conseguir-ayuda.html"><i class="fa fa-check"></i><b>4</b> Conseguir ayuda y aprender más</a><ul>
-<li class="chapter" data-level="4.1" data-path="Conseguir-ayuda.html"><a href="Conseguir-ayuda.html#cuando-sabemos-que-funcion-usar-pero-dudamos-de-la-sintaxis"><i class="fa fa-check"></i><b>4.1</b> Cuando sabemos que función usar, pero dudamos de la sintaxis:</a></li>
-<li class="chapter" data-level="4.2" data-path="Conseguir-ayuda.html"><a href="Conseguir-ayuda.html#cuando-sabemos-lo-que-queremos-hacer-pero-no-la-funcion-que-debemos-usar"><i class="fa fa-check"></i><b>4.2</b> Cuando sabemos lo que queremos hacer pero no la función que debemos usar:</a></li>
-<li class="chapter" data-level="4.3" data-path="Conseguir-ayuda.html"><a href="Conseguir-ayuda.html#libros-y-web-recomendados"><i class="fa fa-check"></i><b>4.3</b> Libros y Web recomendados</a><ul>
+<li class="chapter" data-level="4" data-path="Conseguir-ayuda.html"><a href="Conseguir-ayuda.html"><i class="fa fa-check"></i><b>4</b> Conseguir ayuda y aprender más</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="Conseguir-ayuda.html"><a href="Conseguir-ayuda.html#cuando-sabemos-que-función-usar-pero-dudamos-de-la-sintaxis"><i class="fa fa-check"></i><b>4.1</b> Cuando sabemos que función usar, pero dudamos de la sintaxis:</a></li>
+<li class="chapter" data-level="4.2" data-path="Conseguir-ayuda.html"><a href="Conseguir-ayuda.html#cuando-sabemos-lo-que-queremos-hacer-pero-no-la-función-que-debemos-usar"><i class="fa fa-check"></i><b>4.2</b> Cuando sabemos lo que queremos hacer pero no la función que debemos usar:</a></li>
+<li class="chapter" data-level="4.3" data-path="Conseguir-ayuda.html"><a href="Conseguir-ayuda.html#libros-y-web-recomendados"><i class="fa fa-check"></i><b>4.3</b> Libros y Web recomendados</a>
+<ul>
 <li class="chapter" data-level="4.3.1" data-path="Conseguir-ayuda.html"><a href="Conseguir-ayuda.html#hadley-wickhams-books"><i class="fa fa-check"></i><b>4.3.1</b> Hadley Wickham’s books</a></li>
 <li class="chapter" data-level="4.3.2" data-path="Conseguir-ayuda.html"><a href="Conseguir-ayuda.html#learning-statistics-with-r"><i class="fa fa-check"></i><b>4.3.2</b> Learning statistics with R</a></li>
 <li class="chapter" data-level="4.3.3" data-path="Conseguir-ayuda.html"><a href="Conseguir-ayuda.html#pirate-guide-to-r"><i class="fa fa-check"></i><b>4.3.3</b> Pirate guide to R</a></li>
@@ -168,30 +179,37 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.3.6" data-path="Conseguir-ayuda.html"><a href="Conseguir-ayuda.html#twitter"><i class="fa fa-check"></i><b>4.3.6</b> Twitter</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="basics-data-types-import-and-export-data.html"><a href="basics-data-types-import-and-export-data.html"><i class="fa fa-check"></i><b>5</b> Basics - Data types, import and export data</a><ul>
-<li class="chapter" data-level="5.1" data-path="basics-data-types-import-and-export-data.html"><a href="basics-data-types-import-and-export-data.html#data-types"><i class="fa fa-check"></i><b>5.1</b> Data types</a><ul>
+<li class="chapter" data-level="5" data-path="basics-data-types-import-and-export-data.html"><a href="basics-data-types-import-and-export-data.html"><i class="fa fa-check"></i><b>5</b> Basics - Data types, import and export data</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="basics-data-types-import-and-export-data.html"><a href="basics-data-types-import-and-export-data.html#data-types"><i class="fa fa-check"></i><b>5.1</b> Data types</a>
+<ul>
 <li class="chapter" data-level="5.1.1" data-path="basics-data-types-import-and-export-data.html"><a href="basics-data-types-import-and-export-data.html#data-frames"><i class="fa fa-check"></i><b>5.1.1</b> Data Frames</a></li>
 <li class="chapter" data-level="5.1.2" data-path="basics-data-types-import-and-export-data.html"><a href="basics-data-types-import-and-export-data.html#matrices"><i class="fa fa-check"></i><b>5.1.2</b> Matrices</a></li>
 <li class="chapter" data-level="5.1.3" data-path="basics-data-types-import-and-export-data.html"><a href="basics-data-types-import-and-export-data.html#listas"><i class="fa fa-check"></i><b>5.1.3</b> Listas</a></li>
 </ul></li>
-<li class="chapter" data-level="5.2" data-path="basics-data-types-import-and-export-data.html"><a href="basics-data-types-import-and-export-data.html#import-data"><i class="fa fa-check"></i><b>5.2</b> Import data</a><ul>
+<li class="chapter" data-level="5.2" data-path="basics-data-types-import-and-export-data.html"><a href="basics-data-types-import-and-export-data.html#import-data"><i class="fa fa-check"></i><b>5.2</b> Import data</a>
+<ul>
 <li class="chapter" data-level="5.2.1" data-path="basics-data-types-import-and-export-data.html"><a href="basics-data-types-import-and-export-data.html#from-csv-file"><i class="fa fa-check"></i><b>5.2.1</b> From CSV file</a></li>
 <li class="chapter" data-level="5.2.2" data-path="basics-data-types-import-and-export-data.html"><a href="basics-data-types-import-and-export-data.html#from-xls-file-excel"><i class="fa fa-check"></i><b>5.2.2</b> From XLS’ file (Excel)</a></li>
 <li class="chapter" data-level="5.2.3" data-path="basics-data-types-import-and-export-data.html"><a href="basics-data-types-import-and-export-data.html#from-sav-file-spss"><i class="fa fa-check"></i><b>5.2.3</b> From SAV file (SPSS)</a></li>
 <li class="chapter" data-level="5.2.4" data-path="basics-data-types-import-and-export-data.html"><a href="basics-data-types-import-and-export-data.html#import-all-files-from-a-folder"><i class="fa fa-check"></i><b>5.2.4</b> Import all files from a folder</a></li>
 <li class="chapter" data-level="5.2.5" data-path="basics-data-types-import-and-export-data.html"><a href="basics-data-types-import-and-export-data.html#import-files-using-rstudio"><i class="fa fa-check"></i><b>5.2.5</b> Import files using RStudio</a></li>
 </ul></li>
-<li class="chapter" data-level="5.3" data-path="basics-data-types-import-and-export-data.html"><a href="basics-data-types-import-and-export-data.html#export-data"><i class="fa fa-check"></i><b>5.3</b> Export data</a><ul>
+<li class="chapter" data-level="5.3" data-path="basics-data-types-import-and-export-data.html"><a href="basics-data-types-import-and-export-data.html#export-data"><i class="fa fa-check"></i><b>5.3</b> Export data</a>
+<ul>
 <li class="chapter" data-level="5.3.1" data-path="basics-data-types-import-and-export-data.html"><a href="basics-data-types-import-and-export-data.html#export-data-to-csv-file"><i class="fa fa-check"></i><b>5.3.1</b> Export data to CSV file</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="Manipular-datos.html"><a href="Manipular-datos.html"><i class="fa fa-check"></i><b>6</b> Manipular datos</a><ul>
-<li class="chapter" data-level="6.1" data-path="Manipular-datos.html"><a href="Manipular-datos.html#leer-y-guardar-datos"><i class="fa fa-check"></i><b>6.1</b> Leer y guardar datos</a><ul>
+<li class="chapter" data-level="6" data-path="Manipular-datos.html"><a href="Manipular-datos.html"><i class="fa fa-check"></i><b>6</b> Manipular datos</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="Manipular-datos.html"><a href="Manipular-datos.html#leer-y-guardar-datos"><i class="fa fa-check"></i><b>6.1</b> Leer y guardar datos</a>
+<ul>
 <li class="chapter" data-level="6.1.1" data-path="Manipular-datos.html"><a href="Manipular-datos.html#leer-datos"><i class="fa fa-check"></i><b>6.1.1</b> Leer datos</a></li>
 <li class="chapter" data-level="6.1.2" data-path="Manipular-datos.html"><a href="Manipular-datos.html#guardar-db-a-archivo"><i class="fa fa-check"></i><b>6.1.2</b> Guardar DB a archivo</a></li>
 </ul></li>
 <li class="chapter" data-level="6.2" data-path="Manipular-datos.html"><a href="Manipular-datos.html#ver-output-vs-asignar-output"><i class="fa fa-check"></i><b>6.2</b> Ver output vs asignar output</a></li>
-<li class="chapter" data-level="6.3" data-path="Manipular-datos.html"><a href="Manipular-datos.html#verbos-de-dplyr"><i class="fa fa-check"></i><b>6.3</b> Verbos de dplyr</a><ul>
+<li class="chapter" data-level="6.3" data-path="Manipular-datos.html"><a href="Manipular-datos.html#verbos-de-dplyr"><i class="fa fa-check"></i><b>6.3</b> Verbos de dplyr</a>
+<ul>
 <li class="chapter" data-level="6.3.1" data-path="Manipular-datos.html"><a href="Manipular-datos.html#filtrar-datos"><i class="fa fa-check"></i><b>6.3.1</b> Filtrar datos</a></li>
 <li class="chapter" data-level="6.3.2" data-path="Manipular-datos.html"><a href="Manipular-datos.html#ordenar-db"><i class="fa fa-check"></i><b>6.3.2</b> Ordenar DB</a></li>
 <li class="chapter" data-level="6.3.3" data-path="Manipular-datos.html"><a href="Manipular-datos.html#seleccionar-variables"><i class="fa fa-check"></i><b>6.3.3</b> Seleccionar variables</a></li>
@@ -205,17 +223,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.3.11" data-path="Manipular-datos.html"><a href="Manipular-datos.html#recodificamos-datos"><i class="fa fa-check"></i><b>6.3.11</b> Recodificamos datos</a></li>
 </ul></li>
 <li class="chapter" data-level="6.4" data-path="Manipular-datos.html"><a href="Manipular-datos.html#combinar-bases-de-datos"><i class="fa fa-check"></i><b>6.4</b> Combinar bases de datos</a></li>
-<li class="chapter" data-level="6.5" data-path="Manipular-datos.html"><a href="Manipular-datos.html#verbos-avanzados"><i class="fa fa-check"></i><b>6.5</b> Verbos avanzados</a><ul>
+<li class="chapter" data-level="6.5" data-path="Manipular-datos.html"><a href="Manipular-datos.html#verbos-avanzados"><i class="fa fa-check"></i><b>6.5</b> Verbos avanzados</a>
+<ul>
 <li class="chapter" data-level="6.5.1" data-path="Manipular-datos.html"><a href="Manipular-datos.html#cambiar-multiples-columnas-de-un-tipo-a-otro"><i class="fa fa-check"></i><b>6.5.1</b> Cambiar multiples columnas de un tipo a otro</a></li>
 </ul></li>
 <li class="chapter" data-level="6.6" data-path="Manipular-datos.html"><a href="Manipular-datos.html#regular-expressions"><i class="fa fa-check"></i><b>6.6</b> Regular expressions</a></li>
 <li class="chapter" data-level="6.7" data-path="Manipular-datos.html"><a href="Manipular-datos.html#trabajando-con-fechas"><i class="fa fa-check"></i><b>6.7</b> Trabajando con fechas</a></li>
-<li class="chapter" data-level="6.8" data-path="Manipular-datos.html"><a href="Manipular-datos.html#tutoriales-externos"><i class="fa fa-check"></i><b>6.8</b> Tutoriales externos</a></li>
+<li class="chapter" data-level="6.8" data-path="Manipular-datos.html"><a href="Manipular-datos.html#pegando-portapapeles-a-vector-con-datapasta"><i class="fa fa-check"></i><b>6.8</b> Pegando portapapeles a vector con datapasta</a></li>
+<li class="chapter" data-level="6.9" data-path="Manipular-datos.html"><a href="Manipular-datos.html#tutoriales-externos"><i class="fa fa-check"></i><b>6.9</b> Tutoriales externos</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html"><i class="fa fa-check"></i><b>7</b> Visualizar datos</a><ul>
+<li class="chapter" data-level="7" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html"><i class="fa fa-check"></i><b>7</b> Visualizar datos</a>
+<ul>
 <li class="chapter" data-level="7.1" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#other-resources"><i class="fa fa-check"></i><b>7.1</b> Other resources</a></li>
-<li class="chapter" data-level="7.2" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#que-grafica-puedo-usar-wip"><i class="fa fa-check"></i><b>7.2</b> Que gráfica puedo usar (WIP)</a></li>
-<li class="chapter" data-level="7.3" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#tipos-de-graficas"><i class="fa fa-check"></i><b>7.3</b> Tipos de gráficas</a><ul>
+<li class="chapter" data-level="7.2" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#que-gráfica-puedo-usar-wip"><i class="fa fa-check"></i><b>7.2</b> Que gráfica puedo usar (WIP)</a></li>
+<li class="chapter" data-level="7.3" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#tipos-de-gráficas"><i class="fa fa-check"></i><b>7.3</b> Tipos de gráficas</a>
+<ul>
 <li class="chapter" data-level="7.3.1" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#histogramas"><i class="fa fa-check"></i><b>7.3.1</b> Histogramas</a></li>
 <li class="chapter" data-level="7.3.2" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#Pirate-Plot"><i class="fa fa-check"></i><b>7.3.2</b> Pirate plot</a></li>
 <li class="chapter" data-level="7.3.3" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#barplots-with-individual-responses"><i class="fa fa-check"></i><b>7.3.3</b> Barplots with individual responses</a></li>
@@ -231,100 +253,131 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.3.13" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#multiple-scatterplots"><i class="fa fa-check"></i><b>7.3.13</b> Multiple Scatterplots</a></li>
 <li class="chapter" data-level="7.3.14" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#background-data"><i class="fa fa-check"></i><b>7.3.14</b> Background data</a></li>
 <li class="chapter" data-level="7.3.15" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#flip-plots"><i class="fa fa-check"></i><b>7.3.15</b> Flip plots</a></li>
+<li class="chapter" data-level="7.3.16" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#waffle-plots"><i class="fa fa-check"></i><b>7.3.16</b> Waffle plots</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="Visualizar-riesgo.html"><a href="Visualizar-riesgo.html"><i class="fa fa-check"></i><b>8</b> Visualizar riesgo</a><ul>
+<li class="chapter" data-level="8" data-path="Visualizar-riesgo.html"><a href="Visualizar-riesgo.html"><i class="fa fa-check"></i><b>8</b> Visualizar riesgo</a>
+<ul>
 <li class="chapter" data-level="8.1" data-path="Visualizar-riesgo.html"><a href="Visualizar-riesgo.html#riskr"><i class="fa fa-check"></i><b>8.1</b> Riskr</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="Estadistica-descriptiva.html"><a href="Estadistica-descriptiva.html"><i class="fa fa-check"></i><b>9</b> Estadistica descriptiva</a><ul>
-<li class="chapter" data-level="9.1" data-path="Estadistica-descriptiva.html"><a href="Estadistica-descriptiva.html#summary-de-datos"><i class="fa fa-check"></i><b>9.1</b> Summary de datos</a><ul>
-<li class="chapter" data-level="9.1.1" data-path="Estadistica-descriptiva.html"><a href="Estadistica-descriptiva.html#agrupamos-por-sujeto"><i class="fa fa-check"></i><b>9.1.1</b> Agrupamos por sujeto</a></li>
+<li class="chapter" data-level="9" data-path="Estadistica-descriptiva.html"><a href="Estadistica-descriptiva.html"><i class="fa fa-check"></i><b>9</b> Estadistica descriptiva</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="Estadistica-descriptiva.html"><a href="Estadistica-descriptiva.html#gtsummaries"><i class="fa fa-check"></i><b>9.1</b> Gtsummaries</a></li>
+<li class="chapter" data-level="9.2" data-path="Estadistica-descriptiva.html"><a href="Estadistica-descriptiva.html#summary-de-datos"><i class="fa fa-check"></i><b>9.2</b> Summary de datos</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="Estadistica-descriptiva.html"><a href="Estadistica-descriptiva.html#agrupamos-por-sujeto"><i class="fa fa-check"></i><b>9.2.1</b> Agrupamos por sujeto</a></li>
 </ul></li>
-<li class="chapter" data-level="9.2" data-path="Estadistica-descriptiva.html"><a href="Estadistica-descriptiva.html#descriptive-tables-latex"><i class="fa fa-check"></i><b>9.2</b> Descriptive tables latex</a></li>
-<li class="chapter" data-level="9.3" data-path="Estadistica-descriptiva.html"><a href="Estadistica-descriptiva.html#visualize-missing-values"><i class="fa fa-check"></i><b>9.3</b> Visualize missing values</a></li>
-<li class="chapter" data-level="9.4" data-path="Estadistica-descriptiva.html"><a href="Estadistica-descriptiva.html#tutorial-externo"><i class="fa fa-check"></i><b>9.4</b> Tutorial externo</a></li>
-<li class="chapter" data-level="9.5" data-path="Estadistica-descriptiva.html"><a href="Estadistica-descriptiva.html#findviews"><i class="fa fa-check"></i><b>9.5</b> Findviews</a></li>
+<li class="chapter" data-level="9.3" data-path="Estadistica-descriptiva.html"><a href="Estadistica-descriptiva.html#descriptive-tables-latex"><i class="fa fa-check"></i><b>9.3</b> Descriptive tables latex</a></li>
+<li class="chapter" data-level="9.4" data-path="Estadistica-descriptiva.html"><a href="Estadistica-descriptiva.html#visualize-missing-values"><i class="fa fa-check"></i><b>9.4</b> Visualize missing values</a></li>
+<li class="chapter" data-level="9.5" data-path="Estadistica-descriptiva.html"><a href="Estadistica-descriptiva.html#tutorial-externo"><i class="fa fa-check"></i><b>9.5</b> Tutorial externo</a></li>
+<li class="chapter" data-level="9.6" data-path="Estadistica-descriptiva.html"><a href="Estadistica-descriptiva.html#findviews"><i class="fa fa-check"></i><b>9.6</b> Findviews</a></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html"><i class="fa fa-check"></i><b>10</b> Estadistica inferencial</a><ul>
+<li class="chapter" data-level="10" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html"><i class="fa fa-check"></i><b>10</b> Estadistica inferencial</a>
+<ul>
 <li class="chapter" data-level="10.1" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#referencias-y-fuentes"><i class="fa fa-check"></i><b>10.1</b> Referencias y Fuentes</a></li>
-<li class="chapter" data-level="10.2" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#association-test"><i class="fa fa-check"></i><b>10.2</b> Association test</a><ul>
+<li class="chapter" data-level="10.2" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#association-test"><i class="fa fa-check"></i><b>10.2</b> Association test</a>
+<ul>
 <li class="chapter" data-level="10.2.1" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#frequentist-1"><i class="fa fa-check"></i><b>10.2.1</b> Frequentist</a></li>
 <li class="chapter" data-level="10.2.2" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#bayesian-2"><i class="fa fa-check"></i><b>10.2.2</b> Bayesian</a></li>
 <li class="chapter" data-level="10.2.3" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#results-report---wip"><i class="fa fa-check"></i><b>10.2.3</b> Results report - WIP</a></li>
 <li class="chapter" data-level="10.2.4" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#references"><i class="fa fa-check"></i><b>10.2.4</b> References</a></li>
 </ul></li>
 <li class="chapter" data-level="10.3" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#anova-repeated-measures"><i class="fa fa-check"></i><b>10.3</b> ANOVA repeated measures</a></li>
-<li class="chapter" data-level="10.4" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#mixed-models"><i class="fa fa-check"></i><b>10.4</b> Mixed Models</a></li>
-<li class="chapter" data-level="10.5" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#meta-analysis"><i class="fa fa-check"></i><b>10.5</b> Meta analysis</a><ul>
+<li class="chapter" data-level="10.4" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#mixed-models"><i class="fa fa-check"></i><b>10.4</b> Mixed Models</a>
+<ul>
+<li class="chapter" data-level="10.4.1" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#reading-list"><i class="fa fa-check"></i><b>10.4.1</b> Reading list</a></li>
+</ul></li>
+<li class="chapter" data-level="10.5" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#meta-analysis"><i class="fa fa-check"></i><b>10.5</b> Meta analysis</a>
+<ul>
 <li class="chapter" data-level="10.5.1" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#natural-frequencies-effect"><i class="fa fa-check"></i><b>10.5.1</b> Natural Frequencies Effect</a></li>
 <li class="chapter" data-level="10.5.2" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#pictures-effect"><i class="fa fa-check"></i><b>10.5.2</b> Pictures Effect</a></li>
 <li class="chapter" data-level="10.5.3" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#notes-on-meta-analysis"><i class="fa fa-check"></i><b>10.5.3</b> Notes on Meta-analysis</a></li>
 </ul></li>
 <li class="chapter" data-level="10.6" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#roc-curves"><i class="fa fa-check"></i><b>10.6</b> ROC Curves</a></li>
 </ul></li>
-<li class="chapter" data-level="11" data-path="Funciones.html"><a href="Funciones.html"><i class="fa fa-check"></i><b>11</b> Funciones</a><ul>
-<li class="chapter" data-level="11.1" data-path="Funciones.html"><a href="Funciones.html#creando-mi-primera-funcion"><i class="fa fa-check"></i><b>11.1</b> Creando mi primera función</a><ul>
+<li class="chapter" data-level="11" data-path="Funciones.html"><a href="Funciones.html"><i class="fa fa-check"></i><b>11</b> Funciones</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="Funciones.html"><a href="Funciones.html#creando-mi-primera-función"><i class="fa fa-check"></i><b>11.1</b> Creando mi primera función</a>
+<ul>
 <li class="chapter" data-level="11.1.1" data-path="Funciones.html"><a href="Funciones.html#pirate-plot-original"><i class="fa fa-check"></i><b>11.1.1</b> Pirate plot original</a></li>
-<li class="chapter" data-level="11.1.2" data-path="Funciones.html"><a href="Funciones.html#nuestra-funcion"><i class="fa fa-check"></i><b>11.1.2</b> Nuestra función</a></li>
+<li class="chapter" data-level="11.1.2" data-path="Funciones.html"><a href="Funciones.html#nuestra-función"><i class="fa fa-check"></i><b>11.1.2</b> Nuestra función</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="12" data-path="pre-processing.html"><a href="pre-processing.html"><i class="fa fa-check"></i><b>12</b> Pre-processing</a><ul>
-<li class="chapter" data-level="12.1" data-path="pre-processing.html"><a href="pre-processing.html#rt-filtering"><i class="fa fa-check"></i><b>12.1</b> RT filtering</a><ul>
+<li class="chapter" data-level="12" data-path="pre-processing.html"><a href="pre-processing.html"><i class="fa fa-check"></i><b>12</b> Pre-processing</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="pre-processing.html"><a href="pre-processing.html#rt-filtering"><i class="fa fa-check"></i><b>12.1</b> RT filtering</a>
+<ul>
 <li class="chapter" data-level="12.1.1" data-path="pre-processing.html"><a href="pre-processing.html#function-to-filter-by-rt"><i class="fa fa-check"></i><b>12.1.1</b> Function to filter by RT</a></li>
 <li class="chapter" data-level="12.1.2" data-path="pre-processing.html"><a href="pre-processing.html#n-sd-from-the-median-mad-1"><i class="fa fa-check"></i><b>12.1.2</b> n SD from the median (MAD)</a></li>
 <li class="chapter" data-level="12.1.3" data-path="pre-processing.html"><a href="pre-processing.html#gamma-law-regression-analyses-2"><i class="fa fa-check"></i><b>12.1.3</b> Gamma law regression analyses</a></li>
 <li class="chapter" data-level="12.1.4" data-path="pre-processing.html"><a href="pre-processing.html#logarithms"><i class="fa fa-check"></i><b>12.1.4</b> Logarithms</a></li>
 <li class="chapter" data-level="12.1.5" data-path="pre-processing.html"><a href="pre-processing.html#references-1"><i class="fa fa-check"></i><b>12.1.5</b> References</a></li>
 </ul></li>
-<li class="chapter" data-level="12.2" data-path="pre-processing.html"><a href="pre-processing.html#reliability"><i class="fa fa-check"></i><b>12.2</b> Reliability</a><ul>
+<li class="chapter" data-level="12.2" data-path="pre-processing.html"><a href="pre-processing.html#reliability"><i class="fa fa-check"></i><b>12.2</b> Reliability</a>
+<ul>
 <li class="chapter" data-level="12.2.1" data-path="pre-processing.html"><a href="pre-processing.html#cronbachs-alpha"><i class="fa fa-check"></i><b>12.2.1</b> Cronbach’s Alpha</a></li>
 <li class="chapter" data-level="12.2.2" data-path="pre-processing.html"><a href="pre-processing.html#omega"><i class="fa fa-check"></i><b>12.2.2</b> Omega</a></li>
 <li class="chapter" data-level="12.2.3" data-path="pre-processing.html"><a href="pre-processing.html#references-2"><i class="fa fa-check"></i><b>12.2.3</b> References</a></li>
 </ul></li>
-<li class="chapter" data-level="12.3" data-path="pre-processing.html"><a href="pre-processing.html#impute-missing-data"><i class="fa fa-check"></i><b>12.3</b> Impute missing data</a></li>
+<li class="chapter" data-level="12.3" data-path="pre-processing.html"><a href="pre-processing.html#impute-missing-data"><i class="fa fa-check"></i><b>12.3</b> Impute missing data</a>
+<ul>
+<li class="chapter" data-level="12.3.1" data-path="pre-processing.html"><a href="pre-processing.html#impute-with-mice"><i class="fa fa-check"></i><b>12.3.1</b> Impute with mice</a></li>
+<li class="chapter" data-level="12.3.2" data-path="pre-processing.html"><a href="pre-processing.html#impute-with-recipes"><i class="fa fa-check"></i><b>12.3.2</b> Impute with recipes</a></li>
 </ul></li>
-<li class="chapter" data-level="13" data-path="experimental-design.html"><a href="experimental-design.html"><i class="fa fa-check"></i><b>13</b> Experimental design</a><ul>
-<li class="chapter" data-level="13.1" data-path="experimental-design.html"><a href="experimental-design.html#tamano-de-muestra-y-efecto-detectado"><i class="fa fa-check"></i><b>13.1</b> Tamaño de muestra y efecto detectado</a></li>
-<li class="chapter" data-level="13.2" data-path="experimental-design.html"><a href="experimental-design.html#power-analysis"><i class="fa fa-check"></i><b>13.2</b> Power analysis</a><ul>
+</ul></li>
+<li class="chapter" data-level="13" data-path="experimental-design.html"><a href="experimental-design.html"><i class="fa fa-check"></i><b>13</b> Experimental design</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="experimental-design.html"><a href="experimental-design.html#tamaño-de-muestra-y-efecto-detectado"><i class="fa fa-check"></i><b>13.1</b> Tamaño de muestra y efecto detectado</a></li>
+<li class="chapter" data-level="13.2" data-path="experimental-design.html"><a href="experimental-design.html#power-analysis"><i class="fa fa-check"></i><b>13.2</b> Power analysis</a>
+<ul>
 <li class="chapter" data-level="13.2.1" data-path="experimental-design.html"><a href="experimental-design.html#longitudinal-designs"><i class="fa fa-check"></i><b>13.2.1</b> Longitudinal designs</a></li>
 </ul></li>
-<li class="chapter" data-level="13.3" data-path="experimental-design.html"><a href="experimental-design.html#anonimizar-participantes---encriptar-ids"><i class="fa fa-check"></i><b>13.3</b> Anonimizar participantes - Encriptar IDs</a><ul>
+<li class="chapter" data-level="13.3" data-path="experimental-design.html"><a href="experimental-design.html#anonimizar-participantes---encriptar-ids"><i class="fa fa-check"></i><b>13.3</b> Anonimizar participantes - Encriptar IDs</a>
+<ul>
 <li class="chapter" data-level="13.3.1" data-path="experimental-design.html"><a href="experimental-design.html#encriptando-y-desencriptando-un-elemento"><i class="fa fa-check"></i><b>13.3.1</b> Encriptando y desencriptando un elemento</a></li>
 <li class="chapter" data-level="13.3.2" data-path="experimental-design.html"><a href="experimental-design.html#encriptando-y-desencriptando-la-columna-rut-de-una-db-completa."><i class="fa fa-check"></i><b>13.3.2</b> Encriptando y desencriptando la columna RUT de una DB completa.</a></li>
 </ul></li>
 <li class="chapter" data-level="13.4" data-path="experimental-design.html"><a href="experimental-design.html#match-participants"><i class="fa fa-check"></i><b>13.4</b> Match participants</a></li>
 <li class="chapter" data-level="13.5" data-path="experimental-design.html"><a href="experimental-design.html#determine-distribution"><i class="fa fa-check"></i><b>13.5</b> Determine distribution</a></li>
 </ul></li>
-<li class="chapter" data-level="14" data-path="classification.html"><a href="classification.html"><i class="fa fa-check"></i><b>14</b> Classification</a><ul>
+<li class="chapter" data-level="14" data-path="classification.html"><a href="classification.html"><i class="fa fa-check"></i><b>14</b> Classification</a>
+<ul>
 <li class="chapter" data-level="14.1" data-path="classification.html"><a href="classification.html#fast-and-frugal-trees"><i class="fa fa-check"></i><b>14.1</b> Fast and frugal trees</a></li>
 </ul></li>
-<li class="chapter" data-level="15" data-path="other-stuff.html"><a href="other-stuff.html"><i class="fa fa-check"></i><b>15</b> Other stuff</a><ul>
+<li class="chapter" data-level="15" data-path="other-stuff.html"><a href="other-stuff.html"><i class="fa fa-check"></i><b>15</b> Other stuff</a>
+<ul>
 <li class="chapter" data-level="15.1" data-path="other-stuff.html"><a href="other-stuff.html#maps---generate-and-locate-cities-in-a-world-map"><i class="fa fa-check"></i><b>15.1</b> Maps - Generate and locate cities in a world map</a></li>
 <li class="chapter" data-level="15.2" data-path="other-stuff.html"><a href="other-stuff.html#extract-tables-from-the-internet"><i class="fa fa-check"></i><b>15.2</b> Extract tables from the internet</a></li>
 <li class="chapter" data-level="15.3" data-path="other-stuff.html"><a href="other-stuff.html#extract-tables-from-the-internet-1"><i class="fa fa-check"></i><b>15.3</b> Extract tables from the internet</a></li>
 </ul></li>
-<li class="chapter" data-level="16" data-path="ejercicios-y-soluciones.html"><a href="ejercicios-y-soluciones.html"><i class="fa fa-check"></i><b>16</b> Ejercicios y soluciones</a><ul>
+<li class="chapter" data-level="16" data-path="ejercicios-y-soluciones.html"><a href="ejercicios-y-soluciones.html"><i class="fa fa-check"></i><b>16</b> Ejercicios y soluciones</a>
+<ul>
 <li class="chapter" data-level="16.1" data-path="ejercicios-y-soluciones.html"><a href="ejercicios-y-soluciones.html#Ejercicios1"><i class="fa fa-check"></i><b>16.1</b> Ejercicios 1</a></li>
 <li class="chapter" data-level="16.2" data-path="ejercicios-y-soluciones.html"><a href="ejercicios-y-soluciones.html#Ejercicios2"><i class="fa fa-check"></i><b>16.2</b> Ejercicios 2</a></li>
 </ul></li>
-<li class="chapter" data-level="17" data-path="bibliography-and-interesting-resources.html"><a href="bibliography-and-interesting-resources.html"><i class="fa fa-check"></i><b>17</b> Bibliography and interesting resources</a><ul>
+<li class="chapter" data-level="17" data-path="bibliography-and-interesting-resources.html"><a href="bibliography-and-interesting-resources.html"><i class="fa fa-check"></i><b>17</b> Bibliography and interesting resources</a>
+<ul>
 <li class="chapter" data-level="17.1" data-path="bibliography-and-interesting-resources.html"><a href="bibliography-and-interesting-resources.html#bibliography"><i class="fa fa-check"></i><b>17.1</b> Bibliography</a></li>
 <li class="chapter" data-level="17.2" data-path="bibliography-and-interesting-resources.html"><a href="bibliography-and-interesting-resources.html#interesting-resources---potentially"><i class="fa fa-check"></i><b>17.2</b> Interesting resources - potentially</a></li>
 </ul></li>
-<li class="chapter" data-level="18" data-path="todo-curso-basico-r-2016.html"><a href="todo-curso-basico-r-2016.html"><i class="fa fa-check"></i><b>18</b> TODO - Curso Basico R - 2016</a><ul>
+<li class="chapter" data-level="18" data-path="todo-curso-basico-r-2016.html"><a href="todo-curso-basico-r-2016.html"><i class="fa fa-check"></i><b>18</b> TODO - Curso Basico R - 2016</a>
+<ul>
 <li class="chapter" data-level="18.1" data-path="todo-curso-basico-r-2016.html"><a href="todo-curso-basico-r-2016.html#en-ejercicios"><i class="fa fa-check"></i><b>18.1</b> EN EJERCICIOS:</a></li>
 <li class="chapter" data-level="18.2" data-path="todo-curso-basico-r-2016.html"><a href="todo-curso-basico-r-2016.html#todo---limpieza-general"><i class="fa fa-check"></i><b>18.2</b> TODO - Limpieza general</a></li>
 </ul></li>
-<li class="chapter" data-level="19" data-path="todo-1.html"><a href="todo-1.html"><i class="fa fa-check"></i><b>19</b> TODO</a><ul>
+<li class="chapter" data-level="19" data-path="todo-1.html"><a href="todo-1.html"><i class="fa fa-check"></i><b>19</b> TODO</a>
+<ul>
 <li class="chapter" data-level="19.1" data-path="todo-1.html"><a href="todo-1.html#urgent-stuff"><i class="fa fa-check"></i><b>19.1</b> Urgent stuff</a></li>
 <li class="chapter" data-level="19.2" data-path="todo-1.html"><a href="todo-1.html#important"><i class="fa fa-check"></i><b>19.2</b> Important</a></li>
 <li class="chapter" data-level="19.3" data-path="todo-1.html"><a href="todo-1.html#various"><i class="fa fa-check"></i><b>19.3</b> Various</a></li>
 <li class="chapter" data-level="19.4" data-path="todo-1.html"><a href="todo-1.html#index-proposal"><i class="fa fa-check"></i><b>19.4</b> <strong>INDEX PROPOSAL</strong></a></li>
-<li class="chapter" data-level="19.5" data-path="todo-1.html"><a href="todo-1.html#style-guide"><i class="fa fa-check"></i><b>19.5</b> Style guide</a><ul>
+<li class="chapter" data-level="19.5" data-path="todo-1.html"><a href="todo-1.html#style-guide"><i class="fa fa-check"></i><b>19.5</b> Style guide</a>
+<ul>
 <li class="chapter" data-level="19.5.1" data-path="todo-1.html"><a href="todo-1.html#sections"><i class="fa fa-check"></i><b>19.5.1</b> Sections</a></li>
 <li class="chapter" data-level="19.5.2" data-path="todo-1.html"><a href="todo-1.html#general"><i class="fa fa-check"></i><b>19.5.2</b> General</a></li>
 </ul></li>
-<li class="chapter" data-level="19.6" data-path="todo-1.html"><a href="todo-1.html#notas---remember"><i class="fa fa-check"></i><b>19.6</b> NOTAS - REMEMBER</a><ul>
+<li class="chapter" data-level="19.6" data-path="todo-1.html"><a href="todo-1.html#notas---remember"><i class="fa fa-check"></i><b>19.6</b> NOTAS - REMEMBER</a>
+<ul>
 <li class="chapter" data-level="19.6.1" data-path="todo-1.html"><a href="todo-1.html#refs"><i class="fa fa-check"></i><b>19.6.1</b> REFS</a></li>
 <li class="chapter" data-level="19.6.2" data-path="todo-1.html"><a href="todo-1.html#notas"><i class="fa fa-check"></i><b>19.6.2</b> NOTAS</a></li>
 </ul></li>
@@ -346,39 +399,39 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="pre-processing" class="section level1">
+<div id="pre-processing" class="section level1" number="12">
 <h1><span class="header-section-number">12</span> Pre-processing</h1>
-<div id="rt-filtering" class="section level2">
+<div id="rt-filtering" class="section level2" number="12.1">
 <h2><span class="header-section-number">12.1</span> RT filtering</h2>
-<div id="function-to-filter-by-rt" class="section level3">
+<div id="function-to-filter-by-rt" class="section level3" number="12.1.1">
 <h3><span class="header-section-number">12.1.1</span> Function to filter by RT</h3>
 <p>Here you can see an example on how to use a function to filter by RT (log filtering version below).</p>
 <hr />
 <p>We use the following <a href="Data/10-Pre_processing/RT_filtering.csv">dataset</a>.</p>
 <hr />
-<pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;readr&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;readr&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;readr&#39;</span>)
-<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;dplyr&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;dplyr&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;dplyr&#39;</span>)
-<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;purrr&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;purrr&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;purrr&#39;</span>)
-
-<span class="co"># RT Filtering function</span>
-Filter_FUN &lt;-<span class="st"> </span><span class="cf">function</span>(DB, Column, <span class="dt">Low_PCT =</span> <span class="fl">0.05</span>, <span class="dt">High_PCT =</span> <span class="fl">0.95</span>) {
-  
-  args =<span class="st"> </span><span class="kw">as.list</span>(<span class="kw">match.call</span>())
-  
-  <span class="co"># Creamos Column_LOG</span>
-  DB =<span class="st"> </span>DB <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">Column_LOG =</span> <span class="kw">log</span>(<span class="kw">eval</span>(args<span class="op">$</span>Column, DB)))
-  lowcut =<span class="st"> </span><span class="kw">quantile</span>(DB<span class="op">$</span>Column_LOG, Low_PCT, <span class="dt">na.rm =</span> T)
-  highcut =<span class="st"> </span><span class="kw">quantile</span>(DB<span class="op">$</span>Column_LOG, High_PCT, <span class="dt">na.rm =</span> T)
-  
-  <span class="co"># Returns DB_Filtered</span>
-  DB_Filtered &lt;&lt;-<span class="st"> </span><span class="kw">subset</span>(DB, DB<span class="op">$</span>Column_LOG <span class="op">&gt;</span><span class="st"> </span>lowcut <span class="op">&amp;</span><span class="st"> </span>DB<span class="op">$</span>Column_LOG <span class="op">&lt;</span><span class="st"> </span>highcut) 
-  
-  <span class="co"># return(DB_Filtered)</span>
-  <span class="kw">cat</span>(<span class="st">&quot;**** Datos filtrados a partir de la columna&quot;</span>, args<span class="op">$</span>Column, <span class="st">&quot;: &quot;</span>, <span class="kw">nrow</span>(DB) <span class="op">-</span><span class="st"> </span><span class="kw">nrow</span>(DB_Filtered), <span class="st">&quot;/&quot;</span>, <span class="kw">nrow</span>(DB), <span class="st">&quot;filas eliminadas ***&quot;</span>)
-  
-}</code></pre>
+<div class="sourceCode" id="cb312"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb312-1"><a href="pre-processing.html#cb312-1"></a><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;readr&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;readr&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;readr&#39;</span>)</span>
+<span id="cb312-2"><a href="pre-processing.html#cb312-2"></a><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;dplyr&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;dplyr&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;dplyr&#39;</span>)</span>
+<span id="cb312-3"><a href="pre-processing.html#cb312-3"></a><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;purrr&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;purrr&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;purrr&#39;</span>)</span>
+<span id="cb312-4"><a href="pre-processing.html#cb312-4"></a></span>
+<span id="cb312-5"><a href="pre-processing.html#cb312-5"></a><span class="co"># RT Filtering function</span></span>
+<span id="cb312-6"><a href="pre-processing.html#cb312-6"></a>Filter_FUN &lt;-<span class="st"> </span><span class="cf">function</span>(DB, Column, <span class="dt">Low_PCT =</span> <span class="fl">0.05</span>, <span class="dt">High_PCT =</span> <span class="fl">0.95</span>) {</span>
+<span id="cb312-7"><a href="pre-processing.html#cb312-7"></a>  </span>
+<span id="cb312-8"><a href="pre-processing.html#cb312-8"></a>  args =<span class="st"> </span><span class="kw">as.list</span>(<span class="kw">match.call</span>())</span>
+<span id="cb312-9"><a href="pre-processing.html#cb312-9"></a>  </span>
+<span id="cb312-10"><a href="pre-processing.html#cb312-10"></a>  <span class="co"># Creamos Column_LOG</span></span>
+<span id="cb312-11"><a href="pre-processing.html#cb312-11"></a>  DB =<span class="st"> </span>DB <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">Column_LOG =</span> <span class="kw">log</span>(<span class="kw">eval</span>(args<span class="op">$</span>Column, DB)))</span>
+<span id="cb312-12"><a href="pre-processing.html#cb312-12"></a>  lowcut =<span class="st"> </span><span class="kw">quantile</span>(DB<span class="op">$</span>Column_LOG, Low_PCT, <span class="dt">na.rm =</span> T)</span>
+<span id="cb312-13"><a href="pre-processing.html#cb312-13"></a>  highcut =<span class="st"> </span><span class="kw">quantile</span>(DB<span class="op">$</span>Column_LOG, High_PCT, <span class="dt">na.rm =</span> T)</span>
+<span id="cb312-14"><a href="pre-processing.html#cb312-14"></a>  </span>
+<span id="cb312-15"><a href="pre-processing.html#cb312-15"></a>  <span class="co"># Returns DB_Filtered</span></span>
+<span id="cb312-16"><a href="pre-processing.html#cb312-16"></a>  DB_Filtered &lt;&lt;-<span class="st"> </span><span class="kw">subset</span>(DB, DB<span class="op">$</span>Column_LOG <span class="op">&gt;</span><span class="st"> </span>lowcut <span class="op">&amp;</span><span class="st"> </span>DB<span class="op">$</span>Column_LOG <span class="op">&lt;</span><span class="st"> </span>highcut) </span>
+<span id="cb312-17"><a href="pre-processing.html#cb312-17"></a>  </span>
+<span id="cb312-18"><a href="pre-processing.html#cb312-18"></a>  <span class="co"># return(DB_Filtered)</span></span>
+<span id="cb312-19"><a href="pre-processing.html#cb312-19"></a>  <span class="kw">cat</span>(<span class="st">&quot;**** Datos filtrados a partir de la columna&quot;</span>, args<span class="op">$</span>Column, <span class="st">&quot;: &quot;</span>, <span class="kw">nrow</span>(DB) <span class="op">-</span><span class="st"> </span><span class="kw">nrow</span>(DB_Filtered), <span class="st">&quot;/&quot;</span>, <span class="kw">nrow</span>(DB), <span class="st">&quot;filas eliminadas ***&quot;</span>)</span>
+<span id="cb312-20"><a href="pre-processing.html#cb312-20"></a>  </span>
+<span id="cb312-21"><a href="pre-processing.html#cb312-21"></a>}</span></code></pre></div>
 <p>After creating the function, we read the DB and apply the filtering. A dataframe called DB_Filtered is created with the filtered data.</p>
-<pre class="sourceCode r"><code class="sourceCode r">dataset =<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;Data/10-Pre_processing/RT_filtering.csv&quot;</span>)</code></pre>
+<div class="sourceCode" id="cb313"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb313-1"><a href="pre-processing.html#cb313-1"></a>dataset =<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;Data/10-Pre_processing/RT_filtering.csv&quot;</span>)</span></code></pre></div>
 <pre><code>## Parsed with column specification:
 ## cols(
 ##   ID = col_double(),
@@ -388,7 +441,7 @@ Filter_FUN &lt;-<span class="st"> </span><span class="cf">function</span>(DB, Co
 ##   Formato = col_character(),
 ##   Accuracy = col_double()
 ## )</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r">dataset</code></pre>
+<div class="sourceCode" id="cb315"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb315-1"><a href="pre-processing.html#cb315-1"></a>dataset</span></code></pre></div>
 <pre><code>## # A tibble: 200 x 6
 ##       ID Dem_Gender Dem_Age  Time Formato Accuracy
 ##    &lt;dbl&gt;      &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;dbl&gt;
@@ -403,9 +456,9 @@ Filter_FUN &lt;-<span class="st"> </span><span class="cf">function</span>(DB, Co
 ##  9     9          1      30 60.8  PR             1
 ## 10    10          2      28 26.2  PR             0
 ## # … with 190 more rows</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">Filter_FUN</span>(dataset, Time)</code></pre>
+<div class="sourceCode" id="cb317"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb317-1"><a href="pre-processing.html#cb317-1"></a><span class="kw">Filter_FUN</span>(dataset, Time)</span></code></pre></div>
 <pre><code>## **** Datos filtrados a partir de la columna Time :  20 / 200 filas eliminadas ***</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r">DB_Filtered</code></pre>
+<div class="sourceCode" id="cb319"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb319-1"><a href="pre-processing.html#cb319-1"></a>DB_Filtered</span></code></pre></div>
 <pre><code>## # A tibble: 180 x 7
 ##       ID Dem_Gender Dem_Age  Time Formato Accuracy Column_LOG
 ##    &lt;dbl&gt;      &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;dbl&gt;      &lt;dbl&gt;
@@ -421,7 +474,7 @@ Filter_FUN &lt;-<span class="st"> </span><span class="cf">function</span>(DB, Co
 ## 10    10          2      28 26.2  PR             0      3.26 
 ## # … with 170 more rows</code></pre>
 </div>
-<div id="n-sd-from-the-median-mad-1" class="section level3">
+<div id="n-sd-from-the-median-mad-1" class="section level3" number="12.1.2">
 <h3><span class="header-section-number">12.1.2</span> n SD from the median (MAD)<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a></h3>
 <blockquote>
 <p>Probably should NOT use n SD from mean</p>
@@ -429,8 +482,8 @@ Filter_FUN &lt;-<span class="st"> </span><span class="cf">function</span>(DB, Co
 <hr />
 <p>We use the following <a href="Data/10-Pre_processing/RT_filtering.csv">dataset</a>.</p>
 <hr />
-<pre class="sourceCode r"><code class="sourceCode r">dataset =<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;Data/10-Pre_processing/RT_filtering.csv&quot;</span>)
-<span class="kw">head</span>(dataset)</code></pre>
+<div class="sourceCode" id="cb321"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb321-1"><a href="pre-processing.html#cb321-1"></a>dataset =<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;Data/10-Pre_processing/RT_filtering.csv&quot;</span>)</span>
+<span id="cb321-2"><a href="pre-processing.html#cb321-2"></a><span class="kw">head</span>(dataset)</span></code></pre></div>
 <pre><code>##   ID Dem_Gender Dem_Age   Time Formato Accuracy
 ## 1  1          2      37  2.618      PR        0
 ## 2  2          2      32 23.303      PR        0
@@ -441,37 +494,37 @@ Filter_FUN &lt;-<span class="st"> </span><span class="cf">function</span>(DB, Co
 <ul>
 <li>Code</li>
 </ul>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co">#SD criteria</span>
-SD_filter =<span class="st"> </span><span class="fl">2.5</span>
-
-dataset_filtered =<span class="st"> </span>dataset <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">filter</span>(Time <span class="op">&lt;</span><span class="st"> </span>(<span class="kw">median</span>(Time) <span class="op">+</span><span class="st"> </span>SD_filter <span class="op">*</span><span class="st"> </span><span class="kw">sd</span>(Time)) <span class="op">&amp;</span><span class="st"> </span>Time <span class="op">&gt;</span><span class="st"> </span>(<span class="kw">median</span>(Time) <span class="op">-</span><span class="st"> </span>SD_filter <span class="op">*</span><span class="st"> </span><span class="kw">sd</span>(Time)))
-
-<span class="co"># dataset_filtered = dataset[dataset$Time &lt; (median(dataset$Time) + SD_filter * sd(dataset$Time) )  &amp; dataset$Time &gt; (median(dataset$Time) - SD_filter * sd(dataset$Time) ), ]</span></code></pre>
+<div class="sourceCode" id="cb323"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb323-1"><a href="pre-processing.html#cb323-1"></a><span class="co">#SD criteria</span></span>
+<span id="cb323-2"><a href="pre-processing.html#cb323-2"></a>SD_filter =<span class="st"> </span><span class="fl">2.5</span></span>
+<span id="cb323-3"><a href="pre-processing.html#cb323-3"></a></span>
+<span id="cb323-4"><a href="pre-processing.html#cb323-4"></a>dataset_filtered =<span class="st"> </span>dataset <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb323-5"><a href="pre-processing.html#cb323-5"></a><span class="st">  </span><span class="kw">filter</span>(Time <span class="op">&lt;</span><span class="st"> </span>(<span class="kw">median</span>(Time) <span class="op">+</span><span class="st"> </span>SD_filter <span class="op">*</span><span class="st"> </span><span class="kw">sd</span>(Time)) <span class="op">&amp;</span><span class="st"> </span>Time <span class="op">&gt;</span><span class="st"> </span>(<span class="kw">median</span>(Time) <span class="op">-</span><span class="st"> </span>SD_filter <span class="op">*</span><span class="st"> </span><span class="kw">sd</span>(Time)))</span>
+<span id="cb323-6"><a href="pre-processing.html#cb323-6"></a></span>
+<span id="cb323-7"><a href="pre-processing.html#cb323-7"></a><span class="co"># dataset_filtered = dataset[dataset$Time &lt; (median(dataset$Time) + SD_filter * sd(dataset$Time) )  &amp; dataset$Time &gt; (median(dataset$Time) - SD_filter * sd(dataset$Time) ), ]</span></span></code></pre></div>
 <ul>
 <li>Plots</li>
 </ul>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(dataset<span class="op">$</span>Time)</code></pre>
+<div class="sourceCode" id="cb324"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb324-1"><a href="pre-processing.html#cb324-1"></a><span class="kw">summary</span>(dataset<span class="op">$</span>Time)</span></code></pre></div>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
 ##   1.242   7.686  15.453  24.252  28.858 165.529</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(dataset_filtered<span class="op">$</span>Time)</code></pre>
+<div class="sourceCode" id="cb326"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb326-1"><a href="pre-processing.html#cb326-1"></a><span class="kw">summary</span>(dataset_filtered<span class="op">$</span>Time)</span></code></pre></div>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
 ##   1.242   7.585  14.376  19.777  26.109  77.829</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))
-    <span class="co">#</span>
-    <span class="kw">plot</span>(<span class="kw">density</span>(dataset<span class="op">$</span>Time), <span class="dt">main =</span> <span class="st">&quot;Valid reaction time density&quot;</span>)
-    <span class="kw">plot</span>(<span class="kw">density</span>(dataset_filtered<span class="op">$</span>Time), <span class="dt">main =</span> <span class="st">&quot;Valid reaction time density&quot;</span>)</code></pre>
+<div class="sourceCode" id="cb328"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb328-1"><a href="pre-processing.html#cb328-1"></a><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
+<span id="cb328-2"><a href="pre-processing.html#cb328-2"></a>    <span class="co">#</span></span>
+<span id="cb328-3"><a href="pre-processing.html#cb328-3"></a>    <span class="kw">plot</span>(<span class="kw">density</span>(dataset<span class="op">$</span>Time), <span class="dt">main =</span> <span class="st">&quot;Valid reaction time density&quot;</span>)</span>
+<span id="cb328-4"><a href="pre-processing.html#cb328-4"></a>    <span class="kw">plot</span>(<span class="kw">density</span>(dataset_filtered<span class="op">$</span>Time), <span class="dt">main =</span> <span class="st">&quot;Valid reaction time density&quot;</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/rt_filtering_MAD_plots-1.png" width="672" /></p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))</code></pre>
+<div class="sourceCode" id="cb329"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb329-1"><a href="pre-processing.html#cb329-1"></a><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))</span></code></pre></div>
 </div>
-<div id="gamma-law-regression-analyses-2" class="section level3">
+<div id="gamma-law-regression-analyses-2" class="section level3" number="12.1.3">
 <h3><span class="header-section-number">12.1.3</span> Gamma law regression analyses<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a></h3>
 <hr />
 <p>We use the following <a href="Data/10-Pre_processing/RT_filtering.csv">dataset</a>.</p>
 <hr />
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Import to variable &quot;dataset&quot;</span>
-dataset =<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;Data/10-Pre_processing/RT_filtering.csv&quot;</span>)
-<span class="kw">head</span>(dataset)</code></pre>
+<div class="sourceCode" id="cb330"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb330-1"><a href="pre-processing.html#cb330-1"></a><span class="co">#Import to variable &quot;dataset&quot;</span></span>
+<span id="cb330-2"><a href="pre-processing.html#cb330-2"></a>dataset =<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;Data/10-Pre_processing/RT_filtering.csv&quot;</span>)</span>
+<span id="cb330-3"><a href="pre-processing.html#cb330-3"></a><span class="kw">head</span>(dataset)</span></code></pre></div>
 <pre><code>##   ID Dem_Gender Dem_Age   Time Formato Accuracy
 ## 1  1          2      37  2.618      PR        0
 ## 2  2          2      32 23.303      PR        0
@@ -482,9 +535,9 @@ dataset =<span class="st"> </span><span class="kw">read.csv</span>(<span class="
 <ul>
 <li>Code</li>
 </ul>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Gamma</span>
-glm1 =<span class="st"> </span>(<span class="kw">glm</span>(Time <span class="op">~</span><span class="st"> </span>Formato, <span class="dt">data =</span> dataset, <span class="dt">family =</span> Gamma))
-<span class="kw">summary</span>(glm1)</code></pre>
+<div class="sourceCode" id="cb332"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb332-1"><a href="pre-processing.html#cb332-1"></a><span class="co">#Gamma</span></span>
+<span id="cb332-2"><a href="pre-processing.html#cb332-2"></a>glm1 =<span class="st"> </span>(<span class="kw">glm</span>(Time <span class="op">~</span><span class="st"> </span>Formato, <span class="dt">data =</span> dataset, <span class="dt">family =</span> Gamma))</span>
+<span id="cb332-3"><a href="pre-processing.html#cb332-3"></a><span class="kw">summary</span>(glm1)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## glm(formula = Time ~ Formato, family = Gamma, data = dataset)
@@ -507,9 +560,9 @@ glm1 =<span class="st"> </span>(<span class="kw">glm</span>(Time <span class="op
 ## AIC: 1680.6
 ## 
 ## Number of Fisher Scoring iterations: 6</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Gausian</span>
-glm2 =<span class="st"> </span>(<span class="kw">glm</span>(Time <span class="op">~</span><span class="st"> </span>Formato, <span class="dt">data =</span> dataset))
-<span class="kw">summary</span>(glm2)</code></pre>
+<div class="sourceCode" id="cb334"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb334-1"><a href="pre-processing.html#cb334-1"></a><span class="co">#Gausian</span></span>
+<span id="cb334-2"><a href="pre-processing.html#cb334-2"></a>glm2 =<span class="st"> </span>(<span class="kw">glm</span>(Time <span class="op">~</span><span class="st"> </span>Formato, <span class="dt">data =</span> dataset))</span>
+<span id="cb334-3"><a href="pre-processing.html#cb334-3"></a><span class="kw">summary</span>(glm2)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## glm(formula = Time ~ Formato, data = dataset)
@@ -533,15 +586,15 @@ glm2 =<span class="st"> </span>(<span class="kw">glm</span>(Time <span class="op
 ## 
 ## Number of Fisher Scoring iterations: 2</code></pre>
 </div>
-<div id="logarithms" class="section level3">
+<div id="logarithms" class="section level3" number="12.1.4">
 <h3><span class="header-section-number">12.1.4</span> Logarithms</h3>
 <p>Log filtering may not be the best option available<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a></p>
 <hr />
 <p>We use the following <a href="Data/Pre-processing/RT_Filtering_data_file.csv">dataset</a>.</p>
 <hr />
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Import to variable &quot;dataset&quot;</span>
-dataset =<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;Data/10-Pre_processing/RT_filtering.csv&quot;</span>)
-<span class="kw">head</span>(dataset)</code></pre>
+<div class="sourceCode" id="cb336"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb336-1"><a href="pre-processing.html#cb336-1"></a><span class="co">#Import to variable &quot;dataset&quot;</span></span>
+<span id="cb336-2"><a href="pre-processing.html#cb336-2"></a>dataset =<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;Data/10-Pre_processing/RT_filtering.csv&quot;</span>)</span>
+<span id="cb336-3"><a href="pre-processing.html#cb336-3"></a><span class="kw">head</span>(dataset)</span></code></pre></div>
 <pre><code>##   ID Dem_Gender Dem_Age   Time Formato Accuracy
 ## 1  1          2      37  2.618      PR        0
 ## 2  2          2      32 23.303      PR        0
@@ -552,55 +605,55 @@ dataset =<span class="st"> </span><span class="kw">read.csv</span>(<span class="
 <ul>
 <li>Code</li>
 </ul>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co">#SET low and high PERCENTILES</span>
-    lowcutquant =<span class="st"> </span><span class="fl">0.05</span>
-    highcutquant =<span class="st"> </span><span class="fl">0.95</span>
-    
-    <span class="co"># Add log-rt</span>
-    <span class="co"># dataset_filtered = data_long_RAW</span>
-    dataset<span class="op">$</span>logrt &lt;-<span class="st"> </span><span class="kw">log</span>(dataset<span class="op">$</span>Time)
-    
-    <span class="co"># Take correct answers</span>
-        <span class="co"># WE USE CORRECT ANSWERS TO SET TIME LIMITS!!!</span>
-        <span class="co"># BETTER USE dataset?</span>
-    corr =<span class="st"> </span><span class="kw">subset</span>(dataset, dataset<span class="op">$</span>Accuracy <span class="op">==</span><span class="st"> </span><span class="dv">1</span>)
-    lowcut =<span class="st"> </span><span class="kw">quantile</span>(corr<span class="op">$</span>logrt, lowcutquant)
-    highcut =<span class="st"> </span><span class="kw">quantile</span>(corr<span class="op">$</span>logrt, highcutquant)
-    dataset_filtered &lt;-<span class="st"> </span><span class="kw">subset</span>(dataset, dataset<span class="op">$</span>logrt <span class="op">&gt;</span><span class="st"> </span>lowcut <span class="op">&amp;</span><span class="st"> </span>dataset<span class="op">$</span>logrt <span class="op">&lt;</span><span class="st"> </span>highcut)</code></pre>
+<div class="sourceCode" id="cb338"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb338-1"><a href="pre-processing.html#cb338-1"></a><span class="co">#SET low and high PERCENTILES</span></span>
+<span id="cb338-2"><a href="pre-processing.html#cb338-2"></a>    lowcutquant =<span class="st"> </span><span class="fl">0.05</span></span>
+<span id="cb338-3"><a href="pre-processing.html#cb338-3"></a>    highcutquant =<span class="st"> </span><span class="fl">0.95</span></span>
+<span id="cb338-4"><a href="pre-processing.html#cb338-4"></a>    </span>
+<span id="cb338-5"><a href="pre-processing.html#cb338-5"></a>    <span class="co"># Add log-rt</span></span>
+<span id="cb338-6"><a href="pre-processing.html#cb338-6"></a>    <span class="co"># dataset_filtered = data_long_RAW</span></span>
+<span id="cb338-7"><a href="pre-processing.html#cb338-7"></a>    dataset<span class="op">$</span>logrt &lt;-<span class="st"> </span><span class="kw">log</span>(dataset<span class="op">$</span>Time)</span>
+<span id="cb338-8"><a href="pre-processing.html#cb338-8"></a>    </span>
+<span id="cb338-9"><a href="pre-processing.html#cb338-9"></a>    <span class="co"># Take correct answers</span></span>
+<span id="cb338-10"><a href="pre-processing.html#cb338-10"></a>        <span class="co"># WE USE CORRECT ANSWERS TO SET TIME LIMITS!!!</span></span>
+<span id="cb338-11"><a href="pre-processing.html#cb338-11"></a>        <span class="co"># BETTER USE dataset?</span></span>
+<span id="cb338-12"><a href="pre-processing.html#cb338-12"></a>    corr =<span class="st"> </span><span class="kw">subset</span>(dataset, dataset<span class="op">$</span>Accuracy <span class="op">==</span><span class="st"> </span><span class="dv">1</span>)</span>
+<span id="cb338-13"><a href="pre-processing.html#cb338-13"></a>    lowcut =<span class="st"> </span><span class="kw">quantile</span>(corr<span class="op">$</span>logrt, lowcutquant)</span>
+<span id="cb338-14"><a href="pre-processing.html#cb338-14"></a>    highcut =<span class="st"> </span><span class="kw">quantile</span>(corr<span class="op">$</span>logrt, highcutquant)</span>
+<span id="cb338-15"><a href="pre-processing.html#cb338-15"></a>    dataset_filtered &lt;-<span class="st"> </span><span class="kw">subset</span>(dataset, dataset<span class="op">$</span>logrt <span class="op">&gt;</span><span class="st"> </span>lowcut <span class="op">&amp;</span><span class="st"> </span>dataset<span class="op">$</span>logrt <span class="op">&lt;</span><span class="st"> </span>highcut)</span></code></pre></div>
 <ul>
 <li>Plots</li>
 </ul>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(<span class="kw">density</span>(dataset_filtered<span class="op">$</span>logrt), <span class="dt">main =</span> <span class="st">&quot;Log reaction time density&quot;</span>)</code></pre>
+<div class="sourceCode" id="cb339"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb339-1"><a href="pre-processing.html#cb339-1"></a><span class="kw">plot</span>(<span class="kw">density</span>(dataset_filtered<span class="op">$</span>logrt), <span class="dt">main =</span> <span class="st">&quot;Log reaction time density&quot;</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/rt_filtering_LOG_plots-1.png" width="672" /></p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))
-
-    <span class="co">#</span>
-    <span class="kw">plot</span>(<span class="kw">density</span>(dataset<span class="op">$</span>Time[dataset<span class="op">$</span>Time <span class="op">&lt;</span><span class="st"> </span><span class="dv">10</span>]), <span class="dt">main =</span> <span class="st">&quot;Density of small reaction times&quot;</span>)
-    <span class="kw">plot</span>(<span class="kw">density</span>(dataset_filtered<span class="op">$</span>Time[dataset_filtered<span class="op">$</span>Time <span class="op">&lt;</span><span class="st"> </span><span class="dv">10</span>]), <span class="dt">main =</span> <span class="st">&quot;Density of small reaction times&quot;</span>)</code></pre>
+<div class="sourceCode" id="cb340"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb340-1"><a href="pre-processing.html#cb340-1"></a><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
+<span id="cb340-2"><a href="pre-processing.html#cb340-2"></a></span>
+<span id="cb340-3"><a href="pre-processing.html#cb340-3"></a>    <span class="co">#</span></span>
+<span id="cb340-4"><a href="pre-processing.html#cb340-4"></a>    <span class="kw">plot</span>(<span class="kw">density</span>(dataset<span class="op">$</span>Time[dataset<span class="op">$</span>Time <span class="op">&lt;</span><span class="st"> </span><span class="dv">10</span>]), <span class="dt">main =</span> <span class="st">&quot;Density of small reaction times&quot;</span>)</span>
+<span id="cb340-5"><a href="pre-processing.html#cb340-5"></a>    <span class="kw">plot</span>(<span class="kw">density</span>(dataset_filtered<span class="op">$</span>Time[dataset_filtered<span class="op">$</span>Time <span class="op">&lt;</span><span class="st"> </span><span class="dv">10</span>]), <span class="dt">main =</span> <span class="st">&quot;Density of small reaction times&quot;</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/rt_filtering_LOG_plots-2.png" width="672" /></p>
-<pre class="sourceCode r"><code class="sourceCode r">    <span class="co">#</span>
-    <span class="kw">plot</span>(<span class="kw">density</span>(dataset<span class="op">$</span>Time), <span class="dt">main =</span> <span class="st">&quot;Valid reaction time density&quot;</span>)
-    <span class="kw">plot</span>(<span class="kw">density</span>(dataset_filtered<span class="op">$</span>Time), <span class="dt">main =</span> <span class="st">&quot;Valid reaction time density&quot;</span>)</code></pre>
+<div class="sourceCode" id="cb341"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb341-1"><a href="pre-processing.html#cb341-1"></a>    <span class="co">#</span></span>
+<span id="cb341-2"><a href="pre-processing.html#cb341-2"></a>    <span class="kw">plot</span>(<span class="kw">density</span>(dataset<span class="op">$</span>Time), <span class="dt">main =</span> <span class="st">&quot;Valid reaction time density&quot;</span>)</span>
+<span id="cb341-3"><a href="pre-processing.html#cb341-3"></a>    <span class="kw">plot</span>(<span class="kw">density</span>(dataset_filtered<span class="op">$</span>Time), <span class="dt">main =</span> <span class="st">&quot;Valid reaction time density&quot;</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/rt_filtering_LOG_plots-3.png" width="672" /></p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))
-
-    <span class="co">#</span>
-    <span class="kw">summary</span>(dataset<span class="op">$</span>Time)</code></pre>
+<div class="sourceCode" id="cb342"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb342-1"><a href="pre-processing.html#cb342-1"></a><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))</span>
+<span id="cb342-2"><a href="pre-processing.html#cb342-2"></a></span>
+<span id="cb342-3"><a href="pre-processing.html#cb342-3"></a>    <span class="co">#</span></span>
+<span id="cb342-4"><a href="pre-processing.html#cb342-4"></a>    <span class="kw">summary</span>(dataset<span class="op">$</span>Time)</span></code></pre></div>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
 ##   1.242   7.686  15.453  24.252  28.858 165.529</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r">    <span class="kw">summary</span>(dataset_filtered<span class="op">$</span>Time)</code></pre>
+<div class="sourceCode" id="cb344"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb344-1"><a href="pre-processing.html#cb344-1"></a>    <span class="kw">summary</span>(dataset_filtered<span class="op">$</span>Time)</span></code></pre></div>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
 ##   3.770   9.318  16.484  21.066  26.824  64.141</code></pre>
 </div>
-<div id="references-1" class="section level3">
+<div id="references-1" class="section level3" number="12.1.5">
 <h3><span class="header-section-number">12.1.5</span> References</h3>
 
 </div>
 </div>
-<div id="reliability" class="section level2">
+<div id="reliability" class="section level2" number="12.2">
 <h2><span class="header-section-number">12.2</span> Reliability</h2>
 <p>A continuación mostramos dos sistemas para calcular reliability. Alpha de Chronbach y Omega.</p>
-<div id="cronbachs-alpha" class="section level3">
+<div id="cronbachs-alpha" class="section level3" number="12.2.1">
 <h3><span class="header-section-number">12.2.1</span> Cronbach’s Alpha</h3>
 <p><a href="https://www.ncbi.nlm.nih.gov/pubmed/28557467?dopt=Abstract" class="uri">https://www.ncbi.nlm.nih.gov/pubmed/28557467?dopt=Abstract</a></p>
 <p>** TODO **
@@ -618,7 +671,7 @@ dataset =<span class="st"> </span><span class="kw">read.csv</span>(<span class="
 <ol style="list-style-type: decimal">
 <li><strong>Delete</strong> items with correlations (r.drop) &lt; 0.25 one by one:
 <ul>
-<li>Eliminate the item with the smaller correlation <code>min(a$item.stats[[&quot;r.drop&quot;]])</code></li>
+<li>Eliminate the item with the smaller correlation <code>min(a$item.stats[["r.drop"]])</code></li>
 <li>Run reliability</li>
 <li>Eliminate the next item with the smaller correlation (&lt;0.25!) - <strong>Leave at least 3 items!</strong></li>
 </ul></li>
@@ -627,13 +680,13 @@ dataset =<span class="st"> </span><span class="kw">read.csv</span>(<span class="
 <ul>
 <li>Cargamos librerias</li>
 </ul>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;psych&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;psych&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;psych&#39;</span>)
-<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;readr&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;readr&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;readr&#39;</span>)
-<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;dplyr&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;dplyr&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;dplyr&#39;</span>)</code></pre>
+<div class="sourceCode" id="cb346"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb346-1"><a href="pre-processing.html#cb346-1"></a><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;psych&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;psych&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;psych&#39;</span>)</span>
+<span id="cb346-2"><a href="pre-processing.html#cb346-2"></a><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;readr&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;readr&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;readr&#39;</span>)</span>
+<span id="cb346-3"><a href="pre-processing.html#cb346-3"></a><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;dplyr&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;dplyr&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;dplyr&#39;</span>)</span></code></pre></div>
 <hr />
 <p>We use the following <a href="Data/10-Pre_processing/Reliability.csv">dataset</a>.</p>
 <hr />
-<pre class="sourceCode r"><code class="sourceCode r">temp =<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;Data/10-Pre_processing/Reliability.csv&quot;</span>)</code></pre>
+<div class="sourceCode" id="cb347"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb347-1"><a href="pre-processing.html#cb347-1"></a>temp =<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;Data/10-Pre_processing/Reliability.csv&quot;</span>)</span></code></pre></div>
 <pre><code>## Warning: Missing column names filled in: &#39;X1&#39; [1]</code></pre>
 <pre><code>## Parsed with column specification:
 ## cols(
@@ -645,13 +698,13 @@ dataset =<span class="st"> </span><span class="kw">read.csv</span>(<span class="
 ##   OA.OA05. = col_double(),
 ##   OA.OA06. = col_double()
 ## )</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r">temp =<span class="st"> </span>temp[<span class="op">-</span><span class="dv">1</span>] 
-
-<span class="co">#Convierte todo a integer</span>
-<span class="co"># temp = temp %&gt;% dplyr::mutate_each(funs(as.integer))</span>
-temp =<span class="st"> </span><span class="kw">as.data.frame</span>(<span class="kw">sapply</span>(temp, as.integer))
-
-<span class="kw">head</span>(temp)</code></pre>
+<div class="sourceCode" id="cb350"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb350-1"><a href="pre-processing.html#cb350-1"></a>temp =<span class="st"> </span>temp[<span class="op">-</span><span class="dv">1</span>] </span>
+<span id="cb350-2"><a href="pre-processing.html#cb350-2"></a></span>
+<span id="cb350-3"><a href="pre-processing.html#cb350-3"></a><span class="co">#Convierte todo a integer</span></span>
+<span id="cb350-4"><a href="pre-processing.html#cb350-4"></a><span class="co"># temp = temp %&gt;% dplyr::mutate_each(funs(as.integer))</span></span>
+<span id="cb350-5"><a href="pre-processing.html#cb350-5"></a>temp =<span class="st"> </span><span class="kw">as.data.frame</span>(<span class="kw">sapply</span>(temp, as.integer))</span>
+<span id="cb350-6"><a href="pre-processing.html#cb350-6"></a></span>
+<span id="cb350-7"><a href="pre-processing.html#cb350-7"></a><span class="kw">head</span>(temp)</span></code></pre></div>
 <pre><code>##   OA.OA01. OA.OA02. OA.OA03. OA.OA04. OA.OA05. OA.OA06.
 ## 1        5        3        5        2        1        5
 ## 2        3        1        5        1        1        3
@@ -659,7 +712,7 @@ temp =<span class="st"> </span><span class="kw">as.data.frame</span>(<span class
 ## 4        2        2        1        3        3        5
 ## 5        4        3        4        4        2        4
 ## 6        5        5        5        1        1        5</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">alpha</span>(temp)</code></pre>
+<div class="sourceCode" id="cb352"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb352-1"><a href="pre-processing.html#cb352-1"></a><span class="kw">alpha</span>(temp)</span></code></pre></div>
 <pre><code>## Warning in alpha(temp): Some items were negatively correlated with the total scale and probably 
 ## should be reversed.  
 ## To do this, run the function again with the &#39;check.keys=TRUE&#39; option</code></pre>
@@ -709,12 +762,12 @@ temp =<span class="st"> </span><span class="kw">as.data.frame</span>(<span class
 ## OA.OA04. 0.19 0.24 0.33 0.11 0.13    0
 ## OA.OA05. 0.50 0.21 0.16 0.07 0.05    0
 ## OA.OA06. 0.00 0.03 0.09 0.16 0.73    0</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># temp2 = temp %&gt;% select(-1, -OA.OA05.)</span>
-<span class="co"># alpha(temp2)</span>
-<span class="co"># temp2 = temp %&gt;% select(-1, -OA.OA05., -OA.OA04.)</span>
-<span class="co"># alpha(temp2)</span>
-temp2 =<span class="st"> </span>temp <span class="op">%&gt;%</span><span class="st"> </span>dplyr<span class="op">::</span><span class="kw">select</span>(<span class="op">-</span><span class="dv">1</span>, <span class="op">-</span>OA.OA05., <span class="op">-</span>OA.OA04., <span class="op">-</span>OA.OA02.)
-<span class="kw">alpha</span>(temp2)</code></pre>
+<div class="sourceCode" id="cb356"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb356-1"><a href="pre-processing.html#cb356-1"></a><span class="co"># temp2 = temp %&gt;% select(-1, -OA.OA05.)</span></span>
+<span id="cb356-2"><a href="pre-processing.html#cb356-2"></a><span class="co"># alpha(temp2)</span></span>
+<span id="cb356-3"><a href="pre-processing.html#cb356-3"></a><span class="co"># temp2 = temp %&gt;% select(-1, -OA.OA05., -OA.OA04.)</span></span>
+<span id="cb356-4"><a href="pre-processing.html#cb356-4"></a><span class="co"># alpha(temp2)</span></span>
+<span id="cb356-5"><a href="pre-processing.html#cb356-5"></a>temp2 =<span class="st"> </span>temp <span class="op">%&gt;%</span><span class="st"> </span>dplyr<span class="op">::</span><span class="kw">select</span>(<span class="op">-</span><span class="dv">1</span>, <span class="op">-</span>OA.OA05., <span class="op">-</span>OA.OA04., <span class="op">-</span>OA.OA02.)</span>
+<span id="cb356-6"><a href="pre-processing.html#cb356-6"></a><span class="kw">alpha</span>(temp2)</span></code></pre></div>
 <pre><code>## Warning in matrix(unlist(drop.item), ncol = 10, byrow = TRUE): data length
 ## [16] is not a sub-multiple or multiple of the number of columns [10]</code></pre>
 <pre><code>## 
@@ -742,25 +795,25 @@ temp2 =<span class="st"> </span>temp <span class="op">%&gt;%</span><span class="
 ## OA.OA03. 0.02 0.10 0.08 0.21 0.58    0
 ## OA.OA06. 0.00 0.03 0.09 0.16 0.73    0</code></pre>
 </div>
-<div id="omega" class="section level3">
+<div id="omega" class="section level3" number="12.2.2">
 <h3><span class="header-section-number">12.2.2</span> Omega</h3>
 <ul>
 <li>Cargamos librerias</li>
 </ul>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># if (!require(&#39;pacman&#39;)) install.packages(&#39;pacman&#39;); library(&#39;pacman&#39;)</span>
-<span class="co"># # p_load(p_depends(MBESS)$Depends, character.only = TRUE)</span>
-<span class="co"># install.packages(&quot;MBESS&quot;, dependencies = TRUE)</span>
-
-<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;psych&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;psych&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;psych&#39;</span>)
-<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;readr&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;readr&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;readr&#39;</span>)
-<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;dplyr&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;dplyr&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;dplyr&#39;</span>)
-
-<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;MBESS&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;MBESS&#39;</span>, <span class="dt">dependencies =</span> <span class="ot">TRUE</span>); <span class="kw">library</span>(<span class="st">&#39;MBESS&#39;</span>)
-<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;GPArotation&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;GPArotation&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;GPArotation&#39;</span>)</code></pre>
+<div class="sourceCode" id="cb359"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb359-1"><a href="pre-processing.html#cb359-1"></a><span class="co"># if (!require(&#39;pacman&#39;)) install.packages(&#39;pacman&#39;); library(&#39;pacman&#39;)</span></span>
+<span id="cb359-2"><a href="pre-processing.html#cb359-2"></a><span class="co"># # p_load(p_depends(MBESS)$Depends, character.only = TRUE)</span></span>
+<span id="cb359-3"><a href="pre-processing.html#cb359-3"></a><span class="co"># install.packages(&quot;MBESS&quot;, dependencies = TRUE)</span></span>
+<span id="cb359-4"><a href="pre-processing.html#cb359-4"></a></span>
+<span id="cb359-5"><a href="pre-processing.html#cb359-5"></a><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;psych&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;psych&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;psych&#39;</span>)</span>
+<span id="cb359-6"><a href="pre-processing.html#cb359-6"></a><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;readr&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;readr&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;readr&#39;</span>)</span>
+<span id="cb359-7"><a href="pre-processing.html#cb359-7"></a><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;dplyr&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;dplyr&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;dplyr&#39;</span>)</span>
+<span id="cb359-8"><a href="pre-processing.html#cb359-8"></a></span>
+<span id="cb359-9"><a href="pre-processing.html#cb359-9"></a><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;MBESS&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;MBESS&#39;</span>, <span class="dt">dependencies =</span> <span class="ot">TRUE</span>); <span class="kw">library</span>(<span class="st">&#39;MBESS&#39;</span>)</span>
+<span id="cb359-10"><a href="pre-processing.html#cb359-10"></a><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;GPArotation&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;GPArotation&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;GPArotation&#39;</span>)</span></code></pre></div>
 <hr />
 <p>We use the following <a href="Data/10-Pre_processing/Reliability.csv">dataset</a>.</p>
 <hr />
-<pre class="sourceCode r"><code class="sourceCode r">temp =<span class="st"> </span><span class="kw">read_csv</span>(here<span class="op">::</span><span class="kw">here</span>(<span class="st">&quot;Data/10-Pre_processing/Reliability.csv&quot;</span>))</code></pre>
+<div class="sourceCode" id="cb360"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb360-1"><a href="pre-processing.html#cb360-1"></a>temp =<span class="st"> </span><span class="kw">read_csv</span>(here<span class="op">::</span><span class="kw">here</span>(<span class="st">&quot;Data/10-Pre_processing/Reliability.csv&quot;</span>))</span></code></pre></div>
 <pre><code>## Warning: Missing column names filled in: &#39;X1&#39; [1]</code></pre>
 <pre><code>## Parsed with column specification:
 ## cols(
@@ -772,13 +825,13 @@ temp2 =<span class="st"> </span>temp <span class="op">%&gt;%</span><span class="
 ##   OA.OA05. = col_double(),
 ##   OA.OA06. = col_double()
 ## )</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r">temp =<span class="st"> </span>temp[<span class="op">-</span><span class="dv">1</span>] 
-
-<span class="co">#Convierte todo a integer</span>
-<span class="co"># temp = temp %&gt;% dplyr::mutate_each(funs(as.integer))</span>
-temp =<span class="st"> </span><span class="kw">as.data.frame</span>(<span class="kw">sapply</span>(temp, as.integer))
-
-<span class="kw">head</span>(temp)</code></pre>
+<div class="sourceCode" id="cb363"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb363-1"><a href="pre-processing.html#cb363-1"></a>temp =<span class="st"> </span>temp[<span class="op">-</span><span class="dv">1</span>] </span>
+<span id="cb363-2"><a href="pre-processing.html#cb363-2"></a></span>
+<span id="cb363-3"><a href="pre-processing.html#cb363-3"></a><span class="co">#Convierte todo a integer</span></span>
+<span id="cb363-4"><a href="pre-processing.html#cb363-4"></a><span class="co"># temp = temp %&gt;% dplyr::mutate_each(funs(as.integer))</span></span>
+<span id="cb363-5"><a href="pre-processing.html#cb363-5"></a>temp =<span class="st"> </span><span class="kw">as.data.frame</span>(<span class="kw">sapply</span>(temp, as.integer))</span>
+<span id="cb363-6"><a href="pre-processing.html#cb363-6"></a></span>
+<span id="cb363-7"><a href="pre-processing.html#cb363-7"></a><span class="kw">head</span>(temp)</span></code></pre></div>
 <pre><code>##   OA.OA01. OA.OA02. OA.OA03. OA.OA04. OA.OA05. OA.OA06.
 ## 1        5        3        5        2        1        5
 ## 2        3        1        5        1        1        3
@@ -786,18 +839,18 @@ temp =<span class="st"> </span><span class="kw">as.data.frame</span>(<span class
 ## 4        2        2        1        3        3        5
 ## 5        4        3        4        4        2        4
 ## 6        5        5        5        1        1        5</code></pre>
-<div id="method-1---with-bootstrap-1" class="section level4">
+<div id="method-1---with-bootstrap-1" class="section level4" number="12.2.2.1">
 <h4><span class="header-section-number">12.2.2.1</span> Method 1 - with Bootstrap <sup>1</sup></h4>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Use at least (?) B = 1000</span>
-
-<span class="co"># Execution time is non-trivial</span>
-<span class="kw">set.seed</span>(<span class="dv">1</span>)
-<span class="co"># ci.reliability(data = temp, type = &quot;omega&quot;, conf.level = 0.95, interval.type = &quot;bca&quot;, B = 1000) </span></code></pre>
+<div class="sourceCode" id="cb365"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb365-1"><a href="pre-processing.html#cb365-1"></a><span class="co"># Use at least (?) B = 1000</span></span>
+<span id="cb365-2"><a href="pre-processing.html#cb365-2"></a></span>
+<span id="cb365-3"><a href="pre-processing.html#cb365-3"></a><span class="co"># Execution time is non-trivial</span></span>
+<span id="cb365-4"><a href="pre-processing.html#cb365-4"></a><span class="kw">set.seed</span>(<span class="dv">1</span>)</span>
+<span id="cb365-5"><a href="pre-processing.html#cb365-5"></a><span class="co"># ci.reliability(data = temp, type = &quot;omega&quot;, conf.level = 0.95, interval.type = &quot;bca&quot;, B = 1000) </span></span></code></pre></div>
 </div>
-<div id="method-2-2" class="section level4">
+<div id="method-2-2" class="section level4" number="12.2.2.2">
 <h4><span class="header-section-number">12.2.2.2</span> Method 2 <sup>2</sup></h4>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># See options</span>
-<span class="kw">omega</span>(temp)</code></pre>
+<div class="sourceCode" id="cb366"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb366-1"><a href="pre-processing.html#cb366-1"></a><span class="co"># See options</span></span>
+<span id="cb366-2"><a href="pre-processing.html#cb366-2"></a><span class="kw">omega</span>(temp)</span></code></pre></div>
 <p><img src="_main_files/figure-html/omega-1.png" width="672" /></p>
 <pre><code>## Omega 
 ## Call: omega(m = temp)
@@ -851,7 +904,7 @@ temp =<span class="st"> </span><span class="kw">as.data.frame</span>(<span class
 ## Omega group for total scores and subscales    0.50 0.59 0.88 0.12</code></pre>
 </div>
 </div>
-<div id="references-2" class="section level3">
+<div id="references-2" class="section level3" number="12.2.3">
 <h3><span class="header-section-number">12.2.3</span> References</h3>
 <p><a href="https://www.ncbi.nlm.nih.gov/pubmed/28557467?dopt=Abstract" class="uri">https://www.ncbi.nlm.nih.gov/pubmed/28557467?dopt=Abstract</a></p>
 <p><sup>1</sup> <a href="http://onlinelibrary.wiley.com/doi/10.1111/bjop.12046/pdf" class="uri">http://onlinelibrary.wiley.com/doi/10.1111/bjop.12046/pdf</a></p>
@@ -868,17 +921,21 @@ temp =<span class="st"> </span><span class="kw">as.data.frame</span>(<span class
 
 </div>
 </div>
-<div id="impute-missing-data" class="section level2">
+<div id="impute-missing-data" class="section level2" number="12.3">
 <h2><span class="header-section-number">12.3</span> Impute missing data</h2>
+<div id="impute-with-mice" class="section level3" number="12.3.1">
+<h3><span class="header-section-number">12.3.1</span> Impute with mice</h3>
 <p><strong>TODO: see <a href="https://www.r-bloggers.com/imputing-missing-data-with-r-mice-package/" class="uri">https://www.r-bloggers.com/imputing-missing-data-with-r-mice-package/</a></strong></p>
 <p>FROM: <a href="https://www.r-bloggers.com/graphical-presentation-of-missing-data-vim-package/" class="uri">https://www.r-bloggers.com/graphical-presentation-of-missing-data-vim-package/</a></p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;VIM&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;VIM&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;VIM&#39;</span>)
-<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;mice&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;mice&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;mice&#39;</span>)
-<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;dplyr&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;dplyr&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;dplyr&#39;</span>)
-<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;tibble&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;tibble&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;tibble&#39;</span>)
-
-dat &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="kw">url</span>(<span class="st">&quot;https://goo.gl/4DYzru&quot;</span>), <span class="dt">header =</span> <span class="ot">TRUE</span>, <span class="dt">sep =</span> <span class="st">&quot;,&quot;</span>)
-<span class="kw">head</span>(dat)</code></pre>
+<div class="sourceCode" id="cb368"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb368-1"><a href="pre-processing.html#cb368-1"></a><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;VIM&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;VIM&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;VIM&#39;</span>)</span>
+<span id="cb368-2"><a href="pre-processing.html#cb368-2"></a><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;mice&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;mice&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;mice&#39;</span>)</span>
+<span id="cb368-3"><a href="pre-processing.html#cb368-3"></a><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;dplyr&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;dplyr&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;dplyr&#39;</span>)</span>
+<span id="cb368-4"><a href="pre-processing.html#cb368-4"></a><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;tibble&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;tibble&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;tibble&#39;</span>)</span>
+<span id="cb368-5"><a href="pre-processing.html#cb368-5"></a></span>
+<span id="cb368-6"><a href="pre-processing.html#cb368-6"></a></span>
+<span id="cb368-7"><a href="pre-processing.html#cb368-7"></a><span class="co"># Read data</span></span>
+<span id="cb368-8"><a href="pre-processing.html#cb368-8"></a>dat &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="kw">url</span>(<span class="st">&quot;https://goo.gl/4DYzru&quot;</span>), <span class="dt">header =</span> <span class="ot">TRUE</span>, <span class="dt">sep =</span> <span class="st">&quot;,&quot;</span>)</span>
+<span id="cb368-9"><a href="pre-processing.html#cb368-9"></a><span class="kw">head</span>(dat)</span></code></pre></div>
 <pre><code>##    Age Gender Cholesterol SystolicBP  BMI Smoking Education
 ## 1 67.9 Female       236.4      129.8 26.4     Yes      High
 ## 2 54.8 Female       256.3      133.4 28.4      No    Medium
@@ -886,17 +943,19 @@ dat &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="
 ## 4 67.9   Male       205.0      136.0 19.9      No       Low
 ## 5 60.9   Male       207.7      145.4 26.7      No    Medium
 ## 6 44.9 Female       222.5      130.6 30.6      No       Low</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">10</span>)
-missing =<span class="st"> </span><span class="kw">rbinom</span>(<span class="dv">250</span>, <span class="dv">1</span>, <span class="fl">0.3</span>)
-dat<span class="op">$</span>Cholesterol =<span class="st"> </span><span class="kw">with</span>(dat, <span class="kw">ifelse</span>(BMI <span class="op">&gt;=</span><span class="st"> </span><span class="dv">30</span> <span class="op">&amp;</span><span class="st"> </span>missing <span class="op">==</span><span class="st"> </span><span class="dv">1</span>, <span class="ot">NA</span>, Cholesterol))
-<span class="kw">sum</span>(<span class="kw">is.na</span>(dat<span class="op">$</span>Cholesterol))</code></pre>
+<div class="sourceCode" id="cb370"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb370-1"><a href="pre-processing.html#cb370-1"></a><span class="co"># Create some missings</span></span>
+<span id="cb370-2"><a href="pre-processing.html#cb370-2"></a><span class="kw">set.seed</span>(<span class="dv">10</span>)</span>
+<span id="cb370-3"><a href="pre-processing.html#cb370-3"></a>missing =<span class="st"> </span><span class="kw">rbinom</span>(<span class="dv">250</span>, <span class="dv">1</span>, <span class="fl">0.3</span>)</span>
+<span id="cb370-4"><a href="pre-processing.html#cb370-4"></a>dat<span class="op">$</span>Cholesterol =<span class="st"> </span><span class="kw">with</span>(dat, <span class="kw">ifelse</span>(BMI <span class="op">&gt;=</span><span class="st"> </span><span class="dv">30</span> <span class="op">&amp;</span><span class="st"> </span>missing <span class="op">==</span><span class="st"> </span><span class="dv">1</span>, <span class="ot">NA</span>, Cholesterol))</span>
+<span id="cb370-5"><a href="pre-processing.html#cb370-5"></a><span class="kw">sum</span>(<span class="kw">is.na</span>(dat<span class="op">$</span>Cholesterol))</span></code></pre></div>
 <pre><code>## [1] 16</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r">init =<span class="st"> </span><span class="kw">mice</span>(dat, <span class="dt">maxit =</span> <span class="dv">0</span>) 
-meth =<span class="st"> </span>init<span class="op">$</span>method
-predM =<span class="st"> </span>init<span class="op">$</span>predictorMatrix
-meth[<span class="kw">c</span>(<span class="st">&quot;Cholesterol&quot;</span>)] =<span class="st"> &quot;pmm&quot;</span> 
-<span class="kw">set.seed</span>(<span class="dv">101</span>)
-imputed =<span class="st"> </span><span class="kw">mice</span>(dat, <span class="dt">method =</span> meth, <span class="dt">predictorMatrix =</span> predM, <span class="dt">m =</span> <span class="dv">1</span>)</code></pre>
+<div class="sourceCode" id="cb372"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb372-1"><a href="pre-processing.html#cb372-1"></a><span class="co"># Impute</span></span>
+<span id="cb372-2"><a href="pre-processing.html#cb372-2"></a>init =<span class="st"> </span><span class="kw">mice</span>(dat, <span class="dt">maxit =</span> <span class="dv">0</span>) </span>
+<span id="cb372-3"><a href="pre-processing.html#cb372-3"></a>meth =<span class="st"> </span>init<span class="op">$</span>method</span>
+<span id="cb372-4"><a href="pre-processing.html#cb372-4"></a>predM =<span class="st"> </span>init<span class="op">$</span>predictorMatrix</span>
+<span id="cb372-5"><a href="pre-processing.html#cb372-5"></a>meth[<span class="kw">c</span>(<span class="st">&quot;Cholesterol&quot;</span>)] =<span class="st"> &quot;pmm&quot;</span> </span>
+<span id="cb372-6"><a href="pre-processing.html#cb372-6"></a><span class="kw">set.seed</span>(<span class="dv">101</span>)</span>
+<span id="cb372-7"><a href="pre-processing.html#cb372-7"></a>imputed =<span class="st"> </span><span class="kw">mice</span>(dat, <span class="dt">method =</span> meth, <span class="dt">predictorMatrix =</span> predM, <span class="dt">m =</span> <span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## 
 ##  iter imp variable
 ##   1   1  Cholesterol
@@ -904,23 +963,24 @@ imputed =<span class="st"> </span><span class="kw">mice</span>(dat, <span class=
 ##   3   1  Cholesterol
 ##   4   1  Cholesterol
 ##   5   1  Cholesterol</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r">imp =<span class="st"> </span><span class="kw">complete</span>(imputed)
-
-dt1 =<span class="st"> </span>dat <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">select</span>(Cholesterol, BMI) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span>dplyr<span class="op">::</span><span class="kw">rename</span>(<span class="dt">Cholesterol_imp =</span> Cholesterol) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">mutate</span>(
-    <span class="dt">Cholesterol_imp =</span> <span class="kw">as.logical</span>(<span class="kw">ifelse</span>(<span class="kw">is.na</span>(Cholesterol_imp), <span class="st">&quot;TRUE&quot;</span>, <span class="st">&quot;FALSE&quot;</span>))
-  ) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">rownames_to_column</span>()
-
-dt2 =<span class="st"> </span>imp <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">select</span>(Cholesterol, BMI) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">rownames_to_column</span>()
-
-dt =<span class="st"> </span><span class="kw">left_join</span>(dt1, dt2)</code></pre>
+<div class="sourceCode" id="cb374"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb374-1"><a href="pre-processing.html#cb374-1"></a>imp =<span class="st"> </span><span class="kw">complete</span>(imputed)</span>
+<span id="cb374-2"><a href="pre-processing.html#cb374-2"></a></span>
+<span id="cb374-3"><a href="pre-processing.html#cb374-3"></a><span class="co"># Prepare data for visualization</span></span>
+<span id="cb374-4"><a href="pre-processing.html#cb374-4"></a>dt1 =<span class="st"> </span>dat <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb374-5"><a href="pre-processing.html#cb374-5"></a><span class="st">  </span><span class="kw">select</span>(Cholesterol, BMI) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb374-6"><a href="pre-processing.html#cb374-6"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">rename</span>(<span class="dt">Cholesterol_imp =</span> Cholesterol) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb374-7"><a href="pre-processing.html#cb374-7"></a><span class="st">  </span><span class="kw">mutate</span>(</span>
+<span id="cb374-8"><a href="pre-processing.html#cb374-8"></a>    <span class="dt">Cholesterol_imp =</span> <span class="kw">as.logical</span>(<span class="kw">ifelse</span>(<span class="kw">is.na</span>(Cholesterol_imp), <span class="st">&quot;TRUE&quot;</span>, <span class="st">&quot;FALSE&quot;</span>))</span>
+<span id="cb374-9"><a href="pre-processing.html#cb374-9"></a>  ) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb374-10"><a href="pre-processing.html#cb374-10"></a><span class="st">  </span><span class="kw">rownames_to_column</span>()</span>
+<span id="cb374-11"><a href="pre-processing.html#cb374-11"></a></span>
+<span id="cb374-12"><a href="pre-processing.html#cb374-12"></a>dt2 =<span class="st"> </span>imp <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb374-13"><a href="pre-processing.html#cb374-13"></a><span class="st">  </span><span class="kw">select</span>(Cholesterol, BMI) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb374-14"><a href="pre-processing.html#cb374-14"></a><span class="st">  </span><span class="kw">rownames_to_column</span>()</span>
+<span id="cb374-15"><a href="pre-processing.html#cb374-15"></a></span>
+<span id="cb374-16"><a href="pre-processing.html#cb374-16"></a>dt =<span class="st"> </span><span class="kw">left_join</span>(dt1, dt2)</span></code></pre></div>
 <pre><code>## Joining, by = c(&quot;rowname&quot;, &quot;BMI&quot;)</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(dt)</code></pre>
+<div class="sourceCode" id="cb376"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb376-1"><a href="pre-processing.html#cb376-1"></a><span class="kw">head</span>(dt)</span></code></pre></div>
 <pre><code>##   rowname Cholesterol_imp  BMI Cholesterol
 ## 1       1           FALSE 26.4       236.4
 ## 2       2           FALSE 28.4       256.3
@@ -928,18 +988,92 @@ dt =<span class="st"> </span><span class="kw">left_join</span>(dt1, dt2)</code><
 ## 4       4           FALSE 19.9       205.0
 ## 5       5           FALSE 26.7       207.7
 ## 6       6           FALSE 30.6       222.5</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r">vars &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;BMI&quot;</span>,<span class="st">&quot;Cholesterol&quot;</span>,<span class="st">&quot;Cholesterol_imp&quot;</span>)
-<span class="kw">marginplot</span>(dt[,vars], <span class="dt">delimiter =</span> <span class="st">&quot;_imp&quot;</span>, <span class="dt">alpha =</span> <span class="fl">0.6</span>, <span class="dt">pch =</span> <span class="kw">c</span>(<span class="dv">19</span>))</code></pre>
-<p><img src="_main_files/figure-html/impute_missing_data-1.png" width="672" /></p>
+<div class="sourceCode" id="cb378"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb378-1"><a href="pre-processing.html#cb378-1"></a><span class="co"># Visualize how imputation went</span></span>
+<span id="cb378-2"><a href="pre-processing.html#cb378-2"></a>vars &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;BMI&quot;</span>,<span class="st">&quot;Cholesterol&quot;</span>,<span class="st">&quot;Cholesterol_imp&quot;</span>)</span>
+<span id="cb378-3"><a href="pre-processing.html#cb378-3"></a><span class="kw">marginplot</span>(dt[,vars], <span class="dt">delimiter =</span> <span class="st">&quot;_imp&quot;</span>, <span class="dt">alpha =</span> <span class="fl">0.6</span>, <span class="dt">pch =</span> <span class="kw">c</span>(<span class="dv">19</span>))</span></code></pre></div>
+<p><img src="_main_files/figure-html/impute_missing_data_mice-1.png" width="672" /></p>
+</div>
+<div id="impute-with-recipes" class="section level3" number="12.3.2">
+<h3><span class="header-section-number">12.3.2</span> Impute with recipes</h3>
+<div class="sourceCode" id="cb379"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb379-1"><a href="pre-processing.html#cb379-1"></a><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;recipes&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;recipes&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;recipes&#39;</span>)</span></code></pre></div>
+<pre><code>## Loading required package: recipes</code></pre>
+<pre><code>## 
+## Attaching package: &#39;recipes&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:gtsummary&#39;:
+## 
+##     all_numeric</code></pre>
+<pre><code>## The following object is masked from &#39;package:VIM&#39;:
+## 
+##     prepare</code></pre>
+<pre><code>## The following object is masked from &#39;package:stringr&#39;:
+## 
+##     fixed</code></pre>
+<pre><code>## The following object is masked from &#39;package:stats&#39;:
+## 
+##     step</code></pre>
+<div class="sourceCode" id="cb386"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb386-1"><a href="pre-processing.html#cb386-1"></a><span class="co"># Read data</span></span>
+<span id="cb386-2"><a href="pre-processing.html#cb386-2"></a>dat &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="kw">url</span>(<span class="st">&quot;https://goo.gl/4DYzru&quot;</span>), <span class="dt">header =</span> <span class="ot">TRUE</span>, <span class="dt">sep =</span> <span class="st">&quot;,&quot;</span>)</span>
+<span id="cb386-3"><a href="pre-processing.html#cb386-3"></a><span class="kw">head</span>(dat)</span></code></pre></div>
+<pre><code>##    Age Gender Cholesterol SystolicBP  BMI Smoking Education
+## 1 67.9 Female       236.4      129.8 26.4     Yes      High
+## 2 54.8 Female       256.3      133.4 28.4      No    Medium
+## 3 68.4   Male       198.7      158.5 24.1     Yes      High
+## 4 67.9   Male       205.0      136.0 19.9      No       Low
+## 5 60.9   Male       207.7      145.4 26.7      No    Medium
+## 6 44.9 Female       222.5      130.6 30.6      No       Low</code></pre>
+<div class="sourceCode" id="cb388"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb388-1"><a href="pre-processing.html#cb388-1"></a><span class="co"># Create some missings</span></span>
+<span id="cb388-2"><a href="pre-processing.html#cb388-2"></a><span class="kw">set.seed</span>(<span class="dv">10</span>)</span>
+<span id="cb388-3"><a href="pre-processing.html#cb388-3"></a>missing =<span class="st"> </span><span class="kw">rbinom</span>(<span class="dv">250</span>, <span class="dv">1</span>, <span class="fl">0.3</span>)</span>
+<span id="cb388-4"><a href="pre-processing.html#cb388-4"></a>dat<span class="op">$</span>Cholesterol =<span class="st"> </span><span class="kw">with</span>(dat, <span class="kw">ifelse</span>(BMI <span class="op">&gt;=</span><span class="st"> </span><span class="dv">30</span> <span class="op">&amp;</span><span class="st"> </span>missing <span class="op">==</span><span class="st"> </span><span class="dv">1</span>, <span class="ot">NA</span>, Cholesterol))</span>
+<span id="cb388-5"><a href="pre-processing.html#cb388-5"></a><span class="kw">sum</span>(<span class="kw">is.na</span>(dat<span class="op">$</span>Cholesterol))</span></code></pre></div>
+<pre><code>## [1] 16</code></pre>
+<div class="sourceCode" id="cb390"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb390-1"><a href="pre-processing.html#cb390-1"></a><span class="co"># Impute</span></span>
+<span id="cb390-2"><a href="pre-processing.html#cb390-2"></a>impute_recipe =<span class="st"> </span><span class="kw">recipe</span>(Cholesterol <span class="op">~</span><span class="st"> </span>., dat) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb390-3"><a href="pre-processing.html#cb390-3"></a><span class="st">  </span><span class="co"># step_meanimpute(Cholesterol) %&gt;% </span></span>
+<span id="cb390-4"><a href="pre-processing.html#cb390-4"></a><span class="st">  </span><span class="kw">step_knnimpute</span>(Cholesterol)</span>
+<span id="cb390-5"><a href="pre-processing.html#cb390-5"></a>  <span class="co"># step_knnimpute(all_predictors())</span></span>
+<span id="cb390-6"><a href="pre-processing.html#cb390-6"></a></span>
+<span id="cb390-7"><a href="pre-processing.html#cb390-7"></a>imputed =<span class="st"> </span><span class="kw">prep</span>(impute_recipe) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">juice</span>()</span>
+<span id="cb390-8"><a href="pre-processing.html#cb390-8"></a></span>
+<span id="cb390-9"><a href="pre-processing.html#cb390-9"></a></span>
+<span id="cb390-10"><a href="pre-processing.html#cb390-10"></a><span class="co"># Prepare data for visualization</span></span>
+<span id="cb390-11"><a href="pre-processing.html#cb390-11"></a>dt1 =<span class="st"> </span>dat <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb390-12"><a href="pre-processing.html#cb390-12"></a><span class="st">  </span><span class="kw">select</span>(Cholesterol, BMI) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb390-13"><a href="pre-processing.html#cb390-13"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">rename</span>(<span class="dt">Cholesterol_imp =</span> Cholesterol) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb390-14"><a href="pre-processing.html#cb390-14"></a><span class="st">  </span><span class="kw">mutate</span>(</span>
+<span id="cb390-15"><a href="pre-processing.html#cb390-15"></a>    <span class="dt">Cholesterol_imp =</span> <span class="kw">as.logical</span>(<span class="kw">ifelse</span>(<span class="kw">is.na</span>(Cholesterol_imp), <span class="st">&quot;TRUE&quot;</span>, <span class="st">&quot;FALSE&quot;</span>))</span>
+<span id="cb390-16"><a href="pre-processing.html#cb390-16"></a>  ) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb390-17"><a href="pre-processing.html#cb390-17"></a><span class="st">  </span><span class="kw">rownames_to_column</span>()</span>
+<span id="cb390-18"><a href="pre-processing.html#cb390-18"></a></span>
+<span id="cb390-19"><a href="pre-processing.html#cb390-19"></a>dt2 =<span class="st"> </span>imputed <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb390-20"><a href="pre-processing.html#cb390-20"></a><span class="st">  </span><span class="kw">select</span>(Cholesterol, BMI) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb390-21"><a href="pre-processing.html#cb390-21"></a><span class="st">  </span><span class="kw">rownames_to_column</span>()</span>
+<span id="cb390-22"><a href="pre-processing.html#cb390-22"></a></span>
+<span id="cb390-23"><a href="pre-processing.html#cb390-23"></a>dt =<span class="st"> </span><span class="kw">left_join</span>(dt1, dt2)</span></code></pre></div>
+<pre><code>## Joining, by = c(&quot;rowname&quot;, &quot;BMI&quot;)</code></pre>
+<div class="sourceCode" id="cb392"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb392-1"><a href="pre-processing.html#cb392-1"></a><span class="kw">head</span>(dt)</span></code></pre></div>
+<pre><code>##   rowname Cholesterol_imp  BMI Cholesterol
+## 1       1           FALSE 26.4       236.4
+## 2       2           FALSE 28.4       256.3
+## 3       3           FALSE 24.1       198.7
+## 4       4           FALSE 19.9       205.0
+## 5       5           FALSE 26.7       207.7
+## 6       6           FALSE 30.6       222.5</code></pre>
+<div class="sourceCode" id="cb394"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb394-1"><a href="pre-processing.html#cb394-1"></a><span class="co"># Visualize how imputation went</span></span>
+<span id="cb394-2"><a href="pre-processing.html#cb394-2"></a></span>
+<span id="cb394-3"><a href="pre-processing.html#cb394-3"></a>vars &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;BMI&quot;</span>,<span class="st">&quot;Cholesterol&quot;</span>,<span class="st">&quot;Cholesterol_imp&quot;</span>)</span>
+<span id="cb394-4"><a href="pre-processing.html#cb394-4"></a><span class="kw">marginplot</span>(dt[,vars], <span class="dt">delimiter =</span> <span class="st">&quot;_imp&quot;</span>, <span class="dt">alpha =</span> <span class="fl">0.6</span>, <span class="dt">pch =</span> <span class="kw">c</span>(<span class="dv">19</span>))</span></code></pre></div>
+<p><img src="_main_files/figure-html/impute_missing_recipes-1.png" width="672" /></p>
 
+</div>
 </div>
 </div>
 <div class="footnotes">
 <hr />
 <ol start="3">
-<li id="fn3"><p>Leys, C., Ley, C., Klein, O., Bernard, P. &amp; Licata, L. Detecting outliers: Do not use standard deviation around the mean, use absolute deviation around the median. J. Exp. Soc. Psychol. 49, 764–766 (2013).<a href="pre-processing.html#fnref3" class="footnote-back">↩</a></p></li>
-<li id="fn4"><p><a href="https://www.researchgate.net/post/For_decision_times_do_you_first_take_the_logarithm_and_then_exclude_extreme_outliers_or_the_other_way_around_And_how_do_you_define_outliers">See <strong>Serban C. Musca</strong> post</a><a href="pre-processing.html#fnref4" class="footnote-back">↩</a></p></li>
-<li id="fn5"><p><a href="https://www.researchgate.net/post/For_decision_times_do_you_first_take_the_logarithm_and_then_exclude_extreme_outliers_or_the_other_way_around_And_how_do_you_define_outliers">See <strong>Serban C. Musca</strong> post</a><a href="pre-processing.html#fnref5" class="footnote-back">↩</a></p></li>
+<li id="fn3"><p>Leys, C., Ley, C., Klein, O., Bernard, P. &amp; Licata, L. Detecting outliers: Do not use standard deviation around the mean, use absolute deviation around the median. J. Exp. Soc. Psychol. 49, 764–766 (2013).<a href="pre-processing.html#fnref3" class="footnote-back">↩︎</a></p></li>
+<li id="fn4"><p><a href="https://www.researchgate.net/post/For_decision_times_do_you_first_take_the_logarithm_and_then_exclude_extreme_outliers_or_the_other_way_around_And_how_do_you_define_outliers">See <strong>Serban C. Musca</strong> post</a><a href="pre-processing.html#fnref4" class="footnote-back">↩︎</a></p></li>
+<li id="fn5"><p><a href="https://www.researchgate.net/post/For_decision_times_do_you_first_take_the_logarithm_and_then_exclude_extreme_outliers_or_the_other_way_around_And_how_do_you_define_outliers">See <strong>Serban C. Musca</strong> post</a><a href="pre-processing.html#fnref5" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>
@@ -953,11 +1087,13 @@ dt =<span class="st"> </span><span class="kw">left_join</span>(dt1, dt2)</code><
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -965,12 +1101,11 @@ gitbook.start({
 "github": false,
 "facebook": true,
 "twitter": true,
-"google": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
@@ -982,6 +1117,10 @@ gitbook.start({
 "text": null
 },
 "history": {
+"link": null,
+"text": null
+},
+"view": {
 "link": null,
 "text": null
 },

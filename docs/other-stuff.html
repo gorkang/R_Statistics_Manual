@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html lang="" xml:lang="">
 <head>
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>15 Other stuff | R - Statistics Manual</title>
   <meta name="description" content="Statistics manual from CSCN." />
-  <meta name="generator" content="bookdown 0.11 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
   <meta property="og:title" content="15 Other stuff | R - Statistics Manual" />
   <meta property="og:type" content="book" />
@@ -24,15 +24,16 @@
 <meta name="author" content="Center for Social and Cognitive Neuroscience - cscn.uai.cl" />
 
 
-<meta name="date" content="2019-05-31" />
+<meta name="date" content="2020-09-21" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="classification.html">
-<link rel="next" href="ejercicios-y-soluciones.html">
+<link rel="prev" href="classification.html"/>
+<link rel="next" href="ejercicios-y-soluciones.html"/>
+<script src="libs/header-attrs-2.3/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -40,6 +41,7 @@
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
 
 
 
@@ -47,7 +49,10 @@
 
 
 
-<script src="libs/htmlwidgets-1.3/htmlwidgets.js"></script>
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
 <link href="libs/str_view-0.1.0/str_view.css" rel="stylesheet" />
 <script src="libs/str_view-binding-1.4.0/str_view.js"></script>
 <script src="libs/datatables-binding-0.2.10/datatables.js"></script>
@@ -60,26 +65,26 @@
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -88,9 +93,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  }
+  {   }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -135,15 +140,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#for-users"><i class="fa fa-check"></i><b>1.1</b> For USERS</a></li>
 <li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#for-developers-and-statisticians"><i class="fa fa-check"></i><b>1.2</b> For Developers and Statisticians</a></li>
 <li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#contributors"><i class="fa fa-check"></i><b>1.3</b> Contributors</a></li>
-<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#todo"><i class="fa fa-check"></i><b>1.4</b> TODO</a><ul>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#todo"><i class="fa fa-check"></i><b>1.4</b> TODO</a>
+<ul>
 <li class="chapter" data-level="1.4.1" data-path="index.html"><a href="index.html#inferential-analysis"><i class="fa fa-check"></i><b>1.4.1</b> Inferential analysis</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="Empezando.html"><a href="Empezando.html"><i class="fa fa-check"></i><b>2</b> Empezando en A-B-C</a><ul>
+<li class="chapter" data-level="2" data-path="Empezando.html"><a href="Empezando.html"><i class="fa fa-check"></i><b>2</b> Empezando en A-B-C</a>
+<ul>
 <li class="chapter" data-level="2.1" data-path="Empezando.html"><a href="Empezando.html#a-instalar-r."><i class="fa fa-check"></i><b>2.1</b> <strong>(A)</strong> Instalar R.</a></li>
 <li class="chapter" data-level="2.2" data-path="Empezando.html"><a href="Empezando.html#b-instalar-rstudio."><i class="fa fa-check"></i><b>2.2</b> <strong>(B)</strong> Instalar RStudio.</a></li>
 <li class="chapter" data-level="2.3" data-path="Empezando.html"><a href="Empezando.html#instalar-packages"><i class="fa fa-check"></i><b>2.3</b> Instalar Packages</a></li>
@@ -151,15 +159,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.5" data-path="Empezando.html"><a href="Empezando.html#todo-en-uno"><i class="fa fa-check"></i><b>2.5</b> Todo en uno</a></li>
 <li class="chapter" data-level="2.6" data-path="Empezando.html"><a href="Empezando.html#c-librerias-para-el-workshop"><i class="fa fa-check"></i><b>2.6</b> <strong>(C)</strong> Librerias para el workshop</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="Mi-primer-script.html"><a href="Mi-primer-script.html"><i class="fa fa-check"></i><b>3</b> Mi primer script</a><ul>
+<li class="chapter" data-level="3" data-path="Mi-primer-script.html"><a href="Mi-primer-script.html"><i class="fa fa-check"></i><b>3</b> Mi primer script</a>
+<ul>
 <li class="chapter" data-level="3.1" data-path="Mi-primer-script.html"><a href="Mi-primer-script.html#paso-a-paso"><i class="fa fa-check"></i><b>3.1</b> Paso a paso</a></li>
 <li class="chapter" data-level="3.2" data-path="Mi-primer-script.html"><a href="Mi-primer-script.html#establecer-nuestro-directorio-de-trabajo"><i class="fa fa-check"></i><b>3.2</b> Establecer nuestro directorio de trabajo</a></li>
 <li class="chapter" data-level="3.3" data-path="Mi-primer-script.html"><a href="Mi-primer-script.html#nuestro-primer-script"><i class="fa fa-check"></i><b>3.3</b> Nuestro primer script</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="Conseguir-ayuda.html"><a href="Conseguir-ayuda.html"><i class="fa fa-check"></i><b>4</b> Conseguir ayuda y aprender más</a><ul>
-<li class="chapter" data-level="4.1" data-path="Conseguir-ayuda.html"><a href="Conseguir-ayuda.html#cuando-sabemos-que-funcion-usar-pero-dudamos-de-la-sintaxis"><i class="fa fa-check"></i><b>4.1</b> Cuando sabemos que función usar, pero dudamos de la sintaxis:</a></li>
-<li class="chapter" data-level="4.2" data-path="Conseguir-ayuda.html"><a href="Conseguir-ayuda.html#cuando-sabemos-lo-que-queremos-hacer-pero-no-la-funcion-que-debemos-usar"><i class="fa fa-check"></i><b>4.2</b> Cuando sabemos lo que queremos hacer pero no la función que debemos usar:</a></li>
-<li class="chapter" data-level="4.3" data-path="Conseguir-ayuda.html"><a href="Conseguir-ayuda.html#libros-y-web-recomendados"><i class="fa fa-check"></i><b>4.3</b> Libros y Web recomendados</a><ul>
+<li class="chapter" data-level="4" data-path="Conseguir-ayuda.html"><a href="Conseguir-ayuda.html"><i class="fa fa-check"></i><b>4</b> Conseguir ayuda y aprender más</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="Conseguir-ayuda.html"><a href="Conseguir-ayuda.html#cuando-sabemos-que-función-usar-pero-dudamos-de-la-sintaxis"><i class="fa fa-check"></i><b>4.1</b> Cuando sabemos que función usar, pero dudamos de la sintaxis:</a></li>
+<li class="chapter" data-level="4.2" data-path="Conseguir-ayuda.html"><a href="Conseguir-ayuda.html#cuando-sabemos-lo-que-queremos-hacer-pero-no-la-función-que-debemos-usar"><i class="fa fa-check"></i><b>4.2</b> Cuando sabemos lo que queremos hacer pero no la función que debemos usar:</a></li>
+<li class="chapter" data-level="4.3" data-path="Conseguir-ayuda.html"><a href="Conseguir-ayuda.html#libros-y-web-recomendados"><i class="fa fa-check"></i><b>4.3</b> Libros y Web recomendados</a>
+<ul>
 <li class="chapter" data-level="4.3.1" data-path="Conseguir-ayuda.html"><a href="Conseguir-ayuda.html#hadley-wickhams-books"><i class="fa fa-check"></i><b>4.3.1</b> Hadley Wickham’s books</a></li>
 <li class="chapter" data-level="4.3.2" data-path="Conseguir-ayuda.html"><a href="Conseguir-ayuda.html#learning-statistics-with-r"><i class="fa fa-check"></i><b>4.3.2</b> Learning statistics with R</a></li>
 <li class="chapter" data-level="4.3.3" data-path="Conseguir-ayuda.html"><a href="Conseguir-ayuda.html#pirate-guide-to-r"><i class="fa fa-check"></i><b>4.3.3</b> Pirate guide to R</a></li>
@@ -168,30 +179,37 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.3.6" data-path="Conseguir-ayuda.html"><a href="Conseguir-ayuda.html#twitter"><i class="fa fa-check"></i><b>4.3.6</b> Twitter</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="basics-data-types-import-and-export-data.html"><a href="basics-data-types-import-and-export-data.html"><i class="fa fa-check"></i><b>5</b> Basics - Data types, import and export data</a><ul>
-<li class="chapter" data-level="5.1" data-path="basics-data-types-import-and-export-data.html"><a href="basics-data-types-import-and-export-data.html#data-types"><i class="fa fa-check"></i><b>5.1</b> Data types</a><ul>
+<li class="chapter" data-level="5" data-path="basics-data-types-import-and-export-data.html"><a href="basics-data-types-import-and-export-data.html"><i class="fa fa-check"></i><b>5</b> Basics - Data types, import and export data</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="basics-data-types-import-and-export-data.html"><a href="basics-data-types-import-and-export-data.html#data-types"><i class="fa fa-check"></i><b>5.1</b> Data types</a>
+<ul>
 <li class="chapter" data-level="5.1.1" data-path="basics-data-types-import-and-export-data.html"><a href="basics-data-types-import-and-export-data.html#data-frames"><i class="fa fa-check"></i><b>5.1.1</b> Data Frames</a></li>
 <li class="chapter" data-level="5.1.2" data-path="basics-data-types-import-and-export-data.html"><a href="basics-data-types-import-and-export-data.html#matrices"><i class="fa fa-check"></i><b>5.1.2</b> Matrices</a></li>
 <li class="chapter" data-level="5.1.3" data-path="basics-data-types-import-and-export-data.html"><a href="basics-data-types-import-and-export-data.html#listas"><i class="fa fa-check"></i><b>5.1.3</b> Listas</a></li>
 </ul></li>
-<li class="chapter" data-level="5.2" data-path="basics-data-types-import-and-export-data.html"><a href="basics-data-types-import-and-export-data.html#import-data"><i class="fa fa-check"></i><b>5.2</b> Import data</a><ul>
+<li class="chapter" data-level="5.2" data-path="basics-data-types-import-and-export-data.html"><a href="basics-data-types-import-and-export-data.html#import-data"><i class="fa fa-check"></i><b>5.2</b> Import data</a>
+<ul>
 <li class="chapter" data-level="5.2.1" data-path="basics-data-types-import-and-export-data.html"><a href="basics-data-types-import-and-export-data.html#from-csv-file"><i class="fa fa-check"></i><b>5.2.1</b> From CSV file</a></li>
 <li class="chapter" data-level="5.2.2" data-path="basics-data-types-import-and-export-data.html"><a href="basics-data-types-import-and-export-data.html#from-xls-file-excel"><i class="fa fa-check"></i><b>5.2.2</b> From XLS’ file (Excel)</a></li>
 <li class="chapter" data-level="5.2.3" data-path="basics-data-types-import-and-export-data.html"><a href="basics-data-types-import-and-export-data.html#from-sav-file-spss"><i class="fa fa-check"></i><b>5.2.3</b> From SAV file (SPSS)</a></li>
 <li class="chapter" data-level="5.2.4" data-path="basics-data-types-import-and-export-data.html"><a href="basics-data-types-import-and-export-data.html#import-all-files-from-a-folder"><i class="fa fa-check"></i><b>5.2.4</b> Import all files from a folder</a></li>
 <li class="chapter" data-level="5.2.5" data-path="basics-data-types-import-and-export-data.html"><a href="basics-data-types-import-and-export-data.html#import-files-using-rstudio"><i class="fa fa-check"></i><b>5.2.5</b> Import files using RStudio</a></li>
 </ul></li>
-<li class="chapter" data-level="5.3" data-path="basics-data-types-import-and-export-data.html"><a href="basics-data-types-import-and-export-data.html#export-data"><i class="fa fa-check"></i><b>5.3</b> Export data</a><ul>
+<li class="chapter" data-level="5.3" data-path="basics-data-types-import-and-export-data.html"><a href="basics-data-types-import-and-export-data.html#export-data"><i class="fa fa-check"></i><b>5.3</b> Export data</a>
+<ul>
 <li class="chapter" data-level="5.3.1" data-path="basics-data-types-import-and-export-data.html"><a href="basics-data-types-import-and-export-data.html#export-data-to-csv-file"><i class="fa fa-check"></i><b>5.3.1</b> Export data to CSV file</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="Manipular-datos.html"><a href="Manipular-datos.html"><i class="fa fa-check"></i><b>6</b> Manipular datos</a><ul>
-<li class="chapter" data-level="6.1" data-path="Manipular-datos.html"><a href="Manipular-datos.html#leer-y-guardar-datos"><i class="fa fa-check"></i><b>6.1</b> Leer y guardar datos</a><ul>
+<li class="chapter" data-level="6" data-path="Manipular-datos.html"><a href="Manipular-datos.html"><i class="fa fa-check"></i><b>6</b> Manipular datos</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="Manipular-datos.html"><a href="Manipular-datos.html#leer-y-guardar-datos"><i class="fa fa-check"></i><b>6.1</b> Leer y guardar datos</a>
+<ul>
 <li class="chapter" data-level="6.1.1" data-path="Manipular-datos.html"><a href="Manipular-datos.html#leer-datos"><i class="fa fa-check"></i><b>6.1.1</b> Leer datos</a></li>
 <li class="chapter" data-level="6.1.2" data-path="Manipular-datos.html"><a href="Manipular-datos.html#guardar-db-a-archivo"><i class="fa fa-check"></i><b>6.1.2</b> Guardar DB a archivo</a></li>
 </ul></li>
 <li class="chapter" data-level="6.2" data-path="Manipular-datos.html"><a href="Manipular-datos.html#ver-output-vs-asignar-output"><i class="fa fa-check"></i><b>6.2</b> Ver output vs asignar output</a></li>
-<li class="chapter" data-level="6.3" data-path="Manipular-datos.html"><a href="Manipular-datos.html#verbos-de-dplyr"><i class="fa fa-check"></i><b>6.3</b> Verbos de dplyr</a><ul>
+<li class="chapter" data-level="6.3" data-path="Manipular-datos.html"><a href="Manipular-datos.html#verbos-de-dplyr"><i class="fa fa-check"></i><b>6.3</b> Verbos de dplyr</a>
+<ul>
 <li class="chapter" data-level="6.3.1" data-path="Manipular-datos.html"><a href="Manipular-datos.html#filtrar-datos"><i class="fa fa-check"></i><b>6.3.1</b> Filtrar datos</a></li>
 <li class="chapter" data-level="6.3.2" data-path="Manipular-datos.html"><a href="Manipular-datos.html#ordenar-db"><i class="fa fa-check"></i><b>6.3.2</b> Ordenar DB</a></li>
 <li class="chapter" data-level="6.3.3" data-path="Manipular-datos.html"><a href="Manipular-datos.html#seleccionar-variables"><i class="fa fa-check"></i><b>6.3.3</b> Seleccionar variables</a></li>
@@ -205,17 +223,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.3.11" data-path="Manipular-datos.html"><a href="Manipular-datos.html#recodificamos-datos"><i class="fa fa-check"></i><b>6.3.11</b> Recodificamos datos</a></li>
 </ul></li>
 <li class="chapter" data-level="6.4" data-path="Manipular-datos.html"><a href="Manipular-datos.html#combinar-bases-de-datos"><i class="fa fa-check"></i><b>6.4</b> Combinar bases de datos</a></li>
-<li class="chapter" data-level="6.5" data-path="Manipular-datos.html"><a href="Manipular-datos.html#verbos-avanzados"><i class="fa fa-check"></i><b>6.5</b> Verbos avanzados</a><ul>
+<li class="chapter" data-level="6.5" data-path="Manipular-datos.html"><a href="Manipular-datos.html#verbos-avanzados"><i class="fa fa-check"></i><b>6.5</b> Verbos avanzados</a>
+<ul>
 <li class="chapter" data-level="6.5.1" data-path="Manipular-datos.html"><a href="Manipular-datos.html#cambiar-multiples-columnas-de-un-tipo-a-otro"><i class="fa fa-check"></i><b>6.5.1</b> Cambiar multiples columnas de un tipo a otro</a></li>
 </ul></li>
 <li class="chapter" data-level="6.6" data-path="Manipular-datos.html"><a href="Manipular-datos.html#regular-expressions"><i class="fa fa-check"></i><b>6.6</b> Regular expressions</a></li>
 <li class="chapter" data-level="6.7" data-path="Manipular-datos.html"><a href="Manipular-datos.html#trabajando-con-fechas"><i class="fa fa-check"></i><b>6.7</b> Trabajando con fechas</a></li>
-<li class="chapter" data-level="6.8" data-path="Manipular-datos.html"><a href="Manipular-datos.html#tutoriales-externos"><i class="fa fa-check"></i><b>6.8</b> Tutoriales externos</a></li>
+<li class="chapter" data-level="6.8" data-path="Manipular-datos.html"><a href="Manipular-datos.html#pegando-portapapeles-a-vector-con-datapasta"><i class="fa fa-check"></i><b>6.8</b> Pegando portapapeles a vector con datapasta</a></li>
+<li class="chapter" data-level="6.9" data-path="Manipular-datos.html"><a href="Manipular-datos.html#tutoriales-externos"><i class="fa fa-check"></i><b>6.9</b> Tutoriales externos</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html"><i class="fa fa-check"></i><b>7</b> Visualizar datos</a><ul>
+<li class="chapter" data-level="7" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html"><i class="fa fa-check"></i><b>7</b> Visualizar datos</a>
+<ul>
 <li class="chapter" data-level="7.1" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#other-resources"><i class="fa fa-check"></i><b>7.1</b> Other resources</a></li>
-<li class="chapter" data-level="7.2" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#que-grafica-puedo-usar-wip"><i class="fa fa-check"></i><b>7.2</b> Que gráfica puedo usar (WIP)</a></li>
-<li class="chapter" data-level="7.3" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#tipos-de-graficas"><i class="fa fa-check"></i><b>7.3</b> Tipos de gráficas</a><ul>
+<li class="chapter" data-level="7.2" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#que-gráfica-puedo-usar-wip"><i class="fa fa-check"></i><b>7.2</b> Que gráfica puedo usar (WIP)</a></li>
+<li class="chapter" data-level="7.3" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#tipos-de-gráficas"><i class="fa fa-check"></i><b>7.3</b> Tipos de gráficas</a>
+<ul>
 <li class="chapter" data-level="7.3.1" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#histogramas"><i class="fa fa-check"></i><b>7.3.1</b> Histogramas</a></li>
 <li class="chapter" data-level="7.3.2" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#Pirate-Plot"><i class="fa fa-check"></i><b>7.3.2</b> Pirate plot</a></li>
 <li class="chapter" data-level="7.3.3" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#barplots-with-individual-responses"><i class="fa fa-check"></i><b>7.3.3</b> Barplots with individual responses</a></li>
@@ -231,100 +253,131 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.3.13" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#multiple-scatterplots"><i class="fa fa-check"></i><b>7.3.13</b> Multiple Scatterplots</a></li>
 <li class="chapter" data-level="7.3.14" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#background-data"><i class="fa fa-check"></i><b>7.3.14</b> Background data</a></li>
 <li class="chapter" data-level="7.3.15" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#flip-plots"><i class="fa fa-check"></i><b>7.3.15</b> Flip plots</a></li>
+<li class="chapter" data-level="7.3.16" data-path="Visualizar-datos.html"><a href="Visualizar-datos.html#waffle-plots"><i class="fa fa-check"></i><b>7.3.16</b> Waffle plots</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="Visualizar-riesgo.html"><a href="Visualizar-riesgo.html"><i class="fa fa-check"></i><b>8</b> Visualizar riesgo</a><ul>
+<li class="chapter" data-level="8" data-path="Visualizar-riesgo.html"><a href="Visualizar-riesgo.html"><i class="fa fa-check"></i><b>8</b> Visualizar riesgo</a>
+<ul>
 <li class="chapter" data-level="8.1" data-path="Visualizar-riesgo.html"><a href="Visualizar-riesgo.html#riskr"><i class="fa fa-check"></i><b>8.1</b> Riskr</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="Estadistica-descriptiva.html"><a href="Estadistica-descriptiva.html"><i class="fa fa-check"></i><b>9</b> Estadistica descriptiva</a><ul>
-<li class="chapter" data-level="9.1" data-path="Estadistica-descriptiva.html"><a href="Estadistica-descriptiva.html#summary-de-datos"><i class="fa fa-check"></i><b>9.1</b> Summary de datos</a><ul>
-<li class="chapter" data-level="9.1.1" data-path="Estadistica-descriptiva.html"><a href="Estadistica-descriptiva.html#agrupamos-por-sujeto"><i class="fa fa-check"></i><b>9.1.1</b> Agrupamos por sujeto</a></li>
+<li class="chapter" data-level="9" data-path="Estadistica-descriptiva.html"><a href="Estadistica-descriptiva.html"><i class="fa fa-check"></i><b>9</b> Estadistica descriptiva</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="Estadistica-descriptiva.html"><a href="Estadistica-descriptiva.html#gtsummaries"><i class="fa fa-check"></i><b>9.1</b> Gtsummaries</a></li>
+<li class="chapter" data-level="9.2" data-path="Estadistica-descriptiva.html"><a href="Estadistica-descriptiva.html#summary-de-datos"><i class="fa fa-check"></i><b>9.2</b> Summary de datos</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="Estadistica-descriptiva.html"><a href="Estadistica-descriptiva.html#agrupamos-por-sujeto"><i class="fa fa-check"></i><b>9.2.1</b> Agrupamos por sujeto</a></li>
 </ul></li>
-<li class="chapter" data-level="9.2" data-path="Estadistica-descriptiva.html"><a href="Estadistica-descriptiva.html#descriptive-tables-latex"><i class="fa fa-check"></i><b>9.2</b> Descriptive tables latex</a></li>
-<li class="chapter" data-level="9.3" data-path="Estadistica-descriptiva.html"><a href="Estadistica-descriptiva.html#visualize-missing-values"><i class="fa fa-check"></i><b>9.3</b> Visualize missing values</a></li>
-<li class="chapter" data-level="9.4" data-path="Estadistica-descriptiva.html"><a href="Estadistica-descriptiva.html#tutorial-externo"><i class="fa fa-check"></i><b>9.4</b> Tutorial externo</a></li>
-<li class="chapter" data-level="9.5" data-path="Estadistica-descriptiva.html"><a href="Estadistica-descriptiva.html#findviews"><i class="fa fa-check"></i><b>9.5</b> Findviews</a></li>
+<li class="chapter" data-level="9.3" data-path="Estadistica-descriptiva.html"><a href="Estadistica-descriptiva.html#descriptive-tables-latex"><i class="fa fa-check"></i><b>9.3</b> Descriptive tables latex</a></li>
+<li class="chapter" data-level="9.4" data-path="Estadistica-descriptiva.html"><a href="Estadistica-descriptiva.html#visualize-missing-values"><i class="fa fa-check"></i><b>9.4</b> Visualize missing values</a></li>
+<li class="chapter" data-level="9.5" data-path="Estadistica-descriptiva.html"><a href="Estadistica-descriptiva.html#tutorial-externo"><i class="fa fa-check"></i><b>9.5</b> Tutorial externo</a></li>
+<li class="chapter" data-level="9.6" data-path="Estadistica-descriptiva.html"><a href="Estadistica-descriptiva.html#findviews"><i class="fa fa-check"></i><b>9.6</b> Findviews</a></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html"><i class="fa fa-check"></i><b>10</b> Estadistica inferencial</a><ul>
+<li class="chapter" data-level="10" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html"><i class="fa fa-check"></i><b>10</b> Estadistica inferencial</a>
+<ul>
 <li class="chapter" data-level="10.1" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#referencias-y-fuentes"><i class="fa fa-check"></i><b>10.1</b> Referencias y Fuentes</a></li>
-<li class="chapter" data-level="10.2" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#association-test"><i class="fa fa-check"></i><b>10.2</b> Association test</a><ul>
+<li class="chapter" data-level="10.2" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#association-test"><i class="fa fa-check"></i><b>10.2</b> Association test</a>
+<ul>
 <li class="chapter" data-level="10.2.1" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#frequentist-1"><i class="fa fa-check"></i><b>10.2.1</b> Frequentist</a></li>
 <li class="chapter" data-level="10.2.2" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#bayesian-2"><i class="fa fa-check"></i><b>10.2.2</b> Bayesian</a></li>
 <li class="chapter" data-level="10.2.3" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#results-report---wip"><i class="fa fa-check"></i><b>10.2.3</b> Results report - WIP</a></li>
 <li class="chapter" data-level="10.2.4" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#references"><i class="fa fa-check"></i><b>10.2.4</b> References</a></li>
 </ul></li>
 <li class="chapter" data-level="10.3" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#anova-repeated-measures"><i class="fa fa-check"></i><b>10.3</b> ANOVA repeated measures</a></li>
-<li class="chapter" data-level="10.4" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#mixed-models"><i class="fa fa-check"></i><b>10.4</b> Mixed Models</a></li>
-<li class="chapter" data-level="10.5" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#meta-analysis"><i class="fa fa-check"></i><b>10.5</b> Meta analysis</a><ul>
+<li class="chapter" data-level="10.4" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#mixed-models"><i class="fa fa-check"></i><b>10.4</b> Mixed Models</a>
+<ul>
+<li class="chapter" data-level="10.4.1" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#reading-list"><i class="fa fa-check"></i><b>10.4.1</b> Reading list</a></li>
+</ul></li>
+<li class="chapter" data-level="10.5" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#meta-analysis"><i class="fa fa-check"></i><b>10.5</b> Meta analysis</a>
+<ul>
 <li class="chapter" data-level="10.5.1" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#natural-frequencies-effect"><i class="fa fa-check"></i><b>10.5.1</b> Natural Frequencies Effect</a></li>
 <li class="chapter" data-level="10.5.2" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#pictures-effect"><i class="fa fa-check"></i><b>10.5.2</b> Pictures Effect</a></li>
 <li class="chapter" data-level="10.5.3" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#notes-on-meta-analysis"><i class="fa fa-check"></i><b>10.5.3</b> Notes on Meta-analysis</a></li>
 </ul></li>
 <li class="chapter" data-level="10.6" data-path="Estadistica-inferencial.html"><a href="Estadistica-inferencial.html#roc-curves"><i class="fa fa-check"></i><b>10.6</b> ROC Curves</a></li>
 </ul></li>
-<li class="chapter" data-level="11" data-path="Funciones.html"><a href="Funciones.html"><i class="fa fa-check"></i><b>11</b> Funciones</a><ul>
-<li class="chapter" data-level="11.1" data-path="Funciones.html"><a href="Funciones.html#creando-mi-primera-funcion"><i class="fa fa-check"></i><b>11.1</b> Creando mi primera función</a><ul>
+<li class="chapter" data-level="11" data-path="Funciones.html"><a href="Funciones.html"><i class="fa fa-check"></i><b>11</b> Funciones</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="Funciones.html"><a href="Funciones.html#creando-mi-primera-función"><i class="fa fa-check"></i><b>11.1</b> Creando mi primera función</a>
+<ul>
 <li class="chapter" data-level="11.1.1" data-path="Funciones.html"><a href="Funciones.html#pirate-plot-original"><i class="fa fa-check"></i><b>11.1.1</b> Pirate plot original</a></li>
-<li class="chapter" data-level="11.1.2" data-path="Funciones.html"><a href="Funciones.html#nuestra-funcion"><i class="fa fa-check"></i><b>11.1.2</b> Nuestra función</a></li>
+<li class="chapter" data-level="11.1.2" data-path="Funciones.html"><a href="Funciones.html#nuestra-función"><i class="fa fa-check"></i><b>11.1.2</b> Nuestra función</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="12" data-path="pre-processing.html"><a href="pre-processing.html"><i class="fa fa-check"></i><b>12</b> Pre-processing</a><ul>
-<li class="chapter" data-level="12.1" data-path="pre-processing.html"><a href="pre-processing.html#rt-filtering"><i class="fa fa-check"></i><b>12.1</b> RT filtering</a><ul>
+<li class="chapter" data-level="12" data-path="pre-processing.html"><a href="pre-processing.html"><i class="fa fa-check"></i><b>12</b> Pre-processing</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="pre-processing.html"><a href="pre-processing.html#rt-filtering"><i class="fa fa-check"></i><b>12.1</b> RT filtering</a>
+<ul>
 <li class="chapter" data-level="12.1.1" data-path="pre-processing.html"><a href="pre-processing.html#function-to-filter-by-rt"><i class="fa fa-check"></i><b>12.1.1</b> Function to filter by RT</a></li>
 <li class="chapter" data-level="12.1.2" data-path="pre-processing.html"><a href="pre-processing.html#n-sd-from-the-median-mad-1"><i class="fa fa-check"></i><b>12.1.2</b> n SD from the median (MAD)</a></li>
 <li class="chapter" data-level="12.1.3" data-path="pre-processing.html"><a href="pre-processing.html#gamma-law-regression-analyses-2"><i class="fa fa-check"></i><b>12.1.3</b> Gamma law regression analyses</a></li>
 <li class="chapter" data-level="12.1.4" data-path="pre-processing.html"><a href="pre-processing.html#logarithms"><i class="fa fa-check"></i><b>12.1.4</b> Logarithms</a></li>
 <li class="chapter" data-level="12.1.5" data-path="pre-processing.html"><a href="pre-processing.html#references-1"><i class="fa fa-check"></i><b>12.1.5</b> References</a></li>
 </ul></li>
-<li class="chapter" data-level="12.2" data-path="pre-processing.html"><a href="pre-processing.html#reliability"><i class="fa fa-check"></i><b>12.2</b> Reliability</a><ul>
+<li class="chapter" data-level="12.2" data-path="pre-processing.html"><a href="pre-processing.html#reliability"><i class="fa fa-check"></i><b>12.2</b> Reliability</a>
+<ul>
 <li class="chapter" data-level="12.2.1" data-path="pre-processing.html"><a href="pre-processing.html#cronbachs-alpha"><i class="fa fa-check"></i><b>12.2.1</b> Cronbach’s Alpha</a></li>
 <li class="chapter" data-level="12.2.2" data-path="pre-processing.html"><a href="pre-processing.html#omega"><i class="fa fa-check"></i><b>12.2.2</b> Omega</a></li>
 <li class="chapter" data-level="12.2.3" data-path="pre-processing.html"><a href="pre-processing.html#references-2"><i class="fa fa-check"></i><b>12.2.3</b> References</a></li>
 </ul></li>
-<li class="chapter" data-level="12.3" data-path="pre-processing.html"><a href="pre-processing.html#impute-missing-data"><i class="fa fa-check"></i><b>12.3</b> Impute missing data</a></li>
+<li class="chapter" data-level="12.3" data-path="pre-processing.html"><a href="pre-processing.html#impute-missing-data"><i class="fa fa-check"></i><b>12.3</b> Impute missing data</a>
+<ul>
+<li class="chapter" data-level="12.3.1" data-path="pre-processing.html"><a href="pre-processing.html#impute-with-mice"><i class="fa fa-check"></i><b>12.3.1</b> Impute with mice</a></li>
+<li class="chapter" data-level="12.3.2" data-path="pre-processing.html"><a href="pre-processing.html#impute-with-recipes"><i class="fa fa-check"></i><b>12.3.2</b> Impute with recipes</a></li>
 </ul></li>
-<li class="chapter" data-level="13" data-path="experimental-design.html"><a href="experimental-design.html"><i class="fa fa-check"></i><b>13</b> Experimental design</a><ul>
-<li class="chapter" data-level="13.1" data-path="experimental-design.html"><a href="experimental-design.html#tamano-de-muestra-y-efecto-detectado"><i class="fa fa-check"></i><b>13.1</b> Tamaño de muestra y efecto detectado</a></li>
-<li class="chapter" data-level="13.2" data-path="experimental-design.html"><a href="experimental-design.html#power-analysis"><i class="fa fa-check"></i><b>13.2</b> Power analysis</a><ul>
+</ul></li>
+<li class="chapter" data-level="13" data-path="experimental-design.html"><a href="experimental-design.html"><i class="fa fa-check"></i><b>13</b> Experimental design</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="experimental-design.html"><a href="experimental-design.html#tamaño-de-muestra-y-efecto-detectado"><i class="fa fa-check"></i><b>13.1</b> Tamaño de muestra y efecto detectado</a></li>
+<li class="chapter" data-level="13.2" data-path="experimental-design.html"><a href="experimental-design.html#power-analysis"><i class="fa fa-check"></i><b>13.2</b> Power analysis</a>
+<ul>
 <li class="chapter" data-level="13.2.1" data-path="experimental-design.html"><a href="experimental-design.html#longitudinal-designs"><i class="fa fa-check"></i><b>13.2.1</b> Longitudinal designs</a></li>
 </ul></li>
-<li class="chapter" data-level="13.3" data-path="experimental-design.html"><a href="experimental-design.html#anonimizar-participantes---encriptar-ids"><i class="fa fa-check"></i><b>13.3</b> Anonimizar participantes - Encriptar IDs</a><ul>
+<li class="chapter" data-level="13.3" data-path="experimental-design.html"><a href="experimental-design.html#anonimizar-participantes---encriptar-ids"><i class="fa fa-check"></i><b>13.3</b> Anonimizar participantes - Encriptar IDs</a>
+<ul>
 <li class="chapter" data-level="13.3.1" data-path="experimental-design.html"><a href="experimental-design.html#encriptando-y-desencriptando-un-elemento"><i class="fa fa-check"></i><b>13.3.1</b> Encriptando y desencriptando un elemento</a></li>
 <li class="chapter" data-level="13.3.2" data-path="experimental-design.html"><a href="experimental-design.html#encriptando-y-desencriptando-la-columna-rut-de-una-db-completa."><i class="fa fa-check"></i><b>13.3.2</b> Encriptando y desencriptando la columna RUT de una DB completa.</a></li>
 </ul></li>
 <li class="chapter" data-level="13.4" data-path="experimental-design.html"><a href="experimental-design.html#match-participants"><i class="fa fa-check"></i><b>13.4</b> Match participants</a></li>
 <li class="chapter" data-level="13.5" data-path="experimental-design.html"><a href="experimental-design.html#determine-distribution"><i class="fa fa-check"></i><b>13.5</b> Determine distribution</a></li>
 </ul></li>
-<li class="chapter" data-level="14" data-path="classification.html"><a href="classification.html"><i class="fa fa-check"></i><b>14</b> Classification</a><ul>
+<li class="chapter" data-level="14" data-path="classification.html"><a href="classification.html"><i class="fa fa-check"></i><b>14</b> Classification</a>
+<ul>
 <li class="chapter" data-level="14.1" data-path="classification.html"><a href="classification.html#fast-and-frugal-trees"><i class="fa fa-check"></i><b>14.1</b> Fast and frugal trees</a></li>
 </ul></li>
-<li class="chapter" data-level="15" data-path="other-stuff.html"><a href="other-stuff.html"><i class="fa fa-check"></i><b>15</b> Other stuff</a><ul>
+<li class="chapter" data-level="15" data-path="other-stuff.html"><a href="other-stuff.html"><i class="fa fa-check"></i><b>15</b> Other stuff</a>
+<ul>
 <li class="chapter" data-level="15.1" data-path="other-stuff.html"><a href="other-stuff.html#maps---generate-and-locate-cities-in-a-world-map"><i class="fa fa-check"></i><b>15.1</b> Maps - Generate and locate cities in a world map</a></li>
 <li class="chapter" data-level="15.2" data-path="other-stuff.html"><a href="other-stuff.html#extract-tables-from-the-internet"><i class="fa fa-check"></i><b>15.2</b> Extract tables from the internet</a></li>
 <li class="chapter" data-level="15.3" data-path="other-stuff.html"><a href="other-stuff.html#extract-tables-from-the-internet-1"><i class="fa fa-check"></i><b>15.3</b> Extract tables from the internet</a></li>
 </ul></li>
-<li class="chapter" data-level="16" data-path="ejercicios-y-soluciones.html"><a href="ejercicios-y-soluciones.html"><i class="fa fa-check"></i><b>16</b> Ejercicios y soluciones</a><ul>
+<li class="chapter" data-level="16" data-path="ejercicios-y-soluciones.html"><a href="ejercicios-y-soluciones.html"><i class="fa fa-check"></i><b>16</b> Ejercicios y soluciones</a>
+<ul>
 <li class="chapter" data-level="16.1" data-path="ejercicios-y-soluciones.html"><a href="ejercicios-y-soluciones.html#Ejercicios1"><i class="fa fa-check"></i><b>16.1</b> Ejercicios 1</a></li>
 <li class="chapter" data-level="16.2" data-path="ejercicios-y-soluciones.html"><a href="ejercicios-y-soluciones.html#Ejercicios2"><i class="fa fa-check"></i><b>16.2</b> Ejercicios 2</a></li>
 </ul></li>
-<li class="chapter" data-level="17" data-path="bibliography-and-interesting-resources.html"><a href="bibliography-and-interesting-resources.html"><i class="fa fa-check"></i><b>17</b> Bibliography and interesting resources</a><ul>
+<li class="chapter" data-level="17" data-path="bibliography-and-interesting-resources.html"><a href="bibliography-and-interesting-resources.html"><i class="fa fa-check"></i><b>17</b> Bibliography and interesting resources</a>
+<ul>
 <li class="chapter" data-level="17.1" data-path="bibliography-and-interesting-resources.html"><a href="bibliography-and-interesting-resources.html#bibliography"><i class="fa fa-check"></i><b>17.1</b> Bibliography</a></li>
 <li class="chapter" data-level="17.2" data-path="bibliography-and-interesting-resources.html"><a href="bibliography-and-interesting-resources.html#interesting-resources---potentially"><i class="fa fa-check"></i><b>17.2</b> Interesting resources - potentially</a></li>
 </ul></li>
-<li class="chapter" data-level="18" data-path="todo-curso-basico-r-2016.html"><a href="todo-curso-basico-r-2016.html"><i class="fa fa-check"></i><b>18</b> TODO - Curso Basico R - 2016</a><ul>
+<li class="chapter" data-level="18" data-path="todo-curso-basico-r-2016.html"><a href="todo-curso-basico-r-2016.html"><i class="fa fa-check"></i><b>18</b> TODO - Curso Basico R - 2016</a>
+<ul>
 <li class="chapter" data-level="18.1" data-path="todo-curso-basico-r-2016.html"><a href="todo-curso-basico-r-2016.html#en-ejercicios"><i class="fa fa-check"></i><b>18.1</b> EN EJERCICIOS:</a></li>
 <li class="chapter" data-level="18.2" data-path="todo-curso-basico-r-2016.html"><a href="todo-curso-basico-r-2016.html#todo---limpieza-general"><i class="fa fa-check"></i><b>18.2</b> TODO - Limpieza general</a></li>
 </ul></li>
-<li class="chapter" data-level="19" data-path="todo-1.html"><a href="todo-1.html"><i class="fa fa-check"></i><b>19</b> TODO</a><ul>
+<li class="chapter" data-level="19" data-path="todo-1.html"><a href="todo-1.html"><i class="fa fa-check"></i><b>19</b> TODO</a>
+<ul>
 <li class="chapter" data-level="19.1" data-path="todo-1.html"><a href="todo-1.html#urgent-stuff"><i class="fa fa-check"></i><b>19.1</b> Urgent stuff</a></li>
 <li class="chapter" data-level="19.2" data-path="todo-1.html"><a href="todo-1.html#important"><i class="fa fa-check"></i><b>19.2</b> Important</a></li>
 <li class="chapter" data-level="19.3" data-path="todo-1.html"><a href="todo-1.html#various"><i class="fa fa-check"></i><b>19.3</b> Various</a></li>
 <li class="chapter" data-level="19.4" data-path="todo-1.html"><a href="todo-1.html#index-proposal"><i class="fa fa-check"></i><b>19.4</b> <strong>INDEX PROPOSAL</strong></a></li>
-<li class="chapter" data-level="19.5" data-path="todo-1.html"><a href="todo-1.html#style-guide"><i class="fa fa-check"></i><b>19.5</b> Style guide</a><ul>
+<li class="chapter" data-level="19.5" data-path="todo-1.html"><a href="todo-1.html#style-guide"><i class="fa fa-check"></i><b>19.5</b> Style guide</a>
+<ul>
 <li class="chapter" data-level="19.5.1" data-path="todo-1.html"><a href="todo-1.html#sections"><i class="fa fa-check"></i><b>19.5.1</b> Sections</a></li>
 <li class="chapter" data-level="19.5.2" data-path="todo-1.html"><a href="todo-1.html#general"><i class="fa fa-check"></i><b>19.5.2</b> General</a></li>
 </ul></li>
-<li class="chapter" data-level="19.6" data-path="todo-1.html"><a href="todo-1.html#notas---remember"><i class="fa fa-check"></i><b>19.6</b> NOTAS - REMEMBER</a><ul>
+<li class="chapter" data-level="19.6" data-path="todo-1.html"><a href="todo-1.html#notas---remember"><i class="fa fa-check"></i><b>19.6</b> NOTAS - REMEMBER</a>
+<ul>
 <li class="chapter" data-level="19.6.1" data-path="todo-1.html"><a href="todo-1.html#refs"><i class="fa fa-check"></i><b>19.6.1</b> REFS</a></li>
 <li class="chapter" data-level="19.6.2" data-path="todo-1.html"><a href="todo-1.html#notas"><i class="fa fa-check"></i><b>19.6.2</b> NOTAS</a></li>
 </ul></li>
@@ -346,96 +399,96 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="other-stuff" class="section level1">
+<div id="other-stuff" class="section level1" number="15">
 <h1><span class="header-section-number">15</span> Other stuff</h1>
 <p>Interesting stuff not necessarily related to stats :)</p>
-<div id="maps---generate-and-locate-cities-in-a-world-map" class="section level2">
+<div id="maps---generate-and-locate-cities-in-a-world-map" class="section level2" number="15.1">
 <h2><span class="header-section-number">15.1</span> Maps - Generate and locate cities in a world map</h2>
 <hr />
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Cargamos librerias y leemos DBif</span>
-<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;readr&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;readr&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;readr&#39;</span>)
-<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;dplyr&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;dplyr&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;dplyr&#39;</span>)
-<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;ggplot2&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;ggplot2&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;ggplot2&#39;</span>)
-<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;ggmap&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;ggmap&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;ggmap&#39;</span>)
-<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;ggrepel&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;ggrepel&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;ggrepel&#39;</span>)
-<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;stringr&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;stringr&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;stringr&#39;</span>)</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Creamos un vector con ciudades y paises</span>
-cities_vector =<span class="st"> </span><span class="kw">c</span>(
-<span class="st">&quot;Cambridge, UK&quot;</span>,
-<span class="st">&quot;Edinburgh, UK&quot;</span>,
-<span class="st">&quot;Heidelberg, Alemania&quot;</span>,
-<span class="st">&quot;Barcelona, Spain&quot;</span>, 
-<span class="st">&quot;Tenerife, Spain&quot;</span>,
-<span class="st">&quot;Granada, España&quot;</span>,
-<span class="st">&quot;Bolonia, Italy&quot;</span>,
-<span class="st">&quot;Sydney, Australia&quot;</span>,
-<span class="st">&quot;Toronto, Canada&quot;</span>, 
-<span class="st">&quot;San Francisco, California&quot;</span>,
-<span class="st">&quot;Buenos Aires, Argentina&quot;</span>,
-<span class="st">&quot;Santiago, Chile&quot;</span>,
-<span class="st">&quot;San Jose, Costa Rica&quot;</span>,
-<span class="st">&quot;Medellin, Colombia&quot;</span>
-)
-
-<span class="co"># Separamos el vector de ciudades para tener ciudades y paises por separado</span>
-cities =<span class="st"> </span>cities_vector <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as_tibble</span>() <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">cbind</span>(<span class="kw">str_split_fixed</span>(cities_vector, <span class="st">&quot;, &quot;</span>, <span class="dv">2</span>)) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span>dplyr<span class="op">::</span><span class="kw">rename</span>(<span class="dt">City_Country =</span> value, <span class="dt">City =</span> <span class="st">`</span><span class="dt">1</span><span class="st">`</span>, <span class="dt">Country =</span> <span class="st">`</span><span class="dt">2</span><span class="st">`</span>) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">City_Country =</span> <span class="kw">paste0</span>(City, <span class="st">&quot;, &quot;</span>, Country))</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Extraemos coordenadas a partir de las ciudades</span>
-  <span class="co"># Coordinates = geocode(cities$City_Country)</span></code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Combinamos ciudades con coordenadas</span>
-<span class="co"># Coordinates_cities =  cities %&gt;% cbind(Coordinates)</span>
-<span class="co"># </span>
-<span class="co"># # Usamos el mapa </span>
-<span class="co"># which_map &lt;- map_data(&quot;world&quot;)</span>
-<span class="co"># ggplot() + geom_polygon(data = which_map, aes(x = long, y = lat, group = group, alpha = 0.8)) + #, fill = &quot;none&quot; </span>
-<span class="co">#   coord_fixed(1.3) +</span>
-<span class="co">#   geom_point(data = Coordinates_cities, aes(x = lon, y = lat, color = &quot;none&quot;, fill = &quot;none&quot;, alpha = 0.8), size = 4, shape = 21) +</span>
-<span class="co">#   guides(fill = FALSE, alpha = FALSE, size = FALSE, color = F) +</span>
-<span class="co">#   scale_fill_manual(values = c(&quot;orange3&quot;)) + </span>
-<span class="co">#   scale_colour_manual(values = c(&quot;white&quot;))  +</span>
-<span class="co">#   </span>
-<span class="co">#   # We plot Universities, or not</span>
-<span class="co">#   geom_text_repel(data = Coordinates_cities, aes(x = lon, y = lat, label = City), segment.alpha = .5, segment.color = &#39;#cccccc&#39;, colour = &quot;orange4&quot;, size = 4 ) + #hjust = 0.5, vjust = -0.5,</span>
-<span class="co">#   </span>
-<span class="co">#   theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank()) + </span>
-<span class="co">#   theme(axis.line = element_blank(), axis.text.x = element_blank(),</span>
-<span class="co">#         axis.text.y = element_blank(), axis.ticks = element_blank(),</span>
-<span class="co">#         axis.title.x = element_blank(),</span>
-<span class="co">#         axis.title.y = element_blank(), legend.position = &quot;none&quot;,</span>
-<span class="co">#         # panel.background=element_blank(),panel.border=element_blank(),panel.grid.major=element_blank(),</span>
-<span class="co">#         panel.grid.minor = element_blank(), plot.background = element_blank())</span></code></pre>
+<div class="sourceCode" id="cb442"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb442-1"><a href="other-stuff.html#cb442-1"></a><span class="co"># Cargamos librerias y leemos DBif</span></span>
+<span id="cb442-2"><a href="other-stuff.html#cb442-2"></a><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;readr&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;readr&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;readr&#39;</span>)</span>
+<span id="cb442-3"><a href="other-stuff.html#cb442-3"></a><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;dplyr&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;dplyr&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;dplyr&#39;</span>)</span>
+<span id="cb442-4"><a href="other-stuff.html#cb442-4"></a><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;ggplot2&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;ggplot2&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;ggplot2&#39;</span>)</span>
+<span id="cb442-5"><a href="other-stuff.html#cb442-5"></a><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;ggmap&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;ggmap&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;ggmap&#39;</span>)</span>
+<span id="cb442-6"><a href="other-stuff.html#cb442-6"></a><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;ggrepel&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;ggrepel&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;ggrepel&#39;</span>)</span>
+<span id="cb442-7"><a href="other-stuff.html#cb442-7"></a><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;stringr&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;stringr&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;stringr&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb443"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb443-1"><a href="other-stuff.html#cb443-1"></a><span class="co"># Creamos un vector con ciudades y paises</span></span>
+<span id="cb443-2"><a href="other-stuff.html#cb443-2"></a>cities_vector =<span class="st"> </span><span class="kw">c</span>(</span>
+<span id="cb443-3"><a href="other-stuff.html#cb443-3"></a><span class="st">&quot;Cambridge, UK&quot;</span>,</span>
+<span id="cb443-4"><a href="other-stuff.html#cb443-4"></a><span class="st">&quot;Edinburgh, UK&quot;</span>,</span>
+<span id="cb443-5"><a href="other-stuff.html#cb443-5"></a><span class="st">&quot;Heidelberg, Alemania&quot;</span>,</span>
+<span id="cb443-6"><a href="other-stuff.html#cb443-6"></a><span class="st">&quot;Barcelona, Spain&quot;</span>, </span>
+<span id="cb443-7"><a href="other-stuff.html#cb443-7"></a><span class="st">&quot;Tenerife, Spain&quot;</span>,</span>
+<span id="cb443-8"><a href="other-stuff.html#cb443-8"></a><span class="st">&quot;Granada, España&quot;</span>,</span>
+<span id="cb443-9"><a href="other-stuff.html#cb443-9"></a><span class="st">&quot;Bolonia, Italy&quot;</span>,</span>
+<span id="cb443-10"><a href="other-stuff.html#cb443-10"></a><span class="st">&quot;Sydney, Australia&quot;</span>,</span>
+<span id="cb443-11"><a href="other-stuff.html#cb443-11"></a><span class="st">&quot;Toronto, Canada&quot;</span>, </span>
+<span id="cb443-12"><a href="other-stuff.html#cb443-12"></a><span class="st">&quot;San Francisco, California&quot;</span>,</span>
+<span id="cb443-13"><a href="other-stuff.html#cb443-13"></a><span class="st">&quot;Buenos Aires, Argentina&quot;</span>,</span>
+<span id="cb443-14"><a href="other-stuff.html#cb443-14"></a><span class="st">&quot;Santiago, Chile&quot;</span>,</span>
+<span id="cb443-15"><a href="other-stuff.html#cb443-15"></a><span class="st">&quot;San Jose, Costa Rica&quot;</span>,</span>
+<span id="cb443-16"><a href="other-stuff.html#cb443-16"></a><span class="st">&quot;Medellin, Colombia&quot;</span></span>
+<span id="cb443-17"><a href="other-stuff.html#cb443-17"></a>)</span>
+<span id="cb443-18"><a href="other-stuff.html#cb443-18"></a></span>
+<span id="cb443-19"><a href="other-stuff.html#cb443-19"></a><span class="co"># Separamos el vector de ciudades para tener ciudades y paises por separado</span></span>
+<span id="cb443-20"><a href="other-stuff.html#cb443-20"></a>cities =<span class="st"> </span>cities_vector <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as_tibble</span>() <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb443-21"><a href="other-stuff.html#cb443-21"></a><span class="st">  </span><span class="kw">cbind</span>(<span class="kw">str_split_fixed</span>(cities_vector, <span class="st">&quot;, &quot;</span>, <span class="dv">2</span>)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb443-22"><a href="other-stuff.html#cb443-22"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">rename</span>(<span class="dt">City_Country =</span> value, <span class="dt">City =</span> <span class="st">`</span><span class="dt">1</span><span class="st">`</span>, <span class="dt">Country =</span> <span class="st">`</span><span class="dt">2</span><span class="st">`</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb443-23"><a href="other-stuff.html#cb443-23"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">City_Country =</span> <span class="kw">paste0</span>(City, <span class="st">&quot;, &quot;</span>, Country))</span></code></pre></div>
+<div class="sourceCode" id="cb444"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb444-1"><a href="other-stuff.html#cb444-1"></a><span class="co"># Extraemos coordenadas a partir de las ciudades</span></span>
+<span id="cb444-2"><a href="other-stuff.html#cb444-2"></a>  <span class="co"># Coordinates = geocode(cities$City_Country)</span></span></code></pre></div>
+<div class="sourceCode" id="cb445"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb445-1"><a href="other-stuff.html#cb445-1"></a><span class="co"># Combinamos ciudades con coordenadas</span></span>
+<span id="cb445-2"><a href="other-stuff.html#cb445-2"></a><span class="co"># Coordinates_cities =  cities %&gt;% cbind(Coordinates)</span></span>
+<span id="cb445-3"><a href="other-stuff.html#cb445-3"></a><span class="co"># </span></span>
+<span id="cb445-4"><a href="other-stuff.html#cb445-4"></a><span class="co"># # Usamos el mapa </span></span>
+<span id="cb445-5"><a href="other-stuff.html#cb445-5"></a><span class="co"># which_map &lt;- map_data(&quot;world&quot;)</span></span>
+<span id="cb445-6"><a href="other-stuff.html#cb445-6"></a><span class="co"># ggplot() + geom_polygon(data = which_map, aes(x = long, y = lat, group = group, alpha = 0.8)) + #, fill = &quot;none&quot; </span></span>
+<span id="cb445-7"><a href="other-stuff.html#cb445-7"></a><span class="co">#   coord_fixed(1.3) +</span></span>
+<span id="cb445-8"><a href="other-stuff.html#cb445-8"></a><span class="co">#   geom_point(data = Coordinates_cities, aes(x = lon, y = lat, color = &quot;none&quot;, fill = &quot;none&quot;, alpha = 0.8), size = 4, shape = 21) +</span></span>
+<span id="cb445-9"><a href="other-stuff.html#cb445-9"></a><span class="co">#   guides(fill = FALSE, alpha = FALSE, size = FALSE, color = F) +</span></span>
+<span id="cb445-10"><a href="other-stuff.html#cb445-10"></a><span class="co">#   scale_fill_manual(values = c(&quot;orange3&quot;)) + </span></span>
+<span id="cb445-11"><a href="other-stuff.html#cb445-11"></a><span class="co">#   scale_colour_manual(values = c(&quot;white&quot;))  +</span></span>
+<span id="cb445-12"><a href="other-stuff.html#cb445-12"></a><span class="co">#   </span></span>
+<span id="cb445-13"><a href="other-stuff.html#cb445-13"></a><span class="co">#   # We plot Universities, or not</span></span>
+<span id="cb445-14"><a href="other-stuff.html#cb445-14"></a><span class="co">#   geom_text_repel(data = Coordinates_cities, aes(x = lon, y = lat, label = City), segment.alpha = .5, segment.color = &#39;#cccccc&#39;, colour = &quot;orange4&quot;, size = 4 ) + #hjust = 0.5, vjust = -0.5,</span></span>
+<span id="cb445-15"><a href="other-stuff.html#cb445-15"></a><span class="co">#   </span></span>
+<span id="cb445-16"><a href="other-stuff.html#cb445-16"></a><span class="co">#   theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank()) + </span></span>
+<span id="cb445-17"><a href="other-stuff.html#cb445-17"></a><span class="co">#   theme(axis.line = element_blank(), axis.text.x = element_blank(),</span></span>
+<span id="cb445-18"><a href="other-stuff.html#cb445-18"></a><span class="co">#         axis.text.y = element_blank(), axis.ticks = element_blank(),</span></span>
+<span id="cb445-19"><a href="other-stuff.html#cb445-19"></a><span class="co">#         axis.title.x = element_blank(),</span></span>
+<span id="cb445-20"><a href="other-stuff.html#cb445-20"></a><span class="co">#         axis.title.y = element_blank(), legend.position = &quot;none&quot;,</span></span>
+<span id="cb445-21"><a href="other-stuff.html#cb445-21"></a><span class="co">#         # panel.background=element_blank(),panel.border=element_blank(),panel.grid.major=element_blank(),</span></span>
+<span id="cb445-22"><a href="other-stuff.html#cb445-22"></a><span class="co">#         panel.grid.minor = element_blank(), plot.background = element_blank())</span></span></code></pre></div>
 
 </div>
-<div id="extract-tables-from-the-internet" class="section level2">
+<div id="extract-tables-from-the-internet" class="section level2" number="15.2">
 <h2><span class="header-section-number">15.2</span> Extract tables from the internet</h2>
 <hr />
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Cargamos librerias y leemos DBif (!require(&#39;pacman&#39;)) install.packages(&#39;pacman&#39;); library(&#39;pacman&#39;)</span>
-<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;rvest&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;rvest&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;rvest&#39;</span>)
-<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;readr&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;readr&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;readr&#39;</span>)
-<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;dplyr&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;dplyr&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;dplyr&#39;</span>)
-<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;tidyr&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;tidyr&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;tidyr&#39;</span>)
-<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;ggrepel&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;ggrepel&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;ggrepel&#39;</span>)</code></pre>
+<div class="sourceCode" id="cb446"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb446-1"><a href="other-stuff.html#cb446-1"></a><span class="co"># Cargamos librerias y leemos DBif (!require(&#39;pacman&#39;)) install.packages(&#39;pacman&#39;); library(&#39;pacman&#39;)</span></span>
+<span id="cb446-2"><a href="other-stuff.html#cb446-2"></a><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;rvest&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;rvest&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;rvest&#39;</span>)</span>
+<span id="cb446-3"><a href="other-stuff.html#cb446-3"></a><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;readr&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;readr&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;readr&#39;</span>)</span>
+<span id="cb446-4"><a href="other-stuff.html#cb446-4"></a><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;dplyr&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;dplyr&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;dplyr&#39;</span>)</span>
+<span id="cb446-5"><a href="other-stuff.html#cb446-5"></a><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;tidyr&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;tidyr&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;tidyr&#39;</span>)</span>
+<span id="cb446-6"><a href="other-stuff.html#cb446-6"></a><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;ggrepel&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;ggrepel&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;ggrepel&#39;</span>)</span></code></pre></div>
 <p>To extract a table we use the package <code>rvest</code>. We need the <strong>XPath</strong> of the table. To get it, we need to use the Devtools of Chrome or Firefox, locate the table, and right click, Copy, Copy XPath, as shown in the Figure below.</p>
 <p><img src="Images/Other/16_Extract_tables_web.png" /></p>
 <hr />
 <p>Below there is an example using the Shanghai Ranking. First, we extract the table:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co">#http://www.shanghairanking.com/ARWU-Methodology-2016.html</span>
-
-url &lt;-<span class="st"> &quot;http://www.shanghairanking.com/ARWU2016.html&quot;</span>
-population &lt;-<span class="st"> </span>url <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">read_html</span>() <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">html_nodes</span>(<span class="dt">xpath=</span><span class="st">&#39;//*[@id=&quot;UniversityRanking&quot;]&#39;</span>) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">html_table</span>(<span class="dt">fill =</span> <span class="ot">TRUE</span>)
-  population &lt;-<span class="st"> </span>population[[<span class="dv">1</span>]]
-
-  <span class="co"># Rename columns </span>
-  <span class="kw">colnames</span>(population) =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;World_Rank&quot;</span>, <span class="st">&quot;Institution&quot;</span>, <span class="st">&quot;Country/Region&quot;</span>, <span class="st">&quot;National_Rank&quot;</span>, <span class="st">&quot;Total_Score&quot;</span>, <span class="st">&quot;Alumni&quot;</span>, <span class="st">&quot;Awards&quot;</span>, <span class="st">&quot;Higly_Cited_Researchers&quot;</span>, <span class="st">&quot;Nature_Science&quot;</span>, <span class="st">&quot;Publications&quot;</span>, <span class="st">&quot;PCP&quot;</span>)
-
-<span class="kw">write_csv</span>(population, <span class="st">&quot;Data/15_Extract_tables_web/15_Extract_tables_web_Shanghai_2016.csv&quot;</span>)
-
-population <span class="op">%&gt;%</span><span class="st"> </span>dplyr<span class="op">::</span><span class="kw">select</span>(<span class="op">-</span><span class="st">`</span><span class="dt">Country/Region</span><span class="st">`</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as_tibble</span>()</code></pre>
+<div class="sourceCode" id="cb447"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb447-1"><a href="other-stuff.html#cb447-1"></a><span class="co">#http://www.shanghairanking.com/ARWU-Methodology-2016.html</span></span>
+<span id="cb447-2"><a href="other-stuff.html#cb447-2"></a></span>
+<span id="cb447-3"><a href="other-stuff.html#cb447-3"></a>url &lt;-<span class="st"> &quot;http://www.shanghairanking.com/ARWU2016.html&quot;</span></span>
+<span id="cb447-4"><a href="other-stuff.html#cb447-4"></a>population &lt;-<span class="st"> </span>url <span class="op">%&gt;%</span></span>
+<span id="cb447-5"><a href="other-stuff.html#cb447-5"></a><span class="st">  </span><span class="kw">read_html</span>() <span class="op">%&gt;%</span></span>
+<span id="cb447-6"><a href="other-stuff.html#cb447-6"></a><span class="st">  </span><span class="kw">html_nodes</span>(<span class="dt">xpath=</span><span class="st">&#39;//*[@id=&quot;UniversityRanking&quot;]&#39;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb447-7"><a href="other-stuff.html#cb447-7"></a><span class="st">  </span><span class="kw">html_table</span>(<span class="dt">fill =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb447-8"><a href="other-stuff.html#cb447-8"></a>  population &lt;-<span class="st"> </span>population[[<span class="dv">1</span>]]</span>
+<span id="cb447-9"><a href="other-stuff.html#cb447-9"></a></span>
+<span id="cb447-10"><a href="other-stuff.html#cb447-10"></a>  <span class="co"># Rename columns </span></span>
+<span id="cb447-11"><a href="other-stuff.html#cb447-11"></a>  <span class="kw">colnames</span>(population) =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;World_Rank&quot;</span>, <span class="st">&quot;Institution&quot;</span>, <span class="st">&quot;Country/Region&quot;</span>, <span class="st">&quot;National_Rank&quot;</span>, <span class="st">&quot;Total_Score&quot;</span>, <span class="st">&quot;Alumni&quot;</span>, <span class="st">&quot;Awards&quot;</span>, <span class="st">&quot;Higly_Cited_Researchers&quot;</span>, <span class="st">&quot;Nature_Science&quot;</span>, <span class="st">&quot;Publications&quot;</span>, <span class="st">&quot;PCP&quot;</span>)</span>
+<span id="cb447-12"><a href="other-stuff.html#cb447-12"></a></span>
+<span id="cb447-13"><a href="other-stuff.html#cb447-13"></a><span class="kw">write_csv</span>(population, <span class="st">&quot;Data/15_Extract_tables_web/15_Extract_tables_web_Shanghai_2016.csv&quot;</span>)</span>
+<span id="cb447-14"><a href="other-stuff.html#cb447-14"></a></span>
+<span id="cb447-15"><a href="other-stuff.html#cb447-15"></a>population <span class="op">%&gt;%</span><span class="st"> </span>dplyr<span class="op">::</span><span class="kw">select</span>(<span class="op">-</span><span class="st">`</span><span class="dt">Country/Region</span><span class="st">`</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as_tibble</span>()</span></code></pre></div>
 <pre><code>## # A tibble: 500 x 10
 ##    World_Rank Institution National_Rank Total_Score Alumni Awards
 ##    &lt;chr&gt;      &lt;chr&gt;       &lt;chr&gt;               &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
@@ -453,87 +506,87 @@ population <span class="op">%&gt;%</span><span class="st"> </span>dplyr<span cla
 ## #   Higly_Cited_Researchers &lt;dbl&gt;, Nature_Science &lt;dbl&gt;,
 ## #   Publications &lt;dbl&gt;, PCP &lt;dbl&gt;</code></pre>
 <p>We prepare the DB and create the plot…</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Scatter -----------------------------------------------------------------</span>
-
-<span class="co"># Read the DB</span>
-population =<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;Data/15_Extract_tables_web/15_Extract_tables_web_Shanghai_2016.csv&quot;</span>)
-  
-<span class="co"># We will show the names of this set of universities</span>
-Universidades_destacadas =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;University of Cambridge&quot;</span>, 
-                               <span class="st">&quot;University of Oxford&quot;</span>, 
-                               <span class="st">&quot;University of Toronto&quot;</span>, 
-                               <span class="st">&quot;University of Chicago&quot;</span>, 
-                               <span class="st">&quot;The University of Edinburgh&quot;</span>,
-                               <span class="st">&quot;California Institute of Technology&quot;</span>)
-
-<span class="co"># Prepare DB for plot  </span>
-population_scatter =<span class="st"> </span>population <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as_tibble</span>() <span class="op">%&gt;%</span><span class="st"> </span>dplyr<span class="op">::</span><span class="kw">select</span>(<span class="op">-</span><span class="st">`</span><span class="dt">Country/Region</span><span class="st">`</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">drop_na</span>() <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">World_Rank =</span> <span class="kw">as.numeric</span>(World_Rank), <span class="dt">National_Rank =</span> <span class="kw">as.numeric</span>(National_Rank)) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Institution_highlighted =</span> <span class="kw">ifelse</span>(Institution <span class="op">%in%</span><span class="st"> </span>Universidades_destacadas, Institution, <span class="ot">NA</span>),
-         <span class="dt">Institution =</span> <span class="kw">ifelse</span>(Institution <span class="op">%in%</span><span class="st"> </span>Universidades_destacadas, <span class="ot">NA</span>, Institution))
-
-
-<span class="co"># Plot</span>
-<span class="kw">ggplot</span>(population_scatter, <span class="kw">aes</span>(Nature_Science, World_Rank)) <span class="op">+</span><span class="st"> </span><span class="co">#, color=factor(P_s)</span>
-<span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="dv">4</span>, <span class="dt">color =</span> <span class="st">&#39;orange&#39;</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">scale_colour_hue</span>(<span class="dt">l=</span><span class="dv">50</span>) <span class="op">+</span><span class="st"> </span><span class="co"># Palette hue</span>
-<span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span>lm,   <span class="co"># Linear regression lines</span>
-              <span class="dt">se=</span>T,<span class="co"># level = .5,        # Confidence interval</span>
-              <span class="dt">fullrange=</span>F, 
-              <span class="dt">color =</span> <span class="st">&quot;purple&quot;</span>) <span class="op">+</span>
-<span class="st">  </span><span class="co"># geom_text_repel(aes(label=Institution)) + </span>
-<span class="st">  </span><span class="kw">geom_text_repel</span>(<span class="kw">aes</span>(<span class="dt">label=</span>Institution_highlighted, <span class="dt">fontface=</span><span class="st">&quot;bold&quot;</span>), <span class="dt">size =</span> <span class="dv">3</span>) <span class="op">+</span><span class="st">   </span>
-<span class="st">  </span><span class="kw">theme_classic</span>(<span class="dt">base_size =</span> <span class="dv">16</span>) <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">scale_y_reverse</span>( <span class="dt">breaks=</span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">25</span>, <span class="dv">50</span>, <span class="dv">75</span>, <span class="dv">100</span>), <span class="dt">lim =</span> <span class="kw">c</span>(<span class="dv">100</span>,<span class="dv">1</span>)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x=</span><span class="st">&quot;Publications&quot;</span>, <span class="dt">y=</span><span class="st">&quot;Shanghai Ranking 2016&quot;</span>)</code></pre>
+<div class="sourceCode" id="cb449"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb449-1"><a href="other-stuff.html#cb449-1"></a><span class="co"># Scatter -----------------------------------------------------------------</span></span>
+<span id="cb449-2"><a href="other-stuff.html#cb449-2"></a></span>
+<span id="cb449-3"><a href="other-stuff.html#cb449-3"></a><span class="co"># Read the DB</span></span>
+<span id="cb449-4"><a href="other-stuff.html#cb449-4"></a>population =<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;Data/15_Extract_tables_web/15_Extract_tables_web_Shanghai_2016.csv&quot;</span>)</span>
+<span id="cb449-5"><a href="other-stuff.html#cb449-5"></a>  </span>
+<span id="cb449-6"><a href="other-stuff.html#cb449-6"></a><span class="co"># We will show the names of this set of universities</span></span>
+<span id="cb449-7"><a href="other-stuff.html#cb449-7"></a>Universidades_destacadas =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;University of Cambridge&quot;</span>, </span>
+<span id="cb449-8"><a href="other-stuff.html#cb449-8"></a>                               <span class="st">&quot;University of Oxford&quot;</span>, </span>
+<span id="cb449-9"><a href="other-stuff.html#cb449-9"></a>                               <span class="st">&quot;University of Toronto&quot;</span>, </span>
+<span id="cb449-10"><a href="other-stuff.html#cb449-10"></a>                               <span class="st">&quot;University of Chicago&quot;</span>, </span>
+<span id="cb449-11"><a href="other-stuff.html#cb449-11"></a>                               <span class="st">&quot;The University of Edinburgh&quot;</span>,</span>
+<span id="cb449-12"><a href="other-stuff.html#cb449-12"></a>                               <span class="st">&quot;California Institute of Technology&quot;</span>)</span>
+<span id="cb449-13"><a href="other-stuff.html#cb449-13"></a></span>
+<span id="cb449-14"><a href="other-stuff.html#cb449-14"></a><span class="co"># Prepare DB for plot  </span></span>
+<span id="cb449-15"><a href="other-stuff.html#cb449-15"></a>population_scatter =<span class="st"> </span>population <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as_tibble</span>() <span class="op">%&gt;%</span><span class="st"> </span>dplyr<span class="op">::</span><span class="kw">select</span>(<span class="op">-</span><span class="st">`</span><span class="dt">Country/Region</span><span class="st">`</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">drop_na</span>() <span class="op">%&gt;%</span></span>
+<span id="cb449-16"><a href="other-stuff.html#cb449-16"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">World_Rank =</span> <span class="kw">as.numeric</span>(World_Rank), <span class="dt">National_Rank =</span> <span class="kw">as.numeric</span>(National_Rank)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb449-17"><a href="other-stuff.html#cb449-17"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Institution_highlighted =</span> <span class="kw">ifelse</span>(Institution <span class="op">%in%</span><span class="st"> </span>Universidades_destacadas, Institution, <span class="ot">NA</span>),</span>
+<span id="cb449-18"><a href="other-stuff.html#cb449-18"></a>         <span class="dt">Institution =</span> <span class="kw">ifelse</span>(Institution <span class="op">%in%</span><span class="st"> </span>Universidades_destacadas, <span class="ot">NA</span>, Institution))</span>
+<span id="cb449-19"><a href="other-stuff.html#cb449-19"></a></span>
+<span id="cb449-20"><a href="other-stuff.html#cb449-20"></a></span>
+<span id="cb449-21"><a href="other-stuff.html#cb449-21"></a><span class="co"># Plot</span></span>
+<span id="cb449-22"><a href="other-stuff.html#cb449-22"></a><span class="kw">ggplot</span>(population_scatter, <span class="kw">aes</span>(Nature_Science, World_Rank)) <span class="op">+</span><span class="st"> </span><span class="co">#, color=factor(P_s)</span></span>
+<span id="cb449-23"><a href="other-stuff.html#cb449-23"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="dv">4</span>, <span class="dt">color =</span> <span class="st">&#39;orange&#39;</span>) <span class="op">+</span></span>
+<span id="cb449-24"><a href="other-stuff.html#cb449-24"></a><span class="st">  </span><span class="kw">scale_colour_hue</span>(<span class="dt">l=</span><span class="dv">50</span>) <span class="op">+</span><span class="st"> </span><span class="co"># Palette hue</span></span>
+<span id="cb449-25"><a href="other-stuff.html#cb449-25"></a><span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span>lm,   <span class="co"># Linear regression lines</span></span>
+<span id="cb449-26"><a href="other-stuff.html#cb449-26"></a>              <span class="dt">se=</span>T,<span class="co"># level = .5,        # Confidence interval</span></span>
+<span id="cb449-27"><a href="other-stuff.html#cb449-27"></a>              <span class="dt">fullrange=</span>F, </span>
+<span id="cb449-28"><a href="other-stuff.html#cb449-28"></a>              <span class="dt">color =</span> <span class="st">&quot;purple&quot;</span>) <span class="op">+</span></span>
+<span id="cb449-29"><a href="other-stuff.html#cb449-29"></a><span class="st">  </span><span class="co"># geom_text_repel(aes(label=Institution)) + </span></span>
+<span id="cb449-30"><a href="other-stuff.html#cb449-30"></a><span class="st">  </span><span class="kw">geom_text_repel</span>(<span class="kw">aes</span>(<span class="dt">label=</span>Institution_highlighted, <span class="dt">fontface=</span><span class="st">&quot;bold&quot;</span>), <span class="dt">size =</span> <span class="dv">3</span>) <span class="op">+</span><span class="st">   </span></span>
+<span id="cb449-31"><a href="other-stuff.html#cb449-31"></a><span class="st">  </span><span class="kw">theme_classic</span>(<span class="dt">base_size =</span> <span class="dv">16</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb449-32"><a href="other-stuff.html#cb449-32"></a><span class="st">  </span><span class="kw">scale_y_reverse</span>( <span class="dt">breaks=</span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">25</span>, <span class="dv">50</span>, <span class="dv">75</span>, <span class="dv">100</span>), <span class="dt">lim =</span> <span class="kw">c</span>(<span class="dv">100</span>,<span class="dv">1</span>)) <span class="op">+</span></span>
+<span id="cb449-33"><a href="other-stuff.html#cb449-33"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x=</span><span class="st">&quot;Publications&quot;</span>, <span class="dt">y=</span><span class="st">&quot;Shanghai Ranking 2016&quot;</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/extract_tables_shanghai_plot1-1.png" width="672" /></p>
-<pre class="sourceCode r"><code class="sourceCode r">  <span class="co"># Save the plot</span>
-    <span class="co"># file = &quot;Images/Other/Shanghai_ Ranking.png&quot;</span>
-    <span class="co"># ggsave(file, device = &quot;png&quot;, dpi = 300)</span></code></pre>
+<div class="sourceCode" id="cb450"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb450-1"><a href="other-stuff.html#cb450-1"></a>  <span class="co"># Save the plot</span></span>
+<span id="cb450-2"><a href="other-stuff.html#cb450-2"></a>    <span class="co"># file = &quot;Images/Other/Shanghai_ Ranking.png&quot;</span></span>
+<span id="cb450-3"><a href="other-stuff.html#cb450-3"></a>    <span class="co"># ggsave(file, device = &quot;png&quot;, dpi = 300)</span></span></code></pre></div>
 <p>When plotting, we can change the function behind the regression line.</p>
-<pre class="sourceCode r"><code class="sourceCode r">  <span class="kw">ggplot</span>(population_scatter, <span class="kw">aes</span>(Nature_Science, World_Rank)) <span class="op">+</span><span class="st"> </span><span class="co">#, color=factor(P_s)</span>
-<span class="st">    </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="dv">4</span>, <span class="dt">color =</span> <span class="st">&#39;orange&#39;</span>) <span class="op">+</span>
-<span class="st">    </span><span class="kw">scale_colour_hue</span>(<span class="dt">l=</span><span class="dv">50</span>) <span class="op">+</span><span class="st"> </span><span class="co"># Palette hue</span>
-<span class="st">    </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span><span class="st">&quot;lm&quot;</span>, <span class="kw">aes</span>(<span class="dt">color=</span><span class="st">&quot;Log Model&quot;</span>), <span class="dt">formula=</span> (y <span class="op">~</span><span class="st"> </span><span class="kw">log</span>(x)), <span class="dt">se=</span>T, <span class="dt">linetype =</span> <span class="dv">1</span>,  <span class="dt">level =</span> <span class="fl">.999</span>) <span class="op">+</span>
-<span class="st">    </span><span class="co"># geom_smooth(method=&quot;lm&quot;, aes(color=&quot;Log Model&quot;), formula= (y ~  poly(x, 2, raw=TRUE)), se=T, linetype = 1) +</span>
-<span class="st">    </span><span class="co"># geom_smooth(method=&quot;lm&quot;, aes(color=&quot;Log Model&quot;), formula= (y ~  splines::bs(x, 3)), se=T, linetype = 1,  level = .999) +</span>
-<span class="st">    </span><span class="co"># method = &quot;lm&quot;, formula = y ~ </span>
-<span class="st">    </span><span class="kw">guides</span>(<span class="dt">color =</span> <span class="kw">guide_legend</span>(<span class="st">&quot;Model Type&quot;</span>)) <span class="op">+</span>
-<span class="st">    </span><span class="co"># geom_text_repel(aes(label=Institution)) + </span>
-<span class="st">    </span><span class="kw">geom_text_repel</span>(<span class="kw">aes</span>(<span class="dt">label=</span>Institution_highlighted, <span class="dt">fontface=</span><span class="st">&quot;bold&quot;</span>), <span class="dt">size =</span> <span class="dv">3</span>) <span class="op">+</span><span class="st">   </span>
-<span class="st">    </span><span class="kw">theme_classic</span>(<span class="dt">base_size =</span> <span class="dv">16</span>) <span class="op">+</span><span class="st"> </span>
-<span class="st">    </span><span class="kw">scale_y_reverse</span>(<span class="dt">breaks=</span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">25</span>, <span class="dv">50</span>, <span class="dv">75</span>, <span class="dv">100</span>)) <span class="op">+</span><span class="st"> </span><span class="co">#, lim = c(100, 1)</span>
-<span class="st">    </span><span class="kw">labs</span>(<span class="dt">x=</span><span class="st">&quot;Publications&quot;</span>, <span class="dt">y=</span><span class="st">&quot;Shanghai Ranking 2016&quot;</span>)</code></pre>
+<div class="sourceCode" id="cb451"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb451-1"><a href="other-stuff.html#cb451-1"></a>  <span class="kw">ggplot</span>(population_scatter, <span class="kw">aes</span>(Nature_Science, World_Rank)) <span class="op">+</span><span class="st"> </span><span class="co">#, color=factor(P_s)</span></span>
+<span id="cb451-2"><a href="other-stuff.html#cb451-2"></a><span class="st">    </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="dv">4</span>, <span class="dt">color =</span> <span class="st">&#39;orange&#39;</span>) <span class="op">+</span></span>
+<span id="cb451-3"><a href="other-stuff.html#cb451-3"></a><span class="st">    </span><span class="kw">scale_colour_hue</span>(<span class="dt">l=</span><span class="dv">50</span>) <span class="op">+</span><span class="st"> </span><span class="co"># Palette hue</span></span>
+<span id="cb451-4"><a href="other-stuff.html#cb451-4"></a><span class="st">    </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span><span class="st">&quot;lm&quot;</span>, <span class="kw">aes</span>(<span class="dt">color=</span><span class="st">&quot;Log Model&quot;</span>), <span class="dt">formula=</span> (y <span class="op">~</span><span class="st"> </span><span class="kw">log</span>(x)), <span class="dt">se=</span>T, <span class="dt">linetype =</span> <span class="dv">1</span>,  <span class="dt">level =</span> <span class="fl">.999</span>) <span class="op">+</span></span>
+<span id="cb451-5"><a href="other-stuff.html#cb451-5"></a><span class="st">    </span><span class="co"># geom_smooth(method=&quot;lm&quot;, aes(color=&quot;Log Model&quot;), formula= (y ~  poly(x, 2, raw=TRUE)), se=T, linetype = 1) +</span></span>
+<span id="cb451-6"><a href="other-stuff.html#cb451-6"></a><span class="st">    </span><span class="co"># geom_smooth(method=&quot;lm&quot;, aes(color=&quot;Log Model&quot;), formula= (y ~  splines::bs(x, 3)), se=T, linetype = 1,  level = .999) +</span></span>
+<span id="cb451-7"><a href="other-stuff.html#cb451-7"></a><span class="st">    </span><span class="co"># method = &quot;lm&quot;, formula = y ~ </span></span>
+<span id="cb451-8"><a href="other-stuff.html#cb451-8"></a><span class="st">    </span><span class="kw">guides</span>(<span class="dt">color =</span> <span class="kw">guide_legend</span>(<span class="st">&quot;Model Type&quot;</span>)) <span class="op">+</span></span>
+<span id="cb451-9"><a href="other-stuff.html#cb451-9"></a><span class="st">    </span><span class="co"># geom_text_repel(aes(label=Institution)) + </span></span>
+<span id="cb451-10"><a href="other-stuff.html#cb451-10"></a><span class="st">    </span><span class="kw">geom_text_repel</span>(<span class="kw">aes</span>(<span class="dt">label=</span>Institution_highlighted, <span class="dt">fontface=</span><span class="st">&quot;bold&quot;</span>), <span class="dt">size =</span> <span class="dv">3</span>) <span class="op">+</span><span class="st">   </span></span>
+<span id="cb451-11"><a href="other-stuff.html#cb451-11"></a><span class="st">    </span><span class="kw">theme_classic</span>(<span class="dt">base_size =</span> <span class="dv">16</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb451-12"><a href="other-stuff.html#cb451-12"></a><span class="st">    </span><span class="kw">scale_y_reverse</span>(<span class="dt">breaks=</span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">25</span>, <span class="dv">50</span>, <span class="dv">75</span>, <span class="dv">100</span>)) <span class="op">+</span><span class="st"> </span><span class="co">#, lim = c(100, 1)</span></span>
+<span id="cb451-13"><a href="other-stuff.html#cb451-13"></a><span class="st">    </span><span class="kw">labs</span>(<span class="dt">x=</span><span class="st">&quot;Publications&quot;</span>, <span class="dt">y=</span><span class="st">&quot;Shanghai Ranking 2016&quot;</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/extract_tables_shanghai_plot2-1.png" width="672" /></p>
 
 </div>
-<div id="extract-tables-from-the-internet-1" class="section level2">
+<div id="extract-tables-from-the-internet-1" class="section level2" number="15.3">
 <h2><span class="header-section-number">15.3</span> Extract tables from the internet</h2>
 <hr />
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Cargamos librerias y leemos DBif (!require(&#39;pacman&#39;)) install.packages(&#39;pacman&#39;); library(&#39;pacman&#39;)</span>
-<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;dplyr&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;dplyr&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;dplyr&#39;</span>)
-<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;readr&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;readr&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;readr&#39;</span>)
-<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;rvest&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;rvest&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;rvest&#39;</span>)
-<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;ggrepel&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;ggrepel&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;ggrepel&#39;</span>)</code></pre>
+<div class="sourceCode" id="cb452"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb452-1"><a href="other-stuff.html#cb452-1"></a><span class="co"># Cargamos librerias y leemos DBif (!require(&#39;pacman&#39;)) install.packages(&#39;pacman&#39;); library(&#39;pacman&#39;)</span></span>
+<span id="cb452-2"><a href="other-stuff.html#cb452-2"></a><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;dplyr&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;dplyr&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;dplyr&#39;</span>)</span>
+<span id="cb452-3"><a href="other-stuff.html#cb452-3"></a><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;readr&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;readr&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;readr&#39;</span>)</span>
+<span id="cb452-4"><a href="other-stuff.html#cb452-4"></a><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;rvest&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;rvest&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;rvest&#39;</span>)</span>
+<span id="cb452-5"><a href="other-stuff.html#cb452-5"></a><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;ggrepel&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;ggrepel&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;ggrepel&#39;</span>)</span></code></pre></div>
 <p>To extract a table we use the package <code>rvest</code>. We need the <strong>XPath</strong> of the table. To get it, we need to use the Devtools of Chrome or Firefox, locate the table, and right click, Copy, Copy XPath, as shown in the Figure below.</p>
 <p><img src="Images/Other/16_Extract_tables_web.png" /></p>
 <hr />
 <p>Below there is an example using the Shanghai Ranking. First, we extract the table:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co">#http://www.shanghairanking.com/ARWU-Methodology-2016.html</span>
-
-url &lt;-<span class="st"> &quot;http://www.shanghairanking.com/ARWU2016.html&quot;</span>
-population &lt;-<span class="st"> </span>url <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">read_html</span>() <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">html_nodes</span>(<span class="dt">xpath=</span><span class="st">&#39;//*[@id=&quot;UniversityRanking&quot;]&#39;</span>) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">html_table</span>(<span class="dt">fill =</span> <span class="ot">TRUE</span>)
-  population &lt;-<span class="st"> </span>population[[<span class="dv">1</span>]]
-
-  <span class="co"># Rename columns </span>
-  <span class="kw">colnames</span>(population) =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;World_Rank&quot;</span>, <span class="st">&quot;Institution&quot;</span>, <span class="st">&quot;Country/Region&quot;</span>, <span class="st">&quot;National_Rank&quot;</span>, <span class="st">&quot;Total_Score&quot;</span>, <span class="st">&quot;Alumni&quot;</span>, <span class="st">&quot;Awards&quot;</span>, <span class="st">&quot;Higly_Cited_Researchers&quot;</span>, <span class="st">&quot;Nature_Science&quot;</span>, <span class="st">&quot;Publications&quot;</span>, <span class="st">&quot;PCP&quot;</span>)
-
-<span class="co"># write_csv(population, &quot;Data/15_Extract_tables_web/15_Extract_tables_web_Shanghai_2016.csv&quot;)</span>
-
-population <span class="op">%&gt;%</span><span class="st"> </span>dplyr<span class="op">::</span><span class="kw">select</span>(<span class="op">-</span><span class="st">`</span><span class="dt">Country/Region</span><span class="st">`</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as_tibble</span>()</code></pre>
+<div class="sourceCode" id="cb453"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb453-1"><a href="other-stuff.html#cb453-1"></a><span class="co">#http://www.shanghairanking.com/ARWU-Methodology-2016.html</span></span>
+<span id="cb453-2"><a href="other-stuff.html#cb453-2"></a></span>
+<span id="cb453-3"><a href="other-stuff.html#cb453-3"></a>url &lt;-<span class="st"> &quot;http://www.shanghairanking.com/ARWU2016.html&quot;</span></span>
+<span id="cb453-4"><a href="other-stuff.html#cb453-4"></a>population &lt;-<span class="st"> </span>url <span class="op">%&gt;%</span></span>
+<span id="cb453-5"><a href="other-stuff.html#cb453-5"></a><span class="st">  </span><span class="kw">read_html</span>() <span class="op">%&gt;%</span></span>
+<span id="cb453-6"><a href="other-stuff.html#cb453-6"></a><span class="st">  </span><span class="kw">html_nodes</span>(<span class="dt">xpath=</span><span class="st">&#39;//*[@id=&quot;UniversityRanking&quot;]&#39;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb453-7"><a href="other-stuff.html#cb453-7"></a><span class="st">  </span><span class="kw">html_table</span>(<span class="dt">fill =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb453-8"><a href="other-stuff.html#cb453-8"></a>  population &lt;-<span class="st"> </span>population[[<span class="dv">1</span>]]</span>
+<span id="cb453-9"><a href="other-stuff.html#cb453-9"></a></span>
+<span id="cb453-10"><a href="other-stuff.html#cb453-10"></a>  <span class="co"># Rename columns </span></span>
+<span id="cb453-11"><a href="other-stuff.html#cb453-11"></a>  <span class="kw">colnames</span>(population) =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;World_Rank&quot;</span>, <span class="st">&quot;Institution&quot;</span>, <span class="st">&quot;Country/Region&quot;</span>, <span class="st">&quot;National_Rank&quot;</span>, <span class="st">&quot;Total_Score&quot;</span>, <span class="st">&quot;Alumni&quot;</span>, <span class="st">&quot;Awards&quot;</span>, <span class="st">&quot;Higly_Cited_Researchers&quot;</span>, <span class="st">&quot;Nature_Science&quot;</span>, <span class="st">&quot;Publications&quot;</span>, <span class="st">&quot;PCP&quot;</span>)</span>
+<span id="cb453-12"><a href="other-stuff.html#cb453-12"></a></span>
+<span id="cb453-13"><a href="other-stuff.html#cb453-13"></a><span class="co"># write_csv(population, &quot;Data/15_Extract_tables_web/15_Extract_tables_web_Shanghai_2016.csv&quot;)</span></span>
+<span id="cb453-14"><a href="other-stuff.html#cb453-14"></a></span>
+<span id="cb453-15"><a href="other-stuff.html#cb453-15"></a>population <span class="op">%&gt;%</span><span class="st"> </span>dplyr<span class="op">::</span><span class="kw">select</span>(<span class="op">-</span><span class="st">`</span><span class="dt">Country/Region</span><span class="st">`</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as_tibble</span>()</span></code></pre></div>
 <pre><code>## # A tibble: 500 x 10
 ##    World_Rank Institution National_Rank Total_Score Alumni Awards
 ##    &lt;chr&gt;      &lt;chr&gt;       &lt;chr&gt;               &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
@@ -551,57 +604,57 @@ population <span class="op">%&gt;%</span><span class="st"> </span>dplyr<span cla
 ## #   Higly_Cited_Researchers &lt;dbl&gt;, Nature_Science &lt;dbl&gt;,
 ## #   Publications &lt;dbl&gt;, PCP &lt;dbl&gt;</code></pre>
 <p>We prepare the DB and create the plot…</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Scatter -----------------------------------------------------------------</span>
-
-<span class="co"># Read the DB</span>
-<span class="co"># population = read_csv(&quot;Data/15_Extract_tables_web/15_Extract_tables_web_Shanghai_2016.csv&quot;)</span>
-  
-<span class="co"># We will show the names of this set of universities</span>
-Universidades_destacadas =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;University of Cambridge&quot;</span>, 
-                               <span class="st">&quot;University of Oxford&quot;</span>, 
-                               <span class="st">&quot;University of Toronto&quot;</span>, 
-                               <span class="st">&quot;University of Chicago&quot;</span>, 
-                               <span class="st">&quot;The University of Edinburgh&quot;</span>,
-                               <span class="st">&quot;California Institute of Technology&quot;</span>)
-
-<span class="co"># Prepare DB for plot  </span>
-population_scatter =<span class="st"> </span>population <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as_tibble</span>() <span class="op">%&gt;%</span><span class="st"> </span>dplyr<span class="op">::</span><span class="kw">select</span>(<span class="op">-</span><span class="st">`</span><span class="dt">Country/Region</span><span class="st">`</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">drop_na</span>() <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">World_Rank =</span> <span class="kw">as.numeric</span>(World_Rank), <span class="dt">National_Rank =</span> <span class="kw">as.numeric</span>(National_Rank)) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Institution_highlighted =</span> <span class="kw">ifelse</span>(Institution <span class="op">%in%</span><span class="st"> </span>Universidades_destacadas, Institution, <span class="ot">NA</span>),
-         <span class="dt">Institution =</span> <span class="kw">ifelse</span>(Institution <span class="op">%in%</span><span class="st"> </span>Universidades_destacadas, <span class="ot">NA</span>, Institution))
-
-
-<span class="co"># Plot</span>
-<span class="kw">ggplot</span>(population_scatter, <span class="kw">aes</span>(Nature_Science, World_Rank)) <span class="op">+</span><span class="st"> </span><span class="co">#, color=factor(P_s)</span>
-<span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="dv">4</span>, <span class="dt">color =</span> <span class="st">&#39;orange&#39;</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">scale_colour_hue</span>(<span class="dt">l=</span><span class="dv">50</span>) <span class="op">+</span><span class="st"> </span><span class="co"># Palette hue</span>
-<span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span>lm,   <span class="co"># Linear regression lines</span>
-              <span class="dt">se=</span>T,<span class="co"># level = .5,        # Confidence interval</span>
-              <span class="dt">fullrange=</span>F, 
-              <span class="dt">color =</span> <span class="st">&quot;purple&quot;</span>) <span class="op">+</span>
-<span class="st">  </span><span class="co"># geom_text_repel(aes(label=Institution)) + </span>
-<span class="st">  </span><span class="kw">geom_text_repel</span>(<span class="kw">aes</span>(<span class="dt">label=</span>Institution_highlighted, <span class="dt">fontface=</span><span class="st">&quot;bold&quot;</span>), <span class="dt">size =</span> <span class="dv">3</span>) <span class="op">+</span><span class="st">   </span>
-<span class="st">  </span><span class="kw">theme_classic</span>(<span class="dt">base_size =</span> <span class="dv">16</span>) <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">scale_y_reverse</span>( <span class="dt">breaks=</span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">25</span>, <span class="dv">50</span>, <span class="dv">75</span>, <span class="dv">100</span>), <span class="dt">lim =</span> <span class="kw">c</span>(<span class="dv">100</span>,<span class="dv">1</span>)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x=</span><span class="st">&quot;Publications&quot;</span>, <span class="dt">y=</span><span class="st">&quot;Shanghai Ranking 2016&quot;</span>)</code></pre>
+<div class="sourceCode" id="cb455"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb455-1"><a href="other-stuff.html#cb455-1"></a><span class="co"># Scatter -----------------------------------------------------------------</span></span>
+<span id="cb455-2"><a href="other-stuff.html#cb455-2"></a></span>
+<span id="cb455-3"><a href="other-stuff.html#cb455-3"></a><span class="co"># Read the DB</span></span>
+<span id="cb455-4"><a href="other-stuff.html#cb455-4"></a><span class="co"># population = read_csv(&quot;Data/15_Extract_tables_web/15_Extract_tables_web_Shanghai_2016.csv&quot;)</span></span>
+<span id="cb455-5"><a href="other-stuff.html#cb455-5"></a>  </span>
+<span id="cb455-6"><a href="other-stuff.html#cb455-6"></a><span class="co"># We will show the names of this set of universities</span></span>
+<span id="cb455-7"><a href="other-stuff.html#cb455-7"></a>Universidades_destacadas =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;University of Cambridge&quot;</span>, </span>
+<span id="cb455-8"><a href="other-stuff.html#cb455-8"></a>                               <span class="st">&quot;University of Oxford&quot;</span>, </span>
+<span id="cb455-9"><a href="other-stuff.html#cb455-9"></a>                               <span class="st">&quot;University of Toronto&quot;</span>, </span>
+<span id="cb455-10"><a href="other-stuff.html#cb455-10"></a>                               <span class="st">&quot;University of Chicago&quot;</span>, </span>
+<span id="cb455-11"><a href="other-stuff.html#cb455-11"></a>                               <span class="st">&quot;The University of Edinburgh&quot;</span>,</span>
+<span id="cb455-12"><a href="other-stuff.html#cb455-12"></a>                               <span class="st">&quot;California Institute of Technology&quot;</span>)</span>
+<span id="cb455-13"><a href="other-stuff.html#cb455-13"></a></span>
+<span id="cb455-14"><a href="other-stuff.html#cb455-14"></a><span class="co"># Prepare DB for plot  </span></span>
+<span id="cb455-15"><a href="other-stuff.html#cb455-15"></a>population_scatter =<span class="st"> </span>population <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as_tibble</span>() <span class="op">%&gt;%</span><span class="st"> </span>dplyr<span class="op">::</span><span class="kw">select</span>(<span class="op">-</span><span class="st">`</span><span class="dt">Country/Region</span><span class="st">`</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">drop_na</span>() <span class="op">%&gt;%</span></span>
+<span id="cb455-16"><a href="other-stuff.html#cb455-16"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">World_Rank =</span> <span class="kw">as.numeric</span>(World_Rank), <span class="dt">National_Rank =</span> <span class="kw">as.numeric</span>(National_Rank)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb455-17"><a href="other-stuff.html#cb455-17"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Institution_highlighted =</span> <span class="kw">ifelse</span>(Institution <span class="op">%in%</span><span class="st"> </span>Universidades_destacadas, Institution, <span class="ot">NA</span>),</span>
+<span id="cb455-18"><a href="other-stuff.html#cb455-18"></a>         <span class="dt">Institution =</span> <span class="kw">ifelse</span>(Institution <span class="op">%in%</span><span class="st"> </span>Universidades_destacadas, <span class="ot">NA</span>, Institution))</span>
+<span id="cb455-19"><a href="other-stuff.html#cb455-19"></a></span>
+<span id="cb455-20"><a href="other-stuff.html#cb455-20"></a></span>
+<span id="cb455-21"><a href="other-stuff.html#cb455-21"></a><span class="co"># Plot</span></span>
+<span id="cb455-22"><a href="other-stuff.html#cb455-22"></a><span class="kw">ggplot</span>(population_scatter, <span class="kw">aes</span>(Nature_Science, World_Rank)) <span class="op">+</span><span class="st"> </span><span class="co">#, color=factor(P_s)</span></span>
+<span id="cb455-23"><a href="other-stuff.html#cb455-23"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="dv">4</span>, <span class="dt">color =</span> <span class="st">&#39;orange&#39;</span>) <span class="op">+</span></span>
+<span id="cb455-24"><a href="other-stuff.html#cb455-24"></a><span class="st">  </span><span class="kw">scale_colour_hue</span>(<span class="dt">l=</span><span class="dv">50</span>) <span class="op">+</span><span class="st"> </span><span class="co"># Palette hue</span></span>
+<span id="cb455-25"><a href="other-stuff.html#cb455-25"></a><span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span>lm,   <span class="co"># Linear regression lines</span></span>
+<span id="cb455-26"><a href="other-stuff.html#cb455-26"></a>              <span class="dt">se=</span>T,<span class="co"># level = .5,        # Confidence interval</span></span>
+<span id="cb455-27"><a href="other-stuff.html#cb455-27"></a>              <span class="dt">fullrange=</span>F, </span>
+<span id="cb455-28"><a href="other-stuff.html#cb455-28"></a>              <span class="dt">color =</span> <span class="st">&quot;purple&quot;</span>) <span class="op">+</span></span>
+<span id="cb455-29"><a href="other-stuff.html#cb455-29"></a><span class="st">  </span><span class="co"># geom_text_repel(aes(label=Institution)) + </span></span>
+<span id="cb455-30"><a href="other-stuff.html#cb455-30"></a><span class="st">  </span><span class="kw">geom_text_repel</span>(<span class="kw">aes</span>(<span class="dt">label=</span>Institution_highlighted, <span class="dt">fontface=</span><span class="st">&quot;bold&quot;</span>), <span class="dt">size =</span> <span class="dv">3</span>) <span class="op">+</span><span class="st">   </span></span>
+<span id="cb455-31"><a href="other-stuff.html#cb455-31"></a><span class="st">  </span><span class="kw">theme_classic</span>(<span class="dt">base_size =</span> <span class="dv">16</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb455-32"><a href="other-stuff.html#cb455-32"></a><span class="st">  </span><span class="kw">scale_y_reverse</span>( <span class="dt">breaks=</span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">25</span>, <span class="dv">50</span>, <span class="dv">75</span>, <span class="dv">100</span>), <span class="dt">lim =</span> <span class="kw">c</span>(<span class="dv">100</span>,<span class="dv">1</span>)) <span class="op">+</span></span>
+<span id="cb455-33"><a href="other-stuff.html#cb455-33"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x=</span><span class="st">&quot;Publications&quot;</span>, <span class="dt">y=</span><span class="st">&quot;Shanghai Ranking 2016&quot;</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/extract_tables_plot1-1.png" width="672" /></p>
-<pre class="sourceCode r"><code class="sourceCode r">  <span class="co"># Save the plot</span>
-  <span class="co"># file = &quot;Images/Other/Shanghai_ Ranking.png&quot;</span>
-  <span class="co"># ggsave(file, device = &quot;png&quot;, dpi = 300)</span></code></pre>
+<div class="sourceCode" id="cb456"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb456-1"><a href="other-stuff.html#cb456-1"></a>  <span class="co"># Save the plot</span></span>
+<span id="cb456-2"><a href="other-stuff.html#cb456-2"></a>  <span class="co"># file = &quot;Images/Other/Shanghai_ Ranking.png&quot;</span></span>
+<span id="cb456-3"><a href="other-stuff.html#cb456-3"></a>  <span class="co"># ggsave(file, device = &quot;png&quot;, dpi = 300)</span></span></code></pre></div>
 <p>When plotting, we can change the function behind the regression line.</p>
-<pre class="sourceCode r"><code class="sourceCode r">  <span class="kw">ggplot</span>(population_scatter, <span class="kw">aes</span>(Nature_Science, World_Rank)) <span class="op">+</span><span class="st"> </span><span class="co">#, color=factor(P_s)</span>
-<span class="st">    </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="dv">4</span>, <span class="dt">color =</span> <span class="st">&#39;orange&#39;</span>) <span class="op">+</span>
-<span class="st">    </span><span class="kw">scale_colour_hue</span>(<span class="dt">l=</span><span class="dv">50</span>) <span class="op">+</span><span class="st"> </span><span class="co"># Palette hue</span>
-<span class="st">    </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span><span class="st">&quot;lm&quot;</span>, <span class="kw">aes</span>(<span class="dt">color=</span><span class="st">&quot;Log Model&quot;</span>), <span class="dt">formula=</span> (y <span class="op">~</span><span class="st"> </span><span class="kw">log</span>(x)), <span class="dt">se=</span>T, <span class="dt">linetype =</span> <span class="dv">1</span>,  <span class="dt">level =</span> <span class="fl">.999</span>) <span class="op">+</span>
-<span class="st">    </span><span class="co"># geom_smooth(method=&quot;lm&quot;, aes(color=&quot;Log Model&quot;), formula= (y ~  poly(x, 2, raw=TRUE)), se=T, linetype = 1) +</span>
-<span class="st">    </span><span class="co"># geom_smooth(method=&quot;lm&quot;, aes(color=&quot;Log Model&quot;), formula= (y ~  splines::bs(x, 3)), se=T, linetype = 1,  level = .999) +</span>
-<span class="st">    </span><span class="co"># method = &quot;lm&quot;, formula = y ~ </span>
-<span class="st">    </span><span class="kw">guides</span>(<span class="dt">color =</span> <span class="kw">guide_legend</span>(<span class="st">&quot;Model Type&quot;</span>)) <span class="op">+</span>
-<span class="st">    </span><span class="co"># geom_text_repel(aes(label=Institution)) + </span>
-<span class="st">    </span><span class="kw">geom_text_repel</span>(<span class="kw">aes</span>(<span class="dt">label=</span>Institution_highlighted, <span class="dt">fontface=</span><span class="st">&quot;bold&quot;</span>), <span class="dt">size =</span> <span class="dv">3</span>) <span class="op">+</span><span class="st">   </span>
-<span class="st">    </span><span class="kw">theme_classic</span>(<span class="dt">base_size =</span> <span class="dv">16</span>) <span class="op">+</span><span class="st"> </span>
-<span class="st">    </span><span class="kw">scale_y_reverse</span>(<span class="dt">breaks=</span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">25</span>, <span class="dv">50</span>, <span class="dv">75</span>, <span class="dv">100</span>)) <span class="op">+</span><span class="st"> </span><span class="co">#, lim = c(100, 1)</span>
-<span class="st">    </span><span class="kw">labs</span>(<span class="dt">x=</span><span class="st">&quot;Publications&quot;</span>, <span class="dt">y=</span><span class="st">&quot;Shanghai Ranking 2016&quot;</span>)</code></pre>
+<div class="sourceCode" id="cb457"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb457-1"><a href="other-stuff.html#cb457-1"></a>  <span class="kw">ggplot</span>(population_scatter, <span class="kw">aes</span>(Nature_Science, World_Rank)) <span class="op">+</span><span class="st"> </span><span class="co">#, color=factor(P_s)</span></span>
+<span id="cb457-2"><a href="other-stuff.html#cb457-2"></a><span class="st">    </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="dv">4</span>, <span class="dt">color =</span> <span class="st">&#39;orange&#39;</span>) <span class="op">+</span></span>
+<span id="cb457-3"><a href="other-stuff.html#cb457-3"></a><span class="st">    </span><span class="kw">scale_colour_hue</span>(<span class="dt">l=</span><span class="dv">50</span>) <span class="op">+</span><span class="st"> </span><span class="co"># Palette hue</span></span>
+<span id="cb457-4"><a href="other-stuff.html#cb457-4"></a><span class="st">    </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span><span class="st">&quot;lm&quot;</span>, <span class="kw">aes</span>(<span class="dt">color=</span><span class="st">&quot;Log Model&quot;</span>), <span class="dt">formula=</span> (y <span class="op">~</span><span class="st"> </span><span class="kw">log</span>(x)), <span class="dt">se=</span>T, <span class="dt">linetype =</span> <span class="dv">1</span>,  <span class="dt">level =</span> <span class="fl">.999</span>) <span class="op">+</span></span>
+<span id="cb457-5"><a href="other-stuff.html#cb457-5"></a><span class="st">    </span><span class="co"># geom_smooth(method=&quot;lm&quot;, aes(color=&quot;Log Model&quot;), formula= (y ~  poly(x, 2, raw=TRUE)), se=T, linetype = 1) +</span></span>
+<span id="cb457-6"><a href="other-stuff.html#cb457-6"></a><span class="st">    </span><span class="co"># geom_smooth(method=&quot;lm&quot;, aes(color=&quot;Log Model&quot;), formula= (y ~  splines::bs(x, 3)), se=T, linetype = 1,  level = .999) +</span></span>
+<span id="cb457-7"><a href="other-stuff.html#cb457-7"></a><span class="st">    </span><span class="co"># method = &quot;lm&quot;, formula = y ~ </span></span>
+<span id="cb457-8"><a href="other-stuff.html#cb457-8"></a><span class="st">    </span><span class="kw">guides</span>(<span class="dt">color =</span> <span class="kw">guide_legend</span>(<span class="st">&quot;Model Type&quot;</span>)) <span class="op">+</span></span>
+<span id="cb457-9"><a href="other-stuff.html#cb457-9"></a><span class="st">    </span><span class="co"># geom_text_repel(aes(label=Institution)) + </span></span>
+<span id="cb457-10"><a href="other-stuff.html#cb457-10"></a><span class="st">    </span><span class="kw">geom_text_repel</span>(<span class="kw">aes</span>(<span class="dt">label=</span>Institution_highlighted, <span class="dt">fontface=</span><span class="st">&quot;bold&quot;</span>), <span class="dt">size =</span> <span class="dv">3</span>) <span class="op">+</span><span class="st">   </span></span>
+<span id="cb457-11"><a href="other-stuff.html#cb457-11"></a><span class="st">    </span><span class="kw">theme_classic</span>(<span class="dt">base_size =</span> <span class="dv">16</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb457-12"><a href="other-stuff.html#cb457-12"></a><span class="st">    </span><span class="kw">scale_y_reverse</span>(<span class="dt">breaks=</span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">25</span>, <span class="dv">50</span>, <span class="dv">75</span>, <span class="dv">100</span>)) <span class="op">+</span><span class="st"> </span><span class="co">#, lim = c(100, 1)</span></span>
+<span id="cb457-13"><a href="other-stuff.html#cb457-13"></a><span class="st">    </span><span class="kw">labs</span>(<span class="dt">x=</span><span class="st">&quot;Publications&quot;</span>, <span class="dt">y=</span><span class="st">&quot;Shanghai Ranking 2016&quot;</span>)</span></code></pre></div>
 <pre><code>## Warning: Removed 94 rows containing missing values (geom_text_repel).</code></pre>
 <p><img src="_main_files/figure-html/extract_tables_plot2-1.png" width="672" /></p>
 
@@ -618,11 +671,13 @@ population_scatter =<span class="st"> </span>population <span class="op">%&gt;%<
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -630,12 +685,11 @@ gitbook.start({
 "github": false,
 "facebook": true,
 "twitter": true,
-"google": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
@@ -647,6 +701,10 @@ gitbook.start({
 "text": null
 },
 "history": {
+"link": null,
+"text": null
+},
+"view": {
 "link": null,
 "text": null
 },
