@@ -1,18 +1,22 @@
 ## Anonimizar participantes - Encriptar IDs
 
-Other interesting resources:  
+Con safer podemos encriptar cualquier cosa.  
 
-- https://cran.r-project.org/web/packages/safer/index.html
+Con hashids solo podemos encriptar IDs numericos.  
 
 
 **Libraries**
 ```{r anonimization_libraries, message=FALSE, warning=FALSE}
 if (!require('hashids')) install.packages('hashids'); library('hashids')
+if (!require('safer')) install.packages('safer'); library('safer')
 if (!require('dplyr')) install.packages('dplyr'); library('dplyr')
 ```
 
+
 ### Encriptando y desencriptando un elemento
 ```{r anonimization_encrypt}
+
+# No acepta acentos, ñs, etc.
 h = hashid_settings(salt = 'this is my salt')
 
 # Numbers to encode
@@ -54,5 +58,38 @@ data = data %>%
 # Mostramos los resultados
 data %>% select(RUT_Encripted, RUT_Decripted, RUT)
 
+```
+
+### Encriptando algo que no sean numeros
+
+```{r anonim_nonums, eval=FALSE, include=TRUE}
+
+if (!require('safer')) install.packages('safer'); library('safer')
+if (!require('dplyr')) install.packages('dplyr'); library('dplyr')
+
+temp <- encrypt_string("hello, how are you", key = "mi clave secreta")
+decrypt_string(temp, "mi clave secreta")
+
+
+
+KEY = "my super secret key"
+
+# Pseudo RUTs generadas aleatoriamente
+data = round(runif(100)*10000000) %>% as_tibble() %>% 
+  dplyr::rename(RUT = value)
+
+# **BUG: When building book with Bookdown, it ignores the rowwise() argument!?**. Sin este argumento falla la funcion
+
+data %>% 
+  mutate(RUT = paste0("x", RUT)) %>% 
+  
+  # Encrypt
+  rowwise() %>% 
+  mutate(ID = encrypt_string(as.character(RUT), key = KEY)) %>% 
+  select(RUT, ID) %>% 
+  
+  # Decrypt
+  mutate(ID2 = decrypt_string(ID, key = KEY)) 
+  
 ```
 
