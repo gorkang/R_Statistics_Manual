@@ -38,7 +38,7 @@ We use the following [dataset](Data/10-Pre_processing/Reliability.csv).
 
 ***  
 ```{r alpha_data_preparation}
-temp = read_csv("Data/10-Pre_processing/Reliability.csv")
+temp = read_csv(here::here("Data/10-Pre_processing/Reliability.csv"))
 temp = temp[-1] 
 
 #Convierte todo a integer
@@ -114,6 +114,35 @@ set.seed(1)
 omega(temp)
 
 ```
+
+## Inter rater reliability
+
+* See more in: http://www.cookbook-r.com/Statistical_analysis/Inter-rater_reliability/  
+
+```{r irr}
+
+if (!require('readr')) install.packages('readr'); library('readr')
+if (!require('irr')) install.packages('irr'); library('irr')
+if (!require('dplyr')) install.packages('dplyr'); library('dplyr')
+
+DF_IRR = temp %>% select(OA.OA01., OA.OA02.)
+kappa2(DF_IRR, "unweighted")
+
+# Interpretation
+# https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3900052/#:~:text=Cohen%20suggested%20the%20Kappa%20result,1.00%20as%20almost%20perfect%20agreement.
+
+# Cohen suggested the Kappa result be interpreted as follows: 
+  # - values ≤ 0 as indicating no agreement 
+  # - 0.01–0.20 as none to slight
+  # - 0.21–0.40 as fair
+  # - 0.41– 0.60 as moderate
+  # - 0.61–0.80 as substantial
+  # - 0.81–1.00 as almost perfect agreement
+
+
+
+```
+
 
 ### References
 
