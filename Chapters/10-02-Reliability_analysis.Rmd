@@ -51,13 +51,13 @@ head(temp)
 
 
 ```{r alpha}
-alpha(temp)
+psych::alpha(temp)
 # temp2 = temp %>% select(-1, -OA.OA05.)
 # alpha(temp2)
 # temp2 = temp %>% select(-1, -OA.OA05., -OA.OA04.)
 # alpha(temp2)
 temp2 = temp %>% dplyr::select(-1, -OA.OA05., -OA.OA04., -OA.OA02.)
-alpha(temp2)
+psych::alpha(temp2)
 
 ```
 

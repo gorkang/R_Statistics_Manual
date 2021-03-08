@@ -415,31 +415,31 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <hr />
 <p>We use the following <a href="Data/10-Pre_processing/RT_filtering.csv">dataset</a>.</p>
 <hr />
-<div class="sourceCode" id="cb325"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb325-1"><a href="pre-processing.html#cb325-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&#39;readr&#39;</span>)) <span class="fu">install.packages</span>(<span class="st">&#39;readr&#39;</span>); <span class="fu">library</span>(<span class="st">&#39;readr&#39;</span>)</span>
-<span id="cb325-2"><a href="pre-processing.html#cb325-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&#39;dplyr&#39;</span>)) <span class="fu">install.packages</span>(<span class="st">&#39;dplyr&#39;</span>); <span class="fu">library</span>(<span class="st">&#39;dplyr&#39;</span>)</span>
-<span id="cb325-3"><a href="pre-processing.html#cb325-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&#39;purrr&#39;</span>)) <span class="fu">install.packages</span>(<span class="st">&#39;purrr&#39;</span>); <span class="fu">library</span>(<span class="st">&#39;purrr&#39;</span>)</span>
-<span id="cb325-4"><a href="pre-processing.html#cb325-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb325-5"><a href="pre-processing.html#cb325-5" aria-hidden="true" tabindex="-1"></a><span class="co"># RT Filtering function</span></span>
-<span id="cb325-6"><a href="pre-processing.html#cb325-6" aria-hidden="true" tabindex="-1"></a>Filter_FUN <span class="ot">&lt;-</span> <span class="cf">function</span>(DB, Column, <span class="at">Low_PCT =</span> <span class="fl">0.05</span>, <span class="at">High_PCT =</span> <span class="fl">0.95</span>) {</span>
-<span id="cb325-7"><a href="pre-processing.html#cb325-7" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb325-8"><a href="pre-processing.html#cb325-8" aria-hidden="true" tabindex="-1"></a>  args <span class="ot">=</span> <span class="fu">as.list</span>(<span class="fu">match.call</span>())</span>
-<span id="cb325-9"><a href="pre-processing.html#cb325-9" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb325-10"><a href="pre-processing.html#cb325-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Creamos Column_LOG</span></span>
-<span id="cb325-11"><a href="pre-processing.html#cb325-11" aria-hidden="true" tabindex="-1"></a>  DB <span class="ot">=</span> DB <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">Column_LOG =</span> <span class="fu">log</span>(<span class="fu">eval</span>(args<span class="sc">$</span>Column, DB)))</span>
-<span id="cb325-12"><a href="pre-processing.html#cb325-12" aria-hidden="true" tabindex="-1"></a>  lowcut <span class="ot">=</span> <span class="fu">quantile</span>(DB<span class="sc">$</span>Column_LOG, Low_PCT, <span class="at">na.rm =</span> T)</span>
-<span id="cb325-13"><a href="pre-processing.html#cb325-13" aria-hidden="true" tabindex="-1"></a>  highcut <span class="ot">=</span> <span class="fu">quantile</span>(DB<span class="sc">$</span>Column_LOG, High_PCT, <span class="at">na.rm =</span> T)</span>
-<span id="cb325-14"><a href="pre-processing.html#cb325-14" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb325-15"><a href="pre-processing.html#cb325-15" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Returns DB_Filtered</span></span>
-<span id="cb325-16"><a href="pre-processing.html#cb325-16" aria-hidden="true" tabindex="-1"></a>  DB_Filtered <span class="ot">&lt;&lt;-</span> <span class="fu">subset</span>(DB, DB<span class="sc">$</span>Column_LOG <span class="sc">&gt;</span> lowcut <span class="sc">&amp;</span> DB<span class="sc">$</span>Column_LOG <span class="sc">&lt;</span> highcut) </span>
-<span id="cb325-17"><a href="pre-processing.html#cb325-17" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb325-18"><a href="pre-processing.html#cb325-18" aria-hidden="true" tabindex="-1"></a>  <span class="co"># return(DB_Filtered)</span></span>
-<span id="cb325-19"><a href="pre-processing.html#cb325-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">&quot;**** Datos filtrados a partir de la columna&quot;</span>, args<span class="sc">$</span>Column, <span class="st">&quot;: &quot;</span>, <span class="fu">nrow</span>(DB) <span class="sc">-</span> <span class="fu">nrow</span>(DB_Filtered), <span class="st">&quot;/&quot;</span>, <span class="fu">nrow</span>(DB), <span class="st">&quot;filas eliminadas ***&quot;</span>)</span>
-<span id="cb325-20"><a href="pre-processing.html#cb325-20" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb325-21"><a href="pre-processing.html#cb325-21" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb385"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb385-1"><a href="pre-processing.html#cb385-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&#39;readr&#39;</span>)) <span class="fu">install.packages</span>(<span class="st">&#39;readr&#39;</span>); <span class="fu">library</span>(<span class="st">&#39;readr&#39;</span>)</span>
+<span id="cb385-2"><a href="pre-processing.html#cb385-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&#39;dplyr&#39;</span>)) <span class="fu">install.packages</span>(<span class="st">&#39;dplyr&#39;</span>); <span class="fu">library</span>(<span class="st">&#39;dplyr&#39;</span>)</span>
+<span id="cb385-3"><a href="pre-processing.html#cb385-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&#39;purrr&#39;</span>)) <span class="fu">install.packages</span>(<span class="st">&#39;purrr&#39;</span>); <span class="fu">library</span>(<span class="st">&#39;purrr&#39;</span>)</span>
+<span id="cb385-4"><a href="pre-processing.html#cb385-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb385-5"><a href="pre-processing.html#cb385-5" aria-hidden="true" tabindex="-1"></a><span class="co"># RT Filtering function</span></span>
+<span id="cb385-6"><a href="pre-processing.html#cb385-6" aria-hidden="true" tabindex="-1"></a>Filter_FUN <span class="ot">&lt;-</span> <span class="cf">function</span>(DB, Column, <span class="at">Low_PCT =</span> <span class="fl">0.05</span>, <span class="at">High_PCT =</span> <span class="fl">0.95</span>) {</span>
+<span id="cb385-7"><a href="pre-processing.html#cb385-7" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb385-8"><a href="pre-processing.html#cb385-8" aria-hidden="true" tabindex="-1"></a>  args <span class="ot">=</span> <span class="fu">as.list</span>(<span class="fu">match.call</span>())</span>
+<span id="cb385-9"><a href="pre-processing.html#cb385-9" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb385-10"><a href="pre-processing.html#cb385-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Creamos Column_LOG</span></span>
+<span id="cb385-11"><a href="pre-processing.html#cb385-11" aria-hidden="true" tabindex="-1"></a>  DB <span class="ot">=</span> DB <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">Column_LOG =</span> <span class="fu">log</span>(<span class="fu">eval</span>(args<span class="sc">$</span>Column, DB)))</span>
+<span id="cb385-12"><a href="pre-processing.html#cb385-12" aria-hidden="true" tabindex="-1"></a>  lowcut <span class="ot">=</span> <span class="fu">quantile</span>(DB<span class="sc">$</span>Column_LOG, Low_PCT, <span class="at">na.rm =</span> T)</span>
+<span id="cb385-13"><a href="pre-processing.html#cb385-13" aria-hidden="true" tabindex="-1"></a>  highcut <span class="ot">=</span> <span class="fu">quantile</span>(DB<span class="sc">$</span>Column_LOG, High_PCT, <span class="at">na.rm =</span> T)</span>
+<span id="cb385-14"><a href="pre-processing.html#cb385-14" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb385-15"><a href="pre-processing.html#cb385-15" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Returns DB_Filtered</span></span>
+<span id="cb385-16"><a href="pre-processing.html#cb385-16" aria-hidden="true" tabindex="-1"></a>  DB_Filtered <span class="ot">&lt;&lt;-</span> <span class="fu">subset</span>(DB, DB<span class="sc">$</span>Column_LOG <span class="sc">&gt;</span> lowcut <span class="sc">&amp;</span> DB<span class="sc">$</span>Column_LOG <span class="sc">&lt;</span> highcut) </span>
+<span id="cb385-17"><a href="pre-processing.html#cb385-17" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb385-18"><a href="pre-processing.html#cb385-18" aria-hidden="true" tabindex="-1"></a>  <span class="co"># return(DB_Filtered)</span></span>
+<span id="cb385-19"><a href="pre-processing.html#cb385-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">&quot;**** Datos filtrados a partir de la columna&quot;</span>, args<span class="sc">$</span>Column, <span class="st">&quot;: &quot;</span>, <span class="fu">nrow</span>(DB) <span class="sc">-</span> <span class="fu">nrow</span>(DB_Filtered), <span class="st">&quot;/&quot;</span>, <span class="fu">nrow</span>(DB), <span class="st">&quot;filas eliminadas ***&quot;</span>)</span>
+<span id="cb385-20"><a href="pre-processing.html#cb385-20" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb385-21"><a href="pre-processing.html#cb385-21" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>After creating the function, we read the DB and apply the filtering. A dataframe called DB_Filtered is created with the filtered data.</p>
-<div class="sourceCode" id="cb326"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb326-1"><a href="pre-processing.html#cb326-1" aria-hidden="true" tabindex="-1"></a>dataset <span class="ot">=</span> <span class="fu">read_csv</span>(<span class="st">&quot;Data/10-Pre_processing/RT_filtering.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb386"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb386-1"><a href="pre-processing.html#cb386-1" aria-hidden="true" tabindex="-1"></a>dataset <span class="ot">=</span> <span class="fu">read_csv</span>(<span class="st">&quot;Data/10-Pre_processing/RT_filtering.csv&quot;</span>)</span></code></pre></div>
 <pre><code>## 
-## ── Column specification ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+## ── Column specification ────────────────────────────────────────────────────────
 ## cols(
 ##   ID = col_double(),
 ##   Dem_Gender = col_double(),
@@ -448,7 +448,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##   Formato = col_character(),
 ##   Accuracy = col_double()
 ## )</code></pre>
-<div class="sourceCode" id="cb328"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb328-1"><a href="pre-processing.html#cb328-1" aria-hidden="true" tabindex="-1"></a>dataset</span></code></pre></div>
+<div class="sourceCode" id="cb388"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb388-1"><a href="pre-processing.html#cb388-1" aria-hidden="true" tabindex="-1"></a>dataset</span></code></pre></div>
 <pre><code>## # A tibble: 200 x 6
 ##       ID Dem_Gender Dem_Age  Time Formato Accuracy
 ##    &lt;dbl&gt;      &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;dbl&gt;
@@ -463,9 +463,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  9     9          1      30 60.8  PR             1
 ## 10    10          2      28 26.2  PR             0
 ## # … with 190 more rows</code></pre>
-<div class="sourceCode" id="cb330"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb330-1"><a href="pre-processing.html#cb330-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Filter_FUN</span>(dataset, Time)</span></code></pre></div>
+<div class="sourceCode" id="cb390"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb390-1"><a href="pre-processing.html#cb390-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Filter_FUN</span>(dataset, Time)</span></code></pre></div>
 <pre><code>## **** Datos filtrados a partir de la columna Time :  20 / 200 filas eliminadas ***</code></pre>
-<div class="sourceCode" id="cb332"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb332-1"><a href="pre-processing.html#cb332-1" aria-hidden="true" tabindex="-1"></a>DB_Filtered</span></code></pre></div>
+<div class="sourceCode" id="cb392"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb392-1"><a href="pre-processing.html#cb392-1" aria-hidden="true" tabindex="-1"></a>DB_Filtered</span></code></pre></div>
 <pre><code>## # A tibble: 180 x 7
 ##       ID Dem_Gender Dem_Age  Time Formato Accuracy Column_LOG
 ##    &lt;dbl&gt;      &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;dbl&gt;      &lt;dbl&gt;
@@ -489,8 +489,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <hr />
 <p>We use the following <a href="Data/10-Pre_processing/RT_filtering.csv">dataset</a>.</p>
 <hr />
-<div class="sourceCode" id="cb334"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb334-1"><a href="pre-processing.html#cb334-1" aria-hidden="true" tabindex="-1"></a>dataset <span class="ot">=</span> <span class="fu">read.csv</span>(<span class="st">&quot;Data/10-Pre_processing/RT_filtering.csv&quot;</span>)</span>
-<span id="cb334-2"><a href="pre-processing.html#cb334-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(dataset)</span></code></pre></div>
+<div class="sourceCode" id="cb394"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb394-1"><a href="pre-processing.html#cb394-1" aria-hidden="true" tabindex="-1"></a>dataset <span class="ot">=</span> <span class="fu">read.csv</span>(<span class="st">&quot;Data/10-Pre_processing/RT_filtering.csv&quot;</span>)</span>
+<span id="cb394-2"><a href="pre-processing.html#cb394-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(dataset)</span></code></pre></div>
 <pre><code>##   ID Dem_Gender Dem_Age   Time Formato Accuracy
 ## 1  1          2      37  2.618      PR        0
 ## 2  2          2      32 23.303      PR        0
@@ -501,37 +501,37 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>Code</li>
 </ul>
-<div class="sourceCode" id="cb336"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb336-1"><a href="pre-processing.html#cb336-1" aria-hidden="true" tabindex="-1"></a><span class="co">#SD criteria</span></span>
-<span id="cb336-2"><a href="pre-processing.html#cb336-2" aria-hidden="true" tabindex="-1"></a>SD_filter <span class="ot">=</span> <span class="fl">2.5</span></span>
-<span id="cb336-3"><a href="pre-processing.html#cb336-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb336-4"><a href="pre-processing.html#cb336-4" aria-hidden="true" tabindex="-1"></a>dataset_filtered <span class="ot">=</span> dataset <span class="sc">%&gt;%</span> </span>
-<span id="cb336-5"><a href="pre-processing.html#cb336-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Time <span class="sc">&lt;</span> (<span class="fu">median</span>(Time) <span class="sc">+</span> SD_filter <span class="sc">*</span> <span class="fu">sd</span>(Time)) <span class="sc">&amp;</span> Time <span class="sc">&gt;</span> (<span class="fu">median</span>(Time) <span class="sc">-</span> SD_filter <span class="sc">*</span> <span class="fu">sd</span>(Time)))</span>
-<span id="cb336-6"><a href="pre-processing.html#cb336-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb336-7"><a href="pre-processing.html#cb336-7" aria-hidden="true" tabindex="-1"></a><span class="co"># dataset_filtered = dataset[dataset$Time &lt; (median(dataset$Time) + SD_filter * sd(dataset$Time) )  &amp; dataset$Time &gt; (median(dataset$Time) - SD_filter * sd(dataset$Time) ), ]</span></span></code></pre></div>
+<div class="sourceCode" id="cb396"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb396-1"><a href="pre-processing.html#cb396-1" aria-hidden="true" tabindex="-1"></a><span class="co">#SD criteria</span></span>
+<span id="cb396-2"><a href="pre-processing.html#cb396-2" aria-hidden="true" tabindex="-1"></a>SD_filter <span class="ot">=</span> <span class="fl">2.5</span></span>
+<span id="cb396-3"><a href="pre-processing.html#cb396-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb396-4"><a href="pre-processing.html#cb396-4" aria-hidden="true" tabindex="-1"></a>dataset_filtered <span class="ot">=</span> dataset <span class="sc">%&gt;%</span> </span>
+<span id="cb396-5"><a href="pre-processing.html#cb396-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Time <span class="sc">&lt;</span> (<span class="fu">median</span>(Time) <span class="sc">+</span> SD_filter <span class="sc">*</span> <span class="fu">sd</span>(Time)) <span class="sc">&amp;</span> Time <span class="sc">&gt;</span> (<span class="fu">median</span>(Time) <span class="sc">-</span> SD_filter <span class="sc">*</span> <span class="fu">sd</span>(Time)))</span>
+<span id="cb396-6"><a href="pre-processing.html#cb396-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb396-7"><a href="pre-processing.html#cb396-7" aria-hidden="true" tabindex="-1"></a><span class="co"># dataset_filtered = dataset[dataset$Time &lt; (median(dataset$Time) + SD_filter * sd(dataset$Time) )  &amp; dataset$Time &gt; (median(dataset$Time) - SD_filter * sd(dataset$Time) ), ]</span></span></code></pre></div>
 <ul>
 <li>Plots</li>
 </ul>
-<div class="sourceCode" id="cb337"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb337-1"><a href="pre-processing.html#cb337-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(dataset<span class="sc">$</span>Time)</span></code></pre></div>
+<div class="sourceCode" id="cb397"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb397-1"><a href="pre-processing.html#cb397-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(dataset<span class="sc">$</span>Time)</span></code></pre></div>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
 ##   1.242   7.686  15.453  24.252  28.858 165.529</code></pre>
-<div class="sourceCode" id="cb339"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb339-1"><a href="pre-processing.html#cb339-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(dataset_filtered<span class="sc">$</span>Time)</span></code></pre></div>
+<div class="sourceCode" id="cb399"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb399-1"><a href="pre-processing.html#cb399-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(dataset_filtered<span class="sc">$</span>Time)</span></code></pre></div>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
 ##   1.242   7.585  14.376  19.777  26.109  77.829</code></pre>
-<div class="sourceCode" id="cb341"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb341-1"><a href="pre-processing.html#cb341-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
-<span id="cb341-2"><a href="pre-processing.html#cb341-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">#</span></span>
-<span id="cb341-3"><a href="pre-processing.html#cb341-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">plot</span>(<span class="fu">density</span>(dataset<span class="sc">$</span>Time), <span class="at">main =</span> <span class="st">&quot;Valid reaction time density&quot;</span>)</span>
-<span id="cb341-4"><a href="pre-processing.html#cb341-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">plot</span>(<span class="fu">density</span>(dataset_filtered<span class="sc">$</span>Time), <span class="at">main =</span> <span class="st">&quot;Valid reaction time density&quot;</span>)</span></code></pre></div>
-<p><img src="_main_images/rt_filtering_MAD_plots-1.png" width="672" /></p>
-<div class="sourceCode" id="cb342"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb342-1"><a href="pre-processing.html#cb342-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb401"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb401-1"><a href="pre-processing.html#cb401-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
+<span id="cb401-2"><a href="pre-processing.html#cb401-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">#</span></span>
+<span id="cb401-3"><a href="pre-processing.html#cb401-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">plot</span>(<span class="fu">density</span>(dataset<span class="sc">$</span>Time), <span class="at">main =</span> <span class="st">&quot;Valid reaction time density&quot;</span>)</span>
+<span id="cb401-4"><a href="pre-processing.html#cb401-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">plot</span>(<span class="fu">density</span>(dataset_filtered<span class="sc">$</span>Time), <span class="at">main =</span> <span class="st">&quot;Valid reaction time density&quot;</span>)</span></code></pre></div>
+<p><img src="IMAGES/rt_filtering_MAD_plots-1.png" width="672" /></p>
+<div class="sourceCode" id="cb402"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb402-1"><a href="pre-processing.html#cb402-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))</span></code></pre></div>
 </div>
 <div id="gamma-law-regression-analyses-2" class="section level3" number="12.1.3">
 <h3><span class="header-section-number">12.1.3</span> Gamma law regression analyses<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a></h3>
 <hr />
 <p>We use the following <a href="Data/10-Pre_processing/RT_filtering.csv">dataset</a>.</p>
 <hr />
-<div class="sourceCode" id="cb343"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb343-1"><a href="pre-processing.html#cb343-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Import to variable &quot;dataset&quot;</span></span>
-<span id="cb343-2"><a href="pre-processing.html#cb343-2" aria-hidden="true" tabindex="-1"></a>dataset <span class="ot">=</span> <span class="fu">read.csv</span>(<span class="st">&quot;Data/10-Pre_processing/RT_filtering.csv&quot;</span>)</span>
-<span id="cb343-3"><a href="pre-processing.html#cb343-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(dataset)</span></code></pre></div>
+<div class="sourceCode" id="cb403"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb403-1"><a href="pre-processing.html#cb403-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Import to variable &quot;dataset&quot;</span></span>
+<span id="cb403-2"><a href="pre-processing.html#cb403-2" aria-hidden="true" tabindex="-1"></a>dataset <span class="ot">=</span> <span class="fu">read.csv</span>(<span class="st">&quot;Data/10-Pre_processing/RT_filtering.csv&quot;</span>)</span>
+<span id="cb403-3"><a href="pre-processing.html#cb403-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(dataset)</span></code></pre></div>
 <pre><code>##   ID Dem_Gender Dem_Age   Time Formato Accuracy
 ## 1  1          2      37  2.618      PR        0
 ## 2  2          2      32 23.303      PR        0
@@ -542,9 +542,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>Code</li>
 </ul>
-<div class="sourceCode" id="cb345"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb345-1"><a href="pre-processing.html#cb345-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Gamma</span></span>
-<span id="cb345-2"><a href="pre-processing.html#cb345-2" aria-hidden="true" tabindex="-1"></a>glm1 <span class="ot">=</span> (<span class="fu">glm</span>(Time <span class="sc">~</span> Formato, <span class="at">data =</span> dataset, <span class="at">family =</span> Gamma))</span>
-<span id="cb345-3"><a href="pre-processing.html#cb345-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(glm1)</span></code></pre></div>
+<div class="sourceCode" id="cb405"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb405-1"><a href="pre-processing.html#cb405-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Gamma</span></span>
+<span id="cb405-2"><a href="pre-processing.html#cb405-2" aria-hidden="true" tabindex="-1"></a>glm1 <span class="ot">=</span> (<span class="fu">glm</span>(Time <span class="sc">~</span> Formato, <span class="at">data =</span> dataset, <span class="at">family =</span> Gamma))</span>
+<span id="cb405-3"><a href="pre-processing.html#cb405-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(glm1)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## glm(formula = Time ~ Formato, family = Gamma, data = dataset)
@@ -567,9 +567,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## AIC: 1680.6
 ## 
 ## Number of Fisher Scoring iterations: 6</code></pre>
-<div class="sourceCode" id="cb347"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb347-1"><a href="pre-processing.html#cb347-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Gausian</span></span>
-<span id="cb347-2"><a href="pre-processing.html#cb347-2" aria-hidden="true" tabindex="-1"></a>glm2 <span class="ot">=</span> (<span class="fu">glm</span>(Time <span class="sc">~</span> Formato, <span class="at">data =</span> dataset))</span>
-<span id="cb347-3"><a href="pre-processing.html#cb347-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(glm2)</span></code></pre></div>
+<div class="sourceCode" id="cb407"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb407-1"><a href="pre-processing.html#cb407-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Gausian</span></span>
+<span id="cb407-2"><a href="pre-processing.html#cb407-2" aria-hidden="true" tabindex="-1"></a>glm2 <span class="ot">=</span> (<span class="fu">glm</span>(Time <span class="sc">~</span> Formato, <span class="at">data =</span> dataset))</span>
+<span id="cb407-3"><a href="pre-processing.html#cb407-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(glm2)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## glm(formula = Time ~ Formato, data = dataset)
@@ -599,9 +599,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <hr />
 <p>We use the following <a href="Data/Pre-processing/RT_Filtering_data_file.csv">dataset</a>.</p>
 <hr />
-<div class="sourceCode" id="cb349"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb349-1"><a href="pre-processing.html#cb349-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Import to variable &quot;dataset&quot;</span></span>
-<span id="cb349-2"><a href="pre-processing.html#cb349-2" aria-hidden="true" tabindex="-1"></a>dataset <span class="ot">=</span> <span class="fu">read.csv</span>(<span class="st">&quot;Data/10-Pre_processing/RT_filtering.csv&quot;</span>)</span>
-<span id="cb349-3"><a href="pre-processing.html#cb349-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(dataset)</span></code></pre></div>
+<div class="sourceCode" id="cb409"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb409-1"><a href="pre-processing.html#cb409-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Import to variable &quot;dataset&quot;</span></span>
+<span id="cb409-2"><a href="pre-processing.html#cb409-2" aria-hidden="true" tabindex="-1"></a>dataset <span class="ot">=</span> <span class="fu">read.csv</span>(<span class="st">&quot;Data/10-Pre_processing/RT_filtering.csv&quot;</span>)</span>
+<span id="cb409-3"><a href="pre-processing.html#cb409-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(dataset)</span></code></pre></div>
 <pre><code>##   ID Dem_Gender Dem_Age   Time Formato Accuracy
 ## 1  1          2      37  2.618      PR        0
 ## 2  2          2      32 23.303      PR        0
@@ -612,43 +612,43 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>Code</li>
 </ul>
-<div class="sourceCode" id="cb351"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb351-1"><a href="pre-processing.html#cb351-1" aria-hidden="true" tabindex="-1"></a><span class="co">#SET low and high PERCENTILES</span></span>
-<span id="cb351-2"><a href="pre-processing.html#cb351-2" aria-hidden="true" tabindex="-1"></a>    lowcutquant <span class="ot">=</span> <span class="fl">0.05</span></span>
-<span id="cb351-3"><a href="pre-processing.html#cb351-3" aria-hidden="true" tabindex="-1"></a>    highcutquant <span class="ot">=</span> <span class="fl">0.95</span></span>
-<span id="cb351-4"><a href="pre-processing.html#cb351-4" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb351-5"><a href="pre-processing.html#cb351-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Add log-rt</span></span>
-<span id="cb351-6"><a href="pre-processing.html#cb351-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># dataset_filtered = data_long_RAW</span></span>
-<span id="cb351-7"><a href="pre-processing.html#cb351-7" aria-hidden="true" tabindex="-1"></a>    dataset<span class="sc">$</span>logrt <span class="ot">&lt;-</span> <span class="fu">log</span>(dataset<span class="sc">$</span>Time)</span>
-<span id="cb351-8"><a href="pre-processing.html#cb351-8" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb351-9"><a href="pre-processing.html#cb351-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Take correct answers</span></span>
-<span id="cb351-10"><a href="pre-processing.html#cb351-10" aria-hidden="true" tabindex="-1"></a>        <span class="co"># WE USE CORRECT ANSWERS TO SET TIME LIMITS!!!</span></span>
-<span id="cb351-11"><a href="pre-processing.html#cb351-11" aria-hidden="true" tabindex="-1"></a>        <span class="co"># BETTER USE dataset?</span></span>
-<span id="cb351-12"><a href="pre-processing.html#cb351-12" aria-hidden="true" tabindex="-1"></a>    corr <span class="ot">=</span> <span class="fu">subset</span>(dataset, dataset<span class="sc">$</span>Accuracy <span class="sc">==</span> <span class="dv">1</span>)</span>
-<span id="cb351-13"><a href="pre-processing.html#cb351-13" aria-hidden="true" tabindex="-1"></a>    lowcut <span class="ot">=</span> <span class="fu">quantile</span>(corr<span class="sc">$</span>logrt, lowcutquant)</span>
-<span id="cb351-14"><a href="pre-processing.html#cb351-14" aria-hidden="true" tabindex="-1"></a>    highcut <span class="ot">=</span> <span class="fu">quantile</span>(corr<span class="sc">$</span>logrt, highcutquant)</span>
-<span id="cb351-15"><a href="pre-processing.html#cb351-15" aria-hidden="true" tabindex="-1"></a>    dataset_filtered <span class="ot">&lt;-</span> <span class="fu">subset</span>(dataset, dataset<span class="sc">$</span>logrt <span class="sc">&gt;</span> lowcut <span class="sc">&amp;</span> dataset<span class="sc">$</span>logrt <span class="sc">&lt;</span> highcut)</span></code></pre></div>
+<div class="sourceCode" id="cb411"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb411-1"><a href="pre-processing.html#cb411-1" aria-hidden="true" tabindex="-1"></a><span class="co">#SET low and high PERCENTILES</span></span>
+<span id="cb411-2"><a href="pre-processing.html#cb411-2" aria-hidden="true" tabindex="-1"></a>    lowcutquant <span class="ot">=</span> <span class="fl">0.05</span></span>
+<span id="cb411-3"><a href="pre-processing.html#cb411-3" aria-hidden="true" tabindex="-1"></a>    highcutquant <span class="ot">=</span> <span class="fl">0.95</span></span>
+<span id="cb411-4"><a href="pre-processing.html#cb411-4" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb411-5"><a href="pre-processing.html#cb411-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Add log-rt</span></span>
+<span id="cb411-6"><a href="pre-processing.html#cb411-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># dataset_filtered = data_long_RAW</span></span>
+<span id="cb411-7"><a href="pre-processing.html#cb411-7" aria-hidden="true" tabindex="-1"></a>    dataset<span class="sc">$</span>logrt <span class="ot">&lt;-</span> <span class="fu">log</span>(dataset<span class="sc">$</span>Time)</span>
+<span id="cb411-8"><a href="pre-processing.html#cb411-8" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb411-9"><a href="pre-processing.html#cb411-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Take correct answers</span></span>
+<span id="cb411-10"><a href="pre-processing.html#cb411-10" aria-hidden="true" tabindex="-1"></a>        <span class="co"># WE USE CORRECT ANSWERS TO SET TIME LIMITS!!!</span></span>
+<span id="cb411-11"><a href="pre-processing.html#cb411-11" aria-hidden="true" tabindex="-1"></a>        <span class="co"># BETTER USE dataset?</span></span>
+<span id="cb411-12"><a href="pre-processing.html#cb411-12" aria-hidden="true" tabindex="-1"></a>    corr <span class="ot">=</span> <span class="fu">subset</span>(dataset, dataset<span class="sc">$</span>Accuracy <span class="sc">==</span> <span class="dv">1</span>)</span>
+<span id="cb411-13"><a href="pre-processing.html#cb411-13" aria-hidden="true" tabindex="-1"></a>    lowcut <span class="ot">=</span> <span class="fu">quantile</span>(corr<span class="sc">$</span>logrt, lowcutquant)</span>
+<span id="cb411-14"><a href="pre-processing.html#cb411-14" aria-hidden="true" tabindex="-1"></a>    highcut <span class="ot">=</span> <span class="fu">quantile</span>(corr<span class="sc">$</span>logrt, highcutquant)</span>
+<span id="cb411-15"><a href="pre-processing.html#cb411-15" aria-hidden="true" tabindex="-1"></a>    dataset_filtered <span class="ot">&lt;-</span> <span class="fu">subset</span>(dataset, dataset<span class="sc">$</span>logrt <span class="sc">&gt;</span> lowcut <span class="sc">&amp;</span> dataset<span class="sc">$</span>logrt <span class="sc">&lt;</span> highcut)</span></code></pre></div>
 <ul>
 <li>Plots</li>
 </ul>
-<div class="sourceCode" id="cb352"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb352-1"><a href="pre-processing.html#cb352-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">density</span>(dataset_filtered<span class="sc">$</span>logrt), <span class="at">main =</span> <span class="st">&quot;Log reaction time density&quot;</span>)</span></code></pre></div>
-<p><img src="_main_images/rt_filtering_LOG_plots-1.png" width="672" /></p>
-<div class="sourceCode" id="cb353"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb353-1"><a href="pre-processing.html#cb353-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
-<span id="cb353-2"><a href="pre-processing.html#cb353-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb353-3"><a href="pre-processing.html#cb353-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">#</span></span>
-<span id="cb353-4"><a href="pre-processing.html#cb353-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">plot</span>(<span class="fu">density</span>(dataset<span class="sc">$</span>Time[dataset<span class="sc">$</span>Time <span class="sc">&lt;</span> <span class="dv">10</span>]), <span class="at">main =</span> <span class="st">&quot;Density of small reaction times&quot;</span>)</span>
-<span id="cb353-5"><a href="pre-processing.html#cb353-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">plot</span>(<span class="fu">density</span>(dataset_filtered<span class="sc">$</span>Time[dataset_filtered<span class="sc">$</span>Time <span class="sc">&lt;</span> <span class="dv">10</span>]), <span class="at">main =</span> <span class="st">&quot;Density of small reaction times&quot;</span>)</span></code></pre></div>
-<p><img src="_main_images/rt_filtering_LOG_plots-2.png" width="672" /></p>
-<div class="sourceCode" id="cb354"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb354-1"><a href="pre-processing.html#cb354-1" aria-hidden="true" tabindex="-1"></a>    <span class="co">#</span></span>
-<span id="cb354-2"><a href="pre-processing.html#cb354-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">plot</span>(<span class="fu">density</span>(dataset<span class="sc">$</span>Time), <span class="at">main =</span> <span class="st">&quot;Valid reaction time density&quot;</span>)</span>
-<span id="cb354-3"><a href="pre-processing.html#cb354-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">plot</span>(<span class="fu">density</span>(dataset_filtered<span class="sc">$</span>Time), <span class="at">main =</span> <span class="st">&quot;Valid reaction time density&quot;</span>)</span></code></pre></div>
-<p><img src="_main_images/rt_filtering_LOG_plots-3.png" width="672" /></p>
-<div class="sourceCode" id="cb355"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb355-1"><a href="pre-processing.html#cb355-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))</span>
-<span id="cb355-2"><a href="pre-processing.html#cb355-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb355-3"><a href="pre-processing.html#cb355-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">#</span></span>
-<span id="cb355-4"><a href="pre-processing.html#cb355-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summary</span>(dataset<span class="sc">$</span>Time)</span></code></pre></div>
+<div class="sourceCode" id="cb412"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb412-1"><a href="pre-processing.html#cb412-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">density</span>(dataset_filtered<span class="sc">$</span>logrt), <span class="at">main =</span> <span class="st">&quot;Log reaction time density&quot;</span>)</span></code></pre></div>
+<p><img src="IMAGES/rt_filtering_LOG_plots-1.png" width="672" /></p>
+<div class="sourceCode" id="cb413"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb413-1"><a href="pre-processing.html#cb413-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
+<span id="cb413-2"><a href="pre-processing.html#cb413-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb413-3"><a href="pre-processing.html#cb413-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">#</span></span>
+<span id="cb413-4"><a href="pre-processing.html#cb413-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">plot</span>(<span class="fu">density</span>(dataset<span class="sc">$</span>Time[dataset<span class="sc">$</span>Time <span class="sc">&lt;</span> <span class="dv">10</span>]), <span class="at">main =</span> <span class="st">&quot;Density of small reaction times&quot;</span>)</span>
+<span id="cb413-5"><a href="pre-processing.html#cb413-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">plot</span>(<span class="fu">density</span>(dataset_filtered<span class="sc">$</span>Time[dataset_filtered<span class="sc">$</span>Time <span class="sc">&lt;</span> <span class="dv">10</span>]), <span class="at">main =</span> <span class="st">&quot;Density of small reaction times&quot;</span>)</span></code></pre></div>
+<p><img src="IMAGES/rt_filtering_LOG_plots-2.png" width="672" /></p>
+<div class="sourceCode" id="cb414"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb414-1"><a href="pre-processing.html#cb414-1" aria-hidden="true" tabindex="-1"></a>    <span class="co">#</span></span>
+<span id="cb414-2"><a href="pre-processing.html#cb414-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">plot</span>(<span class="fu">density</span>(dataset<span class="sc">$</span>Time), <span class="at">main =</span> <span class="st">&quot;Valid reaction time density&quot;</span>)</span>
+<span id="cb414-3"><a href="pre-processing.html#cb414-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">plot</span>(<span class="fu">density</span>(dataset_filtered<span class="sc">$</span>Time), <span class="at">main =</span> <span class="st">&quot;Valid reaction time density&quot;</span>)</span></code></pre></div>
+<p><img src="IMAGES/rt_filtering_LOG_plots-3.png" width="672" /></p>
+<div class="sourceCode" id="cb415"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb415-1"><a href="pre-processing.html#cb415-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))</span>
+<span id="cb415-2"><a href="pre-processing.html#cb415-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb415-3"><a href="pre-processing.html#cb415-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">#</span></span>
+<span id="cb415-4"><a href="pre-processing.html#cb415-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summary</span>(dataset<span class="sc">$</span>Time)</span></code></pre></div>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
 ##   1.242   7.686  15.453  24.252  28.858 165.529</code></pre>
-<div class="sourceCode" id="cb357"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb357-1"><a href="pre-processing.html#cb357-1" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summary</span>(dataset_filtered<span class="sc">$</span>Time)</span></code></pre></div>
+<div class="sourceCode" id="cb417"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb417-1"><a href="pre-processing.html#cb417-1" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summary</span>(dataset_filtered<span class="sc">$</span>Time)</span></code></pre></div>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
 ##   3.770   9.318  16.484  21.066  26.824  64.141</code></pre>
 </div>
@@ -687,16 +687,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>Cargamos librerias</li>
 </ul>
-<div class="sourceCode" id="cb359"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb359-1"><a href="pre-processing.html#cb359-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&#39;psych&#39;</span>)) <span class="fu">install.packages</span>(<span class="st">&#39;psych&#39;</span>); <span class="fu">library</span>(<span class="st">&#39;psych&#39;</span>)</span>
-<span id="cb359-2"><a href="pre-processing.html#cb359-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&#39;readr&#39;</span>)) <span class="fu">install.packages</span>(<span class="st">&#39;readr&#39;</span>); <span class="fu">library</span>(<span class="st">&#39;readr&#39;</span>)</span>
-<span id="cb359-3"><a href="pre-processing.html#cb359-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&#39;dplyr&#39;</span>)) <span class="fu">install.packages</span>(<span class="st">&#39;dplyr&#39;</span>); <span class="fu">library</span>(<span class="st">&#39;dplyr&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb419"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb419-1"><a href="pre-processing.html#cb419-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&#39;psych&#39;</span>)) <span class="fu">install.packages</span>(<span class="st">&#39;psych&#39;</span>); <span class="fu">library</span>(<span class="st">&#39;psych&#39;</span>)</span>
+<span id="cb419-2"><a href="pre-processing.html#cb419-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&#39;readr&#39;</span>)) <span class="fu">install.packages</span>(<span class="st">&#39;readr&#39;</span>); <span class="fu">library</span>(<span class="st">&#39;readr&#39;</span>)</span>
+<span id="cb419-3"><a href="pre-processing.html#cb419-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&#39;dplyr&#39;</span>)) <span class="fu">install.packages</span>(<span class="st">&#39;dplyr&#39;</span>); <span class="fu">library</span>(<span class="st">&#39;dplyr&#39;</span>)</span></code></pre></div>
 <hr />
 <p>We use the following <a href="Data/10-Pre_processing/Reliability.csv">dataset</a>.</p>
 <hr />
-<div class="sourceCode" id="cb360"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb360-1"><a href="pre-processing.html#cb360-1" aria-hidden="true" tabindex="-1"></a>temp <span class="ot">=</span> <span class="fu">read_csv</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">&quot;Data/10-Pre_processing/Reliability.csv&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb420"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb420-1"><a href="pre-processing.html#cb420-1" aria-hidden="true" tabindex="-1"></a>temp <span class="ot">=</span> <span class="fu">read_csv</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">&quot;Data/10-Pre_processing/Reliability.csv&quot;</span>))</span></code></pre></div>
 <pre><code>## Warning: Missing column names filled in: &#39;X1&#39; [1]</code></pre>
 <pre><code>## 
-## ── Column specification ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+## ── Column specification ────────────────────────────────────────────────────────
 ## cols(
 ##   X1 = col_double(),
 ##   OA.OA01. = col_double(),
@@ -706,13 +706,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##   OA.OA05. = col_double(),
 ##   OA.OA06. = col_double()
 ## )</code></pre>
-<div class="sourceCode" id="cb363"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb363-1"><a href="pre-processing.html#cb363-1" aria-hidden="true" tabindex="-1"></a>temp <span class="ot">=</span> temp[<span class="sc">-</span><span class="dv">1</span>] </span>
-<span id="cb363-2"><a href="pre-processing.html#cb363-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb363-3"><a href="pre-processing.html#cb363-3" aria-hidden="true" tabindex="-1"></a><span class="co">#Convierte todo a integer</span></span>
-<span id="cb363-4"><a href="pre-processing.html#cb363-4" aria-hidden="true" tabindex="-1"></a><span class="co"># temp = temp %&gt;% dplyr::mutate_each(funs(as.integer))</span></span>
-<span id="cb363-5"><a href="pre-processing.html#cb363-5" aria-hidden="true" tabindex="-1"></a>temp <span class="ot">=</span> <span class="fu">as.data.frame</span>(<span class="fu">sapply</span>(temp, as.integer))</span>
-<span id="cb363-6"><a href="pre-processing.html#cb363-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb363-7"><a href="pre-processing.html#cb363-7" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(temp)</span></code></pre></div>
+<div class="sourceCode" id="cb423"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb423-1"><a href="pre-processing.html#cb423-1" aria-hidden="true" tabindex="-1"></a>temp <span class="ot">=</span> temp[<span class="sc">-</span><span class="dv">1</span>] </span>
+<span id="cb423-2"><a href="pre-processing.html#cb423-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb423-3"><a href="pre-processing.html#cb423-3" aria-hidden="true" tabindex="-1"></a><span class="co">#Convierte todo a integer</span></span>
+<span id="cb423-4"><a href="pre-processing.html#cb423-4" aria-hidden="true" tabindex="-1"></a><span class="co"># temp = temp %&gt;% dplyr::mutate_each(funs(as.integer))</span></span>
+<span id="cb423-5"><a href="pre-processing.html#cb423-5" aria-hidden="true" tabindex="-1"></a>temp <span class="ot">=</span> <span class="fu">as.data.frame</span>(<span class="fu">sapply</span>(temp, as.integer))</span>
+<span id="cb423-6"><a href="pre-processing.html#cb423-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb423-7"><a href="pre-processing.html#cb423-7" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(temp)</span></code></pre></div>
 <pre><code>##   OA.OA01. OA.OA02. OA.OA03. OA.OA04. OA.OA05. OA.OA06.
 ## 1        5        3        5        2        1        5
 ## 2        3        1        5        1        1        3
@@ -720,8 +720,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 4        2        2        1        3        3        5
 ## 5        4        3        4        4        2        4
 ## 6        5        5        5        1        1        5</code></pre>
-<div class="sourceCode" id="cb365"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb365-1"><a href="pre-processing.html#cb365-1" aria-hidden="true" tabindex="-1"></a><span class="fu">alpha</span>(temp)</span></code></pre></div>
-<pre><code>## Warning in alpha(temp): Some items were negatively correlated with the total scale and probably 
+<div class="sourceCode" id="cb425"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb425-1"><a href="pre-processing.html#cb425-1" aria-hidden="true" tabindex="-1"></a>psych<span class="sc">::</span><span class="fu">alpha</span>(temp)</span></code></pre></div>
+<pre><code>## Warning in psych::alpha(temp): Some items were negatively correlated with the total scale and probably 
 ## should be reversed.  
 ## To do this, run the function again with the &#39;check.keys=TRUE&#39; option</code></pre>
 <pre><code>## Some items ( OA.OA02. OA.OA04. OA.OA05. ) were negatively correlated with the total scale and 
@@ -729,7 +729,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## To do this, run the function again with the &#39;check.keys=TRUE&#39; option</code></pre>
 <pre><code>## 
 ## Reliability analysis   
-## Call: alpha(x = temp)
+## Call: psych::alpha(x = temp)
 ## 
 ##   raw_alpha std.alpha G6(smc) average_r   S/N   ase mean   sd median_r
 ##      0.062     0.087    0.22     0.016 0.096 0.094  3.5 0.48   -0.048
@@ -763,15 +763,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## OA.OA04. 0.19 0.24 0.33 0.11 0.13    0
 ## OA.OA05. 0.50 0.21 0.16 0.07 0.05    0
 ## OA.OA06. 0.00 0.03 0.09 0.16 0.73    0</code></pre>
-<div class="sourceCode" id="cb369"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb369-1"><a href="pre-processing.html#cb369-1" aria-hidden="true" tabindex="-1"></a><span class="co"># temp2 = temp %&gt;% select(-1, -OA.OA05.)</span></span>
-<span id="cb369-2"><a href="pre-processing.html#cb369-2" aria-hidden="true" tabindex="-1"></a><span class="co"># alpha(temp2)</span></span>
-<span id="cb369-3"><a href="pre-processing.html#cb369-3" aria-hidden="true" tabindex="-1"></a><span class="co"># temp2 = temp %&gt;% select(-1, -OA.OA05., -OA.OA04.)</span></span>
-<span id="cb369-4"><a href="pre-processing.html#cb369-4" aria-hidden="true" tabindex="-1"></a><span class="co"># alpha(temp2)</span></span>
-<span id="cb369-5"><a href="pre-processing.html#cb369-5" aria-hidden="true" tabindex="-1"></a>temp2 <span class="ot">=</span> temp <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="sc">-</span>OA.OA05., <span class="sc">-</span>OA.OA04., <span class="sc">-</span>OA.OA02.)</span>
-<span id="cb369-6"><a href="pre-processing.html#cb369-6" aria-hidden="true" tabindex="-1"></a><span class="fu">alpha</span>(temp2)</span></code></pre></div>
+<div class="sourceCode" id="cb429"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb429-1"><a href="pre-processing.html#cb429-1" aria-hidden="true" tabindex="-1"></a><span class="co"># temp2 = temp %&gt;% select(-1, -OA.OA05.)</span></span>
+<span id="cb429-2"><a href="pre-processing.html#cb429-2" aria-hidden="true" tabindex="-1"></a><span class="co"># alpha(temp2)</span></span>
+<span id="cb429-3"><a href="pre-processing.html#cb429-3" aria-hidden="true" tabindex="-1"></a><span class="co"># temp2 = temp %&gt;% select(-1, -OA.OA05., -OA.OA04.)</span></span>
+<span id="cb429-4"><a href="pre-processing.html#cb429-4" aria-hidden="true" tabindex="-1"></a><span class="co"># alpha(temp2)</span></span>
+<span id="cb429-5"><a href="pre-processing.html#cb429-5" aria-hidden="true" tabindex="-1"></a>temp2 <span class="ot">=</span> temp <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="sc">-</span>OA.OA05., <span class="sc">-</span>OA.OA04., <span class="sc">-</span>OA.OA02.)</span>
+<span id="cb429-6"><a href="pre-processing.html#cb429-6" aria-hidden="true" tabindex="-1"></a>psych<span class="sc">::</span><span class="fu">alpha</span>(temp2)</span></code></pre></div>
 <pre><code>## 
 ## Reliability analysis   
-## Call: alpha(x = temp2)
+## Call: psych::alpha(x = temp2)
 ## 
 ##   raw_alpha std.alpha G6(smc) average_r S/N   ase mean   sd median_r
 ##       0.57       0.6    0.43      0.43 1.5 0.051  4.4 0.79     0.43
@@ -799,23 +799,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>Cargamos librerias</li>
 </ul>
-<div class="sourceCode" id="cb371"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb371-1"><a href="pre-processing.html#cb371-1" aria-hidden="true" tabindex="-1"></a><span class="co"># if (!require(&#39;pacman&#39;)) install.packages(&#39;pacman&#39;); library(&#39;pacman&#39;)</span></span>
-<span id="cb371-2"><a href="pre-processing.html#cb371-2" aria-hidden="true" tabindex="-1"></a><span class="co"># # p_load(p_depends(MBESS)$Depends, character.only = TRUE)</span></span>
-<span id="cb371-3"><a href="pre-processing.html#cb371-3" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(&quot;MBESS&quot;, dependencies = TRUE)</span></span>
-<span id="cb371-4"><a href="pre-processing.html#cb371-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb371-5"><a href="pre-processing.html#cb371-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&#39;psych&#39;</span>)) <span class="fu">install.packages</span>(<span class="st">&#39;psych&#39;</span>); <span class="fu">library</span>(<span class="st">&#39;psych&#39;</span>)</span>
-<span id="cb371-6"><a href="pre-processing.html#cb371-6" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&#39;readr&#39;</span>)) <span class="fu">install.packages</span>(<span class="st">&#39;readr&#39;</span>); <span class="fu">library</span>(<span class="st">&#39;readr&#39;</span>)</span>
-<span id="cb371-7"><a href="pre-processing.html#cb371-7" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&#39;dplyr&#39;</span>)) <span class="fu">install.packages</span>(<span class="st">&#39;dplyr&#39;</span>); <span class="fu">library</span>(<span class="st">&#39;dplyr&#39;</span>)</span>
-<span id="cb371-8"><a href="pre-processing.html#cb371-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb371-9"><a href="pre-processing.html#cb371-9" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&#39;MBESS&#39;</span>)) <span class="fu">install.packages</span>(<span class="st">&#39;MBESS&#39;</span>, <span class="at">dependencies =</span> <span class="cn">TRUE</span>); <span class="fu">library</span>(<span class="st">&#39;MBESS&#39;</span>)</span>
-<span id="cb371-10"><a href="pre-processing.html#cb371-10" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&#39;GPArotation&#39;</span>)) <span class="fu">install.packages</span>(<span class="st">&#39;GPArotation&#39;</span>); <span class="fu">library</span>(<span class="st">&#39;GPArotation&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb431"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb431-1"><a href="pre-processing.html#cb431-1" aria-hidden="true" tabindex="-1"></a><span class="co"># if (!require(&#39;pacman&#39;)) install.packages(&#39;pacman&#39;); library(&#39;pacman&#39;)</span></span>
+<span id="cb431-2"><a href="pre-processing.html#cb431-2" aria-hidden="true" tabindex="-1"></a><span class="co"># # p_load(p_depends(MBESS)$Depends, character.only = TRUE)</span></span>
+<span id="cb431-3"><a href="pre-processing.html#cb431-3" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(&quot;MBESS&quot;, dependencies = TRUE)</span></span>
+<span id="cb431-4"><a href="pre-processing.html#cb431-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb431-5"><a href="pre-processing.html#cb431-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&#39;psych&#39;</span>)) <span class="fu">install.packages</span>(<span class="st">&#39;psych&#39;</span>); <span class="fu">library</span>(<span class="st">&#39;psych&#39;</span>)</span>
+<span id="cb431-6"><a href="pre-processing.html#cb431-6" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&#39;readr&#39;</span>)) <span class="fu">install.packages</span>(<span class="st">&#39;readr&#39;</span>); <span class="fu">library</span>(<span class="st">&#39;readr&#39;</span>)</span>
+<span id="cb431-7"><a href="pre-processing.html#cb431-7" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&#39;dplyr&#39;</span>)) <span class="fu">install.packages</span>(<span class="st">&#39;dplyr&#39;</span>); <span class="fu">library</span>(<span class="st">&#39;dplyr&#39;</span>)</span>
+<span id="cb431-8"><a href="pre-processing.html#cb431-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb431-9"><a href="pre-processing.html#cb431-9" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&#39;MBESS&#39;</span>)) <span class="fu">install.packages</span>(<span class="st">&#39;MBESS&#39;</span>, <span class="at">dependencies =</span> <span class="cn">TRUE</span>); <span class="fu">library</span>(<span class="st">&#39;MBESS&#39;</span>)</span>
+<span id="cb431-10"><a href="pre-processing.html#cb431-10" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&#39;GPArotation&#39;</span>)) <span class="fu">install.packages</span>(<span class="st">&#39;GPArotation&#39;</span>); <span class="fu">library</span>(<span class="st">&#39;GPArotation&#39;</span>)</span></code></pre></div>
 <hr />
 <p>We use the following <a href="Data/10-Pre_processing/Reliability.csv">dataset</a>.</p>
 <hr />
-<div class="sourceCode" id="cb372"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb372-1"><a href="pre-processing.html#cb372-1" aria-hidden="true" tabindex="-1"></a>temp <span class="ot">=</span> <span class="fu">read_csv</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">&quot;Data/10-Pre_processing/Reliability.csv&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb432"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb432-1"><a href="pre-processing.html#cb432-1" aria-hidden="true" tabindex="-1"></a>temp <span class="ot">=</span> <span class="fu">read_csv</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">&quot;Data/10-Pre_processing/Reliability.csv&quot;</span>))</span></code></pre></div>
 <pre><code>## Warning: Missing column names filled in: &#39;X1&#39; [1]</code></pre>
 <pre><code>## 
-## ── Column specification ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+## ── Column specification ────────────────────────────────────────────────────────
 ## cols(
 ##   X1 = col_double(),
 ##   OA.OA01. = col_double(),
@@ -825,13 +825,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##   OA.OA05. = col_double(),
 ##   OA.OA06. = col_double()
 ## )</code></pre>
-<div class="sourceCode" id="cb375"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb375-1"><a href="pre-processing.html#cb375-1" aria-hidden="true" tabindex="-1"></a>temp <span class="ot">=</span> temp[<span class="sc">-</span><span class="dv">1</span>] </span>
-<span id="cb375-2"><a href="pre-processing.html#cb375-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb375-3"><a href="pre-processing.html#cb375-3" aria-hidden="true" tabindex="-1"></a><span class="co">#Convierte todo a integer</span></span>
-<span id="cb375-4"><a href="pre-processing.html#cb375-4" aria-hidden="true" tabindex="-1"></a><span class="co"># temp = temp %&gt;% dplyr::mutate_each(funs(as.integer))</span></span>
-<span id="cb375-5"><a href="pre-processing.html#cb375-5" aria-hidden="true" tabindex="-1"></a>temp <span class="ot">=</span> <span class="fu">as.data.frame</span>(<span class="fu">sapply</span>(temp, as.integer))</span>
-<span id="cb375-6"><a href="pre-processing.html#cb375-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb375-7"><a href="pre-processing.html#cb375-7" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(temp)</span></code></pre></div>
+<div class="sourceCode" id="cb435"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb435-1"><a href="pre-processing.html#cb435-1" aria-hidden="true" tabindex="-1"></a>temp <span class="ot">=</span> temp[<span class="sc">-</span><span class="dv">1</span>] </span>
+<span id="cb435-2"><a href="pre-processing.html#cb435-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb435-3"><a href="pre-processing.html#cb435-3" aria-hidden="true" tabindex="-1"></a><span class="co">#Convierte todo a integer</span></span>
+<span id="cb435-4"><a href="pre-processing.html#cb435-4" aria-hidden="true" tabindex="-1"></a><span class="co"># temp = temp %&gt;% dplyr::mutate_each(funs(as.integer))</span></span>
+<span id="cb435-5"><a href="pre-processing.html#cb435-5" aria-hidden="true" tabindex="-1"></a>temp <span class="ot">=</span> <span class="fu">as.data.frame</span>(<span class="fu">sapply</span>(temp, as.integer))</span>
+<span id="cb435-6"><a href="pre-processing.html#cb435-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb435-7"><a href="pre-processing.html#cb435-7" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(temp)</span></code></pre></div>
 <pre><code>##   OA.OA01. OA.OA02. OA.OA03. OA.OA04. OA.OA05. OA.OA06.
 ## 1        5        3        5        2        1        5
 ## 2        3        1        5        1        1        3
@@ -841,17 +841,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 6        5        5        5        1        1        5</code></pre>
 <div id="method-1---with-bootstrap-1" class="section level4" number="12.2.2.1">
 <h4><span class="header-section-number">12.2.2.1</span> Method 1 - with Bootstrap <sup>1</sup></h4>
-<div class="sourceCode" id="cb377"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb377-1"><a href="pre-processing.html#cb377-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Use at least (?) B = 1000</span></span>
-<span id="cb377-2"><a href="pre-processing.html#cb377-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb377-3"><a href="pre-processing.html#cb377-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Execution time is non-trivial</span></span>
-<span id="cb377-4"><a href="pre-processing.html#cb377-4" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
-<span id="cb377-5"><a href="pre-processing.html#cb377-5" aria-hidden="true" tabindex="-1"></a><span class="co"># ci.reliability(data = temp, type = &quot;omega&quot;, conf.level = 0.95, interval.type = &quot;bca&quot;, B = 1000) </span></span></code></pre></div>
+<div class="sourceCode" id="cb437"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb437-1"><a href="pre-processing.html#cb437-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Use at least (?) B = 1000</span></span>
+<span id="cb437-2"><a href="pre-processing.html#cb437-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb437-3"><a href="pre-processing.html#cb437-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Execution time is non-trivial</span></span>
+<span id="cb437-4"><a href="pre-processing.html#cb437-4" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
+<span id="cb437-5"><a href="pre-processing.html#cb437-5" aria-hidden="true" tabindex="-1"></a><span class="co"># ci.reliability(data = temp, type = &quot;omega&quot;, conf.level = 0.95, interval.type = &quot;bca&quot;, B = 1000) </span></span></code></pre></div>
 </div>
 <div id="method-2-2" class="section level4" number="12.2.2.2">
 <h4><span class="header-section-number">12.2.2.2</span> Method 2 <sup>2</sup></h4>
-<div class="sourceCode" id="cb378"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb378-1"><a href="pre-processing.html#cb378-1" aria-hidden="true" tabindex="-1"></a><span class="co"># See options</span></span>
-<span id="cb378-2"><a href="pre-processing.html#cb378-2" aria-hidden="true" tabindex="-1"></a><span class="fu">omega</span>(temp)</span></code></pre></div>
-<p><img src="_main_images/omega-1.png" width="672" /></p>
+<div class="sourceCode" id="cb438"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb438-1"><a href="pre-processing.html#cb438-1" aria-hidden="true" tabindex="-1"></a><span class="co"># See options</span></span>
+<span id="cb438-2"><a href="pre-processing.html#cb438-2" aria-hidden="true" tabindex="-1"></a><span class="fu">omega</span>(temp)</span></code></pre></div>
+<p><img src="IMAGES/omega-1.png" width="672" /></p>
 <pre><code>## Omega 
 ## Call: omegah(m = m, nfactors = nfactors, fm = fm, key = key, flip = flip, 
 ##     digits = digits, title = title, sl = sl, labels = labels, 
@@ -913,12 +913,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>See more in: <a href="http://www.cookbook-r.com/Statistical_analysis/Inter-rater_reliability/" class="uri">http://www.cookbook-r.com/Statistical_analysis/Inter-rater_reliability/</a></li>
 </ul>
-<div class="sourceCode" id="cb380"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb380-1"><a href="pre-processing.html#cb380-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&#39;readr&#39;</span>)) <span class="fu">install.packages</span>(<span class="st">&#39;readr&#39;</span>); <span class="fu">library</span>(<span class="st">&#39;readr&#39;</span>)</span>
-<span id="cb380-2"><a href="pre-processing.html#cb380-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&#39;irr&#39;</span>)) <span class="fu">install.packages</span>(<span class="st">&#39;irr&#39;</span>); <span class="fu">library</span>(<span class="st">&#39;irr&#39;</span>)</span>
-<span id="cb380-3"><a href="pre-processing.html#cb380-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&#39;dplyr&#39;</span>)) <span class="fu">install.packages</span>(<span class="st">&#39;dplyr&#39;</span>); <span class="fu">library</span>(<span class="st">&#39;dplyr&#39;</span>)</span>
-<span id="cb380-4"><a href="pre-processing.html#cb380-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb380-5"><a href="pre-processing.html#cb380-5" aria-hidden="true" tabindex="-1"></a>DF_IRR <span class="ot">=</span> temp <span class="sc">%&gt;%</span> <span class="fu">select</span>(OA.OA01., OA.OA02.)</span>
-<span id="cb380-6"><a href="pre-processing.html#cb380-6" aria-hidden="true" tabindex="-1"></a><span class="fu">kappa2</span>(DF_IRR, <span class="st">&quot;unweighted&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb440"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb440-1"><a href="pre-processing.html#cb440-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&#39;readr&#39;</span>)) <span class="fu">install.packages</span>(<span class="st">&#39;readr&#39;</span>); <span class="fu">library</span>(<span class="st">&#39;readr&#39;</span>)</span>
+<span id="cb440-2"><a href="pre-processing.html#cb440-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&#39;irr&#39;</span>)) <span class="fu">install.packages</span>(<span class="st">&#39;irr&#39;</span>); <span class="fu">library</span>(<span class="st">&#39;irr&#39;</span>)</span></code></pre></div>
+<pre><code>## Loading required package: irr</code></pre>
+<pre><code>## Loading required package: lpSolve</code></pre>
+<div class="sourceCode" id="cb443"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb443-1"><a href="pre-processing.html#cb443-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&#39;dplyr&#39;</span>)) <span class="fu">install.packages</span>(<span class="st">&#39;dplyr&#39;</span>); <span class="fu">library</span>(<span class="st">&#39;dplyr&#39;</span>)</span>
+<span id="cb443-2"><a href="pre-processing.html#cb443-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb443-3"><a href="pre-processing.html#cb443-3" aria-hidden="true" tabindex="-1"></a>DF_IRR <span class="ot">=</span> temp <span class="sc">%&gt;%</span> <span class="fu">select</span>(OA.OA01., OA.OA02.)</span>
+<span id="cb443-4"><a href="pre-processing.html#cb443-4" aria-hidden="true" tabindex="-1"></a><span class="fu">kappa2</span>(DF_IRR, <span class="st">&quot;unweighted&quot;</span>)</span></code></pre></div>
 <pre><code>##  Cohen&#39;s Kappa for 2 Raters (Weights: unweighted)
 ## 
 ##  Subjects = 238 
@@ -927,16 +929,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 
 ##         z = 1.96 
 ##   p-value = 0.0504</code></pre>
-<div class="sourceCode" id="cb382"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb382-1"><a href="pre-processing.html#cb382-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Interpretation</span></span>
-<span id="cb382-2"><a href="pre-processing.html#cb382-2" aria-hidden="true" tabindex="-1"></a><span class="co"># https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3900052/#:~:text=Cohen%20suggested%20the%20Kappa%20result,1.00%20as%20almost%20perfect%20agreement.</span></span>
-<span id="cb382-3"><a href="pre-processing.html#cb382-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb382-4"><a href="pre-processing.html#cb382-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Cohen suggested the Kappa result be interpreted as follows: </span></span>
-<span id="cb382-5"><a href="pre-processing.html#cb382-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># - values ≤ 0 as indicating no agreement </span></span>
-<span id="cb382-6"><a href="pre-processing.html#cb382-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># - 0.01–0.20 as none to slight</span></span>
-<span id="cb382-7"><a href="pre-processing.html#cb382-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># - 0.21–0.40 as fair</span></span>
-<span id="cb382-8"><a href="pre-processing.html#cb382-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># - 0.41– 0.60 as moderate</span></span>
-<span id="cb382-9"><a href="pre-processing.html#cb382-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># - 0.61–0.80 as substantial</span></span>
-<span id="cb382-10"><a href="pre-processing.html#cb382-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># - 0.81–1.00 as almost perfect agreement</span></span></code></pre></div>
+<div class="sourceCode" id="cb445"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb445-1"><a href="pre-processing.html#cb445-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Interpretation</span></span>
+<span id="cb445-2"><a href="pre-processing.html#cb445-2" aria-hidden="true" tabindex="-1"></a><span class="co"># https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3900052/#:~:text=Cohen%20suggested%20the%20Kappa%20result,1.00%20as%20almost%20perfect%20agreement.</span></span>
+<span id="cb445-3"><a href="pre-processing.html#cb445-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb445-4"><a href="pre-processing.html#cb445-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Cohen suggested the Kappa result be interpreted as follows: </span></span>
+<span id="cb445-5"><a href="pre-processing.html#cb445-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># - values ≤ 0 as indicating no agreement </span></span>
+<span id="cb445-6"><a href="pre-processing.html#cb445-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># - 0.01–0.20 as none to slight</span></span>
+<span id="cb445-7"><a href="pre-processing.html#cb445-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># - 0.21–0.40 as fair</span></span>
+<span id="cb445-8"><a href="pre-processing.html#cb445-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># - 0.41– 0.60 as moderate</span></span>
+<span id="cb445-9"><a href="pre-processing.html#cb445-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># - 0.61–0.80 as substantial</span></span>
+<span id="cb445-10"><a href="pre-processing.html#cb445-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># - 0.81–1.00 as almost perfect agreement</span></span></code></pre></div>
 <div id="references-2" class="section level3" number="12.3.1">
 <h3><span class="header-section-number">12.3.1</span> References</h3>
 <p><a href="https://www.ncbi.nlm.nih.gov/pubmed/28557467?dopt=Abstract" class="uri">https://www.ncbi.nlm.nih.gov/pubmed/28557467?dopt=Abstract</a></p>
@@ -960,15 +962,33 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">12.4.1</span> Impute with mice</h3>
 <p><strong>TODO: see <a href="https://www.r-bloggers.com/imputing-missing-data-with-r-mice-package/" class="uri">https://www.r-bloggers.com/imputing-missing-data-with-r-mice-package/</a></strong></p>
 <p>FROM: <a href="https://www.r-bloggers.com/graphical-presentation-of-missing-data-vim-package/" class="uri">https://www.r-bloggers.com/graphical-presentation-of-missing-data-vim-package/</a></p>
-<div class="sourceCode" id="cb383"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb383-1"><a href="pre-processing.html#cb383-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&#39;VIM&#39;</span>)) <span class="fu">install.packages</span>(<span class="st">&#39;VIM&#39;</span>); <span class="fu">library</span>(<span class="st">&#39;VIM&#39;</span>)</span>
-<span id="cb383-2"><a href="pre-processing.html#cb383-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&#39;mice&#39;</span>)) <span class="fu">install.packages</span>(<span class="st">&#39;mice&#39;</span>); <span class="fu">library</span>(<span class="st">&#39;mice&#39;</span>)</span>
-<span id="cb383-3"><a href="pre-processing.html#cb383-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&#39;dplyr&#39;</span>)) <span class="fu">install.packages</span>(<span class="st">&#39;dplyr&#39;</span>); <span class="fu">library</span>(<span class="st">&#39;dplyr&#39;</span>)</span>
-<span id="cb383-4"><a href="pre-processing.html#cb383-4" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&#39;tibble&#39;</span>)) <span class="fu">install.packages</span>(<span class="st">&#39;tibble&#39;</span>); <span class="fu">library</span>(<span class="st">&#39;tibble&#39;</span>)</span>
-<span id="cb383-5"><a href="pre-processing.html#cb383-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb383-6"><a href="pre-processing.html#cb383-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb383-7"><a href="pre-processing.html#cb383-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Read data</span></span>
-<span id="cb383-8"><a href="pre-processing.html#cb383-8" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="fu">url</span>(<span class="st">&quot;https://goo.gl/4DYzru&quot;</span>), <span class="at">header =</span> <span class="cn">TRUE</span>, <span class="at">sep =</span> <span class="st">&quot;,&quot;</span>)</span>
-<span id="cb383-9"><a href="pre-processing.html#cb383-9" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(dat)</span></code></pre></div>
+<div class="sourceCode" id="cb446"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb446-1"><a href="pre-processing.html#cb446-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&#39;VIM&#39;</span>)) <span class="fu">install.packages</span>(<span class="st">&#39;VIM&#39;</span>); <span class="fu">library</span>(<span class="st">&#39;VIM&#39;</span>)</span></code></pre></div>
+<pre><code>## Loading required package: VIM</code></pre>
+<pre><code>## Loading required package: colorspace</code></pre>
+<pre><code>## Loading required package: grid</code></pre>
+<pre><code>## VIM is ready to use.</code></pre>
+<pre><code>## Suggestions and bug-reports can be submitted at: https://github.com/statistikat/VIM/issues</code></pre>
+<pre><code>## 
+## Attaching package: &#39;VIM&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:datasets&#39;:
+## 
+##     sleep</code></pre>
+<div class="sourceCode" id="cb454"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb454-1"><a href="pre-processing.html#cb454-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&#39;mice&#39;</span>)) <span class="fu">install.packages</span>(<span class="st">&#39;mice&#39;</span>); <span class="fu">library</span>(<span class="st">&#39;mice&#39;</span>)</span></code></pre></div>
+<pre><code>## Loading required package: mice</code></pre>
+<pre><code>## 
+## Attaching package: &#39;mice&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:stats&#39;:
+## 
+##     filter</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     cbind, rbind</code></pre>
+<div class="sourceCode" id="cb459"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb459-1"><a href="pre-processing.html#cb459-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&#39;dplyr&#39;</span>)) <span class="fu">install.packages</span>(<span class="st">&#39;dplyr&#39;</span>); <span class="fu">library</span>(<span class="st">&#39;dplyr&#39;</span>)</span>
+<span id="cb459-2"><a href="pre-processing.html#cb459-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&#39;tibble&#39;</span>)) <span class="fu">install.packages</span>(<span class="st">&#39;tibble&#39;</span>); <span class="fu">library</span>(<span class="st">&#39;tibble&#39;</span>)</span></code></pre></div>
+<pre><code>## Loading required package: tibble</code></pre>
+<div class="sourceCode" id="cb461"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb461-1"><a href="pre-processing.html#cb461-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Read data</span></span>
+<span id="cb461-2"><a href="pre-processing.html#cb461-2" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="fu">url</span>(<span class="st">&quot;https://goo.gl/4DYzru&quot;</span>), <span class="at">header =</span> <span class="cn">TRUE</span>, <span class="at">sep =</span> <span class="st">&quot;,&quot;</span>)</span>
+<span id="cb461-3"><a href="pre-processing.html#cb461-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(dat)</span></code></pre></div>
 <pre><code>##    Age Gender Cholesterol SystolicBP  BMI Smoking Education
 ## 1 67.9 Female       236.4      129.8 26.4     Yes      High
 ## 2 54.8 Female       256.3      133.4 28.4      No    Medium
@@ -976,20 +996,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 4 67.9   Male       205.0      136.0 19.9      No       Low
 ## 5 60.9   Male       207.7      145.4 26.7      No    Medium
 ## 6 44.9 Female       222.5      130.6 30.6      No       Low</code></pre>
-<div class="sourceCode" id="cb385"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb385-1"><a href="pre-processing.html#cb385-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create some missings</span></span>
-<span id="cb385-2"><a href="pre-processing.html#cb385-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">10</span>)</span>
-<span id="cb385-3"><a href="pre-processing.html#cb385-3" aria-hidden="true" tabindex="-1"></a>missing <span class="ot">=</span> <span class="fu">rbinom</span>(<span class="dv">250</span>, <span class="dv">1</span>, <span class="fl">0.3</span>)</span>
-<span id="cb385-4"><a href="pre-processing.html#cb385-4" aria-hidden="true" tabindex="-1"></a>dat<span class="sc">$</span>Cholesterol <span class="ot">=</span> <span class="fu">with</span>(dat, <span class="fu">ifelse</span>(BMI <span class="sc">&gt;=</span> <span class="dv">30</span> <span class="sc">&amp;</span> missing <span class="sc">==</span> <span class="dv">1</span>, <span class="cn">NA</span>, Cholesterol))</span>
-<span id="cb385-5"><a href="pre-processing.html#cb385-5" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">is.na</span>(dat<span class="sc">$</span>Cholesterol))</span></code></pre></div>
+<div class="sourceCode" id="cb463"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb463-1"><a href="pre-processing.html#cb463-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create some missings</span></span>
+<span id="cb463-2"><a href="pre-processing.html#cb463-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">10</span>)</span>
+<span id="cb463-3"><a href="pre-processing.html#cb463-3" aria-hidden="true" tabindex="-1"></a>missing <span class="ot">=</span> <span class="fu">rbinom</span>(<span class="dv">250</span>, <span class="dv">1</span>, <span class="fl">0.3</span>)</span>
+<span id="cb463-4"><a href="pre-processing.html#cb463-4" aria-hidden="true" tabindex="-1"></a>dat<span class="sc">$</span>Cholesterol <span class="ot">=</span> <span class="fu">with</span>(dat, <span class="fu">ifelse</span>(BMI <span class="sc">&gt;=</span> <span class="dv">30</span> <span class="sc">&amp;</span> missing <span class="sc">==</span> <span class="dv">1</span>, <span class="cn">NA</span>, Cholesterol))</span>
+<span id="cb463-5"><a href="pre-processing.html#cb463-5" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">is.na</span>(dat<span class="sc">$</span>Cholesterol))</span></code></pre></div>
 <pre><code>## [1] 16</code></pre>
-<div class="sourceCode" id="cb387"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb387-1"><a href="pre-processing.html#cb387-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Impute</span></span>
-<span id="cb387-2"><a href="pre-processing.html#cb387-2" aria-hidden="true" tabindex="-1"></a>init <span class="ot">=</span> <span class="fu">mice</span>(dat, <span class="at">maxit =</span> <span class="dv">0</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb465"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb465-1"><a href="pre-processing.html#cb465-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Impute</span></span>
+<span id="cb465-2"><a href="pre-processing.html#cb465-2" aria-hidden="true" tabindex="-1"></a>init <span class="ot">=</span> <span class="fu">mice</span>(dat, <span class="at">maxit =</span> <span class="dv">0</span>) </span></code></pre></div>
 <pre><code>## Warning: Number of logged events: 3</code></pre>
-<div class="sourceCode" id="cb389"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb389-1"><a href="pre-processing.html#cb389-1" aria-hidden="true" tabindex="-1"></a>meth <span class="ot">=</span> init<span class="sc">$</span>method</span>
-<span id="cb389-2"><a href="pre-processing.html#cb389-2" aria-hidden="true" tabindex="-1"></a>predM <span class="ot">=</span> init<span class="sc">$</span>predictorMatrix</span>
-<span id="cb389-3"><a href="pre-processing.html#cb389-3" aria-hidden="true" tabindex="-1"></a>meth[<span class="fu">c</span>(<span class="st">&quot;Cholesterol&quot;</span>)] <span class="ot">=</span> <span class="st">&quot;pmm&quot;</span> </span>
-<span id="cb389-4"><a href="pre-processing.html#cb389-4" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">101</span>)</span>
-<span id="cb389-5"><a href="pre-processing.html#cb389-5" aria-hidden="true" tabindex="-1"></a>imputed <span class="ot">=</span> <span class="fu">mice</span>(dat, <span class="at">method =</span> meth, <span class="at">predictorMatrix =</span> predM, <span class="at">m =</span> <span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb467"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb467-1"><a href="pre-processing.html#cb467-1" aria-hidden="true" tabindex="-1"></a>meth <span class="ot">=</span> init<span class="sc">$</span>method</span>
+<span id="cb467-2"><a href="pre-processing.html#cb467-2" aria-hidden="true" tabindex="-1"></a>predM <span class="ot">=</span> init<span class="sc">$</span>predictorMatrix</span>
+<span id="cb467-3"><a href="pre-processing.html#cb467-3" aria-hidden="true" tabindex="-1"></a>meth[<span class="fu">c</span>(<span class="st">&quot;Cholesterol&quot;</span>)] <span class="ot">=</span> <span class="st">&quot;pmm&quot;</span> </span>
+<span id="cb467-4"><a href="pre-processing.html#cb467-4" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">101</span>)</span>
+<span id="cb467-5"><a href="pre-processing.html#cb467-5" aria-hidden="true" tabindex="-1"></a>imputed <span class="ot">=</span> <span class="fu">mice</span>(dat, <span class="at">method =</span> meth, <span class="at">predictorMatrix =</span> predM, <span class="at">m =</span> <span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## 
 ##  iter imp variable
 ##   1   1  Cholesterol
@@ -997,24 +1017,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##   3   1  Cholesterol
 ##   4   1  Cholesterol
 ##   5   1  Cholesterol</code></pre>
-<div class="sourceCode" id="cb391"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb391-1"><a href="pre-processing.html#cb391-1" aria-hidden="true" tabindex="-1"></a>imp <span class="ot">=</span> <span class="fu">complete</span>(imputed)</span>
-<span id="cb391-2"><a href="pre-processing.html#cb391-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb391-3"><a href="pre-processing.html#cb391-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Prepare data for visualization</span></span>
-<span id="cb391-4"><a href="pre-processing.html#cb391-4" aria-hidden="true" tabindex="-1"></a>dt1 <span class="ot">=</span> dat <span class="sc">%&gt;%</span> </span>
-<span id="cb391-5"><a href="pre-processing.html#cb391-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Cholesterol, BMI) <span class="sc">%&gt;%</span> </span>
-<span id="cb391-6"><a href="pre-processing.html#cb391-6" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">rename</span>(<span class="at">Cholesterol_imp =</span> Cholesterol) <span class="sc">%&gt;%</span> </span>
-<span id="cb391-7"><a href="pre-processing.html#cb391-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb391-8"><a href="pre-processing.html#cb391-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">Cholesterol_imp =</span> <span class="fu">as.logical</span>(<span class="fu">ifelse</span>(<span class="fu">is.na</span>(Cholesterol_imp), <span class="st">&quot;TRUE&quot;</span>, <span class="st">&quot;FALSE&quot;</span>))</span>
-<span id="cb391-9"><a href="pre-processing.html#cb391-9" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> </span>
-<span id="cb391-10"><a href="pre-processing.html#cb391-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rownames_to_column</span>()</span>
-<span id="cb391-11"><a href="pre-processing.html#cb391-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb391-12"><a href="pre-processing.html#cb391-12" aria-hidden="true" tabindex="-1"></a>dt2 <span class="ot">=</span> imp <span class="sc">%&gt;%</span> </span>
-<span id="cb391-13"><a href="pre-processing.html#cb391-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Cholesterol, BMI) <span class="sc">%&gt;%</span> </span>
-<span id="cb391-14"><a href="pre-processing.html#cb391-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rownames_to_column</span>()</span>
-<span id="cb391-15"><a href="pre-processing.html#cb391-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb391-16"><a href="pre-processing.html#cb391-16" aria-hidden="true" tabindex="-1"></a>dt <span class="ot">=</span> <span class="fu">left_join</span>(dt1, dt2)</span></code></pre></div>
+<div class="sourceCode" id="cb469"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb469-1"><a href="pre-processing.html#cb469-1" aria-hidden="true" tabindex="-1"></a>imp <span class="ot">=</span> <span class="fu">complete</span>(imputed)</span>
+<span id="cb469-2"><a href="pre-processing.html#cb469-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb469-3"><a href="pre-processing.html#cb469-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Prepare data for visualization</span></span>
+<span id="cb469-4"><a href="pre-processing.html#cb469-4" aria-hidden="true" tabindex="-1"></a>dt1 <span class="ot">=</span> dat <span class="sc">%&gt;%</span> </span>
+<span id="cb469-5"><a href="pre-processing.html#cb469-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Cholesterol, BMI) <span class="sc">%&gt;%</span> </span>
+<span id="cb469-6"><a href="pre-processing.html#cb469-6" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">rename</span>(<span class="at">Cholesterol_imp =</span> Cholesterol) <span class="sc">%&gt;%</span> </span>
+<span id="cb469-7"><a href="pre-processing.html#cb469-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb469-8"><a href="pre-processing.html#cb469-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">Cholesterol_imp =</span> <span class="fu">as.logical</span>(<span class="fu">ifelse</span>(<span class="fu">is.na</span>(Cholesterol_imp), <span class="st">&quot;TRUE&quot;</span>, <span class="st">&quot;FALSE&quot;</span>))</span>
+<span id="cb469-9"><a href="pre-processing.html#cb469-9" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> </span>
+<span id="cb469-10"><a href="pre-processing.html#cb469-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rownames_to_column</span>()</span>
+<span id="cb469-11"><a href="pre-processing.html#cb469-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb469-12"><a href="pre-processing.html#cb469-12" aria-hidden="true" tabindex="-1"></a>dt2 <span class="ot">=</span> imp <span class="sc">%&gt;%</span> </span>
+<span id="cb469-13"><a href="pre-processing.html#cb469-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Cholesterol, BMI) <span class="sc">%&gt;%</span> </span>
+<span id="cb469-14"><a href="pre-processing.html#cb469-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rownames_to_column</span>()</span>
+<span id="cb469-15"><a href="pre-processing.html#cb469-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb469-16"><a href="pre-processing.html#cb469-16" aria-hidden="true" tabindex="-1"></a>dt <span class="ot">=</span> <span class="fu">left_join</span>(dt1, dt2)</span></code></pre></div>
 <pre><code>## Joining, by = c(&quot;rowname&quot;, &quot;BMI&quot;)</code></pre>
-<div class="sourceCode" id="cb393"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb393-1"><a href="pre-processing.html#cb393-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(dt)</span></code></pre></div>
+<div class="sourceCode" id="cb471"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb471-1"><a href="pre-processing.html#cb471-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(dt)</span></code></pre></div>
 <pre><code>##   rowname Cholesterol_imp  BMI Cholesterol
 ## 1       1           FALSE 26.4       236.4
 ## 2       2           FALSE 28.4       256.3
@@ -1022,18 +1042,35 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 4       4           FALSE 19.9       205.0
 ## 5       5           FALSE 26.7       207.7
 ## 6       6           FALSE 30.6       222.5</code></pre>
-<div class="sourceCode" id="cb395"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb395-1"><a href="pre-processing.html#cb395-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualize how imputation went</span></span>
-<span id="cb395-2"><a href="pre-processing.html#cb395-2" aria-hidden="true" tabindex="-1"></a>vars <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;BMI&quot;</span>,<span class="st">&quot;Cholesterol&quot;</span>,<span class="st">&quot;Cholesterol_imp&quot;</span>)</span>
-<span id="cb395-3"><a href="pre-processing.html#cb395-3" aria-hidden="true" tabindex="-1"></a><span class="fu">marginplot</span>(dt[,vars], <span class="at">delimiter =</span> <span class="st">&quot;_imp&quot;</span>, <span class="at">alpha =</span> <span class="fl">0.6</span>, <span class="at">pch =</span> <span class="fu">c</span>(<span class="dv">19</span>))</span></code></pre></div>
-<p><img src="_main_images/impute_missing_data_mice-1.png" width="672" /></p>
+<div class="sourceCode" id="cb473"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb473-1"><a href="pre-processing.html#cb473-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualize how imputation went</span></span>
+<span id="cb473-2"><a href="pre-processing.html#cb473-2" aria-hidden="true" tabindex="-1"></a>vars <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;BMI&quot;</span>,<span class="st">&quot;Cholesterol&quot;</span>,<span class="st">&quot;Cholesterol_imp&quot;</span>)</span>
+<span id="cb473-3"><a href="pre-processing.html#cb473-3" aria-hidden="true" tabindex="-1"></a><span class="fu">marginplot</span>(dt[,vars], <span class="at">delimiter =</span> <span class="st">&quot;_imp&quot;</span>, <span class="at">alpha =</span> <span class="fl">0.6</span>, <span class="at">pch =</span> <span class="fu">c</span>(<span class="dv">19</span>))</span></code></pre></div>
+<p><img src="IMAGES/impute_missing_data_mice-1.png" width="672" /></p>
 </div>
 <div id="impute-with-recipes" class="section level3" number="12.4.2">
 <h3><span class="header-section-number">12.4.2</span> Impute with recipes</h3>
-<div class="sourceCode" id="cb396"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb396-1"><a href="pre-processing.html#cb396-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&#39;recipes&#39;</span>)) <span class="fu">install.packages</span>(<span class="st">&#39;recipes&#39;</span>); <span class="fu">library</span>(<span class="st">&#39;recipes&#39;</span>)</span>
-<span id="cb396-2"><a href="pre-processing.html#cb396-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb396-3"><a href="pre-processing.html#cb396-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Read data</span></span>
-<span id="cb396-4"><a href="pre-processing.html#cb396-4" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="fu">url</span>(<span class="st">&quot;https://goo.gl/4DYzru&quot;</span>), <span class="at">header =</span> <span class="cn">TRUE</span>, <span class="at">sep =</span> <span class="st">&quot;,&quot;</span>)</span>
-<span id="cb396-5"><a href="pre-processing.html#cb396-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(dat)</span></code></pre></div>
+<div class="sourceCode" id="cb474"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb474-1"><a href="pre-processing.html#cb474-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&#39;recipes&#39;</span>)) <span class="fu">install.packages</span>(<span class="st">&#39;recipes&#39;</span>); <span class="fu">library</span>(<span class="st">&#39;recipes&#39;</span>)</span></code></pre></div>
+<pre><code>## Loading required package: recipes</code></pre>
+<pre><code>## 
+## Attaching package: &#39;recipes&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:VIM&#39;:
+## 
+##     prepare</code></pre>
+<pre><code>## The following object is masked from &#39;package:gtsummary&#39;:
+## 
+##     all_numeric</code></pre>
+<pre><code>## The following object is masked from &#39;package:Matrix&#39;:
+## 
+##     update</code></pre>
+<pre><code>## The following object is masked from &#39;package:stringr&#39;:
+## 
+##     fixed</code></pre>
+<pre><code>## The following object is masked from &#39;package:stats&#39;:
+## 
+##     step</code></pre>
+<div class="sourceCode" id="cb482"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb482-1"><a href="pre-processing.html#cb482-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Read data</span></span>
+<span id="cb482-2"><a href="pre-processing.html#cb482-2" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="fu">url</span>(<span class="st">&quot;https://goo.gl/4DYzru&quot;</span>), <span class="at">header =</span> <span class="cn">TRUE</span>, <span class="at">sep =</span> <span class="st">&quot;,&quot;</span>)</span>
+<span id="cb482-3"><a href="pre-processing.html#cb482-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(dat)</span></code></pre></div>
 <pre><code>##    Age Gender Cholesterol SystolicBP  BMI Smoking Education
 ## 1 67.9 Female       236.4      129.8 26.4     Yes      High
 ## 2 54.8 Female       256.3      133.4 28.4      No    Medium
@@ -1041,37 +1078,37 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 4 67.9   Male       205.0      136.0 19.9      No       Low
 ## 5 60.9   Male       207.7      145.4 26.7      No    Medium
 ## 6 44.9 Female       222.5      130.6 30.6      No       Low</code></pre>
-<div class="sourceCode" id="cb398"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb398-1"><a href="pre-processing.html#cb398-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create some missings</span></span>
-<span id="cb398-2"><a href="pre-processing.html#cb398-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">10</span>)</span>
-<span id="cb398-3"><a href="pre-processing.html#cb398-3" aria-hidden="true" tabindex="-1"></a>missing <span class="ot">=</span> <span class="fu">rbinom</span>(<span class="dv">250</span>, <span class="dv">1</span>, <span class="fl">0.3</span>)</span>
-<span id="cb398-4"><a href="pre-processing.html#cb398-4" aria-hidden="true" tabindex="-1"></a>dat<span class="sc">$</span>Cholesterol <span class="ot">=</span> <span class="fu">with</span>(dat, <span class="fu">ifelse</span>(BMI <span class="sc">&gt;=</span> <span class="dv">30</span> <span class="sc">&amp;</span> missing <span class="sc">==</span> <span class="dv">1</span>, <span class="cn">NA</span>, Cholesterol))</span>
-<span id="cb398-5"><a href="pre-processing.html#cb398-5" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">is.na</span>(dat<span class="sc">$</span>Cholesterol))</span></code></pre></div>
+<div class="sourceCode" id="cb484"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb484-1"><a href="pre-processing.html#cb484-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create some missings</span></span>
+<span id="cb484-2"><a href="pre-processing.html#cb484-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">10</span>)</span>
+<span id="cb484-3"><a href="pre-processing.html#cb484-3" aria-hidden="true" tabindex="-1"></a>missing <span class="ot">=</span> <span class="fu">rbinom</span>(<span class="dv">250</span>, <span class="dv">1</span>, <span class="fl">0.3</span>)</span>
+<span id="cb484-4"><a href="pre-processing.html#cb484-4" aria-hidden="true" tabindex="-1"></a>dat<span class="sc">$</span>Cholesterol <span class="ot">=</span> <span class="fu">with</span>(dat, <span class="fu">ifelse</span>(BMI <span class="sc">&gt;=</span> <span class="dv">30</span> <span class="sc">&amp;</span> missing <span class="sc">==</span> <span class="dv">1</span>, <span class="cn">NA</span>, Cholesterol))</span>
+<span id="cb484-5"><a href="pre-processing.html#cb484-5" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">is.na</span>(dat<span class="sc">$</span>Cholesterol))</span></code></pre></div>
 <pre><code>## [1] 16</code></pre>
-<div class="sourceCode" id="cb400"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb400-1"><a href="pre-processing.html#cb400-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Impute</span></span>
-<span id="cb400-2"><a href="pre-processing.html#cb400-2" aria-hidden="true" tabindex="-1"></a>impute_recipe <span class="ot">=</span> <span class="fu">recipe</span>(Cholesterol <span class="sc">~</span> ., dat) <span class="sc">%&gt;%</span> </span>
-<span id="cb400-3"><a href="pre-processing.html#cb400-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># step_meanimpute(Cholesterol) %&gt;% </span></span>
-<span id="cb400-4"><a href="pre-processing.html#cb400-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">step_knnimpute</span>(Cholesterol)</span>
-<span id="cb400-5"><a href="pre-processing.html#cb400-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># step_knnimpute(all_predictors())</span></span>
-<span id="cb400-6"><a href="pre-processing.html#cb400-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb400-7"><a href="pre-processing.html#cb400-7" aria-hidden="true" tabindex="-1"></a>imputed <span class="ot">=</span> <span class="fu">prep</span>(impute_recipe) <span class="sc">%&gt;%</span> <span class="fu">juice</span>()</span>
-<span id="cb400-8"><a href="pre-processing.html#cb400-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb400-9"><a href="pre-processing.html#cb400-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb400-10"><a href="pre-processing.html#cb400-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Prepare data for visualization</span></span>
-<span id="cb400-11"><a href="pre-processing.html#cb400-11" aria-hidden="true" tabindex="-1"></a>dt1 <span class="ot">=</span> dat <span class="sc">%&gt;%</span> </span>
-<span id="cb400-12"><a href="pre-processing.html#cb400-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Cholesterol, BMI) <span class="sc">%&gt;%</span> </span>
-<span id="cb400-13"><a href="pre-processing.html#cb400-13" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">rename</span>(<span class="at">Cholesterol_imp =</span> Cholesterol) <span class="sc">%&gt;%</span> </span>
-<span id="cb400-14"><a href="pre-processing.html#cb400-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb400-15"><a href="pre-processing.html#cb400-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">Cholesterol_imp =</span> <span class="fu">as.logical</span>(<span class="fu">ifelse</span>(<span class="fu">is.na</span>(Cholesterol_imp), <span class="st">&quot;TRUE&quot;</span>, <span class="st">&quot;FALSE&quot;</span>))</span>
-<span id="cb400-16"><a href="pre-processing.html#cb400-16" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> </span>
-<span id="cb400-17"><a href="pre-processing.html#cb400-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rownames_to_column</span>()</span>
-<span id="cb400-18"><a href="pre-processing.html#cb400-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb400-19"><a href="pre-processing.html#cb400-19" aria-hidden="true" tabindex="-1"></a>dt2 <span class="ot">=</span> imputed <span class="sc">%&gt;%</span> </span>
-<span id="cb400-20"><a href="pre-processing.html#cb400-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Cholesterol, BMI) <span class="sc">%&gt;%</span> </span>
-<span id="cb400-21"><a href="pre-processing.html#cb400-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rownames_to_column</span>()</span>
-<span id="cb400-22"><a href="pre-processing.html#cb400-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb400-23"><a href="pre-processing.html#cb400-23" aria-hidden="true" tabindex="-1"></a>dt <span class="ot">=</span> <span class="fu">left_join</span>(dt1, dt2)</span></code></pre></div>
+<div class="sourceCode" id="cb486"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb486-1"><a href="pre-processing.html#cb486-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Impute</span></span>
+<span id="cb486-2"><a href="pre-processing.html#cb486-2" aria-hidden="true" tabindex="-1"></a>impute_recipe <span class="ot">=</span> <span class="fu">recipe</span>(Cholesterol <span class="sc">~</span> ., dat) <span class="sc">%&gt;%</span> </span>
+<span id="cb486-3"><a href="pre-processing.html#cb486-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># step_meanimpute(Cholesterol) %&gt;% </span></span>
+<span id="cb486-4"><a href="pre-processing.html#cb486-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">step_knnimpute</span>(Cholesterol)</span>
+<span id="cb486-5"><a href="pre-processing.html#cb486-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># step_knnimpute(all_predictors())</span></span>
+<span id="cb486-6"><a href="pre-processing.html#cb486-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb486-7"><a href="pre-processing.html#cb486-7" aria-hidden="true" tabindex="-1"></a>imputed <span class="ot">=</span> <span class="fu">prep</span>(impute_recipe) <span class="sc">%&gt;%</span> <span class="fu">juice</span>()</span>
+<span id="cb486-8"><a href="pre-processing.html#cb486-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb486-9"><a href="pre-processing.html#cb486-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb486-10"><a href="pre-processing.html#cb486-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Prepare data for visualization</span></span>
+<span id="cb486-11"><a href="pre-processing.html#cb486-11" aria-hidden="true" tabindex="-1"></a>dt1 <span class="ot">=</span> dat <span class="sc">%&gt;%</span> </span>
+<span id="cb486-12"><a href="pre-processing.html#cb486-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Cholesterol, BMI) <span class="sc">%&gt;%</span> </span>
+<span id="cb486-13"><a href="pre-processing.html#cb486-13" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">rename</span>(<span class="at">Cholesterol_imp =</span> Cholesterol) <span class="sc">%&gt;%</span> </span>
+<span id="cb486-14"><a href="pre-processing.html#cb486-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb486-15"><a href="pre-processing.html#cb486-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">Cholesterol_imp =</span> <span class="fu">as.logical</span>(<span class="fu">ifelse</span>(<span class="fu">is.na</span>(Cholesterol_imp), <span class="st">&quot;TRUE&quot;</span>, <span class="st">&quot;FALSE&quot;</span>))</span>
+<span id="cb486-16"><a href="pre-processing.html#cb486-16" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> </span>
+<span id="cb486-17"><a href="pre-processing.html#cb486-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rownames_to_column</span>()</span>
+<span id="cb486-18"><a href="pre-processing.html#cb486-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb486-19"><a href="pre-processing.html#cb486-19" aria-hidden="true" tabindex="-1"></a>dt2 <span class="ot">=</span> imputed <span class="sc">%&gt;%</span> </span>
+<span id="cb486-20"><a href="pre-processing.html#cb486-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Cholesterol, BMI) <span class="sc">%&gt;%</span> </span>
+<span id="cb486-21"><a href="pre-processing.html#cb486-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rownames_to_column</span>()</span>
+<span id="cb486-22"><a href="pre-processing.html#cb486-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb486-23"><a href="pre-processing.html#cb486-23" aria-hidden="true" tabindex="-1"></a>dt <span class="ot">=</span> <span class="fu">left_join</span>(dt1, dt2)</span></code></pre></div>
 <pre><code>## Joining, by = c(&quot;rowname&quot;, &quot;BMI&quot;)</code></pre>
-<div class="sourceCode" id="cb402"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb402-1"><a href="pre-processing.html#cb402-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(dt)</span></code></pre></div>
+<div class="sourceCode" id="cb488"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb488-1"><a href="pre-processing.html#cb488-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(dt)</span></code></pre></div>
 <pre><code>##   rowname Cholesterol_imp  BMI Cholesterol
 ## 1       1           FALSE 26.4       236.4
 ## 2       2           FALSE 28.4       256.3
@@ -1079,11 +1116,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 4       4           FALSE 19.9       205.0
 ## 5       5           FALSE 26.7       207.7
 ## 6       6           FALSE 30.6       222.5</code></pre>
-<div class="sourceCode" id="cb404"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb404-1"><a href="pre-processing.html#cb404-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualize how imputation went</span></span>
-<span id="cb404-2"><a href="pre-processing.html#cb404-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb404-3"><a href="pre-processing.html#cb404-3" aria-hidden="true" tabindex="-1"></a>vars <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;BMI&quot;</span>,<span class="st">&quot;Cholesterol&quot;</span>,<span class="st">&quot;Cholesterol_imp&quot;</span>)</span>
-<span id="cb404-4"><a href="pre-processing.html#cb404-4" aria-hidden="true" tabindex="-1"></a><span class="fu">marginplot</span>(dt[,vars], <span class="at">delimiter =</span> <span class="st">&quot;_imp&quot;</span>, <span class="at">alpha =</span> <span class="fl">0.6</span>, <span class="at">pch =</span> <span class="fu">c</span>(<span class="dv">19</span>))</span></code></pre></div>
-<p><img src="_main_images/impute_missing_recipes-1.png" width="672" /></p>
+<div class="sourceCode" id="cb490"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb490-1"><a href="pre-processing.html#cb490-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualize how imputation went</span></span>
+<span id="cb490-2"><a href="pre-processing.html#cb490-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb490-3"><a href="pre-processing.html#cb490-3" aria-hidden="true" tabindex="-1"></a>vars <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;BMI&quot;</span>,<span class="st">&quot;Cholesterol&quot;</span>,<span class="st">&quot;Cholesterol_imp&quot;</span>)</span>
+<span id="cb490-4"><a href="pre-processing.html#cb490-4" aria-hidden="true" tabindex="-1"></a><span class="fu">marginplot</span>(dt[,vars], <span class="at">delimiter =</span> <span class="st">&quot;_imp&quot;</span>, <span class="at">alpha =</span> <span class="fl">0.6</span>, <span class="at">pch =</span> <span class="fu">c</span>(<span class="dv">19</span>))</span></code></pre></div>
+<p><img src="IMAGES/impute_missing_recipes-1.png" width="672" /></p>
 
 </div>
 </div>

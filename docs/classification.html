@@ -411,15 +411,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">14.1</span> Fast and frugal trees</h2>
 <p>For more details and the source code, visit the Github page of the <a href="https://github.com/ndphillips/FFTrees">FFTrees package</a></p>
 <p><strong>Libraries</strong></p>
-<div class="sourceCode" id="cb447"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb447-1"><a href="classification.html#cb447-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&#39;FFTrees&#39;</span>)) <span class="fu">install.packages</span>(<span class="st">&#39;FFTrees&#39;</span>); <span class="fu">library</span>(<span class="st">&#39;FFTrees&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb533"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb533-1"><a href="classification.html#cb533-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&#39;FFTrees&#39;</span>)) <span class="fu">install.packages</span>(<span class="st">&#39;FFTrees&#39;</span>); <span class="fu">library</span>(<span class="st">&#39;FFTrees&#39;</span>)</span></code></pre></div>
 <p><em>Example from the <a href="https://cran.r-project.org/web/packages/FFTrees/vignettes/guide.html">FFTrees guide</a></em></p>
-<div class="sourceCode" id="cb448"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb448-1"><a href="classification.html#cb448-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the best training tree</span></span>
-<span id="cb448-2"><a href="classification.html#cb448-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(heart.fft,</span>
-<span id="cb448-3"><a href="classification.html#cb448-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">&quot;Heart Disease&quot;</span>,</span>
-<span id="cb448-4"><a href="classification.html#cb448-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">decision.labels =</span> <span class="fu">c</span>(<span class="st">&quot;Absent&quot;</span>, <span class="st">&quot;Present&quot;</span>))</span></code></pre></div>
-<p><img src="_main_images/FFT_plot-1.png" width="768" /></p>
-<div class="sourceCode" id="cb449"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb449-1"><a href="classification.html#cb449-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Describe the algorithm</span></span>
-<span id="cb449-2"><a href="classification.html#cb449-2" aria-hidden="true" tabindex="-1"></a>heart.fft<span class="sc">$</span>inwords</span></code></pre></div>
+<div class="sourceCode" id="cb534"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb534-1"><a href="classification.html#cb534-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the best training tree</span></span>
+<span id="cb534-2"><a href="classification.html#cb534-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(heart.fft,</span>
+<span id="cb534-3"><a href="classification.html#cb534-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">&quot;Heart Disease&quot;</span>,</span>
+<span id="cb534-4"><a href="classification.html#cb534-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">decision.labels =</span> <span class="fu">c</span>(<span class="st">&quot;Absent&quot;</span>, <span class="st">&quot;Present&quot;</span>))</span></code></pre></div>
+<p><img src="IMAGES/FFT_plot-1.png" width="768" /></p>
+<div class="sourceCode" id="cb535"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb535-1"><a href="classification.html#cb535-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Describe the algorithm</span></span>
+<span id="cb535-2"><a href="classification.html#cb535-2" aria-hidden="true" tabindex="-1"></a>heart.fft<span class="sc">$</span>inwords</span></code></pre></div>
 <pre><code>## NULL</code></pre>
 
 </div>

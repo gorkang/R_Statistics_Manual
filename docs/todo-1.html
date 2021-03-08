@@ -435,122 +435,122 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="index-proposal" class="section level2" number="19.4">
 <h2><span class="header-section-number">19.4</span> <strong>INDEX PROPOSAL</strong></h2>
-<div class="sourceCode" id="cb468"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb468-1"><a href="todo-1.html#cb468-1" aria-hidden="true" tabindex="-1"></a><span class="co"># # Before we start</span></span>
-<span id="cb468-2"><a href="todo-1.html#cb468-2" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb468-3"><a href="todo-1.html#cb468-3" aria-hidden="true" tabindex="-1"></a><span class="co"># ## Installing R &amp; R Studio</span></span>
-<span id="cb468-4"><a href="todo-1.html#cb468-4" aria-hidden="true" tabindex="-1"></a><span class="co"># ## R Basics</span></span>
-<span id="cb468-5"><a href="todo-1.html#cb468-5" aria-hidden="true" tabindex="-1"></a><span class="co"># * Instalacion de paquetes</span></span>
-<span id="cb468-6"><a href="todo-1.html#cb468-6" aria-hidden="true" tabindex="-1"></a><span class="co"># * Cargar paquetes</span></span>
-<span id="cb468-7"><a href="todo-1.html#cb468-7" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb468-8"><a href="todo-1.html#cb468-8" aria-hidden="true" tabindex="-1"></a><span class="co"># # Preparacion de datos</span></span>
-<span id="cb468-9"><a href="todo-1.html#cb468-9" aria-hidden="true" tabindex="-1"></a><span class="co"># ## Importar datos</span></span>
-<span id="cb468-10"><a href="todo-1.html#cb468-10" aria-hidden="true" tabindex="-1"></a><span class="co"># * CSV, XLS, SPSS (usar tibble?)</span></span>
-<span id="cb468-11"><a href="todo-1.html#cb468-11" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb468-12"><a href="todo-1.html#cb468-12" aria-hidden="true" tabindex="-1"></a><span class="co"># ## Ver datos</span></span>
-<span id="cb468-13"><a href="todo-1.html#cb468-13" aria-hidden="true" tabindex="-1"></a><span class="co"># * Columnas / filas - head() o tibble!</span></span>
-<span id="cb468-14"><a href="todo-1.html#cb468-14" aria-hidden="true" tabindex="-1"></a><span class="co"># * Tipos de variables (tibble)</span></span>
-<span id="cb468-15"><a href="todo-1.html#cb468-15" aria-hidden="true" tabindex="-1"></a><span class="co"># * Summary - incluyendo NAs, etc.</span></span>
-<span id="cb468-16"><a href="todo-1.html#cb468-16" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb468-17"><a href="todo-1.html#cb468-17" aria-hidden="true" tabindex="-1"></a><span class="co"># ## Preprocesamiento basico</span></span>
-<span id="cb468-18"><a href="todo-1.html#cb468-18" aria-hidden="true" tabindex="-1"></a><span class="co"># * Cambiar nombres variables</span></span>
-<span id="cb468-19"><a href="todo-1.html#cb468-19" aria-hidden="true" tabindex="-1"></a><span class="co"># * Cambiar tipos de variable</span></span>
-<span id="cb468-20"><a href="todo-1.html#cb468-20" aria-hidden="true" tabindex="-1"></a><span class="co"># * Filtrar valores</span></span>
-<span id="cb468-21"><a href="todo-1.html#cb468-21" aria-hidden="true" tabindex="-1"></a><span class="co"># * Filtrar NAs</span></span>
-<span id="cb468-22"><a href="todo-1.html#cb468-22" aria-hidden="true" tabindex="-1"></a><span class="co"># * Recodificar variables</span></span>
-<span id="cb468-23"><a href="todo-1.html#cb468-23" aria-hidden="true" tabindex="-1"></a><span class="co"># * Deteccion outliers</span></span>
-<span id="cb468-24"><a href="todo-1.html#cb468-24" aria-hidden="true" tabindex="-1"></a><span class="co"># * Filtrado a partir de RT (avanzado?)</span></span>
-<span id="cb468-25"><a href="todo-1.html#cb468-25" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb468-26"><a href="todo-1.html#cb468-26" aria-hidden="true" tabindex="-1"></a><span class="co"># ## Preprocesamiento avanzado y Construccion de variables</span></span>
-<span id="cb468-27"><a href="todo-1.html#cb468-27" aria-hidden="true" tabindex="-1"></a><span class="co"># * Manipulacion datos - wide to long</span></span>
-<span id="cb468-28"><a href="todo-1.html#cb468-28" aria-hidden="true" tabindex="-1"></a><span class="co"># * tydr y dplyr et al.</span></span>
-<span id="cb468-29"><a href="todo-1.html#cb468-29" aria-hidden="true" tabindex="-1"></a><span class="co"># * Confiabilidad</span></span>
-<span id="cb468-30"><a href="todo-1.html#cb468-30" aria-hidden="true" tabindex="-1"></a><span class="co">#     + Alpha</span></span>
-<span id="cb468-31"><a href="todo-1.html#cb468-31" aria-hidden="true" tabindex="-1"></a><span class="co">#     + Omega</span></span>
-<span id="cb468-32"><a href="todo-1.html#cb468-32" aria-hidden="true" tabindex="-1"></a><span class="co"># * Creacion variables</span></span>
-<span id="cb468-33"><a href="todo-1.html#cb468-33" aria-hidden="true" tabindex="-1"></a><span class="co"># * Filtrado variables</span></span>
-<span id="cb468-34"><a href="todo-1.html#cb468-34" aria-hidden="true" tabindex="-1"></a><span class="co"># * Sumas, promedios...</span></span>
-<span id="cb468-35"><a href="todo-1.html#cb468-35" aria-hidden="true" tabindex="-1"></a><span class="co"># * Segmentacion/categorizacion a partir de criterios logicos (si x&gt;5 entonces A, else B)</span></span>
-<span id="cb468-36"><a href="todo-1.html#cb468-36" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb468-37"><a href="todo-1.html#cb468-37" aria-hidden="true" tabindex="-1"></a><span class="co"># # Analisis descriptivo y visualizacion</span></span>
-<span id="cb468-38"><a href="todo-1.html#cb468-38" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb468-39"><a href="todo-1.html#cb468-39" aria-hidden="true" tabindex="-1"></a><span class="co"># ## Variables individuales</span></span>
-<span id="cb468-40"><a href="todo-1.html#cb468-40" aria-hidden="true" tabindex="-1"></a><span class="co"># * Ver (## Visualizar datos) frecuencias, etc.</span></span>
-<span id="cb468-41"><a href="todo-1.html#cb468-41" aria-hidden="true" tabindex="-1"></a><span class="co"># * Histogramas, etc</span></span>
-<span id="cb468-42"><a href="todo-1.html#cb468-42" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb468-43"><a href="todo-1.html#cb468-43" aria-hidden="true" tabindex="-1"></a><span class="co"># ## Relacion entre variables - tablas</span></span>
-<span id="cb468-44"><a href="todo-1.html#cb468-44" aria-hidden="true" tabindex="-1"></a><span class="co"># * USAR tabla como en inferenciales y visualizacion...</span></span>
-<span id="cb468-45"><a href="todo-1.html#cb468-45" aria-hidden="true" tabindex="-1"></a><span class="co"># * En funcion de tipo de variables, usamos unas u otras tablas</span></span>
-<span id="cb468-46"><a href="todo-1.html#cb468-46" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb468-47"><a href="todo-1.html#cb468-47" aria-hidden="true" tabindex="-1"></a><span class="co"># ## Relacion entre variables - VISUALIZACIONES</span></span>
-<span id="cb468-48"><a href="todo-1.html#cb468-48" aria-hidden="true" tabindex="-1"></a><span class="co"># * USAR tabla como en inferenciales y visualizacion...</span></span>
-<span id="cb468-49"><a href="todo-1.html#cb468-49" aria-hidden="true" tabindex="-1"></a><span class="co"># * En funcion de tipo de variables, usamos unas u otras visualizaciones</span></span>
-<span id="cb468-50"><a href="todo-1.html#cb468-50" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb468-51"><a href="todo-1.html#cb468-51" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb468-52"><a href="todo-1.html#cb468-52" aria-hidden="true" tabindex="-1"></a><span class="co"># # Analisis inferenciales</span></span>
-<span id="cb468-53"><a href="todo-1.html#cb468-53" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb468-54"><a href="todo-1.html#cb468-54" aria-hidden="true" tabindex="-1"></a><span class="co"># * (APARTADOS)</span></span>
-<span id="cb468-55"><a href="todo-1.html#cb468-55" aria-hidden="true" tabindex="-1"></a><span class="co">#     + Assumptions</span></span>
-<span id="cb468-56"><a href="todo-1.html#cb468-56" aria-hidden="true" tabindex="-1"></a><span class="co">#         - Normalidad</span></span>
-<span id="cb468-57"><a href="todo-1.html#cb468-57" aria-hidden="true" tabindex="-1"></a><span class="co">#         - Independencia error</span></span>
-<span id="cb468-58"><a href="todo-1.html#cb468-58" aria-hidden="true" tabindex="-1"></a><span class="co">#         - Homocedasticidad</span></span>
-<span id="cb468-59"><a href="todo-1.html#cb468-59" aria-hidden="true" tabindex="-1"></a><span class="co">#     + Potencia</span></span>
-<span id="cb468-60"><a href="todo-1.html#cb468-60" aria-hidden="true" tabindex="-1"></a><span class="co">#     + Tamaño efecto</span></span>
-<span id="cb468-61"><a href="todo-1.html#cb468-61" aria-hidden="true" tabindex="-1"></a><span class="co">#     + Interpretacion resultados</span></span>
-<span id="cb468-62"><a href="todo-1.html#cb468-62" aria-hidden="true" tabindex="-1"></a><span class="co">#     + Como reportar resultados</span></span>
-<span id="cb468-63"><a href="todo-1.html#cb468-63" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb468-64"><a href="todo-1.html#cb468-64" aria-hidden="true" tabindex="-1"></a><span class="co"># ## Normalidad</span></span>
-<span id="cb468-65"><a href="todo-1.html#cb468-65" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb468-66"><a href="todo-1.html#cb468-66" aria-hidden="true" tabindex="-1"></a><span class="co"># ## t&#39;s</span></span>
-<span id="cb468-67"><a href="todo-1.html#cb468-67" aria-hidden="true" tabindex="-1"></a><span class="co"># * Pareadas</span></span>
-<span id="cb468-68"><a href="todo-1.html#cb468-68" aria-hidden="true" tabindex="-1"></a><span class="co"># * Independientes</span></span>
-<span id="cb468-69"><a href="todo-1.html#cb468-69" aria-hidden="true" tabindex="-1"></a><span class="co"># * 1 muestra</span></span>
-<span id="cb468-70"><a href="todo-1.html#cb468-70" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb468-71"><a href="todo-1.html#cb468-71" aria-hidden="true" tabindex="-1"></a><span class="co"># ## ANOVA</span></span>
-<span id="cb468-72"><a href="todo-1.html#cb468-72" aria-hidden="true" tabindex="-1"></a><span class="co"># * ANOVA simple</span></span>
-<span id="cb468-73"><a href="todo-1.html#cb468-73" aria-hidden="true" tabindex="-1"></a><span class="co"># * ANOVA factorial</span></span>
-<span id="cb468-74"><a href="todo-1.html#cb468-74" aria-hidden="true" tabindex="-1"></a><span class="co"># * ANOVA medidas repetidas</span></span>
-<span id="cb468-75"><a href="todo-1.html#cb468-75" aria-hidden="true" tabindex="-1"></a><span class="co"># * Modelos mixtos</span></span>
-<span id="cb468-76"><a href="todo-1.html#cb468-76" aria-hidden="true" tabindex="-1"></a><span class="co"># * ANCOVA</span></span>
-<span id="cb468-77"><a href="todo-1.html#cb468-77" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb468-78"><a href="todo-1.html#cb468-78" aria-hidden="true" tabindex="-1"></a><span class="co"># ## Correlacion y regresion</span></span>
-<span id="cb468-79"><a href="todo-1.html#cb468-79" aria-hidden="true" tabindex="-1"></a><span class="co"># * Correlacion pearson (continuas)</span></span>
-<span id="cb468-80"><a href="todo-1.html#cb468-80" aria-hidden="true" tabindex="-1"></a><span class="co"># * Correlacion spearman (ordinales o dist no parametricas)</span></span>
-<span id="cb468-81"><a href="todo-1.html#cb468-81" aria-hidden="true" tabindex="-1"></a><span class="co"># * Correlacion parcial / semiparcial</span></span>
-<span id="cb468-82"><a href="todo-1.html#cb468-82" aria-hidden="true" tabindex="-1"></a><span class="co"># * Correlacion items dicotomicos (?)</span></span>
-<span id="cb468-83"><a href="todo-1.html#cb468-83" aria-hidden="true" tabindex="-1"></a><span class="co"># * Regresion multiple</span></span>
-<span id="cb468-84"><a href="todo-1.html#cb468-84" aria-hidden="true" tabindex="-1"></a><span class="co">#     + Construccion variables dummy</span></span>
-<span id="cb468-85"><a href="todo-1.html#cb468-85" aria-hidden="true" tabindex="-1"></a><span class="co">#     + Analisis de residuos</span></span>
-<span id="cb468-86"><a href="todo-1.html#cb468-86" aria-hidden="true" tabindex="-1"></a><span class="co">#     + Efectos palanca y outliers</span></span>
-<span id="cb468-87"><a href="todo-1.html#cb468-87" aria-hidden="true" tabindex="-1"></a><span class="co">#     + Beta estandarizada / no estandarizada</span></span>
-<span id="cb468-88"><a href="todo-1.html#cb468-88" aria-hidden="true" tabindex="-1"></a><span class="co">#     + Interaccion</span></span>
-<span id="cb468-89"><a href="todo-1.html#cb468-89" aria-hidden="true" tabindex="-1"></a><span class="co">#     + Multicolinealidad</span></span>
-<span id="cb468-90"><a href="todo-1.html#cb468-90" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb468-91"><a href="todo-1.html#cb468-91" aria-hidden="true" tabindex="-1"></a><span class="co"># * Regresion logistica</span></span>
-<span id="cb468-92"><a href="todo-1.html#cb468-92" aria-hidden="true" tabindex="-1"></a><span class="co">#     + Binaria</span></span>
-<span id="cb468-93"><a href="todo-1.html#cb468-93" aria-hidden="true" tabindex="-1"></a><span class="co">#     + Multinomial</span></span>
-<span id="cb468-94"><a href="todo-1.html#cb468-94" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb468-95"><a href="todo-1.html#cb468-95" aria-hidden="true" tabindex="-1"></a><span class="co"># * Chi2!</span></span>
-<span id="cb468-96"><a href="todo-1.html#cb468-96" aria-hidden="true" tabindex="-1"></a><span class="co"># * test de Asociacion</span></span>
-<span id="cb468-97"><a href="todo-1.html#cb468-97" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb468-98"><a href="todo-1.html#cb468-98" aria-hidden="true" tabindex="-1"></a><span class="co"># ## Estadistica multivariada</span></span>
-<span id="cb468-99"><a href="todo-1.html#cb468-99" aria-hidden="true" tabindex="-1"></a><span class="co"># * Analisis discriminante</span></span>
-<span id="cb468-100"><a href="todo-1.html#cb468-100" aria-hidden="true" tabindex="-1"></a><span class="co"># * Analisis de conglomerados</span></span>
-<span id="cb468-101"><a href="todo-1.html#cb468-101" aria-hidden="true" tabindex="-1"></a><span class="co"># * MANOVA</span></span>
-<span id="cb468-102"><a href="todo-1.html#cb468-102" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb468-103"><a href="todo-1.html#cb468-103" aria-hidden="true" tabindex="-1"></a><span class="co"># # Analisis avanzados</span></span>
-<span id="cb468-104"><a href="todo-1.html#cb468-104" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb468-105"><a href="todo-1.html#cb468-105" aria-hidden="true" tabindex="-1"></a><span class="co"># ## Analisis de variables latentes</span></span>
-<span id="cb468-106"><a href="todo-1.html#cb468-106" aria-hidden="true" tabindex="-1"></a><span class="co"># * SEM</span></span>
-<span id="cb468-107"><a href="todo-1.html#cb468-107" aria-hidden="true" tabindex="-1"></a><span class="co">#     + Analisis de invariancia</span></span>
-<span id="cb468-108"><a href="todo-1.html#cb468-108" aria-hidden="true" tabindex="-1"></a><span class="co"># * Path analysis</span></span>
-<span id="cb468-109"><a href="todo-1.html#cb468-109" aria-hidden="true" tabindex="-1"></a><span class="co"># * Mediacion / Moderacion</span></span>
-<span id="cb468-110"><a href="todo-1.html#cb468-110" aria-hidden="true" tabindex="-1"></a><span class="co"># * Analisis factorial exploratorio</span></span>
-<span id="cb468-111"><a href="todo-1.html#cb468-111" aria-hidden="true" tabindex="-1"></a><span class="co"># * Analisis factorial confirmatorio</span></span>
-<span id="cb468-112"><a href="todo-1.html#cb468-112" aria-hidden="true" tabindex="-1"></a><span class="co"># * Analisis componentes principales</span></span>
-<span id="cb468-113"><a href="todo-1.html#cb468-113" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb468-114"><a href="todo-1.html#cb468-114" aria-hidden="true" tabindex="-1"></a><span class="co"># ## IRT Analisis respuesta al item</span></span>
-<span id="cb468-115"><a href="todo-1.html#cb468-115" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb468-116"><a href="todo-1.html#cb468-116" aria-hidden="true" tabindex="-1"></a><span class="co"># ## Multinivel - Modelos anidados/jerarquicos</span></span></code></pre></div>
+<div class="sourceCode" id="cb554"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb554-1"><a href="todo-1.html#cb554-1" aria-hidden="true" tabindex="-1"></a><span class="co"># # Before we start</span></span>
+<span id="cb554-2"><a href="todo-1.html#cb554-2" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb554-3"><a href="todo-1.html#cb554-3" aria-hidden="true" tabindex="-1"></a><span class="co"># ## Installing R &amp; R Studio</span></span>
+<span id="cb554-4"><a href="todo-1.html#cb554-4" aria-hidden="true" tabindex="-1"></a><span class="co"># ## R Basics</span></span>
+<span id="cb554-5"><a href="todo-1.html#cb554-5" aria-hidden="true" tabindex="-1"></a><span class="co"># * Instalacion de paquetes</span></span>
+<span id="cb554-6"><a href="todo-1.html#cb554-6" aria-hidden="true" tabindex="-1"></a><span class="co"># * Cargar paquetes</span></span>
+<span id="cb554-7"><a href="todo-1.html#cb554-7" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb554-8"><a href="todo-1.html#cb554-8" aria-hidden="true" tabindex="-1"></a><span class="co"># # Preparacion de datos</span></span>
+<span id="cb554-9"><a href="todo-1.html#cb554-9" aria-hidden="true" tabindex="-1"></a><span class="co"># ## Importar datos</span></span>
+<span id="cb554-10"><a href="todo-1.html#cb554-10" aria-hidden="true" tabindex="-1"></a><span class="co"># * CSV, XLS, SPSS (usar tibble?)</span></span>
+<span id="cb554-11"><a href="todo-1.html#cb554-11" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb554-12"><a href="todo-1.html#cb554-12" aria-hidden="true" tabindex="-1"></a><span class="co"># ## Ver datos</span></span>
+<span id="cb554-13"><a href="todo-1.html#cb554-13" aria-hidden="true" tabindex="-1"></a><span class="co"># * Columnas / filas - head() o tibble!</span></span>
+<span id="cb554-14"><a href="todo-1.html#cb554-14" aria-hidden="true" tabindex="-1"></a><span class="co"># * Tipos de variables (tibble)</span></span>
+<span id="cb554-15"><a href="todo-1.html#cb554-15" aria-hidden="true" tabindex="-1"></a><span class="co"># * Summary - incluyendo NAs, etc.</span></span>
+<span id="cb554-16"><a href="todo-1.html#cb554-16" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb554-17"><a href="todo-1.html#cb554-17" aria-hidden="true" tabindex="-1"></a><span class="co"># ## Preprocesamiento basico</span></span>
+<span id="cb554-18"><a href="todo-1.html#cb554-18" aria-hidden="true" tabindex="-1"></a><span class="co"># * Cambiar nombres variables</span></span>
+<span id="cb554-19"><a href="todo-1.html#cb554-19" aria-hidden="true" tabindex="-1"></a><span class="co"># * Cambiar tipos de variable</span></span>
+<span id="cb554-20"><a href="todo-1.html#cb554-20" aria-hidden="true" tabindex="-1"></a><span class="co"># * Filtrar valores</span></span>
+<span id="cb554-21"><a href="todo-1.html#cb554-21" aria-hidden="true" tabindex="-1"></a><span class="co"># * Filtrar NAs</span></span>
+<span id="cb554-22"><a href="todo-1.html#cb554-22" aria-hidden="true" tabindex="-1"></a><span class="co"># * Recodificar variables</span></span>
+<span id="cb554-23"><a href="todo-1.html#cb554-23" aria-hidden="true" tabindex="-1"></a><span class="co"># * Deteccion outliers</span></span>
+<span id="cb554-24"><a href="todo-1.html#cb554-24" aria-hidden="true" tabindex="-1"></a><span class="co"># * Filtrado a partir de RT (avanzado?)</span></span>
+<span id="cb554-25"><a href="todo-1.html#cb554-25" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb554-26"><a href="todo-1.html#cb554-26" aria-hidden="true" tabindex="-1"></a><span class="co"># ## Preprocesamiento avanzado y Construccion de variables</span></span>
+<span id="cb554-27"><a href="todo-1.html#cb554-27" aria-hidden="true" tabindex="-1"></a><span class="co"># * Manipulacion datos - wide to long</span></span>
+<span id="cb554-28"><a href="todo-1.html#cb554-28" aria-hidden="true" tabindex="-1"></a><span class="co"># * tydr y dplyr et al.</span></span>
+<span id="cb554-29"><a href="todo-1.html#cb554-29" aria-hidden="true" tabindex="-1"></a><span class="co"># * Confiabilidad</span></span>
+<span id="cb554-30"><a href="todo-1.html#cb554-30" aria-hidden="true" tabindex="-1"></a><span class="co">#     + Alpha</span></span>
+<span id="cb554-31"><a href="todo-1.html#cb554-31" aria-hidden="true" tabindex="-1"></a><span class="co">#     + Omega</span></span>
+<span id="cb554-32"><a href="todo-1.html#cb554-32" aria-hidden="true" tabindex="-1"></a><span class="co"># * Creacion variables</span></span>
+<span id="cb554-33"><a href="todo-1.html#cb554-33" aria-hidden="true" tabindex="-1"></a><span class="co"># * Filtrado variables</span></span>
+<span id="cb554-34"><a href="todo-1.html#cb554-34" aria-hidden="true" tabindex="-1"></a><span class="co"># * Sumas, promedios...</span></span>
+<span id="cb554-35"><a href="todo-1.html#cb554-35" aria-hidden="true" tabindex="-1"></a><span class="co"># * Segmentacion/categorizacion a partir de criterios logicos (si x&gt;5 entonces A, else B)</span></span>
+<span id="cb554-36"><a href="todo-1.html#cb554-36" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb554-37"><a href="todo-1.html#cb554-37" aria-hidden="true" tabindex="-1"></a><span class="co"># # Analisis descriptivo y visualizacion</span></span>
+<span id="cb554-38"><a href="todo-1.html#cb554-38" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb554-39"><a href="todo-1.html#cb554-39" aria-hidden="true" tabindex="-1"></a><span class="co"># ## Variables individuales</span></span>
+<span id="cb554-40"><a href="todo-1.html#cb554-40" aria-hidden="true" tabindex="-1"></a><span class="co"># * Ver (## Visualizar datos) frecuencias, etc.</span></span>
+<span id="cb554-41"><a href="todo-1.html#cb554-41" aria-hidden="true" tabindex="-1"></a><span class="co"># * Histogramas, etc</span></span>
+<span id="cb554-42"><a href="todo-1.html#cb554-42" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb554-43"><a href="todo-1.html#cb554-43" aria-hidden="true" tabindex="-1"></a><span class="co"># ## Relacion entre variables - tablas</span></span>
+<span id="cb554-44"><a href="todo-1.html#cb554-44" aria-hidden="true" tabindex="-1"></a><span class="co"># * USAR tabla como en inferenciales y visualizacion...</span></span>
+<span id="cb554-45"><a href="todo-1.html#cb554-45" aria-hidden="true" tabindex="-1"></a><span class="co"># * En funcion de tipo de variables, usamos unas u otras tablas</span></span>
+<span id="cb554-46"><a href="todo-1.html#cb554-46" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb554-47"><a href="todo-1.html#cb554-47" aria-hidden="true" tabindex="-1"></a><span class="co"># ## Relacion entre variables - VISUALIZACIONES</span></span>
+<span id="cb554-48"><a href="todo-1.html#cb554-48" aria-hidden="true" tabindex="-1"></a><span class="co"># * USAR tabla como en inferenciales y visualizacion...</span></span>
+<span id="cb554-49"><a href="todo-1.html#cb554-49" aria-hidden="true" tabindex="-1"></a><span class="co"># * En funcion de tipo de variables, usamos unas u otras visualizaciones</span></span>
+<span id="cb554-50"><a href="todo-1.html#cb554-50" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb554-51"><a href="todo-1.html#cb554-51" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb554-52"><a href="todo-1.html#cb554-52" aria-hidden="true" tabindex="-1"></a><span class="co"># # Analisis inferenciales</span></span>
+<span id="cb554-53"><a href="todo-1.html#cb554-53" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb554-54"><a href="todo-1.html#cb554-54" aria-hidden="true" tabindex="-1"></a><span class="co"># * (APARTADOS)</span></span>
+<span id="cb554-55"><a href="todo-1.html#cb554-55" aria-hidden="true" tabindex="-1"></a><span class="co">#     + Assumptions</span></span>
+<span id="cb554-56"><a href="todo-1.html#cb554-56" aria-hidden="true" tabindex="-1"></a><span class="co">#         - Normalidad</span></span>
+<span id="cb554-57"><a href="todo-1.html#cb554-57" aria-hidden="true" tabindex="-1"></a><span class="co">#         - Independencia error</span></span>
+<span id="cb554-58"><a href="todo-1.html#cb554-58" aria-hidden="true" tabindex="-1"></a><span class="co">#         - Homocedasticidad</span></span>
+<span id="cb554-59"><a href="todo-1.html#cb554-59" aria-hidden="true" tabindex="-1"></a><span class="co">#     + Potencia</span></span>
+<span id="cb554-60"><a href="todo-1.html#cb554-60" aria-hidden="true" tabindex="-1"></a><span class="co">#     + Tamaño efecto</span></span>
+<span id="cb554-61"><a href="todo-1.html#cb554-61" aria-hidden="true" tabindex="-1"></a><span class="co">#     + Interpretacion resultados</span></span>
+<span id="cb554-62"><a href="todo-1.html#cb554-62" aria-hidden="true" tabindex="-1"></a><span class="co">#     + Como reportar resultados</span></span>
+<span id="cb554-63"><a href="todo-1.html#cb554-63" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb554-64"><a href="todo-1.html#cb554-64" aria-hidden="true" tabindex="-1"></a><span class="co"># ## Normalidad</span></span>
+<span id="cb554-65"><a href="todo-1.html#cb554-65" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb554-66"><a href="todo-1.html#cb554-66" aria-hidden="true" tabindex="-1"></a><span class="co"># ## t&#39;s</span></span>
+<span id="cb554-67"><a href="todo-1.html#cb554-67" aria-hidden="true" tabindex="-1"></a><span class="co"># * Pareadas</span></span>
+<span id="cb554-68"><a href="todo-1.html#cb554-68" aria-hidden="true" tabindex="-1"></a><span class="co"># * Independientes</span></span>
+<span id="cb554-69"><a href="todo-1.html#cb554-69" aria-hidden="true" tabindex="-1"></a><span class="co"># * 1 muestra</span></span>
+<span id="cb554-70"><a href="todo-1.html#cb554-70" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb554-71"><a href="todo-1.html#cb554-71" aria-hidden="true" tabindex="-1"></a><span class="co"># ## ANOVA</span></span>
+<span id="cb554-72"><a href="todo-1.html#cb554-72" aria-hidden="true" tabindex="-1"></a><span class="co"># * ANOVA simple</span></span>
+<span id="cb554-73"><a href="todo-1.html#cb554-73" aria-hidden="true" tabindex="-1"></a><span class="co"># * ANOVA factorial</span></span>
+<span id="cb554-74"><a href="todo-1.html#cb554-74" aria-hidden="true" tabindex="-1"></a><span class="co"># * ANOVA medidas repetidas</span></span>
+<span id="cb554-75"><a href="todo-1.html#cb554-75" aria-hidden="true" tabindex="-1"></a><span class="co"># * Modelos mixtos</span></span>
+<span id="cb554-76"><a href="todo-1.html#cb554-76" aria-hidden="true" tabindex="-1"></a><span class="co"># * ANCOVA</span></span>
+<span id="cb554-77"><a href="todo-1.html#cb554-77" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb554-78"><a href="todo-1.html#cb554-78" aria-hidden="true" tabindex="-1"></a><span class="co"># ## Correlacion y regresion</span></span>
+<span id="cb554-79"><a href="todo-1.html#cb554-79" aria-hidden="true" tabindex="-1"></a><span class="co"># * Correlacion pearson (continuas)</span></span>
+<span id="cb554-80"><a href="todo-1.html#cb554-80" aria-hidden="true" tabindex="-1"></a><span class="co"># * Correlacion spearman (ordinales o dist no parametricas)</span></span>
+<span id="cb554-81"><a href="todo-1.html#cb554-81" aria-hidden="true" tabindex="-1"></a><span class="co"># * Correlacion parcial / semiparcial</span></span>
+<span id="cb554-82"><a href="todo-1.html#cb554-82" aria-hidden="true" tabindex="-1"></a><span class="co"># * Correlacion items dicotomicos (?)</span></span>
+<span id="cb554-83"><a href="todo-1.html#cb554-83" aria-hidden="true" tabindex="-1"></a><span class="co"># * Regresion multiple</span></span>
+<span id="cb554-84"><a href="todo-1.html#cb554-84" aria-hidden="true" tabindex="-1"></a><span class="co">#     + Construccion variables dummy</span></span>
+<span id="cb554-85"><a href="todo-1.html#cb554-85" aria-hidden="true" tabindex="-1"></a><span class="co">#     + Analisis de residuos</span></span>
+<span id="cb554-86"><a href="todo-1.html#cb554-86" aria-hidden="true" tabindex="-1"></a><span class="co">#     + Efectos palanca y outliers</span></span>
+<span id="cb554-87"><a href="todo-1.html#cb554-87" aria-hidden="true" tabindex="-1"></a><span class="co">#     + Beta estandarizada / no estandarizada</span></span>
+<span id="cb554-88"><a href="todo-1.html#cb554-88" aria-hidden="true" tabindex="-1"></a><span class="co">#     + Interaccion</span></span>
+<span id="cb554-89"><a href="todo-1.html#cb554-89" aria-hidden="true" tabindex="-1"></a><span class="co">#     + Multicolinealidad</span></span>
+<span id="cb554-90"><a href="todo-1.html#cb554-90" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb554-91"><a href="todo-1.html#cb554-91" aria-hidden="true" tabindex="-1"></a><span class="co"># * Regresion logistica</span></span>
+<span id="cb554-92"><a href="todo-1.html#cb554-92" aria-hidden="true" tabindex="-1"></a><span class="co">#     + Binaria</span></span>
+<span id="cb554-93"><a href="todo-1.html#cb554-93" aria-hidden="true" tabindex="-1"></a><span class="co">#     + Multinomial</span></span>
+<span id="cb554-94"><a href="todo-1.html#cb554-94" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb554-95"><a href="todo-1.html#cb554-95" aria-hidden="true" tabindex="-1"></a><span class="co"># * Chi2!</span></span>
+<span id="cb554-96"><a href="todo-1.html#cb554-96" aria-hidden="true" tabindex="-1"></a><span class="co"># * test de Asociacion</span></span>
+<span id="cb554-97"><a href="todo-1.html#cb554-97" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb554-98"><a href="todo-1.html#cb554-98" aria-hidden="true" tabindex="-1"></a><span class="co"># ## Estadistica multivariada</span></span>
+<span id="cb554-99"><a href="todo-1.html#cb554-99" aria-hidden="true" tabindex="-1"></a><span class="co"># * Analisis discriminante</span></span>
+<span id="cb554-100"><a href="todo-1.html#cb554-100" aria-hidden="true" tabindex="-1"></a><span class="co"># * Analisis de conglomerados</span></span>
+<span id="cb554-101"><a href="todo-1.html#cb554-101" aria-hidden="true" tabindex="-1"></a><span class="co"># * MANOVA</span></span>
+<span id="cb554-102"><a href="todo-1.html#cb554-102" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb554-103"><a href="todo-1.html#cb554-103" aria-hidden="true" tabindex="-1"></a><span class="co"># # Analisis avanzados</span></span>
+<span id="cb554-104"><a href="todo-1.html#cb554-104" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb554-105"><a href="todo-1.html#cb554-105" aria-hidden="true" tabindex="-1"></a><span class="co"># ## Analisis de variables latentes</span></span>
+<span id="cb554-106"><a href="todo-1.html#cb554-106" aria-hidden="true" tabindex="-1"></a><span class="co"># * SEM</span></span>
+<span id="cb554-107"><a href="todo-1.html#cb554-107" aria-hidden="true" tabindex="-1"></a><span class="co">#     + Analisis de invariancia</span></span>
+<span id="cb554-108"><a href="todo-1.html#cb554-108" aria-hidden="true" tabindex="-1"></a><span class="co"># * Path analysis</span></span>
+<span id="cb554-109"><a href="todo-1.html#cb554-109" aria-hidden="true" tabindex="-1"></a><span class="co"># * Mediacion / Moderacion</span></span>
+<span id="cb554-110"><a href="todo-1.html#cb554-110" aria-hidden="true" tabindex="-1"></a><span class="co"># * Analisis factorial exploratorio</span></span>
+<span id="cb554-111"><a href="todo-1.html#cb554-111" aria-hidden="true" tabindex="-1"></a><span class="co"># * Analisis factorial confirmatorio</span></span>
+<span id="cb554-112"><a href="todo-1.html#cb554-112" aria-hidden="true" tabindex="-1"></a><span class="co"># * Analisis componentes principales</span></span>
+<span id="cb554-113"><a href="todo-1.html#cb554-113" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb554-114"><a href="todo-1.html#cb554-114" aria-hidden="true" tabindex="-1"></a><span class="co"># ## IRT Analisis respuesta al item</span></span>
+<span id="cb554-115"><a href="todo-1.html#cb554-115" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb554-116"><a href="todo-1.html#cb554-116" aria-hidden="true" tabindex="-1"></a><span class="co"># ## Multinivel - Modelos anidados/jerarquicos</span></span></code></pre></div>
 </div>
 <div id="style-guide" class="section level2" number="19.5">
 <h2><span class="header-section-number">19.5</span> Style guide</h2>

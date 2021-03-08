@@ -410,76 +410,76 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="tamaño-de-muestra-y-efecto-detectado" class="section level2" number="13.1">
 <h2><span class="header-section-number">13.1</span> Tamaño de muestra y efecto detectado</h2>
 <p>En esta simulación se muestra como con tamaños de muestra pequeños, se sobreestima el tamaño de efecto real. Como se puede ver en el codigo, solo se muestran los estudios simulados donde la correlacion es significativa. Ver el <a href="https://jimgrange.wordpress.com/2017/03/06/low-power-effect-sizes/">blog de Jim Grange</a> para una explicación más detallada.</p>
-<div class="sourceCode" id="cb405"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb405-1"><a href="experimental-design.html#cb405-1" aria-hidden="true" tabindex="-1"></a><span class="co"># https://jimgrange.wordpress.com/2017/03/06/low-power-effect-sizes/</span></span>
-<span id="cb405-2"><a href="experimental-design.html#cb405-2" aria-hidden="true" tabindex="-1"></a><span class="co">#------------------------------------------------------------------------------</span></span>
-<span id="cb405-3"><a href="experimental-design.html#cb405-3" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>())</span>
-<span id="cb405-4"><a href="experimental-design.html#cb405-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb405-5"><a href="experimental-design.html#cb405-5" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">50</span>)</span>
-<span id="cb405-6"><a href="experimental-design.html#cb405-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb405-7"><a href="experimental-design.html#cb405-7" aria-hidden="true" tabindex="-1"></a><span class="co"># function for generating random draws from multivariate distribution</span></span>
-<span id="cb405-8"><a href="experimental-design.html#cb405-8" aria-hidden="true" tabindex="-1"></a><span class="co"># n = number of draws; p = number of variables</span></span>
-<span id="cb405-9"><a href="experimental-design.html#cb405-9" aria-hidden="true" tabindex="-1"></a><span class="co"># u = mean of each variable; s = SD of each variable</span></span>
-<span id="cb405-10"><a href="experimental-design.html#cb405-10" aria-hidden="true" tabindex="-1"></a><span class="co"># corMat = correlation matrix</span></span>
-<span id="cb405-11"><a href="experimental-design.html#cb405-11" aria-hidden="true" tabindex="-1"></a>mvrnorm <span class="ot">&lt;-</span> <span class="cf">function</span>(n, p, u, s, corMat) {</span>
-<span id="cb405-12"><a href="experimental-design.html#cb405-12" aria-hidden="true" tabindex="-1"></a>  Z <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">rnorm</span>(n <span class="sc">*</span> p), p, n)</span>
-<span id="cb405-13"><a href="experimental-design.html#cb405-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">t</span>(u <span class="sc">+</span> s <span class="sc">*</span> <span class="fu">t</span>(<span class="fu">chol</span>(corMat)) <span class="sc">%*%</span> Z)</span>
-<span id="cb405-14"><a href="experimental-design.html#cb405-14" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb405-15"><a href="experimental-design.html#cb405-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb405-16"><a href="experimental-design.html#cb405-16" aria-hidden="true" tabindex="-1"></a><span class="co">#------------------------------------------------------------------------------</span></span>
-<span id="cb405-17"><a href="experimental-design.html#cb405-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb405-18"><a href="experimental-design.html#cb405-18" aria-hidden="true" tabindex="-1"></a><span class="co">#------------------------------------------------------------------------------</span></span>
-<span id="cb405-19"><a href="experimental-design.html#cb405-19" aria-hidden="true" tabindex="-1"></a><span class="do">### simulation setup</span></span>
-<span id="cb405-20"><a href="experimental-design.html#cb405-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb405-21"><a href="experimental-design.html#cb405-21" aria-hidden="true" tabindex="-1"></a><span class="co"># declare simulation parameters</span></span>
-<span id="cb405-22"><a href="experimental-design.html#cb405-22" aria-hidden="true" tabindex="-1"></a>means <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">100</span>, <span class="dv">600</span>)</span>
-<span id="cb405-23"><a href="experimental-design.html#cb405-23" aria-hidden="true" tabindex="-1"></a>sds <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">20</span>, <span class="dv">80</span>)</span>
-<span id="cb405-24"><a href="experimental-design.html#cb405-24" aria-hidden="true" tabindex="-1"></a>n_sims <span class="ot">=</span> <span class="dv">1000</span></span>
-<span id="cb405-25"><a href="experimental-design.html#cb405-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb405-26"><a href="experimental-design.html#cb405-26" aria-hidden="true" tabindex="-1"></a><span class="co"># declare correlation coefficient &amp; generate cor. matrix</span></span>
-<span id="cb405-27"><a href="experimental-design.html#cb405-27" aria-hidden="true" tabindex="-1"></a>cor <span class="ot">&lt;-</span> <span class="fl">0.3</span></span>
-<span id="cb405-28"><a href="experimental-design.html#cb405-28" aria-hidden="true" tabindex="-1"></a>cor_mat <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>, cor, </span>
-<span id="cb405-29"><a href="experimental-design.html#cb405-29" aria-hidden="true" tabindex="-1"></a>                    cor, <span class="dv">1</span>), <span class="at">nrow =</span> <span class="dv">2</span>, <span class="at">ncol =</span> <span class="dv">2</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb405-30"><a href="experimental-design.html#cb405-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb405-31"><a href="experimental-design.html#cb405-31" aria-hidden="true" tabindex="-1"></a><span class="co"># sample sizes to simulate</span></span>
-<span id="cb405-32"><a href="experimental-design.html#cb405-32" aria-hidden="true" tabindex="-1"></a>sample_sizes <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">50</span>, <span class="dv">85</span>, <span class="dv">170</span>, <span class="dv">500</span>, <span class="dv">1000</span>)</span>
-<span id="cb405-33"><a href="experimental-design.html#cb405-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb405-34"><a href="experimental-design.html#cb405-34" aria-hidden="true" tabindex="-1"></a><span class="co"># number of simulations</span></span>
-<span id="cb405-35"><a href="experimental-design.html#cb405-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb405-36"><a href="experimental-design.html#cb405-36" aria-hidden="true" tabindex="-1"></a><span class="co"># create variable to store data in</span></span>
-<span id="cb405-37"><a href="experimental-design.html#cb405-37" aria-hidden="true" tabindex="-1"></a>final_data <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="at">nrow =</span> n_sims, <span class="at">ncol =</span> <span class="fu">length</span>(sample_sizes))</span>
-<span id="cb405-38"><a href="experimental-design.html#cb405-38" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(final_data) <span class="ot">&lt;-</span> sample_sizes</span>
-<span id="cb405-39"><a href="experimental-design.html#cb405-39" aria-hidden="true" tabindex="-1"></a><span class="co">#------------------------------------------------------------------------------</span></span>
-<span id="cb405-40"><a href="experimental-design.html#cb405-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb405-41"><a href="experimental-design.html#cb405-41" aria-hidden="true" tabindex="-1"></a><span class="co">#------------------------------------------------------------------------------</span></span>
-<span id="cb405-42"><a href="experimental-design.html#cb405-42" aria-hidden="true" tabindex="-1"></a><span class="do">### simulation execution</span></span>
-<span id="cb405-43"><a href="experimental-design.html#cb405-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb405-44"><a href="experimental-design.html#cb405-44" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(sample_sizes)){</span>
-<span id="cb405-45"><a href="experimental-design.html#cb405-45" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span>(j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>n_sims){</span>
-<span id="cb405-46"><a href="experimental-design.html#cb405-46" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb405-47"><a href="experimental-design.html#cb405-47" aria-hidden="true" tabindex="-1"></a>    <span class="co"># get the experiment data</span></span>
-<span id="cb405-48"><a href="experimental-design.html#cb405-48" aria-hidden="true" tabindex="-1"></a>    sim_data <span class="ot">&lt;-</span> <span class="fu">mvrnorm</span>(sample_sizes[i], <span class="at">p =</span> <span class="dv">2</span>, <span class="at">u =</span> means, <span class="at">s =</span> sds, </span>
-<span id="cb405-49"><a href="experimental-design.html#cb405-49" aria-hidden="true" tabindex="-1"></a>                        <span class="at">corMat =</span> cor_mat)</span>
-<span id="cb405-50"><a href="experimental-design.html#cb405-50" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb405-51"><a href="experimental-design.html#cb405-51" aria-hidden="true" tabindex="-1"></a>    <span class="co"># perform the correlation</span></span>
-<span id="cb405-52"><a href="experimental-design.html#cb405-52" aria-hidden="true" tabindex="-1"></a>    sim_cor <span class="ot">&lt;-</span> <span class="fu">cor.test</span>(sim_data[, <span class="dv">1</span>], sim_data[, <span class="dv">2</span>], <span class="at">method =</span> <span class="st">&quot;pearson&quot;</span>)</span>
-<span id="cb405-53"><a href="experimental-design.html#cb405-53" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb405-54"><a href="experimental-design.html#cb405-54" aria-hidden="true" tabindex="-1"></a>    <span class="co"># if the correlation is significant, store the effect size</span></span>
-<span id="cb405-55"><a href="experimental-design.html#cb405-55" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span>(sim_cor<span class="sc">$</span>p.value <span class="sc">&lt;</span> <span class="fl">0.05</span>){</span>
-<span id="cb405-56"><a href="experimental-design.html#cb405-56" aria-hidden="true" tabindex="-1"></a>      final_data[j, i] <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">round</span>(<span class="fu">abs</span>(sim_cor<span class="sc">$</span>estimate), <span class="dv">3</span>))</span>
-<span id="cb405-57"><a href="experimental-design.html#cb405-57" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb405-58"><a href="experimental-design.html#cb405-58" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb405-59"><a href="experimental-design.html#cb405-59" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb405-60"><a href="experimental-design.html#cb405-60" aria-hidden="true" tabindex="-1"></a><span class="co">#------------------------------------------------------------------------------</span></span>
-<span id="cb405-61"><a href="experimental-design.html#cb405-61" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb405-62"><a href="experimental-design.html#cb405-62" aria-hidden="true" tabindex="-1"></a><span class="co">#------------------------------------------------------------------------------</span></span>
-<span id="cb405-63"><a href="experimental-design.html#cb405-63" aria-hidden="true" tabindex="-1"></a><span class="do">## draw the plot</span></span>
-<span id="cb405-64"><a href="experimental-design.html#cb405-64" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(final_data, <span class="at">na.action=</span>na.omit, <span class="at">xlab =</span> <span class="st">&quot;Simulated Sample Size&quot;</span>, </span>
-<span id="cb405-65"><a href="experimental-design.html#cb405-65" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylab =</span> <span class="st">&quot;Measured Effect Size&quot;</span>)</span>
-<span id="cb405-66"><a href="experimental-design.html#cb405-66" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h =</span> cor, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>, <span class="at">lty =</span> <span class="dv">2</span>, <span class="at">lwd =</span> <span class="dv">3</span>)</span>
-<span id="cb405-67"><a href="experimental-design.html#cb405-67" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb405-68"><a href="experimental-design.html#cb405-68" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">&quot;topright&quot;</span>, <span class="st">&quot;True Effect Size&quot;</span>, <span class="at">cex =</span> <span class="fl">1.5</span>,  <span class="at">lty =</span> <span class="dv">2</span>, <span class="at">bty=</span><span class="st">&quot;n&quot;</span>, </span>
-<span id="cb405-69"><a href="experimental-design.html#cb405-69" aria-hidden="true" tabindex="-1"></a>       <span class="at">col =</span> <span class="st">&quot;red&quot;</span>, <span class="at">lwd =</span> <span class="dv">3</span>)</span></code></pre></div>
-<p><img src="_main_images/sample_size_calculation-1.png" width="672" /></p>
+<div class="sourceCode" id="cb491"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb491-1"><a href="experimental-design.html#cb491-1" aria-hidden="true" tabindex="-1"></a><span class="co"># https://jimgrange.wordpress.com/2017/03/06/low-power-effect-sizes/</span></span>
+<span id="cb491-2"><a href="experimental-design.html#cb491-2" aria-hidden="true" tabindex="-1"></a><span class="co">#------------------------------------------------------------------------------</span></span>
+<span id="cb491-3"><a href="experimental-design.html#cb491-3" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>())</span>
+<span id="cb491-4"><a href="experimental-design.html#cb491-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb491-5"><a href="experimental-design.html#cb491-5" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">50</span>)</span>
+<span id="cb491-6"><a href="experimental-design.html#cb491-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb491-7"><a href="experimental-design.html#cb491-7" aria-hidden="true" tabindex="-1"></a><span class="co"># function for generating random draws from multivariate distribution</span></span>
+<span id="cb491-8"><a href="experimental-design.html#cb491-8" aria-hidden="true" tabindex="-1"></a><span class="co"># n = number of draws; p = number of variables</span></span>
+<span id="cb491-9"><a href="experimental-design.html#cb491-9" aria-hidden="true" tabindex="-1"></a><span class="co"># u = mean of each variable; s = SD of each variable</span></span>
+<span id="cb491-10"><a href="experimental-design.html#cb491-10" aria-hidden="true" tabindex="-1"></a><span class="co"># corMat = correlation matrix</span></span>
+<span id="cb491-11"><a href="experimental-design.html#cb491-11" aria-hidden="true" tabindex="-1"></a>mvrnorm <span class="ot">&lt;-</span> <span class="cf">function</span>(n, p, u, s, corMat) {</span>
+<span id="cb491-12"><a href="experimental-design.html#cb491-12" aria-hidden="true" tabindex="-1"></a>  Z <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">rnorm</span>(n <span class="sc">*</span> p), p, n)</span>
+<span id="cb491-13"><a href="experimental-design.html#cb491-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">t</span>(u <span class="sc">+</span> s <span class="sc">*</span> <span class="fu">t</span>(<span class="fu">chol</span>(corMat)) <span class="sc">%*%</span> Z)</span>
+<span id="cb491-14"><a href="experimental-design.html#cb491-14" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb491-15"><a href="experimental-design.html#cb491-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb491-16"><a href="experimental-design.html#cb491-16" aria-hidden="true" tabindex="-1"></a><span class="co">#------------------------------------------------------------------------------</span></span>
+<span id="cb491-17"><a href="experimental-design.html#cb491-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb491-18"><a href="experimental-design.html#cb491-18" aria-hidden="true" tabindex="-1"></a><span class="co">#------------------------------------------------------------------------------</span></span>
+<span id="cb491-19"><a href="experimental-design.html#cb491-19" aria-hidden="true" tabindex="-1"></a><span class="do">### simulation setup</span></span>
+<span id="cb491-20"><a href="experimental-design.html#cb491-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb491-21"><a href="experimental-design.html#cb491-21" aria-hidden="true" tabindex="-1"></a><span class="co"># declare simulation parameters</span></span>
+<span id="cb491-22"><a href="experimental-design.html#cb491-22" aria-hidden="true" tabindex="-1"></a>means <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">100</span>, <span class="dv">600</span>)</span>
+<span id="cb491-23"><a href="experimental-design.html#cb491-23" aria-hidden="true" tabindex="-1"></a>sds <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">20</span>, <span class="dv">80</span>)</span>
+<span id="cb491-24"><a href="experimental-design.html#cb491-24" aria-hidden="true" tabindex="-1"></a>n_sims <span class="ot">=</span> <span class="dv">1000</span></span>
+<span id="cb491-25"><a href="experimental-design.html#cb491-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb491-26"><a href="experimental-design.html#cb491-26" aria-hidden="true" tabindex="-1"></a><span class="co"># declare correlation coefficient &amp; generate cor. matrix</span></span>
+<span id="cb491-27"><a href="experimental-design.html#cb491-27" aria-hidden="true" tabindex="-1"></a>cor <span class="ot">&lt;-</span> <span class="fl">0.3</span></span>
+<span id="cb491-28"><a href="experimental-design.html#cb491-28" aria-hidden="true" tabindex="-1"></a>cor_mat <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>, cor, </span>
+<span id="cb491-29"><a href="experimental-design.html#cb491-29" aria-hidden="true" tabindex="-1"></a>                    cor, <span class="dv">1</span>), <span class="at">nrow =</span> <span class="dv">2</span>, <span class="at">ncol =</span> <span class="dv">2</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb491-30"><a href="experimental-design.html#cb491-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb491-31"><a href="experimental-design.html#cb491-31" aria-hidden="true" tabindex="-1"></a><span class="co"># sample sizes to simulate</span></span>
+<span id="cb491-32"><a href="experimental-design.html#cb491-32" aria-hidden="true" tabindex="-1"></a>sample_sizes <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">50</span>, <span class="dv">85</span>, <span class="dv">170</span>, <span class="dv">500</span>, <span class="dv">1000</span>)</span>
+<span id="cb491-33"><a href="experimental-design.html#cb491-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb491-34"><a href="experimental-design.html#cb491-34" aria-hidden="true" tabindex="-1"></a><span class="co"># number of simulations</span></span>
+<span id="cb491-35"><a href="experimental-design.html#cb491-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb491-36"><a href="experimental-design.html#cb491-36" aria-hidden="true" tabindex="-1"></a><span class="co"># create variable to store data in</span></span>
+<span id="cb491-37"><a href="experimental-design.html#cb491-37" aria-hidden="true" tabindex="-1"></a>final_data <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="at">nrow =</span> n_sims, <span class="at">ncol =</span> <span class="fu">length</span>(sample_sizes))</span>
+<span id="cb491-38"><a href="experimental-design.html#cb491-38" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(final_data) <span class="ot">&lt;-</span> sample_sizes</span>
+<span id="cb491-39"><a href="experimental-design.html#cb491-39" aria-hidden="true" tabindex="-1"></a><span class="co">#------------------------------------------------------------------------------</span></span>
+<span id="cb491-40"><a href="experimental-design.html#cb491-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb491-41"><a href="experimental-design.html#cb491-41" aria-hidden="true" tabindex="-1"></a><span class="co">#------------------------------------------------------------------------------</span></span>
+<span id="cb491-42"><a href="experimental-design.html#cb491-42" aria-hidden="true" tabindex="-1"></a><span class="do">### simulation execution</span></span>
+<span id="cb491-43"><a href="experimental-design.html#cb491-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb491-44"><a href="experimental-design.html#cb491-44" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(sample_sizes)){</span>
+<span id="cb491-45"><a href="experimental-design.html#cb491-45" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span>(j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>n_sims){</span>
+<span id="cb491-46"><a href="experimental-design.html#cb491-46" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb491-47"><a href="experimental-design.html#cb491-47" aria-hidden="true" tabindex="-1"></a>    <span class="co"># get the experiment data</span></span>
+<span id="cb491-48"><a href="experimental-design.html#cb491-48" aria-hidden="true" tabindex="-1"></a>    sim_data <span class="ot">&lt;-</span> <span class="fu">mvrnorm</span>(sample_sizes[i], <span class="at">p =</span> <span class="dv">2</span>, <span class="at">u =</span> means, <span class="at">s =</span> sds, </span>
+<span id="cb491-49"><a href="experimental-design.html#cb491-49" aria-hidden="true" tabindex="-1"></a>                        <span class="at">corMat =</span> cor_mat)</span>
+<span id="cb491-50"><a href="experimental-design.html#cb491-50" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb491-51"><a href="experimental-design.html#cb491-51" aria-hidden="true" tabindex="-1"></a>    <span class="co"># perform the correlation</span></span>
+<span id="cb491-52"><a href="experimental-design.html#cb491-52" aria-hidden="true" tabindex="-1"></a>    sim_cor <span class="ot">&lt;-</span> <span class="fu">cor.test</span>(sim_data[, <span class="dv">1</span>], sim_data[, <span class="dv">2</span>], <span class="at">method =</span> <span class="st">&quot;pearson&quot;</span>)</span>
+<span id="cb491-53"><a href="experimental-design.html#cb491-53" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb491-54"><a href="experimental-design.html#cb491-54" aria-hidden="true" tabindex="-1"></a>    <span class="co"># if the correlation is significant, store the effect size</span></span>
+<span id="cb491-55"><a href="experimental-design.html#cb491-55" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span>(sim_cor<span class="sc">$</span>p.value <span class="sc">&lt;</span> <span class="fl">0.05</span>){</span>
+<span id="cb491-56"><a href="experimental-design.html#cb491-56" aria-hidden="true" tabindex="-1"></a>      final_data[j, i] <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">round</span>(<span class="fu">abs</span>(sim_cor<span class="sc">$</span>estimate), <span class="dv">3</span>))</span>
+<span id="cb491-57"><a href="experimental-design.html#cb491-57" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb491-58"><a href="experimental-design.html#cb491-58" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb491-59"><a href="experimental-design.html#cb491-59" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb491-60"><a href="experimental-design.html#cb491-60" aria-hidden="true" tabindex="-1"></a><span class="co">#------------------------------------------------------------------------------</span></span>
+<span id="cb491-61"><a href="experimental-design.html#cb491-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb491-62"><a href="experimental-design.html#cb491-62" aria-hidden="true" tabindex="-1"></a><span class="co">#------------------------------------------------------------------------------</span></span>
+<span id="cb491-63"><a href="experimental-design.html#cb491-63" aria-hidden="true" tabindex="-1"></a><span class="do">## draw the plot</span></span>
+<span id="cb491-64"><a href="experimental-design.html#cb491-64" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(final_data, <span class="at">na.action=</span>na.omit, <span class="at">xlab =</span> <span class="st">&quot;Simulated Sample Size&quot;</span>, </span>
+<span id="cb491-65"><a href="experimental-design.html#cb491-65" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylab =</span> <span class="st">&quot;Measured Effect Size&quot;</span>)</span>
+<span id="cb491-66"><a href="experimental-design.html#cb491-66" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h =</span> cor, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>, <span class="at">lty =</span> <span class="dv">2</span>, <span class="at">lwd =</span> <span class="dv">3</span>)</span>
+<span id="cb491-67"><a href="experimental-design.html#cb491-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb491-68"><a href="experimental-design.html#cb491-68" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">&quot;topright&quot;</span>, <span class="st">&quot;True Effect Size&quot;</span>, <span class="at">cex =</span> <span class="fl">1.5</span>,  <span class="at">lty =</span> <span class="dv">2</span>, <span class="at">bty=</span><span class="st">&quot;n&quot;</span>, </span>
+<span id="cb491-69"><a href="experimental-design.html#cb491-69" aria-hidden="true" tabindex="-1"></a>       <span class="at">col =</span> <span class="st">&quot;red&quot;</span>, <span class="at">lwd =</span> <span class="dv">3</span>)</span></code></pre></div>
+<p><img src="IMAGES/sample_size_calculation-1.png" width="672" /></p>
 </div>
 <div id="power-analysis" class="section level2" number="13.2">
 <h2><span class="header-section-number">13.2</span> Power analysis</h2>
@@ -559,10 +559,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tbody>
 </table>
 <p><strong>Libraries</strong></p>
-<div class="sourceCode" id="cb406"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb406-1"><a href="experimental-design.html#cb406-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&#39;pwr&#39;</span>)) <span class="fu">install.packages</span>(<span class="st">&#39;pwr&#39;</span>); <span class="fu">library</span>(<span class="st">&#39;pwr&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb492"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb492-1"><a href="experimental-design.html#cb492-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&#39;pwr&#39;</span>)) <span class="fu">install.packages</span>(<span class="st">&#39;pwr&#39;</span>); <span class="fu">library</span>(<span class="st">&#39;pwr&#39;</span>)</span></code></pre></div>
 <p><strong>Code</strong></p>
-<div class="sourceCode" id="cb407"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb407-1"><a href="experimental-design.html#cb407-1" aria-hidden="true" tabindex="-1"></a><span class="co">#T-test</span></span>
-<span id="cb407-2"><a href="experimental-design.html#cb407-2" aria-hidden="true" tabindex="-1"></a><span class="fu">pwr.t.test</span>(<span class="at">n =</span> , <span class="at">d =</span> <span class="fl">0.8</span>, <span class="at">sig.level =</span> <span class="fl">0.05</span>, <span class="at">power =</span> <span class="fl">0.95</span>, <span class="at">type =</span> <span class="fu">c</span>(<span class="st">&quot;two.sample&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb493"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb493-1"><a href="experimental-design.html#cb493-1" aria-hidden="true" tabindex="-1"></a><span class="co">#T-test</span></span>
+<span id="cb493-2"><a href="experimental-design.html#cb493-2" aria-hidden="true" tabindex="-1"></a><span class="fu">pwr.t.test</span>(<span class="at">n =</span> , <span class="at">d =</span> <span class="fl">0.8</span>, <span class="at">sig.level =</span> <span class="fl">0.05</span>, <span class="at">power =</span> <span class="fl">0.95</span>, <span class="at">type =</span> <span class="fu">c</span>(<span class="st">&quot;two.sample&quot;</span>))</span></code></pre></div>
 <pre><code>## 
 ##      Two-sample t test power calculation 
 ## 
@@ -573,8 +573,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##     alternative = two.sided
 ## 
 ## NOTE: n is number in *each* group</code></pre>
-<div class="sourceCode" id="cb409"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb409-1"><a href="experimental-design.html#cb409-1" aria-hidden="true" tabindex="-1"></a><span class="co">#T-test </span></span>
-<span id="cb409-2"><a href="experimental-design.html#cb409-2" aria-hidden="true" tabindex="-1"></a><span class="fu">pwr.t2n.test</span>(<span class="at">n1 =</span> <span class="dv">150</span>, <span class="at">n2 =</span> <span class="dv">75</span>, <span class="at">d =</span> , <span class="at">sig.level =</span> <span class="fl">0.05</span>, <span class="at">power =</span> <span class="fl">0.8</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb495"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb495-1"><a href="experimental-design.html#cb495-1" aria-hidden="true" tabindex="-1"></a><span class="co">#T-test </span></span>
+<span id="cb495-2"><a href="experimental-design.html#cb495-2" aria-hidden="true" tabindex="-1"></a><span class="fu">pwr.t2n.test</span>(<span class="at">n1 =</span> <span class="dv">150</span>, <span class="at">n2 =</span> <span class="dv">75</span>, <span class="at">d =</span> , <span class="at">sig.level =</span> <span class="fl">0.05</span>, <span class="at">power =</span> <span class="fl">0.8</span>)</span></code></pre></div>
 <pre><code>## 
 ##      t test power calculation 
 ## 
@@ -584,8 +584,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##       sig.level = 0.05
 ##           power = 0.8
 ##     alternative = two.sided</code></pre>
-<div class="sourceCode" id="cb411"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb411-1"><a href="experimental-design.html#cb411-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Anova </span></span>
-<span id="cb411-2"><a href="experimental-design.html#cb411-2" aria-hidden="true" tabindex="-1"></a><span class="fu">pwr.anova.test</span>(<span class="at">k =</span> <span class="dv">3</span>, <span class="at">n =</span> , <span class="at">f =</span> .<span class="dv">25</span>, <span class="at">sig.level =</span> <span class="fl">0.05</span>, <span class="at">power =</span> .<span class="dv">8</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb497"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb497-1"><a href="experimental-design.html#cb497-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Anova </span></span>
+<span id="cb497-2"><a href="experimental-design.html#cb497-2" aria-hidden="true" tabindex="-1"></a><span class="fu">pwr.anova.test</span>(<span class="at">k =</span> <span class="dv">3</span>, <span class="at">n =</span> , <span class="at">f =</span> .<span class="dv">25</span>, <span class="at">sig.level =</span> <span class="fl">0.05</span>, <span class="at">power =</span> .<span class="dv">8</span>)</span></code></pre></div>
 <pre><code>## 
 ##      Balanced one-way analysis of variance power calculation 
 ## 
@@ -596,8 +596,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##           power = 0.8
 ## 
 ## NOTE: n is number in each group</code></pre>
-<div class="sourceCode" id="cb413"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb413-1"><a href="experimental-design.html#cb413-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Effect size that we can detect</span></span>
-<span id="cb413-2"><a href="experimental-design.html#cb413-2" aria-hidden="true" tabindex="-1"></a><span class="fu">pwr.anova.test</span>(<span class="at">k =</span> <span class="dv">6</span>, <span class="at">n =</span> <span class="dv">42</span>, <span class="at">sig.level =</span> <span class="fl">0.05</span>, <span class="at">power =</span> .<span class="dv">95</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb499"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb499-1"><a href="experimental-design.html#cb499-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Effect size that we can detect</span></span>
+<span id="cb499-2"><a href="experimental-design.html#cb499-2" aria-hidden="true" tabindex="-1"></a><span class="fu">pwr.anova.test</span>(<span class="at">k =</span> <span class="dv">6</span>, <span class="at">n =</span> <span class="dv">42</span>, <span class="at">sig.level =</span> <span class="fl">0.05</span>, <span class="at">power =</span> .<span class="dv">95</span>)</span></code></pre></div>
 <pre><code>## 
 ##      Balanced one-way analysis of variance power calculation 
 ## 
@@ -608,8 +608,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##           power = 0.95
 ## 
 ## NOTE: n is number in each group</code></pre>
-<div class="sourceCode" id="cb415"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb415-1"><a href="experimental-design.html#cb415-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Sample size needed to detect an effect of f=0.5</span></span>
-<span id="cb415-2"><a href="experimental-design.html#cb415-2" aria-hidden="true" tabindex="-1"></a><span class="fu">pwr.anova.test</span>(<span class="at">k =</span> <span class="dv">2</span>, <span class="at">f =</span> <span class="fl">0.5</span>, <span class="at">sig.level =</span> <span class="fl">0.05</span>, <span class="at">power =</span> .<span class="dv">95</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb501"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb501-1"><a href="experimental-design.html#cb501-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Sample size needed to detect an effect of f=0.5</span></span>
+<span id="cb501-2"><a href="experimental-design.html#cb501-2" aria-hidden="true" tabindex="-1"></a><span class="fu">pwr.anova.test</span>(<span class="at">k =</span> <span class="dv">2</span>, <span class="at">f =</span> <span class="fl">0.5</span>, <span class="at">sig.level =</span> <span class="fl">0.05</span>, <span class="at">power =</span> .<span class="dv">95</span>)</span></code></pre></div>
 <pre><code>## 
 ##      Balanced one-way analysis of variance power calculation 
 ## 
@@ -620,9 +620,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##           power = 0.95
 ## 
 ## NOTE: n is number in each group</code></pre>
-<div class="sourceCode" id="cb417"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb417-1"><a href="experimental-design.html#cb417-1" aria-hidden="true" tabindex="-1"></a><span class="co"># General linear model</span></span>
-<span id="cb417-2"><a href="experimental-design.html#cb417-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># See example in https://cran.r-project.org/web/packages/pwr/vignettes/pwr-vignette.html</span></span>
-<span id="cb417-3"><a href="experimental-design.html#cb417-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pwr.f2.test</span>(<span class="at">u =</span> <span class="dv">2</span>, <span class="at">f2 =</span> <span class="fl">0.3</span><span class="sc">/</span>(<span class="dv">1</span> <span class="sc">-</span> <span class="fl">0.3</span>), <span class="at">sig.level =</span> <span class="fl">0.001</span>, <span class="at">power =</span> <span class="fl">0.8</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb503"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb503-1"><a href="experimental-design.html#cb503-1" aria-hidden="true" tabindex="-1"></a><span class="co"># General linear model</span></span>
+<span id="cb503-2"><a href="experimental-design.html#cb503-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># See example in https://cran.r-project.org/web/packages/pwr/vignettes/pwr-vignette.html</span></span>
+<span id="cb503-3"><a href="experimental-design.html#cb503-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pwr.f2.test</span>(<span class="at">u =</span> <span class="dv">2</span>, <span class="at">f2 =</span> <span class="fl">0.3</span><span class="sc">/</span>(<span class="dv">1</span> <span class="sc">-</span> <span class="fl">0.3</span>), <span class="at">sig.level =</span> <span class="fl">0.001</span>, <span class="at">power =</span> <span class="fl">0.8</span>)</span></code></pre></div>
 <pre><code>## 
 ##      Multiple regression power calculation 
 ## 
@@ -631,17 +631,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##              f2 = 0.4285714
 ##       sig.level = 0.001
 ##           power = 0.8</code></pre>
-<div class="sourceCode" id="cb419"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb419-1"><a href="experimental-design.html#cb419-1" aria-hidden="true" tabindex="-1"></a>  <span class="co">#  n=v+u+1. Therefore he needs 50 + 2 + 1 = 53 student records.</span></span></code></pre></div>
+<div class="sourceCode" id="cb505"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb505-1"><a href="experimental-design.html#cb505-1" aria-hidden="true" tabindex="-1"></a>  <span class="co">#  n=v+u+1. Therefore he needs 50 + 2 + 1 = 53 student records.</span></span></code></pre></div>
 <div id="longitudinal-designs" class="section level3" number="13.2.1">
 <h3><span class="header-section-number">13.2.1</span> Longitudinal designs</h3>
 <p>Calculate sample size for longitudinal designs</p>
 <p><strong>Libraries</strong></p>
-<div class="sourceCode" id="cb420"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb420-1"><a href="experimental-design.html#cb420-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&#39;powerMediation&#39;</span>)) <span class="fu">install.packages</span>(<span class="st">&#39;powerMediation&#39;</span>); <span class="fu">library</span>(<span class="st">&#39;powerMediation&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb506"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb506-1"><a href="experimental-design.html#cb506-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&#39;powerMediation&#39;</span>)) <span class="fu">install.packages</span>(<span class="st">&#39;powerMediation&#39;</span>); <span class="fu">library</span>(<span class="st">&#39;powerMediation&#39;</span>)</span></code></pre></div>
 <p><strong>Code</strong></p>
-<div class="sourceCode" id="cb421"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb421-1"><a href="experimental-design.html#cb421-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ssLong</span>(<span class="at">es =</span> <span class="fl">0.5</span>, <span class="co">#  effect size of the difference of mean change.</span></span>
-<span id="cb421-2"><a href="experimental-design.html#cb421-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">rho =</span> <span class="fl">0.5</span>, <span class="co"># correlation coefficient between baseline and follow-up values within a treatment group.</span></span>
-<span id="cb421-3"><a href="experimental-design.html#cb421-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">alpha =</span> <span class="fl">0.05</span>, </span>
-<span id="cb421-4"><a href="experimental-design.html#cb421-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">power =</span> <span class="fl">0.95</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb507"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb507-1"><a href="experimental-design.html#cb507-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ssLong</span>(<span class="at">es =</span> <span class="fl">0.5</span>, <span class="co">#  effect size of the difference of mean change.</span></span>
+<span id="cb507-2"><a href="experimental-design.html#cb507-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">rho =</span> <span class="fl">0.5</span>, <span class="co"># correlation coefficient between baseline and follow-up values within a treatment group.</span></span>
+<span id="cb507-3"><a href="experimental-design.html#cb507-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">alpha =</span> <span class="fl">0.05</span>, </span>
+<span id="cb507-4"><a href="experimental-design.html#cb507-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">power =</span> <span class="fl">0.95</span>)</span></code></pre></div>
 <pre><code>## [1] 104</code></pre>
 
 </div>
@@ -651,47 +651,47 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Con safer podemos encriptar cualquier cosa.</p>
 <p>Con hashids solo podemos encriptar IDs numericos.</p>
 <p><strong>Libraries</strong></p>
-<div class="sourceCode" id="cb423"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb423-1"><a href="experimental-design.html#cb423-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&#39;hashids&#39;</span>)) <span class="fu">install.packages</span>(<span class="st">&#39;hashids&#39;</span>); <span class="fu">library</span>(<span class="st">&#39;hashids&#39;</span>)</span>
-<span id="cb423-2"><a href="experimental-design.html#cb423-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&#39;safer&#39;</span>)) <span class="fu">install.packages</span>(<span class="st">&#39;safer&#39;</span>); <span class="fu">library</span>(<span class="st">&#39;safer&#39;</span>)</span>
-<span id="cb423-3"><a href="experimental-design.html#cb423-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&#39;dplyr&#39;</span>)) <span class="fu">install.packages</span>(<span class="st">&#39;dplyr&#39;</span>); <span class="fu">library</span>(<span class="st">&#39;dplyr&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb509"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb509-1"><a href="experimental-design.html#cb509-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&#39;hashids&#39;</span>)) <span class="fu">install.packages</span>(<span class="st">&#39;hashids&#39;</span>); <span class="fu">library</span>(<span class="st">&#39;hashids&#39;</span>)</span>
+<span id="cb509-2"><a href="experimental-design.html#cb509-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&#39;safer&#39;</span>)) <span class="fu">install.packages</span>(<span class="st">&#39;safer&#39;</span>); <span class="fu">library</span>(<span class="st">&#39;safer&#39;</span>)</span>
+<span id="cb509-3"><a href="experimental-design.html#cb509-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&#39;dplyr&#39;</span>)) <span class="fu">install.packages</span>(<span class="st">&#39;dplyr&#39;</span>); <span class="fu">library</span>(<span class="st">&#39;dplyr&#39;</span>)</span></code></pre></div>
 <div id="encriptando-y-desencriptando-un-elemento" class="section level3" number="13.3.1">
 <h3><span class="header-section-number">13.3.1</span> Encriptando y desencriptando un elemento</h3>
-<div class="sourceCode" id="cb424"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb424-1"><a href="experimental-design.html#cb424-1" aria-hidden="true" tabindex="-1"></a><span class="co"># No acepta acentos, ñs, etc.</span></span>
-<span id="cb424-2"><a href="experimental-design.html#cb424-2" aria-hidden="true" tabindex="-1"></a>h <span class="ot">=</span> <span class="fu">hashid_settings</span>(<span class="at">salt =</span> <span class="st">&#39;this is my salt&#39;</span>)</span>
-<span id="cb424-3"><a href="experimental-design.html#cb424-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb424-4"><a href="experimental-design.html#cb424-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Numbers to encode</span></span>
-<span id="cb424-5"><a href="experimental-design.html#cb424-5" aria-hidden="true" tabindex="-1"></a>Plain_ID <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">12345678</span>); Plain_ID</span></code></pre></div>
+<div class="sourceCode" id="cb510"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb510-1"><a href="experimental-design.html#cb510-1" aria-hidden="true" tabindex="-1"></a><span class="co"># No acepta acentos, ñs, etc.</span></span>
+<span id="cb510-2"><a href="experimental-design.html#cb510-2" aria-hidden="true" tabindex="-1"></a>h <span class="ot">=</span> <span class="fu">hashid_settings</span>(<span class="at">salt =</span> <span class="st">&#39;this is my salt&#39;</span>)</span>
+<span id="cb510-3"><a href="experimental-design.html#cb510-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb510-4"><a href="experimental-design.html#cb510-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Numbers to encode</span></span>
+<span id="cb510-5"><a href="experimental-design.html#cb510-5" aria-hidden="true" tabindex="-1"></a>Plain_ID <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">12345678</span>); Plain_ID</span></code></pre></div>
 <pre><code>## [1] 12345678</code></pre>
-<div class="sourceCode" id="cb426"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb426-1"><a href="experimental-design.html#cb426-1" aria-hidden="true" tabindex="-1"></a>a <span class="ot">=</span> <span class="fu">encode</span>(Plain_ID, h); a <span class="co">#&quot;BZ9RNV&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb512"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb512-1"><a href="experimental-design.html#cb512-1" aria-hidden="true" tabindex="-1"></a>a <span class="ot">=</span> <span class="fu">encode</span>(Plain_ID, h); a <span class="co">#&quot;BZ9RNV&quot;</span></span></code></pre></div>
 <pre><code>## [1] &quot;BZ9RNV&quot;</code></pre>
-<div class="sourceCode" id="cb428"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb428-1"><a href="experimental-design.html#cb428-1" aria-hidden="true" tabindex="-1"></a><span class="fu">decode</span>(<span class="st">&quot;BZ9RNV&quot;</span>, h) <span class="co">#12345678</span></span></code></pre></div>
+<div class="sourceCode" id="cb514"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb514-1"><a href="experimental-design.html#cb514-1" aria-hidden="true" tabindex="-1"></a><span class="fu">decode</span>(<span class="st">&quot;BZ9RNV&quot;</span>, h) <span class="co">#12345678</span></span></code></pre></div>
 <pre><code>## [1] 12345678</code></pre>
 </div>
 <div id="encriptando-y-desencriptando-la-columna-rut-de-una-db-completa." class="section level3" number="13.3.2">
 <h3><span class="header-section-number">13.3.2</span> Encriptando y desencriptando la columna RUT de una DB completa.</h3>
 <p>Generamos aleatoriamente numeros de identificacion “similares” a RUTs, los encriptamos, y despues desencriptamos.</p>
-<div class="sourceCode" id="cb430"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb430-1"><a href="experimental-design.html#cb430-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cargamos librerias y leemos DB</span></span>
-<span id="cb430-2"><a href="experimental-design.html#cb430-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&#39;hashids&#39;</span>)) <span class="fu">install.packages</span>(<span class="st">&#39;hashids&#39;</span>); <span class="fu">library</span>(<span class="st">&#39;hashids&#39;</span>)</span>
-<span id="cb430-3"><a href="experimental-design.html#cb430-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&#39;dplyr&#39;</span>)) <span class="fu">install.packages</span>(<span class="st">&#39;dplyr&#39;</span>); <span class="fu">library</span>(<span class="st">&#39;dplyr&#39;</span>)</span>
-<span id="cb430-4"><a href="experimental-design.html#cb430-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb430-5"><a href="experimental-design.html#cb430-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Pseudo RUTs generadas aleatoriamente</span></span>
-<span id="cb430-6"><a href="experimental-design.html#cb430-6" aria-hidden="true" tabindex="-1"></a>data <span class="ot">=</span> <span class="fu">round</span>(<span class="fu">runif</span>(<span class="dv">100</span>)<span class="sc">*</span><span class="dv">10000000</span>) <span class="sc">%&gt;%</span> <span class="fu">as_tibble</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb430-7"><a href="experimental-design.html#cb430-7" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">rename</span>(<span class="at">RUT =</span> value)</span></code></pre></div>
+<div class="sourceCode" id="cb516"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb516-1"><a href="experimental-design.html#cb516-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cargamos librerias y leemos DB</span></span>
+<span id="cb516-2"><a href="experimental-design.html#cb516-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&#39;hashids&#39;</span>)) <span class="fu">install.packages</span>(<span class="st">&#39;hashids&#39;</span>); <span class="fu">library</span>(<span class="st">&#39;hashids&#39;</span>)</span>
+<span id="cb516-3"><a href="experimental-design.html#cb516-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&#39;dplyr&#39;</span>)) <span class="fu">install.packages</span>(<span class="st">&#39;dplyr&#39;</span>); <span class="fu">library</span>(<span class="st">&#39;dplyr&#39;</span>)</span>
+<span id="cb516-4"><a href="experimental-design.html#cb516-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb516-5"><a href="experimental-design.html#cb516-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Pseudo RUTs generadas aleatoriamente</span></span>
+<span id="cb516-6"><a href="experimental-design.html#cb516-6" aria-hidden="true" tabindex="-1"></a>data <span class="ot">=</span> <span class="fu">round</span>(<span class="fu">runif</span>(<span class="dv">100</span>)<span class="sc">*</span><span class="dv">10000000</span>) <span class="sc">%&gt;%</span> <span class="fu">as_tibble</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb516-7"><a href="experimental-design.html#cb516-7" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">rename</span>(<span class="at">RUT =</span> value)</span></code></pre></div>
 <p><strong>BUG: When building book with Bookdown, it ignores the rowwise() argument!?</strong></p>
-<div class="sourceCode" id="cb431"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb431-1"><a href="experimental-design.html#cb431-1" aria-hidden="true" tabindex="-1"></a>h <span class="ot">=</span> <span class="fu">hashid_settings</span>(<span class="at">salt =</span> <span class="st">&#39;this is my salt&#39;</span>)</span>
-<span id="cb431-2"><a href="experimental-design.html#cb431-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb431-3"><a href="experimental-design.html#cb431-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Encriptamos</span></span>
-<span id="cb431-4"><a href="experimental-design.html#cb431-4" aria-hidden="true" tabindex="-1"></a>data <span class="ot">=</span> data <span class="sc">%&gt;%</span> </span>
-<span id="cb431-5"><a href="experimental-design.html#cb431-5" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">rowwise</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb431-6"><a href="experimental-design.html#cb431-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">RUT_Encripted =</span> <span class="fu">encode</span>(RUT, h))</span>
-<span id="cb431-7"><a href="experimental-design.html#cb431-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb431-8"><a href="experimental-design.html#cb431-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Desencriptamos</span></span>
-<span id="cb431-9"><a href="experimental-design.html#cb431-9" aria-hidden="true" tabindex="-1"></a>data <span class="ot">=</span> data <span class="sc">%&gt;%</span> </span>
-<span id="cb431-10"><a href="experimental-design.html#cb431-10" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">rowwise</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb431-11"><a href="experimental-design.html#cb431-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">RUT_Decripted =</span> <span class="fu">decode</span>(RUT_Encripted, h))</span>
-<span id="cb431-12"><a href="experimental-design.html#cb431-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb431-13"><a href="experimental-design.html#cb431-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Mostramos los resultados</span></span>
-<span id="cb431-14"><a href="experimental-design.html#cb431-14" aria-hidden="true" tabindex="-1"></a>data <span class="sc">%&gt;%</span> <span class="fu">select</span>(RUT_Encripted, RUT_Decripted, RUT)</span></code></pre></div>
+<div class="sourceCode" id="cb517"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb517-1"><a href="experimental-design.html#cb517-1" aria-hidden="true" tabindex="-1"></a>h <span class="ot">=</span> <span class="fu">hashid_settings</span>(<span class="at">salt =</span> <span class="st">&#39;this is my salt&#39;</span>)</span>
+<span id="cb517-2"><a href="experimental-design.html#cb517-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb517-3"><a href="experimental-design.html#cb517-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Encriptamos</span></span>
+<span id="cb517-4"><a href="experimental-design.html#cb517-4" aria-hidden="true" tabindex="-1"></a>data <span class="ot">=</span> data <span class="sc">%&gt;%</span> </span>
+<span id="cb517-5"><a href="experimental-design.html#cb517-5" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">rowwise</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb517-6"><a href="experimental-design.html#cb517-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">RUT_Encripted =</span> <span class="fu">encode</span>(RUT, h))</span>
+<span id="cb517-7"><a href="experimental-design.html#cb517-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb517-8"><a href="experimental-design.html#cb517-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Desencriptamos</span></span>
+<span id="cb517-9"><a href="experimental-design.html#cb517-9" aria-hidden="true" tabindex="-1"></a>data <span class="ot">=</span> data <span class="sc">%&gt;%</span> </span>
+<span id="cb517-10"><a href="experimental-design.html#cb517-10" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">rowwise</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb517-11"><a href="experimental-design.html#cb517-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">RUT_Decripted =</span> <span class="fu">decode</span>(RUT_Encripted, h))</span>
+<span id="cb517-12"><a href="experimental-design.html#cb517-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb517-13"><a href="experimental-design.html#cb517-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Mostramos los resultados</span></span>
+<span id="cb517-14"><a href="experimental-design.html#cb517-14" aria-hidden="true" tabindex="-1"></a>data <span class="sc">%&gt;%</span> <span class="fu">select</span>(RUT_Encripted, RUT_Decripted, RUT)</span></code></pre></div>
 <pre><code>## # A tibble: 100 x 3
 ## # Rowwise: 
 ##    RUT_Encripted RUT_Decripted     RUT
@@ -710,32 +710,32 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="encriptando-algo-que-no-sean-numeros" class="section level3" number="13.3.3">
 <h3><span class="header-section-number">13.3.3</span> Encriptando algo que no sean numeros</h3>
-<div class="sourceCode" id="cb433"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb433-1"><a href="experimental-design.html#cb433-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&#39;safer&#39;</span>)) <span class="fu">install.packages</span>(<span class="st">&#39;safer&#39;</span>); <span class="fu">library</span>(<span class="st">&#39;safer&#39;</span>)</span>
-<span id="cb433-2"><a href="experimental-design.html#cb433-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&#39;dplyr&#39;</span>)) <span class="fu">install.packages</span>(<span class="st">&#39;dplyr&#39;</span>); <span class="fu">library</span>(<span class="st">&#39;dplyr&#39;</span>)</span>
-<span id="cb433-3"><a href="experimental-design.html#cb433-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb433-4"><a href="experimental-design.html#cb433-4" aria-hidden="true" tabindex="-1"></a>temp <span class="ot">&lt;-</span> <span class="fu">encrypt_string</span>(<span class="st">&quot;hello, how are you&quot;</span>, <span class="at">key =</span> <span class="st">&quot;mi clave secreta&quot;</span>)</span>
-<span id="cb433-5"><a href="experimental-design.html#cb433-5" aria-hidden="true" tabindex="-1"></a><span class="fu">decrypt_string</span>(temp, <span class="st">&quot;mi clave secreta&quot;</span>)</span>
-<span id="cb433-6"><a href="experimental-design.html#cb433-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb433-7"><a href="experimental-design.html#cb433-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb433-8"><a href="experimental-design.html#cb433-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb433-9"><a href="experimental-design.html#cb433-9" aria-hidden="true" tabindex="-1"></a>KEY <span class="ot">=</span> <span class="st">&quot;my super secret key&quot;</span></span>
-<span id="cb433-10"><a href="experimental-design.html#cb433-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb433-11"><a href="experimental-design.html#cb433-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Pseudo RUTs generadas aleatoriamente</span></span>
-<span id="cb433-12"><a href="experimental-design.html#cb433-12" aria-hidden="true" tabindex="-1"></a>data <span class="ot">=</span> <span class="fu">round</span>(<span class="fu">runif</span>(<span class="dv">100</span>)<span class="sc">*</span><span class="dv">10000000</span>) <span class="sc">%&gt;%</span> <span class="fu">as_tibble</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb433-13"><a href="experimental-design.html#cb433-13" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">rename</span>(<span class="at">RUT =</span> value)</span>
-<span id="cb433-14"><a href="experimental-design.html#cb433-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb433-15"><a href="experimental-design.html#cb433-15" aria-hidden="true" tabindex="-1"></a><span class="co"># **</span><span class="al">BUG</span><span class="co">: When building book with Bookdown, it ignores the rowwise() argument!?**. Sin este argumento falla la funcion</span></span>
-<span id="cb433-16"><a href="experimental-design.html#cb433-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb433-17"><a href="experimental-design.html#cb433-17" aria-hidden="true" tabindex="-1"></a>data <span class="sc">%&gt;%</span> </span>
-<span id="cb433-18"><a href="experimental-design.html#cb433-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">RUT =</span> <span class="fu">paste0</span>(<span class="st">&quot;x&quot;</span>, RUT)) <span class="sc">%&gt;%</span> </span>
-<span id="cb433-19"><a href="experimental-design.html#cb433-19" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb433-20"><a href="experimental-design.html#cb433-20" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Encrypt</span></span>
-<span id="cb433-21"><a href="experimental-design.html#cb433-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rowwise</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb433-22"><a href="experimental-design.html#cb433-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">ID =</span> <span class="fu">encrypt_string</span>(<span class="fu">as.character</span>(RUT), <span class="at">key =</span> KEY)) <span class="sc">%&gt;%</span> </span>
-<span id="cb433-23"><a href="experimental-design.html#cb433-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(RUT, ID) <span class="sc">%&gt;%</span> </span>
-<span id="cb433-24"><a href="experimental-design.html#cb433-24" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb433-25"><a href="experimental-design.html#cb433-25" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Decrypt</span></span>
-<span id="cb433-26"><a href="experimental-design.html#cb433-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">ID2 =</span> <span class="fu">decrypt_string</span>(ID, <span class="at">key =</span> KEY)) </span></code></pre></div>
+<div class="sourceCode" id="cb519"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb519-1"><a href="experimental-design.html#cb519-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&#39;safer&#39;</span>)) <span class="fu">install.packages</span>(<span class="st">&#39;safer&#39;</span>); <span class="fu">library</span>(<span class="st">&#39;safer&#39;</span>)</span>
+<span id="cb519-2"><a href="experimental-design.html#cb519-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&#39;dplyr&#39;</span>)) <span class="fu">install.packages</span>(<span class="st">&#39;dplyr&#39;</span>); <span class="fu">library</span>(<span class="st">&#39;dplyr&#39;</span>)</span>
+<span id="cb519-3"><a href="experimental-design.html#cb519-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb519-4"><a href="experimental-design.html#cb519-4" aria-hidden="true" tabindex="-1"></a>temp <span class="ot">&lt;-</span> <span class="fu">encrypt_string</span>(<span class="st">&quot;hello, how are you&quot;</span>, <span class="at">key =</span> <span class="st">&quot;mi clave secreta&quot;</span>)</span>
+<span id="cb519-5"><a href="experimental-design.html#cb519-5" aria-hidden="true" tabindex="-1"></a><span class="fu">decrypt_string</span>(temp, <span class="st">&quot;mi clave secreta&quot;</span>)</span>
+<span id="cb519-6"><a href="experimental-design.html#cb519-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb519-7"><a href="experimental-design.html#cb519-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb519-8"><a href="experimental-design.html#cb519-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb519-9"><a href="experimental-design.html#cb519-9" aria-hidden="true" tabindex="-1"></a>KEY <span class="ot">=</span> <span class="st">&quot;my super secret key&quot;</span></span>
+<span id="cb519-10"><a href="experimental-design.html#cb519-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb519-11"><a href="experimental-design.html#cb519-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Pseudo RUTs generadas aleatoriamente</span></span>
+<span id="cb519-12"><a href="experimental-design.html#cb519-12" aria-hidden="true" tabindex="-1"></a>data <span class="ot">=</span> <span class="fu">round</span>(<span class="fu">runif</span>(<span class="dv">100</span>)<span class="sc">*</span><span class="dv">10000000</span>) <span class="sc">%&gt;%</span> <span class="fu">as_tibble</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb519-13"><a href="experimental-design.html#cb519-13" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">rename</span>(<span class="at">RUT =</span> value)</span>
+<span id="cb519-14"><a href="experimental-design.html#cb519-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb519-15"><a href="experimental-design.html#cb519-15" aria-hidden="true" tabindex="-1"></a><span class="co"># **</span><span class="al">BUG</span><span class="co">: When building book with Bookdown, it ignores the rowwise() argument!?**. Sin este argumento falla la funcion</span></span>
+<span id="cb519-16"><a href="experimental-design.html#cb519-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb519-17"><a href="experimental-design.html#cb519-17" aria-hidden="true" tabindex="-1"></a>data <span class="sc">%&gt;%</span> </span>
+<span id="cb519-18"><a href="experimental-design.html#cb519-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">RUT =</span> <span class="fu">paste0</span>(<span class="st">&quot;x&quot;</span>, RUT)) <span class="sc">%&gt;%</span> </span>
+<span id="cb519-19"><a href="experimental-design.html#cb519-19" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb519-20"><a href="experimental-design.html#cb519-20" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Encrypt</span></span>
+<span id="cb519-21"><a href="experimental-design.html#cb519-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rowwise</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb519-22"><a href="experimental-design.html#cb519-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">ID =</span> <span class="fu">encrypt_string</span>(<span class="fu">as.character</span>(RUT), <span class="at">key =</span> KEY)) <span class="sc">%&gt;%</span> </span>
+<span id="cb519-23"><a href="experimental-design.html#cb519-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(RUT, ID) <span class="sc">%&gt;%</span> </span>
+<span id="cb519-24"><a href="experimental-design.html#cb519-24" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb519-25"><a href="experimental-design.html#cb519-25" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Decrypt</span></span>
+<span id="cb519-26"><a href="experimental-design.html#cb519-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">ID2 =</span> <span class="fu">decrypt_string</span>(ID, <span class="at">key =</span> KEY)) </span></code></pre></div>
 
 </div>
 </div>
@@ -744,95 +744,95 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <hr />
 <p>Usaremos la siguiente <a href="Data/11-Experimental_design/Match_participants.csv">Base de datos</a></p>
 <hr />
-<div class="sourceCode" id="cb434"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb434-1"><a href="experimental-design.html#cb434-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cargamos librerias y leemos DBif (!require(&#39;pacman&#39;)) install.packages(&#39;pacman&#39;); library(&#39;pacman&#39;)</span></span>
-<span id="cb434-2"><a href="experimental-design.html#cb434-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&#39;optmatch&#39;</span>)) <span class="fu">install.packages</span>(<span class="st">&#39;optmatch&#39;</span>); <span class="fu">library</span>(<span class="st">&#39;optmatch&#39;</span>)</span>
-<span id="cb434-3"><a href="experimental-design.html#cb434-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&#39;readr&#39;</span>)) <span class="fu">install.packages</span>(<span class="st">&#39;readr&#39;</span>); <span class="fu">library</span>(<span class="st">&#39;readr&#39;</span>)</span>
-<span id="cb434-4"><a href="experimental-design.html#cb434-4" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&#39;dplyr&#39;</span>)) <span class="fu">install.packages</span>(<span class="st">&#39;dplyr&#39;</span>); <span class="fu">library</span>(<span class="st">&#39;dplyr&#39;</span>)</span>
-<span id="cb434-5"><a href="experimental-design.html#cb434-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb434-6"><a href="experimental-design.html#cb434-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Archivo de data crudos</span></span>
-<span id="cb434-7"><a href="experimental-design.html#cb434-7" aria-hidden="true" tabindex="-1"></a><span class="co"># RUTs y Edades generadas aleatoriamente</span></span>
-<span id="cb434-8"><a href="experimental-design.html#cb434-8" aria-hidden="true" tabindex="-1"></a>data <span class="ot">=</span> <span class="fu">read_csv</span>(<span class="st">&quot;Data/11-Experimental_design/Match_participants.csv&quot;</span>)</span>
-<span id="cb434-9"><a href="experimental-design.html#cb434-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb434-10"><a href="experimental-design.html#cb434-10" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data)</span></code></pre></div>
+<div class="sourceCode" id="cb520"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb520-1"><a href="experimental-design.html#cb520-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cargamos librerias y leemos DBif (!require(&#39;pacman&#39;)) install.packages(&#39;pacman&#39;); library(&#39;pacman&#39;)</span></span>
+<span id="cb520-2"><a href="experimental-design.html#cb520-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&#39;optmatch&#39;</span>)) <span class="fu">install.packages</span>(<span class="st">&#39;optmatch&#39;</span>); <span class="fu">library</span>(<span class="st">&#39;optmatch&#39;</span>)</span>
+<span id="cb520-3"><a href="experimental-design.html#cb520-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&#39;readr&#39;</span>)) <span class="fu">install.packages</span>(<span class="st">&#39;readr&#39;</span>); <span class="fu">library</span>(<span class="st">&#39;readr&#39;</span>)</span>
+<span id="cb520-4"><a href="experimental-design.html#cb520-4" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&#39;dplyr&#39;</span>)) <span class="fu">install.packages</span>(<span class="st">&#39;dplyr&#39;</span>); <span class="fu">library</span>(<span class="st">&#39;dplyr&#39;</span>)</span>
+<span id="cb520-5"><a href="experimental-design.html#cb520-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb520-6"><a href="experimental-design.html#cb520-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Archivo de data crudos</span></span>
+<span id="cb520-7"><a href="experimental-design.html#cb520-7" aria-hidden="true" tabindex="-1"></a><span class="co"># RUTs y Edades generadas aleatoriamente</span></span>
+<span id="cb520-8"><a href="experimental-design.html#cb520-8" aria-hidden="true" tabindex="-1"></a>data <span class="ot">=</span> <span class="fu">read_csv</span>(<span class="st">&quot;Data/11-Experimental_design/Match_participants.csv&quot;</span>)</span>
+<span id="cb520-9"><a href="experimental-design.html#cb520-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb520-10"><a href="experimental-design.html#cb520-10" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data)</span></code></pre></div>
 <pre><code>## # A tibble: 6 x 7
-##      ID    RUT Sexo    Edad Ocupacion                           Educacion Porcentaje_ahorro
-##   &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt;                               &lt;chr&gt;                 &lt;dbl&gt;
-## 1     1 588006 Mujer     29 ASISTENTE DE TESORERIA              Técnica                  10
-## 2     2 188576 Mujer     21 Ingeniero Comercial                 Maestría                 50
-## 3     3 206609 Hombre    46 trabajador                          Técnica                   5
-## 4     4 404898 Mujer     52 Psicóloga                           Maestría                  0
-## 5     5 533281 Mujer     63 Controller Postgrados Ejecutivos EN Maestría                  4
-## 6     6  60824 Hombre    29 Ingeniro Comercial                  Maestría                  8</code></pre>
+##      ID    RUT Sexo    Edad Ocupacion                 Educacion Porcentaje_ahor…
+##   &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt;                     &lt;chr&gt;                &lt;dbl&gt;
+## 1     1 588006 Mujer     29 ASISTENTE DE TESORERIA    Técnica                 10
+## 2     2 188576 Mujer     21 Ingeniero Comercial       Maestría                50
+## 3     3 206609 Hombre    46 trabajador                Técnica                  5
+## 4     4 404898 Mujer     52 Psicóloga                 Maestría                 0
+## 5     5 533281 Mujer     63 Controller Postgrados Ej… Maestría                 4
+## 6     6  60824 Hombre    29 Ingeniro Comercial        Maestría                 8</code></pre>
 <p>Preparamos la base de datos</p>
-<div class="sourceCode" id="cb436"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb436-1"><a href="experimental-design.html#cb436-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Umbrales para ahorradores y no ahorradores</span></span>
-<span id="cb436-2"><a href="experimental-design.html#cb436-2" aria-hidden="true" tabindex="-1"></a>Criterio_ahorradores <span class="ot">=</span> <span class="dv">20</span></span>
-<span id="cb436-3"><a href="experimental-design.html#cb436-3" aria-hidden="true" tabindex="-1"></a>Criterio_no_ahorradores <span class="ot">=</span> <span class="dv">2</span></span>
-<span id="cb436-4"><a href="experimental-design.html#cb436-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb436-5"><a href="experimental-design.html#cb436-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Mostramos histograma</span></span>
-<span id="cb436-6"><a href="experimental-design.html#cb436-6" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(data<span class="sc">$</span>Porcentaje_ahorro, <span class="at">breaks =</span> <span class="dv">100</span>)</span></code></pre></div>
-<p><img src="_main_images/match_participants_data_preparation-1.png" width="672" /></p>
-<div class="sourceCode" id="cb437"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb437-1"><a href="experimental-design.html#cb437-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creamos grupos de Ahorradores (0) y No ahorradores (1)</span></span>
-<span id="cb437-2"><a href="experimental-design.html#cb437-2" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>Ahorro <span class="ot">=</span> <span class="fu">ifelse</span>(data<span class="sc">$</span>Porcentaje_ahorro <span class="sc">&lt;=</span> Criterio_no_ahorradores, <span class="dv">1</span>,</span>
-<span id="cb437-3"><a href="experimental-design.html#cb437-3" aria-hidden="true" tabindex="-1"></a>                      <span class="fu">ifelse</span>(data<span class="sc">$</span>Porcentaje_ahorro <span class="sc">&gt;=</span> Criterio_ahorradores, <span class="dv">0</span>, <span class="cn">NA</span></span>
-<span id="cb437-4"><a href="experimental-design.html#cb437-4" aria-hidden="true" tabindex="-1"></a>                      ))</span>
-<span id="cb437-5"><a href="experimental-design.html#cb437-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb437-6"><a href="experimental-design.html#cb437-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Cuantos tenemos en cada grupo?</span></span>
-<span id="cb437-7"><a href="experimental-design.html#cb437-7" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(data<span class="sc">$</span>Ahorro)</span></code></pre></div>
+<div class="sourceCode" id="cb522"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb522-1"><a href="experimental-design.html#cb522-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Umbrales para ahorradores y no ahorradores</span></span>
+<span id="cb522-2"><a href="experimental-design.html#cb522-2" aria-hidden="true" tabindex="-1"></a>Criterio_ahorradores <span class="ot">=</span> <span class="dv">20</span></span>
+<span id="cb522-3"><a href="experimental-design.html#cb522-3" aria-hidden="true" tabindex="-1"></a>Criterio_no_ahorradores <span class="ot">=</span> <span class="dv">2</span></span>
+<span id="cb522-4"><a href="experimental-design.html#cb522-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb522-5"><a href="experimental-design.html#cb522-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Mostramos histograma</span></span>
+<span id="cb522-6"><a href="experimental-design.html#cb522-6" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(data<span class="sc">$</span>Porcentaje_ahorro, <span class="at">breaks =</span> <span class="dv">100</span>)</span></code></pre></div>
+<p><img src="IMAGES/match_participants_data_preparation-1.png" width="672" /></p>
+<div class="sourceCode" id="cb523"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb523-1"><a href="experimental-design.html#cb523-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creamos grupos de Ahorradores (0) y No ahorradores (1)</span></span>
+<span id="cb523-2"><a href="experimental-design.html#cb523-2" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>Ahorro <span class="ot">=</span> <span class="fu">ifelse</span>(data<span class="sc">$</span>Porcentaje_ahorro <span class="sc">&lt;=</span> Criterio_no_ahorradores, <span class="dv">1</span>,</span>
+<span id="cb523-3"><a href="experimental-design.html#cb523-3" aria-hidden="true" tabindex="-1"></a>                      <span class="fu">ifelse</span>(data<span class="sc">$</span>Porcentaje_ahorro <span class="sc">&gt;=</span> Criterio_ahorradores, <span class="dv">0</span>, <span class="cn">NA</span></span>
+<span id="cb523-4"><a href="experimental-design.html#cb523-4" aria-hidden="true" tabindex="-1"></a>                      ))</span>
+<span id="cb523-5"><a href="experimental-design.html#cb523-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb523-6"><a href="experimental-design.html#cb523-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Cuantos tenemos en cada grupo?</span></span>
+<span id="cb523-7"><a href="experimental-design.html#cb523-7" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(data<span class="sc">$</span>Ahorro)</span></code></pre></div>
 <pre><code>## 
 ##   0   1 
 ## 113  66</code></pre>
-<div class="sourceCode" id="cb439"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb439-1"><a href="experimental-design.html#cb439-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Limpiamos NAs en Ahorro y RUTs duplicados</span></span>
-<span id="cb439-2"><a href="experimental-design.html#cb439-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">=</span> data[<span class="fu">complete.cases</span>(data),]</span>
-<span id="cb439-3"><a href="experimental-design.html#cb439-3" aria-hidden="true" tabindex="-1"></a>data <span class="ot">=</span> data[<span class="sc">!</span><span class="fu">duplicated</span>(data<span class="sc">$</span>ID),]</span>
-<span id="cb439-4"><a href="experimental-design.html#cb439-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb439-5"><a href="experimental-design.html#cb439-5" aria-hidden="true" tabindex="-1"></a><span class="co">#Eliminamos a los Estudiantes</span></span>
-<span id="cb439-6"><a href="experimental-design.html#cb439-6" aria-hidden="true" tabindex="-1"></a>data <span class="ot">=</span> data[<span class="sc">!</span><span class="fu">grepl</span>(<span class="st">&quot;studiante&quot;</span>, data<span class="sc">$</span>Ocupacion),]</span>
-<span id="cb439-7"><a href="experimental-design.html#cb439-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb439-8"><a href="experimental-design.html#cb439-8" aria-hidden="true" tabindex="-1"></a><span class="co">#Recreamos columna ID para los registros que quedan</span></span>
-<span id="cb439-9"><a href="experimental-design.html#cb439-9" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>ID <span class="ot">=</span> <span class="fu">seq</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(data))</span></code></pre></div>
+<div class="sourceCode" id="cb525"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb525-1"><a href="experimental-design.html#cb525-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Limpiamos NAs en Ahorro y RUTs duplicados</span></span>
+<span id="cb525-2"><a href="experimental-design.html#cb525-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">=</span> data[<span class="fu">complete.cases</span>(data),]</span>
+<span id="cb525-3"><a href="experimental-design.html#cb525-3" aria-hidden="true" tabindex="-1"></a>data <span class="ot">=</span> data[<span class="sc">!</span><span class="fu">duplicated</span>(data<span class="sc">$</span>ID),]</span>
+<span id="cb525-4"><a href="experimental-design.html#cb525-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb525-5"><a href="experimental-design.html#cb525-5" aria-hidden="true" tabindex="-1"></a><span class="co">#Eliminamos a los Estudiantes</span></span>
+<span id="cb525-6"><a href="experimental-design.html#cb525-6" aria-hidden="true" tabindex="-1"></a>data <span class="ot">=</span> data[<span class="sc">!</span><span class="fu">grepl</span>(<span class="st">&quot;studiante&quot;</span>, data<span class="sc">$</span>Ocupacion),]</span>
+<span id="cb525-7"><a href="experimental-design.html#cb525-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb525-8"><a href="experimental-design.html#cb525-8" aria-hidden="true" tabindex="-1"></a><span class="co">#Recreamos columna ID para los registros que quedan</span></span>
+<span id="cb525-9"><a href="experimental-design.html#cb525-9" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>ID <span class="ot">=</span> <span class="fu">seq</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(data))</span></code></pre></div>
 <p>Realizamos el matching</p>
 <p><strong>TODO: Como evaluamos si el matching es bueno?</strong></p>
-<div class="sourceCode" id="cb440"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb440-1"><a href="experimental-design.html#cb440-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Creamos base de parejas</span></span>
-<span id="cb440-2"><a href="experimental-design.html#cb440-2" aria-hidden="true" tabindex="-1"></a>parejas <span class="ot">=</span> <span class="fu">as.data.frame</span>((optmatch<span class="sc">::</span><span class="fu">pairmatch</span>(Ahorro <span class="sc">~</span> Edad <span class="sc">+</span> Sexo <span class="sc">+</span> Educacion, <span class="at">data =</span> data)))</span>
-<span id="cb440-3"><a href="experimental-design.html#cb440-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># caliper establece limites para los matchings</span></span>
-<span id="cb440-4"><a href="experimental-design.html#cb440-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># print(pairmatch(Ahorro ~ Edad + Sexo + Educacion, caliper = 4.9, data = data), grouped = TRUE)</span></span>
-<span id="cb440-5"><a href="experimental-design.html#cb440-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb440-6"><a href="experimental-design.html#cb440-6" aria-hidden="true" tabindex="-1"></a><span class="co">#Como evaluamos si es buena la seleccion?</span></span>
-<span id="cb440-7"><a href="experimental-design.html#cb440-7" aria-hidden="true" tabindex="-1"></a><span class="co"># summary(lm(Ahorro ~ Edad + Sexo + Educacion, data = data))</span></span>
-<span id="cb440-8"><a href="experimental-design.html#cb440-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb440-9"><a href="experimental-design.html#cb440-9" aria-hidden="true" tabindex="-1"></a><span class="co">#Añadimos columna ID y renombramos columnas</span></span>
-<span id="cb440-10"><a href="experimental-design.html#cb440-10" aria-hidden="true" tabindex="-1"></a>parejas<span class="sc">$</span>ID <span class="ot">=</span> <span class="fu">seq</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(data))</span>
-<span id="cb440-11"><a href="experimental-design.html#cb440-11" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(parejas) <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;Group&quot;</span>, <span class="st">&quot;ID&quot;</span>)</span>
-<span id="cb440-12"><a href="experimental-design.html#cb440-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb440-13"><a href="experimental-design.html#cb440-13" aria-hidden="true" tabindex="-1"></a><span class="co">#Combinamos ambas bases y limpiamos</span></span>
-<span id="cb440-14"><a href="experimental-design.html#cb440-14" aria-hidden="true" tabindex="-1"></a>datos_combinados <span class="ot">=</span> <span class="fu">merge</span>(data, parejas, <span class="at">by =</span> <span class="st">&quot;ID&quot;</span>)</span>
-<span id="cb440-15"><a href="experimental-design.html#cb440-15" aria-hidden="true" tabindex="-1"></a>datos_combinados <span class="ot">=</span> datos_combinados[<span class="fu">complete.cases</span>(datos_combinados),]</span>
-<span id="cb440-16"><a href="experimental-design.html#cb440-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb440-17"><a href="experimental-design.html#cb440-17" aria-hidden="true" tabindex="-1"></a><span class="co">#Ordenamos por Num de grupo y Ahorro</span></span>
-<span id="cb440-18"><a href="experimental-design.html#cb440-18" aria-hidden="true" tabindex="-1"></a>datos_finales <span class="ot">=</span> datos_combinados <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(Group, Ahorro)</span></code></pre></div>
-<div class="sourceCode" id="cb441"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb441-1"><a href="experimental-design.html#cb441-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Cuantos en cada grupo?</span></span>
-<span id="cb441-2"><a href="experimental-design.html#cb441-2" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(datos_finales<span class="sc">$</span>Ahorro)</span></code></pre></div>
+<div class="sourceCode" id="cb526"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb526-1"><a href="experimental-design.html#cb526-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Creamos base de parejas</span></span>
+<span id="cb526-2"><a href="experimental-design.html#cb526-2" aria-hidden="true" tabindex="-1"></a>parejas <span class="ot">=</span> <span class="fu">as.data.frame</span>((optmatch<span class="sc">::</span><span class="fu">pairmatch</span>(Ahorro <span class="sc">~</span> Edad <span class="sc">+</span> Sexo <span class="sc">+</span> Educacion, <span class="at">data =</span> data)))</span>
+<span id="cb526-3"><a href="experimental-design.html#cb526-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># caliper establece limites para los matchings</span></span>
+<span id="cb526-4"><a href="experimental-design.html#cb526-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># print(pairmatch(Ahorro ~ Edad + Sexo + Educacion, caliper = 4.9, data = data), grouped = TRUE)</span></span>
+<span id="cb526-5"><a href="experimental-design.html#cb526-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb526-6"><a href="experimental-design.html#cb526-6" aria-hidden="true" tabindex="-1"></a><span class="co">#Como evaluamos si es buena la seleccion?</span></span>
+<span id="cb526-7"><a href="experimental-design.html#cb526-7" aria-hidden="true" tabindex="-1"></a><span class="co"># summary(lm(Ahorro ~ Edad + Sexo + Educacion, data = data))</span></span>
+<span id="cb526-8"><a href="experimental-design.html#cb526-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb526-9"><a href="experimental-design.html#cb526-9" aria-hidden="true" tabindex="-1"></a><span class="co">#Añadimos columna ID y renombramos columnas</span></span>
+<span id="cb526-10"><a href="experimental-design.html#cb526-10" aria-hidden="true" tabindex="-1"></a>parejas<span class="sc">$</span>ID <span class="ot">=</span> <span class="fu">seq</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(data))</span>
+<span id="cb526-11"><a href="experimental-design.html#cb526-11" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(parejas) <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;Group&quot;</span>, <span class="st">&quot;ID&quot;</span>)</span>
+<span id="cb526-12"><a href="experimental-design.html#cb526-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb526-13"><a href="experimental-design.html#cb526-13" aria-hidden="true" tabindex="-1"></a><span class="co">#Combinamos ambas bases y limpiamos</span></span>
+<span id="cb526-14"><a href="experimental-design.html#cb526-14" aria-hidden="true" tabindex="-1"></a>datos_combinados <span class="ot">=</span> <span class="fu">merge</span>(data, parejas, <span class="at">by =</span> <span class="st">&quot;ID&quot;</span>)</span>
+<span id="cb526-15"><a href="experimental-design.html#cb526-15" aria-hidden="true" tabindex="-1"></a>datos_combinados <span class="ot">=</span> datos_combinados[<span class="fu">complete.cases</span>(datos_combinados),]</span>
+<span id="cb526-16"><a href="experimental-design.html#cb526-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb526-17"><a href="experimental-design.html#cb526-17" aria-hidden="true" tabindex="-1"></a><span class="co">#Ordenamos por Num de grupo y Ahorro</span></span>
+<span id="cb526-18"><a href="experimental-design.html#cb526-18" aria-hidden="true" tabindex="-1"></a>datos_finales <span class="ot">=</span> datos_combinados <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(Group, Ahorro)</span></code></pre></div>
+<div class="sourceCode" id="cb527"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb527-1"><a href="experimental-design.html#cb527-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Cuantos en cada grupo?</span></span>
+<span id="cb527-2"><a href="experimental-design.html#cb527-2" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(datos_finales<span class="sc">$</span>Ahorro)</span></code></pre></div>
 <pre><code>## 
 ##  0  1 
 ## 58 58</code></pre>
-<div class="sourceCode" id="cb443"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb443-1"><a href="experimental-design.html#cb443-1" aria-hidden="true" tabindex="-1"></a><span class="co"># datos_finales %&gt;% dplyr::select(Edad, Sexo, Educacion, Porcentaje_ahorro)</span></span></code></pre></div>
+<div class="sourceCode" id="cb529"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb529-1"><a href="experimental-design.html#cb529-1" aria-hidden="true" tabindex="-1"></a><span class="co"># datos_finales %&gt;% dplyr::select(Edad, Sexo, Educacion, Porcentaje_ahorro)</span></span></code></pre></div>
 
 </div>
 <div id="determine-distribution" class="section level2" number="13.5">
 <h2><span class="header-section-number">13.5</span> Determine distribution</h2>
 <p>FROM: <a href="https://stats.stackexchange.com/questions/132652/how-to-determine-which-distribution-fits-my-data-best" class="uri">https://stats.stackexchange.com/questions/132652/how-to-determine-which-distribution-fits-my-data-best</a></p>
 <p>Which ditribution best fits our data.</p>
-<div class="sourceCode" id="cb444"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb444-1"><a href="experimental-design.html#cb444-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(<span class="st">&#39;fitdistrplus&#39;</span>)) <span class="fu">install.packages</span>(<span class="st">&#39;fitdistrplus&#39;</span>); <span class="fu">library</span>(<span class="st">&#39;fitdistrplus&#39;</span>)</span>
-<span id="cb444-2"><a href="experimental-design.html#cb444-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(<span class="st">&#39;logspline&#39;</span>)) <span class="fu">install.packages</span>(<span class="st">&#39;logspline&#39;</span>); <span class="fu">library</span>(<span class="st">&#39;logspline&#39;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb445"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb445-1"><a href="experimental-design.html#cb445-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">37.50</span>,<span class="fl">46.79</span>,<span class="fl">48.30</span>,<span class="fl">46.04</span>,<span class="fl">43.40</span>,<span class="fl">39.25</span>,<span class="fl">38.49</span>,<span class="fl">49.51</span>,<span class="fl">40.38</span>,<span class="fl">36.98</span>,<span class="fl">40.00</span>,</span>
-<span id="cb445-2"><a href="experimental-design.html#cb445-2" aria-hidden="true" tabindex="-1"></a>       <span class="fl">38.49</span>,<span class="fl">37.74</span>,<span class="fl">47.92</span>,<span class="fl">44.53</span>,<span class="fl">44.91</span>,<span class="fl">44.91</span>,<span class="fl">40.00</span>,<span class="fl">41.51</span>,<span class="fl">47.92</span>,<span class="fl">36.98</span>,<span class="fl">43.40</span>,</span>
-<span id="cb445-3"><a href="experimental-design.html#cb445-3" aria-hidden="true" tabindex="-1"></a>       <span class="fl">42.26</span>,<span class="fl">41.89</span>,<span class="fl">38.87</span>,<span class="fl">43.02</span>,<span class="fl">39.25</span>,<span class="fl">40.38</span>,<span class="fl">42.64</span>,<span class="fl">36.98</span>,<span class="fl">44.15</span>,<span class="fl">44.91</span>,<span class="fl">43.40</span>,</span>
-<span id="cb445-4"><a href="experimental-design.html#cb445-4" aria-hidden="true" tabindex="-1"></a>       <span class="fl">49.81</span>,<span class="fl">38.87</span>,<span class="fl">40.00</span>,<span class="fl">52.45</span>,<span class="fl">53.13</span>,<span class="fl">47.92</span>,<span class="fl">52.45</span>,<span class="fl">44.91</span>,<span class="fl">29.54</span>,<span class="fl">27.13</span>,<span class="fl">35.60</span>,</span>
-<span id="cb445-5"><a href="experimental-design.html#cb445-5" aria-hidden="true" tabindex="-1"></a>       <span class="fl">45.34</span>,<span class="fl">43.37</span>,<span class="fl">54.15</span>,<span class="fl">42.77</span>,<span class="fl">42.88</span>,<span class="fl">44.26</span>,<span class="fl">27.14</span>,<span class="fl">39.31</span>,<span class="fl">24.80</span>,<span class="fl">16.62</span>,<span class="fl">30.30</span>,</span>
-<span id="cb445-6"><a href="experimental-design.html#cb445-6" aria-hidden="true" tabindex="-1"></a>       <span class="fl">36.39</span>,<span class="fl">28.60</span>,<span class="fl">28.53</span>,<span class="fl">35.84</span>,<span class="fl">31.10</span>,<span class="fl">34.55</span>,<span class="fl">52.65</span>,<span class="fl">48.81</span>,<span class="fl">43.42</span>,<span class="fl">52.49</span>,<span class="fl">38.00</span>,</span>
-<span id="cb445-7"><a href="experimental-design.html#cb445-7" aria-hidden="true" tabindex="-1"></a>       <span class="fl">38.65</span>,<span class="fl">34.54</span>,<span class="fl">37.70</span>,<span class="fl">38.11</span>,<span class="fl">43.05</span>,<span class="fl">29.95</span>,<span class="fl">32.48</span>,<span class="fl">24.63</span>,<span class="fl">35.33</span>,<span class="fl">41.34</span>)</span>
-<span id="cb445-8"><a href="experimental-design.html#cb445-8" aria-hidden="true" tabindex="-1"></a><span class="fu">descdist</span>(x, <span class="at">discrete =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
-<p><img src="_main_images/11-04-Determine_distribution-1-1.png" width="672" /></p>
+<div class="sourceCode" id="cb530"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb530-1"><a href="experimental-design.html#cb530-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(<span class="st">&#39;fitdistrplus&#39;</span>)) <span class="fu">install.packages</span>(<span class="st">&#39;fitdistrplus&#39;</span>); <span class="fu">library</span>(<span class="st">&#39;fitdistrplus&#39;</span>)</span>
+<span id="cb530-2"><a href="experimental-design.html#cb530-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(<span class="st">&#39;logspline&#39;</span>)) <span class="fu">install.packages</span>(<span class="st">&#39;logspline&#39;</span>); <span class="fu">library</span>(<span class="st">&#39;logspline&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb531"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb531-1"><a href="experimental-design.html#cb531-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">37.50</span>,<span class="fl">46.79</span>,<span class="fl">48.30</span>,<span class="fl">46.04</span>,<span class="fl">43.40</span>,<span class="fl">39.25</span>,<span class="fl">38.49</span>,<span class="fl">49.51</span>,<span class="fl">40.38</span>,<span class="fl">36.98</span>,<span class="fl">40.00</span>,</span>
+<span id="cb531-2"><a href="experimental-design.html#cb531-2" aria-hidden="true" tabindex="-1"></a>       <span class="fl">38.49</span>,<span class="fl">37.74</span>,<span class="fl">47.92</span>,<span class="fl">44.53</span>,<span class="fl">44.91</span>,<span class="fl">44.91</span>,<span class="fl">40.00</span>,<span class="fl">41.51</span>,<span class="fl">47.92</span>,<span class="fl">36.98</span>,<span class="fl">43.40</span>,</span>
+<span id="cb531-3"><a href="experimental-design.html#cb531-3" aria-hidden="true" tabindex="-1"></a>       <span class="fl">42.26</span>,<span class="fl">41.89</span>,<span class="fl">38.87</span>,<span class="fl">43.02</span>,<span class="fl">39.25</span>,<span class="fl">40.38</span>,<span class="fl">42.64</span>,<span class="fl">36.98</span>,<span class="fl">44.15</span>,<span class="fl">44.91</span>,<span class="fl">43.40</span>,</span>
+<span id="cb531-4"><a href="experimental-design.html#cb531-4" aria-hidden="true" tabindex="-1"></a>       <span class="fl">49.81</span>,<span class="fl">38.87</span>,<span class="fl">40.00</span>,<span class="fl">52.45</span>,<span class="fl">53.13</span>,<span class="fl">47.92</span>,<span class="fl">52.45</span>,<span class="fl">44.91</span>,<span class="fl">29.54</span>,<span class="fl">27.13</span>,<span class="fl">35.60</span>,</span>
+<span id="cb531-5"><a href="experimental-design.html#cb531-5" aria-hidden="true" tabindex="-1"></a>       <span class="fl">45.34</span>,<span class="fl">43.37</span>,<span class="fl">54.15</span>,<span class="fl">42.77</span>,<span class="fl">42.88</span>,<span class="fl">44.26</span>,<span class="fl">27.14</span>,<span class="fl">39.31</span>,<span class="fl">24.80</span>,<span class="fl">16.62</span>,<span class="fl">30.30</span>,</span>
+<span id="cb531-6"><a href="experimental-design.html#cb531-6" aria-hidden="true" tabindex="-1"></a>       <span class="fl">36.39</span>,<span class="fl">28.60</span>,<span class="fl">28.53</span>,<span class="fl">35.84</span>,<span class="fl">31.10</span>,<span class="fl">34.55</span>,<span class="fl">52.65</span>,<span class="fl">48.81</span>,<span class="fl">43.42</span>,<span class="fl">52.49</span>,<span class="fl">38.00</span>,</span>
+<span id="cb531-7"><a href="experimental-design.html#cb531-7" aria-hidden="true" tabindex="-1"></a>       <span class="fl">38.65</span>,<span class="fl">34.54</span>,<span class="fl">37.70</span>,<span class="fl">38.11</span>,<span class="fl">43.05</span>,<span class="fl">29.95</span>,<span class="fl">32.48</span>,<span class="fl">24.63</span>,<span class="fl">35.33</span>,<span class="fl">41.34</span>)</span>
+<span id="cb531-8"><a href="experimental-design.html#cb531-8" aria-hidden="true" tabindex="-1"></a><span class="fu">descdist</span>(x, <span class="at">discrete =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<p><img src="IMAGES/11-04-Determine_distribution-1-1.png" width="672" /></p>
 <pre><code>## summary statistics
 ## ------
 ## min:  16.62   max:  54.15 

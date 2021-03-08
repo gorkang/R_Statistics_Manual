@@ -410,28 +410,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="riskr" class="section level2" number="8.1">
 <h2><span class="header-section-number">8.1</span> Riskr</h2>
 <p>FROM: <a href="https://cran.r-project.org/web/packages/riskyr/vignettes/E_riskyr_primer.html" class="uri">https://cran.r-project.org/web/packages/riskyr/vignettes/E_riskyr_primer.html</a></p>
-<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="Visualizar-riesgo.html#cb158-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&#39;riskyr&#39;</span>)) <span class="fu">install.packages</span>(<span class="st">&#39;riskyr&#39;</span>); <span class="fu">library</span>(<span class="st">&#39;riskyr&#39;</span>)</span>
-<span id="cb158-2"><a href="Visualizar-riesgo.html#cb158-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb158-3"><a href="Visualizar-riesgo.html#cb158-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a customized scenario: </span></span>
-<span id="cb158-4"><a href="Visualizar-riesgo.html#cb158-4" aria-hidden="true" tabindex="-1"></a>my.scenario <span class="ot">&lt;-</span> <span class="fu">riskyr</span>(<span class="at">scen_lbl =</span> <span class="st">&quot;Identifying reoffenders&quot;</span>, </span>
-<span id="cb158-5"><a href="Visualizar-riesgo.html#cb158-5" aria-hidden="true" tabindex="-1"></a>                      <span class="at">popu_lbl =</span> <span class="st">&quot;prison inmates&quot;</span>, </span>
-<span id="cb158-6"><a href="Visualizar-riesgo.html#cb158-6" aria-hidden="true" tabindex="-1"></a>                      <span class="at">cond_lbl =</span> <span class="st">&quot;reoffending&quot;</span>,</span>
-<span id="cb158-7"><a href="Visualizar-riesgo.html#cb158-7" aria-hidden="true" tabindex="-1"></a>                      <span class="at">cond_true_lbl =</span> <span class="st">&quot;offends again&quot;</span>, <span class="at">cond_false_lbl =</span> <span class="st">&quot;does not offend again&quot;</span>,</span>
-<span id="cb158-8"><a href="Visualizar-riesgo.html#cb158-8" aria-hidden="true" tabindex="-1"></a>                      <span class="at">dec_lbl =</span> <span class="st">&quot;test result&quot;</span>,</span>
-<span id="cb158-9"><a href="Visualizar-riesgo.html#cb158-9" aria-hidden="true" tabindex="-1"></a>                      <span class="at">dec_pos_lbl =</span> <span class="st">&quot;predict to</span><span class="sc">\n</span><span class="st">reoffend&quot;</span>, <span class="at">dec_neg_lbl =</span> <span class="st">&quot;predict to</span><span class="sc">\n</span><span class="st">not reoffend&quot;</span>,</span>
-<span id="cb158-10"><a href="Visualizar-riesgo.html#cb158-10" aria-hidden="true" tabindex="-1"></a>                      <span class="at">hi_lbl =</span> <span class="st">&quot;reoffender found&quot;</span>, <span class="at">mi_lbl =</span> <span class="st">&quot;reoffender missed&quot;</span>,</span>
-<span id="cb158-11"><a href="Visualizar-riesgo.html#cb158-11" aria-hidden="true" tabindex="-1"></a>                      <span class="at">fa_lbl =</span> <span class="st">&quot;false accusation&quot;</span>, <span class="at">cr_lbl =</span> <span class="st">&quot;correct release&quot;</span>,</span>
-<span id="cb158-12"><a href="Visualizar-riesgo.html#cb158-12" aria-hidden="true" tabindex="-1"></a>                      <span class="at">prev =</span> .<span class="dv">45</span>,  <span class="co"># prevalence of being a reoffender. </span></span>
-<span id="cb158-13"><a href="Visualizar-riesgo.html#cb158-13" aria-hidden="true" tabindex="-1"></a>                      <span class="at">sens =</span> .<span class="dv">98</span>,  <span class="co"># p( will reoffend | offends again )</span></span>
-<span id="cb158-14"><a href="Visualizar-riesgo.html#cb158-14" aria-hidden="true" tabindex="-1"></a>                      <span class="at">spec =</span> .<span class="dv">46</span>,  <span class="co"># p( will not reoffend | does not offend again )</span></span>
-<span id="cb158-15"><a href="Visualizar-riesgo.html#cb158-15" aria-hidden="true" tabindex="-1"></a>                      <span class="at">fart =</span>  <span class="cn">NA</span>,  <span class="co"># p( will reoffend | does not offend gain )</span></span>
-<span id="cb158-16"><a href="Visualizar-riesgo.html#cb158-16" aria-hidden="true" tabindex="-1"></a>                      <span class="at">N =</span> <span class="dv">753</span>,     <span class="co"># population size</span></span>
-<span id="cb158-17"><a href="Visualizar-riesgo.html#cb158-17" aria-hidden="true" tabindex="-1"></a>                      <span class="at">scen_src =</span> <span class="st">&quot;(a ficticious example)&quot;</span>)</span>
-<span id="cb158-18"><a href="Visualizar-riesgo.html#cb158-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb158-19"><a href="Visualizar-riesgo.html#cb158-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb158-20"><a href="Visualizar-riesgo.html#cb158-20" aria-hidden="true" tabindex="-1"></a>my.scenario <span class="ot">&lt;-</span> scenarios<span class="sc">$</span>n6</span>
-<span id="cb158-21"><a href="Visualizar-riesgo.html#cb158-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb158-22"><a href="Visualizar-riesgo.html#cb158-22" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(my.scenario)</span></code></pre></div>
+<div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb191-1"><a href="Visualizar-riesgo.html#cb191-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&#39;riskyr&#39;</span>)) <span class="fu">install.packages</span>(<span class="st">&#39;riskyr&#39;</span>); <span class="fu">library</span>(<span class="st">&#39;riskyr&#39;</span>)</span>
+<span id="cb191-2"><a href="Visualizar-riesgo.html#cb191-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb191-3"><a href="Visualizar-riesgo.html#cb191-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a customized scenario: </span></span>
+<span id="cb191-4"><a href="Visualizar-riesgo.html#cb191-4" aria-hidden="true" tabindex="-1"></a>my.scenario <span class="ot">&lt;-</span> <span class="fu">riskyr</span>(<span class="at">scen_lbl =</span> <span class="st">&quot;Identifying reoffenders&quot;</span>, </span>
+<span id="cb191-5"><a href="Visualizar-riesgo.html#cb191-5" aria-hidden="true" tabindex="-1"></a>                      <span class="at">popu_lbl =</span> <span class="st">&quot;prison inmates&quot;</span>, </span>
+<span id="cb191-6"><a href="Visualizar-riesgo.html#cb191-6" aria-hidden="true" tabindex="-1"></a>                      <span class="at">cond_lbl =</span> <span class="st">&quot;reoffending&quot;</span>,</span>
+<span id="cb191-7"><a href="Visualizar-riesgo.html#cb191-7" aria-hidden="true" tabindex="-1"></a>                      <span class="at">cond_true_lbl =</span> <span class="st">&quot;offends again&quot;</span>, <span class="at">cond_false_lbl =</span> <span class="st">&quot;does not offend again&quot;</span>,</span>
+<span id="cb191-8"><a href="Visualizar-riesgo.html#cb191-8" aria-hidden="true" tabindex="-1"></a>                      <span class="at">dec_lbl =</span> <span class="st">&quot;test result&quot;</span>,</span>
+<span id="cb191-9"><a href="Visualizar-riesgo.html#cb191-9" aria-hidden="true" tabindex="-1"></a>                      <span class="at">dec_pos_lbl =</span> <span class="st">&quot;predict to</span><span class="sc">\n</span><span class="st">reoffend&quot;</span>, <span class="at">dec_neg_lbl =</span> <span class="st">&quot;predict to</span><span class="sc">\n</span><span class="st">not reoffend&quot;</span>,</span>
+<span id="cb191-10"><a href="Visualizar-riesgo.html#cb191-10" aria-hidden="true" tabindex="-1"></a>                      <span class="at">hi_lbl =</span> <span class="st">&quot;reoffender found&quot;</span>, <span class="at">mi_lbl =</span> <span class="st">&quot;reoffender missed&quot;</span>,</span>
+<span id="cb191-11"><a href="Visualizar-riesgo.html#cb191-11" aria-hidden="true" tabindex="-1"></a>                      <span class="at">fa_lbl =</span> <span class="st">&quot;false accusation&quot;</span>, <span class="at">cr_lbl =</span> <span class="st">&quot;correct release&quot;</span>,</span>
+<span id="cb191-12"><a href="Visualizar-riesgo.html#cb191-12" aria-hidden="true" tabindex="-1"></a>                      <span class="at">prev =</span> .<span class="dv">45</span>,  <span class="co"># prevalence of being a reoffender. </span></span>
+<span id="cb191-13"><a href="Visualizar-riesgo.html#cb191-13" aria-hidden="true" tabindex="-1"></a>                      <span class="at">sens =</span> .<span class="dv">98</span>,  <span class="co"># p( will reoffend | offends again )</span></span>
+<span id="cb191-14"><a href="Visualizar-riesgo.html#cb191-14" aria-hidden="true" tabindex="-1"></a>                      <span class="at">spec =</span> .<span class="dv">46</span>,  <span class="co"># p( will not reoffend | does not offend again )</span></span>
+<span id="cb191-15"><a href="Visualizar-riesgo.html#cb191-15" aria-hidden="true" tabindex="-1"></a>                      <span class="at">fart =</span>  <span class="cn">NA</span>,  <span class="co"># p( will reoffend | does not offend gain )</span></span>
+<span id="cb191-16"><a href="Visualizar-riesgo.html#cb191-16" aria-hidden="true" tabindex="-1"></a>                      <span class="at">N =</span> <span class="dv">753</span>,     <span class="co"># population size</span></span>
+<span id="cb191-17"><a href="Visualizar-riesgo.html#cb191-17" aria-hidden="true" tabindex="-1"></a>                      <span class="at">scen_src =</span> <span class="st">&quot;(a ficticious example)&quot;</span>)</span>
+<span id="cb191-18"><a href="Visualizar-riesgo.html#cb191-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb191-19"><a href="Visualizar-riesgo.html#cb191-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb191-20"><a href="Visualizar-riesgo.html#cb191-20" aria-hidden="true" tabindex="-1"></a>my.scenario <span class="ot">&lt;-</span> scenarios<span class="sc">$</span>n6</span>
+<span id="cb191-21"><a href="Visualizar-riesgo.html#cb191-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb191-22"><a href="Visualizar-riesgo.html#cb191-22" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(my.scenario)</span></code></pre></div>
 <pre><code>## Scenario:  Mammography (prob) 
 ## 
 ## Condition:  Breast cancer 
@@ -472,18 +472,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 
 ##  acc:
 ## 0.90296</code></pre>
-<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="Visualizar-riesgo.html#cb160-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(my.scenario, <span class="at">plot.type =</span> <span class="st">&quot;icons&quot;</span>)</span></code></pre></div>
-<p><img src="_main_images/riskyr-1-1.png" width="768" /></p>
-<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb161-1"><a href="Visualizar-riesgo.html#cb161-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(my.scenario, <span class="at">plot.type =</span> <span class="st">&quot;tree&quot;</span>, <span class="at">by =</span> <span class="st">&quot;dc&quot;</span>)  <span class="co"># plot tree diagram (splitting N by decision)</span></span></code></pre></div>
-<p><img src="_main_images/riskyr-1-2.png" width="768" /></p>
-<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="Visualizar-riesgo.html#cb162-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(my.scenario, <span class="at">plot.type =</span> <span class="st">&quot;curve&quot;</span>)  <span class="co"># plot default curve [what = c(&quot;prev&quot;, &quot;PPV&quot;, &quot;NPV&quot;)]:</span></span></code></pre></div>
-<p><img src="_main_images/riskyr-1-3.png" width="768" /></p>
-<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="Visualizar-riesgo.html#cb163-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&#39;riskyr&#39;</span>)) <span class="fu">install.packages</span>(<span class="st">&#39;riskyr&#39;</span>); <span class="fu">library</span>(<span class="st">&#39;riskyr&#39;</span>)</span>
-<span id="cb163-2"><a href="Visualizar-riesgo.html#cb163-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb163-3"><a href="Visualizar-riesgo.html#cb163-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Use a predefined scenario</span></span>
-<span id="cb163-4"><a href="Visualizar-riesgo.html#cb163-4" aria-hidden="true" tabindex="-1"></a>my.scenario <span class="ot">&lt;-</span> scenarios<span class="sc">$</span>n6</span>
-<span id="cb163-5"><a href="Visualizar-riesgo.html#cb163-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb163-6"><a href="Visualizar-riesgo.html#cb163-6" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(my.scenario)</span></code></pre></div>
+<div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb193-1"><a href="Visualizar-riesgo.html#cb193-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(my.scenario, <span class="at">plot.type =</span> <span class="st">&quot;icons&quot;</span>)</span></code></pre></div>
+<p><img src="IMAGES/riskyr-1-1.png" width="768" /></p>
+<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb194-1"><a href="Visualizar-riesgo.html#cb194-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(my.scenario, <span class="at">plot.type =</span> <span class="st">&quot;tree&quot;</span>, <span class="at">by =</span> <span class="st">&quot;dc&quot;</span>)  <span class="co"># plot tree diagram (splitting N by decision)</span></span></code></pre></div>
+<p><img src="IMAGES/riskyr-1-2.png" width="768" /></p>
+<div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb195-1"><a href="Visualizar-riesgo.html#cb195-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(my.scenario, <span class="at">plot.type =</span> <span class="st">&quot;curve&quot;</span>)  <span class="co"># plot default curve [what = c(&quot;prev&quot;, &quot;PPV&quot;, &quot;NPV&quot;)]:</span></span></code></pre></div>
+<p><img src="IMAGES/riskyr-1-3.png" width="768" /></p>
+<div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb196-1"><a href="Visualizar-riesgo.html#cb196-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&#39;riskyr&#39;</span>)) <span class="fu">install.packages</span>(<span class="st">&#39;riskyr&#39;</span>); <span class="fu">library</span>(<span class="st">&#39;riskyr&#39;</span>)</span>
+<span id="cb196-2"><a href="Visualizar-riesgo.html#cb196-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb196-3"><a href="Visualizar-riesgo.html#cb196-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Use a predefined scenario</span></span>
+<span id="cb196-4"><a href="Visualizar-riesgo.html#cb196-4" aria-hidden="true" tabindex="-1"></a>my.scenario <span class="ot">&lt;-</span> scenarios<span class="sc">$</span>n6</span>
+<span id="cb196-5"><a href="Visualizar-riesgo.html#cb196-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb196-6"><a href="Visualizar-riesgo.html#cb196-6" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(my.scenario)</span></code></pre></div>
 <pre><code>## Scenario:  Mammography (prob) 
 ## 
 ## Condition:  Breast cancer 
@@ -524,16 +524,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 
 ##  acc:
 ## 0.90296</code></pre>
-<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb165-1"><a href="Visualizar-riesgo.html#cb165-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(my.scenario, <span class="at">plot.type =</span> <span class="st">&quot;icons&quot;</span>)</span></code></pre></div>
-<p><img src="_main_images/riskyr-2-1.png" width="768" /></p>
-<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb166-1"><a href="Visualizar-riesgo.html#cb166-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(my.scenario, <span class="at">plot.type =</span> <span class="st">&quot;tree&quot;</span>, <span class="at">by =</span> <span class="st">&quot;dc&quot;</span>)  <span class="co"># plot tree diagram (splitting N by decision)</span></span></code></pre></div>
-<p><img src="_main_images/riskyr-2-2.png" width="768" /></p>
-<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="Visualizar-riesgo.html#cb167-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(my.scenario, <span class="at">plot.type =</span> <span class="st">&quot;curve&quot;</span>)  <span class="co"># plot default curve [what = c(&quot;prev&quot;, &quot;PPV&quot;, &quot;NPV&quot;)]:</span></span></code></pre></div>
-<p><img src="_main_images/riskyr-2-3.png" width="768" /></p>
-<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="Visualizar-riesgo.html#cb168-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(my.scenario, <span class="at">plot.type =</span> <span class="st">&quot;fnet&quot;</span>, <span class="at">area =</span> <span class="st">&quot;sq&quot;</span>)  <span class="co"># network diagram (with numeric probability labels):</span></span></code></pre></div>
-<p><img src="_main_images/riskyr-2-4.png" width="768" /></p>
-<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="Visualizar-riesgo.html#cb169-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(my.scenario, <span class="at">plot.type =</span> <span class="st">&quot;curve&quot;</span>, <span class="at">what =</span> <span class="st">&quot;all&quot;</span>)  <span class="co"># plot &quot;all&quot; available curves:</span></span></code></pre></div>
-<p><img src="_main_images/riskyr-2-5.png" width="768" /></p>
+<div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb198-1"><a href="Visualizar-riesgo.html#cb198-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(my.scenario, <span class="at">plot.type =</span> <span class="st">&quot;icons&quot;</span>)</span></code></pre></div>
+<p><img src="IMAGES/riskyr-2-1.png" width="768" /></p>
+<div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb199-1"><a href="Visualizar-riesgo.html#cb199-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(my.scenario, <span class="at">plot.type =</span> <span class="st">&quot;tree&quot;</span>, <span class="at">by =</span> <span class="st">&quot;dc&quot;</span>)  <span class="co"># plot tree diagram (splitting N by decision)</span></span></code></pre></div>
+<p><img src="IMAGES/riskyr-2-2.png" width="768" /></p>
+<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb200-1"><a href="Visualizar-riesgo.html#cb200-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(my.scenario, <span class="at">plot.type =</span> <span class="st">&quot;curve&quot;</span>)  <span class="co"># plot default curve [what = c(&quot;prev&quot;, &quot;PPV&quot;, &quot;NPV&quot;)]:</span></span></code></pre></div>
+<p><img src="IMAGES/riskyr-2-3.png" width="768" /></p>
+<div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb201-1"><a href="Visualizar-riesgo.html#cb201-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(my.scenario, <span class="at">plot.type =</span> <span class="st">&quot;fnet&quot;</span>, <span class="at">area =</span> <span class="st">&quot;sq&quot;</span>)  <span class="co"># network diagram (with numeric probability labels):</span></span></code></pre></div>
+<p><img src="IMAGES/riskyr-2-4.png" width="768" /></p>
+<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb202-1"><a href="Visualizar-riesgo.html#cb202-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(my.scenario, <span class="at">plot.type =</span> <span class="st">&quot;curve&quot;</span>, <span class="at">what =</span> <span class="st">&quot;all&quot;</span>)  <span class="co"># plot &quot;all&quot; available curves:</span></span></code></pre></div>
+<p><img src="IMAGES/riskyr-2-5.png" width="768" /></p>
 
 </div>
 </div>
