@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>9 Estadistica descriptiva | R - Statistics Manual</title>
   <meta name="description" content="Statistics manual from CSCN." />
-  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
   <meta property="og:title" content="9 Estadistica descriptiva | R - Statistics Manual" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Center for Social and Cognitive Neuroscience - cscn.uai.cl" />
 
 
-<meta name="date" content="2020-09-21" />
+<meta name="date" content="2021-03-08" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +33,7 @@
   
 <link rel="prev" href="Visualizar-riesgo.html"/>
 <link rel="next" href="Estadistica-inferencial.html"/>
-<script src="libs/header-attrs-2.3/header-attrs.js"></script>
+<script src="libs/header-attrs-2.7/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -51,7 +51,6 @@
 
 
 
-<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 <script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
 <link href="libs/str_view-0.1.0/str_view.css" rel="stylesheet" />
 <script src="libs/str_view-binding-1.4.0/str_view.js"></script>
@@ -317,12 +316,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="12.2.1" data-path="pre-processing.html"><a href="pre-processing.html#cronbachs-alpha"><i class="fa fa-check"></i><b>12.2.1</b> Cronbach’s Alpha</a></li>
 <li class="chapter" data-level="12.2.2" data-path="pre-processing.html"><a href="pre-processing.html#omega"><i class="fa fa-check"></i><b>12.2.2</b> Omega</a></li>
-<li class="chapter" data-level="12.2.3" data-path="pre-processing.html"><a href="pre-processing.html#references-2"><i class="fa fa-check"></i><b>12.2.3</b> References</a></li>
 </ul></li>
-<li class="chapter" data-level="12.3" data-path="pre-processing.html"><a href="pre-processing.html#impute-missing-data"><i class="fa fa-check"></i><b>12.3</b> Impute missing data</a>
+<li class="chapter" data-level="12.3" data-path="pre-processing.html"><a href="pre-processing.html#inter-rater-reliability"><i class="fa fa-check"></i><b>12.3</b> Inter rater reliability</a>
 <ul>
-<li class="chapter" data-level="12.3.1" data-path="pre-processing.html"><a href="pre-processing.html#impute-with-mice"><i class="fa fa-check"></i><b>12.3.1</b> Impute with mice</a></li>
-<li class="chapter" data-level="12.3.2" data-path="pre-processing.html"><a href="pre-processing.html#impute-with-recipes"><i class="fa fa-check"></i><b>12.3.2</b> Impute with recipes</a></li>
+<li class="chapter" data-level="12.3.1" data-path="pre-processing.html"><a href="pre-processing.html#references-2"><i class="fa fa-check"></i><b>12.3.1</b> References</a></li>
+</ul></li>
+<li class="chapter" data-level="12.4" data-path="pre-processing.html"><a href="pre-processing.html#impute-missing-data"><i class="fa fa-check"></i><b>12.4</b> Impute missing data</a>
+<ul>
+<li class="chapter" data-level="12.4.1" data-path="pre-processing.html"><a href="pre-processing.html#impute-with-mice"><i class="fa fa-check"></i><b>12.4.1</b> Impute with mice</a></li>
+<li class="chapter" data-level="12.4.2" data-path="pre-processing.html"><a href="pre-processing.html#impute-with-recipes"><i class="fa fa-check"></i><b>12.4.2</b> Impute with recipes</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="13" data-path="experimental-design.html"><a href="experimental-design.html"><i class="fa fa-check"></i><b>13</b> Experimental design</a>
@@ -336,6 +338,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="13.3.1" data-path="experimental-design.html"><a href="experimental-design.html#encriptando-y-desencriptando-un-elemento"><i class="fa fa-check"></i><b>13.3.1</b> Encriptando y desencriptando un elemento</a></li>
 <li class="chapter" data-level="13.3.2" data-path="experimental-design.html"><a href="experimental-design.html#encriptando-y-desencriptando-la-columna-rut-de-una-db-completa."><i class="fa fa-check"></i><b>13.3.2</b> Encriptando y desencriptando la columna RUT de una DB completa.</a></li>
+<li class="chapter" data-level="13.3.3" data-path="experimental-design.html"><a href="experimental-design.html#encriptando-algo-que-no-sean-numeros"><i class="fa fa-check"></i><b>13.3.3</b> Encriptando algo que no sean numeros</a></li>
 </ul></li>
 <li class="chapter" data-level="13.4" data-path="experimental-design.html"><a href="experimental-design.html#match-participants"><i class="fa fa-check"></i><b>13.4</b> Match participants</a></li>
 <li class="chapter" data-level="13.5" data-path="experimental-design.html"><a href="experimental-design.html#determine-distribution"><i class="fa fa-check"></i><b>13.5</b> Determine distribution</a></li>
@@ -407,15 +410,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <hr />
 <p>Cargamos librerias y leemos los datos</p>
-<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb161-1"><a href="Estadistica-descriptiva.html#cb161-1"></a><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;findviews&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;findviews&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;findviews&#39;</span>)</span>
-<span id="cb161-2"><a href="Estadistica-descriptiva.html#cb161-2"></a><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;dplyr&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;dplyr&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;dplyr&#39;</span>)</span>
-<span id="cb161-3"><a href="Estadistica-descriptiva.html#cb161-3"></a><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;readr&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;readr&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;readr&#39;</span>)</span>
-<span id="cb161-4"><a href="Estadistica-descriptiva.html#cb161-4"></a></span>
-<span id="cb161-5"><a href="Estadistica-descriptiva.html#cb161-5"></a><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;gt&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;gt&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;gt&#39;</span>)</span>
-<span id="cb161-6"><a href="Estadistica-descriptiva.html#cb161-6"></a><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;gtsummary&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;gtsummary&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;gtsummary&#39;</span>)</span>
-<span id="cb161-7"><a href="Estadistica-descriptiva.html#cb161-7"></a></span>
-<span id="cb161-8"><a href="Estadistica-descriptiva.html#cb161-8"></a></span>
-<span id="cb161-9"><a href="Estadistica-descriptiva.html#cb161-9"></a>datos =<span class="st"> </span><span class="kw">read_csv</span>(here<span class="op">::</span><span class="kw">here</span>(<span class="st">&quot;Data/07_Descriptive_statistics/Descriptive_statistics.csv&quot;</span>)); datos</span></code></pre></div>
+<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="Estadistica-descriptiva.html#cb162-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&#39;findviews&#39;</span>)) <span class="fu">install.packages</span>(<span class="st">&#39;findviews&#39;</span>); <span class="fu">library</span>(<span class="st">&#39;findviews&#39;</span>)</span>
+<span id="cb162-2"><a href="Estadistica-descriptiva.html#cb162-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&#39;dplyr&#39;</span>)) <span class="fu">install.packages</span>(<span class="st">&#39;dplyr&#39;</span>); <span class="fu">library</span>(<span class="st">&#39;dplyr&#39;</span>)</span>
+<span id="cb162-3"><a href="Estadistica-descriptiva.html#cb162-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&#39;readr&#39;</span>)) <span class="fu">install.packages</span>(<span class="st">&#39;readr&#39;</span>); <span class="fu">library</span>(<span class="st">&#39;readr&#39;</span>)</span>
+<span id="cb162-4"><a href="Estadistica-descriptiva.html#cb162-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb162-5"><a href="Estadistica-descriptiva.html#cb162-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&#39;gt&#39;</span>)) <span class="fu">install.packages</span>(<span class="st">&#39;gt&#39;</span>); <span class="fu">library</span>(<span class="st">&#39;gt&#39;</span>)</span>
+<span id="cb162-6"><a href="Estadistica-descriptiva.html#cb162-6" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&#39;gtsummary&#39;</span>)) <span class="fu">install.packages</span>(<span class="st">&#39;gtsummary&#39;</span>); <span class="fu">library</span>(<span class="st">&#39;gtsummary&#39;</span>)</span>
+<span id="cb162-7"><a href="Estadistica-descriptiva.html#cb162-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb162-8"><a href="Estadistica-descriptiva.html#cb162-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb162-9"><a href="Estadistica-descriptiva.html#cb162-9" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">=</span> <span class="fu">read_csv</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">&quot;Data/07_Descriptive_statistics/Descriptive_statistics.csv&quot;</span>)); datos</span></code></pre></div>
 <pre><code>## # A tibble: 261 x 6
 ##       ID  Sexo  Edad Condition    VD  VD_t
 ##    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;     &lt;dbl&gt; &lt;dbl&gt;
@@ -436,10 +439,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Para mas informacion y ejemplos de codigo: <a href="https://themockup.blog/posts/2020-09-04-10-table-rules-in-r/" class="uri">https://themockup.blog/posts/2020-09-04-10-table-rules-in-r/</a></li>
 </ul>
 <p>Create a simple descriptive table:</p>
-<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="Estadistica-descriptiva.html#cb163-1"></a>gtsummary<span class="op">::</span><span class="kw">tbl_summary</span>(datos,</span>
-<span id="cb163-2"><a href="Estadistica-descriptiva.html#cb163-2"></a>                       <span class="dt">by =</span> Sexo,</span>
-<span id="cb163-3"><a href="Estadistica-descriptiva.html#cb163-3"></a>                       <span class="dt">missing =</span> <span class="st">&quot;ifany&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb163-4"><a href="Estadistica-descriptiva.html#cb163-4"></a><span class="st">  </span>gtsummary<span class="op">::</span><span class="kw">add_n</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="Estadistica-descriptiva.html#cb164-1" aria-hidden="true" tabindex="-1"></a>gtsummary<span class="sc">::</span><span class="fu">tbl_summary</span>(datos,</span>
+<span id="cb164-2"><a href="Estadistica-descriptiva.html#cb164-2" aria-hidden="true" tabindex="-1"></a>                       <span class="at">by =</span> Sexo,</span>
+<span id="cb164-3"><a href="Estadistica-descriptiva.html#cb164-3" aria-hidden="true" tabindex="-1"></a>                       <span class="at">missing =</span> <span class="st">&quot;ifany&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb164-4"><a href="Estadistica-descriptiva.html#cb164-4" aria-hidden="true" tabindex="-1"></a>  gtsummary<span class="sc">::</span><span class="fu">add_n</span>()</span></code></pre></div>
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
@@ -852,24 +855,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </table></div>
 <p>More complex:</p>
 <p>Create a table for each Sex, combine the two and save to a file.</p>
-<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="Estadistica-descriptiva.html#cb164-1"></a>table1 =<span class="st"> </span>gtsummary<span class="op">::</span><span class="kw">tbl_summary</span>(datos <span class="op">%&gt;%</span><span class="st"> </span>dplyr<span class="op">::</span><span class="kw">filter</span>(Sexo <span class="op">==</span><span class="st"> </span><span class="dv">0</span>) <span class="op">%&gt;%</span><span class="st"> </span>dplyr<span class="op">::</span><span class="kw">select</span>(<span class="op">-</span>Sexo),</span>
-<span id="cb164-2"><a href="Estadistica-descriptiva.html#cb164-2"></a>                       <span class="dt">by =</span> Condition,</span>
-<span id="cb164-3"><a href="Estadistica-descriptiva.html#cb164-3"></a>                       <span class="dt">missing =</span> <span class="st">&quot;ifany&quot;</span>,</span>
-<span id="cb164-4"><a href="Estadistica-descriptiva.html#cb164-4"></a>                       <span class="dt">type =</span> <span class="kw">list</span>(Edad <span class="op">~</span><span class="st"> &#39;categorical&#39;</span>),</span>
-<span id="cb164-5"><a href="Estadistica-descriptiva.html#cb164-5"></a>                       <span class="dt">statistic =</span> <span class="kw">list</span>(Edad <span class="op">~</span><span class="st"> &quot;{n} ({p}%)&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb164-6"><a href="Estadistica-descriptiva.html#cb164-6"></a><span class="st">  </span>gtsummary<span class="op">::</span><span class="kw">add_n</span>()</span>
-<span id="cb164-7"><a href="Estadistica-descriptiva.html#cb164-7"></a></span>
-<span id="cb164-8"><a href="Estadistica-descriptiva.html#cb164-8"></a></span>
-<span id="cb164-9"><a href="Estadistica-descriptiva.html#cb164-9"></a>table2 =<span class="st"> </span>gtsummary<span class="op">::</span><span class="kw">tbl_summary</span>(datos <span class="op">%&gt;%</span><span class="st"> </span>dplyr<span class="op">::</span><span class="kw">filter</span>(Sexo <span class="op">==</span><span class="st"> </span><span class="dv">1</span>) <span class="op">%&gt;%</span><span class="st"> </span>dplyr<span class="op">::</span><span class="kw">select</span>(<span class="op">-</span>Sexo),</span>
-<span id="cb164-10"><a href="Estadistica-descriptiva.html#cb164-10"></a>                       <span class="dt">by =</span> Condition,</span>
-<span id="cb164-11"><a href="Estadistica-descriptiva.html#cb164-11"></a>                       <span class="dt">missing =</span> <span class="st">&quot;ifany&quot;</span>,</span>
-<span id="cb164-12"><a href="Estadistica-descriptiva.html#cb164-12"></a>                       <span class="dt">type =</span> <span class="kw">list</span>(Edad <span class="op">~</span><span class="st"> &#39;categorical&#39;</span>),</span>
-<span id="cb164-13"><a href="Estadistica-descriptiva.html#cb164-13"></a>                       <span class="dt">statistic =</span> <span class="kw">list</span>(Edad <span class="op">~</span><span class="st"> &quot;{n} ({p}%)&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb164-14"><a href="Estadistica-descriptiva.html#cb164-14"></a><span class="st">  </span>gtsummary<span class="op">::</span><span class="kw">add_n</span>()</span>
-<span id="cb164-15"><a href="Estadistica-descriptiva.html#cb164-15"></a></span>
-<span id="cb164-16"><a href="Estadistica-descriptiva.html#cb164-16"></a></span>
-<span id="cb164-17"><a href="Estadistica-descriptiva.html#cb164-17"></a>table_combined_Sexo =<span class="st"> </span>gtsummary<span class="op">::</span><span class="kw">tbl_merge</span>(<span class="kw">list</span>(table1, table2), <span class="dt">tab_spanner =</span> <span class="kw">list</span>(<span class="st">&quot;Females&quot;</span>, <span class="st">&quot;Males&quot;</span>))</span>
-<span id="cb164-18"><a href="Estadistica-descriptiva.html#cb164-18"></a>table_combined_Sexo</span></code></pre></div>
+<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb165-1"><a href="Estadistica-descriptiva.html#cb165-1" aria-hidden="true" tabindex="-1"></a>table1 <span class="ot">=</span> gtsummary<span class="sc">::</span><span class="fu">tbl_summary</span>(datos <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">filter</span>(Sexo <span class="sc">==</span> <span class="dv">0</span>) <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="sc">-</span>Sexo),</span>
+<span id="cb165-2"><a href="Estadistica-descriptiva.html#cb165-2" aria-hidden="true" tabindex="-1"></a>                       <span class="at">by =</span> Condition,</span>
+<span id="cb165-3"><a href="Estadistica-descriptiva.html#cb165-3" aria-hidden="true" tabindex="-1"></a>                       <span class="at">missing =</span> <span class="st">&quot;ifany&quot;</span>,</span>
+<span id="cb165-4"><a href="Estadistica-descriptiva.html#cb165-4" aria-hidden="true" tabindex="-1"></a>                       <span class="at">type =</span> <span class="fu">list</span>(Edad <span class="sc">~</span> <span class="st">&#39;categorical&#39;</span>),</span>
+<span id="cb165-5"><a href="Estadistica-descriptiva.html#cb165-5" aria-hidden="true" tabindex="-1"></a>                       <span class="at">statistic =</span> <span class="fu">list</span>(Edad <span class="sc">~</span> <span class="st">&quot;{n} ({p}%)&quot;</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb165-6"><a href="Estadistica-descriptiva.html#cb165-6" aria-hidden="true" tabindex="-1"></a>  gtsummary<span class="sc">::</span><span class="fu">add_n</span>()</span>
+<span id="cb165-7"><a href="Estadistica-descriptiva.html#cb165-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb165-8"><a href="Estadistica-descriptiva.html#cb165-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb165-9"><a href="Estadistica-descriptiva.html#cb165-9" aria-hidden="true" tabindex="-1"></a>table2 <span class="ot">=</span> gtsummary<span class="sc">::</span><span class="fu">tbl_summary</span>(datos <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">filter</span>(Sexo <span class="sc">==</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="sc">-</span>Sexo),</span>
+<span id="cb165-10"><a href="Estadistica-descriptiva.html#cb165-10" aria-hidden="true" tabindex="-1"></a>                       <span class="at">by =</span> Condition,</span>
+<span id="cb165-11"><a href="Estadistica-descriptiva.html#cb165-11" aria-hidden="true" tabindex="-1"></a>                       <span class="at">missing =</span> <span class="st">&quot;ifany&quot;</span>,</span>
+<span id="cb165-12"><a href="Estadistica-descriptiva.html#cb165-12" aria-hidden="true" tabindex="-1"></a>                       <span class="at">type =</span> <span class="fu">list</span>(Edad <span class="sc">~</span> <span class="st">&#39;categorical&#39;</span>),</span>
+<span id="cb165-13"><a href="Estadistica-descriptiva.html#cb165-13" aria-hidden="true" tabindex="-1"></a>                       <span class="at">statistic =</span> <span class="fu">list</span>(Edad <span class="sc">~</span> <span class="st">&quot;{n} ({p}%)&quot;</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb165-14"><a href="Estadistica-descriptiva.html#cb165-14" aria-hidden="true" tabindex="-1"></a>  gtsummary<span class="sc">::</span><span class="fu">add_n</span>()</span>
+<span id="cb165-15"><a href="Estadistica-descriptiva.html#cb165-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb165-16"><a href="Estadistica-descriptiva.html#cb165-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb165-17"><a href="Estadistica-descriptiva.html#cb165-17" aria-hidden="true" tabindex="-1"></a>table_combined_Sexo <span class="ot">=</span> gtsummary<span class="sc">::</span><span class="fu">tbl_merge</span>(<span class="fu">list</span>(table1, table2), <span class="at">tab_spanner =</span> <span class="fu">list</span>(<span class="st">&quot;Females&quot;</span>, <span class="st">&quot;Males&quot;</span>))</span>
+<span id="cb165-18"><a href="Estadistica-descriptiva.html#cb165-18" aria-hidden="true" tabindex="-1"></a>table_combined_Sexo</span></code></pre></div>
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
@@ -1454,38 +1457,38 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </tr>
   </tfoot>
 </table></div>
-<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb165-1"><a href="Estadistica-descriptiva.html#cb165-1"></a><span class="co"># Save table</span></span>
-<span id="cb165-2"><a href="Estadistica-descriptiva.html#cb165-2"></a><span class="kw">gtsave</span>(<span class="kw">as_gt</span>(table_combined_Sexo), <span class="dt">file =</span> here<span class="op">::</span><span class="kw">here</span>(<span class="st">&quot;Resultados/table-combined-bysex.png&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb166-1"><a href="Estadistica-descriptiva.html#cb166-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Save table</span></span>
+<span id="cb166-2"><a href="Estadistica-descriptiva.html#cb166-2" aria-hidden="true" tabindex="-1"></a><span class="fu">gtsave</span>(<span class="fu">as_gt</span>(table_combined_Sexo), <span class="at">file =</span> here<span class="sc">::</span><span class="fu">here</span>(<span class="st">&quot;Resultados/table-combined-bysex.png&quot;</span>))</span></code></pre></div>
 <p><img src="_main_files/figure-html/gt2-1.png" width="672" /></p>
 </div>
 <div id="summary-de-datos" class="section level2" number="9.2">
 <h2><span class="header-section-number">9.2</span> Summary de datos</h2>
-<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb166-1"><a href="Estadistica-descriptiva.html#cb166-1"></a><span class="co"># datos %&gt;% group_by(Condition)  %&gt;% summarise(VD = mean(VD), sd = sd(VD))</span></span>
-<span id="cb166-2"><a href="Estadistica-descriptiva.html#cb166-2"></a>    </span>
-<span id="cb166-3"><a href="Estadistica-descriptiva.html#cb166-3"></a>datos <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb166-4"><a href="Estadistica-descriptiva.html#cb166-4"></a><span class="st">  </span><span class="kw">group_by</span>(Condition) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb166-5"><a href="Estadistica-descriptiva.html#cb166-5"></a><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">sd =</span> <span class="kw">sd</span>(VD), <span class="dt">VD =</span> <span class="kw">mean</span>(VD))</span></code></pre></div>
+<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="Estadistica-descriptiva.html#cb167-1" aria-hidden="true" tabindex="-1"></a><span class="co"># datos %&gt;% group_by(Condition)  %&gt;% summarise(VD = mean(VD), sd = sd(VD))</span></span>
+<span id="cb167-2"><a href="Estadistica-descriptiva.html#cb167-2" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb167-3"><a href="Estadistica-descriptiva.html#cb167-3" aria-hidden="true" tabindex="-1"></a>datos <span class="sc">%&gt;%</span> </span>
+<span id="cb167-4"><a href="Estadistica-descriptiva.html#cb167-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Condition) <span class="sc">%&gt;%</span> </span>
+<span id="cb167-5"><a href="Estadistica-descriptiva.html#cb167-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">sd =</span> <span class="fu">sd</span>(VD), <span class="at">VD =</span> <span class="fu">mean</span>(VD))</span></code></pre></div>
 <pre><code>##         sd       VD
 ## 1 31.20539 20.75862</code></pre>
-<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="Estadistica-descriptiva.html#cb168-1"></a><span class="co"># datos %&gt;% filter(Edad &gt; 18) %&gt;% group_by(Condition, Sexo)  %&gt;% summarise(VD = mean(VD), stdev = sd(VD), VD_t = mean(VD_t), num = length(VD))</span></span>
-<span id="cb168-2"><a href="Estadistica-descriptiva.html#cb168-2"></a>    </span>
-<span id="cb168-3"><a href="Estadistica-descriptiva.html#cb168-3"></a>datos <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb168-4"><a href="Estadistica-descriptiva.html#cb168-4"></a><span class="st">  </span><span class="kw">filter</span>(Edad <span class="op">&gt;</span><span class="st"> </span><span class="dv">18</span>) <span class="op">%&gt;%</span></span>
-<span id="cb168-5"><a href="Estadistica-descriptiva.html#cb168-5"></a><span class="st">  </span><span class="kw">group_by</span>(Condition, Sexo) <span class="op">%&gt;%</span></span>
-<span id="cb168-6"><a href="Estadistica-descriptiva.html#cb168-6"></a><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">num =</span> <span class="kw">length</span>(VD), <span class="dt">stdev =</span> <span class="kw">sd</span>(VD), <span class="dt">VD =</span> <span class="kw">mean</span>(VD), <span class="dt">VD_t =</span> <span class="kw">mean</span>(VD_t))</span></code></pre></div>
+<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="Estadistica-descriptiva.html#cb169-1" aria-hidden="true" tabindex="-1"></a><span class="co"># datos %&gt;% filter(Edad &gt; 18) %&gt;% group_by(Condition, Sexo)  %&gt;% summarise(VD = mean(VD), stdev = sd(VD), VD_t = mean(VD_t), num = length(VD))</span></span>
+<span id="cb169-2"><a href="Estadistica-descriptiva.html#cb169-2" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb169-3"><a href="Estadistica-descriptiva.html#cb169-3" aria-hidden="true" tabindex="-1"></a>datos <span class="sc">%&gt;%</span> </span>
+<span id="cb169-4"><a href="Estadistica-descriptiva.html#cb169-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Edad <span class="sc">&gt;</span> <span class="dv">18</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb169-5"><a href="Estadistica-descriptiva.html#cb169-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Condition, Sexo) <span class="sc">%&gt;%</span></span>
+<span id="cb169-6"><a href="Estadistica-descriptiva.html#cb169-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">num =</span> <span class="fu">length</span>(VD), <span class="at">stdev =</span> <span class="fu">sd</span>(VD), <span class="at">VD =</span> <span class="fu">mean</span>(VD), <span class="at">VD_t =</span> <span class="fu">mean</span>(VD_t))</span></code></pre></div>
 <pre><code>##   num    stdev       VD     VD_t
 ## 1 261 31.20539 20.75862 2554.149</code></pre>
-<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="Estadistica-descriptiva.html#cb170-1"></a><span class="co"># Todo en uno</span></span>
-<span id="cb170-2"><a href="Estadistica-descriptiva.html#cb170-2"></a>datos <span class="op">%&gt;%</span></span>
-<span id="cb170-3"><a href="Estadistica-descriptiva.html#cb170-3"></a><span class="st">  </span><span class="kw">group_by</span>(Condition) <span class="op">%&gt;%</span></span>
-<span id="cb170-4"><a href="Estadistica-descriptiva.html#cb170-4"></a><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">num =</span> <span class="kw">length</span>(VD), <span class="dt">stdev =</span> <span class="kw">sd</span>(VD), <span class="dt">mean =</span> <span class="kw">mean</span>(VD), <span class="kw">max</span>(VD), <span class="kw">min</span>(VD))</span></code></pre></div>
+<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb171-1"><a href="Estadistica-descriptiva.html#cb171-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Todo en uno</span></span>
+<span id="cb171-2"><a href="Estadistica-descriptiva.html#cb171-2" aria-hidden="true" tabindex="-1"></a>datos <span class="sc">%&gt;%</span></span>
+<span id="cb171-3"><a href="Estadistica-descriptiva.html#cb171-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Condition) <span class="sc">%&gt;%</span></span>
+<span id="cb171-4"><a href="Estadistica-descriptiva.html#cb171-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">num =</span> <span class="fu">length</span>(VD), <span class="at">stdev =</span> <span class="fu">sd</span>(VD), <span class="at">mean =</span> <span class="fu">mean</span>(VD), <span class="fu">max</span>(VD), <span class="fu">min</span>(VD))</span></code></pre></div>
 <pre><code>##   num    stdev     mean max(VD) min(VD)
 ## 1 261 31.20539 20.75862      99       0</code></pre>
 <div id="agrupamos-por-sujeto" class="section level3" number="9.2.1">
 <h3><span class="header-section-number">9.2.1</span> Agrupamos por sujeto</h3>
-<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb172-1"><a href="Estadistica-descriptiva.html#cb172-1"></a>datos <span class="op">%&gt;%</span></span>
-<span id="cb172-2"><a href="Estadistica-descriptiva.html#cb172-2"></a><span class="st">  </span><span class="kw">group_by</span>(ID) <span class="op">%&gt;%</span></span>
-<span id="cb172-3"><a href="Estadistica-descriptiva.html#cb172-3"></a><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">mean =</span> <span class="kw">mean</span>(VD))</span></code></pre></div>
+<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb173-1"><a href="Estadistica-descriptiva.html#cb173-1" aria-hidden="true" tabindex="-1"></a>datos <span class="sc">%&gt;%</span></span>
+<span id="cb173-2"><a href="Estadistica-descriptiva.html#cb173-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(ID) <span class="sc">%&gt;%</span></span>
+<span id="cb173-3"><a href="Estadistica-descriptiva.html#cb173-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean =</span> <span class="fu">mean</span>(VD))</span></code></pre></div>
 <pre><code>##       mean
 ## 1 20.75862</code></pre>
 </div>
@@ -1493,9 +1496,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="descriptive-tables-latex" class="section level2" number="9.3">
 <h2><span class="header-section-number">9.3</span> Descriptive tables latex</h2>
 <p>Using stargazer we can create tables showing summary statistics or a lm output. Here we use <code>type = "html"</code> to be able to show the table in this book. <code>type = "latex"</code> (default) shows the latex code.</p>
-<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb174-1"><a href="Estadistica-descriptiva.html#cb174-1"></a><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;stargazer&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;stargazer&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;stargazer&#39;</span>)</span>
-<span id="cb174-2"><a href="Estadistica-descriptiva.html#cb174-2"></a></span>
-<span id="cb174-3"><a href="Estadistica-descriptiva.html#cb174-3"></a><span class="kw">stargazer</span>(datos <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as.data.frame</span>(), <span class="dt">type=</span><span class="st">&quot;html&quot;</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb175-1"><a href="Estadistica-descriptiva.html#cb175-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&#39;stargazer&#39;</span>)) <span class="fu">install.packages</span>(<span class="st">&#39;stargazer&#39;</span>); <span class="fu">library</span>(<span class="st">&#39;stargazer&#39;</span>)</span>
+<span id="cb175-2"><a href="Estadistica-descriptiva.html#cb175-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb175-3"><a href="Estadistica-descriptiva.html#cb175-3" aria-hidden="true" tabindex="-1"></a><span class="fu">stargazer</span>(datos <span class="sc">%&gt;%</span> <span class="fu">as.data.frame</span>(), <span class="at">type=</span><span class="st">&quot;html&quot;</span>) </span></code></pre></div>
 <table style="text-align:center">
 <tr>
 <td colspan="8" style="border-bottom: 1px solid black">
@@ -1670,11 +1673,11 @@ VD_t
 <div id="visualize-missing-values" class="section level2" number="9.4">
 <h2><span class="header-section-number">9.4</span> Visualize missing values</h2>
 <p>With Amelia</p>
-<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb175-1"><a href="Estadistica-descriptiva.html#cb175-1"></a><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;Amelia&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;Amelia&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;Amelia&#39;</span>)</span>
-<span id="cb175-2"><a href="Estadistica-descriptiva.html#cb175-2"></a></span>
-<span id="cb175-3"><a href="Estadistica-descriptiva.html#cb175-3"></a>datos =<span class="st"> </span>datos <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">Sexo =</span> <span class="kw">ifelse</span>(Edad <span class="op">==</span><span class="st"> </span><span class="dv">37</span>, <span class="ot">NA</span>, Sexo))</span>
-<span id="cb175-4"><a href="Estadistica-descriptiva.html#cb175-4"></a></span>
-<span id="cb175-5"><a href="Estadistica-descriptiva.html#cb175-5"></a><span class="kw">missmap</span>(datos)</span></code></pre></div>
+<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb176-1"><a href="Estadistica-descriptiva.html#cb176-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&#39;Amelia&#39;</span>)) <span class="fu">install.packages</span>(<span class="st">&#39;Amelia&#39;</span>); <span class="fu">library</span>(<span class="st">&#39;Amelia&#39;</span>)</span>
+<span id="cb176-2"><a href="Estadistica-descriptiva.html#cb176-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb176-3"><a href="Estadistica-descriptiva.html#cb176-3" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">=</span> datos <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">Sexo =</span> <span class="fu">ifelse</span>(Edad <span class="sc">==</span> <span class="dv">37</span>, <span class="cn">NA</span>, Sexo))</span>
+<span id="cb176-4"><a href="Estadistica-descriptiva.html#cb176-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb176-5"><a href="Estadistica-descriptiva.html#cb176-5" aria-hidden="true" tabindex="-1"></a><span class="fu">missmap</span>(datos)</span></code></pre></div>
 <pre><code>## Warning in if (class(obj) == &quot;amelia&quot;) {: the condition has length &gt; 1 and
 ## only the first element will be used</code></pre>
 <pre><code>## Warning: Unknown or uninitialised column: &#39;arguments&#39;.
@@ -1683,41 +1686,41 @@ VD_t
 <pre><code>## Warning: Unknown or uninitialised column: &#39;imputations&#39;.</code></pre>
 <p><img src="_main_files/figure-html/descriptives-missing-amelia-1.png" width="672" /></p>
 <p>With ggplot and reshape2</p>
-<div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb179-1"><a href="Estadistica-descriptiva.html#cb179-1"></a><span class="co"># With ggplot</span></span>
-<span id="cb179-2"><a href="Estadistica-descriptiva.html#cb179-2"></a><span class="co"># A function that plots missingness</span></span>
-<span id="cb179-3"><a href="Estadistica-descriptiva.html#cb179-3"></a><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;reshape2&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;reshape2&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;reshape2&#39;</span>)</span>
-<span id="cb179-4"><a href="Estadistica-descriptiva.html#cb179-4"></a><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;ggplot2&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;ggplot2&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;ggplot2&#39;</span>)</span>
-<span id="cb179-5"><a href="Estadistica-descriptiva.html#cb179-5"></a></span>
-<span id="cb179-6"><a href="Estadistica-descriptiva.html#cb179-6"></a>ggplot_missing &lt;-<span class="st"> </span><span class="cf">function</span>(x){</span>
-<span id="cb179-7"><a href="Estadistica-descriptiva.html#cb179-7"></a>  </span>
-<span id="cb179-8"><a href="Estadistica-descriptiva.html#cb179-8"></a>  x <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb179-9"><a href="Estadistica-descriptiva.html#cb179-9"></a><span class="st">    </span>is.na <span class="op">%&gt;%</span></span>
-<span id="cb179-10"><a href="Estadistica-descriptiva.html#cb179-10"></a><span class="st">    </span>melt <span class="op">%&gt;%</span></span>
-<span id="cb179-11"><a href="Estadistica-descriptiva.html#cb179-11"></a><span class="st">    </span><span class="kw">ggplot</span>(<span class="dt">data =</span> .,</span>
-<span id="cb179-12"><a href="Estadistica-descriptiva.html#cb179-12"></a>           <span class="kw">aes</span>(<span class="dt">x =</span> Var2,</span>
-<span id="cb179-13"><a href="Estadistica-descriptiva.html#cb179-13"></a>               <span class="dt">y =</span> Var1)) <span class="op">+</span></span>
-<span id="cb179-14"><a href="Estadistica-descriptiva.html#cb179-14"></a><span class="st">    </span><span class="kw">geom_raster</span>(<span class="kw">aes</span>(<span class="dt">fill =</span> value)) <span class="op">+</span></span>
-<span id="cb179-15"><a href="Estadistica-descriptiva.html#cb179-15"></a><span class="st">    </span><span class="kw">scale_fill_grey</span>(<span class="dt">name =</span> <span class="st">&quot;&quot;</span>,</span>
-<span id="cb179-16"><a href="Estadistica-descriptiva.html#cb179-16"></a>                    <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;Present&quot;</span>,<span class="st">&quot;Missing&quot;</span>)) <span class="op">+</span></span>
-<span id="cb179-17"><a href="Estadistica-descriptiva.html#cb179-17"></a><span class="st">    </span><span class="kw">theme_minimal</span>() <span class="op">+</span><span class="st"> </span></span>
-<span id="cb179-18"><a href="Estadistica-descriptiva.html#cb179-18"></a><span class="st">    </span><span class="kw">theme</span>(<span class="dt">axis.text.x  =</span> <span class="kw">element_text</span>(<span class="dt">angle=</span><span class="dv">45</span>, <span class="dt">vjust=</span><span class="fl">0.5</span>)) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb179-19"><a href="Estadistica-descriptiva.html#cb179-19"></a><span class="st">    </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Variables in Dataset&quot;</span>,</span>
-<span id="cb179-20"><a href="Estadistica-descriptiva.html#cb179-20"></a>         <span class="dt">y =</span> <span class="st">&quot;Rows / observations&quot;</span>)</span>
-<span id="cb179-21"><a href="Estadistica-descriptiva.html#cb179-21"></a>}</span>
-<span id="cb179-22"><a href="Estadistica-descriptiva.html#cb179-22"></a></span>
-<span id="cb179-23"><a href="Estadistica-descriptiva.html#cb179-23"></a><span class="kw">ggplot_missing</span>(datos)</span></code></pre></div>
+<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb180-1"><a href="Estadistica-descriptiva.html#cb180-1" aria-hidden="true" tabindex="-1"></a><span class="co"># With ggplot</span></span>
+<span id="cb180-2"><a href="Estadistica-descriptiva.html#cb180-2" aria-hidden="true" tabindex="-1"></a><span class="co"># A function that plots missingness</span></span>
+<span id="cb180-3"><a href="Estadistica-descriptiva.html#cb180-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&#39;reshape2&#39;</span>)) <span class="fu">install.packages</span>(<span class="st">&#39;reshape2&#39;</span>); <span class="fu">library</span>(<span class="st">&#39;reshape2&#39;</span>)</span>
+<span id="cb180-4"><a href="Estadistica-descriptiva.html#cb180-4" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&#39;ggplot2&#39;</span>)) <span class="fu">install.packages</span>(<span class="st">&#39;ggplot2&#39;</span>); <span class="fu">library</span>(<span class="st">&#39;ggplot2&#39;</span>)</span>
+<span id="cb180-5"><a href="Estadistica-descriptiva.html#cb180-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb180-6"><a href="Estadistica-descriptiva.html#cb180-6" aria-hidden="true" tabindex="-1"></a>ggplot_missing <span class="ot">&lt;-</span> <span class="cf">function</span>(x){</span>
+<span id="cb180-7"><a href="Estadistica-descriptiva.html#cb180-7" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb180-8"><a href="Estadistica-descriptiva.html#cb180-8" aria-hidden="true" tabindex="-1"></a>  x <span class="sc">%&gt;%</span> </span>
+<span id="cb180-9"><a href="Estadistica-descriptiva.html#cb180-9" aria-hidden="true" tabindex="-1"></a>    is.na <span class="sc">%&gt;%</span></span>
+<span id="cb180-10"><a href="Estadistica-descriptiva.html#cb180-10" aria-hidden="true" tabindex="-1"></a>    melt <span class="sc">%&gt;%</span></span>
+<span id="cb180-11"><a href="Estadistica-descriptiva.html#cb180-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="at">data =</span> .,</span>
+<span id="cb180-12"><a href="Estadistica-descriptiva.html#cb180-12" aria-hidden="true" tabindex="-1"></a>           <span class="fu">aes</span>(<span class="at">x =</span> Var2,</span>
+<span id="cb180-13"><a href="Estadistica-descriptiva.html#cb180-13" aria-hidden="true" tabindex="-1"></a>               <span class="at">y =</span> Var1)) <span class="sc">+</span></span>
+<span id="cb180-14"><a href="Estadistica-descriptiva.html#cb180-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_raster</span>(<span class="fu">aes</span>(<span class="at">fill =</span> value)) <span class="sc">+</span></span>
+<span id="cb180-15"><a href="Estadistica-descriptiva.html#cb180-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_fill_grey</span>(<span class="at">name =</span> <span class="st">&quot;&quot;</span>,</span>
+<span id="cb180-16"><a href="Estadistica-descriptiva.html#cb180-16" aria-hidden="true" tabindex="-1"></a>                    <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;Present&quot;</span>,<span class="st">&quot;Missing&quot;</span>)) <span class="sc">+</span></span>
+<span id="cb180-17"><a href="Estadistica-descriptiva.html#cb180-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_minimal</span>() <span class="sc">+</span> </span>
+<span id="cb180-18"><a href="Estadistica-descriptiva.html#cb180-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">axis.text.x  =</span> <span class="fu">element_text</span>(<span class="at">angle=</span><span class="dv">45</span>, <span class="at">vjust=</span><span class="fl">0.5</span>)) <span class="sc">+</span> </span>
+<span id="cb180-19"><a href="Estadistica-descriptiva.html#cb180-19" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Variables in Dataset&quot;</span>,</span>
+<span id="cb180-20"><a href="Estadistica-descriptiva.html#cb180-20" aria-hidden="true" tabindex="-1"></a>         <span class="at">y =</span> <span class="st">&quot;Rows / observations&quot;</span>)</span>
+<span id="cb180-21"><a href="Estadistica-descriptiva.html#cb180-21" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb180-22"><a href="Estadistica-descriptiva.html#cb180-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb180-23"><a href="Estadistica-descriptiva.html#cb180-23" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot_missing</span>(datos)</span></code></pre></div>
 <p><img src="_main_files/figure-html/descriptives-missing-ggplot-1.png" width="672" /></p>
-<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb180-1"><a href="Estadistica-descriptiva.html#cb180-1"></a><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;naniar&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;naniar&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;naniar&#39;</span>)</span>
-<span id="cb180-2"><a href="Estadistica-descriptiva.html#cb180-2"></a></span>
-<span id="cb180-3"><a href="Estadistica-descriptiva.html#cb180-3"></a><span class="co"># Add some missing in Edad</span></span>
-<span id="cb180-4"><a href="Estadistica-descriptiva.html#cb180-4"></a><span class="kw">set.seed</span>(<span class="dv">10</span>)</span>
-<span id="cb180-5"><a href="Estadistica-descriptiva.html#cb180-5"></a>missing =<span class="st"> </span><span class="kw">rbinom</span>(<span class="dv">261</span>, <span class="dv">1</span>, <span class="fl">0.3</span>)</span>
-<span id="cb180-6"><a href="Estadistica-descriptiva.html#cb180-6"></a>datos<span class="op">$</span>Edad =<span class="st"> </span><span class="kw">with</span>(datos, <span class="kw">ifelse</span>(Edad <span class="op">&gt;=</span><span class="st"> </span><span class="dv">30</span> <span class="op">&amp;</span><span class="st"> </span>missing <span class="op">==</span><span class="st"> </span><span class="dv">1</span>, <span class="ot">NA</span>, Edad))</span>
-<span id="cb180-7"><a href="Estadistica-descriptiva.html#cb180-7"></a></span>
-<span id="cb180-8"><a href="Estadistica-descriptiva.html#cb180-8"></a><span class="co"># Visualize upset plot</span></span>
-<span id="cb180-9"><a href="Estadistica-descriptiva.html#cb180-9"></a>  <span class="co"># Missing in Edad, Missing in Sexo, Missing in Sexo AND Edad</span></span>
-<span id="cb180-10"><a href="Estadistica-descriptiva.html#cb180-10"></a>datos <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb180-11"><a href="Estadistica-descriptiva.html#cb180-11"></a><span class="st">  </span><span class="kw">gg_miss_upset</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb181-1"><a href="Estadistica-descriptiva.html#cb181-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&#39;naniar&#39;</span>)) <span class="fu">install.packages</span>(<span class="st">&#39;naniar&#39;</span>); <span class="fu">library</span>(<span class="st">&#39;naniar&#39;</span>)</span>
+<span id="cb181-2"><a href="Estadistica-descriptiva.html#cb181-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb181-3"><a href="Estadistica-descriptiva.html#cb181-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Add some missing in Edad</span></span>
+<span id="cb181-4"><a href="Estadistica-descriptiva.html#cb181-4" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">10</span>)</span>
+<span id="cb181-5"><a href="Estadistica-descriptiva.html#cb181-5" aria-hidden="true" tabindex="-1"></a>missing <span class="ot">=</span> <span class="fu">rbinom</span>(<span class="dv">261</span>, <span class="dv">1</span>, <span class="fl">0.3</span>)</span>
+<span id="cb181-6"><a href="Estadistica-descriptiva.html#cb181-6" aria-hidden="true" tabindex="-1"></a>datos<span class="sc">$</span>Edad <span class="ot">=</span> <span class="fu">with</span>(datos, <span class="fu">ifelse</span>(Edad <span class="sc">&gt;=</span> <span class="dv">30</span> <span class="sc">&amp;</span> missing <span class="sc">==</span> <span class="dv">1</span>, <span class="cn">NA</span>, Edad))</span>
+<span id="cb181-7"><a href="Estadistica-descriptiva.html#cb181-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb181-8"><a href="Estadistica-descriptiva.html#cb181-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualize upset plot</span></span>
+<span id="cb181-9"><a href="Estadistica-descriptiva.html#cb181-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Missing in Edad, Missing in Sexo, Missing in Sexo AND Edad</span></span>
+<span id="cb181-10"><a href="Estadistica-descriptiva.html#cb181-10" aria-hidden="true" tabindex="-1"></a>datos <span class="sc">%&gt;%</span> </span>
+<span id="cb181-11"><a href="Estadistica-descriptiva.html#cb181-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gg_miss_upset</span>()</span></code></pre></div>
 <p><img src="_main_files/figure-html/visualize-missing-naniar-1.png" width="672" /></p>
 </div>
 <div id="tutorial-externo" class="section level2" number="9.5">

@@ -83,3 +83,6 @@ scales
 viridisLite
 viridis
 ggtext
+safer
+lpSolve
+irr

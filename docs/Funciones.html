@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>11 Funciones | R - Statistics Manual</title>
   <meta name="description" content="Statistics manual from CSCN." />
-  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
   <meta property="og:title" content="11 Funciones | R - Statistics Manual" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Center for Social and Cognitive Neuroscience - cscn.uai.cl" />
 
 
-<meta name="date" content="2020-09-21" />
+<meta name="date" content="2021-03-08" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +33,7 @@
   
 <link rel="prev" href="Estadistica-inferencial.html"/>
 <link rel="next" href="pre-processing.html"/>
-<script src="libs/header-attrs-2.3/header-attrs.js"></script>
+<script src="libs/header-attrs-2.7/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -51,7 +51,6 @@
 
 
 
-<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 <script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
 <link href="libs/str_view-0.1.0/str_view.css" rel="stylesheet" />
 <script src="libs/str_view-binding-1.4.0/str_view.js"></script>
@@ -317,12 +316,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="12.2.1" data-path="pre-processing.html"><a href="pre-processing.html#cronbachs-alpha"><i class="fa fa-check"></i><b>12.2.1</b> Cronbach’s Alpha</a></li>
 <li class="chapter" data-level="12.2.2" data-path="pre-processing.html"><a href="pre-processing.html#omega"><i class="fa fa-check"></i><b>12.2.2</b> Omega</a></li>
-<li class="chapter" data-level="12.2.3" data-path="pre-processing.html"><a href="pre-processing.html#references-2"><i class="fa fa-check"></i><b>12.2.3</b> References</a></li>
 </ul></li>
-<li class="chapter" data-level="12.3" data-path="pre-processing.html"><a href="pre-processing.html#impute-missing-data"><i class="fa fa-check"></i><b>12.3</b> Impute missing data</a>
+<li class="chapter" data-level="12.3" data-path="pre-processing.html"><a href="pre-processing.html#inter-rater-reliability"><i class="fa fa-check"></i><b>12.3</b> Inter rater reliability</a>
 <ul>
-<li class="chapter" data-level="12.3.1" data-path="pre-processing.html"><a href="pre-processing.html#impute-with-mice"><i class="fa fa-check"></i><b>12.3.1</b> Impute with mice</a></li>
-<li class="chapter" data-level="12.3.2" data-path="pre-processing.html"><a href="pre-processing.html#impute-with-recipes"><i class="fa fa-check"></i><b>12.3.2</b> Impute with recipes</a></li>
+<li class="chapter" data-level="12.3.1" data-path="pre-processing.html"><a href="pre-processing.html#references-2"><i class="fa fa-check"></i><b>12.3.1</b> References</a></li>
+</ul></li>
+<li class="chapter" data-level="12.4" data-path="pre-processing.html"><a href="pre-processing.html#impute-missing-data"><i class="fa fa-check"></i><b>12.4</b> Impute missing data</a>
+<ul>
+<li class="chapter" data-level="12.4.1" data-path="pre-processing.html"><a href="pre-processing.html#impute-with-mice"><i class="fa fa-check"></i><b>12.4.1</b> Impute with mice</a></li>
+<li class="chapter" data-level="12.4.2" data-path="pre-processing.html"><a href="pre-processing.html#impute-with-recipes"><i class="fa fa-check"></i><b>12.4.2</b> Impute with recipes</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="13" data-path="experimental-design.html"><a href="experimental-design.html"><i class="fa fa-check"></i><b>13</b> Experimental design</a>
@@ -336,6 +338,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="13.3.1" data-path="experimental-design.html"><a href="experimental-design.html#encriptando-y-desencriptando-un-elemento"><i class="fa fa-check"></i><b>13.3.1</b> Encriptando y desencriptando un elemento</a></li>
 <li class="chapter" data-level="13.3.2" data-path="experimental-design.html"><a href="experimental-design.html#encriptando-y-desencriptando-la-columna-rut-de-una-db-completa."><i class="fa fa-check"></i><b>13.3.2</b> Encriptando y desencriptando la columna RUT de una DB completa.</a></li>
+<li class="chapter" data-level="13.3.3" data-path="experimental-design.html"><a href="experimental-design.html#encriptando-algo-que-no-sean-numeros"><i class="fa fa-check"></i><b>13.3.3</b> Encriptando algo que no sean numeros</a></li>
 </ul></li>
 <li class="chapter" data-level="13.4" data-path="experimental-design.html"><a href="experimental-design.html#match-participants"><i class="fa fa-check"></i><b>13.4</b> Match participants</a></li>
 <li class="chapter" data-level="13.5" data-path="experimental-design.html"><a href="experimental-design.html#determine-distribution"><i class="fa fa-check"></i><b>13.5</b> Determine distribution</a></li>
@@ -407,12 +410,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>Cargamos librerias y leemos datos</li>
 </ul>
-<div class="sourceCode" id="cb299"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb299-1"><a href="Funciones.html#cb299-1"></a><span class="co"># Cargamos librerias</span></span>
-<span id="cb299-2"><a href="Funciones.html#cb299-2"></a><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;dplyr&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;dplyr&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;dplyr&#39;</span>)</span>
-<span id="cb299-3"><a href="Funciones.html#cb299-3"></a><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;readr&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;readr&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;readr&#39;</span>)</span>
-<span id="cb299-4"><a href="Funciones.html#cb299-4"></a></span>
-<span id="cb299-5"><a href="Funciones.html#cb299-5"></a><span class="co"># Leemos datos y echamos un vistazo</span></span>
-<span id="cb299-6"><a href="Funciones.html#cb299-6"></a>datos =<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;Data/09-Functions/Functions.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb300"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb300-1"><a href="Funciones.html#cb300-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cargamos librerias</span></span>
+<span id="cb300-2"><a href="Funciones.html#cb300-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&#39;dplyr&#39;</span>)) <span class="fu">install.packages</span>(<span class="st">&#39;dplyr&#39;</span>); <span class="fu">library</span>(<span class="st">&#39;dplyr&#39;</span>)</span>
+<span id="cb300-3"><a href="Funciones.html#cb300-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&#39;readr&#39;</span>)) <span class="fu">install.packages</span>(<span class="st">&#39;readr&#39;</span>); <span class="fu">library</span>(<span class="st">&#39;readr&#39;</span>)</span>
+<span id="cb300-4"><a href="Funciones.html#cb300-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb300-5"><a href="Funciones.html#cb300-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Leemos datos y echamos un vistazo</span></span>
+<span id="cb300-6"><a href="Funciones.html#cb300-6" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">=</span> <span class="fu">read_csv</span>(<span class="st">&quot;Data/09-Functions/Functions.csv&quot;</span>)</span></code></pre></div>
 <pre><code>## Parsed with column specification:
 ## cols(
 ##   ID = col_double(),
@@ -429,18 +432,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="pirate-plot-original" class="section level3" number="11.1.1">
 <h3><span class="header-section-number">11.1.1</span> Pirate plot original</h3>
 <p>Vimos que la función para graficar usando Pirate plot es la siguiente:</p>
-<div class="sourceCode" id="cb301"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb301-1"><a href="Funciones.html#cb301-1"></a><span class="co"># Cargamos librería</span></span>
-<span id="cb301-2"><a href="Funciones.html#cb301-2"></a><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&#39;yarrr&#39;</span>)) <span class="kw">install.packages</span>(<span class="st">&#39;yarrr&#39;</span>); <span class="kw">library</span>(<span class="st">&#39;yarrr&#39;</span>)</span>
-<span id="cb301-3"><a href="Funciones.html#cb301-3"></a></span>
-<span id="cb301-4"><a href="Funciones.html#cb301-4"></a><span class="kw">pirateplot</span>(<span class="dt">formula =</span> PPV_DECLARED <span class="op">~</span><span class="st"> </span>condition,</span>
-<span id="cb301-5"><a href="Funciones.html#cb301-5"></a>           <span class="dt">data =</span> datos,</span>
-<span id="cb301-6"><a href="Funciones.html#cb301-6"></a>           <span class="dt">main =</span> <span class="st">&quot;PPV by condition&quot;</span>,</span>
-<span id="cb301-7"><a href="Funciones.html#cb301-7"></a>           <span class="dt">avg.line.fun =</span> median,</span>
-<span id="cb301-8"><a href="Funciones.html#cb301-8"></a>           <span class="co">#theme.o = 2,</span></span>
-<span id="cb301-9"><a href="Funciones.html#cb301-9"></a>           <span class="dt">jitter.val =</span> <span class="fl">.2</span>,</span>
-<span id="cb301-10"><a href="Funciones.html#cb301-10"></a>           <span class="dt">inf =</span> <span class="st">&quot;ci&quot;</span>, <span class="co">#Show confidence interval (95%)</span></span>
-<span id="cb301-11"><a href="Funciones.html#cb301-11"></a>           <span class="dt">inf.f.o =</span> <span class="fl">0.2</span>, <span class="co">#Opacity of ci</span></span>
-<span id="cb301-12"><a href="Funciones.html#cb301-12"></a>           <span class="dt">pal =</span> <span class="st">&quot;appletv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb302"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb302-1"><a href="Funciones.html#cb302-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cargamos librería</span></span>
+<span id="cb302-2"><a href="Funciones.html#cb302-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&#39;yarrr&#39;</span>)) <span class="fu">install.packages</span>(<span class="st">&#39;yarrr&#39;</span>); <span class="fu">library</span>(<span class="st">&#39;yarrr&#39;</span>)</span>
+<span id="cb302-3"><a href="Funciones.html#cb302-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb302-4"><a href="Funciones.html#cb302-4" aria-hidden="true" tabindex="-1"></a><span class="fu">pirateplot</span>(<span class="at">formula =</span> PPV_DECLARED <span class="sc">~</span> condition,</span>
+<span id="cb302-5"><a href="Funciones.html#cb302-5" aria-hidden="true" tabindex="-1"></a>           <span class="at">data =</span> datos,</span>
+<span id="cb302-6"><a href="Funciones.html#cb302-6" aria-hidden="true" tabindex="-1"></a>           <span class="at">main =</span> <span class="st">&quot;PPV by condition&quot;</span>,</span>
+<span id="cb302-7"><a href="Funciones.html#cb302-7" aria-hidden="true" tabindex="-1"></a>           <span class="at">avg.line.fun =</span> median,</span>
+<span id="cb302-8"><a href="Funciones.html#cb302-8" aria-hidden="true" tabindex="-1"></a>           <span class="co">#theme.o = 2,</span></span>
+<span id="cb302-9"><a href="Funciones.html#cb302-9" aria-hidden="true" tabindex="-1"></a>           <span class="at">jitter.val =</span> .<span class="dv">2</span>,</span>
+<span id="cb302-10"><a href="Funciones.html#cb302-10" aria-hidden="true" tabindex="-1"></a>           <span class="at">inf =</span> <span class="st">&quot;ci&quot;</span>, <span class="co">#Show confidence interval (95%)</span></span>
+<span id="cb302-11"><a href="Funciones.html#cb302-11" aria-hidden="true" tabindex="-1"></a>           <span class="at">inf.f.o =</span> <span class="fl">0.2</span>, <span class="co">#Opacity of ci</span></span>
+<span id="cb302-12"><a href="Funciones.html#cb302-12" aria-hidden="true" tabindex="-1"></a>           <span class="at">pal =</span> <span class="st">&quot;appletv&quot;</span>)</span></code></pre></div>
 <pre><code>## inf is depricated. Use inf.method instead</code></pre>
 <p><img src="_main_files/figure-html/09-Functions-2-1.png" width="672" />
 Ver la web del creador: <a href="http://nathanieldphillips.com/">Pirate plot</a></p>
@@ -455,32 +458,32 @@ Creamos una función llamada <code>Plot.me()</code> que tiene los siguientes par
 <li>Titulo (por defecto se usa Formula, pero se puede usar un valor arbitrario: “Gráfica linda”)</li>
 <li>Funcion (por defecto se usa <em>mean</em>, pero también se puede pedir <em>median</em>, etc.)</li>
 </ul>
-<div class="sourceCode" id="cb303"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb303-1"><a href="Funciones.html#cb303-1"></a><span class="co"># Función Plot.me()</span></span>
-<span id="cb303-2"><a href="Funciones.html#cb303-2"></a>Plot.me &lt;-<span class="st"> </span><span class="cf">function</span>(Formula, Datos, <span class="dt">Titulo =</span> Formula, <span class="dt">Funcion =</span> mean) {</span>
-<span id="cb303-3"><a href="Funciones.html#cb303-3"></a>  </span>
-<span id="cb303-4"><a href="Funciones.html#cb303-4"></a>    <span class="kw">pirateplot</span>(<span class="dt">formula =</span> Formula,</span>
-<span id="cb303-5"><a href="Funciones.html#cb303-5"></a>               <span class="dt">data =</span> Datos,</span>
-<span id="cb303-6"><a href="Funciones.html#cb303-6"></a>               <span class="dt">main =</span> Titulo,</span>
-<span id="cb303-7"><a href="Funciones.html#cb303-7"></a>               <span class="dt">avg.line.fun =</span> Funcion,</span>
-<span id="cb303-8"><a href="Funciones.html#cb303-8"></a>               <span class="co">#theme.o = 2,</span></span>
-<span id="cb303-9"><a href="Funciones.html#cb303-9"></a>               <span class="dt">jitter.val =</span> <span class="fl">.2</span>,</span>
-<span id="cb303-10"><a href="Funciones.html#cb303-10"></a>               <span class="dt">inf =</span> <span class="st">&quot;ci&quot;</span>, <span class="co">#Show confidence interval (95%)</span></span>
-<span id="cb303-11"><a href="Funciones.html#cb303-11"></a>               <span class="dt">inf.f.o =</span> <span class="fl">0.2</span>, <span class="co">#Opacity of ci</span></span>
-<span id="cb303-12"><a href="Funciones.html#cb303-12"></a>               <span class="dt">pal =</span> <span class="st">&quot;appletv&quot;</span>)</span>
-<span id="cb303-13"><a href="Funciones.html#cb303-13"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb304"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb304-1"><a href="Funciones.html#cb304-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Función Plot.me()</span></span>
+<span id="cb304-2"><a href="Funciones.html#cb304-2" aria-hidden="true" tabindex="-1"></a>Plot.me <span class="ot">&lt;-</span> <span class="cf">function</span>(Formula, Datos, <span class="at">Titulo =</span> Formula, <span class="at">Funcion =</span> mean) {</span>
+<span id="cb304-3"><a href="Funciones.html#cb304-3" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb304-4"><a href="Funciones.html#cb304-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pirateplot</span>(<span class="at">formula =</span> Formula,</span>
+<span id="cb304-5"><a href="Funciones.html#cb304-5" aria-hidden="true" tabindex="-1"></a>               <span class="at">data =</span> Datos,</span>
+<span id="cb304-6"><a href="Funciones.html#cb304-6" aria-hidden="true" tabindex="-1"></a>               <span class="at">main =</span> Titulo,</span>
+<span id="cb304-7"><a href="Funciones.html#cb304-7" aria-hidden="true" tabindex="-1"></a>               <span class="at">avg.line.fun =</span> Funcion,</span>
+<span id="cb304-8"><a href="Funciones.html#cb304-8" aria-hidden="true" tabindex="-1"></a>               <span class="co">#theme.o = 2,</span></span>
+<span id="cb304-9"><a href="Funciones.html#cb304-9" aria-hidden="true" tabindex="-1"></a>               <span class="at">jitter.val =</span> .<span class="dv">2</span>,</span>
+<span id="cb304-10"><a href="Funciones.html#cb304-10" aria-hidden="true" tabindex="-1"></a>               <span class="at">inf =</span> <span class="st">&quot;ci&quot;</span>, <span class="co">#Show confidence interval (95%)</span></span>
+<span id="cb304-11"><a href="Funciones.html#cb304-11" aria-hidden="true" tabindex="-1"></a>               <span class="at">inf.f.o =</span> <span class="fl">0.2</span>, <span class="co">#Opacity of ci</span></span>
+<span id="cb304-12"><a href="Funciones.html#cb304-12" aria-hidden="true" tabindex="-1"></a>               <span class="at">pal =</span> <span class="st">&quot;appletv&quot;</span>)</span>
+<span id="cb304-13"><a href="Funciones.html#cb304-13" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p><BR></p>
 <p>Usamos nuestra nueva función simplificada para crear algunas gráficas:</p>
-<div class="sourceCode" id="cb304"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb304-1"><a href="Funciones.html#cb304-1"></a><span class="kw">Plot.me</span>(PPV_DECLARED <span class="op">~</span><span class="st"> </span>condition, datos)</span></code></pre></div>
+<div class="sourceCode" id="cb305"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb305-1"><a href="Funciones.html#cb305-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Plot.me</span>(PPV_DECLARED <span class="sc">~</span> condition, datos)</span></code></pre></div>
 <pre><code>## inf is depricated. Use inf.method instead</code></pre>
 <p><img src="_main_files/figure-html/09-Functions-4-1.png" width="672" /></p>
-<div class="sourceCode" id="cb306"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb306-1"><a href="Funciones.html#cb306-1"></a><span class="kw">Plot.me</span>(PPV_DECLARED <span class="op">~</span><span class="st"> </span>Genero, datos)</span></code></pre></div>
+<div class="sourceCode" id="cb307"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb307-1"><a href="Funciones.html#cb307-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Plot.me</span>(PPV_DECLARED <span class="sc">~</span> Genero, datos)</span></code></pre></div>
 <pre><code>## inf is depricated. Use inf.method instead</code></pre>
 <p><img src="_main_files/figure-html/09-Functions-4-2.png" width="672" /></p>
-<div class="sourceCode" id="cb308"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb308-1"><a href="Funciones.html#cb308-1"></a><span class="kw">Plot.me</span>(PPV_DECLARED <span class="op">~</span><span class="st"> </span>Genero <span class="op">+</span><span class="st"> </span>condition, datos)</span></code></pre></div>
+<div class="sourceCode" id="cb309"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb309-1"><a href="Funciones.html#cb309-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Plot.me</span>(PPV_DECLARED <span class="sc">~</span> Genero <span class="sc">+</span> condition, datos)</span></code></pre></div>
 <pre><code>## inf is depricated. Use inf.method instead</code></pre>
 <p><img src="_main_files/figure-html/09-Functions-4-3.png" width="672" /></p>
 <p>Podemos personalizar algunas cosas:</p>
-<div class="sourceCode" id="cb310"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb310-1"><a href="Funciones.html#cb310-1"></a><span class="kw">Plot.me</span>(PPV_DECLARED <span class="op">~</span><span class="st"> </span>condition, datos, <span class="st">&quot;Titulo lindo&quot;</span>, median)</span></code></pre></div>
+<div class="sourceCode" id="cb311"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb311-1"><a href="Funciones.html#cb311-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Plot.me</span>(PPV_DECLARED <span class="sc">~</span> condition, datos, <span class="st">&quot;Titulo lindo&quot;</span>, median)</span></code></pre></div>
 <pre><code>## inf is depricated. Use inf.method instead</code></pre>
 <p><img src="_main_files/figure-html/09-Functions-5-1.png" width="672" /></p>
 

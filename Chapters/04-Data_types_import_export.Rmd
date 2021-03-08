@@ -131,6 +131,11 @@ full2 <- map_df(files, read_csv, .id = "file")
 full2
 ```
 
+```{r}
+# vroom::vroom(files)
+
+```
+
 #### Traditional way
 
 ```{r import_all_files_from_folder, message=FALSE, warning=FALSE}
