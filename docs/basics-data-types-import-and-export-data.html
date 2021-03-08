@@ -34,7 +34,7 @@
 <link rel="prev" href="Conseguir-ayuda.html"/>
 <link rel="next" href="Manipular-datos.html"/>
 <script src="libs/header-attrs-2.7/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/jquery-3.5.1/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -51,13 +51,16 @@
 
 
 
-<script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
+<script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script>
 <link href="libs/str_view-0.1.0/str_view.css" rel="stylesheet" />
 <script src="libs/str_view-binding-1.4.0/str_view.js"></script>
-<script src="libs/datatables-binding-0.2.10/datatables.js"></script>
-<link href="libs/dt-core-1.10.12/css/jquery.dataTables.min.css" rel="stylesheet" />
-<link href="libs/dt-core-1.10.12/css/jquery.dataTables.extra.css" rel="stylesheet" />
-<script src="libs/dt-core-1.10.12/js/jquery.dataTables.min.js"></script>
+<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="libs/datatables-binding-0.17/datatables.js"></script>
+<link href="libs/dt-core-1.10.20/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.10.20/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.10.20/js/jquery.dataTables.min.js"></script>
+<link href="libs/crosstalk-1.1.1/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.1.1/js/crosstalk.min.js"></script>
 <script src="libs/d3-4.5.0/d3.min.js"></script>
 <script src="libs/sankey-1/sankey.js"></script>
 <script src="libs/sankeyNetwork-binding-0.4/sankeyNetwork.js"></script>
@@ -481,20 +484,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb10-10"><a href="basics-data-types-import-and-export-data.html#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="co">#Muestra las primeras 10 observaciones</span></span>
 <span id="cb10-11"><a href="basics-data-types-import-and-export-data.html#cb10-11" aria-hidden="true" tabindex="-1"></a>datos</span></code></pre></div>
 <pre><code>## # A tibble: 237 x 13
-##     name wais_voc boston moral_02i moral_20p minisea_caras eqscore   sex
-##    &lt;dbl&gt;    &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;         &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;
-##  1     1       34     28         1         1            29      63     0
-##  2     2       13     23        NA         0            23      55     0
-##  3     3       20     16         1         1            26      27     0
-##  4     4       24     23         1         1            21      33     0
-##  5     5       20     24         1         1            18      35     1
-##  6     6        2      3         0         0            23      38    NA
-##  7     7       13     15         1        NA            19      38     0
-##  8     8       27     18         1         0            15      42     1
-##  9     9       37     28         1         0            23      36     0
-## 10    10       27     24         0         0            20      51     1
-## # … with 227 more rows, and 5 more variables: age &lt;dbl&gt;, wais_mp &lt;dbl&gt;,
-## #   eyes &lt;dbl&gt;, sass_score &lt;dbl&gt;, ifs_score &lt;dbl&gt;</code></pre>
+##     name wais_voc boston moral_02i moral_20p minisea_caras eqscore   sex   age
+##    &lt;dbl&gt;    &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;         &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+##  1     1       34     28         1         1            29      63     0    62
+##  2     2       13     23        NA         0            23      55     0    53
+##  3     3       20     16         1         1            26      27     0    18
+##  4     4       24     23         1         1            21      33     0    40
+##  5     5       20     24         1         1            18      35     1    65
+##  6     6        2      3         0         0            23      38    NA    NA
+##  7     7       13     15         1        NA            19      38     0    56
+##  8     8       27     18         1         0            15      42     1    70
+##  9     9       37     28         1         0            23      36     0    43
+## 10    10       27     24         0         0            20      51     1    52
+## # … with 227 more rows, and 4 more variables: wais_mp &lt;dbl&gt;, eyes &lt;dbl&gt;,
+## #   sass_score &lt;dbl&gt;, ifs_score &lt;dbl&gt;</code></pre>
 </div>
 <div id="from-sav-file-spss" class="section level3" number="5.2.3">
 <h3><span class="header-section-number">5.2.3</span> From SAV file (SPSS)</h3>
@@ -514,20 +517,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb12-11"><a href="basics-data-types-import-and-export-data.html#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="co">#Muestra las primeras 10 observaciones</span></span>
 <span id="cb12-12"><a href="basics-data-types-import-and-export-data.html#cb12-12" aria-hidden="true" tabindex="-1"></a>datos</span></code></pre></div>
 <pre><code>## # A tibble: 237 x 13
-##       ID wais_voc boston moral_02i moral_20p minisea_caras eqscore   sex
-##    &lt;dbl&gt;    &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;         &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;
-##  1     1       34     28         1         1            29      63     0
-##  2     2       13     23        NA         0            23      55     0
-##  3     3       20     16         1         1            26      27     0
-##  4     4       24     23         1         1            21      33     0
-##  5     5       20     24         1         1            18      35     1
-##  6     6        2      3         0         0            23      38    NA
-##  7     7       13     15         1        NA            19      38     0
-##  8     8       27     18         1         0            15      42     1
-##  9     9       37     28         1         0            23      36     0
-## 10    10       27     24         0         0            20      51     1
-## # … with 227 more rows, and 5 more variables: age &lt;dbl&gt;, wais_mp &lt;dbl&gt;,
-## #   eyes &lt;dbl&gt;, sass_score &lt;dbl&gt;, ifs_score &lt;dbl&gt;</code></pre>
+##       ID wais_voc boston moral_02i moral_20p minisea_caras eqscore   sex   age
+##    &lt;dbl&gt;    &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;         &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+##  1     1       34     28         1         1            29      63     0    62
+##  2     2       13     23        NA         0            23      55     0    53
+##  3     3       20     16         1         1            26      27     0    18
+##  4     4       24     23         1         1            21      33     0    40
+##  5     5       20     24         1         1            18      35     1    65
+##  6     6        2      3         0         0            23      38    NA    NA
+##  7     7       13     15         1        NA            19      38     0    56
+##  8     8       27     18         1         0            15      42     1    70
+##  9     9       37     28         1         0            23      36     0    43
+## 10    10       27     24         0         0            20      51     1    52
+## # … with 227 more rows, and 4 more variables: wais_mp &lt;dbl&gt;, eyes &lt;dbl&gt;,
+## #   sass_score &lt;dbl&gt;, ifs_score &lt;dbl&gt;</code></pre>
 </div>
 <div id="import-all-files-from-a-folder" class="section level3" number="5.2.4">
 <h3><span class="header-section-number">5.2.4</span> Import all files from a folder</h3>
@@ -544,35 +547,35 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb14-5"><a href="basics-data-types-import-and-export-data.html#cb14-5" aria-hidden="true" tabindex="-1"></a>files <span class="ot">&lt;-</span> <span class="fu">list.files</span>(<span class="st">&quot;Data/04-Data_types_import_export/CSVs&quot;</span>, <span class="at">pattern =</span> <span class="st">&quot;^0&quot;</span>, <span class="at">full.names =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb14-6"><a href="basics-data-types-import-and-export-data.html#cb14-6" aria-hidden="true" tabindex="-1"></a>full <span class="ot">&lt;-</span> <span class="fu">map_df</span>(files, read_csv)</span>
 <span id="cb14-7"><a href="basics-data-types-import-and-export-data.html#cb14-7" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">glimpse</span>(full)</span></code></pre></div>
-<pre><code>## Observations: 1,200
-## Variables: 9
-## $ Sex       &lt;chr&gt; &quot;male&quot;, &quot;male&quot;, &quot;male&quot;, &quot;male&quot;, &quot;male&quot;, &quot;male&quot;, &quot;male&quot;…
-## $ Priming   &lt;chr&gt; &quot;Collective&quot;, &quot;Collective&quot;, &quot;Collective&quot;, &quot;Collective&quot;…
-## $ trialN    &lt;dbl&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16,…
-## $ Block     &lt;chr&gt; &quot;we&quot;, &quot;we&quot;, &quot;we&quot;, &quot;we&quot;, &quot;we&quot;, &quot;we&quot;, &quot;we&quot;, &quot;we&quot;, &quot;we&quot;, …
-## $ Adjective &lt;chr&gt; &quot;ofensivo&quot;, &quot;resentido&quot;, &quot;ego�sta&quot;, &quot;indiscreto&quot;, &quot;sum…
-## $ Valence   &lt;chr&gt; &quot;negative&quot;, &quot;negative&quot;, &quot;negative&quot;, &quot;negative&quot;, &quot;negat…
-## $ Answer    &lt;chr&gt; &quot;yes&quot;, &quot;no&quot;, &quot;yes&quot;, &quot;yes&quot;, &quot;yes&quot;, &quot;yes&quot;, &quot;yes&quot;, &quot;yes&quot;,…
-## $ Arrow     &lt;chr&gt; &quot;left&quot;, &quot;right&quot;, &quot;left&quot;, &quot;left&quot;, &quot;left&quot;, &quot;left&quot;, &quot;left…
-## $ rT        &lt;dbl&gt; 623, 1235, 335, 355, 618, 328, 348, 1620, 346, 778, 31…</code></pre>
+<pre><code>## Rows: 1,200
+## Columns: 9
+## $ Sex       &lt;chr&gt; &quot;male&quot;, &quot;male&quot;, &quot;male&quot;, &quot;male&quot;, &quot;male&quot;, &quot;male&quot;, &quot;male&quot;, &quot;mal…
+## $ Priming   &lt;chr&gt; &quot;Collective&quot;, &quot;Collective&quot;, &quot;Collective&quot;, &quot;Collective&quot;, &quot;Col…
+## $ trialN    &lt;dbl&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 1…
+## $ Block     &lt;chr&gt; &quot;we&quot;, &quot;we&quot;, &quot;we&quot;, &quot;we&quot;, &quot;we&quot;, &quot;we&quot;, &quot;we&quot;, &quot;we&quot;, &quot;we&quot;, &quot;we&quot;, …
+## $ Adjective &lt;chr&gt; &quot;ofensivo&quot;, &quot;resentido&quot;, &quot;ego�sta&quot;, &quot;indiscreto&quot;, &quot;sumiso&quot;, …
+## $ Valence   &lt;chr&gt; &quot;negative&quot;, &quot;negative&quot;, &quot;negative&quot;, &quot;negative&quot;, &quot;negative&quot;, …
+## $ Answer    &lt;chr&gt; &quot;yes&quot;, &quot;no&quot;, &quot;yes&quot;, &quot;yes&quot;, &quot;yes&quot;, &quot;yes&quot;, &quot;yes&quot;, &quot;yes&quot;, &quot;yes&quot;…
+## $ Arrow     &lt;chr&gt; &quot;left&quot;, &quot;right&quot;, &quot;left&quot;, &quot;left&quot;, &quot;left&quot;, &quot;left&quot;, &quot;left&quot;, &quot;le…
+## $ rT        &lt;dbl&gt; 623, 1235, 335, 355, 618, 328, 348, 1620, 346, 778, 316, 158…</code></pre>
 <div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="basics-data-types-import-and-export-data.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Including filenames in a column </span></span>
 <span id="cb16-2"><a href="basics-data-types-import-and-export-data.html#cb16-2" aria-hidden="true" tabindex="-1"></a>files <span class="ot">&lt;-</span> <span class="fu">list.files</span>(<span class="st">&quot;Data/04-Data_types_import_export/CSVs&quot;</span>, <span class="at">pattern =</span> <span class="st">&quot;^0&quot;</span>, <span class="at">full.names =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb16-3"><a href="basics-data-types-import-and-export-data.html#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_names</span>(<span class="fu">basename</span>(.))</span>
 <span id="cb16-4"><a href="basics-data-types-import-and-export-data.html#cb16-4" aria-hidden="true" tabindex="-1"></a>full2 <span class="ot">&lt;-</span> <span class="fu">map_df</span>(files, read_csv, <span class="at">.id =</span> <span class="st">&quot;file&quot;</span>)</span>
 <span id="cb16-5"><a href="basics-data-types-import-and-export-data.html#cb16-5" aria-hidden="true" tabindex="-1"></a>full2</span></code></pre></div>
 <pre><code>## # A tibble: 1,200 x 10
-##    file   Sex   Priming   trialN Block Adjective Valence Answer Arrow    rT
-##    &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;      &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt; &lt;dbl&gt;
-##  1 01.csv male  Collecti…      1 we    ofensivo  negati… yes    left    623
-##  2 01.csv male  Collecti…      2 we    resentido negati… no     right  1235
-##  3 01.csv male  Collecti…      3 we    ego�sta   negati… yes    left    335
-##  4 01.csv male  Collecti…      4 we    indiscre… negati… yes    left    355
-##  5 01.csv male  Collecti…      5 we    sumiso    negati… yes    left    618
-##  6 01.csv male  Collecti…      6 we    agradable positi… yes    left    328
-##  7 01.csv male  Collecti…      7 we    clasista  negati… yes    left    348
-##  8 01.csv male  Collecti…      8 we    altruista positi… yes    left   1620
-##  9 01.csv male  Collecti…      9 we    ansioso   negati… yes    left    346
-## 10 01.csv male  Collecti…     10 we    presumido negati… yes    left    778
+##    file   Sex   Priming    trialN Block Adjective  Valence  Answer Arrow    rT
+##    &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt;    &lt;chr&gt;  &lt;chr&gt; &lt;dbl&gt;
+##  1 01.csv male  Collective      1 we    ofensivo   negative yes    left    623
+##  2 01.csv male  Collective      2 we    resentido  negative no     right  1235
+##  3 01.csv male  Collective      3 we    ego�sta    negative yes    left    335
+##  4 01.csv male  Collective      4 we    indiscreto negative yes    left    355
+##  5 01.csv male  Collective      5 we    sumiso     negative yes    left    618
+##  6 01.csv male  Collective      6 we    agradable  positive yes    left    328
+##  7 01.csv male  Collective      7 we    clasista   negative yes    left    348
+##  8 01.csv male  Collective      8 we    altruista  positive yes    left   1620
+##  9 01.csv male  Collective      9 we    ansioso    negative yes    left    346
+## 10 01.csv male  Collective     10 we    presumido  negative yes    left    778
 ## # … with 1,190 more rows</code></pre>
 <div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="basics-data-types-import-and-export-data.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># vroom::vroom(files)</span></span></code></pre></div>
 </div>
@@ -599,18 +602,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb21-7"><a href="basics-data-types-import-and-export-data.html#cb21-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb21-8"><a href="basics-data-types-import-and-export-data.html#cb21-8" aria-hidden="true" tabindex="-1"></a>df</span></code></pre></div>
 <pre><code>## # A tibble: 1,600 x 10
-##    ID    Sex   Priming   trialN Block Adjective  Valence Answer Arrow    rT
-##    &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;      &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt; &lt;dbl&gt;
-##  1 1     male  Collecti…      1 we    ofensivo   negati… yes    left    623
-##  2 1     male  Collecti…      2 we    resentido  negati… no     right  1235
-##  3 1     male  Collecti…      3 we    ego�sta    negati… yes    left    335
-##  4 1     male  Collecti…      4 we    indiscreto negati… yes    left    355
-##  5 1     male  Collecti…      5 we    sumiso     negati… yes    left    618
-##  6 1     male  Collecti…      6 we    agradable  positi… yes    left    328
-##  7 1     male  Collecti…      7 we    clasista   negati… yes    left    348
-##  8 1     male  Collecti…      8 we    altruista  positi… yes    left   1620
-##  9 1     male  Collecti…      9 we    ansioso    negati… yes    left    346
-## 10 1     male  Collecti…     10 we    presumido  negati… yes    left    778
+##    ID    Sex   Priming    trialN Block Adjective  Valence  Answer Arrow    rT
+##    &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt;    &lt;chr&gt;  &lt;chr&gt; &lt;dbl&gt;
+##  1 1     male  Collective      1 we    ofensivo   negative yes    left    623
+##  2 1     male  Collective      2 we    resentido  negative no     right  1235
+##  3 1     male  Collective      3 we    ego�sta    negative yes    left    335
+##  4 1     male  Collective      4 we    indiscreto negative yes    left    355
+##  5 1     male  Collective      5 we    sumiso     negative yes    left    618
+##  6 1     male  Collective      6 we    agradable  positive yes    left    328
+##  7 1     male  Collective      7 we    clasista   negative yes    left    348
+##  8 1     male  Collective      8 we    altruista  positive yes    left   1620
+##  9 1     male  Collective      9 we    ansioso    negative yes    left    346
+## 10 1     male  Collective     10 we    presumido  negative yes    left    778
 ## # … with 1,590 more rows</code></pre>
 <div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="basics-data-types-import-and-export-data.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Method 2</span></span>
 <span id="cb23-2"><a href="basics-data-types-import-and-export-data.html#cb23-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">=</span> <span class="fu">do.call</span>(rbind, <span class="fu">lapply</span>(file.list, <span class="cf">function</span>(x) <span class="fu">read_csv</span>(x)))</span>

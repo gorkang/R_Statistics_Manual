@@ -17,7 +17,8 @@ description: "Statistics manual from CSCN."
 knitr::opts_chunk$set(
   # warning = FALSE,
   # message = FALSE,
-  cache = TRUE
+  cache = TRUE,
+  fig.path = '_main_images/'
 )
 
 options(bookdown.render.file_scope = FALSE)

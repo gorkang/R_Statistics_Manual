@@ -338,14 +338,14 @@ Plots of distributional differences... See http://www.dandersondata.com/post/esv
 ```{r PP_plot, message=FALSE, warning=FALSE}
 if (!require('esvis')) devtools::install_github("DJAnderson07/esvis"); library('esvis')
 
-pp_plot(reading ~ frl, benchmarks)
+pp_plot(benchmarks, reading ~ frl)
 
 ```
 
 
 
 ```{r PP_plot_2, message=FALSE, warning=FALSE}
-pp_plot(reading ~ ell, benchmarks, ref_group = "Non-ELL")
+pp_plot(benchmarks, reading ~ ell, ref_group = "Non-ELL")
 
 ```
 
@@ -579,7 +579,7 @@ if (!require('plyr')) install.packages('plyr'); library('plyr') # Need to load t
 if (!require('dplyr')) install.packages('dplyr'); library('dplyr')
 if (!require('forcats')) install.packages('forcats'); library('forcats')
 if (!require('ggplot2')) install.packages('ggplot2'); library('ggplot2')
-if (!require('waffle')) install.packages('waffle'); library('waffle')
+if (!require('waffle')) install.packages("waffle", repos = "https://cinc.rud.is"); library('waffle')
 if (!require('patchwork')) install.packages('patchwork'); library('patchwork')
 if (!require('scales')) install.packages('scales'); library('scales')
 if (!require('ggthemes')) install.packages('ggthemes'); library('ggthemes')
@@ -618,6 +618,7 @@ energy_types_clean <-
 #draw waffle plot
 energy_composition <- 
   energy_types_clean %>%
+  janitor::clean_names() %>% 
   filter(level == "Level 1") %>%
   mutate(
     energy_type = fct_collapse(type, 
@@ -625,15 +626,15 @@ energy_composition <-
                                nuclear = "Nuclear",
                                conventional_thermal = "Conventional thermal",
                                other = "Other")) %>%
-  count(country_name, energy_type, wt = `2018`) %>%
-  group_by(country_name) %>%
-  summarise(
+  dplyr::count(country_name, energy_type, wt = x2018) %>%
+  dplyr::group_by(country_name) %>%
+  dplyr::summarise(
     total = sum(n),
     energy_type,
     country_name,
     n
   ) %>%
-  ungroup() %>%
+  dplyr::ungroup() %>%
   mutate(
     n = n/1000
   ) %>%
@@ -641,9 +642,11 @@ energy_composition <-
     desc(total),
     desc(country_name)
   ) %>%
-  slice(1:40) %>%
+  slice(1:40)
+
+energy_composition %>% 
   ggplot(aes(fill = energy_type,
-             values = n))+
+             values = n)) +
   geom_waffle(n_rows = 10, size = 0.33, color = "white", flip = TRUE, show.legend = FALSE)+
   labs(
     title = "the 10 European countries using most energy in 2018",
@@ -667,7 +670,7 @@ energy_composition <-
     legend.position = c(0.8, 0.8),
     legend.title = element_blank()
   )
-energy_composition
+
 
 ```
 
